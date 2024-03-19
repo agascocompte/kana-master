@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:hiragana_japanesse/constants.dart';
 import 'package:hiragana_japanesse/domain/models/paint_stroke.dart';
 
 class DrawingPainter extends CustomPainter {
   final List<PaintStroke> strokes;
   final Paint defaultPaint = Paint()
-    ..color = Colors.blueAccent
-    ..strokeWidth = 30.0
+    ..color = jLightBLue
+    ..strokeWidth = 20.0
     ..strokeCap = StrokeCap.round;
 
   DrawingPainter(this.strokes);

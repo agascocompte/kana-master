@@ -7,9 +7,6 @@ class LearnHiraganaTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Color jLightBLue = const Color(0xFF4D8FAC);
-    Color jDarkBLue = const Color(0xFF003171);
-
     return GridView.builder(
       padding: const EdgeInsets.all(10),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(

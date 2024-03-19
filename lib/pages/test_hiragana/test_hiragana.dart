@@ -17,8 +17,6 @@ class TestHiraganaTab extends StatelessWidget {
             child: const Text("Touch here to begin test."),
             onPressed: () => context.read<TestHiraganaBloc>().add(BeginTest()),
           ));
-        } else if (state is TestHiraganaEvaluation) {
-          return Text("Evaluating");
         } else {
           return Column(
             children: [
@@ -37,9 +35,11 @@ class TestHiraganaTab extends StatelessWidget {
                           children: [
                             ClipRRect(
                               child: FittedBox(
-                                child: SizedBox(
+                                child: Container(
+                                  color:
+                                      const Color.fromARGB(77, 238, 238, 238),
                                   width: MediaQuery.of(context).size.width,
-                                  height: constraints.maxHeight,
+                                  height: constraints.maxHeight - 100,
                                   child: const DrawingBoard(),
                                 ),
                               ),
@@ -54,8 +54,24 @@ class TestHiraganaTab extends StatelessWidget {
                             elevation: 4.0,
                             onPressed: () => context
                                 .read<TestHiraganaBloc>()
-                                .add(ClearDrawing()),
+                                .add(ResetTest()),
                             child: const Icon(Icons.cancel_outlined),
+                          ),
+                        ),
+                        Positioned(
+                          bottom: 20,
+                          right: 0,
+                          left: 0,
+                          child: Align(
+                            alignment: Alignment.center,
+                            child: FloatingActionButton(
+                              backgroundColor: jOrange,
+                              elevation: 4.0,
+                              onPressed: () => context
+                                  .read<TestHiraganaBloc>()
+                                  .add(ClearDrawing()),
+                              child: const Icon(Icons.replay_outlined),
+                            ),
                           ),
                         ),
                         Positioned(

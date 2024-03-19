@@ -20,6 +20,7 @@ class TestHiraganaBloc extends Bloc<TestHiraganaEvent, TestHiraganaState> {
     on<BeginTest>(_beginTest);
     on<AddStroke>(_addStroke);
     on<ClearDrawing>(_clearDrawing);
+    on<ResetTest>(_resetTest);
     on<EvaluateImage>(_evaluateImage);
     on<CaptureImage>(_captureImage);
   }
@@ -39,6 +40,10 @@ class TestHiraganaBloc extends Bloc<TestHiraganaEvent, TestHiraganaState> {
 
   FutureOr<void> _clearDrawing(
       ClearDrawing event, Emitter<TestHiraganaState> emit) {
+    emit(UpdatedStrokes(state.stateData.copyWith(strokes: [])));
+  }
+
+  FutureOr<void> _resetTest(ResetTest event, Emitter<TestHiraganaState> emit) {
     emit(TestHiraganaInitial());
   }
 
@@ -50,6 +55,8 @@ class TestHiraganaBloc extends Bloc<TestHiraganaEvent, TestHiraganaState> {
     List<double> p = predictions![0]
         .cast<double>(); // Asume que 'output' es List<List<dynamic>>
     int predictedIndex = getIndexOfMaxValue(p);
+    print(
+        predictedIndex == state.stateData.hiraganaIndex ? "Acierto" : "Fallo");
     print(
         "El hiragana predecido es ${hiraganas.values.toList()[predictedIndex]}");
   }
@@ -116,6 +123,8 @@ class TestHiraganaBloc extends Bloc<TestHiraganaEvent, TestHiraganaState> {
         maxIndex = i;
       }
     }
+    if (maxIndex > 45) maxIndex -= 2; // Para controlar wi y we
+
     return maxIndex;
   }
 }

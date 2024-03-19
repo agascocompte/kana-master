@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 const Color jOrange = Color(0xFFFFB61E);
+const Color jLightBLue = Color(0xFF4D8FAC);
+const Color jDarkBLue = Color(0xFF003171);
 
 const Map<String, String> hiraganas = {
   "あ": "a",

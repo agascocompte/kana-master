@@ -9,6 +9,8 @@ class AddStroke extends TestHiraganaEvent {
   AddStroke({required this.stroke});
 }
 
+class ResetTest extends TestHiraganaEvent {}
+
 class ClearDrawing extends TestHiraganaEvent {}
 
 class EvaluateImage extends TestHiraganaEvent {
