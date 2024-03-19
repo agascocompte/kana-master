@@ -5,6 +5,8 @@ class StatsTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(child: Text("View your stats"),);
+    return const Center(
+      child: Text("View your stats"),
+    );
   }
 }

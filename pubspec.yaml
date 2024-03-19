@@ -38,6 +38,14 @@ dependencies:
   get_it: ^7.6.7
   # Bloc
   flutter_bloc: ^8.1.4
+  # Image management
+  image: ^4.1.7
+  path_provider: ^2.1.2
+  path: ^1.9.0
+  # CNN model
+  tflite_flutter:
+    git:
+        url: https://github.com/CaptainDario/flutter-tflite
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -70,6 +78,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/gifs/
+    - assets/models/model.tflite
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

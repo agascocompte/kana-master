@@ -4,8 +4,8 @@ import 'package:hiragana_japanesse/domain/models/paint_stroke.dart';
 class DrawingPainter extends CustomPainter {
   final List<PaintStroke> strokes;
   final Paint defaultPaint = Paint()
-    ..color = Colors.black
-    ..strokeWidth = 4.0
+    ..color = Colors.blueAccent
+    ..strokeWidth = 30.0
     ..strokeCap = StrokeCap.round;
 
   DrawingPainter(this.strokes);

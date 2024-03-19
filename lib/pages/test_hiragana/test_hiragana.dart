@@ -47,6 +47,18 @@ class TestHiraganaTab extends StatelessWidget {
                           ],
                         ),
                         Positioned(
+                          left: 20,
+                          bottom: 20,
+                          child: FloatingActionButton(
+                            backgroundColor: jOrange,
+                            elevation: 4.0,
+                            onPressed: () => context
+                                .read<TestHiraganaBloc>()
+                                .add(ClearDrawing()),
+                            child: const Icon(Icons.cancel_outlined),
+                          ),
+                        ),
+                        Positioned(
                           right: 20,
                           bottom: 20,
                           child: FloatingActionButton(
@@ -54,8 +66,8 @@ class TestHiraganaTab extends StatelessWidget {
                             elevation: 4.0,
                             onPressed: () => context
                                 .read<TestHiraganaBloc>()
-                                .add(BeginTest()),
-                            child: const Icon(Icons.check),
+                                .add(CaptureImage()),
+                            child: const Icon(Icons.check_outlined),
                           ),
                         ),
                       ],

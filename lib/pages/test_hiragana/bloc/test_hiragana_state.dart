@@ -42,3 +42,8 @@ class TestHiraganaEvaluation extends TestHiraganaState {
 class UpdatedStrokes extends TestHiraganaState {
   UpdatedStrokes(TestHiraganaStateData stateData) : super(stateData: stateData);
 }
+
+class TestHiraganaCapturing extends TestHiraganaState {
+  TestHiraganaCapturing(TestHiraganaStateData stateData)
+      : super(stateData: stateData);
+}
