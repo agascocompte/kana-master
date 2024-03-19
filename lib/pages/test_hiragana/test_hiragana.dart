@@ -17,7 +17,9 @@ class TestHiraganaTab extends StatelessWidget {
             child: const Text("Touch here to begin test."),
             onPressed: () => context.read<TestHiraganaBloc>().add(BeginTest()),
           ));
-        } else if (state is TestHiraganaDraw) {
+        } else if (state is TestHiraganaEvaluation) {
+          return Text("Evaluating");
+        } else {
           return Column(
             children: [
               Padding(
@@ -63,10 +65,6 @@ class TestHiraganaTab extends StatelessWidget {
               ),
             ],
           );
-        } else if (state is TestHiraganaEvaluation) {
-          return Text("Evaluating");
-        } else {
-          return Center(child: Text('Estado no reconocido.'));
         }
       },
     );

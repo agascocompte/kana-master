@@ -2,15 +2,19 @@ part of 'test_hiragana_bloc.dart';
 
 class TestHiraganaStateData {
   int hiraganaIndex;
+  List<PaintStroke> strokes;
 
   TestHiraganaStateData({
+    this.strokes = const [],
     this.hiraganaIndex = 0,
   });
 
   TestHiraganaStateData copyWith({
+    List<PaintStroke>? strokes,
     int? hiraganaIndex,
   }) {
     return TestHiraganaStateData(
+      strokes: strokes ?? this.strokes,
       hiraganaIndex: hiraganaIndex ?? this.hiraganaIndex,
     );
   }
@@ -33,4 +37,8 @@ class TestHiraganaDraw extends TestHiraganaState {
 
 class TestHiraganaEvaluation extends TestHiraganaState {
   TestHiraganaEvaluation() : super(stateData: TestHiraganaStateData());
+}
+
+class UpdatedStrokes extends TestHiraganaState {
+  UpdatedStrokes(TestHiraganaStateData stateData) : super(stateData: stateData);
 }
