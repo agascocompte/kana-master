@@ -19,3 +19,5 @@ class EvaluateImage extends TestHiraganaEvent {
 }
 
 class CaptureImage extends TestHiraganaEvent {}
+
+class TestNextHiragana extends TestHiraganaEvent {}

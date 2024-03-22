@@ -1,15 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hiragana_japanesse/constants.dart';
+import 'package:hiragana_japanesse/pages/stats/bloc/stats_bloc.dart';
 import 'package:hiragana_japanesse/pages/test_hiragana/bloc/test_hiragana_bloc.dart';
 import 'package:hiragana_japanesse/pages/test_hiragana/widgets/drawing_board.dart';
+import 'package:hiragana_japanesse/widgets/snackbars.dart';
 
 class TestHiraganaTab extends StatelessWidget {
   const TestHiraganaTab({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<TestHiraganaBloc, TestHiraganaState>(
+    return BlocConsumer<TestHiraganaBloc, TestHiraganaState>(
+      listener: (context, state) {
+        if (state is ErrorPredictingHiragana) {
+          Snackbars.showErrorScaffold(context, state.msg);
+        } else if (state is HiraganaWritingSuccess) {
+          context.read<StatsBloc>().add(AddHiraganaSuccess());
+          Snackbars.showSuccessScaffold(context, state.msg);
+          context.read<TestHiraganaBloc>().add(TestNextHiragana());
+        } else if (state is HiraganaWritingFail) {
+          context.read<StatsBloc>().add(AddHiraganaFail());
+          Snackbars.showWarningScaffold(context, state.msg);
+        }
+      },
       builder: (context, state) {
         if (state is TestHiraganaInitial) {
           return Center(

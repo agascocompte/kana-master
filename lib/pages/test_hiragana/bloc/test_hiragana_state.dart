@@ -12,6 +12,8 @@ class TestHiraganaStateData {
   TestHiraganaStateData copyWith({
     List<PaintStroke>? strokes,
     int? hiraganaIndex,
+    int? correctCount,
+    int? incorrectCount,
   }) {
     return TestHiraganaStateData(
       strokes: strokes ?? this.strokes,
@@ -30,6 +32,11 @@ class TestHiraganaInitial extends TestHiraganaState {
   TestHiraganaInitial() : super(stateData: TestHiraganaStateData());
 }
 
+class TestHiraganaLoadedScores extends TestHiraganaState {
+  TestHiraganaLoadedScores(TestHiraganaStateData stateData)
+      : super(stateData: stateData);
+}
+
 class TestHiraganaDraw extends TestHiraganaState {
   TestHiraganaDraw(TestHiraganaStateData stateData)
       : super(stateData: stateData);
@@ -45,5 +52,28 @@ class UpdatedStrokes extends TestHiraganaState {
 
 class TestHiraganaCapturing extends TestHiraganaState {
   TestHiraganaCapturing(TestHiraganaStateData stateData)
+      : super(stateData: stateData);
+}
+
+class ErrorPredictingHiragana extends TestHiraganaState {
+  final String msg;
+  ErrorPredictingHiragana(TestHiraganaStateData stateData, {required this.msg})
+      : super(stateData: stateData);
+}
+
+class HiraganaWritingSuccess extends TestHiraganaState {
+  final String msg;
+  HiraganaWritingSuccess(TestHiraganaStateData stateData, {required this.msg})
+      : super(stateData: stateData);
+}
+
+class HiraganaWritingFail extends TestHiraganaState {
+  final String msg;
+  HiraganaWritingFail(TestHiraganaStateData stateData, {required this.msg})
+      : super(stateData: stateData);
+}
+
+class NextHiraganaLoaded extends TestHiraganaState {
+  NextHiraganaLoaded(TestHiraganaStateData stateData)
       : super(stateData: stateData);
 }

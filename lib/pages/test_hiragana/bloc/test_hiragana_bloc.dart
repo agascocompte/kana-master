@@ -16,6 +16,8 @@ part 'test_hiragana_state.dart';
 
 @injectable
 class TestHiraganaBloc extends Bloc<TestHiraganaEvent, TestHiraganaState> {
+  final random = math.Random();
+
   TestHiraganaBloc() : super(TestHiraganaInitial()) {
     on<BeginTest>(_beginTest);
     on<AddStroke>(_addStroke);
@@ -23,10 +25,10 @@ class TestHiraganaBloc extends Bloc<TestHiraganaEvent, TestHiraganaState> {
     on<ResetTest>(_resetTest);
     on<EvaluateImage>(_evaluateImage);
     on<CaptureImage>(_captureImage);
+    on<TestNextHiragana>(_nextHiragana);
   }
 
   FutureOr<void> _beginTest(BeginTest event, Emitter<TestHiraganaState> emit) {
-    final random = math.Random();
     emit(TestHiraganaDraw(state.stateData.copyWith(
       hiraganaIndex: random.nextInt(hiraganas.length),
     )));
@@ -51,14 +53,23 @@ class TestHiraganaBloc extends Bloc<TestHiraganaEvent, TestHiraganaState> {
       EvaluateImage event, Emitter<TestHiraganaState> emit) async {
     Interpreter interpreter =
         await Interpreter.fromAsset('assets/models/model.tflite');
-    var predictions = await predict(event.image, interpreter);
-    List<double> p = predictions![0]
-        .cast<double>(); // Asume que 'output' es List<List<dynamic>>
-    int predictedIndex = getIndexOfMaxValue(p);
-    print(
-        predictedIndex == state.stateData.hiraganaIndex ? "Acierto" : "Fallo");
-    print(
-        "El hiragana predecido es ${hiraganas.values.toList()[predictedIndex]}");
+    List<dynamic>? predictions = await predict(event.image, interpreter);
+
+    if (predictions != null) {
+      List<double> p = predictions[0].cast<double>();
+      int predictedIndex = getIndexOfMaxValue(p);
+      if (predictedIndex == state.stateData.hiraganaIndex) {
+        emit(HiraganaWritingSuccess(state.stateData,
+            msg: "You have spelled hiragana correctly!"));
+      } else {
+        emit(HiraganaWritingFail(state.stateData,
+            msg: "Oops, you misspelled the hiragana..."));
+      }
+    } else {
+      emit(ErrorPredictingHiragana(state.stateData,
+          msg:
+              "An error occured while trying to make the hiragana prediction"));
+    }
   }
 
   FutureOr<void> _captureImage(
@@ -71,6 +82,13 @@ class TestHiraganaBloc extends Bloc<TestHiraganaEvent, TestHiraganaState> {
     final path = join(directory.path, 'myImage.png');
     final file = File(path);
     await file.writeAsBytes(pngBytes);
+  }
+
+  FutureOr<void> _nextHiragana(
+      TestNextHiragana event, Emitter<TestHiraganaState> emit) {
+    add(ClearDrawing());
+    emit(NextHiraganaLoaded(state.stateData
+        .copyWith(hiraganaIndex: random.nextInt(hiraganas.length))));
   }
 
   // Private functions
@@ -91,7 +109,6 @@ class TestHiraganaBloc extends Bloc<TestHiraganaEvent, TestHiraganaState> {
         num green = pixel.g;
         num blue = pixel.b;
 
-        // Verificar que la conversión a gris no resulte en cero
         double grayScale = (0.299 * red + 0.587 * green + 0.114 * blue) / 255.0;
         buffer[pixelIndex++] = grayScale;
       }
@@ -108,7 +125,7 @@ class TestHiraganaBloc extends Bloc<TestHiraganaEvent, TestHiraganaState> {
       output = List.filled(49, 0).reshape([1, 49]);
       interpreter.run(inputTensor, output);
     } catch (e) {
-      print("Error al realizar la predicción: $e");
+      return null;
     }
     return output;
   }
