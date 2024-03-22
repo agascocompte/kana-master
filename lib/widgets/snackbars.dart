@@ -54,7 +54,7 @@ class Snackbars {
       entry.markNeedsBuild();
 
       // Esperar durante la duración del SnackBar
-      Future.delayed(const Duration(seconds: 3) + duration, () {
+      Future.delayed(const Duration(seconds: 1) + duration, () {
         // Completar la animación de salida
         bottomPosition = -snackBarHeight;
         opacity = 0.0;
