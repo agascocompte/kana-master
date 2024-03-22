@@ -17,6 +17,7 @@ class StatsBloc extends Bloc<StatsEvent, StatsState> {
     on<LoadMemoryStats>(_loadMemory);
     on<AddHiraganaSuccess>(_addHiraganaSuccess);
     on<AddHiraganaFail>(_addHiraganaFail);
+    on<ResetStats>(_resetStats);
   }
 
   FutureOr<void> _loadMemory(
@@ -41,5 +42,14 @@ class StatsBloc extends Bloc<StatsEvent, StatsState> {
     await scoreRepository.incrementIncorrectHiraganaCount();
     emit(StatsUpdated(state.stateData.copyWith(
         incorrectHiraganaCount: state.stateData.incorrectHiraganaCount + 1)));
+  }
+
+  FutureOr<void> _resetStats(ResetStats event, Emitter<StatsState> emit) async {
+    await scoreRepository.resetCorrectHiraganaCount();
+    await scoreRepository.resetIncorrectHiraganaCount();
+    emit(StatsUpdated(state.stateData.copyWith(
+      correctHiraganaCount: 0,
+      incorrectHiraganaCount: 0,
+    )));
   }
 }

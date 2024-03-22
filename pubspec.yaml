@@ -44,6 +44,8 @@ dependencies:
   image: ^4.1.7
   path_provider: ^2.1.2
   path: ^1.9.0
+  # Charts
+  fl_chart: ^0.66.2
   # CNN model
   tflite_flutter:
     git:

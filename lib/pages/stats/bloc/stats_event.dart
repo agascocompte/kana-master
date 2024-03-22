@@ -7,3 +7,5 @@ class LoadMemoryStats extends StatsEvent {}
 class AddHiraganaSuccess extends StatsEvent {}
 
 class AddHiraganaFail extends StatsEvent {}
+
+class ResetStats extends StatsEvent {}

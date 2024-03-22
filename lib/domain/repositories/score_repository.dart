@@ -25,4 +25,14 @@ class ScoreRepository {
     final currentCount = prefs.getInt(_incorrectHiraganaCountKey) ?? 0;
     await prefs.setInt(_incorrectHiraganaCountKey, currentCount + 1);
   }
+
+  Future<void> resetCorrectHiraganaCount() async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setInt(_correctHiraganaCountKey, 0);
+  }
+
+  Future<void> resetIncorrectHiraganaCount() async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setInt(_incorrectHiraganaCountKey, 0);
+  }
 }
