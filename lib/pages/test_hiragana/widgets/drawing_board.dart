@@ -60,6 +60,9 @@ class DrawingBoardState extends State<DrawingBoard> {
             });
           },
           onPanUpdate: (details) {
+            if (!state.stateData.canSubmitAnswer) {
+              context.read<TestHiraganaBloc>().add(EnableCheckAnswer());
+            }
             setState(() {
               Offset currentPoint = details.localPosition;
               if (_lastPoint != null) {

@@ -21,3 +21,13 @@ class EvaluateImage extends TestHiraganaEvent {
 class CaptureImage extends TestHiraganaEvent {}
 
 class TestNextHiragana extends TestHiraganaEvent {}
+
+class EnableCheckAnswer extends TestHiraganaEvent {}
+
+class CheckAnswer extends TestHiraganaEvent {}
+
+class UpdateUserHiraganaIndexAnswer extends TestHiraganaEvent {
+  final int userIndex;
+
+  UpdateUserHiraganaIndexAnswer({required this.userIndex});
+}

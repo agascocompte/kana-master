@@ -20,18 +20,28 @@ class TestHiraganaBloc extends Bloc<TestHiraganaEvent, TestHiraganaState> {
 
   TestHiraganaBloc() : super(TestHiraganaInitial()) {
     on<BeginTest>(_beginTest);
+    on<EnableCheckAnswer>(_setDrawingStarted);
     on<AddStroke>(_addStroke);
     on<ClearDrawing>(_clearDrawing);
     on<ResetTest>(_resetTest);
     on<EvaluateImage>(_evaluateImage);
     on<CaptureImage>(_captureImage);
     on<TestNextHiragana>(_nextHiragana);
+    on<UpdateUserHiraganaIndexAnswer>(updateUserHiraganaIndexAnswer);
+    on<CheckAnswer>(_checkAnswer);
   }
 
   FutureOr<void> _beginTest(BeginTest event, Emitter<TestHiraganaState> emit) {
+    TestType testType = TestType.values[random.nextInt(TestType.values.length)];
     emit(TestHiraganaDraw(state.stateData.copyWith(
       hiraganaIndex: random.nextInt(hiraganas.length),
+      testType: testType,
     )));
+  }
+
+  FutureOr<void> _setDrawingStarted(
+      EnableCheckAnswer event, Emitter<TestHiraganaState> emit) {
+    emit(TestHiraganaDraw(state.stateData.copyWith(canSubmitAnswer: true)));
   }
 
   FutureOr<void> _addStroke(AddStroke event, Emitter<TestHiraganaState> emit) {
@@ -42,7 +52,8 @@ class TestHiraganaBloc extends Bloc<TestHiraganaEvent, TestHiraganaState> {
 
   FutureOr<void> _clearDrawing(
       ClearDrawing event, Emitter<TestHiraganaState> emit) {
-    emit(UpdatedStrokes(state.stateData.copyWith(strokes: [])));
+    emit(UpdatedStrokes(
+        state.stateData.copyWith(strokes: [], canSubmitAnswer: false)));
   }
 
   FutureOr<void> _resetTest(ResetTest event, Emitter<TestHiraganaState> emit) {
@@ -59,11 +70,13 @@ class TestHiraganaBloc extends Bloc<TestHiraganaEvent, TestHiraganaState> {
       List<double> p = predictions[0].cast<double>();
       int predictedIndex = getIndexOfMaxValue(p);
       if (predictedIndex == state.stateData.hiraganaIndex) {
-        emit(HiraganaWritingSuccess(state.stateData,
-            msg: "You have spelled hiragana correctly!"));
+        emit(HiraganaWritingSuccess(
+          state.stateData,
+        ));
       } else {
-        emit(HiraganaWritingFail(state.stateData,
-            msg: "Oops, you misspelled the hiragana..."));
+        emit(HiraganaWritingFail(
+          state.stateData,
+        ));
       }
     } else {
       emit(ErrorPredictingHiragana(state.stateData,
@@ -87,8 +100,30 @@ class TestHiraganaBloc extends Bloc<TestHiraganaEvent, TestHiraganaState> {
   FutureOr<void> _nextHiragana(
       TestNextHiragana event, Emitter<TestHiraganaState> emit) {
     add(ClearDrawing());
-    emit(NextHiraganaLoaded(state.stateData
-        .copyWith(hiraganaIndex: random.nextInt(hiraganas.length))));
+    emit(NextHiraganaLoaded(state.stateData.copyWith(
+      hiraganaIndex: random.nextInt(hiraganas.length),
+      testType: TestType.values[random.nextInt(TestType.values.length)],
+    )));
+  }
+
+  FutureOr<void> updateUserHiraganaIndexAnswer(
+      UpdateUserHiraganaIndexAnswer event, Emitter<TestHiraganaState> emit) {
+    emit(UserHiraganaIndexAnswerUpdated(
+        state.stateData.copyWith(userAnswerHiraganaIndex: event.userIndex)));
+  }
+
+  FutureOr<void> _checkAnswer(
+      CheckAnswer event, Emitter<TestHiraganaState> emit) {
+    if (state.stateData.hiraganaIndex ==
+        state.stateData.userAnswerHiraganaIndex) {
+      emit(HiraganaSelectedSuccess(
+        state.stateData,
+      ));
+    } else {
+      emit(HiraganaSelectedFail(
+        state.stateData,
+      ));
+    }
   }
 
   // Private functions

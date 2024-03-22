@@ -3,7 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hiragana_japanesse/constants.dart';
 import 'package:hiragana_japanesse/pages/stats/bloc/stats_bloc.dart';
 import 'package:hiragana_japanesse/pages/test_hiragana/bloc/test_hiragana_bloc.dart';
-import 'package:hiragana_japanesse/pages/test_hiragana/widgets/drawing_board.dart';
+import 'package:hiragana_japanesse/pages/test_hiragana/widgets/test_body.dart';
+import 'package:hiragana_japanesse/pages/test_hiragana/widgets/test_button.dart';
+import 'package:hiragana_japanesse/pages/test_hiragana/widgets/test_title.dart';
 import 'package:hiragana_japanesse/widgets/snackbars.dart';
 
 class TestHiraganaTab extends StatelessWidget {
@@ -15,13 +17,15 @@ class TestHiraganaTab extends StatelessWidget {
       listener: (context, state) {
         if (state is ErrorPredictingHiragana) {
           Snackbars.showErrorScaffold(context, state.msg);
-        } else if (state is HiraganaWritingSuccess) {
+        } else if (state is HiraganaWritingSuccess ||
+            state is HiraganaSelectedSuccess) {
           context.read<StatsBloc>().add(AddHiraganaSuccess());
-          Snackbars.showSuccessScaffold(context, state.msg);
+          Snackbars.showSuccessScaffold(context, "You got it right!");
           context.read<TestHiraganaBloc>().add(TestNextHiragana());
-        } else if (state is HiraganaWritingFail) {
+        } else if (state is HiraganaWritingFail ||
+            state is HiraganaSelectedFail) {
           context.read<StatsBloc>().add(AddHiraganaFail());
-          Snackbars.showWarningScaffold(context, state.msg);
+          Snackbars.showWarningScaffold(context, "Oops, you failed...");
         }
       },
       builder: (context, state) {
@@ -33,78 +37,60 @@ class TestHiraganaTab extends StatelessWidget {
           ));
         } else {
           return Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Text(
-                    'Draw the hiragana: ${hiraganas.values.toList()[state.stateData.hiraganaIndex]}',
-                    style: Theme.of(context).textTheme.headlineSmall),
-              ),
               Flexible(
-                child: LayoutBuilder(
-                  builder: (BuildContext context, BoxConstraints constraints) {
-                    return Stack(
-                      children: [
-                        Column(
-                          children: [
-                            ClipRRect(
-                              child: FittedBox(
-                                child: Container(
-                                  color:
-                                      const Color.fromARGB(77, 238, 238, 238),
-                                  width: MediaQuery.of(context).size.width,
-                                  height: constraints.maxHeight - 100,
-                                  child: const DrawingBoard(),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        Positioned(
-                          left: 20,
-                          bottom: 20,
-                          child: FloatingActionButton(
-                            backgroundColor: jOrange,
-                            elevation: 4.0,
-                            onPressed: () => context
-                                .read<TestHiraganaBloc>()
-                                .add(ResetTest()),
-                            child: const Icon(Icons.cancel_outlined),
-                          ),
-                        ),
-                        Positioned(
-                          bottom: 20,
-                          right: 0,
-                          left: 0,
-                          child: Align(
-                            alignment: Alignment.center,
-                            child: FloatingActionButton(
-                              backgroundColor: jOrange,
-                              elevation: 4.0,
-                              onPressed: () => context
-                                  .read<TestHiraganaBloc>()
-                                  .add(ClearDrawing()),
-                              child: const Icon(Icons.replay_outlined),
-                            ),
-                          ),
-                        ),
-                        Positioned(
-                          right: 20,
-                          bottom: 20,
-                          child: FloatingActionButton(
-                            backgroundColor: jOrange,
-                            elevation: 4.0,
-                            onPressed: () => context
-                                .read<TestHiraganaBloc>()
-                                .add(CaptureImage()),
-                            child: const Icon(Icons.check_outlined),
-                          ),
-                        ),
-                      ],
-                    );
-                  },
+                flex: 2,
+                child: TestTitle(
+                  state: state,
                 ),
               ),
+              Flexible(
+                flex: 12,
+                child: TestBody(
+                  state: state,
+                ),
+              ),
+              Flexible(
+                flex: 2,
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      TestButton(
+                        icon: const Icon(Icons.cancel_outlined),
+                        onPressed: () =>
+                            context.read<TestHiraganaBloc>().add(ResetTest()),
+                      ),
+                      if (state.stateData.testType == TestType.drawingTest)
+                        TestButton(
+                          icon: const Icon(Icons.replay_outlined),
+                          onPressed: () => context
+                              .read<TestHiraganaBloc>()
+                              .add(ClearDrawing()),
+                        ),
+                      TestButton(
+                        icon: const Icon(Icons.check_outlined),
+                        backgroundColor: state.stateData.canSubmitAnswer
+                            ? jOrange
+                            : Colors.grey,
+                        opacity: state.stateData.canSubmitAnswer ? 1.0 : 0.5,
+                        onPressed: state.stateData.canSubmitAnswer
+                            ? () =>
+                                state.stateData.testType == TestType.drawingTest
+                                    ? context
+                                        .read<TestHiraganaBloc>()
+                                        .add(CaptureImage())
+                                    : context
+                                        .read<TestHiraganaBloc>()
+                                        .add(CheckAnswer())
+                            : null,
+                      ),
+                    ],
+                  ),
+                ),
+              )
             ],
           );
         }
