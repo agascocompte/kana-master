@@ -32,7 +32,10 @@ class TestHiraganaTab extends StatelessWidget {
         if (state is TestHiraganaInitial) {
           return Center(
               child: TextButton(
-            child: const Text("Touch here to begin test."),
+            child: const Text(
+              "Touch here to begin test.",
+              style: TextStyle(color: jDarkBLue),
+            ),
             onPressed: () => context.read<TestHiraganaBloc>().add(BeginTest()),
           ));
         } else {

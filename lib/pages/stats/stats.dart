@@ -63,7 +63,7 @@ class StatsTabState extends State<StatsTab> {
                       },
                       child: const Text(
                         'Counter',
-                        style: TextStyle(color: Colors.black),
+                        style: TextStyle(color: Colors.white),
                       ),
                     ),
                   ),
@@ -80,7 +80,7 @@ class StatsTabState extends State<StatsTab> {
                       },
                       child: const Text(
                         'Evolution',
-                        style: TextStyle(color: Colors.black),
+                        style: TextStyle(color: Colors.white),
                       ),
                     ),
                   ),
@@ -110,7 +110,7 @@ class StatsTabState extends State<StatsTab> {
                 onPressed: () => Dialogs.showResetStatsAlert(context),
                 child: const Text(
                   "Reset stats",
-                  style: TextStyle(color: Colors.black),
+                  style: TextStyle(color: Colors.white),
                 ),
               ),
             ),
