@@ -38,8 +38,8 @@ dependencies:
   get_it: ^7.6.7
   # Bloc
   flutter_bloc: ^8.1.4
-  # Shared preferences
-  shared_preferences: ^2.2.2
+  # Database
+  sqflite: ^2.3.2
   # Image management
   image: ^4.1.7
   path_provider: ^2.1.2

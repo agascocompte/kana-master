@@ -3,11 +3,11 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
 
-class StatsChart extends StatelessWidget {
+class StatsBarChart extends StatelessWidget {
   final int correctHiraganaCount;
   final int incorrectHiraganaCount;
 
-  const StatsChart({
+  const StatsBarChart({
     super.key,
     required this.correctHiraganaCount,
     required this.incorrectHiraganaCount,
