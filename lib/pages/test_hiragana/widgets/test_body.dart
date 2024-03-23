@@ -19,6 +19,7 @@ class TestBody extends StatelessWidget {
             child: Container(
               color: const Color.fromARGB(77, 238, 238, 238),
               width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.width,
               child: const DrawingBoard(),
             ),
           )
