@@ -31,7 +31,7 @@ class HomePageState extends State<HomePage>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Center(child: Text("Hiragana Learning App")),
+        title: const Center(child: Text("Kana Master")),
         backgroundColor: jOrange,
       ),
       body: TabBarView(

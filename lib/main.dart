@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
-        title: 'Hiragana',
+        title: 'Kana Master',
         routeInformationParser: AppRouter.router.routeInformationParser,
         routeInformationProvider: AppRouter.router.routeInformationProvider,
         routerDelegate: AppRouter.router.routerDelegate,
