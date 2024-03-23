@@ -27,6 +27,14 @@ class HiraganaDialog extends StatelessWidget {
           ),
         ],
       ),
+      // actions: [
+      //   TextButton(
+      //       onPressed: null,
+      //       child: Text(
+      //         "Try youself",
+      //         style: TextStyle(color: jDarkBLue),
+      //       ))
+      // ],
     );
   }
 
