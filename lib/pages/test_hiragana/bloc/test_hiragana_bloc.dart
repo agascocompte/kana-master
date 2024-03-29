@@ -175,9 +175,6 @@ class TestHiraganaBloc extends Bloc<TestHiraganaEvent, TestHiraganaState> {
         maxIndex = i;
       }
     }
-    print(maxIndex);
-    print(state.stateData.hiraganaIndex);
-
     return maxIndex;
   }
 }
