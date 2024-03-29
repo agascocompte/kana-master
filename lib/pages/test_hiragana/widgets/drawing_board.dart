@@ -2,6 +2,7 @@ import 'dart:typed_data';
 import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:hiragana_japanesse/constants.dart';
 import 'package:image/image.dart' as img;
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hiragana_japanesse/domain/models/paint_stroke.dart';
@@ -33,7 +34,9 @@ class DrawingBoardState extends State<DrawingBoard> {
 
       if (originalImage != null) {
         img.Image resizedImage = img.copyResize(originalImage,
-            width: 28, height: 28, interpolation: img.Interpolation.nearest);
+            width: imageDimensions,
+            height: imageDimensions,
+            interpolation: img.Interpolation.nearest);
 
         if (!mounted) return;
 

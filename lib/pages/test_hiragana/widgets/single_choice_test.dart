@@ -31,12 +31,12 @@ class _SingleChoiceTestState extends State<SingleChoiceTest> {
     final correctIndex =
         context.read<TestHiraganaBloc>().state.stateData.hiraganaIndex;
 
-    final correctAnswer = hiraganas.values.elementAt(correctIndex);
+    final correctAnswer = hiraganasWithoutWo.values.elementAt(correctIndex);
     options = {correctAnswer: correctIndex};
 
     while (options.length < 4) {
-      int randomIndex = Random().nextInt(hiraganas.length);
-      String randomOption = hiraganas.values.elementAt(randomIndex);
+      int randomIndex = Random().nextInt(hiraganasWithoutWo.length);
+      String randomOption = hiraganasWithoutWo.values.elementAt(randomIndex);
       options[randomOption] = randomIndex;
     }
 

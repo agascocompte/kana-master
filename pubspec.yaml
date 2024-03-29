@@ -90,6 +90,7 @@ flutter:
   assets:
     - assets/gifs/
     - assets/models/model.tflite
+    - assets/models/model_etl8g.tflite
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

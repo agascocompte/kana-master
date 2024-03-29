@@ -34,7 +34,7 @@ class TestHiraganaBloc extends Bloc<TestHiraganaEvent, TestHiraganaState> {
   FutureOr<void> _beginTest(BeginTest event, Emitter<TestHiraganaState> emit) {
     TestType testType = TestType.values[random.nextInt(TestType.values.length)];
     emit(TestHiraganaDraw(state.stateData.copyWith(
-      hiraganaIndex: random.nextInt(hiraganas.length),
+      hiraganaIndex: random.nextInt(hiraganasWithoutWo.length),
       testType: testType,
     )));
   }
@@ -63,9 +63,8 @@ class TestHiraganaBloc extends Bloc<TestHiraganaEvent, TestHiraganaState> {
   FutureOr<void> _evaluateImage(
       EvaluateImage event, Emitter<TestHiraganaState> emit) async {
     Interpreter interpreter =
-        await Interpreter.fromAsset('assets/models/model.tflite');
+        await Interpreter.fromAsset('assets/models/model_etl8g.tflite');
     List<dynamic>? predictions = await predict(event.image, interpreter);
-
     if (predictions != null) {
       List<double> p = predictions[0].cast<double>();
       int predictedIndex = getIndexOfMaxValue(p);
@@ -101,7 +100,7 @@ class TestHiraganaBloc extends Bloc<TestHiraganaEvent, TestHiraganaState> {
       TestNextHiragana event, Emitter<TestHiraganaState> emit) {
     add(ClearDrawing());
     emit(NextHiraganaLoaded(state.stateData.copyWith(
-      hiraganaIndex: random.nextInt(hiraganas.length),
+      hiraganaIndex: random.nextInt(hiraganasWithoutWo.length),
       testType: TestType.values[random.nextInt(TestType.values.length)],
     )));
   }
@@ -128,24 +127,25 @@ class TestHiraganaBloc extends Bloc<TestHiraganaEvent, TestHiraganaState> {
 
   // Private functions
   img.Image preprocessImage(img.Image image) {
-    img.Image resizedImg = img.copyResize(image, width: 28, height: 28);
+    img.Image resizedImg =
+        img.copyResize(image, width: imageDimensions, height: imageDimensions);
     return img.grayscale(resizedImg);
   }
 
   Float32List imageToByteListFloat32(img.Image image) {
-    var convertedBytes = Float32List(1 * 28 * 28);
+    var convertedBytes = Float32List(1 * imageDimensions * imageDimensions);
     var buffer = Float32List.view(convertedBytes.buffer);
     int pixelIndex = 0;
 
-    for (int i = 0; i < 28; i++) {
-      for (int j = 0; j < 28; j++) {
+    for (int i = 0; i < imageDimensions; i++) {
+      for (int j = 0; j < imageDimensions; j++) {
         img.Pixel pixel = image.getPixel(j, i);
         num red = pixel.r;
         num green = pixel.g;
         num blue = pixel.b;
 
-        double grayScale = (0.299 * red + 0.587 * green + 0.114 * blue) / 255.0;
-        buffer[pixelIndex++] = grayScale;
+        double grayValue = 0.299 * red + 0.587 * green + 0.114 * blue;
+        buffer[pixelIndex++] = grayValue;
       }
     }
     return buffer;
@@ -156,8 +156,8 @@ class TestHiraganaBloc extends Bloc<TestHiraganaEvent, TestHiraganaState> {
     try {
       img.Image preprocessedImage = preprocessImage(image);
       var input = imageToByteListFloat32(preprocessedImage);
-      var inputTensor = input.reshape([1, 28, 28, 1]);
-      output = List.filled(49, 0).reshape([1, 49]);
+      var inputTensor = input.reshape([1, imageDimensions, imageDimensions, 1]);
+      output = List.filled(totalClasses, 0).reshape([1, totalClasses]);
       interpreter.run(inputTensor, output);
     } catch (e) {
       return null;
@@ -175,7 +175,8 @@ class TestHiraganaBloc extends Bloc<TestHiraganaEvent, TestHiraganaState> {
         maxIndex = i;
       }
     }
-    if (maxIndex > 45) maxIndex -= 2; // Para controlar wi y we
+    print(maxIndex);
+    print(state.stateData.hiraganaIndex);
 
     return maxIndex;
   }
