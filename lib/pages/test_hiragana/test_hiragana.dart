@@ -29,10 +29,6 @@ class TestHiraganaTab extends StatelessWidget {
         }
       },
       builder: (context, state) {
-        print(
-            "Current state: $state"); // Esto debería mostrar el cambio de estado.
-        bool isPredictionInProgress = state is PredictionInProgress;
-        print("Is prediction in progress: $isPredictionInProgress");
         if (state is TestHiraganaInitial) {
           return Center(
               child: TextButton(

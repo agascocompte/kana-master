@@ -17,6 +17,7 @@ part 'test_hiragana_state.dart';
 @injectable
 class TestHiraganaBloc extends Bloc<TestHiraganaEvent, TestHiraganaState> {
   final random = math.Random();
+  Interpreter? interpreter;
 
   TestHiraganaBloc() : super(TestHiraganaInitial()) {
     on<BeginTest>(_beginTest);
@@ -29,6 +30,17 @@ class TestHiraganaBloc extends Bloc<TestHiraganaEvent, TestHiraganaState> {
     on<TestNextHiragana>(_nextHiragana);
     on<UpdateUserHiraganaIndexAnswer>(updateUserHiraganaIndexAnswer);
     on<CheckAnswer>(_checkAnswer);
+  }
+
+  Future<void> _loadModel() async {
+    interpreter =
+        await Interpreter.fromAsset('assets/models/model_etl8g.tflite');
+  }
+
+  @override
+  Future<void> close() {
+    interpreter?.close();
+    return super.close();
   }
 
   FutureOr<void> _beginTest(BeginTest event, Emitter<TestHiraganaState> emit) {
@@ -62,11 +74,13 @@ class TestHiraganaBloc extends Bloc<TestHiraganaEvent, TestHiraganaState> {
 
   FutureOr<void> _evaluateImage(
       EvaluateImage event, Emitter<TestHiraganaState> emit) async {
+    if (interpreter == null) {
+      await _loadModel();
+    }
     emit(PredictionInProgress(state.stateData));
-    await Future.delayed(const Duration(milliseconds: 1000));
-    Interpreter interpreter =
-        await Interpreter.fromAsset('assets/models/model_etl8g.tflite');
-    List<dynamic>? predictions = await predict(event.image, interpreter);
+    //await Future.delayed(const Duration(milliseconds: 1000));
+
+    List<dynamic>? predictions = await predict(event.image, interpreter!);
     if (predictions != null) {
       List<double> p = predictions[0].cast<double>();
       int predictedIndex = getIndexOfMaxValue(p);
@@ -101,9 +115,12 @@ class TestHiraganaBloc extends Bloc<TestHiraganaEvent, TestHiraganaState> {
   FutureOr<void> _nextHiragana(
       TestNextHiragana event, Emitter<TestHiraganaState> emit) {
     add(ClearDrawing());
+    TestType testType = TestType.values[random.nextInt(TestType.values.length)];
     emit(NextHiraganaLoaded(state.stateData.copyWith(
-      hiraganaIndex: random.nextInt(hiraganasWithoutWo.length),
-      testType: TestType.values[random.nextInt(TestType.values.length)],
+      hiraganaIndex: random.nextInt(testType == TestType.drawingTest
+          ? hiraganasWithoutWo.length
+          : hiraganas.length),
+      testType: testType,
     )));
   }
 
