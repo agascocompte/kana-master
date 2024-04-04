@@ -62,6 +62,8 @@ class TestHiraganaBloc extends Bloc<TestHiraganaEvent, TestHiraganaState> {
 
   FutureOr<void> _evaluateImage(
       EvaluateImage event, Emitter<TestHiraganaState> emit) async {
+    emit(PredictionInProgress(state.stateData));
+    await Future.delayed(const Duration(milliseconds: 1000));
     Interpreter interpreter =
         await Interpreter.fromAsset('assets/models/model_etl8g.tflite');
     List<dynamic>? predictions = await predict(event.image, interpreter);

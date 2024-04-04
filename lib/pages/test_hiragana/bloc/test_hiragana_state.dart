@@ -105,3 +105,8 @@ class HiraganaSelectedFail extends TestHiraganaState {
     TestHiraganaStateData stateData,
   ) : super(stateData: stateData);
 }
+
+class PredictionInProgress extends TestHiraganaState {
+  PredictionInProgress(TestHiraganaStateData stateData)
+      : super(stateData: stateData);
+}
