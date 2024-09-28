@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hiragana_japanesse/di/dependency_injector.dart';
+import 'package:hiragana_japanesse/pages/settings/bloc/settings_bloc.dart';
 import 'package:hiragana_japanesse/pages/stats/bloc/stats_bloc.dart';
 import 'package:hiragana_japanesse/pages/test_hiragana/bloc/test_hiragana_bloc.dart';
 import 'package:hiragana_japanesse/router/router.dart';
@@ -19,6 +20,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
+        BlocProvider(create: (context) => sl<SettingsBloc>()),
         BlocProvider(create: (context) => sl<TestHiraganaBloc>()),
         BlocProvider(
             create: (context) => sl<StatsBloc>()..add(LoadMemoryStats())),

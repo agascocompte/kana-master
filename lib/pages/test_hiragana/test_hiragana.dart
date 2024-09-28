@@ -81,6 +81,7 @@ class TestHiraganaTab extends StatelessWidget {
                           children: [
                             TestButton(
                               icon: const Icon(Icons.cancel_outlined),
+                              heroTag: "cancel",
                               onPressed: () => context
                                   .read<TestHiraganaBloc>()
                                   .add(ResetTest()),
@@ -89,12 +90,14 @@ class TestHiraganaTab extends StatelessWidget {
                                 TestType.drawingTest)
                               TestButton(
                                 icon: const Icon(Icons.replay_outlined),
+                                heroTag: "clear",
                                 onPressed: () => context
                                     .read<TestHiraganaBloc>()
                                     .add(ClearDrawing()),
                               ),
                             TestButton(
                               icon: const Icon(Icons.check_outlined),
+                              heroTag: "submit",
                               backgroundColor: state.stateData.canSubmitAnswer
                                   ? jOrange
                                   : Colors.grey,

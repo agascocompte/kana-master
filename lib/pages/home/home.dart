@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:hiragana_japanesse/constants.dart';
 import 'package:hiragana_japanesse/pages/learn_hiragana/learn_hiragana.dart';
 import 'package:hiragana_japanesse/pages/stats/stats.dart';
 import 'package:hiragana_japanesse/pages/test_hiragana/test_hiragana.dart';
+import 'package:hiragana_japanesse/router/router.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -31,8 +33,15 @@ class HomePageState extends State<HomePage>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Center(child: Text("Kana Master")),
+        title: Text("Kana Master"),
         backgroundColor: jOrange,
+        actions: [
+          IconButton(
+            onPressed: () => context.push(AppRouter.settingsRoute),
+            icon: Icon(Icons.settings),
+            color: Colors.black,
+          ),
+        ],
       ),
       body: TabBarView(
         physics: const NeverScrollableScrollPhysics(),

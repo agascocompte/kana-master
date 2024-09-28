@@ -6,9 +6,11 @@ class TestButton extends StatelessWidget {
   final double? opacity;
   final void Function()? onPressed;
   final Icon? icon;
+  final String heroTag;
 
   const TestButton({
     super.key,
+    required this.heroTag,
     this.backgroundColor,
     this.opacity,
     this.icon,
@@ -23,6 +25,7 @@ class TestButton extends StatelessWidget {
         backgroundColor: backgroundColor ?? jOrange,
         elevation: 4.0,
         onPressed: onPressed,
+        heroTag: heroTag,
         child: Opacity(opacity: opacity ?? 1, child: icon),
       ),
     );
