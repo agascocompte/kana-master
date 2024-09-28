@@ -2,7 +2,8 @@
     <application
         android:label="Kana Master"
         android:name="${applicationName}"
-        android:icon="@mipmap/kana_master">
+        android:icon="@mipmap/kana_master"
+        android:enableOnBackInvokedCallback="true">
         <activity
             android:name=".MainActivity"
             android:exported="true"

@@ -15,6 +15,10 @@ class TimeSeriesLineChart extends StatelessWidget {
   Widget build(BuildContext context) {
     return LineChart(
       LineChartData(
+        lineTouchData: LineTouchData(
+            touchTooltipData: LineTouchTooltipData(
+          getTooltipColor: (touchedSpot) => Colors.white70,
+        )),
         lineBarsData: [
           LineChartBarData(
             spots: correctSpots,
