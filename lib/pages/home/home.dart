@@ -57,6 +57,9 @@ class HomePageState extends State<HomePage>
                     : katakana,
               ),
               TestTab(
+                kana: state.stateData.kanaType == KanaType.hiragana
+                    ? hiragana
+                    : katakana,
                 isDrawingEnabled: state.stateData.isDrawingTestEnabled,
               ),
               StatsTab(),

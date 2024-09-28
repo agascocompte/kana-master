@@ -1,38 +1,46 @@
 part of 'test_kana_bloc.dart';
 
-abstract class TestHiraganaEvent {}
+abstract class TestKanaEvent {}
 
-class BeginTest extends TestHiraganaEvent {
+class BeginTest extends TestKanaEvent {
+  final Map<String, String> kana;
   final bool isDrawingTestEnabled;
-  BeginTest({required this.isDrawingTestEnabled});
+  BeginTest({
+    required this.kana,
+    required this.isDrawingTestEnabled,
+  });
 }
 
-class AddStroke extends TestHiraganaEvent {
+class AddStroke extends TestKanaEvent {
   final PaintStroke stroke;
   AddStroke({required this.stroke});
 }
 
-class ResetTest extends TestHiraganaEvent {}
+class ResetTest extends TestKanaEvent {}
 
-class ClearDrawing extends TestHiraganaEvent {}
+class ClearDrawing extends TestKanaEvent {}
 
-class EvaluateImage extends TestHiraganaEvent {
+class EvaluateImage extends TestKanaEvent {
   final img.Image image;
   EvaluateImage({required this.image});
 }
 
-class CaptureImage extends TestHiraganaEvent {}
+class CaptureImage extends TestKanaEvent {}
 
-class TestNextKana extends TestHiraganaEvent {
+class TestNextKana extends TestKanaEvent {
+  final Map<String, String> kana;
   final bool isDrawingTestEnabled;
-  TestNextKana({required this.isDrawingTestEnabled});
+  TestNextKana({
+    required this.kana,
+    required this.isDrawingTestEnabled,
+  });
 }
 
-class EnableCheckAnswer extends TestHiraganaEvent {}
+class EnableCheckAnswer extends TestKanaEvent {}
 
-class CheckAnswer extends TestHiraganaEvent {}
+class CheckAnswer extends TestKanaEvent {}
 
-class UpdateUserKanaIndexAnswer extends TestHiraganaEvent {
+class UpdateUserKanaIndexAnswer extends TestKanaEvent {
   final int userIndex;
 
   UpdateUserKanaIndexAnswer({required this.userIndex});

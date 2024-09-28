@@ -9,10 +9,12 @@ import 'package:hiragana_japanesse/pages/test_kana/widgets/test_title.dart';
 import 'package:hiragana_japanesse/widgets/snackbars.dart';
 
 class TestTab extends StatelessWidget {
+  final Map<String, String> kana;
   final bool isDrawingEnabled;
 
   const TestTab({
     super.key,
+    required this.kana,
     required this.isDrawingEnabled,
   });
 
@@ -26,9 +28,10 @@ class TestTab extends StatelessWidget {
             state is KanaSelectedSuccess) {
           context.read<StatsBloc>().add(AddHiraganaSuccess());
           Snackbars.showSuccessScaffold(context, "You got it right!");
-          context
-              .read<TestKanaBloc>()
-              .add(TestNextKana(isDrawingTestEnabled: isDrawingEnabled));
+          context.read<TestKanaBloc>().add(TestNextKana(
+                kana: kana,
+                isDrawingTestEnabled: isDrawingEnabled,
+              ));
         } else if (state is HiraganaWritingFail || state is KanaSelectedFail) {
           context.read<StatsBloc>().add(AddHiraganaFail());
           Snackbars.showWarningScaffold(context, "Oops, you failed...");
@@ -42,9 +45,10 @@ class TestTab extends StatelessWidget {
               "Touch here to begin test.",
               style: TextStyle(color: jDarkBLue),
             ),
-            onPressed: () => context
-                .read<TestKanaBloc>()
-                .add(BeginTest(isDrawingTestEnabled: isDrawingEnabled)),
+            onPressed: () => context.read<TestKanaBloc>().add(BeginTest(
+                  kana: kana,
+                  isDrawingTestEnabled: isDrawingEnabled,
+                )),
           ));
         } else {
           return Stack(
@@ -72,12 +76,14 @@ class TestTab extends StatelessWidget {
                       flex: 2,
                       child: TestTitle(
                         state: state,
+                        kana: kana,
                       ),
                     ),
                     Flexible(
                       flex: 12,
                       child: TestBody(
                         state: state,
+                        kana: kana,
                       ),
                     ),
                     Flexible(

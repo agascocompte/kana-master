@@ -15,7 +15,7 @@ part 'test_kana_event.dart';
 part 'test_kana_state.dart';
 
 @injectable
-class TestKanaBloc extends Bloc<TestHiraganaEvent, TestKanaState> {
+class TestKanaBloc extends Bloc<TestKanaEvent, TestKanaState> {
   final random = math.Random();
   Interpreter? interpreter;
 
@@ -48,7 +48,9 @@ class TestKanaBloc extends Bloc<TestHiraganaEvent, TestKanaState> {
         ? TestType.values[random.nextInt(TestType.values.length)]
         : TestType.singleChoiceTest;
     emit(TestKanaDraw(state.stateData.copyWith(
-      kanaIndex: random.nextInt(hiraganaWithoutWo.length),
+      kanaIndex: random.nextInt(testType == TestType.drawingTest
+          ? hiraganaWithoutWo.length
+          : event.kana.length),
       testType: testType,
     )));
   }
@@ -122,7 +124,7 @@ class TestKanaBloc extends Bloc<TestHiraganaEvent, TestKanaState> {
     emit(NextKanaLoaded(state.stateData.copyWith(
       kanaIndex: random.nextInt(testType == TestType.drawingTest
           ? hiraganaWithoutWo.length
-          : hiragana.length),
+          : event.kana.length),
       testType: testType,
     )));
   }

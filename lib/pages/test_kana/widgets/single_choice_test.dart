@@ -7,8 +7,13 @@ import 'package:hiragana_japanesse/pages/test_kana/bloc/test_kana_bloc.dart';
 
 class SingleChoiceTest extends StatefulWidget {
   final TestKanaState state;
+  final Map<String, String> kana;
 
-  const SingleChoiceTest({super.key, required this.state});
+  const SingleChoiceTest({
+    super.key,
+    required this.state,
+    required this.kana,
+  });
 
   @override
   State<SingleChoiceTest> createState() => _SingleChoiceTestState();
@@ -30,12 +35,12 @@ class _SingleChoiceTestState extends State<SingleChoiceTest> {
   void generateAnswers() {
     final correctIndex = context.read<TestKanaBloc>().state.stateData.kanaIndex;
 
-    final correctAnswer = hiragana.values.elementAt(correctIndex);
+    final correctAnswer = widget.kana.values.elementAt(correctIndex);
     options = {correctAnswer: correctIndex};
 
     while (options.length < 4) {
-      int randomIndex = Random().nextInt(hiragana.length);
-      String randomOption = hiragana.values.elementAt(randomIndex);
+      int randomIndex = Random().nextInt(widget.kana.length);
+      String randomOption = widget.kana.values.elementAt(randomIndex);
       options[randomOption] = randomIndex;
     }
 

@@ -6,10 +6,12 @@ import 'package:hiragana_japanesse/pages/test_kana/widgets/single_choice_test.da
 
 class TestBody extends StatelessWidget {
   final TestKanaState state;
+  final Map<String, String> kana;
 
   const TestBody({
     super.key,
     required this.state,
+    required this.kana,
   });
 
   @override
@@ -23,6 +25,9 @@ class TestBody extends StatelessWidget {
               child: const DrawingBoard(),
             ),
           )
-        : SingleChoiceTest(state: state);
+        : SingleChoiceTest(
+            state: state,
+            kana: kana,
+          );
   }
 }
