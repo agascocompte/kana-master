@@ -2,41 +2,49 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hiragana_japanesse/constants.dart';
 import 'package:hiragana_japanesse/pages/stats/bloc/stats_bloc.dart';
-import 'package:hiragana_japanesse/pages/test_hiragana/bloc/test_hiragana_bloc.dart';
-import 'package:hiragana_japanesse/pages/test_hiragana/widgets/test_body.dart';
-import 'package:hiragana_japanesse/pages/test_hiragana/widgets/test_button.dart';
-import 'package:hiragana_japanesse/pages/test_hiragana/widgets/test_title.dart';
+import 'package:hiragana_japanesse/pages/test_kana/bloc/test_kana_bloc.dart';
+import 'package:hiragana_japanesse/pages/test_kana/widgets/test_body.dart';
+import 'package:hiragana_japanesse/pages/test_kana/widgets/test_button.dart';
+import 'package:hiragana_japanesse/pages/test_kana/widgets/test_title.dart';
 import 'package:hiragana_japanesse/widgets/snackbars.dart';
 
-class TestHiraganaTab extends StatelessWidget {
-  const TestHiraganaTab({super.key});
+class TestTab extends StatelessWidget {
+  final bool isDrawingEnabled;
+
+  const TestTab({
+    super.key,
+    required this.isDrawingEnabled,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<TestHiraganaBloc, TestHiraganaState>(
+    return BlocConsumer<TestKanaBloc, TestKanaState>(
       listener: (context, state) {
         if (state is ErrorPredictingHiragana) {
           Snackbars.showErrorScaffold(context, state.msg);
         } else if (state is HiraganaWritingSuccess ||
-            state is HiraganaSelectedSuccess) {
+            state is KanaSelectedSuccess) {
           context.read<StatsBloc>().add(AddHiraganaSuccess());
           Snackbars.showSuccessScaffold(context, "You got it right!");
-          context.read<TestHiraganaBloc>().add(TestNextHiragana());
-        } else if (state is HiraganaWritingFail ||
-            state is HiraganaSelectedFail) {
+          context
+              .read<TestKanaBloc>()
+              .add(TestNextKana(isDrawingTestEnabled: isDrawingEnabled));
+        } else if (state is HiraganaWritingFail || state is KanaSelectedFail) {
           context.read<StatsBloc>().add(AddHiraganaFail());
           Snackbars.showWarningScaffold(context, "Oops, you failed...");
         }
       },
       builder: (context, state) {
-        if (state is TestHiraganaInitial) {
+        if (state is TestKanaInitial) {
           return Center(
               child: TextButton(
             child: const Text(
               "Touch here to begin test.",
               style: TextStyle(color: jDarkBLue),
             ),
-            onPressed: () => context.read<TestHiraganaBloc>().add(BeginTest()),
+            onPressed: () => context
+                .read<TestKanaBloc>()
+                .add(BeginTest(isDrawingTestEnabled: isDrawingEnabled)),
           ));
         } else {
           return Stack(
@@ -57,7 +65,7 @@ class TestHiraganaTab extends StatelessWidget {
                   );
                 },
                 child: Column(
-                  key: ValueKey<int>(state.stateData.hiraganaIndex),
+                  key: ValueKey<int>(state.stateData.kanaIndex),
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Flexible(
@@ -82,9 +90,8 @@ class TestHiraganaTab extends StatelessWidget {
                             TestButton(
                               icon: const Icon(Icons.cancel_outlined),
                               heroTag: "cancel",
-                              onPressed: () => context
-                                  .read<TestHiraganaBloc>()
-                                  .add(ResetTest()),
+                              onPressed: () =>
+                                  context.read<TestKanaBloc>().add(ResetTest()),
                             ),
                             if (state.stateData.testType ==
                                 TestType.drawingTest)
@@ -92,7 +99,7 @@ class TestHiraganaTab extends StatelessWidget {
                                 icon: const Icon(Icons.replay_outlined),
                                 heroTag: "clear",
                                 onPressed: () => context
-                                    .read<TestHiraganaBloc>()
+                                    .read<TestKanaBloc>()
                                     .add(ClearDrawing()),
                               ),
                             TestButton(
@@ -107,10 +114,10 @@ class TestHiraganaTab extends StatelessWidget {
                                   ? () => state.stateData.testType ==
                                           TestType.drawingTest
                                       ? context
-                                          .read<TestHiraganaBloc>()
+                                          .read<TestKanaBloc>()
                                           .add(CaptureImage())
                                       : context
-                                          .read<TestHiraganaBloc>()
+                                          .read<TestKanaBloc>()
                                           .add(CheckAnswer())
                                   : null,
                             ),

@@ -14,8 +14,8 @@ import 'package:hiragana_japanesse/domain/repositories/score_repository.dart'
 import 'package:hiragana_japanesse/pages/settings/bloc/settings_bloc.dart'
     as _i391;
 import 'package:hiragana_japanesse/pages/stats/bloc/stats_bloc.dart' as _i15;
-import 'package:hiragana_japanesse/pages/test_hiragana/bloc/test_hiragana_bloc.dart'
-    as _i498;
+import 'package:hiragana_japanesse/pages/test_kana/bloc/test_kana_bloc.dart'
+    as _i1050;
 import 'package:injectable/injectable.dart' as _i526;
 
 extension GetItInjectableX on _i174.GetIt {
@@ -29,8 +29,8 @@ extension GetItInjectableX on _i174.GetIt {
       environment,
       environmentFilter,
     );
-    gh.factory<_i498.TestHiraganaBloc>(() => _i498.TestHiraganaBloc());
     gh.factory<_i391.SettingsBloc>(() => _i391.SettingsBloc());
+    gh.factory<_i1050.TestKanaBloc>(() => _i1050.TestKanaBloc());
     gh.factory<_i15.StatsBloc>(
         () => _i15.StatsBloc(scoreRepository: gh<_i754.ScoreRepository>()));
     return this;

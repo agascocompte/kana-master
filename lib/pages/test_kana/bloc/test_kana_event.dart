@@ -1,8 +1,11 @@
-part of 'test_hiragana_bloc.dart';
+part of 'test_kana_bloc.dart';
 
 abstract class TestHiraganaEvent {}
 
-class BeginTest extends TestHiraganaEvent {}
+class BeginTest extends TestHiraganaEvent {
+  final bool isDrawingTestEnabled;
+  BeginTest({required this.isDrawingTestEnabled});
+}
 
 class AddStroke extends TestHiraganaEvent {
   final PaintStroke stroke;
@@ -20,14 +23,17 @@ class EvaluateImage extends TestHiraganaEvent {
 
 class CaptureImage extends TestHiraganaEvent {}
 
-class TestNextHiragana extends TestHiraganaEvent {}
+class TestNextKana extends TestHiraganaEvent {
+  final bool isDrawingTestEnabled;
+  TestNextKana({required this.isDrawingTestEnabled});
+}
 
 class EnableCheckAnswer extends TestHiraganaEvent {}
 
 class CheckAnswer extends TestHiraganaEvent {}
 
-class UpdateUserHiraganaIndexAnswer extends TestHiraganaEvent {
+class UpdateUserKanaIndexAnswer extends TestHiraganaEvent {
   final int userIndex;
 
-  UpdateUserHiraganaIndexAnswer({required this.userIndex});
+  UpdateUserKanaIndexAnswer({required this.userIndex});
 }

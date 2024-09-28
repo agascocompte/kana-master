@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:hiragana_japanesse/constants.dart';
-import 'package:hiragana_japanesse/pages/test_hiragana/bloc/test_hiragana_bloc.dart';
-import 'package:hiragana_japanesse/pages/test_hiragana/widgets/drawing_board.dart';
-import 'package:hiragana_japanesse/pages/test_hiragana/widgets/single_choice_test.dart';
+import 'package:hiragana_japanesse/pages/test_kana/bloc/test_kana_bloc.dart';
+import 'package:hiragana_japanesse/pages/test_kana/widgets/drawing_board.dart';
+import 'package:hiragana_japanesse/pages/test_kana/widgets/single_choice_test.dart';
 
 class TestBody extends StatelessWidget {
-  final TestHiraganaState state;
+  final TestKanaState state;
 
   const TestBody({
     super.key,

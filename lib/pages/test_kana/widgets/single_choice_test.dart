@@ -3,10 +3,10 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hiragana_japanesse/constants.dart';
-import 'package:hiragana_japanesse/pages/test_hiragana/bloc/test_hiragana_bloc.dart';
+import 'package:hiragana_japanesse/pages/test_kana/bloc/test_kana_bloc.dart';
 
 class SingleChoiceTest extends StatefulWidget {
-  final TestHiraganaState state;
+  final TestKanaState state;
 
   const SingleChoiceTest({super.key, required this.state});
 
@@ -28,8 +28,7 @@ class _SingleChoiceTestState extends State<SingleChoiceTest> {
   }
 
   void generateAnswers() {
-    final correctIndex =
-        context.read<TestHiraganaBloc>().state.stateData.hiraganaIndex;
+    final correctIndex = context.read<TestKanaBloc>().state.stateData.kanaIndex;
 
     final correctAnswer = hiragana.values.elementAt(correctIndex);
     options = {correctAnswer: correctIndex};
@@ -46,9 +45,9 @@ class _SingleChoiceTestState extends State<SingleChoiceTest> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<TestHiraganaBloc, TestHiraganaState>(
+    return BlocListener<TestKanaBloc, TestKanaState>(
       listener: (context, state) {
-        if (state is NextHiraganaLoaded) {
+        if (state is NextKanaLoaded) {
           generateAnswers();
           selectedAnswerIndex = null;
         }
@@ -71,11 +70,10 @@ class _SingleChoiceTestState extends State<SingleChoiceTest> {
                 ),
                 onPressed: () {
                   if (!widget.state.stateData.canSubmitAnswer) {
-                    context.read<TestHiraganaBloc>().add(EnableCheckAnswer());
+                    context.read<TestKanaBloc>().add(EnableCheckAnswer());
                   }
-                  context.read<TestHiraganaBloc>().add(
-                      UpdateUserHiraganaIndexAnswer(
-                          userIndex: options[answer] ?? 0));
+                  context.read<TestKanaBloc>().add(UpdateUserKanaIndexAnswer(
+                      userIndex: options[answer] ?? 0));
 
                   setState(() {
                     selectedAnswerIndex = idx;

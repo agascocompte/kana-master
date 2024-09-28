@@ -5,7 +5,7 @@ import 'package:hiragana_japanesse/constants.dart';
 import 'package:hiragana_japanesse/pages/learn/learn.dart';
 import 'package:hiragana_japanesse/pages/settings/bloc/settings_bloc.dart';
 import 'package:hiragana_japanesse/pages/stats/stats.dart';
-import 'package:hiragana_japanesse/pages/test_hiragana/test_hiragana.dart';
+import 'package:hiragana_japanesse/pages/test_kana/test_kana.dart';
 import 'package:hiragana_japanesse/router/router.dart';
 
 class HomePage extends StatefulWidget {
@@ -56,7 +56,9 @@ class HomePageState extends State<HomePage>
                     ? hiragana
                     : katakana,
               ),
-              TestHiraganaTab(),
+              TestTab(
+                isDrawingEnabled: state.stateData.isDrawingTestEnabled,
+              ),
               StatsTab(),
             ],
           );

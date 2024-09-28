@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hiragana_japanesse/constants.dart';
-import 'package:hiragana_japanesse/pages/test_hiragana/bloc/test_hiragana_bloc.dart';
+import 'package:hiragana_japanesse/pages/test_kana/bloc/test_kana_bloc.dart';
 
 class TestTitle extends StatelessWidget {
-  final TestHiraganaState state;
+  final TestKanaState state;
 
   const TestTitle({super.key, required this.state});
 
@@ -13,7 +13,7 @@ class TestTitle extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: 10.0),
       child: state.stateData.testType == TestType.drawingTest
           ? Text(
-              'Draw the hiragana: ${hiragana.values.toList()[state.stateData.hiraganaIndex]}',
+              'Draw the hiragana: ${hiragana.values.toList()[state.stateData.kanaIndex]}',
               style: Theme.of(context).textTheme.headlineSmall)
           : Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -24,7 +24,7 @@ class TestTitle extends StatelessWidget {
                   width: 20,
                 ),
                 Text(
-                  hiragana.keys.toList()[state.stateData.hiraganaIndex],
+                  hiragana.keys.toList()[state.stateData.kanaIndex],
                   style: Theme.of(context)
                       .textTheme
                       .headlineSmall!

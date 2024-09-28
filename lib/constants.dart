@@ -7,6 +7,8 @@ const Color jDarkBLue = Color(0xFF003171);
 const int imageDimensions = 128;
 const int totalClasses = 45;
 
+enum KanaType { hiragana, katakana }
+
 enum TestType {
   drawingTest,
   singleChoiceTest,

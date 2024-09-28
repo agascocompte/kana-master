@@ -6,8 +6,8 @@ import 'package:hiragana_japanesse/constants.dart';
 import 'package:image/image.dart' as img;
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hiragana_japanesse/domain/models/paint_stroke.dart';
-import 'package:hiragana_japanesse/pages/test_hiragana/bloc/test_hiragana_bloc.dart';
-import 'package:hiragana_japanesse/pages/test_hiragana/widgets/drawing_painter.dart';
+import 'package:hiragana_japanesse/pages/test_kana/bloc/test_kana_bloc.dart';
+import 'package:hiragana_japanesse/pages/test_kana/widgets/drawing_painter.dart';
 
 class DrawingBoard extends StatefulWidget {
   const DrawingBoard({
@@ -40,18 +40,16 @@ class DrawingBoardState extends State<DrawingBoard> {
 
         if (!mounted) return;
 
-        context
-            .read<TestHiraganaBloc>()
-            .add(EvaluateImage(image: resizedImage));
+        context.read<TestKanaBloc>().add(EvaluateImage(image: resizedImage));
       }
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<TestHiraganaBloc, TestHiraganaState>(
+    return BlocConsumer<TestKanaBloc, TestKanaState>(
       listener: (context, state) {
-        if (state is TestHiraganaCapturing) {
+        if (state is TestKanaCapturing) {
           captureAndProcessImage();
         }
       },
@@ -64,12 +62,12 @@ class DrawingBoardState extends State<DrawingBoard> {
           },
           onPanUpdate: (details) {
             if (!state.stateData.canSubmitAnswer) {
-              context.read<TestHiraganaBloc>().add(EnableCheckAnswer());
+              context.read<TestKanaBloc>().add(EnableCheckAnswer());
             }
             setState(() {
               Offset currentPoint = details.localPosition;
               if (_lastPoint != null) {
-                context.read<TestHiraganaBloc>().add(AddStroke(
+                context.read<TestKanaBloc>().add(AddStroke(
                     stroke: PaintStroke(from: _lastPoint!, to: currentPoint)));
               }
               _lastPoint = currentPoint;

@@ -1,7 +1,5 @@
 part of 'settings_bloc.dart';
 
-enum KanaType { hiragana, katakana }
-
 class SettingsStateData {
   final KanaType kanaType;
   final bool isDrawingTestEnabled;

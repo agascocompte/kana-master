@@ -11,15 +11,15 @@ import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:tflite_flutter/tflite_flutter.dart';
 
-part 'test_hiragana_event.dart';
-part 'test_hiragana_state.dart';
+part 'test_kana_event.dart';
+part 'test_kana_state.dart';
 
 @injectable
-class TestHiraganaBloc extends Bloc<TestHiraganaEvent, TestHiraganaState> {
+class TestKanaBloc extends Bloc<TestHiraganaEvent, TestKanaState> {
   final random = math.Random();
   Interpreter? interpreter;
 
-  TestHiraganaBloc() : super(TestHiraganaInitial()) {
+  TestKanaBloc() : super(TestKanaInitial()) {
     on<BeginTest>(_beginTest);
     on<EnableCheckAnswer>(_setDrawingStarted);
     on<AddStroke>(_addStroke);
@@ -27,8 +27,8 @@ class TestHiraganaBloc extends Bloc<TestHiraganaEvent, TestHiraganaState> {
     on<ResetTest>(_resetTest);
     on<EvaluateImage>(_evaluateImage);
     on<CaptureImage>(_captureImage);
-    on<TestNextHiragana>(_nextHiragana);
-    on<UpdateUserHiraganaIndexAnswer>(updateUserHiraganaIndexAnswer);
+    on<TestNextKana>(_nextKana);
+    on<UpdateUserKanaIndexAnswer>(updateUserKanaIndexAnswer);
     on<CheckAnswer>(_checkAnswer);
   }
 
@@ -43,37 +43,39 @@ class TestHiraganaBloc extends Bloc<TestHiraganaEvent, TestHiraganaState> {
     return super.close();
   }
 
-  FutureOr<void> _beginTest(BeginTest event, Emitter<TestHiraganaState> emit) {
-    TestType testType = TestType.values[random.nextInt(TestType.values.length)];
-    emit(TestHiraganaDraw(state.stateData.copyWith(
-      hiraganaIndex: random.nextInt(hiraganaWithoutWo.length),
+  FutureOr<void> _beginTest(BeginTest event, Emitter<TestKanaState> emit) {
+    TestType testType = event.isDrawingTestEnabled
+        ? TestType.values[random.nextInt(TestType.values.length)]
+        : TestType.singleChoiceTest;
+    emit(TestKanaDraw(state.stateData.copyWith(
+      kanaIndex: random.nextInt(hiraganaWithoutWo.length),
       testType: testType,
     )));
   }
 
   FutureOr<void> _setDrawingStarted(
-      EnableCheckAnswer event, Emitter<TestHiraganaState> emit) {
-    emit(TestHiraganaDraw(state.stateData.copyWith(canSubmitAnswer: true)));
+      EnableCheckAnswer event, Emitter<TestKanaState> emit) {
+    emit(TestKanaDraw(state.stateData.copyWith(canSubmitAnswer: true)));
   }
 
-  FutureOr<void> _addStroke(AddStroke event, Emitter<TestHiraganaState> emit) {
+  FutureOr<void> _addStroke(AddStroke event, Emitter<TestKanaState> emit) {
     List<PaintStroke> strokes = List.from(state.stateData.strokes);
     strokes.add(event.stroke);
     emit(UpdatedStrokes(state.stateData.copyWith(strokes: strokes)));
   }
 
   FutureOr<void> _clearDrawing(
-      ClearDrawing event, Emitter<TestHiraganaState> emit) {
+      ClearDrawing event, Emitter<TestKanaState> emit) {
     emit(UpdatedStrokes(
         state.stateData.copyWith(strokes: [], canSubmitAnswer: false)));
   }
 
-  FutureOr<void> _resetTest(ResetTest event, Emitter<TestHiraganaState> emit) {
-    emit(TestHiraganaInitial());
+  FutureOr<void> _resetTest(ResetTest event, Emitter<TestKanaState> emit) {
+    emit(TestKanaInitial());
   }
 
   FutureOr<void> _evaluateImage(
-      EvaluateImage event, Emitter<TestHiraganaState> emit) async {
+      EvaluateImage event, Emitter<TestKanaState> emit) async {
     if (interpreter == null) {
       await _loadModel();
     }
@@ -84,7 +86,7 @@ class TestHiraganaBloc extends Bloc<TestHiraganaEvent, TestHiraganaState> {
     if (predictions != null) {
       List<double> p = predictions[0].cast<double>();
       int predictedIndex = getIndexOfMaxValue(p);
-      if (predictedIndex == state.stateData.hiraganaIndex) {
+      if (predictedIndex == state.stateData.kanaIndex) {
         emit(HiraganaWritingSuccess(
           state.stateData,
         ));
@@ -101,8 +103,8 @@ class TestHiraganaBloc extends Bloc<TestHiraganaEvent, TestHiraganaState> {
   }
 
   FutureOr<void> _captureImage(
-      CaptureImage event, Emitter<TestHiraganaState> emit) {
-    emit(TestHiraganaCapturing(state.stateData));
+      CaptureImage event, Emitter<TestKanaState> emit) {
+    emit(TestKanaCapturing(state.stateData));
   }
 
   Future<void> saveImage(Uint8List pngBytes) async {
@@ -112,33 +114,32 @@ class TestHiraganaBloc extends Bloc<TestHiraganaEvent, TestHiraganaState> {
     await file.writeAsBytes(pngBytes);
   }
 
-  FutureOr<void> _nextHiragana(
-      TestNextHiragana event, Emitter<TestHiraganaState> emit) {
+  FutureOr<void> _nextKana(TestNextKana event, Emitter<TestKanaState> emit) {
     add(ClearDrawing());
-    TestType testType = TestType.values[random.nextInt(TestType.values.length)];
-    emit(NextHiraganaLoaded(state.stateData.copyWith(
-      hiraganaIndex: random.nextInt(testType == TestType.drawingTest
+    TestType testType = event.isDrawingTestEnabled
+        ? TestType.values[random.nextInt(TestType.values.length)]
+        : TestType.singleChoiceTest;
+    emit(NextKanaLoaded(state.stateData.copyWith(
+      kanaIndex: random.nextInt(testType == TestType.drawingTest
           ? hiraganaWithoutWo.length
           : hiragana.length),
       testType: testType,
     )));
   }
 
-  FutureOr<void> updateUserHiraganaIndexAnswer(
-      UpdateUserHiraganaIndexAnswer event, Emitter<TestHiraganaState> emit) {
-    emit(UserHiraganaIndexAnswerUpdated(
-        state.stateData.copyWith(userAnswerHiraganaIndex: event.userIndex)));
+  FutureOr<void> updateUserKanaIndexAnswer(
+      UpdateUserKanaIndexAnswer event, Emitter<TestKanaState> emit) {
+    emit(UserKanaIndexAnswerUpdated(
+        state.stateData.copyWith(userAnswerKanaIndex: event.userIndex)));
   }
 
-  FutureOr<void> _checkAnswer(
-      CheckAnswer event, Emitter<TestHiraganaState> emit) {
-    if (state.stateData.hiraganaIndex ==
-        state.stateData.userAnswerHiraganaIndex) {
-      emit(HiraganaSelectedSuccess(
+  FutureOr<void> _checkAnswer(CheckAnswer event, Emitter<TestKanaState> emit) {
+    if (state.stateData.kanaIndex == state.stateData.userAnswerKanaIndex) {
+      emit(KanaSelectedSuccess(
         state.stateData,
       ));
     } else {
-      emit(HiraganaSelectedFail(
+      emit(KanaSelectedFail(
         state.stateData,
       ));
     }
