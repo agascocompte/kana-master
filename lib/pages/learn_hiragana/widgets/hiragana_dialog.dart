@@ -17,7 +17,7 @@ class HiraganaDialog extends StatelessWidget {
           SizedBox(
             width: double.infinity,
             child: Image.asset(
-              'assets/gifs/$romaji.gif',
+              'assets/gifs/hiragana/$romaji.gif',
               fit: BoxFit.cover,
             ),
           ),
@@ -27,19 +27,11 @@ class HiraganaDialog extends StatelessWidget {
           ),
         ],
       ),
-      // actions: [
-      //   TextButton(
-      //       onPressed: null,
-      //       child: Text(
-      //         "Try youself",
-      //         style: TextStyle(color: jDarkBLue),
-      //       ))
-      // ],
     );
   }
 
   void _evictImage() {
-    final AssetImage provider = AssetImage('assets/gifs/$romaji.gif');
+    final AssetImage provider = AssetImage('assets/gifs/hiragana/$romaji.gif');
     provider.evict().then((bool success) {
       if (success) debugPrint('Removed image from cache');
     });

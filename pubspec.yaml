@@ -89,7 +89,8 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/gifs/
+    - assets/gifs/hiragana/
+    - assets/gifs/katakana/
     - assets/models/model_etl8g.tflite
   #   - images/a_dot_ham.jpeg
 
