@@ -46,7 +46,7 @@ class TestHiraganaBloc extends Bloc<TestHiraganaEvent, TestHiraganaState> {
   FutureOr<void> _beginTest(BeginTest event, Emitter<TestHiraganaState> emit) {
     TestType testType = TestType.values[random.nextInt(TestType.values.length)];
     emit(TestHiraganaDraw(state.stateData.copyWith(
-      hiraganaIndex: random.nextInt(hiraganasWithoutWo.length),
+      hiraganaIndex: random.nextInt(hiraganaWithoutWo.length),
       testType: testType,
     )));
   }
@@ -118,8 +118,8 @@ class TestHiraganaBloc extends Bloc<TestHiraganaEvent, TestHiraganaState> {
     TestType testType = TestType.values[random.nextInt(TestType.values.length)];
     emit(NextHiraganaLoaded(state.stateData.copyWith(
       hiraganaIndex: random.nextInt(testType == TestType.drawingTest
-          ? hiraganasWithoutWo.length
-          : hiraganas.length),
+          ? hiraganaWithoutWo.length
+          : hiragana.length),
       testType: testType,
     )));
   }

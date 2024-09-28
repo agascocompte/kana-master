@@ -22,15 +22,15 @@ class SettingsPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SwitchTileSetting(
-                  title: "Script settings",
+                  title: "Kana settings",
                   optionText:
-                      "Switch to ${state.stateData.scriptType == ScriptType.hiragana ? 'Katakana' : 'Hiragana'}",
+                      "Switch to ${state.stateData.kanaType == KanaType.hiragana ? 'Katakana' : 'Hiragana'}",
                   subtitle:
                       "Toggle between Hiragana and Katakana scripts for learning.",
-                  value: state.stateData.scriptType == ScriptType.katakana,
+                  value: state.stateData.kanaType == KanaType.katakana,
                   icon: Icons.language,
                   onChanged: (bool value) {
-                    context.read<SettingsBloc>().add(ToggleScriptType());
+                    context.read<SettingsBloc>().add(ToggleKanaType());
                   },
                 ),
                 SizedBox(height: 20),

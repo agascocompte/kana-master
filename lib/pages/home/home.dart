@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hiragana_japanesse/constants.dart';
-import 'package:hiragana_japanesse/pages/learn_hiragana/learn_hiragana.dart';
+import 'package:hiragana_japanesse/pages/learn/learn.dart';
+import 'package:hiragana_japanesse/pages/settings/bloc/settings_bloc.dart';
 import 'package:hiragana_japanesse/pages/stats/stats.dart';
 import 'package:hiragana_japanesse/pages/test_hiragana/test_hiragana.dart';
 import 'package:hiragana_japanesse/router/router.dart';
@@ -43,14 +45,22 @@ class HomePageState extends State<HomePage>
           ),
         ],
       ),
-      body: TabBarView(
-        physics: const NeverScrollableScrollPhysics(),
-        controller: _tabController,
-        children: const [
-          LearnHiraganaTab(),
-          TestHiraganaTab(),
-          StatsTab(),
-        ],
+      body: BlocBuilder<SettingsBloc, SettingsState>(
+        builder: (context, state) {
+          return TabBarView(
+            physics: const NeverScrollableScrollPhysics(),
+            controller: _tabController,
+            children: [
+              LearnTab(
+                kana: state.stateData.kanaType == KanaType.hiragana
+                    ? hiragana
+                    : katakana,
+              ),
+              TestHiraganaTab(),
+              StatsTab(),
+            ],
+          );
+        },
       ),
       bottomNavigationBar: Material(
         color: Colors.grey[200],

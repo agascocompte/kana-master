@@ -9,18 +9,16 @@ part 'settings_state.dart';
 @injectable
 class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
   SettingsBloc() : super(SettingsInitial()) {
-    on<ToggleScriptType>(_toggleScriptType);
+    on<ToggleKanaType>(_toggleScriptType);
     on<ToggleDrawingTest>(_toggleDrawingTest);
   }
 
   FutureOr<void> _toggleScriptType(
-      ToggleScriptType event, Emitter<SettingsState> emit) {
-    ScriptType updatedSciptType =
-        state.stateData.scriptType == ScriptType.hiragana
-            ? ScriptType.katakana
-            : ScriptType.hiragana;
-    emit(ScriptTypeUpdated(
-        state.stateData.copyWith(scriptType: updatedSciptType)));
+      ToggleKanaType event, Emitter<SettingsState> emit) {
+    KanaType updatedKanaType = state.stateData.kanaType == KanaType.hiragana
+        ? KanaType.katakana
+        : KanaType.hiragana;
+    emit(KanaTypeUpdated(state.stateData.copyWith(kanaType: updatedKanaType)));
   }
 
   FutureOr<void> _toggleDrawingTest(

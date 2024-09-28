@@ -13,7 +13,7 @@ class TestTitle extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: 10.0),
       child: state.stateData.testType == TestType.drawingTest
           ? Text(
-              'Draw the hiragana: ${hiraganas.values.toList()[state.stateData.hiraganaIndex]}',
+              'Draw the hiragana: ${hiragana.values.toList()[state.stateData.hiraganaIndex]}',
               style: Theme.of(context).textTheme.headlineSmall)
           : Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -24,7 +24,7 @@ class TestTitle extends StatelessWidget {
                   width: 20,
                 ),
                 Text(
-                  hiraganas.keys.toList()[state.stateData.hiraganaIndex],
+                  hiragana.keys.toList()[state.stateData.hiraganaIndex],
                   style: Theme.of(context)
                       .textTheme
                       .headlineSmall!

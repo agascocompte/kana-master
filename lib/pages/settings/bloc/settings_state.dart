@@ -1,22 +1,22 @@
 part of 'settings_bloc.dart';
 
-enum ScriptType { hiragana, katakana }
+enum KanaType { hiragana, katakana }
 
 class SettingsStateData {
-  final ScriptType scriptType;
+  final KanaType kanaType;
   final bool isDrawingTestEnabled;
 
   SettingsStateData({
-    this.scriptType = ScriptType.hiragana,
+    this.kanaType = KanaType.hiragana,
     this.isDrawingTestEnabled = false,
   });
 
   SettingsStateData copyWith({
-    ScriptType? scriptType,
+    KanaType? kanaType,
     bool? isDrawingTestEnabled,
   }) {
     return SettingsStateData(
-      scriptType: scriptType ?? this.scriptType,
+      kanaType: kanaType ?? this.kanaType,
       isDrawingTestEnabled: isDrawingTestEnabled ?? this.isDrawingTestEnabled,
     );
   }
@@ -32,8 +32,8 @@ class SettingsInitial extends SettingsState {
   SettingsInitial() : super(stateData: SettingsStateData());
 }
 
-class ScriptTypeUpdated extends SettingsState {
-  ScriptTypeUpdated(SettingsStateData stateData) : super(stateData: stateData);
+class KanaTypeUpdated extends SettingsState {
+  KanaTypeUpdated(SettingsStateData stateData) : super(stateData: stateData);
 }
 
 class IsDrawingTestEnabledUpdated extends SettingsState {

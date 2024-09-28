@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 
-class HiraganaDialog extends StatelessWidget {
+class KanaDialog extends StatelessWidget {
   final String romaji;
+  final String kanaFolder;
 
-  const HiraganaDialog({super.key, required this.romaji});
+  const KanaDialog({
+    super.key,
+    required this.romaji,
+    required this.kanaFolder,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +22,7 @@ class HiraganaDialog extends StatelessWidget {
           SizedBox(
             width: double.infinity,
             child: Image.asset(
-              'assets/gifs/hiragana/$romaji.gif',
+              'assets/gifs/$kanaFolder/$romaji.gif',
               fit: BoxFit.cover,
             ),
           ),
@@ -31,7 +36,8 @@ class HiraganaDialog extends StatelessWidget {
   }
 
   void _evictImage() {
-    final AssetImage provider = AssetImage('assets/gifs/hiragana/$romaji.gif');
+    final AssetImage provider =
+        AssetImage('assets/gifs/$kanaFolder/$romaji.gif');
     provider.evict().then((bool success) {
       if (success) debugPrint('Removed image from cache');
     });

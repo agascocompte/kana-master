@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:hiragana_japanesse/constants.dart';
-import 'package:hiragana_japanesse/pages/learn_hiragana/widgets/hiragana_dialog.dart';
+import 'package:hiragana_japanesse/pages/learn/widgets/kana_dialog.dart';
 
-class LearnHiraganaTab extends StatelessWidget {
-  const LearnHiraganaTab({super.key});
+class LearnTab extends StatelessWidget {
+  final Map<String, String> kana;
+
+  const LearnTab({
+    super.key,
+    required this.kana,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -14,10 +19,10 @@ class LearnHiraganaTab extends StatelessWidget {
         crossAxisSpacing: 10,
         mainAxisSpacing: 10,
       ),
-      itemCount: hiraganas.length,
+      itemCount: kana.length,
       itemBuilder: (context, index) {
-        String key = hiraganas.keys.elementAt(index);
-        String value = hiraganas[key]!;
+        String key = kana.keys.elementAt(index);
+        String value = kana[key]!;
         return GestureDetector(
           onTap: () => _showGifDialog(context, value),
           child: GridTile(
@@ -55,7 +60,10 @@ class LearnHiraganaTab extends StatelessWidget {
     showDialog(
       context: context,
       builder: (BuildContext context) {
-        return HiraganaDialog(romaji: romaji);
+        return KanaDialog(
+          romaji: romaji,
+          kanaFolder: kana == hiragana ? "hiragana" : "katakana",
+        );
       },
     );
   }
