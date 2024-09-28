@@ -22,7 +22,7 @@ class StatsBarChart extends StatelessWidget {
             correctHiraganaCount.toDouble(), incorrectHiraganaCount.toDouble()),
         barTouchData: BarTouchData(
           touchTooltipData: BarTouchTooltipData(
-            tooltipBgColor: Colors.grey,
+            getTooltipColor: (group) => Colors.white70,
           ),
           touchCallback: (FlTouchEvent event, barTouchResponse) {},
         ),

@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:hiragana_japanesse/constants.dart';
-import 'package:hiragana_japanesse/pages/learn_hiragana/learn_hiragana.dart';
+import 'package:hiragana_japanesse/pages/learn/learn.dart';
+import 'package:hiragana_japanesse/pages/settings/bloc/settings_bloc.dart';
 import 'package:hiragana_japanesse/pages/stats/stats.dart';
-import 'package:hiragana_japanesse/pages/test_hiragana/test_hiragana.dart';
+import 'package:hiragana_japanesse/pages/test_kana/test_kana.dart';
+import 'package:hiragana_japanesse/router/router.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -31,17 +35,37 @@ class HomePageState extends State<HomePage>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Center(child: Text("Kana Master")),
+        title: Text("Kana Master"),
         backgroundColor: jOrange,
-      ),
-      body: TabBarView(
-        physics: const NeverScrollableScrollPhysics(),
-        controller: _tabController,
-        children: const [
-          LearnHiraganaTab(),
-          TestHiraganaTab(),
-          StatsTab(),
+        actions: [
+          IconButton(
+            onPressed: () => context.push(AppRouter.settingsRoute),
+            icon: Icon(Icons.settings),
+            color: Colors.black,
+          ),
         ],
+      ),
+      body: BlocBuilder<SettingsBloc, SettingsState>(
+        builder: (context, state) {
+          return TabBarView(
+            physics: const NeverScrollableScrollPhysics(),
+            controller: _tabController,
+            children: [
+              LearnTab(
+                kana: state.stateData.kanaType == KanaType.hiragana
+                    ? hiragana
+                    : katakana,
+              ),
+              TestTab(
+                kana: state.stateData.kanaType == KanaType.hiragana
+                    ? hiragana
+                    : katakana,
+                isDrawingEnabled: state.stateData.isDrawingTestEnabled,
+              ),
+              StatsTab(),
+            ],
+          );
+        },
       ),
       bottomNavigationBar: Material(
         color: Colors.grey[200],
