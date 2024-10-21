@@ -60,7 +60,7 @@ class HomePageState extends State<HomePage>
                 kana: state.stateData.kanaType == KanaType.hiragana
                     ? hiragana
                     : katakana,
-                isDrawingEnabled: state.stateData.isDrawingTestEnabled,
+                difficultyLevel: state.stateData.difficultyLevel,
               ),
               StatsTab(),
             ],

@@ -9,10 +9,9 @@ const int totalClasses = 45;
 
 enum KanaType { hiragana, katakana }
 
-enum TestType {
-  drawingTest,
-  singleChoiceTest,
-}
+enum DifficultyLevel { low, medium, high }
+
+enum TestType { drawingTest, singleAnswer }
 
 const Map<String, String> hiragana = {
   "あ": "a",

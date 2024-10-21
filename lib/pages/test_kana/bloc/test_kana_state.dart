@@ -1,11 +1,12 @@
 part of 'test_kana_bloc.dart';
 
 class TestKanaStateData {
-  int kanaIndex;
-  List<PaintStroke> strokes;
-  bool canSubmitAnswer;
-  TestType testType;
-  int userAnswerKanaIndex;
+  final int kanaIndex;
+  final List<PaintStroke> strokes;
+  final bool canSubmitAnswer;
+  final TestType testType;
+  final int userAnswerKanaIndex;
+  final String userTextAnswer;
 
   TestKanaStateData({
     this.strokes = const [],
@@ -13,6 +14,7 @@ class TestKanaStateData {
     this.canSubmitAnswer = false,
     this.testType = TestType.drawingTest,
     this.userAnswerKanaIndex = 0,
+    this.userTextAnswer = '',
   });
 
   TestKanaStateData copyWith({
@@ -21,6 +23,7 @@ class TestKanaStateData {
     bool? canSubmitAnswer,
     TestType? testType,
     int? userAnswerKanaIndex,
+    String? userTextAnswer,
   }) {
     return TestKanaStateData(
       strokes: strokes ?? this.strokes,
@@ -28,6 +31,7 @@ class TestKanaStateData {
       canSubmitAnswer: canSubmitAnswer ?? this.canSubmitAnswer,
       testType: testType ?? this.testType,
       userAnswerKanaIndex: userAnswerKanaIndex ?? this.userAnswerKanaIndex,
+      userTextAnswer: userTextAnswer ?? this.userTextAnswer,
     );
   }
 }

@@ -27,7 +27,7 @@ class _SingleChoiceTestState extends State<SingleChoiceTest> {
   @override
   void initState() {
     super.initState();
-    if (widget.state.stateData.testType == TestType.singleChoiceTest) {
+    if (widget.state.stateData.testType == TestType.singleAnswer) {
       generateAnswers();
     }
   }

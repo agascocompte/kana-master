@@ -2,20 +2,20 @@ part of 'settings_bloc.dart';
 
 class SettingsStateData {
   final KanaType kanaType;
-  final bool isDrawingTestEnabled;
+  final DifficultyLevel difficultyLevel;
 
   SettingsStateData({
     this.kanaType = KanaType.hiragana,
-    this.isDrawingTestEnabled = false,
+    this.difficultyLevel = DifficultyLevel.low,
   });
 
   SettingsStateData copyWith({
     KanaType? kanaType,
-    bool? isDrawingTestEnabled,
+    DifficultyLevel? difficultyLevel,
   }) {
     return SettingsStateData(
       kanaType: kanaType ?? this.kanaType,
-      isDrawingTestEnabled: isDrawingTestEnabled ?? this.isDrawingTestEnabled,
+      difficultyLevel: difficultyLevel ?? this.difficultyLevel,
     );
   }
 }
