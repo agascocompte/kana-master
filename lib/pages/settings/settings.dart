@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hiragana_japanesse/constants.dart';
+import 'package:hiragana_japanesse/extensions.dart';
 import 'package:hiragana_japanesse/pages/settings/bloc/settings_bloc.dart';
+import 'package:hiragana_japanesse/pages/settings/widgets/dropdown_tile_setting.dart';
 import 'package:hiragana_japanesse/pages/settings/widgets/switch_tile_setting.dart';
 
 class SettingsPage extends StatelessWidget {
@@ -34,15 +36,23 @@ class SettingsPage extends StatelessWidget {
                   },
                 ),
                 SizedBox(height: 20),
-                SwitchTileSetting(
-                  title: "Test settings",
-                  optionText: "Enable drawing test",
-                  subtitle:
-                      "Activate this option to require users to draw characters during the test.",
-                  value: state.stateData.isDrawingTestEnabled,
-                  icon: Icons.brush,
-                  onChanged: (bool value) {
-                    context.read<SettingsBloc>().add(ToggleDrawingTest());
+                DropdownTileSetting(
+                  title: "Test difficulty",
+                  subtitle: "Choose the level of difficulty for the kana test.",
+                  currentValue: state.stateData.difficultyLevel,
+                  icon: Icons.settings,
+                  items: DifficultyLevel.values.map((DifficultyLevel level) {
+                    return DropdownMenuItem<DifficultyLevel>(
+                      value: level,
+                      child:
+                          Text(level.toString().split('.').last.capitalize()),
+                    );
+                  }).toList(),
+                  onChanged: (DifficultyLevel? newValue) {
+                    if (newValue != null) {
+                      context.read<SettingsBloc>().add(
+                          ChangeDifficultyLevel(difficultyLevel: newValue));
+                    }
                   },
                 ),
               ],

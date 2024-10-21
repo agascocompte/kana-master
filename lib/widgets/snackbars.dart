@@ -23,6 +23,9 @@ class Snackbars {
     double bottomPosition = 0;
     double opacity = 0.0;
 
+    // Ocultar el teclado si está activo
+    FocusScope.of(context).unfocus();
+
     // Crear el OverlayEntry para el SnackBar
     final entry = OverlayEntry(
       builder: (context) => Positioned(

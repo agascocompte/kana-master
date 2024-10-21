@@ -4,10 +4,10 @@ abstract class TestKanaEvent {}
 
 class BeginTest extends TestKanaEvent {
   final Map<String, String> kana;
-  final bool isDrawingTestEnabled;
+  final DifficultyLevel difficultyLevel;
   BeginTest({
     required this.kana,
-    required this.isDrawingTestEnabled,
+    required this.difficultyLevel,
   });
 }
 
@@ -29,19 +29,33 @@ class CaptureImage extends TestKanaEvent {}
 
 class TestNextKana extends TestKanaEvent {
   final Map<String, String> kana;
-  final bool isDrawingTestEnabled;
+  final DifficultyLevel difficultyLevel;
   TestNextKana({
     required this.kana,
-    required this.isDrawingTestEnabled,
+    required this.difficultyLevel,
   });
 }
 
 class EnableCheckAnswer extends TestKanaEvent {}
 
-class CheckAnswer extends TestKanaEvent {}
+class CheckAnswer extends TestKanaEvent {
+  final DifficultyLevel difficultyLevel;
+  final Map<String, String> kana;
+
+  CheckAnswer({
+    required this.difficultyLevel,
+    required this.kana,
+  });
+}
 
 class UpdateUserKanaIndexAnswer extends TestKanaEvent {
   final int userIndex;
 
   UpdateUserKanaIndexAnswer({required this.userIndex});
+}
+
+class UpdateUserTextAnswer extends TestKanaEvent {
+  final String userAnswer;
+
+  UpdateUserTextAnswer({required this.userAnswer});
 }

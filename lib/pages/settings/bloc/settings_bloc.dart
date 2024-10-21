@@ -11,7 +11,7 @@ part 'settings_state.dart';
 class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
   SettingsBloc() : super(SettingsInitial()) {
     on<ToggleKanaType>(_toggleScriptType);
-    on<ToggleDrawingTest>(_toggleDrawingTest);
+    on<ChangeDifficultyLevel>(_changeDifficultyLevel);
   }
 
   FutureOr<void> _toggleScriptType(
@@ -22,9 +22,12 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
     emit(KanaTypeUpdated(state.stateData.copyWith(kanaType: updatedKanaType)));
   }
 
-  FutureOr<void> _toggleDrawingTest(
-      ToggleDrawingTest event, Emitter<SettingsState> emit) {
+  FutureOr<void> _changeDifficultyLevel(
+      ChangeDifficultyLevel event, Emitter<SettingsState> emit) {
     emit(IsDrawingTestEnabledUpdated(state.stateData.copyWith(
-        isDrawingTestEnabled: !state.stateData.isDrawingTestEnabled)));
+      difficultyLevel: event.difficultyLevel,
+    )));
   }
+
+  // TODO: Guardar en memoria los settings
 }

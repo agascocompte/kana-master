@@ -28,7 +28,8 @@ class TestKanaBloc extends Bloc<TestKanaEvent, TestKanaState> {
     on<EvaluateImage>(_evaluateImage);
     on<CaptureImage>(_captureImage);
     on<TestNextKana>(_nextKana);
-    on<UpdateUserKanaIndexAnswer>(updateUserKanaIndexAnswer);
+    on<UpdateUserKanaIndexAnswer>(_updateUserKanaIndexAnswer);
+    on<UpdateUserTextAnswer>(_updateUserTextAnswer);
     on<CheckAnswer>(_checkAnswer);
   }
 
@@ -44,9 +45,9 @@ class TestKanaBloc extends Bloc<TestKanaEvent, TestKanaState> {
   }
 
   FutureOr<void> _beginTest(BeginTest event, Emitter<TestKanaState> emit) {
-    TestType testType = event.isDrawingTestEnabled
+    TestType testType = event.difficultyLevel == DifficultyLevel.high
         ? TestType.values[random.nextInt(TestType.values.length)]
-        : TestType.singleChoiceTest;
+        : TestType.singleAnswer;
     emit(TestKanaDraw(state.stateData.copyWith(
       kanaIndex: random.nextInt(testType == TestType.drawingTest
           ? hiraganaWithoutWo.length
@@ -118,9 +119,9 @@ class TestKanaBloc extends Bloc<TestKanaEvent, TestKanaState> {
 
   FutureOr<void> _nextKana(TestNextKana event, Emitter<TestKanaState> emit) {
     add(ClearDrawing());
-    TestType testType = event.isDrawingTestEnabled
+    TestType testType = event.difficultyLevel == DifficultyLevel.high
         ? TestType.values[random.nextInt(TestType.values.length)]
-        : TestType.singleChoiceTest;
+        : TestType.singleAnswer;
     emit(NextKanaLoaded(state.stateData.copyWith(
       kanaIndex: random.nextInt(testType == TestType.drawingTest
           ? hiraganaWithoutWo.length
@@ -129,14 +130,26 @@ class TestKanaBloc extends Bloc<TestKanaEvent, TestKanaState> {
     )));
   }
 
-  FutureOr<void> updateUserKanaIndexAnswer(
+  FutureOr<void> _updateUserKanaIndexAnswer(
       UpdateUserKanaIndexAnswer event, Emitter<TestKanaState> emit) {
     emit(UserKanaIndexAnswerUpdated(
         state.stateData.copyWith(userAnswerKanaIndex: event.userIndex)));
   }
 
+  FutureOr<void> _updateUserTextAnswer(
+      UpdateUserTextAnswer event, Emitter<TestKanaState> emit) {
+    emit(UserKanaIndexAnswerUpdated(state.stateData.copyWith(
+      userTextAnswer: event.userAnswer,
+      canSubmitAnswer: true,
+    )));
+  }
+
   FutureOr<void> _checkAnswer(CheckAnswer event, Emitter<TestKanaState> emit) {
-    if (state.stateData.kanaIndex == state.stateData.userAnswerKanaIndex) {
+    if ((event.difficultyLevel == DifficultyLevel.low &&
+            state.stateData.kanaIndex == state.stateData.userAnswerKanaIndex) ||
+        (event.difficultyLevel != DifficultyLevel.low &&
+            state.stateData.userTextAnswer ==
+                event.kana.values.toList()[state.stateData.kanaIndex])) {
       emit(KanaSelectedSuccess(
         state.stateData,
       ));

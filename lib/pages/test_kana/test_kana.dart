@@ -10,12 +10,12 @@ import 'package:hiragana_japanesse/widgets/snackbars.dart';
 
 class TestTab extends StatelessWidget {
   final Map<String, String> kana;
-  final bool isDrawingEnabled;
+  final DifficultyLevel difficultyLevel;
 
   const TestTab({
     super.key,
     required this.kana,
-    required this.isDrawingEnabled,
+    required this.difficultyLevel,
   });
 
   @override
@@ -30,7 +30,7 @@ class TestTab extends StatelessWidget {
           Snackbars.showSuccessScaffold(context, "You got it right!");
           context.read<TestKanaBloc>().add(TestNextKana(
                 kana: kana,
-                isDrawingTestEnabled: isDrawingEnabled,
+                difficultyLevel: difficultyLevel,
               ));
         } else if (state is HiraganaWritingFail || state is KanaSelectedFail) {
           context.read<StatsBloc>().add(AddHiraganaFail());
@@ -47,7 +47,7 @@ class TestTab extends StatelessWidget {
             ),
             onPressed: () => context.read<TestKanaBloc>().add(BeginTest(
                   kana: kana,
-                  isDrawingTestEnabled: isDrawingEnabled,
+                  difficultyLevel: difficultyLevel,
                 )),
           ));
         } else {
@@ -84,6 +84,7 @@ class TestTab extends StatelessWidget {
                       child: TestBody(
                         state: state,
                         kana: kana,
+                        difficultyLevel: difficultyLevel,
                       ),
                     ),
                     Flexible(
@@ -124,7 +125,10 @@ class TestTab extends StatelessWidget {
                                           .add(CaptureImage())
                                       : context
                                           .read<TestKanaBloc>()
-                                          .add(CheckAnswer())
+                                          .add(CheckAnswer(
+                                            difficultyLevel: difficultyLevel,
+                                            kana: kana,
+                                          ))
                                   : null,
                             ),
                           ],
