@@ -38,14 +38,36 @@ class SettingsPage extends StatelessWidget {
                 SizedBox(height: 20),
                 DropdownTileSetting(
                   title: "Test difficulty",
-                  subtitle: "Choose the level of difficulty for the kana test.",
+                  subtitle:
+                      "Choose the level of difficulty \nfor the kana test.",
                   currentValue: state.stateData.difficultyLevel,
-                  icon: Icons.settings,
+                  icon: Icons.speed_outlined,
                   items: DifficultyLevel.values.map((DifficultyLevel level) {
+                    String description;
+                    switch (level) {
+                      case DifficultyLevel.low:
+                        description = "Single choice";
+                        break;
+                      case DifficultyLevel.medium:
+                        description = "Text answer";
+                        break;
+                      case DifficultyLevel.high:
+                        description = "Drawing";
+                        break;
+                    }
+
                     return DropdownMenuItem<DifficultyLevel>(
                       value: level,
-                      child:
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
                           Text(level.toString().split('.').last.capitalize()),
+                          Text(
+                            description,
+                            style: TextStyle(fontSize: 12, color: Colors.grey),
+                          ),
+                        ],
+                      ),
                     );
                   }).toList(),
                   onChanged: (DifficultyLevel? newValue) {
