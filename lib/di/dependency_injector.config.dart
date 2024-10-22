@@ -11,6 +11,8 @@
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:hiragana_japanesse/domain/repositories/score_repository.dart'
     as _i754;
+import 'package:hiragana_japanesse/domain/repositories/settings_repository.dart'
+    as _i57;
 import 'package:hiragana_japanesse/pages/settings/bloc/settings_bloc.dart'
     as _i391;
 import 'package:hiragana_japanesse/pages/stats/bloc/stats_bloc.dart' as _i15;
@@ -29,10 +31,11 @@ extension GetItInjectableX on _i174.GetIt {
       environment,
       environmentFilter,
     );
-    gh.factory<_i391.SettingsBloc>(() => _i391.SettingsBloc());
     gh.factory<_i1050.TestKanaBloc>(() => _i1050.TestKanaBloc());
     gh.factory<_i15.StatsBloc>(
         () => _i15.StatsBloc(scoreRepository: gh<_i754.ScoreRepository>()));
+    gh.factory<_i391.SettingsBloc>(() =>
+        _i391.SettingsBloc(settingsRepository: gh<_i57.SettingsRepository>()));
     return this;
   }
 }

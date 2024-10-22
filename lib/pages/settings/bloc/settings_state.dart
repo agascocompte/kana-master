@@ -30,6 +30,10 @@ class SettingsInitial extends SettingsState {
   SettingsInitial() : super(stateData: SettingsStateData());
 }
 
+class SettingsUpdated extends SettingsState {
+  SettingsUpdated(SettingsStateData stateData) : super(stateData: stateData);
+}
+
 class KanaTypeUpdated extends SettingsState {
   KanaTypeUpdated(SettingsStateData stateData) : super(stateData: stateData);
 }

@@ -20,7 +20,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (context) => sl<SettingsBloc>()),
+        BlocProvider(
+            create: (context) => sl<SettingsBloc>()..add(LoadSettings())),
         BlocProvider(create: (context) => sl<TestKanaBloc>()),
         BlocProvider(
             create: (context) => sl<StatsBloc>()..add(LoadMemoryStats())),

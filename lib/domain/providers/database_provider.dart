@@ -18,7 +18,7 @@ class DatabaseProvider {
     String path = join(documentsDirectory.path, "HiraganaApp.db");
     var database = await openDatabase(
       path,
-      version: 1,
+      version: 2,
       onCreate: initDB,
       onUpgrade: onUpgrade,
     );
@@ -26,6 +26,7 @@ class DatabaseProvider {
   }
 
   void initDB(Database database, int version) async {
+    // Crear la tabla para las respuestas de hiragana
     await database.execute(
       "CREATE TABLE hiragana_responses ("
       "id INTEGER PRIMARY KEY, "
@@ -33,12 +34,36 @@ class DatabaseProvider {
       "is_correct BOOLEAN"
       ")",
     );
+
+    // Crear la tabla para los ajustes
+    if (!await tableExists(database, 'settings')) {
+      await database.execute(
+        "CREATE TABLE settings ("
+        "key TEXT PRIMARY KEY, "
+        "value TEXT"
+        ")",
+      );
+    }
   }
 
   void onUpgrade(Database database, int oldVersion, int newVersion) {
     if (newVersion > oldVersion) {
-      // Run migration according database versions
+      // Si la versión es anterior a 2, crear la tabla `settings`
+      database.execute(
+        "CREATE TABLE settings ("
+        "key TEXT PRIMARY KEY, "
+        "value TEXT"
+        ")",
+      );
     }
+  }
+
+  Future<bool> tableExists(Database db, String tableName) async {
+    var res = await db.rawQuery(
+      "SELECT name FROM sqlite_master WHERE type='table' AND name=?",
+      [tableName],
+    );
+    return res.isNotEmpty;
   }
 
   Future<void> insertResponse(bool isCorrect) async {

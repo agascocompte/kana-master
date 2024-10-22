@@ -1,6 +1,7 @@
 import 'package:get_it/get_it.dart';
 import 'package:hiragana_japanesse/di/dependency_injector.config.dart';
 import 'package:hiragana_japanesse/domain/repositories/score_repository.dart';
+import 'package:hiragana_japanesse/domain/repositories/settings_repository.dart';
 import 'package:injectable/injectable.dart';
 
 final sl = GetIt.instance;
@@ -9,6 +10,9 @@ final sl = GetIt.instance;
 Future<void> configureDependencies(String environment) async {
   sl.registerLazySingleton<ScoreRepository>(
     () => ScoreRepository(),
+  );
+  sl.registerLazySingleton<SettingsRepository>(
+    () => SettingsRepository(),
   );
 
   sl.init(environment: environment);
