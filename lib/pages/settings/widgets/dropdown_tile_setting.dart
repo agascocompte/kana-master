@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hiragana_japanesse/constants.dart';
-import 'package:hiragana_japanesse/extensions.dart';
 
 class DropdownTileSetting extends StatelessWidget {
   final String title;
@@ -38,7 +37,7 @@ class DropdownTileSetting extends StatelessWidget {
         ListTile(
           leading: Icon(icon, color: jDarkBLue),
           title: Text(
-            "Difficulty: ${currentValue.toString().split('.').last.capitalize()}",
+            "Difficulty",
             style: TextStyle(fontSize: 16),
           ),
           subtitle: Text(
