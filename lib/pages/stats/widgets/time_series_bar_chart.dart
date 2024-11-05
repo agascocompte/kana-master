@@ -22,7 +22,6 @@ class TimeSeriesLineChart extends StatelessWidget {
         lineBarsData: [
           LineChartBarData(
             spots: correctSpots,
-            isCurved: true,
             color: Colors.green,
             belowBarData: BarAreaData(
               show: true,
@@ -31,7 +30,6 @@ class TimeSeriesLineChart extends StatelessWidget {
           ),
           LineChartBarData(
             spots: incorrectSpots,
-            isCurved: true,
             color: Colors.red,
             belowBarData: BarAreaData(
               show: true,
