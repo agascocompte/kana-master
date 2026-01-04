@@ -75,8 +75,9 @@ class HomePageState extends State<HomePage>
             unselectedLabelColor: jLightBLue,
             indicator: const UnderlineTabIndicator(
               borderSide: BorderSide(color: jOrange, width: 3),
-              insets: EdgeInsets.symmetric(horizontal: 16),
+              insets: EdgeInsets.zero,
             ),
+            indicatorSize: TabBarIndicatorSize.tab,
             labelStyle: const TextStyle(fontWeight: FontWeight.w700),
             controller: _tabController,
             tabs: const [

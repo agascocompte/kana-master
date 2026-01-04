@@ -44,8 +44,9 @@ class _StudyTabState extends State<StudyTab>
             controller: _controller,
             indicator: const UnderlineTabIndicator(
               borderSide: BorderSide(color: jOrange, width: 3),
-              insets: EdgeInsets.symmetric(horizontal: 16),
+              insets: EdgeInsets.zero,
             ),
+            indicatorSize: TabBarIndicatorSize.tab,
             labelStyle: const TextStyle(fontWeight: FontWeight.w700),
             labelColor: jDarkBLue,
             unselectedLabelColor: jLightBLue,
