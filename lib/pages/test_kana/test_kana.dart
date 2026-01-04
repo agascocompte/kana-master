@@ -95,7 +95,10 @@ class TestTab extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
                             TestButton(
-                              icon: const Icon(Icons.cancel_outlined),
+                              icon: const Icon(
+                                Icons.cancel_outlined,
+                                color: Colors.black,
+                              ),
                               heroTag: "cancel",
                               onPressed: () =>
                                   context.read<TestKanaBloc>().add(ResetTest()),
@@ -103,14 +106,16 @@ class TestTab extends StatelessWidget {
                             if (state.stateData.testType ==
                                 TestType.drawingTest)
                               TestButton(
-                                icon: const Icon(Icons.replay_outlined),
+                                icon: const Icon(Icons.replay_outlined,
+                                    color: Colors.black),
                                 heroTag: "clear",
                                 onPressed: () => context
                                     .read<TestKanaBloc>()
                                     .add(ClearDrawing()),
                               ),
                             TestButton(
-                              icon: const Icon(Icons.check_outlined),
+                              icon: const Icon(Icons.check_outlined,
+                                  color: Colors.black),
                               heroTag: "submit",
                               backgroundColor: state.stateData.canSubmitAnswer
                                   ? jOrange

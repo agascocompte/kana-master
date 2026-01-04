@@ -54,8 +54,8 @@ class StatsTabState extends State<StatsTab> {
                     padding: const EdgeInsets.all(8.0),
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: _showBarChart ? jLightBLue : jOrange,
-                      ),
+                          backgroundColor: _showBarChart ? jLightBLue : jOrange,
+                          foregroundColor: Colors.black),
                       onPressed: () {
                         setState(() {
                           _showBarChart = true;
@@ -63,7 +63,6 @@ class StatsTabState extends State<StatsTab> {
                       },
                       child: const Text(
                         'Counter',
-                        style: TextStyle(color: Colors.white),
                       ),
                     ),
                   ),
@@ -72,6 +71,7 @@ class StatsTabState extends State<StatsTab> {
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         backgroundColor: !_showBarChart ? jLightBLue : jOrange,
+                        foregroundColor: Colors.black,
                       ),
                       onPressed: () {
                         setState(() {
@@ -80,7 +80,6 @@ class StatsTabState extends State<StatsTab> {
                       },
                       child: const Text(
                         'Evolution',
-                        style: TextStyle(color: Colors.white),
                       ),
                     ),
                   ),
@@ -106,11 +105,11 @@ class StatsTabState extends State<StatsTab> {
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   backgroundColor: jOrange,
+                  foregroundColor: Colors.black,
                 ),
                 onPressed: () => Dialogs.showResetStatsAlert(context),
                 child: const Text(
                   "Reset stats",
-                  style: TextStyle(color: Colors.white),
                 ),
               ),
             ),

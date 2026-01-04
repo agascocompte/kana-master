@@ -192,7 +192,7 @@ class _MaterialTabState extends State<MaterialTab>
                 onPressed: isLoading ? null : _pickCsv,
                 style: ElevatedButton.styleFrom(
                   backgroundColor: jOrange,
-                  foregroundColor: jDarkBLue,
+                  foregroundColor: Colors.black,
                 ),
                 icon: const Icon(Icons.upload_file),
                 label: Text('Import CSV'),
@@ -273,12 +273,20 @@ class _MaterialTabState extends State<MaterialTab>
                           Row(
                             children: [
                               ElevatedButton.icon(
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: jOrange,
+                                  foregroundColor: Colors.black,
+                                ),
                                 onPressed: _nextQuestion,
                                 icon: const Icon(Icons.play_arrow),
                                 label: const Text('New Question'),
                               ),
                               const SizedBox(width: 12),
                               ElevatedButton.icon(
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: jOrange,
+                                  foregroundColor: Colors.black,
+                                ),
                                 onPressed: _checkAnswer,
                                 icon: const Icon(Icons.check),
                                 label: const Text('Check Answer'),
