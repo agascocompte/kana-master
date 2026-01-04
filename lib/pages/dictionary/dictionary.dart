@@ -81,8 +81,8 @@ class _DictionaryTabState extends State<DictionaryTab> {
                 if (state.stateData.entries.isEmpty) {
                   return const Center(
                     child: Text(
-                      'Empieza buscando una palabra.',
-                      style: TextStyle(color: Colors.grey),
+                      'Begin searching for a word.',
+                      style: TextStyle(color: Colors.black),
                     ),
                   );
                 }
@@ -92,48 +92,67 @@ class _DictionaryTabState extends State<DictionaryTab> {
                   separatorBuilder: (_, __) => const Divider(height: 1),
                   itemBuilder: (context, index) {
                     final entry = state.stateData.entries[index];
-                    return ListTile(
-                      title: SelectableText(
-                        entry.word,
-                        style: const TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      subtitle: Column(
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 8.0),
+                      child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
+                          SelectableText(
+                            entry.word,
+                            style: const TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
                           if (entry.reading.isNotEmpty)
                             Padding(
-                              padding: const EdgeInsets.only(top: 4.0),
+                              padding: const EdgeInsets.only(top: 2.0),
                               child: SelectableText(
                                 entry.reading,
                                 style: const TextStyle(color: jDarkBLue),
                               ),
                             ),
-                          const SizedBox(height: 4),
-                          Wrap(
-                            spacing: 6,
-                            runSpacing: 6,
-                            children: entry.meanings
-                                .map(
-                                  (meaning) => Container(
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 8, vertical: 6),
-                                    decoration: BoxDecoration(
-                                      color: jLightBLue.withOpacity(0.2),
-                                      borderRadius: BorderRadius.circular(8),
-                                      border: Border.all(
-                                          color: jLightBLue, width: 1),
-                                    ),
-                                    child: SelectableText(
-                                      meaning,
-                                      style: const TextStyle(fontSize: 13),
-                                    ),
-                                  ),
-                                )
-                                .toList(),
+                          const SizedBox(height: 6),
+                          _ChipWrap(
+                            items: entry.meanings,
+                            color: jOrange.withOpacity(0.14),
+                            borderColor: jOrange.withOpacity(0.6),
                           ),
+                          if (entry.partsOfSpeech.isNotEmpty ||
+                              entry.tags.isNotEmpty ||
+                              entry.jlpt.isNotEmpty)
+                            Padding(
+                              padding: const EdgeInsets.only(top: 6.0),
+                              child: _ChipWrap(
+                                items: [
+                                  ...entry.partsOfSpeech,
+                                  ...entry.tags,
+                                  ...entry.jlpt,
+                                ],
+                                color: Colors.grey.shade200,
+                                borderColor: Colors.grey.shade400,
+                                textStyle: const TextStyle(fontSize: 12),
+                              ),
+                            ),
+                          if (entry.info.isNotEmpty || entry.seeAlso.isNotEmpty)
+                            Padding(
+                              padding: const EdgeInsets.only(top: 6.0),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  if (entry.info.isNotEmpty)
+                                    _InfoBlock(
+                                      title: 'Notes',
+                                      lines: entry.info,
+                                    ),
+                                  if (entry.seeAlso.isNotEmpty)
+                                    _InfoBlock(
+                                      title: 'See also',
+                                      lines: entry.seeAlso,
+                                    ),
+                                ],
+                              ),
+                            ),
                         ],
                       ),
                     );
@@ -144,6 +163,82 @@ class _DictionaryTabState extends State<DictionaryTab> {
           ),
         ],
       ),
+    );
+  }
+}
+
+class _ChipWrap extends StatelessWidget {
+  final List<String> items;
+  final Color color;
+  final Color borderColor;
+  final TextStyle? textStyle;
+
+  const _ChipWrap({
+    required this.items,
+    required this.color,
+    required this.borderColor,
+    this.textStyle,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    if (items.isEmpty) return const SizedBox.shrink();
+    return Wrap(
+      spacing: 6,
+      runSpacing: 6,
+      children: items
+          .map(
+            (item) => Container(
+              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
+              decoration: BoxDecoration(
+                color: color,
+                borderRadius: BorderRadius.circular(10),
+                border: Border.all(color: borderColor, width: 1),
+              ),
+              child: SelectableText(
+                item,
+                style: textStyle ?? const TextStyle(fontSize: 13),
+              ),
+            ),
+          )
+          .toList(),
+    );
+  }
+}
+
+class _InfoBlock extends StatelessWidget {
+  final String title;
+  final List<String> lines;
+
+  const _InfoBlock({
+    required this.title,
+    required this.lines,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          title,
+          style: const TextStyle(
+            fontWeight: FontWeight.w700,
+            fontSize: 12,
+            color: jDarkBLue,
+          ),
+        ),
+        const SizedBox(height: 2),
+        ...lines.map(
+          (line) => Padding(
+            padding: const EdgeInsets.only(bottom: 2.0),
+            child: SelectableText(
+              '• $line',
+              style: const TextStyle(fontSize: 12, color: Colors.black),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

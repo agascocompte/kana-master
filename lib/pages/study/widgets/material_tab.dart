@@ -169,7 +169,7 @@ class _MaterialTabState extends State<MaterialTab>
             children: [
               IconButton(
                 tooltip: 'Expected Format',
-                icon: const Icon(Icons.info_outline, color: Colors.grey),
+                icon: const Icon(Icons.info_outline, color: Colors.black),
                 onPressed: () {
                   showDialog(
                     context: context,
@@ -298,7 +298,7 @@ class _MaterialTabState extends State<MaterialTab>
                           else
                             const Text(
                               'Import your CSV and press "New Question" to start.',
-                              style: TextStyle(color: Colors.grey),
+                              style: TextStyle(color: Colors.black),
                             ),
                           const SizedBox(height: 16),
                           TextField(
@@ -325,7 +325,7 @@ class _MaterialTabState extends State<MaterialTab>
                                         ? Icons.visibility_off
                                         : Icons.visibility,
                                     size: 16,
-                                    color: Colors.grey,
+                                    color: Colors.black,
                                   ),
                                   const SizedBox(width: 6),
                                   Text(
@@ -333,7 +333,7 @@ class _MaterialTabState extends State<MaterialTab>
                                         ? 'Answer: ${currentEntry!.values[answerColumn!] ?? ''}'
                                         : 'Show Answer',
                                     style: const TextStyle(
-                                        color: Colors.grey, fontSize: 12),
+                                        color: Colors.black, fontSize: 12),
                                   ),
                                 ],
                               ),
