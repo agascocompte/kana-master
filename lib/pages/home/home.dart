@@ -63,8 +63,8 @@ class HomePageState extends State<HomePage>
                     : katakana,
                 difficultyLevel: state.stateData.difficultyLevel,
               ),
-              StatsTab(),
               DictionaryTab(),
+              StatsTab(),
             ],
           );
         },
