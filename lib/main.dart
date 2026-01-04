@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kana_master/di/dependency_injector.dart';
+import 'package:kana_master/pages/dictionary/bloc/dictionary_bloc.dart';
 import 'package:kana_master/pages/settings/bloc/settings_bloc.dart';
 import 'package:kana_master/pages/stats/bloc/stats_bloc.dart';
 import 'package:kana_master/pages/test_kana/bloc/test_kana_bloc.dart';
@@ -25,6 +26,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) => sl<TestKanaBloc>()),
         BlocProvider(
             create: (context) => sl<StatsBloc>()..add(LoadMemoryStats())),
+        BlocProvider(create: (context) => sl<DictionaryBloc>()),
       ],
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
