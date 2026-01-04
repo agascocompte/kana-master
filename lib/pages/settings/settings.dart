@@ -63,7 +63,7 @@ class SettingsPage extends StatelessWidget {
                           Text(level.toString().split('.').last.capitalize()),
                           Text(
                             description,
-                            style: TextStyle(fontSize: 12, color: Colors.grey),
+                            style: TextStyle(fontSize: 12, color: Colors.black),
                           ),
                         ],
                       ),
