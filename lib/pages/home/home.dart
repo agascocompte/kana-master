@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:kana_master/constants.dart';
+import 'package:kana_master/pages/dictionary/dictionary.dart';
 import 'package:kana_master/pages/learn/learn.dart';
 import 'package:kana_master/pages/settings/bloc/settings_bloc.dart';
 import 'package:kana_master/pages/stats/stats.dart';
@@ -22,7 +23,7 @@ class HomePageState extends State<HomePage>
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 3, vsync: this);
+    _tabController = TabController(length: 4, vsync: this);
   }
 
   @override
@@ -63,6 +64,7 @@ class HomePageState extends State<HomePage>
                 difficultyLevel: state.stateData.difficultyLevel,
               ),
               StatsTab(),
+              DictionaryTab(),
             ],
           );
         },
@@ -76,6 +78,7 @@ class HomePageState extends State<HomePage>
           tabs: const [
             Tab(icon: Icon(Icons.list), text: "Learn"),
             Tab(icon: Icon(Icons.create), text: "Test"),
+            Tab(icon: Icon(Icons.search), text: "Search"),
             Tab(icon: Icon(Icons.bar_chart), text: "Stats"),
           ],
         ),
