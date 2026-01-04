@@ -93,7 +93,7 @@ class _DictionaryTabState extends State<DictionaryTab> {
                   itemBuilder: (context, index) {
                     final entry = state.stateData.entries[index];
                     return ListTile(
-                      title: Text(
+                      title: SelectableText(
                         entry.word,
                         style: const TextStyle(
                           fontSize: 18,
@@ -106,7 +106,7 @@ class _DictionaryTabState extends State<DictionaryTab> {
                           if (entry.reading.isNotEmpty)
                             Padding(
                               padding: const EdgeInsets.only(top: 4.0),
-                              child: Text(
+                              child: SelectableText(
                                 entry.reading,
                                 style: const TextStyle(color: jDarkBLue),
                               ),
@@ -126,7 +126,7 @@ class _DictionaryTabState extends State<DictionaryTab> {
                                       border:
                                           Border.all(color: jLightBLue, width: 1),
                                     ),
-                                    child: Text(
+                                    child: SelectableText(
                                       meaning,
                                       style: const TextStyle(fontSize: 13),
                                     ),
