@@ -3,10 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:kana_master/constants.dart';
 import 'package:kana_master/pages/dictionary/dictionary.dart';
-import 'package:kana_master/pages/learn/learn.dart';
 import 'package:kana_master/pages/settings/bloc/settings_bloc.dart';
-import 'package:kana_master/pages/stats/stats.dart';
-import 'package:kana_master/pages/test_kana/test_kana.dart';
+import 'package:kana_master/pages/study/study.dart';
 import 'package:kana_master/router/router.dart';
 
 class HomePage extends StatefulWidget {
@@ -23,7 +21,7 @@ class HomePageState extends State<HomePage>
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 4, vsync: this);
+    _tabController = TabController(length: 2, vsync: this);
   }
 
   @override
@@ -36,13 +34,18 @@ class HomePageState extends State<HomePage>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Kana Master"),
-        backgroundColor: jOrange,
+        title: const Text(
+          "Kana Master",
+          style: TextStyle(fontWeight: FontWeight.w700),
+        ),
         actions: [
           IconButton(
+            onPressed: () => context.push(AppRouter.statsRoute),
+            icon: const Icon(Icons.bar_chart_outlined),
+          ),
+          IconButton(
             onPressed: () => context.push(AppRouter.settingsRoute),
-            icon: Icon(Icons.settings),
-            color: Colors.black,
+            icon: const Icon(Icons.settings_outlined),
           ),
         ],
       ),
@@ -52,35 +55,35 @@ class HomePageState extends State<HomePage>
             physics: const NeverScrollableScrollPhysics(),
             controller: _tabController,
             children: [
-              LearnTab(
-                kana: state.stateData.kanaType == KanaType.hiragana
-                    ? hiragana
-                    : katakana,
-              ),
-              TestTab(
+              StudyTab(
                 kana: state.stateData.kanaType == KanaType.hiragana
                     ? hiragana
                     : katakana,
                 difficultyLevel: state.stateData.difficultyLevel,
               ),
-              DictionaryTab(),
-              StatsTab(),
+              const DictionaryTab(),
             ],
           );
         },
       ),
       bottomNavigationBar: Material(
-        color: Colors.grey[200],
-        child: TabBar(
-          labelColor: jOrange,
-          indicatorColor: jOrange,
-          controller: _tabController,
-          tabs: const [
-            Tab(icon: Icon(Icons.list), text: "Learn"),
-            Tab(icon: Icon(Icons.create), text: "Test"),
-            Tab(icon: Icon(Icons.search), text: "Search"),
-            Tab(icon: Icon(Icons.bar_chart), text: "Stats"),
-          ],
+        color: Colors.white,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 6.0),
+          child: TabBar(
+            labelColor: jDarkBLue,
+            unselectedLabelColor: jLightBLue,
+            indicator: const UnderlineTabIndicator(
+              borderSide: BorderSide(color: jOrange, width: 3),
+              insets: EdgeInsets.symmetric(horizontal: 16),
+            ),
+            labelStyle: const TextStyle(fontWeight: FontWeight.w700),
+            controller: _tabController,
+            tabs: const [
+              Tab(icon: Icon(Icons.school_outlined), text: "Study"),
+              Tab(icon: Icon(Icons.search), text: "Dictionary"),
+            ],
+          ),
         ),
       ),
     );
