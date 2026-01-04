@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:hiragana_japanesse/pages/home/home.dart';
-import 'package:hiragana_japanesse/pages/settings/settings.dart';
+import 'package:kana_master/pages/home/home.dart';
+import 'package:kana_master/pages/settings/settings.dart';
 
 class AppRouter {
   static const String homeRoute = "/home";

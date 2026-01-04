@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hiragana_japanesse/constants.dart';
+import 'package:kana_master/constants.dart';
 
 import '../bloc/test_kana_bloc.dart';
 

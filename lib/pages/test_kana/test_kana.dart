@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hiragana_japanesse/constants.dart';
-import 'package:hiragana_japanesse/pages/stats/bloc/stats_bloc.dart';
-import 'package:hiragana_japanesse/pages/test_kana/bloc/test_kana_bloc.dart';
-import 'package:hiragana_japanesse/pages/test_kana/widgets/test_body.dart';
-import 'package:hiragana_japanesse/pages/test_kana/widgets/test_button.dart';
-import 'package:hiragana_japanesse/pages/test_kana/widgets/test_title.dart';
-import 'package:hiragana_japanesse/widgets/snackbars.dart';
+import 'package:kana_master/constants.dart';
+import 'package:kana_master/pages/stats/bloc/stats_bloc.dart';
+import 'package:kana_master/pages/test_kana/bloc/test_kana_bloc.dart';
+import 'package:kana_master/pages/test_kana/widgets/test_body.dart';
+import 'package:kana_master/pages/test_kana/widgets/test_button.dart';
+import 'package:kana_master/pages/test_kana/widgets/test_title.dart';
+import 'package:kana_master/widgets/snackbars.dart';
 
 class TestTab extends StatelessWidget {
   final Map<String, String> kana;

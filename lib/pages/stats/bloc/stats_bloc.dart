@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hiragana_japanesse/domain/repositories/score_repository.dart';
+import 'package:kana_master/domain/repositories/score_repository.dart';
 import 'package:injectable/injectable.dart';
 
 part 'stats_event.dart';

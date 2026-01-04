@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hiragana_japanesse/constants.dart';
-import 'package:hiragana_japanesse/pages/test_kana/bloc/test_kana_bloc.dart';
+import 'package:kana_master/constants.dart';
+import 'package:kana_master/pages/test_kana/bloc/test_kana_bloc.dart';
 
 class TestTitle extends StatelessWidget {
   final TestKanaState state;

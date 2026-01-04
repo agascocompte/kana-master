@@ -1,5 +1,5 @@
-import 'package:hiragana_japanesse/domain/providers/database_provider.dart';
-import 'package:hiragana_japanesse/constants.dart';
+import 'package:kana_master/domain/providers/database_provider.dart';
+import 'package:kana_master/constants.dart';
 import 'package:sqflite/sqflite.dart';
 
 class SettingsRepository {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hiragana_japanesse/constants.dart';
+import 'package:kana_master/constants.dart';
 
 class DropdownTileSetting extends StatelessWidget {
   final String title;

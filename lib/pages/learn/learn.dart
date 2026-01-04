@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hiragana_japanesse/constants.dart';
-import 'package:hiragana_japanesse/pages/learn/widgets/kana_dialog.dart';
+import 'package:kana_master/constants.dart';
+import 'package:kana_master/pages/learn/widgets/kana_dialog.dart';
 
 class LearnTab extends StatelessWidget {
   final Map<String, String> kana;

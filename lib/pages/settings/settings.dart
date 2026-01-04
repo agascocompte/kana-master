@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hiragana_japanesse/constants.dart';
-import 'package:hiragana_japanesse/extensions.dart';
-import 'package:hiragana_japanesse/pages/settings/bloc/settings_bloc.dart';
-import 'package:hiragana_japanesse/pages/settings/widgets/dropdown_tile_setting.dart';
-import 'package:hiragana_japanesse/pages/settings/widgets/switch_tile_setting.dart';
+import 'package:kana_master/constants.dart';
+import 'package:kana_master/extensions.dart';
+import 'package:kana_master/pages/settings/bloc/settings_bloc.dart';
+import 'package:kana_master/pages/settings/widgets/dropdown_tile_setting.dart';
+import 'package:kana_master/pages/settings/widgets/switch_tile_setting.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({super.key});
