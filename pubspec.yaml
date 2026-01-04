@@ -25,6 +25,8 @@ dependencies:
   path_provider: ^2.1.5
   path: ^1.9.1
   http: ^1.2.1
+  file_picker: ^10.3.8
+  csv: ^6.0.0
   # Charts
   fl_chart: ^1.1.1
   # CNN model
