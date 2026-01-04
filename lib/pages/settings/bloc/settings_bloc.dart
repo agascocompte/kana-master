@@ -1,8 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hiragana_japanesse/constants.dart';
-import 'package:hiragana_japanesse/domain/repositories/settings_repository.dart';
+import 'package:kana_master/constants.dart';
+import 'package:kana_master/domain/repositories/settings_repository.dart';
 import 'package:injectable/injectable.dart';
 
 part 'settings_event.dart';

@@ -1,4 +1,4 @@
-import 'package:hiragana_japanesse/domain/providers/database_provider.dart';
+import 'package:kana_master/domain/providers/database_provider.dart';
 
 class ScoreRepository {
   final DatabaseProvider _databaseProvider = DatabaseProvider.dbProvider;

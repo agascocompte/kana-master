@@ -1,7 +1,7 @@
 import 'package:get_it/get_it.dart';
-import 'package:hiragana_japanesse/di/dependency_injector.config.dart';
-import 'package:hiragana_japanesse/domain/repositories/score_repository.dart';
-import 'package:hiragana_japanesse/domain/repositories/settings_repository.dart';
+import 'package:kana_master/di/dependency_injector.config.dart';
+import 'package:kana_master/domain/repositories/score_repository.dart';
+import 'package:kana_master/domain/repositories/settings_repository.dart';
 import 'package:injectable/injectable.dart';
 
 final sl = GetIt.instance;

@@ -1,4 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// dart format width=80
 
 // **************************************************************************
 // InjectableConfigGenerator
@@ -9,16 +10,13 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:get_it/get_it.dart' as _i174;
-import 'package:hiragana_japanesse/domain/repositories/score_repository.dart'
-    as _i754;
-import 'package:hiragana_japanesse/domain/repositories/settings_repository.dart'
-    as _i57;
-import 'package:hiragana_japanesse/pages/settings/bloc/settings_bloc.dart'
-    as _i391;
-import 'package:hiragana_japanesse/pages/stats/bloc/stats_bloc.dart' as _i15;
-import 'package:hiragana_japanesse/pages/test_kana/bloc/test_kana_bloc.dart'
-    as _i1050;
 import 'package:injectable/injectable.dart' as _i526;
+import 'package:kana_master/domain/repositories/score_repository.dart' as _i867;
+import 'package:kana_master/domain/repositories/settings_repository.dart'
+    as _i816;
+import 'package:kana_master/pages/settings/bloc/settings_bloc.dart' as _i221;
+import 'package:kana_master/pages/stats/bloc/stats_bloc.dart' as _i593;
+import 'package:kana_master/pages/test_kana/bloc/test_kana_bloc.dart' as _i735;
 
 extension GetItInjectableX on _i174.GetIt {
 // initializes the registration of main-scope dependencies inside of GetIt
@@ -31,11 +29,11 @@ extension GetItInjectableX on _i174.GetIt {
       environment,
       environmentFilter,
     );
-    gh.factory<_i1050.TestKanaBloc>(() => _i1050.TestKanaBloc());
-    gh.factory<_i15.StatsBloc>(
-        () => _i15.StatsBloc(scoreRepository: gh<_i754.ScoreRepository>()));
-    gh.factory<_i391.SettingsBloc>(() =>
-        _i391.SettingsBloc(settingsRepository: gh<_i57.SettingsRepository>()));
+    gh.factory<_i735.TestKanaBloc>(() => _i735.TestKanaBloc());
+    gh.factory<_i593.StatsBloc>(
+        () => _i593.StatsBloc(scoreRepository: gh<_i867.ScoreRepository>()));
+    gh.factory<_i221.SettingsBloc>(() =>
+        _i221.SettingsBloc(settingsRepository: gh<_i816.SettingsRepository>()));
     return this;
   }
 }

@@ -1,11 +1,11 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hiragana_japanesse/constants.dart';
-import 'package:hiragana_japanesse/pages/stats/bloc/stats_bloc.dart';
-import 'package:hiragana_japanesse/pages/stats/widgets/bar_chart.dart';
-import 'package:hiragana_japanesse/pages/stats/widgets/time_series_bar_chart.dart';
-import 'package:hiragana_japanesse/widgets/dialogs.dart';
+import 'package:kana_master/constants.dart';
+import 'package:kana_master/pages/stats/bloc/stats_bloc.dart';
+import 'package:kana_master/pages/stats/widgets/bar_chart.dart';
+import 'package:kana_master/pages/stats/widgets/time_series_bar_chart.dart';
+import 'package:kana_master/widgets/dialogs.dart';
 
 class StatsTab extends StatefulWidget {
   const StatsTab({super.key});

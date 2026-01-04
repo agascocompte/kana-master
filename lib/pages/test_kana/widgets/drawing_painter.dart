@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hiragana_japanesse/constants.dart';
-import 'package:hiragana_japanesse/domain/models/paint_stroke.dart';
+import 'package:kana_master/constants.dart';
+import 'package:kana_master/domain/models/paint_stroke.dart';
 
 class DrawingPainter extends CustomPainter {
   final List<PaintStroke> strokes;

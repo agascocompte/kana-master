@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:hiragana_japanesse/constants.dart';
-import 'package:hiragana_japanesse/pages/test_kana/bloc/test_kana_bloc.dart';
-import 'package:hiragana_japanesse/pages/test_kana/widgets/drawing_board.dart';
-import 'package:hiragana_japanesse/pages/test_kana/widgets/single_choice_test.dart';
-import 'package:hiragana_japanesse/pages/test_kana/widgets/text_field_test.dart';
+import 'package:kana_master/constants.dart';
+import 'package:kana_master/pages/test_kana/bloc/test_kana_bloc.dart';
+import 'package:kana_master/pages/test_kana/widgets/drawing_board.dart';
+import 'package:kana_master/pages/test_kana/widgets/single_choice_test.dart';
+import 'package:kana_master/pages/test_kana/widgets/text_field_test.dart';
 
 class TestBody extends StatelessWidget {
   final TestKanaState state;

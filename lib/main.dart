@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hiragana_japanesse/di/dependency_injector.dart';
-import 'package:hiragana_japanesse/pages/settings/bloc/settings_bloc.dart';
-import 'package:hiragana_japanesse/pages/stats/bloc/stats_bloc.dart';
-import 'package:hiragana_japanesse/pages/test_kana/bloc/test_kana_bloc.dart';
-import 'package:hiragana_japanesse/router/router.dart';
+import 'package:kana_master/di/dependency_injector.dart';
+import 'package:kana_master/pages/settings/bloc/settings_bloc.dart';
+import 'package:kana_master/pages/stats/bloc/stats_bloc.dart';
+import 'package:kana_master/pages/test_kana/bloc/test_kana_bloc.dart';
+import 'package:kana_master/router/router.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();

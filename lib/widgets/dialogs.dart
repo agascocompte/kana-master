@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hiragana_japanesse/constants.dart';
-import 'package:hiragana_japanesse/pages/stats/bloc/stats_bloc.dart';
+import 'package:kana_master/constants.dart';
+import 'package:kana_master/pages/stats/bloc/stats_bloc.dart';
 
 class Dialogs {
   static void showResetStatsAlert(

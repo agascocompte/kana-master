@@ -2,12 +2,12 @@ import 'dart:typed_data';
 import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:hiragana_japanesse/constants.dart';
+import 'package:kana_master/constants.dart';
 import 'package:image/image.dart' as img;
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hiragana_japanesse/domain/models/paint_stroke.dart';
-import 'package:hiragana_japanesse/pages/test_kana/bloc/test_kana_bloc.dart';
-import 'package:hiragana_japanesse/pages/test_kana/widgets/drawing_painter.dart';
+import 'package:kana_master/domain/models/paint_stroke.dart';
+import 'package:kana_master/pages/test_kana/bloc/test_kana_bloc.dart';
+import 'package:kana_master/pages/test_kana/widgets/drawing_painter.dart';
 
 class DrawingBoard extends StatefulWidget {
   const DrawingBoard({
