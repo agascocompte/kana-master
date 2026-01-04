@@ -1,4 +1,4 @@
-package com.example.hiragana_japanesse
+package com.agasco.kanamaster
 
 import io.flutter.embedding.android.FlutterActivity
 
