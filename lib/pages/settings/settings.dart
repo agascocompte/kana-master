@@ -13,8 +13,7 @@ class SettingsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Settings'),
-        backgroundColor: jOrange,
+        title: const Text('Settings'),
       ),
       body: BlocBuilder<SettingsBloc, SettingsState>(
         builder: (context, state) {
