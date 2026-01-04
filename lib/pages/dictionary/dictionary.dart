@@ -37,7 +37,7 @@ class _DictionaryTabState extends State<DictionaryTab> {
                 child: TextField(
                   controller: _controller,
                   decoration: const InputDecoration(
-                    hintText: 'Buscar en Jisho (palabra, kana, romaji...)',
+                    hintText: 'Search word, kana, romaji...',
                     border: OutlineInputBorder(),
                     contentPadding:
                         EdgeInsets.symmetric(horizontal: 12, vertical: 10),
@@ -123,8 +123,8 @@ class _DictionaryTabState extends State<DictionaryTab> {
                                     decoration: BoxDecoration(
                                       color: jLightBLue.withOpacity(0.2),
                                       borderRadius: BorderRadius.circular(8),
-                                      border:
-                                          Border.all(color: jLightBLue, width: 1),
+                                      border: Border.all(
+                                          color: jLightBLue, width: 1),
                                     ),
                                     child: SelectableText(
                                       meaning,

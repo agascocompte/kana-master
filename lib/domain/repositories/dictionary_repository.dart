@@ -17,7 +17,7 @@ class DictionaryRepository {
     final response = await http.get(uri);
 
     if (response.statusCode != 200) {
-      throw Exception('Error al buscar en Jisho: ${response.statusCode}');
+      throw Exception('Error searching Jisho: ${response.statusCode}');
     }
 
     final Map<String, dynamic> jsonBody =

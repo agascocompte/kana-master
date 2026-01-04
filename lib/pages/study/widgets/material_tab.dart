@@ -16,7 +16,8 @@ class MaterialTab extends StatefulWidget {
   State<MaterialTab> createState() => _MaterialTabState();
 }
 
-class _MaterialTabState extends State<MaterialTab> {
+class _MaterialTabState extends State<MaterialTab>
+    with AutomaticKeepAliveClientMixin {
   List<String> headers = [];
   List<MaterialEntry> entries = [];
   String? questionColumn;
@@ -33,6 +34,9 @@ class _MaterialTabState extends State<MaterialTab> {
     _answerController.dispose();
     super.dispose();
   }
+
+  @override
+  bool get wantKeepAlive => true;
 
   Future<void> _pickCsv() async {
     try {
@@ -57,7 +61,7 @@ class _MaterialTabState extends State<MaterialTab> {
 
       final rows = const CsvToListConverter(eol: '\n').convert(content);
       if (rows.isEmpty || rows.first.isEmpty) {
-        throw Exception('No se encontraron datos en el CSV.');
+        throw Exception('Data not found in CSV.');
       }
 
       final parsedHeaders = rows.first
@@ -73,7 +77,7 @@ class _MaterialTabState extends State<MaterialTab> {
           .toList();
 
       if (parsedEntries.isEmpty) {
-        throw Exception('No se encontraron filas válidas.');
+        throw Exception('No valid rows found.');
       }
 
       setState(() {
@@ -86,9 +90,9 @@ class _MaterialTabState extends State<MaterialTab> {
         _answerController.clear();
       });
       Snackbars.showSuccessScaffold(context,
-          'Importado ${parsedEntries.length} entradas de ${file.name}');
+          'Imported ${parsedEntries.length} entries from ${file.name}');
     } catch (e) {
-      Snackbars.showErrorScaffold(context, 'Error al importar: $e');
+      Snackbars.showErrorScaffold(context, 'Error importing: $e');
     } finally {
       setState(() {
         isLoading = false;
@@ -99,7 +103,7 @@ class _MaterialTabState extends State<MaterialTab> {
   void _nextQuestion() {
     if (entries.isEmpty || questionColumn == null || answerColumn == null) {
       Snackbars.showWarningScaffold(
-          context, 'Importa un CSV y elige columnas antes de practicar.');
+          context, 'Import a CSV and choose columns before practicing.');
       return;
     }
     final entry = entries[_random.nextInt(entries.length)];
@@ -114,16 +118,16 @@ class _MaterialTabState extends State<MaterialTab> {
         questionColumn == null ||
         answerColumn == null) {
       Snackbars.showWarningScaffold(
-          context, 'Primero inicia una pregunta desde tu material.');
+          context, 'First start a question from your material.');
       return;
     }
     final correct = currentEntry!.values[answerColumn!] ?? '';
     final user = _answerController.text;
     if (_isAnswerClose(user, correct)) {
-      Snackbars.showSuccessScaffold(context, '¡Correcto!');
+      Snackbars.showSuccessScaffold(context, 'Correct!');
       _nextQuestion();
     } else {
-      Snackbars.showWarningScaffold(context, 'Respuesta incorrecta');
+      Snackbars.showWarningScaffold(context, 'Incorrect answer');
     }
   }
 
@@ -155,6 +159,7 @@ class _MaterialTabState extends State<MaterialTab> {
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return Padding(
       padding: const EdgeInsets.all(12.0),
       child: Column(
@@ -163,15 +168,15 @@ class _MaterialTabState extends State<MaterialTab> {
           Row(
             children: [
               IconButton(
-                tooltip: 'Formato esperado',
+                tooltip: 'Expected Format',
                 icon: const Icon(Icons.info_outline, color: Colors.grey),
                 onPressed: () {
                   showDialog(
                     context: context,
                     builder: (context) => AlertDialog(
-                      title: const Text('Formato esperado'),
+                      title: const Text('Expected Format'),
                       content: const Text(
-                        'Cabeceras recomendadas:\n\nEspañol | Romaji | Hiragana | Katakana | Kanji.\n\nPuedes mapear cualquier columna como pregunta o respuesta. Usa CSV separado por comas.',
+                        'Recommended headers:\n\nLanguage | Romaji | Hiragana | Katakana | Kanji.\n\nYou can map any column as question or answer. Use comma-separated CSV.',
                       ),
                       actions: [
                         TextButton(
@@ -190,13 +195,13 @@ class _MaterialTabState extends State<MaterialTab> {
                   foregroundColor: jDarkBLue,
                 ),
                 icon: const Icon(Icons.upload_file),
-                label: Text(isLoading ? 'Importando...' : 'Importar CSV'),
+                label: Text('Import CSV'),
               ),
               const SizedBox(width: 12),
               if (importedFileName.isNotEmpty)
                 Expanded(
                   child: Text(
-                    'Archivo: $importedFileName (${entries.length} filas)',
+                    'File: $importedFileName (${entries.length} rows)',
                     overflow: TextOverflow.ellipsis,
                     style: const TextStyle(
                       fontWeight: FontWeight.w600,
@@ -212,7 +217,7 @@ class _MaterialTabState extends State<MaterialTab> {
               children: [
                 Expanded(
                   child: _DropdownSelector(
-                    label: 'Preguntar con',
+                    label: 'Ask with',
                     value: questionColumn,
                     items: headers,
                     onChanged: (value) {
@@ -225,7 +230,7 @@ class _MaterialTabState extends State<MaterialTab> {
                 const SizedBox(width: 12),
                 Expanded(
                   child: _DropdownSelector(
-                    label: 'Responder con',
+                    label: 'Answer with',
                     value: answerColumn,
                     items: headers,
                     onChanged: (value) {
@@ -256,7 +261,7 @@ class _MaterialTabState extends State<MaterialTab> {
                         borderRadius: BorderRadius.circular(12),
                         boxShadow: [
                           BoxShadow(
-                            color: Colors.black.withOpacity(0.04),
+                            color: Colors.black.withAlpha(10),
                             offset: const Offset(0, 4),
                             blurRadius: 10,
                           ),
@@ -270,13 +275,13 @@ class _MaterialTabState extends State<MaterialTab> {
                               ElevatedButton.icon(
                                 onPressed: _nextQuestion,
                                 icon: const Icon(Icons.play_arrow),
-                                label: const Text('Nueva pregunta'),
+                                label: const Text('New Question'),
                               ),
                               const SizedBox(width: 12),
                               ElevatedButton.icon(
                                 onPressed: _checkAnswer,
                                 icon: const Icon(Icons.check),
-                                label: const Text('Comprobar'),
+                                label: const Text('Check Answer'),
                               ),
                             ],
                           ),
@@ -292,7 +297,7 @@ class _MaterialTabState extends State<MaterialTab> {
                             )
                           else
                             const Text(
-                              'Importa tu CSV y pulsa \"Nueva pregunta\" para empezar.',
+                              'Import your CSV and press "New Question" to start.',
                               style: TextStyle(color: Colors.grey),
                             ),
                           const SizedBox(height: 16),
@@ -301,7 +306,7 @@ class _MaterialTabState extends State<MaterialTab> {
                             textInputAction: TextInputAction.done,
                             onSubmitted: (_) => _checkAnswer(),
                             decoration: const InputDecoration(
-                              labelText: 'Tu respuesta',
+                              labelText: 'Your Answer',
                               border: OutlineInputBorder(),
                             ),
                           ),
@@ -325,8 +330,8 @@ class _MaterialTabState extends State<MaterialTab> {
                                   const SizedBox(width: 6),
                                   Text(
                                     showExpectedAnswer
-                                        ? 'Respuesta: ${currentEntry!.values[answerColumn!] ?? ''}'
-                                        : 'Mostrar respuesta',
+                                        ? 'Answer: ${currentEntry!.values[answerColumn!] ?? ''}'
+                                        : 'Show Answer',
                                     style: const TextStyle(
                                         color: Colors.grey, fontSize: 12),
                                   ),
