@@ -18,6 +18,7 @@ part 'test_kana_state.dart';
 class TestKanaBloc extends Bloc<TestKanaEvent, TestKanaState> {
   final random = math.Random();
   Interpreter? interpreter;
+  final ModelConfig _modelConfig = activeHiraganaModel;
 
   TestKanaBloc() : super(TestKanaInitial()) {
     on<BeginTest>(_beginTest);
@@ -34,8 +35,7 @@ class TestKanaBloc extends Bloc<TestKanaEvent, TestKanaState> {
   }
 
   Future<void> _loadModel() async {
-    interpreter =
-        await Interpreter.fromAsset('assets/models/model_etl8g.tflite');
+    interpreter = await Interpreter.fromAsset(_modelConfig.assetPath);
   }
 
   @override
@@ -50,7 +50,7 @@ class TestKanaBloc extends Bloc<TestKanaEvent, TestKanaState> {
         : TestType.singleAnswer;
     emit(TestKanaDraw(state.stateData.copyWith(
       kanaIndex: random.nextInt(testType == TestType.drawingTest
-          ? hiraganaWithoutWo.length
+          ? hiragana.length
           : event.kana.length),
       testType: testType,
     )));
@@ -89,6 +89,8 @@ class TestKanaBloc extends Bloc<TestKanaEvent, TestKanaState> {
     if (predictions != null) {
       List<double> p = predictions[0].cast<double>();
       int predictedIndex = getIndexOfMaxValue(p);
+      print("Predicted index: $predictedIndex");
+      print("Index to predict: ${state.stateData.kanaIndex}");
       if (predictedIndex == state.stateData.kanaIndex) {
         emit(HiraganaWritingSuccess(
           state.stateData,
@@ -124,7 +126,7 @@ class TestKanaBloc extends Bloc<TestKanaEvent, TestKanaState> {
         : TestType.singleAnswer;
     emit(NextKanaLoaded(state.stateData.copyWith(
       kanaIndex: random.nextInt(testType == TestType.drawingTest
-          ? hiraganaWithoutWo.length
+          ? hiragana.length
           : event.kana.length),
       testType: testType,
     )));
@@ -162,25 +164,30 @@ class TestKanaBloc extends Bloc<TestKanaEvent, TestKanaState> {
 
   // Private functions
   img.Image preprocessImage(img.Image image) {
-    img.Image resizedImg =
-        img.copyResize(image, width: imageDimensions, height: imageDimensions);
+    img.Image resizedImg = img.copyResize(
+      image,
+      width: _modelConfig.inputSize,
+      height: _modelConfig.inputSize,
+    );
     return img.grayscale(resizedImg);
   }
 
   Float32List imageToByteListFloat32(img.Image image) {
-    var convertedBytes = Float32List(1 * imageDimensions * imageDimensions);
+    int inputSize = _modelConfig.inputSize;
+    double normalizeDivisor = _modelConfig.normalize ? 1.0 : 1.0;
+    var convertedBytes = Float32List(1 * inputSize * inputSize);
     var buffer = Float32List.view(convertedBytes.buffer);
     int pixelIndex = 0;
 
-    for (int i = 0; i < imageDimensions; i++) {
-      for (int j = 0; j < imageDimensions; j++) {
+    for (int i = 0; i < inputSize; i++) {
+      for (int j = 0; j < inputSize; j++) {
         img.Pixel pixel = image.getPixel(j, i);
         num red = pixel.r;
         num green = pixel.g;
         num blue = pixel.b;
 
         double grayValue = 0.299 * red + 0.587 * green + 0.114 * blue;
-        buffer[pixelIndex++] = grayValue;
+        buffer[pixelIndex++] = grayValue / normalizeDivisor;
       }
     }
     return buffer;
@@ -191,8 +198,10 @@ class TestKanaBloc extends Bloc<TestKanaEvent, TestKanaState> {
     try {
       img.Image preprocessedImage = preprocessImage(image);
       var input = imageToByteListFloat32(preprocessedImage);
-      var inputTensor = input.reshape([1, imageDimensions, imageDimensions, 1]);
-      output = List.filled(totalClasses, 0).reshape([1, totalClasses]);
+      var inputTensor =
+          input.reshape([1, _modelConfig.inputSize, _modelConfig.inputSize, 1]);
+      output = List.filled(_modelConfig.numClasses, 0)
+          .reshape([1, _modelConfig.numClasses]);
       interpreter.run(inputTensor, output);
     } catch (e) {
       return null;
@@ -204,7 +213,7 @@ class TestKanaBloc extends Bloc<TestKanaEvent, TestKanaState> {
     if (predictions.isEmpty) return -1;
     double maxValue = predictions[0];
     int maxIndex = 0;
-    for (int i = 1; i < predictions.length - 1; i++) {
+    for (int i = 1; i < predictions.length; i++) {
       if (predictions[i] > maxValue) {
         maxValue = predictions[i];
         maxIndex = i;

@@ -31,6 +31,10 @@ dependencies:
   fl_chart: ^1.1.1
   # CNN model
   tflite_flutter: ^0.12.1
+  # SVG stroke order
+  flutter_svg: ^2.0.10
+  path_drawing: ^1.0.1
+  xml: ^6.5.0
   # tflite_flutter:
   #   git:
   #       url: https://github.com/CaptainDario/flutter-tflite
@@ -83,6 +87,6 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/gifs/hiragana/
-    - assets/gifs/katakana/
+    - assets/svg/hiragana/
     - assets/models/model_etl8g.tflite
+    - assets/models/hiragana.tflite

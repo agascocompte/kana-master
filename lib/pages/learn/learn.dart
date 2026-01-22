@@ -12,6 +12,8 @@ class LearnTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final List<String?> keys =
+        kana == hiragana ? hiraganaDisplayGrid : kana.keys.toList();
     return GridView.builder(
       padding: const EdgeInsets.all(10),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -19,9 +21,12 @@ class LearnTab extends StatelessWidget {
         crossAxisSpacing: 10,
         mainAxisSpacing: 10,
       ),
-      itemCount: kana.length,
+      itemCount: keys.length,
       itemBuilder: (context, index) {
-        String key = kana.keys.elementAt(index);
+        String? key = keys[index];
+        if (key == null || !kana.containsKey(key)) {
+          return const SizedBox.shrink();
+        }
         String value = kana[key]!;
         return GestureDetector(
           onTap: () => _showGifDialog(context, value),
