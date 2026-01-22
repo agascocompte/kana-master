@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kana_master/pages/learn/widgets/kana_stroke_animation.dart';
 
 class KanaDialog extends StatelessWidget {
   final String romaji;
@@ -12,7 +13,6 @@ class KanaDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    _evictImage();
     return AlertDialog(
       elevation: 0,
       backgroundColor: Colors.white,
@@ -21,9 +21,8 @@ class KanaDialog extends StatelessWidget {
         children: <Widget>[
           SizedBox(
             width: double.infinity,
-            child: Image.asset(
-              'assets/gifs/$kanaFolder/$romaji.gif',
-              fit: BoxFit.cover,
+            child: KanaStrokeAnimation(
+              assetPath: 'assets/svg/$kanaFolder/$romaji.svg',
             ),
           ),
           Padding(
@@ -33,13 +32,5 @@ class KanaDialog extends StatelessWidget {
         ],
       ),
     );
-  }
-
-  void _evictImage() {
-    final AssetImage provider =
-        AssetImage('assets/gifs/$kanaFolder/$romaji.gif');
-    provider.evict().then((bool success) {
-      if (success) debugPrint('Removed image from cache');
-    });
   }
 }
