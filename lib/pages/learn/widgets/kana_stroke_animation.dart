@@ -9,10 +9,14 @@ import 'package:xml/xml.dart';
 
 class KanaStrokeAnimation extends StatefulWidget {
   final String assetPath;
+  final Duration perStrokeDuration;
+  final Duration pauseDuration;
 
   const KanaStrokeAnimation({
     super.key,
     required this.assetPath,
+    this.perStrokeDuration = const Duration(milliseconds: 900),
+    this.pauseDuration = const Duration(milliseconds: 900),
   });
 
   @override
@@ -24,6 +28,7 @@ class _KanaStrokeAnimationState extends State<KanaStrokeAnimation>
   AnimationController? _controller;
   _StrokeData? _strokeData;
   bool _loadFailed = false;
+  int _animationToken = 0;
 
   @override
   void initState() {
@@ -39,6 +44,7 @@ class _KanaStrokeAnimationState extends State<KanaStrokeAnimation>
       _controller = null;
       _strokeData = null;
       _loadFailed = false;
+      _animationToken++;
       _load();
     }
   }
@@ -56,20 +62,27 @@ class _KanaStrokeAnimationState extends State<KanaStrokeAnimation>
       if (data.paths.isEmpty) {
         setState(() {
           _strokeData = data;
+          _loadFailed = false;
         });
         return;
       }
       _controller = AnimationController(
         vsync: this,
-        duration: Duration(milliseconds: 600 * data.paths.length),
-      )..repeat();
+        duration: widget.perStrokeDuration * data.paths.length,
+      );
       setState(() {
         _strokeData = data;
+        _loadFailed = false;
       });
+      _startAnimationLoop(++_animationToken);
     } catch (_) {
       if (!mounted) return;
       setState(() {
-        _strokeData = const _StrokeData(paths: [], viewBox: Size(109, 109));
+        _strokeData = const _StrokeData(
+          paths: [],
+          numbers: [],
+          viewBox: Size(109, 109),
+        );
         _loadFailed = true;
       });
     }
@@ -98,6 +111,7 @@ class _KanaStrokeAnimationState extends State<KanaStrokeAnimation>
           child: CustomPaint(
             painter: _StrokeOrderPainter(
               paths: _strokeData!.paths,
+              numbers: _strokeData!.numbers,
               viewBox: _strokeData!.viewBox,
               progress: _controller!.value,
             ),
@@ -106,14 +120,26 @@ class _KanaStrokeAnimationState extends State<KanaStrokeAnimation>
       },
     );
   }
+
+  Future<void> _startAnimationLoop(int token) async {
+    if (_controller == null) return;
+    while (mounted && token == _animationToken) {
+      await _controller!.forward(from: 0);
+      if (!mounted || token != _animationToken) return;
+      await Future.delayed(widget.pauseDuration);
+      if (!mounted || token != _animationToken) return;
+    }
+  }
 }
 
 class _StrokeData {
   final List<Path> paths;
+  final List<_StrokeNumber> numbers;
   final Size viewBox;
 
   const _StrokeData({
     required this.paths,
+    required this.numbers,
     required this.viewBox,
   });
 }
@@ -124,13 +150,33 @@ Future<_StrokeData> _loadStrokeData(String assetPath) async {
   final viewBox = _parseViewBox(document);
 
   final List<Path> paths = [];
-  for (final element in document.findAllElements('path')) {
+  for (final element in document.descendants.whereType<XmlElement>()) {
+    if (element.name.local != 'path') continue;
     final String? d = element.getAttribute('d');
     if (d == null || d.isEmpty) continue;
     paths.add(parseSvgPathData(d));
   }
 
-  return _StrokeData(paths: paths, viewBox: viewBox);
+  final List<_StrokeNumber> numbers = [];
+  for (final group in document.descendants.whereType<XmlElement>()) {
+    if (group.name.local != 'g') continue;
+    final String? groupId = group.getAttribute('id');
+    if (groupId == null || !groupId.startsWith('kvg:StrokeNumbers_')) {
+      continue;
+    }
+    for (final element in group.descendants.whereType<XmlElement>()) {
+      if (element.name.local != 'text') continue;
+      final value = element.innerText.trim();
+      if (value.isEmpty) continue;
+      final int? number = int.tryParse(value);
+      if (number == null) continue;
+      final Offset? position = _parseTextPosition(element);
+      if (position == null) continue;
+      numbers.add(_StrokeNumber(number: number, position: position));
+    }
+  }
+
+  return _StrokeData(paths: paths, numbers: numbers, viewBox: viewBox);
 }
 
 Size _parseViewBox(XmlDocument document) {
@@ -147,13 +193,67 @@ Size _parseViewBox(XmlDocument document) {
   return Size(width, height);
 }
 
+Offset? _parseTransformPosition(String? transform) {
+  if (transform == null) return null;
+  final match = RegExp(r'matrix\(([^)]+)\)').firstMatch(transform);
+  if (match == null) return null;
+  final parts = match.group(1)!.split(RegExp(r'[\s,]+'));
+  if (parts.length < 6) return null;
+  final double? tx = double.tryParse(parts[4]);
+  final double? ty = double.tryParse(parts[5]);
+  if (tx == null || ty == null) return null;
+  return Offset(tx, ty);
+}
+
+Offset? _parseTextPosition(XmlElement element) {
+  final String? transform = element.getAttribute('transform');
+  final Offset? matrixPos = _parseTransformPosition(transform);
+  if (matrixPos != null) return matrixPos;
+  if (transform != null) {
+    final translateMatch = RegExp(r'translate\(([^)]+)\)').firstMatch(transform);
+    if (translateMatch != null) {
+      final parts = translateMatch.group(1)!.split(RegExp(r'[\s,]+'));
+      if (parts.isNotEmpty) {
+        final double? tx = double.tryParse(parts[0]);
+        final double? ty =
+            parts.length > 1 ? double.tryParse(parts[1]) : 0.0;
+        if (tx != null && ty != null) {
+          return Offset(tx, ty);
+        }
+      }
+    }
+  }
+  final String? xAttr = element.getAttribute('x');
+  final String? yAttr = element.getAttribute('y');
+  if (xAttr != null && yAttr != null) {
+    final double? x = double.tryParse(xAttr);
+    final double? y = double.tryParse(yAttr);
+    if (x != null && y != null) {
+      return Offset(x, y);
+    }
+  }
+  return null;
+}
+
+class _StrokeNumber {
+  final int number;
+  final Offset position;
+
+  const _StrokeNumber({
+    required this.number,
+    required this.position,
+  });
+}
+
 class _StrokeOrderPainter extends CustomPainter {
   final List<Path> paths;
+  final List<_StrokeNumber> numbers;
   final Size viewBox;
   final double progress;
 
   _StrokeOrderPainter({
     required this.paths,
+    required this.numbers,
     required this.viewBox,
     required this.progress,
   });
@@ -171,19 +271,20 @@ class _StrokeOrderPainter extends CustomPainter {
     canvas.translate(dx, dy);
     canvas.scale(scale);
 
-    final Paint completedPaint = Paint()
-      ..color = jLightBLue
+    final List<Color> strokePalette = [
+      jLightBLue,
+      jOrange,
+      const Color(0xFF2E7D32),
+      const Color(0xFF6D4C41),
+      const Color(0xFFD81B60),
+      const Color(0xFF0277BD),
+      const Color(0xFFF9A825),
+      const Color(0xFF8E24AA),
+    ];
+    final Paint paint = Paint()
       ..style = PaintingStyle.stroke
       ..strokeCap = StrokeCap.round
-      ..strokeJoin = StrokeJoin.round
-      ..strokeWidth = 4.0;
-
-    final Paint activePaint = Paint()
-      ..color = jOrange
-      ..style = PaintingStyle.stroke
-      ..strokeCap = StrokeCap.round
-      ..strokeJoin = StrokeJoin.round
-      ..strokeWidth = 5.0;
+      ..strokeJoin = StrokeJoin.round;
 
     final int total = paths.length;
     final double scaled = progress * total;
@@ -191,13 +292,49 @@ class _StrokeOrderPainter extends CustomPainter {
     final double currentProgress = scaled - current;
 
     for (int i = 0; i < total; i++) {
+      final Color color = strokePalette[i % strokePalette.length];
       if (i < current) {
-        canvas.drawPath(paths[i], completedPaint);
+        paint
+          ..color = color
+          ..strokeWidth = 4.0;
+        canvas.drawPath(paths[i], paint);
       } else if (i == current) {
-        _drawPartialPath(canvas, paths[i], currentProgress, activePaint);
+        paint
+          ..color = color
+          ..strokeWidth = 5.0;
+        _drawPartialPath(canvas, paths[i], currentProgress, paint);
       }
     }
+    _drawNumbers(canvas, current, strokePalette);
     canvas.restore();
+  }
+
+  void _drawNumbers(
+    Canvas canvas,
+    int currentStroke,
+    List<Color> strokePalette,
+  ) {
+    if (numbers.isEmpty) return;
+    final List<_StrokeNumber> ordered = List.from(numbers)
+      ..sort((a, b) => a.number.compareTo(b.number));
+    for (int i = 0; i < ordered.length; i++) {
+      if (i > currentStroke) break;
+      final Color color = strokePalette[i % strokePalette.length];
+      final TextStyle style = TextStyle(
+        color: color,
+        fontSize: 8,
+        fontWeight: FontWeight.w600,
+      );
+      final textPainter = TextPainter(
+        text: TextSpan(text: ordered[i].number.toString(), style: style),
+        textDirection: TextDirection.ltr,
+      )..layout();
+      textPainter.paint(
+        canvas,
+        Offset(ordered[i].position.dx, ordered[i].position.dy) -
+            const Offset(2, 6),
+      );
+    }
   }
 
   void _drawPartialPath(
@@ -217,6 +354,7 @@ class _StrokeOrderPainter extends CustomPainter {
   bool shouldRepaint(covariant _StrokeOrderPainter oldDelegate) {
     return oldDelegate.progress != progress ||
         oldDelegate.paths != paths ||
+        oldDelegate.numbers != numbers ||
         oldDelegate.viewBox != viewBox;
   }
 }
