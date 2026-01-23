@@ -10,13 +10,15 @@ import 'package:xml/xml.dart';
 class KanaStrokeAnimation extends StatefulWidget {
   final String assetPath;
   final Duration perStrokeDuration;
+  final Duration interStrokeDelay;
   final Duration pauseDuration;
 
   const KanaStrokeAnimation({
     super.key,
     required this.assetPath,
     this.perStrokeDuration = const Duration(milliseconds: 900),
-    this.pauseDuration = const Duration(milliseconds: 900),
+    this.interStrokeDelay = const Duration(milliseconds: 250),
+    this.pauseDuration = const Duration(milliseconds: 2300),
   });
 
   @override
@@ -68,7 +70,8 @@ class _KanaStrokeAnimationState extends State<KanaStrokeAnimation>
       }
       _controller = AnimationController(
         vsync: this,
-        duration: widget.perStrokeDuration * data.paths.length,
+        duration: (widget.perStrokeDuration + widget.interStrokeDelay) *
+            data.paths.length,
       );
       setState(() {
         _strokeData = data;
@@ -114,6 +117,8 @@ class _KanaStrokeAnimationState extends State<KanaStrokeAnimation>
               numbers: _strokeData!.numbers,
               viewBox: _strokeData!.viewBox,
               progress: _controller!.value,
+              perStrokeDuration: widget.perStrokeDuration,
+              interStrokeDelay: widget.interStrokeDelay,
             ),
           ),
         );
@@ -210,13 +215,13 @@ Offset? _parseTextPosition(XmlElement element) {
   final Offset? matrixPos = _parseTransformPosition(transform);
   if (matrixPos != null) return matrixPos;
   if (transform != null) {
-    final translateMatch = RegExp(r'translate\(([^)]+)\)').firstMatch(transform);
+    final translateMatch =
+        RegExp(r'translate\(([^)]+)\)').firstMatch(transform);
     if (translateMatch != null) {
       final parts = translateMatch.group(1)!.split(RegExp(r'[\s,]+'));
       if (parts.isNotEmpty) {
         final double? tx = double.tryParse(parts[0]);
-        final double? ty =
-            parts.length > 1 ? double.tryParse(parts[1]) : 0.0;
+        final double? ty = parts.length > 1 ? double.tryParse(parts[1]) : 0.0;
         if (tx != null && ty != null) {
           return Offset(tx, ty);
         }
@@ -250,12 +255,16 @@ class _StrokeOrderPainter extends CustomPainter {
   final List<_StrokeNumber> numbers;
   final Size viewBox;
   final double progress;
+  final Duration perStrokeDuration;
+  final Duration interStrokeDelay;
 
   _StrokeOrderPainter({
     required this.paths,
     required this.numbers,
     required this.viewBox,
     required this.progress,
+    required this.perStrokeDuration,
+    required this.interStrokeDelay,
   });
 
   @override
@@ -287,9 +296,16 @@ class _StrokeOrderPainter extends CustomPainter {
       ..strokeJoin = StrokeJoin.round;
 
     final int total = paths.length;
-    final double scaled = progress * total;
-    final int current = scaled.floor().clamp(0, total - 1);
-    final double currentProgress = scaled - current;
+    final double perStrokeMs = perStrokeDuration.inMilliseconds.toDouble();
+    final double delayMs = interStrokeDelay.inMilliseconds.toDouble();
+    final double segmentMs = perStrokeMs + delayMs;
+    final double elapsedMs = progress * segmentMs * total;
+    final int current = (elapsedMs / segmentMs).floor().clamp(0, total - 1);
+    final double segmentProgress = elapsedMs - (current * segmentMs);
+    final bool inDrawPhase = segmentProgress <= perStrokeMs || delayMs == 0;
+    final double currentProgress = perStrokeMs == 0
+        ? 1.0
+        : (segmentProgress / perStrokeMs).clamp(0.0, 1.0);
 
     for (int i = 0; i < total; i++) {
       final Color color = strokePalette[i % strokePalette.length];
@@ -302,7 +318,11 @@ class _StrokeOrderPainter extends CustomPainter {
         paint
           ..color = color
           ..strokeWidth = 5.0;
-        _drawPartialPath(canvas, paths[i], currentProgress, paint);
+        if (inDrawPhase) {
+          _drawPartialPath(canvas, paths[i], currentProgress, paint);
+        } else {
+          canvas.drawPath(paths[i], paint);
+        }
       }
     }
     _drawNumbers(canvas, current, strokePalette);
@@ -355,6 +375,8 @@ class _StrokeOrderPainter extends CustomPainter {
     return oldDelegate.progress != progress ||
         oldDelegate.paths != paths ||
         oldDelegate.numbers != numbers ||
-        oldDelegate.viewBox != viewBox;
+        oldDelegate.viewBox != viewBox ||
+        oldDelegate.perStrokeDuration != perStrokeDuration ||
+        oldDelegate.interStrokeDelay != interStrokeDelay;
   }
 }

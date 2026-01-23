@@ -13,7 +13,7 @@ class LearnTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final List<String?> keys =
-        kana == hiragana ? hiraganaDisplayGrid : kana.keys.toList();
+        kana == hiragana ? hiraganaDisplayGrid : katakanaDisplayGrid;
     return GridView.builder(
       padding: const EdgeInsets.all(10),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -28,8 +28,10 @@ class LearnTab extends StatelessWidget {
           return const SizedBox.shrink();
         }
         String value = kana[key]!;
+        String assetRomaji =
+            kana == hiragana ? (hiraganaAssetOverrides[key] ?? value) : value;
         return GestureDetector(
-          onTap: () => _showGifDialog(context, value),
+          onTap: () => _showGifDialog(context, assetRomaji, value),
           child: GridTile(
             child: Container(
               decoration: BoxDecoration(
@@ -61,12 +63,17 @@ class LearnTab extends StatelessWidget {
     );
   }
 
-  void _showGifDialog(BuildContext context, String romaji) {
+  void _showGifDialog(
+    BuildContext context,
+    String assetRomaji,
+    String displayRomaji,
+  ) {
     showDialog(
       context: context,
       builder: (BuildContext context) {
         return KanaDialog(
-          romaji: romaji,
+          romaji: assetRomaji,
+          displayRomaji: displayRomaji,
           kanaFolder: kana == hiragana ? "hiragana" : "katakana",
         );
       },
