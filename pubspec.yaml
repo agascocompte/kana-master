@@ -88,5 +88,6 @@ flutter:
 
   assets:
     - assets/svg/hiragana/
+    - assets/svg/katakana/
     - assets/models/model_etl8g.tflite
     - assets/models/hiragana.tflite
