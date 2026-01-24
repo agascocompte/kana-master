@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kana_master/domain/models/kana_entry.dart';
 
 const Color jOrange = Color(0xFFFFB61E);
 const Color jLightBLue = Color(0xFF4D8FAC);
@@ -414,7 +415,26 @@ const List<String> katakanaDrawingLabels = [
   "ン",
 ];
 
-const Map<String, String> hiraganaAssetOverrides = {
-  "ぢ": "di",
-  "づ": "du",
-};
+final List<KanaEntry> hiraganaEntries = _buildKanaEntries(hiragana);
+
+final List<KanaEntry> katakanaEntries = _buildKanaEntries(
+  katakana,
+  uncommonCharacters: {"ヰ", "ヱ"},
+);
+
+List<KanaEntry> _buildKanaEntries(
+  Map<String, String> kanaMap, {
+  Map<String, String> assetOverrides = const {},
+  Set<String> uncommonCharacters = const {},
+}) {
+  return kanaMap.entries.map((entry) {
+    final String character = entry.key;
+    final String reading = entry.value;
+    return KanaEntry.fromCharacter(
+      character: character,
+      reading: reading,
+      assetKey: assetOverrides[character],
+      isCommon: !uncommonCharacters.contains(character),
+    );
+  }).toList(growable: false);
+}

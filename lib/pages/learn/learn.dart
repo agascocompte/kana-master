@@ -1,19 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:kana_master/constants.dart';
+import 'package:kana_master/domain/models/kana_entry.dart';
 import 'package:kana_master/pages/learn/widgets/kana_dialog.dart';
 
 class LearnTab extends StatelessWidget {
-  final Map<String, String> kana;
+  final List<KanaEntry> entries;
+  final KanaType kanaType;
 
   const LearnTab({
     super.key,
-    required this.kana,
+    required this.entries,
+    required this.kanaType,
   });
 
   @override
   Widget build(BuildContext context) {
-    final List<String?> keys =
-        kana == hiragana ? hiraganaDisplayGrid : katakanaDisplayGrid;
+    final List<String?> keys = kanaType == KanaType.hiragana
+        ? hiraganaDisplayGrid
+        : katakanaDisplayGrid;
+    final Map<String, KanaEntry> entryByCharacter = {
+      for (final entry in entries) entry.character: entry,
+    };
     return GridView.builder(
       padding: const EdgeInsets.all(10),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -24,14 +31,15 @@ class LearnTab extends StatelessWidget {
       itemCount: keys.length,
       itemBuilder: (context, index) {
         String? key = keys[index];
-        if (key == null || !kana.containsKey(key)) {
+        if (key == null) {
           return const SizedBox.shrink();
         }
-        String value = kana[key]!;
-        String assetRomaji =
-            kana == hiragana ? (hiraganaAssetOverrides[key] ?? value) : value;
+        final KanaEntry? entry = entryByCharacter[key];
+        if (entry == null) {
+          return const SizedBox.shrink();
+        }
         return GestureDetector(
-          onTap: () => _showGifDialog(context, assetRomaji, value),
+          onTap: () => _showKanaDialog(context, entry),
           child: GridTile(
             child: Container(
               decoration: BoxDecoration(
@@ -49,7 +57,7 @@ class LearnTab extends StatelessWidget {
                         ),
                   ),
                   Text(
-                    value,
+                    entry.reading,
                     style: Theme.of(context).textTheme.titleMedium?.copyWith(
                           color: Colors.white,
                         ),
@@ -63,18 +71,14 @@ class LearnTab extends StatelessWidget {
     );
   }
 
-  void _showGifDialog(
-    BuildContext context,
-    String assetRomaji,
-    String displayRomaji,
-  ) {
+  void _showKanaDialog(BuildContext context, KanaEntry entry) {
     showDialog(
       context: context,
       builder: (BuildContext context) {
         return KanaDialog(
-          romaji: assetRomaji,
-          displayRomaji: displayRomaji,
-          kanaFolder: kana == hiragana ? "hiragana" : "katakana",
+          assetKey: entry.assetKey,
+          displayText: entry.reading,
+          kanaFolder: kanaType == KanaType.hiragana ? "hiragana" : "katakana",
         );
       },
     );
