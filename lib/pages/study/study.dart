@@ -1,16 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:kana_master/constants.dart';
+import 'package:kana_master/domain/models/kana_entry.dart';
 import 'package:kana_master/pages/learn/learn.dart';
 import 'package:kana_master/pages/test_kana/test_kana.dart';
 import 'package:kana_master/pages/study/widgets/material_tab.dart';
 
 class StudyTab extends StatefulWidget {
-  final Map<String, String> kana;
+  final List<KanaEntry> kanaEntries;
+  final Map<String, String> kanaMap;
+  final KanaType kanaType;
   final DifficultyLevel difficultyLevel;
 
   const StudyTab({
     super.key,
-    required this.kana,
+    required this.kanaEntries,
+    required this.kanaMap,
+    required this.kanaType,
     required this.difficultyLevel,
   });
 
@@ -38,7 +43,6 @@ class _StudyTabState extends State<StudyTab>
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text("\u3042"),
         Material(
           color: Colors.white,
           child: TabBar(
@@ -63,9 +67,12 @@ class _StudyTabState extends State<StudyTab>
             controller: _controller,
             physics: const NeverScrollableScrollPhysics(),
             children: [
-              LearnTab(kana: widget.kana),
+              LearnTab(
+                entries: widget.kanaEntries,
+                kanaType: widget.kanaType,
+              ),
               TestTab(
-                kana: widget.kana,
+                kana: widget.kanaMap,
                 difficultyLevel: widget.difficultyLevel,
               ),
               const MaterialTab(),

@@ -56,9 +56,13 @@ class HomePageState extends State<HomePage>
             controller: _tabController,
             children: [
               StudyTab(
-                kana: state.stateData.kanaType == KanaType.hiragana
+                kanaEntries: state.stateData.kanaType == KanaType.hiragana
+                    ? hiraganaEntries
+                    : katakanaEntries,
+                kanaMap: state.stateData.kanaType == KanaType.hiragana
                     ? hiragana
                     : katakana,
+                kanaType: state.stateData.kanaType,
                 difficultyLevel: state.stateData.difficultyLevel,
               ),
               const DictionaryTab(),
