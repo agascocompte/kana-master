@@ -38,6 +38,7 @@ class _StudyTabState extends State<StudyTab>
   Widget build(BuildContext context) {
     return Column(
       children: [
+        Text("\u3042"),
         Material(
           color: Colors.white,
           child: TabBar(
