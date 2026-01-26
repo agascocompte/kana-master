@@ -31,10 +31,38 @@ class KanjiEntry {
       tags: tags,
     );
   }
+
+  factory KanjiEntry.fromCsvRow({
+    required String character,
+    required String meanings,
+    required String readings,
+    required String strokeNumber,
+    required String unicode,
+  }) {
+    return KanjiEntry(
+      character: character,
+      unicode: _padUnicode(unicode),
+      readings: _splitList(readings),
+      meanings: _splitList(meanings),
+      strokeCount: int.tryParse(strokeNumber.trim()) ?? 0,
+    );
+  }
 }
 
 String _unicodeFor(String character) {
   final int codePoint = character.runes.first;
   final String hex = codePoint.toRadixString(16).toUpperCase().padLeft(4, '0');
   return 'U+$hex';
+}
+
+List<String> _splitList(String value) {
+  return value
+      .split(';')
+      .map((entry) => entry.trim())
+      .where((entry) => entry.isNotEmpty)
+      .toList(growable: false);
+}
+
+String _padUnicode(String unicode) {
+  return unicode.trim().toUpperCase().padLeft(5, '0');
 }

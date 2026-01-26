@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:csv/csv.dart';
 import 'package:kana_master/domain/models/kana_entry.dart';
+import 'package:kana_master/domain/models/kanji_entry.dart';
 
 const Color jOrange = Color(0xFFFFB61E);
 const Color jLightBLue = Color(0xFF4D8FAC);
@@ -415,12 +418,56 @@ const List<String> katakanaDrawingLabels = [
   "ン",
 ];
 
+
+
+
+
 final List<KanaEntry> hiraganaEntries = _buildKanaEntries(hiragana);
 
 final List<KanaEntry> katakanaEntries = _buildKanaEntries(
   katakana,
   uncommonCharacters: {"ヰ", "ヱ"},
 );
+
+Future<List<KanjiEntry>> loadKanjiEntriesFromCsv() async {
+  final String csvData =
+      await rootBundle.loadString('assets/csv/kanji_data.csv');
+  final List<List<dynamic>> rows =
+      const CsvToListConverter(eol: '\n').convert(
+    csvData,
+    shouldParseNumbers: false,
+  );
+  if (rows.isEmpty) {
+    return [];
+  }
+  final List<String> headers =
+      rows.first.map((value) => value.toString().trim()).toList();
+  int indexOf(String name) => headers.indexOf(name);
+
+  final int kanjiIndex = indexOf('kanji');
+  final int meaningsIndex = indexOf('meanings');
+  final int readingsIndex = indexOf('readings');
+  final int strokeIndex = indexOf('stroke_number');
+  final int unicodeIndex = indexOf('unicode');
+
+  if ([kanjiIndex, meaningsIndex, readingsIndex, strokeIndex, unicodeIndex]
+      .any((index) => index == -1)) {
+    return [];
+  }
+
+  final List<KanjiEntry> entries = [];
+  for (final row in rows.skip(1)) {
+    if (row.length <= unicodeIndex) continue;
+    entries.add(KanjiEntry.fromCsvRow(
+      character: row[kanjiIndex].toString(),
+      meanings: row[meaningsIndex].toString(),
+      readings: row[readingsIndex].toString(),
+      strokeNumber: row[strokeIndex].toString(),
+      unicode: row[unicodeIndex].toString(),
+    ));
+  }
+  return entries;
+}
 
 List<KanaEntry> _buildKanaEntries(
   Map<String, String> kanaMap, {
