@@ -3,16 +3,21 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kana_master/constants.dart';
+import 'package:kana_master/domain/models/kanji_entry.dart';
 import 'package:kana_master/pages/test_kana/bloc/test_kana_bloc.dart';
 
 class SingleChoiceTest extends StatefulWidget {
   final TestKanaState state;
   final Map<String, String> kana;
+  final KanaType kanaType;
+  final List<KanjiEntry> kanjiEntries;
 
   const SingleChoiceTest({
     super.key,
     required this.state,
     required this.kana,
+    required this.kanaType,
+    this.kanjiEntries = const [],
   });
 
   @override
@@ -34,14 +39,25 @@ class _SingleChoiceTestState extends State<SingleChoiceTest> {
 
   void generateAnswers() {
     final correctIndex = context.read<TestKanaBloc>().state.stateData.kanaIndex;
+    if (widget.kanaType == KanaType.kanji) {
+      final String correctAnswer =
+          _kanjiAnswerForIndex(correctIndex, widget.kanjiEntries);
+      options = {correctAnswer: correctIndex};
+      while (options.length < 4 && widget.kanjiEntries.length >= 4) {
+        int randomIndex = Random().nextInt(widget.kanjiEntries.length);
+        String randomOption =
+            _kanjiAnswerForIndex(randomIndex, widget.kanjiEntries);
+        options[randomOption] = randomIndex;
+      }
+    } else {
+      final correctAnswer = widget.kana.values.elementAt(correctIndex);
+      options = {correctAnswer: correctIndex};
 
-    final correctAnswer = widget.kana.values.elementAt(correctIndex);
-    options = {correctAnswer: correctIndex};
-
-    while (options.length < 4) {
-      int randomIndex = Random().nextInt(widget.kana.length);
-      String randomOption = widget.kana.values.elementAt(randomIndex);
-      options[randomOption] = randomIndex;
+      while (options.length < 4) {
+        int randomIndex = Random().nextInt(widget.kana.length);
+        String randomOption = widget.kana.values.elementAt(randomIndex);
+        options[randomOption] = randomIndex;
+      }
     }
 
     answers = options.keys.toList();
@@ -86,7 +102,11 @@ class _SingleChoiceTestState extends State<SingleChoiceTest> {
                 },
                 child: Text(
                   answer,
-                  style: const TextStyle(color: Colors.white, fontSize: 30),
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: widget.kanaType == KanaType.kanji ? 16 : 30,
+                  ),
                 ),
               ),
             ),
@@ -94,5 +114,11 @@ class _SingleChoiceTestState extends State<SingleChoiceTest> {
         }).toList(),
       ),
     );
+  }
+
+  String _kanjiAnswerForIndex(int index, List<KanjiEntry> entries) {
+    if (index < 0 || index >= entries.length) return '';
+    final List<String> meanings = entries[index].meanings;
+    return meanings.isNotEmpty ? meanings.first : '';
   }
 }

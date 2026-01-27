@@ -64,5 +64,5 @@ List<String> _splitList(String value) {
 }
 
 String _padUnicode(String unicode) {
-  return unicode.trim().toUpperCase().padLeft(5, '0');
+  return unicode.trim().toLowerCase().padLeft(5, '0');
 }

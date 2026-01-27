@@ -4,7 +4,6 @@ import 'package:kana_master/constants.dart';
 import 'package:kana_master/extensions.dart';
 import 'package:kana_master/pages/settings/bloc/settings_bloc.dart';
 import 'package:kana_master/pages/settings/widgets/dropdown_tile_setting.dart';
-import 'package:kana_master/pages/settings/widgets/switch_tile_setting.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({super.key});
@@ -22,16 +21,23 @@ class SettingsPage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SwitchTileSetting(
-                  title: "Kana settings",
-                  optionText:
-                      "Switch to ${state.stateData.kanaType == KanaType.hiragana ? 'Katakana' : 'Hiragana'}",
-                  subtitle:
-                      "Toggle between Hiragana and Katakana scripts for learning.",
-                  value: state.stateData.kanaType == KanaType.katakana,
+                DropdownTileSetting(
+                  title: "Script",
+                  subtitle: "Choose the script for study and tests.",
+                  currentValue: state.stateData.kanaType,
                   icon: Icons.language,
-                  onChanged: (bool value) {
-                    context.read<SettingsBloc>().add(ToggleKanaType());
+                  items: KanaType.values.map((KanaType type) {
+                    return DropdownMenuItem<KanaType>(
+                      value: type,
+                      child: Text(type.toString().split('.').last.capitalize()),
+                    );
+                  }).toList(),
+                  onChanged: (KanaType? newValue) {
+                    if (newValue != null) {
+                      context
+                          .read<SettingsBloc>()
+                          .add(SetKanaType(kanaType: newValue));
+                    }
                   },
                 ),
                 SizedBox(height: 20),

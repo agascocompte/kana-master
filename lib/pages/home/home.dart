@@ -58,10 +58,14 @@ class HomePageState extends State<HomePage>
               StudyTab(
                 kanaEntries: state.stateData.kanaType == KanaType.hiragana
                     ? hiraganaEntries
-                    : katakanaEntries,
+                    : state.stateData.kanaType == KanaType.katakana
+                        ? katakanaEntries
+                        : const [],
                 kanaMap: state.stateData.kanaType == KanaType.hiragana
                     ? hiragana
-                    : katakana,
+                    : state.stateData.kanaType == KanaType.katakana
+                        ? katakana
+                        : const {},
                 kanaType: state.stateData.kanaType,
                 difficultyLevel: state.stateData.difficultyLevel,
               ),

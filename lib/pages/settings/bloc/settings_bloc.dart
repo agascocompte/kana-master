@@ -15,20 +15,16 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
   SettingsBloc({
     required this.settingsRepository,
   }) : super(SettingsInitial()) {
-    on<ToggleKanaType>(_toggleScriptType);
+    on<SetKanaType>(_setKanaType);
     on<ChangeDifficultyLevel>(_changeDifficultyLevel);
     on<LoadSettings>(_loadSettings);
   }
 
-  FutureOr<void> _toggleScriptType(
-      ToggleKanaType event, Emitter<SettingsState> emit) async {
-    KanaType updatedKanaType = state.stateData.kanaType == KanaType.hiragana
-        ? KanaType.katakana
-        : KanaType.hiragana;
+  FutureOr<void> _setKanaType(
+      SetKanaType event, Emitter<SettingsState> emit) async {
+    await settingsRepository.saveKanaType(event.kanaType);
 
-    await settingsRepository.saveKanaType(updatedKanaType);
-
-    emit(KanaTypeUpdated(state.stateData.copyWith(kanaType: updatedKanaType)));
+    emit(KanaTypeUpdated(state.stateData.copyWith(kanaType: event.kanaType)));
   }
 
   FutureOr<void> _changeDifficultyLevel(

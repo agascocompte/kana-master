@@ -6,6 +6,7 @@ import 'package:image/image.dart' as img;
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kana_master/constants.dart';
 import 'package:kana_master/domain/models/paint_stroke.dart';
+import 'package:kana_master/domain/models/kanji_entry.dart';
 import 'package:injectable/injectable.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
@@ -20,7 +21,10 @@ class TestKanaBloc extends Bloc<TestKanaEvent, TestKanaState> {
   Interpreter? interpreter;
   final ModelConfig _hiraganaModelConfig = hiraganaModelV2;
   final ModelConfig _katakanaModelConfig = katakanaModelV1;
+  final ModelConfig _kanjiModelConfig = kanjiModelV1;
   Map<String, String>? _currentKana;
+  KanaType _currentKanaType = KanaType.hiragana;
+  List<KanjiEntry> _kanjiEntries = const [];
   ModelConfig? _loadedModelConfig;
 
   TestKanaBloc() : super(TestKanaInitial()) {
@@ -55,6 +59,8 @@ class TestKanaBloc extends Bloc<TestKanaEvent, TestKanaState> {
 
   FutureOr<void> _beginTest(BeginTest event, Emitter<TestKanaState> emit) {
     _currentKana = event.kana;
+    _currentKanaType = event.kanaType;
+    _kanjiEntries = event.kanjiEntries;
     TestType testType = event.difficultyLevel == DifficultyLevel.high
         ? TestType.values[random.nextInt(TestType.values.length)]
         : TestType.singleAnswer;
@@ -87,7 +93,12 @@ class TestKanaBloc extends Bloc<TestKanaEvent, TestKanaState> {
 
   FutureOr<void> _evaluateImage(
       EvaluateImage event, Emitter<TestKanaState> emit) async {
-    final ModelConfig modelConfig = _modelConfigForKana(_currentKana);
+    if (_currentKanaType == KanaType.kanji && _kanjiEntries.isEmpty) {
+      emit(ErrorPredictingHiragana(state.stateData,
+          msg: "No kanji data loaded for prediction"));
+      return;
+    }
+    final ModelConfig modelConfig = _modelConfigForKanaType();
     await _loadModel(modelConfig);
     emit(PredictionInProgress(state.stateData));
     //await Future.delayed(const Duration(milliseconds: 1000));
@@ -129,6 +140,8 @@ class TestKanaBloc extends Bloc<TestKanaEvent, TestKanaState> {
   FutureOr<void> _nextKana(TestNextKana event, Emitter<TestKanaState> emit) {
     add(ClearDrawing());
     _currentKana = event.kana;
+    _currentKanaType = event.kanaType;
+    _kanjiEntries = event.kanjiEntries;
     TestType testType = event.difficultyLevel == DifficultyLevel.high
         ? TestType.values[random.nextInt(TestType.values.length)]
         : TestType.singleAnswer;
@@ -153,6 +166,32 @@ class TestKanaBloc extends Bloc<TestKanaEvent, TestKanaState> {
   }
 
   FutureOr<void> _checkAnswer(CheckAnswer event, Emitter<TestKanaState> emit) {
+    if (event.kanaType == KanaType.kanji) {
+      if (event.difficultyLevel == DifficultyLevel.low) {
+        if (state.stateData.kanaIndex == state.stateData.userAnswerKanaIndex) {
+          emit(KanaSelectedSuccess(state.stateData));
+        } else {
+          emit(KanaSelectedFail(state.stateData));
+        }
+        return null;
+      }
+      final int index = state.stateData.kanaIndex;
+      if (index >= 0 && index < _kanjiEntries.length) {
+        final List<String> meanings = _kanjiEntries[index].meanings;
+        final String answer =
+            state.stateData.userTextAnswer.trim().toLowerCase();
+        final bool matches =
+            meanings.any((meaning) => meaning.trim().toLowerCase() == answer);
+        if (matches) {
+          emit(KanaSelectedSuccess(state.stateData));
+        } else {
+          emit(KanaSelectedFail(state.stateData));
+        }
+      } else {
+        emit(KanaSelectedFail(state.stateData));
+      }
+      return null;
+    }
     if ((event.difficultyLevel == DifficultyLevel.low &&
             state.stateData.kanaIndex == state.stateData.userAnswerKanaIndex) ||
         (event.difficultyLevel != DifficultyLevel.low &&
@@ -170,7 +209,7 @@ class TestKanaBloc extends Bloc<TestKanaEvent, TestKanaState> {
 
   // Private functions
   img.Image preprocessImage(img.Image image) {
-    final ModelConfig modelConfig = _modelConfigForKana(_currentKana);
+    final ModelConfig modelConfig = _modelConfigForKanaType();
     img.Image resizedImg = img.copyResize(
       image,
       width: modelConfig.inputSize,
@@ -180,7 +219,7 @@ class TestKanaBloc extends Bloc<TestKanaEvent, TestKanaState> {
   }
 
   Float32List imageToByteListFloat32(img.Image image) {
-    final ModelConfig modelConfig = _modelConfigForKana(_currentKana);
+    final ModelConfig modelConfig = _modelConfigForKanaType();
     int inputSize = modelConfig.inputSize;
     double normalizeDivisor = modelConfig.normalize ? 255.0 : 1.0;
     var convertedBytes = Float32List(1 * inputSize * inputSize);
@@ -206,11 +245,11 @@ class TestKanaBloc extends Bloc<TestKanaEvent, TestKanaState> {
     try {
       img.Image preprocessedImage = preprocessImage(image);
       var input = imageToByteListFloat32(preprocessedImage);
-      final ModelConfig modelConfig = _modelConfigForKana(_currentKana);
-      var inputTensor = input.reshape(
-          [1, modelConfig.inputSize, modelConfig.inputSize, 1]);
-      output = List.filled(modelConfig.numClasses, 0)
-          .reshape([1, modelConfig.numClasses]);
+      final ModelConfig modelConfig = _modelConfigForKanaType();
+      var inputTensor =
+          input.reshape([1, modelConfig.inputSize, modelConfig.inputSize, 1]);
+      final int numClasses = _resolveNumClasses(modelConfig);
+      output = List.filled(numClasses, 0).reshape([1, numClasses]);
       interpreter.run(inputTensor, output);
     } catch (e) {
       return null;
@@ -233,9 +272,15 @@ class TestKanaBloc extends Bloc<TestKanaEvent, TestKanaState> {
 
   int _pickKanaIndex(Map<String, String> kana, TestType testType) {
     if (testType != TestType.drawingTest) {
+      if (_currentKanaType == KanaType.kanji) {
+        return _kanjiEntries.isEmpty ? 0 : random.nextInt(_kanjiEntries.length);
+      }
       return random.nextInt(kana.length);
     }
-    if (kana == katakana) {
+    if (_currentKanaType == KanaType.kanji) {
+      return _kanjiEntries.isEmpty ? 0 : random.nextInt(_kanjiEntries.length);
+    }
+    if (_currentKanaType == KanaType.katakana) {
       final String target =
           katakanaDrawingLabels[random.nextInt(katakanaDrawingLabels.length)];
       return katakanaModelLabels.indexOf(target);
@@ -243,10 +288,20 @@ class TestKanaBloc extends Bloc<TestKanaEvent, TestKanaState> {
     return random.nextInt(hiragana.length);
   }
 
-  ModelConfig _modelConfigForKana(Map<String, String>? kana) {
-    if (kana == katakana) {
+  ModelConfig _modelConfigForKanaType() {
+    if (_currentKanaType == KanaType.katakana) {
       return _katakanaModelConfig;
     }
+    if (_currentKanaType == KanaType.kanji) {
+      return _kanjiModelConfig;
+    }
     return _hiraganaModelConfig;
+  }
+
+  int _resolveNumClasses(ModelConfig modelConfig) {
+    if (_currentKanaType == KanaType.kanji) {
+      return _kanjiEntries.length;
+    }
+    return modelConfig.numClasses;
   }
 }
