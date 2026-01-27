@@ -103,18 +103,27 @@ class LearnTab extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
-                    entry.character,
-                    style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                          color: Colors.black,
-                        ),
+                  Flexible(
+                    child: Text(
+                      entry.character,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style:
+                          Theme.of(context).textTheme.headlineMedium?.copyWith(
+                                color: Colors.black,
+                              ),
+                    ),
                   ),
-                  Text(
-                    meaning,
-                    textAlign: TextAlign.center,
-                    style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                          color: Colors.white,
-                        ),
+                  Flexible(
+                    child: Text(
+                      meaning,
+                      textAlign: TextAlign.center,
+                      style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                            color: Colors.white,
+                          ),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                    ),
                   ),
                 ],
               ),
