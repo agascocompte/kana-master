@@ -16,21 +16,37 @@ class KanjiDialog extends StatelessWidget {
     return AlertDialog(
       elevation: 0,
       backgroundColor: Colors.white,
-      content: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          SizedBox(
-            width: double.infinity,
-            child: KanaStrokeAnimation(
-              assetPath: 'assets/svg/kanji/${entry.unicode.toUpperCase()}.svg',
+      content: SizedBox(
+        width: MediaQuery.of(context).size.width * 0.8,
+        child: ConstrainedBox(
+          constraints: BoxConstraints(
+            maxHeight: MediaQuery.of(context).size.height * 0.7,
+          ),
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                SizedBox(
+                  width: double.infinity,
+                  child: KanaStrokeAnimation(
+                    assetPath:
+                        'assets/svg/kanji/${entry.unicode.toUpperCase()}.svg',
+                  ),
+                ),
+                if (meanings.isNotEmpty)
+                  Padding(
+                    padding: const EdgeInsets.only(top: 6.0),
+                    child: Text(
+                      meanings,
+                      textAlign: TextAlign.center,
+                      maxLines: 4,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
+              ],
             ),
           ),
-          if (meanings.isNotEmpty)
-            Padding(
-              padding: const EdgeInsets.only(top: 6.0),
-              child: Text(meanings, textAlign: TextAlign.center),
-            ),
-        ],
+        ),
       ),
     );
   }
