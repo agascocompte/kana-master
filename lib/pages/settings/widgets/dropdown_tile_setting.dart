@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:kana_master/constants.dart';
 
-class DropdownTileSetting extends StatelessWidget {
+class DropdownTileSetting<T> extends StatelessWidget {
   final String title;
   final String subtitle;
-  final DifficultyLevel currentValue;
+  final T currentValue;
   final IconData icon;
-  final void Function(DifficultyLevel?) onChanged;
-  final List<DropdownMenuItem<DifficultyLevel>>? items;
+  final void Function(T?) onChanged;
+  final List<DropdownMenuItem<T>>? items;
 
   const DropdownTileSetting({
     super.key,
@@ -37,14 +37,14 @@ class DropdownTileSetting extends StatelessWidget {
         ListTile(
           leading: Icon(icon, color: jDarkBLue),
           title: Text(
-            "Difficulty",
+            title,
             style: TextStyle(fontSize: 16),
           ),
           subtitle: Text(
             subtitle,
             style: TextStyle(fontSize: 12),
           ),
-          trailing: DropdownButton<DifficultyLevel>(
+          trailing: DropdownButton<T>(
             value: currentValue,
             icon: const Icon(Icons.arrow_downward),
             onChanged: onChanged,

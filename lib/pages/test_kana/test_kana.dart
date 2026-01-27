@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kana_master/constants.dart';
+import 'package:kana_master/domain/models/kanji_entry.dart';
 import 'package:kana_master/pages/stats/bloc/stats_bloc.dart';
 import 'package:kana_master/pages/test_kana/bloc/test_kana_bloc.dart';
 import 'package:kana_master/pages/test_kana/widgets/test_body.dart';
@@ -9,12 +10,16 @@ import 'package:kana_master/pages/test_kana/widgets/test_title.dart';
 import 'package:kana_master/widgets/snackbars.dart';
 
 class TestTab extends StatelessWidget {
+  final KanaType kanaType;
   final Map<String, String> kana;
+  final List<KanjiEntry> kanjiEntries;
   final DifficultyLevel difficultyLevel;
 
   const TestTab({
     super.key,
+    required this.kanaType,
     required this.kana,
+    this.kanjiEntries = const [],
     required this.difficultyLevel,
   });
 
@@ -30,6 +35,8 @@ class TestTab extends StatelessWidget {
           Snackbars.showSuccessScaffold(context, "You got it right!");
           context.read<TestKanaBloc>().add(TestNextKana(
                 kana: kana,
+                kanaType: kanaType,
+                kanjiEntries: kanjiEntries,
                 difficultyLevel: difficultyLevel,
               ));
         } else if (state is HiraganaWritingFail || state is KanaSelectedFail) {
@@ -47,6 +54,8 @@ class TestTab extends StatelessWidget {
             ),
             onPressed: () => context.read<TestKanaBloc>().add(BeginTest(
                   kana: kana,
+                  kanaType: kanaType,
+                  kanjiEntries: kanjiEntries,
                   difficultyLevel: difficultyLevel,
                 )),
           ));
@@ -77,6 +86,8 @@ class TestTab extends StatelessWidget {
                       child: TestTitle(
                         state: state,
                         kana: kana,
+                        kanaType: kanaType,
+                        kanjiEntries: kanjiEntries,
                       ),
                     ),
                     Flexible(
@@ -84,6 +95,8 @@ class TestTab extends StatelessWidget {
                       child: TestBody(
                         state: state,
                         kana: kana,
+                        kanaType: kanaType,
+                        kanjiEntries: kanjiEntries,
                         difficultyLevel: difficultyLevel,
                       ),
                     ),
@@ -131,6 +144,7 @@ class TestTab extends StatelessWidget {
                                       : context
                                           .read<TestKanaBloc>()
                                           .add(CheckAnswer(
+                                            kanaType: kanaType,
                                             difficultyLevel: difficultyLevel,
                                             kana: kana,
                                           ))

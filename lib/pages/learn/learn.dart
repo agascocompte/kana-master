@@ -1,20 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:kana_master/constants.dart';
 import 'package:kana_master/domain/models/kana_entry.dart';
+import 'package:kana_master/domain/models/kanji_entry.dart';
 import 'package:kana_master/pages/learn/widgets/kana_dialog.dart';
+import 'package:kana_master/pages/learn/widgets/kanji_dialog.dart';
 
 class LearnTab extends StatelessWidget {
   final List<KanaEntry> entries;
   final KanaType kanaType;
+  final List<KanjiEntry> kanjiEntries;
 
   const LearnTab({
     super.key,
     required this.entries,
     required this.kanaType,
+    this.kanjiEntries = const [],
   });
 
   @override
   Widget build(BuildContext context) {
+    if (kanaType == KanaType.kanji) {
+      return _buildKanjiGrid(context);
+    }
     final List<String?> keys = kanaType == KanaType.hiragana
         ? hiraganaDisplayGrid
         : katakanaDisplayGrid;
@@ -71,6 +78,53 @@ class LearnTab extends StatelessWidget {
     );
   }
 
+  Widget _buildKanjiGrid(BuildContext context) {
+    return GridView.builder(
+      padding: const EdgeInsets.all(10),
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 5,
+        crossAxisSpacing: 10,
+        mainAxisSpacing: 10,
+      ),
+      itemCount: kanjiEntries.length,
+      itemBuilder: (context, index) {
+        final KanjiEntry entry = kanjiEntries[index];
+        final String meaning =
+            entry.meanings.isNotEmpty ? entry.meanings.first : '';
+        return GestureDetector(
+          onTap: () => _showKanjiDialog(context, entry),
+          child: GridTile(
+            child: Container(
+              decoration: BoxDecoration(
+                color: jLightBLue,
+                border: Border.all(color: jDarkBLue, width: 2),
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    entry.character,
+                    style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                          color: Colors.black,
+                        ),
+                  ),
+                  Text(
+                    meaning,
+                    textAlign: TextAlign.center,
+                    style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                          color: Colors.white,
+                        ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        );
+      },
+    );
+  }
+
   void _showKanaDialog(BuildContext context, KanaEntry entry) {
     showDialog(
       context: context,
@@ -80,6 +134,15 @@ class LearnTab extends StatelessWidget {
           displayText: entry.reading,
           kanaFolder: kanaType == KanaType.hiragana ? "hiragana" : "katakana",
         );
+      },
+    );
+  }
+
+  void _showKanjiDialog(BuildContext context, KanjiEntry entry) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return KanjiDialog(entry: entry);
       },
     );
   }

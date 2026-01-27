@@ -5,7 +5,12 @@ import 'package:kana_master/constants.dart';
 import '../bloc/test_kana_bloc.dart';
 
 class TextFieldTest extends StatelessWidget {
-  const TextFieldTest({super.key});
+  final KanaType kanaType;
+
+  const TextFieldTest({
+    super.key,
+    required this.kanaType,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +28,7 @@ class TextFieldTest extends StatelessWidget {
                   OutlineInputBorder(borderSide: BorderSide(color: jDarkBLue)),
               focusedBorder: OutlineInputBorder(
                   borderSide: BorderSide(color: jLightBLue, width: 2)),
-              labelText: 'Answer',
+              labelText: kanaType == KanaType.kanji ? 'Meaning' : 'Answer',
               labelStyle: TextStyle(color: jDarkBLue),
               floatingLabelBehavior: FloatingLabelBehavior.always),
           onChanged: (value) => context

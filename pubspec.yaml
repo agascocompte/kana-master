@@ -89,7 +89,9 @@ flutter:
   assets:
     - assets/svg/hiragana/
     - assets/svg/katakana/
+    - assets/svg/kanji/
     - assets/csv/kanji_data.csv
     - assets/models/model_etl8g.tflite
     - assets/models/hiragana.tflite
     - assets/models/katakana.tflite
+    - assets/models/kanji.tflite

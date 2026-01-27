@@ -46,9 +46,16 @@ const ModelConfig katakanaModelV1 = ModelConfig(
   normalize: true,
 );
 
+const ModelConfig kanjiModelV1 = ModelConfig(
+  assetPath: 'assets/models/kanji.tflite',
+  inputSize: 48,
+  numClasses: 0,
+  normalize: false,
+);
+
 const ModelConfig activeHiraganaModel = hiraganaModelV2;
 
-enum KanaType { hiragana, katakana }
+enum KanaType { hiragana, katakana, kanji }
 
 enum DifficultyLevel { low, medium, high }
 

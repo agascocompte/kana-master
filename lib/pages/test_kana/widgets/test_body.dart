@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kana_master/constants.dart';
+import 'package:kana_master/domain/models/kanji_entry.dart';
 import 'package:kana_master/pages/test_kana/bloc/test_kana_bloc.dart';
 import 'package:kana_master/pages/test_kana/widgets/drawing_board.dart';
 import 'package:kana_master/pages/test_kana/widgets/single_choice_test.dart';
@@ -8,12 +9,16 @@ import 'package:kana_master/pages/test_kana/widgets/text_field_test.dart';
 class TestBody extends StatelessWidget {
   final TestKanaState state;
   final Map<String, String> kana;
+  final KanaType kanaType;
+  final List<KanjiEntry> kanjiEntries;
   final DifficultyLevel difficultyLevel;
 
   const TestBody({
     super.key,
     required this.state,
     required this.kana,
+    required this.kanaType,
+    this.kanjiEntries = const [],
     required this.difficultyLevel,
   });
 
@@ -32,7 +37,9 @@ class TestBody extends StatelessWidget {
             ? SingleChoiceTest(
                 state: state,
                 kana: kana,
+                kanaType: kanaType,
+                kanjiEntries: kanjiEntries,
               )
-            : TextFieldTest();
+            : TextFieldTest(kanaType: kanaType);
   }
 }

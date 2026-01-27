@@ -16,7 +16,7 @@ class KanaStrokeAnimation extends StatefulWidget {
   const KanaStrokeAnimation({
     super.key,
     required this.assetPath,
-    this.perStrokeDuration = const Duration(milliseconds: 900),
+    this.perStrokeDuration = const Duration(milliseconds: 800),
     this.interStrokeDelay = const Duration(milliseconds: 250),
     this.pauseDuration = const Duration(milliseconds: 2300),
   });
