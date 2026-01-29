@@ -11,6 +11,7 @@ class SingleChoiceTest extends StatefulWidget {
   final Map<String, String> kana;
   final KanaType kanaType;
   final List<KanjiEntry> kanjiEntries;
+  final Map<String, List<String>> kanjiMeanings;
 
   const SingleChoiceTest({
     super.key,
@@ -18,6 +19,7 @@ class SingleChoiceTest extends StatefulWidget {
     required this.kana,
     required this.kanaType,
     this.kanjiEntries = const [],
+    this.kanjiMeanings = const {},
   });
 
   @override
@@ -118,7 +120,8 @@ class _SingleChoiceTestState extends State<SingleChoiceTest> {
 
   String _kanjiAnswerForIndex(int index, List<KanjiEntry> entries) {
     if (index < 0 || index >= entries.length) return '';
-    final List<String> meanings = entries[index].meanings;
+    final String key = entries[index].unicode;
+    final List<String> meanings = widget.kanjiMeanings[key] ?? const [];
     return meanings.isNotEmpty ? meanings.first : '';
   }
 }
