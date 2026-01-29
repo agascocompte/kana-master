@@ -1,32 +1,34 @@
 class KanjiEntry {
   final String character;
   final String unicode;
-  final List<String> readings;
-  final List<String> meanings;
+  final List<String> readingsOn;
+  final List<String> readingsKun;
   final int strokeCount;
   final List<String> tags;
 
   const KanjiEntry({
     required this.character,
     required this.unicode,
-    required this.readings,
-    required this.meanings,
+    required this.readingsOn,
+    required this.readingsKun,
     required this.strokeCount,
     this.tags = const [],
   });
 
+  List<String> get readings => [...readingsOn, ...readingsKun];
+
   factory KanjiEntry.fromCharacter({
     required String character,
-    required List<String> readings,
-    required List<String> meanings,
+    required List<String> readingsOn,
+    required List<String> readingsKun,
     required int strokeCount,
     List<String> tags = const [],
   }) {
     return KanjiEntry(
       character: character,
       unicode: _unicodeFor(character),
-      readings: readings,
-      meanings: meanings,
+      readingsOn: readingsOn,
+      readingsKun: readingsKun,
       strokeCount: strokeCount,
       tags: tags,
     );
@@ -34,16 +36,16 @@ class KanjiEntry {
 
   factory KanjiEntry.fromCsvRow({
     required String character,
-    required String meanings,
-    required String readings,
+    required String readingsOn,
+    required String readingsKun,
     required String strokeNumber,
     required String unicode,
   }) {
     return KanjiEntry(
       character: character,
       unicode: _padUnicode(unicode),
-      readings: _splitList(readings),
-      meanings: _splitList(meanings),
+      readingsOn: _splitList(readingsOn),
+      readingsKun: _splitList(readingsKun),
       strokeCount: int.tryParse(strokeNumber.trim()) ?? 0,
     );
   }

@@ -11,6 +11,7 @@ class TestBody extends StatelessWidget {
   final Map<String, String> kana;
   final KanaType kanaType;
   final List<KanjiEntry> kanjiEntries;
+  final Map<String, List<String>> kanjiMeanings;
   final DifficultyLevel difficultyLevel;
 
   const TestBody({
@@ -19,6 +20,7 @@ class TestBody extends StatelessWidget {
     required this.kana,
     required this.kanaType,
     this.kanjiEntries = const [],
+    this.kanjiMeanings = const {},
     required this.difficultyLevel,
   });
 
@@ -39,6 +41,7 @@ class TestBody extends StatelessWidget {
                 kana: kana,
                 kanaType: kanaType,
                 kanjiEntries: kanjiEntries,
+                kanjiMeanings: kanjiMeanings,
               )
             : TextFieldTest(kanaType: kanaType);
   }

@@ -6,11 +6,13 @@ class BeginTest extends TestKanaEvent {
   final Map<String, String> kana;
   final KanaType kanaType;
   final List<KanjiEntry> kanjiEntries;
+  final Map<String, List<String>> kanjiMeanings;
   final DifficultyLevel difficultyLevel;
   BeginTest({
     required this.kana,
     required this.kanaType,
     this.kanjiEntries = const [],
+    this.kanjiMeanings = const {},
     required this.difficultyLevel,
   });
 }
@@ -35,11 +37,13 @@ class TestNextKana extends TestKanaEvent {
   final Map<String, String> kana;
   final KanaType kanaType;
   final List<KanjiEntry> kanjiEntries;
+  final Map<String, List<String>> kanjiMeanings;
   final DifficultyLevel difficultyLevel;
   TestNextKana({
     required this.kana,
     required this.kanaType,
     this.kanjiEntries = const [],
+    this.kanjiMeanings = const {},
     required this.difficultyLevel,
   });
 }

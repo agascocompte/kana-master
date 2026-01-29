@@ -18,7 +18,7 @@ class DatabaseProvider {
     String path = join(documentsDirectory.path, "HiraganaApp.db");
     var database = await openDatabase(
       path,
-      version: 2,
+      version: 3,
       onCreate: initDB,
       onUpgrade: onUpgrade,
     );
@@ -44,6 +44,18 @@ class DatabaseProvider {
         ")",
       );
     }
+
+    if (!await tableExists(database, 'kanji')) {
+      await database.execute(
+        "CREATE TABLE kanji ("
+        "unicode TEXT PRIMARY KEY, "
+        "kanji TEXT, "
+        "readings_on TEXT, "
+        "readings_kun TEXT, "
+        "stroke_count INTEGER"
+        ")",
+      );
+    }
   }
 
   void onUpgrade(Database database, int oldVersion, int newVersion) {
@@ -55,6 +67,17 @@ class DatabaseProvider {
         "value TEXT"
         ")",
       );
+      if (oldVersion < 3) {
+        database.execute(
+          "CREATE TABLE kanji ("
+          "unicode TEXT PRIMARY KEY, "
+          "kanji TEXT, "
+          "readings_on TEXT, "
+          "readings_kun TEXT, "
+          "stroke_count INTEGER"
+          ")",
+        );
+      }
     }
   }
 

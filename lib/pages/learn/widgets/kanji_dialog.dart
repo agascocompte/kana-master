@@ -4,15 +4,19 @@ import 'package:kana_master/pages/learn/widgets/kana_stroke_animation.dart';
 
 class KanjiDialog extends StatelessWidget {
   final KanjiEntry entry;
+  final List<String> meanings;
 
   const KanjiDialog({
     super.key,
     required this.entry,
+    this.meanings = const [],
   });
 
   @override
   Widget build(BuildContext context) {
-    final String meanings = entry.meanings.join(', ');
+    final String meaningsText = meanings.join(', ');
+    final String onReadings = entry.readingsOn.join(' / ');
+    final String kunReadings = entry.readingsKun.join(' / ');
     return AlertDialog(
       elevation: 0,
       backgroundColor: Colors.white,
@@ -29,15 +33,30 @@ class KanjiDialog extends StatelessWidget {
                 SizedBox(
                   width: double.infinity,
                   child: KanaStrokeAnimation(
-                    assetPath:
-                        'assets/svg/kanji/${entry.unicode.toUpperCase()}.svg',
+                    assetPath: 'assets/svg/kanji/${entry.unicode}.svg',
                   ),
                 ),
-                if (meanings.isNotEmpty)
+                if (onReadings.isNotEmpty)
                   Padding(
                     padding: const EdgeInsets.only(top: 6.0),
                     child: Text(
-                      meanings,
+                      'On: $onReadings',
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                if (kunReadings.isNotEmpty)
+                  Padding(
+                    padding: const EdgeInsets.only(top: 6.0),
+                    child: Text(
+                      'Kun: $kunReadings',
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                if (meaningsText.isNotEmpty)
+                  Padding(
+                    padding: const EdgeInsets.only(top: 6.0),
+                    child: Text(
+                      meaningsText,
                       textAlign: TextAlign.center,
                       maxLines: 4,
                       overflow: TextOverflow.ellipsis,

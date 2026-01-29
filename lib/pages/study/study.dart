@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:kana_master/constants.dart';
 import 'package:kana_master/domain/models/kana_entry.dart';
 import 'package:kana_master/domain/models/kanji_entry.dart';
+import 'package:kana_master/domain/repositories/kanji_meanings_repository.dart';
+import 'package:kana_master/domain/repositories/kanji_repository.dart';
 import 'package:kana_master/pages/learn/learn.dart';
 import 'package:kana_master/pages/test_kana/test_kana.dart';
 import 'package:kana_master/pages/study/widgets/material_tab.dart';
@@ -27,15 +29,15 @@ class StudyTab extends StatefulWidget {
 class _StudyTabState extends State<StudyTab>
     with SingleTickerProviderStateMixin {
   late TabController _controller;
-  Future<List<KanjiEntry>>? _kanjiEntriesFuture;
+  Future<_KanjiData>? _kanjiDataFuture;
+  final KanjiRepository _kanjiRepository = KanjiRepository();
+  final KanjiMeaningsRepository _kanjiMeaningsRepository =
+      KanjiMeaningsRepository();
 
   @override
   void initState() {
     super.initState();
     _controller = TabController(length: 3, vsync: this);
-    if (widget.kanaType == KanaType.kanji) {
-      _kanjiEntriesFuture = loadKanjiEntriesFromCsv();
-    }
   }
 
   @override
@@ -47,9 +49,8 @@ class _StudyTabState extends State<StudyTab>
   @override
   void didUpdateWidget(covariant StudyTab oldWidget) {
     super.didUpdateWidget(oldWidget);
-    if (widget.kanaType == KanaType.kanji &&
-        oldWidget.kanaType != KanaType.kanji) {
-      _kanjiEntriesFuture = loadKanjiEntriesFromCsv();
+    if (widget.kanaType != oldWidget.kanaType) {
+      _kanjiDataFuture = null;
     }
   }
 
@@ -98,17 +99,21 @@ class _StudyTabState extends State<StudyTab>
         kanaType: widget.kanaType,
       );
     }
-    return FutureBuilder<List<KanjiEntry>>(
-      future: _kanjiEntriesFuture,
+    _kanjiDataFuture ??=
+        _loadKanjiData(Localizations.localeOf(context).languageCode);
+    return FutureBuilder<_KanjiData>(
+      future: _kanjiDataFuture,
       builder: (context, snapshot) {
         if (snapshot.connectionState != ConnectionState.done) {
           return const Center(child: CircularProgressIndicator());
         }
-        final entries = snapshot.data ?? const <KanjiEntry>[];
+        final data = snapshot.data ??
+            const _KanjiData(entries: [], meanings: {});
         return LearnTab(
           entries: const [],
           kanaType: widget.kanaType,
-          kanjiEntries: entries,
+          kanjiEntries: data.entries,
+          kanjiMeanings: data.meanings,
         );
       },
     );
@@ -122,20 +127,41 @@ class _StudyTabState extends State<StudyTab>
         difficultyLevel: widget.difficultyLevel,
       );
     }
-    return FutureBuilder<List<KanjiEntry>>(
-      future: _kanjiEntriesFuture,
+    _kanjiDataFuture ??=
+        _loadKanjiData(Localizations.localeOf(context).languageCode);
+    return FutureBuilder<_KanjiData>(
+      future: _kanjiDataFuture,
       builder: (context, snapshot) {
         if (snapshot.connectionState != ConnectionState.done) {
           return const Center(child: CircularProgressIndicator());
         }
-        final entries = snapshot.data ?? const <KanjiEntry>[];
+        final data = snapshot.data ??
+            const _KanjiData(entries: [], meanings: {});
         return TestTab(
           kanaType: widget.kanaType,
           kana: const {},
-          kanjiEntries: entries,
+          kanjiEntries: data.entries,
+          kanjiMeanings: data.meanings,
           difficultyLevel: widget.difficultyLevel,
         );
       },
     );
   }
+
+  Future<_KanjiData> _loadKanjiData(String languageCode) async {
+    await _kanjiRepository.ensureKanjiImported();
+    final entries = await _kanjiRepository.getAllKanji();
+    final meanings = await _kanjiMeaningsRepository.loadMeanings(languageCode);
+    return _KanjiData(entries: entries, meanings: meanings);
+  }
+}
+
+class _KanjiData {
+  final List<KanjiEntry> entries;
+  final Map<String, List<String>> meanings;
+
+  const _KanjiData({
+    required this.entries,
+    required this.meanings,
+  });
 }

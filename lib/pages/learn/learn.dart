@@ -5,28 +5,37 @@ import 'package:kana_master/domain/models/kanji_entry.dart';
 import 'package:kana_master/pages/learn/widgets/kana_dialog.dart';
 import 'package:kana_master/pages/learn/widgets/kanji_dialog.dart';
 
-class LearnTab extends StatelessWidget {
+class LearnTab extends StatefulWidget {
   final List<KanaEntry> entries;
   final KanaType kanaType;
   final List<KanjiEntry> kanjiEntries;
+  final Map<String, List<String>> kanjiMeanings;
 
   const LearnTab({
     super.key,
     required this.entries,
     required this.kanaType,
     this.kanjiEntries = const [],
+    this.kanjiMeanings = const {},
   });
 
   @override
+  State<LearnTab> createState() => _LearnTabState();
+}
+
+class _LearnTabState extends State<LearnTab> {
+  String _query = '';
+
+  @override
   Widget build(BuildContext context) {
-    if (kanaType == KanaType.kanji) {
+    if (widget.kanaType == KanaType.kanji) {
       return _buildKanjiGrid(context);
     }
-    final List<String?> keys = kanaType == KanaType.hiragana
+    final List<String?> keys = widget.kanaType == KanaType.hiragana
         ? hiraganaDisplayGrid
         : katakanaDisplayGrid;
     final Map<String, KanaEntry> entryByCharacter = {
-      for (final entry in entries) entry.character: entry,
+      for (final entry in widget.entries) entry.character: entry,
     };
     return GridView.builder(
       padding: const EdgeInsets.all(10),
@@ -79,58 +88,92 @@ class LearnTab extends StatelessWidget {
   }
 
   Widget _buildKanjiGrid(BuildContext context) {
-    return GridView.builder(
-      padding: const EdgeInsets.all(10),
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 5,
-        crossAxisSpacing: 10,
-        mainAxisSpacing: 10,
-      ),
-      itemCount: kanjiEntries.length,
-      itemBuilder: (context, index) {
-        final KanjiEntry entry = kanjiEntries[index];
-        final String meaning =
-            entry.meanings.isNotEmpty ? entry.meanings.first : '';
-        return GestureDetector(
-          onTap: () => _showKanjiDialog(context, entry),
-          child: GridTile(
-            child: Container(
-              decoration: BoxDecoration(
-                color: jLightBLue,
-                border: Border.all(color: jDarkBLue, width: 2),
-                borderRadius: BorderRadius.circular(8),
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Flexible(
-                    child: Text(
-                      entry.character,
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style:
-                          Theme.of(context).textTheme.headlineMedium?.copyWith(
-                                color: Colors.black,
-                              ),
-                    ),
-                  ),
-                  Flexible(
-                    child: Text(
-                      meaning,
-                      textAlign: TextAlign.center,
-                      style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                            color: Colors.white,
-                          ),
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                  ),
-                ],
-              ),
+    final String query = _query.trim().toLowerCase();
+    final List<KanjiEntry> filteredEntries = query.isEmpty
+        ? widget.kanjiEntries
+        : widget.kanjiEntries.where((entry) {
+            final List<String> meanings =
+                widget.kanjiMeanings[entry.unicode] ?? const [];
+            return meanings.any(
+                (meaning) => meaning.toLowerCase().contains(query));
+          }).toList();
+
+    return Column(
+      children: [
+        Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: TextField(
+            decoration: const InputDecoration(
+              hintText: 'Search by meaning',
+              prefixIcon: Icon(Icons.search),
             ),
+            onChanged: (value) => setState(() {
+              _query = value;
+            }),
           ),
-        );
-      },
+        ),
+        Expanded(
+          child: GridView.builder(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 5,
+              crossAxisSpacing: 10,
+              mainAxisSpacing: 10,
+            ),
+            itemCount: filteredEntries.length,
+            itemBuilder: (context, index) {
+              final KanjiEntry entry = filteredEntries[index];
+              final List<String> meanings =
+                  widget.kanjiMeanings[entry.unicode] ?? const [];
+              final String meaning = meanings.isNotEmpty ? meanings.first : '';
+              return GestureDetector(
+                onTap: () => _showKanjiDialog(context, entry, meanings),
+                child: GridTile(
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: jLightBLue,
+                      border: Border.all(color: jDarkBLue, width: 2),
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Flexible(
+                          child: Text(
+                            entry.character,
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: Theme.of(context)
+                                .textTheme
+                                .headlineMedium
+                                ?.copyWith(
+                                  color: Colors.black,
+                                ),
+                          ),
+                        ),
+                        Flexible(
+                          child: Text(
+                            meaning,
+                            textAlign: TextAlign.center,
+                            style: Theme.of(context)
+                                .textTheme
+                                .titleSmall
+                                ?.copyWith(
+                                  color: Colors.white,
+                                ),
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              );
+            },
+          ),
+        ),
+      ],
     );
   }
 
@@ -141,17 +184,22 @@ class LearnTab extends StatelessWidget {
         return KanaDialog(
           assetKey: entry.assetKey,
           displayText: entry.reading,
-          kanaFolder: kanaType == KanaType.hiragana ? "hiragana" : "katakana",
+          kanaFolder:
+              widget.kanaType == KanaType.hiragana ? "hiragana" : "katakana",
         );
       },
     );
   }
 
-  void _showKanjiDialog(BuildContext context, KanjiEntry entry) {
+  void _showKanjiDialog(
+    BuildContext context,
+    KanjiEntry entry,
+    List<String> meanings,
+  ) {
     showDialog(
       context: context,
       builder: (BuildContext context) {
-        return KanjiDialog(entry: entry);
+        return KanjiDialog(entry: entry, meanings: meanings);
       },
     );
   }

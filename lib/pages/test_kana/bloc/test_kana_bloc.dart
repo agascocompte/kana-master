@@ -25,6 +25,7 @@ class TestKanaBloc extends Bloc<TestKanaEvent, TestKanaState> {
   Map<String, String>? _currentKana;
   KanaType _currentKanaType = KanaType.hiragana;
   List<KanjiEntry> _kanjiEntries = const [];
+  Map<String, List<String>> _kanjiMeanings = const {};
   ModelConfig? _loadedModelConfig;
 
   TestKanaBloc() : super(TestKanaInitial()) {
@@ -61,6 +62,7 @@ class TestKanaBloc extends Bloc<TestKanaEvent, TestKanaState> {
     _currentKana = event.kana;
     _currentKanaType = event.kanaType;
     _kanjiEntries = event.kanjiEntries;
+    _kanjiMeanings = event.kanjiMeanings;
     TestType testType = event.difficultyLevel == DifficultyLevel.high
         ? TestType.values[random.nextInt(TestType.values.length)]
         : TestType.singleAnswer;
@@ -142,6 +144,7 @@ class TestKanaBloc extends Bloc<TestKanaEvent, TestKanaState> {
     _currentKana = event.kana;
     _currentKanaType = event.kanaType;
     _kanjiEntries = event.kanjiEntries;
+    _kanjiMeanings = event.kanjiMeanings;
     TestType testType = event.difficultyLevel == DifficultyLevel.high
         ? TestType.values[random.nextInt(TestType.values.length)]
         : TestType.singleAnswer;
@@ -177,7 +180,8 @@ class TestKanaBloc extends Bloc<TestKanaEvent, TestKanaState> {
       }
       final int index = state.stateData.kanaIndex;
       if (index >= 0 && index < _kanjiEntries.length) {
-        final List<String> meanings = _kanjiEntries[index].meanings;
+        final String key = _kanjiEntries[index].unicode;
+        final List<String> meanings = _kanjiMeanings[key] ?? const [];
         final String answer =
             state.stateData.userTextAnswer.trim().toLowerCase();
         final bool matches =

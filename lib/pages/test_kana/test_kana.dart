@@ -13,6 +13,7 @@ class TestTab extends StatelessWidget {
   final KanaType kanaType;
   final Map<String, String> kana;
   final List<KanjiEntry> kanjiEntries;
+  final Map<String, List<String>> kanjiMeanings;
   final DifficultyLevel difficultyLevel;
 
   const TestTab({
@@ -20,6 +21,7 @@ class TestTab extends StatelessWidget {
     required this.kanaType,
     required this.kana,
     this.kanjiEntries = const [],
+    this.kanjiMeanings = const {},
     required this.difficultyLevel,
   });
 
@@ -37,6 +39,7 @@ class TestTab extends StatelessWidget {
                 kana: kana,
                 kanaType: kanaType,
                 kanjiEntries: kanjiEntries,
+                kanjiMeanings: kanjiMeanings,
                 difficultyLevel: difficultyLevel,
               ));
         } else if (state is HiraganaWritingFail || state is KanaSelectedFail) {
@@ -56,6 +59,7 @@ class TestTab extends StatelessWidget {
                   kana: kana,
                   kanaType: kanaType,
                   kanjiEntries: kanjiEntries,
+                  kanjiMeanings: kanjiMeanings,
                   difficultyLevel: difficultyLevel,
                 )),
           ));
@@ -97,6 +101,7 @@ class TestTab extends StatelessWidget {
                         kana: kana,
                         kanaType: kanaType,
                         kanjiEntries: kanjiEntries,
+                        kanjiMeanings: kanjiMeanings,
                         difficultyLevel: difficultyLevel,
                       ),
                     ),
