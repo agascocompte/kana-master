@@ -25,6 +25,7 @@ class LearnTab extends StatefulWidget {
 
 class _LearnTabState extends State<LearnTab> {
   String _query = '';
+  String _jlptFilter = 'all';
 
   @override
   Widget build(BuildContext context) {
@@ -89,6 +90,7 @@ class _LearnTabState extends State<LearnTab> {
 
   Widget _buildKanjiGrid(BuildContext context) {
     final String query = _query.trim().toLowerCase();
+    final bool filterAll = _jlptFilter == 'all';
     final List<KanjiEntry> filteredEntries = query.isEmpty
         ? widget.kanjiEntries
         : widget.kanjiEntries.where((entry) {
@@ -97,19 +99,48 @@ class _LearnTabState extends State<LearnTab> {
             return meanings
                 .any((meaning) => meaning.toLowerCase().contains(query));
           }).toList();
+    final List<KanjiEntry> jlptFiltered = filterAll
+        ? filteredEntries
+        : filteredEntries
+            .where((entry) => entry.jlpt.toLowerCase() == _jlptFilter)
+            .toList();
 
     return Column(
       children: [
         Padding(
           padding: const EdgeInsets.all(10.0),
-          child: TextField(
-            decoration: const InputDecoration(
-              hintText: 'Search by meaning',
-              prefixIcon: Icon(Icons.search),
-            ),
-            onChanged: (value) => setState(() {
-              _query = value;
-            }),
+          child: Row(
+            children: [
+              Expanded(
+                child: TextField(
+                  decoration: const InputDecoration(
+                    hintText: 'Search by meaning',
+                    prefixIcon: Icon(Icons.search),
+                  ),
+                  onChanged: (value) => setState(() {
+                    _query = value;
+                  }),
+                ),
+              ),
+              const SizedBox(width: 8),
+              DropdownButton<String>(
+                value: _jlptFilter,
+                onChanged: (value) {
+                  if (value == null) return;
+                  setState(() {
+                    _jlptFilter = value;
+                  });
+                },
+                items: const [
+                  DropdownMenuItem(value: 'all', child: Text('All')),
+                  DropdownMenuItem(value: 'n5', child: Text('N5')),
+                  DropdownMenuItem(value: 'n4', child: Text('N4')),
+                  DropdownMenuItem(value: 'n3', child: Text('N3')),
+                  DropdownMenuItem(value: 'n2', child: Text('N2')),
+                  DropdownMenuItem(value: 'n1', child: Text('N1')),
+                ],
+              ),
+            ],
           ),
         ),
         Expanded(
@@ -120,9 +151,9 @@ class _LearnTabState extends State<LearnTab> {
               crossAxisSpacing: 10,
               mainAxisSpacing: 10,
             ),
-            itemCount: filteredEntries.length,
+            itemCount: jlptFiltered.length,
             itemBuilder: (context, index) {
-              final KanjiEntry entry = filteredEntries[index];
+              final KanjiEntry entry = jlptFiltered[index];
               final List<String> meanings =
                   widget.kanjiMeanings[entry.unicode] ?? const [];
               final String meaning = meanings.isNotEmpty ? meanings.first : '';
