@@ -12,7 +12,14 @@ class KanjiRepository {
     final int count =
         Sqflite.firstIntValue(await db.rawQuery('SELECT COUNT(*) FROM kanji')) ??
             0;
-    if (count > 0) return;
+    final int jlptCount = Sqflite.firstIntValue(await db.rawQuery(
+          "SELECT COUNT(*) FROM kanji WHERE jlpt IS NOT NULL AND jlpt != ''",
+        )) ??
+        0;
+    if (count > 0 && jlptCount > 0) return;
+    if (count > 0 && jlptCount == 0) {
+      await db.delete('kanji');
+    }
 
     final String csvData =
         await rootBundle.loadString('assets/csv/kanji_data.csv');
@@ -28,11 +35,14 @@ class KanjiRepository {
     int indexOf(String name) => headers.indexOf(name);
 
     final int kanjiIndex = indexOf('kanji');
-    final int readingsIndex = indexOf('readings');
+    final int onIndex = indexOf('on_readings');
+    final int kunIndex = indexOf('kun_readings');
+    final int nameIndex = indexOf('name_readings');
     final int strokeIndex = indexOf('stroke_number');
     final int unicodeIndex = indexOf('unicode');
+    final int jlptIndex = indexOf('jlpt');
 
-    if ([kanjiIndex, readingsIndex, strokeIndex, unicodeIndex]
+    if ([kanjiIndex, onIndex, kunIndex, nameIndex, strokeIndex, unicodeIndex]
         .any((index) => index == -1)) {
       return;
     }
@@ -41,20 +51,25 @@ class KanjiRepository {
     for (final row in rows.skip(1)) {
       if (row.length <= unicodeIndex) continue;
       final String character = row[kanjiIndex].toString();
-      final String readingsRaw = row[readingsIndex].toString();
-      final Map<String, String> split = _splitReadings(readingsRaw);
+      final String readingsOn = row[onIndex].toString();
+      final String readingsKun = row[kunIndex].toString();
+      final String readingsName = row[nameIndex].toString();
       final String unicode = _padUnicode(row[unicodeIndex].toString());
       final int strokeCount =
           int.tryParse(row[strokeIndex].toString().trim()) ?? 0;
+      final String jlpt =
+          jlptIndex == -1 ? '' : row[jlptIndex].toString();
 
       batch.insert(
         'kanji',
         {
           'unicode': unicode,
           'kanji': character,
-          'readings_on': split['on'] ?? '',
-          'readings_kun': split['kun'] ?? '',
+          'readings_on': readingsOn,
+          'readings_kun': readingsKun,
+          'readings_name': readingsName,
           'stroke_count': strokeCount,
+          'jlpt': jlpt,
         },
         conflictAlgorithm: ConflictAlgorithm.replace,
       );
@@ -70,42 +85,13 @@ class KanjiRepository {
               character: row['kanji']?.toString() ?? '',
               readingsOn: row['readings_on']?.toString() ?? '',
               readingsKun: row['readings_kun']?.toString() ?? '',
+              readingsName: row['readings_name']?.toString() ?? '',
               strokeNumber: row['stroke_count']?.toString() ?? '0',
               unicode: row['unicode']?.toString() ?? '',
+              jlpt: row['jlpt']?.toString() ?? '',
             ))
         .toList(growable: false);
   }
-}
-
-Map<String, String> _splitReadings(String readingsRaw) {
-  final List<String> on = [];
-  final List<String> kun = [];
-  final List<String> parts = readingsRaw
-      .split(';')
-      .map((reading) => reading.trim())
-      .where((reading) => reading.isNotEmpty)
-      .toList();
-  for (final reading in parts) {
-    if (_containsKatakana(reading)) {
-      on.add(reading);
-    } else if (_containsHiragana(reading)) {
-      kun.add(reading);
-    } else {
-      on.add(reading);
-    }
-  }
-  return {
-    'on': on.join(';'),
-    'kun': kun.join(';'),
-  };
-}
-
-bool _containsHiragana(String value) {
-  return value.runes.any((code) => code >= 0x3040 && code <= 0x309F);
-}
-
-bool _containsKatakana(String value) {
-  return value.runes.any((code) => code >= 0x30A0 && code <= 0x30FF);
 }
 
 String _padUnicode(String unicode) {
