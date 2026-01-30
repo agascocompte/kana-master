@@ -15,8 +15,6 @@ class KanjiDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final String meaningsText = meanings.join(', ');
-    final String onReadings = entry.readingsOn.join(' / ');
-    final String kunReadings = entry.readingsKun.join(' / ');
     return AlertDialog(
       elevation: 0,
       backgroundColor: Colors.white,
@@ -33,25 +31,10 @@ class KanjiDialog extends StatelessWidget {
                 SizedBox(
                   width: double.infinity,
                   child: KanaStrokeAnimation(
-                    assetPath: 'assets/svg/kanji/${entry.unicode}.svg',
+                    assetPath:
+                        'assets/svg/kanji/${entry.unicode.toUpperCase()}.svg',
                   ),
                 ),
-                if (onReadings.isNotEmpty)
-                  Padding(
-                    padding: const EdgeInsets.only(top: 6.0),
-                    child: Text(
-                      'On: $onReadings',
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                if (kunReadings.isNotEmpty)
-                  Padding(
-                    padding: const EdgeInsets.only(top: 6.0),
-                    child: Text(
-                      'Kun: $kunReadings',
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
                 if (meaningsText.isNotEmpty)
                   Padding(
                     padding: const EdgeInsets.only(top: 6.0),

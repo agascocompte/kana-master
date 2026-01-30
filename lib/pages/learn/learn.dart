@@ -94,8 +94,8 @@ class _LearnTabState extends State<LearnTab> {
         : widget.kanjiEntries.where((entry) {
             final List<String> meanings =
                 widget.kanjiMeanings[entry.unicode] ?? const [];
-            return meanings.any(
-                (meaning) => meaning.toLowerCase().contains(query));
+            return meanings
+                .any((meaning) => meaning.toLowerCase().contains(query));
           }).toList();
 
     return Column(
@@ -138,20 +138,17 @@ class _LearnTabState extends State<LearnTab> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Flexible(
-                          child: Text(
-                            entry.character,
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                            style: Theme.of(context)
-                                .textTheme
-                                .headlineMedium
-                                ?.copyWith(
-                                  color: Colors.black,
-                                ),
-                          ),
+                        Text(
+                          entry.character,
+                          style: Theme.of(context)
+                              .textTheme
+                              .headlineMedium
+                              ?.copyWith(
+                                color: Colors.black,
+                              ),
                         ),
-                        Flexible(
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 4),
                           child: Text(
                             meaning,
                             textAlign: TextAlign.center,
