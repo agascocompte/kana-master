@@ -4,6 +4,7 @@ import 'package:kana_master/constants.dart';
 import 'package:kana_master/extensions.dart';
 import 'package:kana_master/pages/settings/bloc/settings_bloc.dart';
 import 'package:kana_master/pages/settings/widgets/dropdown_tile_setting.dart';
+import 'package:kana_master/theme/app_theme.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({super.key});
@@ -16,35 +17,32 @@ class SettingsPage extends StatelessWidget {
       ),
       body: BlocBuilder<SettingsBloc, SettingsState>(
         builder: (context, state) {
-          return Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                DropdownTileSetting(
-                  title: "Script",
-                  subtitle: "Choose the script for study and tests.",
-                  currentValue: state.stateData.kanaType,
-                  icon: Icons.language,
-                  items: KanaType.values.map((KanaType type) {
-                    return DropdownMenuItem<KanaType>(
-                      value: type,
-                      child: Text(type.toString().split('.').last.capitalize()),
-                    );
-                  }).toList(),
-                  onChanged: (KanaType? newValue) {
-                    if (newValue != null) {
-                      context
-                          .read<SettingsBloc>()
-                          .add(SetKanaType(kanaType: newValue));
-                    }
-                  },
+          return Container(
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                colors: [AppColors.mist, AppColors.sand],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+              ),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                const Text(
+                  'Learning defaults',
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w700,
+                    color: AppColors.ink,
+                  ),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 12),
                 DropdownTileSetting(
                   title: "Test difficulty",
                   subtitle:
-                      "Choose the level of difficulty \nfor the kana test.",
+                      "Choose the level of difficulty for practice sessions.",
                   currentValue: state.stateData.difficultyLevel,
                   icon: Icons.speed_outlined,
                   items: DifficultyLevel.values.map((DifficultyLevel level) {
@@ -82,7 +80,8 @@ class SettingsPage extends StatelessWidget {
                     }
                   },
                 ),
-              ],
+                ],
+              ),
             ),
           );
         },

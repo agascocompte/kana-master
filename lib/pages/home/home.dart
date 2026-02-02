@@ -1,100 +1,47 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
-import 'package:kana_master/constants.dart';
 import 'package:kana_master/pages/dictionary/dictionary.dart';
-import 'package:kana_master/pages/settings/bloc/settings_bloc.dart';
+import 'package:kana_master/pages/home/bloc/home_nav_cubit.dart';
+import 'package:kana_master/pages/stats/stats.dart';
 import 'package:kana_master/pages/study/study.dart';
-import 'package:kana_master/router/router.dart';
 
-class HomePage extends StatefulWidget {
+class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   @override
-  HomePageState createState() => HomePageState();
-}
-
-class HomePageState extends State<HomePage>
-    with SingleTickerProviderStateMixin {
-  late TabController _tabController;
-
-  @override
-  void initState() {
-    super.initState();
-    _tabController = TabController(length: 2, vsync: this);
-  }
-
-  @override
-  void dispose() {
-    _tabController.dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          "Kana Master",
-          style: TextStyle(fontWeight: FontWeight.w700),
-        ),
-        actions: [
-          IconButton(
-            onPressed: () => context.push(AppRouter.statsRoute),
-            icon: const Icon(Icons.bar_chart_outlined),
+    return BlocBuilder<HomeNavCubit, int>(
+      builder: (context, index) {
+        return Scaffold(
+          body: IndexedStack(
+            index: index,
+            children: const [
+              StudyTab(),
+              DictionaryTab(),
+              StatsTab(),
+            ],
           ),
-          IconButton(
-            onPressed: () => context.push(AppRouter.settingsRoute),
-            icon: const Icon(Icons.settings_outlined),
-          ),
-        ],
-      ),
-      body: BlocBuilder<SettingsBloc, SettingsState>(
-        builder: (context, state) {
-          return TabBarView(
-            physics: const NeverScrollableScrollPhysics(),
-            controller: _tabController,
-            children: [
-              StudyTab(
-                kanaEntries: state.stateData.kanaType == KanaType.hiragana
-                    ? hiraganaEntries
-                    : state.stateData.kanaType == KanaType.katakana
-                        ? katakanaEntries
-                        : const [],
-                kanaMap: state.stateData.kanaType == KanaType.hiragana
-                    ? hiragana
-                    : state.stateData.kanaType == KanaType.katakana
-                        ? katakana
-                        : const {},
-                kanaType: state.stateData.kanaType,
-                difficultyLevel: state.stateData.difficultyLevel,
+          bottomNavigationBar: NavigationBar(
+            selectedIndex: index,
+            onDestinationSelected: (value) =>
+                context.read<HomeNavCubit>().selectTab(value),
+            destinations: const [
+              NavigationDestination(
+                icon: Icon(Icons.school_outlined),
+                label: 'Study',
               ),
-              const DictionaryTab(),
-            ],
-          );
-        },
-      ),
-      bottomNavigationBar: Material(
-        color: Colors.white,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 6.0),
-          child: TabBar(
-            labelColor: jDarkBLue,
-            unselectedLabelColor: jLightBLue,
-            indicator: const UnderlineTabIndicator(
-              borderSide: BorderSide(color: jOrange, width: 3),
-              insets: EdgeInsets.zero,
-            ),
-            indicatorSize: TabBarIndicatorSize.tab,
-            labelStyle: const TextStyle(fontWeight: FontWeight.w700),
-            controller: _tabController,
-            tabs: const [
-              Tab(icon: Icon(Icons.school_outlined), text: "Study"),
-              Tab(icon: Icon(Icons.search), text: "Dictionary"),
+              NavigationDestination(
+                icon: Icon(Icons.search),
+                label: 'Dictionary',
+              ),
+              NavigationDestination(
+                icon: Icon(Icons.bar_chart_outlined),
+                label: 'Stats',
+              ),
             ],
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 }
