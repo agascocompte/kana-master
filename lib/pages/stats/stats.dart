@@ -7,42 +7,27 @@ import 'package:kana_master/pages/stats/widgets/bar_chart.dart';
 import 'package:kana_master/pages/stats/widgets/time_series_bar_chart.dart';
 import 'package:kana_master/widgets/dialogs.dart';
 
-class StatsTab extends StatefulWidget {
+class StatsTab extends StatelessWidget {
   const StatsTab({super.key});
-
-  @override
-  StatsTabState createState() => StatsTabState();
-}
-
-class StatsTabState extends State<StatsTab> {
-  List<FlSpot> correctSpots = [];
-  List<FlSpot> incorrectSpots = [];
-  bool _showBarChart = true;
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<StatsBloc, StatsState>(
       builder: (context, state) {
-        if (state.stateData.correctHiraganaCount > 0 &&
-            state.stateData.incorrectHiraganaCount > 0) {
-          correctSpots = state.stateData.correctDataMap.entries.map((entry) {
-            final xValue = entry.key
-                .difference(state.stateData.correctDataMap.keys.first)
-                .inDays
-                .toDouble();
-            final yValue = entry.value.toDouble();
-            return FlSpot(xValue, yValue);
-          }).toList();
-          incorrectSpots =
-              state.stateData.incorrectDataMap.entries.map((entry) {
-            final xValue = entry.key
-                .difference(state.stateData.incorrectDataMap.keys.first)
-                .inDays
-                .toDouble();
+        List<FlSpot> buildSpots(Map<DateTime, int> dataMap) {
+          if (dataMap.isEmpty) return [];
+          final firstKey = dataMap.keys.first;
+          return dataMap.entries.map((entry) {
+            final xValue = entry.key.difference(firstKey).inDays.toDouble();
             final yValue = entry.value.toDouble();
             return FlSpot(xValue, yValue);
           }).toList();
         }
+
+        final List<FlSpot> correctSpots =
+            buildSpots(state.stateData.correctDataMap);
+        final List<FlSpot> incorrectSpots =
+            buildSpots(state.stateData.incorrectDataMap);
         return Column(
           children: [
             Flexible(
@@ -54,12 +39,14 @@ class StatsTabState extends State<StatsTab> {
                     padding: const EdgeInsets.all(8.0),
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                          backgroundColor: _showBarChart ? jLightBLue : jOrange,
+                          backgroundColor: state.stateData.showBarChart
+                              ? jLightBLue
+                              : jOrange,
                           foregroundColor: Colors.black),
                       onPressed: () {
-                        setState(() {
-                          _showBarChart = true;
-                        });
+                        context
+                            .read<StatsBloc>()
+                            .add(StatsViewChanged(true));
                       },
                       child: const Text(
                         'Counter',
@@ -70,13 +57,15 @@ class StatsTabState extends State<StatsTab> {
                     padding: const EdgeInsets.all(8.0),
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: !_showBarChart ? jLightBLue : jOrange,
+                        backgroundColor: !state.stateData.showBarChart
+                            ? jLightBLue
+                            : jOrange,
                         foregroundColor: Colors.black,
                       ),
                       onPressed: () {
-                        setState(() {
-                          _showBarChart = false;
-                        });
+                        context
+                            .read<StatsBloc>()
+                            .add(StatsViewChanged(false));
                       },
                       child: const Text(
                         'Evolution',
@@ -88,7 +77,7 @@ class StatsTabState extends State<StatsTab> {
             ),
             Flexible(
               flex: 8,
-              child: _showBarChart
+              child: state.stateData.showBarChart
                   ? StatsBarChart(
                       correctHiraganaCount:
                           state.stateData.correctHiraganaCount,

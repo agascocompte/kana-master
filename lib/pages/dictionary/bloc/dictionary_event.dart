@@ -8,4 +8,10 @@ class SearchSubmitted extends DictionaryEvent {
   SearchSubmitted(this.query);
 }
 
+class DictionaryQueryChanged extends DictionaryEvent {
+  final String query;
+
+  DictionaryQueryChanged(this.query);
+}
+
 class ClearSearch extends DictionaryEvent {}

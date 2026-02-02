@@ -3,26 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kana_master/constants.dart';
 import 'package:kana_master/pages/dictionary/bloc/dictionary_bloc.dart';
 
-class DictionaryTab extends StatefulWidget {
+class DictionaryTab extends StatelessWidget {
   const DictionaryTab({super.key});
-
-  @override
-  State<DictionaryTab> createState() => _DictionaryTabState();
-}
-
-class _DictionaryTabState extends State<DictionaryTab> {
-  final TextEditingController _controller = TextEditingController();
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
-
-  void _submitSearch() {
-    FocusScope.of(context).unfocus();
-    context.read<DictionaryBloc>().add(SearchSubmitted(_controller.text));
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,26 +16,46 @@ class _DictionaryTabState extends State<DictionaryTab> {
           Row(
             children: [
               Expanded(
-                child: TextField(
-                  controller: _controller,
-                  decoration: const InputDecoration(
-                    hintText: 'Search word, kana, romaji...',
-                    border: OutlineInputBorder(),
-                    contentPadding:
-                        EdgeInsets.symmetric(horizontal: 12, vertical: 10),
-                  ),
-                  onSubmitted: (_) => _submitSearch(),
-                  textInputAction: TextInputAction.search,
+                child: BlocBuilder<DictionaryBloc, DictionaryState>(
+                  builder: (context, state) {
+                    return TextFormField(
+                      decoration: const InputDecoration(
+                        hintText: 'Search word, kana, romaji...',
+                        border: OutlineInputBorder(),
+                        contentPadding:
+                            EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+                      ),
+                      onChanged: (value) => context
+                          .read<DictionaryBloc>()
+                          .add(DictionaryQueryChanged(value)),
+                      onFieldSubmitted: (value) {
+                        FocusScope.of(context).unfocus();
+                        context.read<DictionaryBloc>().add(
+                              SearchSubmitted(value),
+                            );
+                      },
+                      textInputAction: TextInputAction.search,
+                    );
+                  },
                 ),
               ),
               const SizedBox(width: 8),
-              ElevatedButton(
-                onPressed: _submitSearch,
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: jOrange,
-                  foregroundColor: Colors.black,
-                ),
-                child: const Icon(Icons.search),
+              BlocBuilder<DictionaryBloc, DictionaryState>(
+                builder: (context, state) {
+                  return ElevatedButton(
+                    onPressed: () {
+                      FocusScope.of(context).unfocus();
+                      context.read<DictionaryBloc>().add(
+                            SearchSubmitted(state.stateData.currentQuery),
+                          );
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: jOrange,
+                      foregroundColor: Colors.black,
+                    ),
+                    child: const Icon(Icons.search),
+                  );
+                },
               ),
             ],
           ),

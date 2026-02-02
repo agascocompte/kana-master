@@ -9,3 +9,9 @@ class AddHiraganaSuccess extends StatsEvent {}
 class AddHiraganaFail extends StatsEvent {}
 
 class ResetStats extends StatsEvent {}
+
+class StatsViewChanged extends StatsEvent {
+  final bool showBarChart;
+
+  StatsViewChanged(this.showBarChart);
+}
