@@ -1,169 +1,211 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:kana_master/constants.dart';
 import 'package:kana_master/pages/dictionary/bloc/dictionary_bloc.dart';
+import 'package:kana_master/theme/app_theme.dart';
 
 class DictionaryTab extends StatelessWidget {
   const DictionaryTab({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(12.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
+    return Container(
+      decoration: const BoxDecoration(
+        gradient: LinearGradient(
+          colors: [AppColors.mist, AppColors.sand],
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+        ),
+      ),
+      child: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(16, 18, 16, 24),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              const Text(
+                'Dictionary',
+                style: TextStyle(
+                  fontSize: 28,
+                  fontWeight: FontWeight.w800,
+                  color: AppColors.ink,
+                ),
+              ),
+              const SizedBox(height: 6),
+              const Text(
+                'Search words, kana, and meanings instantly.',
+                style: TextStyle(color: AppColors.slate, fontSize: 14),
+              ),
+              const SizedBox(height: 16),
+              Row(
+                children: [
+                  Expanded(
+                    child: BlocBuilder<DictionaryBloc, DictionaryState>(
+                      builder: (context, state) {
+                        return TextFormField(
+                          decoration: const InputDecoration(
+                            hintText: 'Search word, kana, romaji...',
+                            prefixIcon: Icon(Icons.search),
+                          ),
+                          onChanged: (value) => context
+                              .read<DictionaryBloc>()
+                              .add(DictionaryQueryChanged(value)),
+                          onFieldSubmitted: (value) {
+                            FocusScope.of(context).unfocus();
+                            context.read<DictionaryBloc>().add(
+                                  SearchSubmitted(value),
+                                );
+                          },
+                          textInputAction: TextInputAction.search,
+                        );
+                      },
+                    ),
+                  ),
+                  const SizedBox(width: 8),
+                  BlocBuilder<DictionaryBloc, DictionaryState>(
+                    builder: (context, state) {
+                      return ElevatedButton(
+                        onPressed: () {
+                          FocusScope.of(context).unfocus();
+                          context.read<DictionaryBloc>().add(
+                                SearchSubmitted(state.stateData.currentQuery),
+                              );
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: AppColors.ink,
+                          foregroundColor: Colors.white,
+                          padding: const EdgeInsets.all(14),
+                        ),
+                        child: const Icon(Icons.arrow_forward),
+                      );
+                    },
+                  ),
+                ],
+              ),
+              const SizedBox(height: 16),
               Expanded(
                 child: BlocBuilder<DictionaryBloc, DictionaryState>(
                   builder: (context, state) {
-                    return TextFormField(
-                      decoration: const InputDecoration(
-                        hintText: 'Search word, kana, romaji...',
-                        border: OutlineInputBorder(),
-                        contentPadding:
-                            EdgeInsets.symmetric(horizontal: 12, vertical: 10),
-                      ),
-                      onChanged: (value) => context
-                          .read<DictionaryBloc>()
-                          .add(DictionaryQueryChanged(value)),
-                      onFieldSubmitted: (value) {
-                        FocusScope.of(context).unfocus();
-                        context.read<DictionaryBloc>().add(
-                              SearchSubmitted(value),
-                            );
+                    if (state is DictionaryLoading) {
+                      return const Center(
+                        child: CircularProgressIndicator(
+                          color: AppColors.ink,
+                        ),
+                      );
+                    }
+
+                    if (state is DictionaryError &&
+                        state.stateData.errorMessage.isNotEmpty) {
+                      return Center(
+                        child: Text(
+                          state.stateData.errorMessage,
+                          style: const TextStyle(color: Colors.red),
+                          textAlign: TextAlign.center,
+                        ),
+                      );
+                    }
+
+                    if (state.stateData.entries.isEmpty) {
+                      return const Center(
+                        child: Text(
+                          'Begin searching for a word.',
+                          style: TextStyle(color: AppColors.graphite),
+                        ),
+                      );
+                    }
+
+                    return ListView.separated(
+                      itemCount: state.stateData.entries.length,
+                      separatorBuilder: (_, __) => const SizedBox(height: 12),
+                      itemBuilder: (context, index) {
+                        final entry = state.stateData.entries[index];
+                        return Container(
+                          padding: const EdgeInsets.all(14),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(16),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black.withAlpha(12),
+                                blurRadius: 12,
+                                offset: const Offset(0, 6),
+                              ),
+                            ],
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              SelectableText(
+                                entry.word,
+                                style: const TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                  color: AppColors.ink,
+                                ),
+                              ),
+                              if (entry.reading.isNotEmpty)
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 2.0),
+                                  child: SelectableText(
+                                    entry.reading,
+                                    style:
+                                        const TextStyle(color: AppColors.slate),
+                                  ),
+                                ),
+                              const SizedBox(height: 8),
+                              _ChipWrap(
+                                items: entry.meanings,
+                                color: AppColors.peach.withAlpha(70),
+                                borderColor: AppColors.peach.withAlpha(120),
+                              ),
+                              if (entry.partsOfSpeech.isNotEmpty ||
+                                  entry.tags.isNotEmpty ||
+                                  entry.jlpt.isNotEmpty)
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 8.0),
+                                  child: _ChipWrap(
+                                    items: [
+                                      ...entry.partsOfSpeech,
+                                      ...entry.tags,
+                                      ...entry.jlpt,
+                                    ],
+                                    color: AppColors.mist,
+                                    borderColor: AppColors.sand,
+                                    textStyle:
+                                        const TextStyle(fontSize: 12),
+                                  ),
+                                ),
+                              if (entry.info.isNotEmpty ||
+                                  entry.seeAlso.isNotEmpty)
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 8.0),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      if (entry.info.isNotEmpty)
+                                        _InfoBlock(
+                                          title: 'Notes',
+                                          lines: entry.info,
+                                        ),
+                                      if (entry.seeAlso.isNotEmpty)
+                                        _InfoBlock(
+                                          title: 'See also',
+                                          lines: entry.seeAlso,
+                                        ),
+                                    ],
+                                  ),
+                                ),
+                            ],
+                          ),
+                        );
                       },
-                      textInputAction: TextInputAction.search,
                     );
                   },
                 ),
               ),
-              const SizedBox(width: 8),
-              BlocBuilder<DictionaryBloc, DictionaryState>(
-                builder: (context, state) {
-                  return ElevatedButton(
-                    onPressed: () {
-                      FocusScope.of(context).unfocus();
-                      context.read<DictionaryBloc>().add(
-                            SearchSubmitted(state.stateData.currentQuery),
-                          );
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: jOrange,
-                      foregroundColor: Colors.black,
-                    ),
-                    child: const Icon(Icons.search),
-                  );
-                },
-              ),
             ],
           ),
-          const SizedBox(height: 12),
-          Expanded(
-            child: BlocBuilder<DictionaryBloc, DictionaryState>(
-              builder: (context, state) {
-                if (state is DictionaryLoading) {
-                  return const Center(
-                    child: CircularProgressIndicator(color: jOrange),
-                  );
-                }
-
-                if (state is DictionaryError &&
-                    state.stateData.errorMessage.isNotEmpty) {
-                  return Center(
-                    child: Text(
-                      state.stateData.errorMessage,
-                      style: const TextStyle(color: Colors.red),
-                      textAlign: TextAlign.center,
-                    ),
-                  );
-                }
-
-                if (state.stateData.entries.isEmpty) {
-                  return const Center(
-                    child: Text(
-                      'Begin searching for a word.',
-                      style: TextStyle(color: Colors.black),
-                    ),
-                  );
-                }
-
-                return ListView.separated(
-                  itemCount: state.stateData.entries.length,
-                  separatorBuilder: (_, __) => const Divider(height: 1),
-                  itemBuilder: (context, index) {
-                    final entry = state.stateData.entries[index];
-                    return Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 8.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          SelectableText(
-                            entry.word,
-                            style: const TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          if (entry.reading.isNotEmpty)
-                            Padding(
-                              padding: const EdgeInsets.only(top: 2.0),
-                              child: SelectableText(
-                                entry.reading,
-                                style: const TextStyle(color: jDarkBLue),
-                              ),
-                            ),
-                          const SizedBox(height: 6),
-                          _ChipWrap(
-                            items: entry.meanings,
-                            color: jOrange.withAlpha(36),
-                            borderColor: jOrange.withAlpha(153),
-                          ),
-                          if (entry.partsOfSpeech.isNotEmpty ||
-                              entry.tags.isNotEmpty ||
-                              entry.jlpt.isNotEmpty)
-                            Padding(
-                              padding: const EdgeInsets.only(top: 6.0),
-                              child: _ChipWrap(
-                                items: [
-                                  ...entry.partsOfSpeech,
-                                  ...entry.tags,
-                                  ...entry.jlpt,
-                                ],
-                                color: Colors.grey.shade200,
-                                borderColor: Colors.grey.shade400,
-                                textStyle: const TextStyle(fontSize: 12),
-                              ),
-                            ),
-                          if (entry.info.isNotEmpty || entry.seeAlso.isNotEmpty)
-                            Padding(
-                              padding: const EdgeInsets.only(top: 6.0),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  if (entry.info.isNotEmpty)
-                                    _InfoBlock(
-                                      title: 'Notes',
-                                      lines: entry.info,
-                                    ),
-                                  if (entry.seeAlso.isNotEmpty)
-                                    _InfoBlock(
-                                      title: 'See also',
-                                      lines: entry.seeAlso,
-                                    ),
-                                ],
-                              ),
-                            ),
-                        ],
-                      ),
-                    );
-                  },
-                );
-              },
-            ),
-          ),
-        ],
+        ),
       ),
     );
   }
@@ -227,7 +269,7 @@ class _InfoBlock extends StatelessWidget {
           style: const TextStyle(
             fontWeight: FontWeight.w700,
             fontSize: 12,
-            color: jDarkBLue,
+            color: AppColors.ink,
           ),
         ),
         const SizedBox(height: 2),

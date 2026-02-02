@@ -5,6 +5,7 @@ import 'package:kana_master/constants.dart';
 import 'package:kana_master/domain/models/stats_summary.dart';
 import 'package:kana_master/pages/stats/bloc/stats_bloc.dart';
 import 'package:kana_master/widgets/dialogs.dart';
+import 'package:kana_master/theme/app_theme.dart';
 
 class StatsTab extends StatelessWidget {
   const StatsTab({super.key});
@@ -41,11 +42,7 @@ class StatsTab extends StatelessWidget {
         return Container(
           decoration: const BoxDecoration(
             gradient: LinearGradient(
-              colors: [
-                Color(0xFF0B1F2A),
-                Color(0xFF0E2E3D),
-                Color(0xFF0A1620),
-              ],
+              colors: [AppColors.mist, AppColors.sand],
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
             ),
@@ -61,14 +58,14 @@ class StatsTab extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 28,
                       fontWeight: FontWeight.w800,
-                      color: Colors.white,
+                      color: AppColors.ink,
                     ),
                   ),
                   const SizedBox(height: 6),
                   const Text(
                     'Consistency, accuracy, and momentum by kana type.',
                     style: TextStyle(
-                      color: Color(0xFFB3C8D6),
+                      color: AppColors.slate,
                       fontSize: 14,
                     ),
                   ),
@@ -95,7 +92,7 @@ class StatsTab extends StatelessWidget {
                                 '${(summary.accuracy * 100).toStringAsFixed(1)}%',
                             subtitle:
                                 '${summary.correct} / ${summary.total} correct',
-                            accent: jOrange,
+                            accent: AppColors.coral,
                             icon: Icons.auto_graph,
                           ),
                         ),
@@ -105,7 +102,7 @@ class StatsTab extends StatelessWidget {
                             label: 'Streak',
                             value: '${summary.currentStreak} days',
                             subtitle: 'Best ${summary.bestStreak} days',
-                            accent: jLightBLue,
+                            accent: AppColors.teal,
                             icon: Icons.local_fire_department,
                           ),
                         ),
@@ -119,7 +116,7 @@ class StatsTab extends StatelessWidget {
                             label: 'Last 7 days',
                             value: '${summary.last7DaysCount}',
                             subtitle: 'sessions',
-                            accent: const Color(0xFF67D2B4),
+                            accent: AppColors.lime,
                             icon: Icons.bolt,
                           ),
                         ),
@@ -129,7 +126,7 @@ class StatsTab extends StatelessWidget {
                             label: 'Last 30 days',
                             value: '${summary.last30DaysCount}',
                             subtitle: 'sessions',
-                            accent: const Color(0xFFE2C044),
+                            accent: AppColors.peach,
                             icon: Icons.calendar_month,
                           ),
                         ),
@@ -159,8 +156,8 @@ class StatsTab extends StatelessWidget {
                     alignment: Alignment.centerLeft,
                     child: ElevatedButton.icon(
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: jOrange,
-                        foregroundColor: Colors.black,
+                        backgroundColor: AppColors.ink,
+                        foregroundColor: Colors.white,
                         padding: const EdgeInsets.symmetric(
                           horizontal: 16,
                           vertical: 12,
@@ -220,21 +217,21 @@ class _KanaTypeSwitcher extends StatelessWidget {
                 padding:
                     const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
                 decoration: BoxDecoration(
-                  color: isSelected ? accent : const Color(0xFF122432),
+                  color: isSelected
+                      ? accent.withAlpha(60)
+                      : Colors.white,
                   borderRadius: BorderRadius.circular(14),
                   border: Border.all(
-                    color: isSelected ? accent : const Color(0xFF294659),
+                    color: isSelected ? accent : AppColors.sand,
                     width: 1,
                   ),
-                  boxShadow: isSelected
-                      ? [
-                          BoxShadow(
-                            color: accent.withAlpha(80),
-                            blurRadius: 16,
-                            offset: const Offset(0, 6),
-                          )
-                        ]
-                      : [],
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withAlpha(10),
+                      blurRadius: 12,
+                      offset: const Offset(0, 6),
+                    ),
+                  ],
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -242,7 +239,7 @@ class _KanaTypeSwitcher extends StatelessWidget {
                     Text(
                       _labelForType(type),
                       style: TextStyle(
-                        color: isSelected ? Colors.black : Colors.white,
+                        color: AppColors.ink,
                         fontWeight: FontWeight.w700,
                         fontSize: 13,
                       ),
@@ -251,7 +248,7 @@ class _KanaTypeSwitcher extends StatelessWidget {
                     Text(
                       '${(summary.accuracy * 100).toStringAsFixed(0)}%',
                       style: TextStyle(
-                        color: isSelected ? Colors.black : accent,
+                        color: AppColors.ink,
                         fontSize: 18,
                         fontWeight: FontWeight.w800,
                       ),
@@ -259,9 +256,7 @@ class _KanaTypeSwitcher extends StatelessWidget {
                     Text(
                       '${summary.total} attempts',
                       style: TextStyle(
-                        color: isSelected
-                            ? Colors.black.withAlpha(140)
-                            : const Color(0xFF8FB1C7),
+                        color: AppColors.slate,
                         fontSize: 11,
                       ),
                     ),
@@ -296,16 +291,16 @@ class _MetricCard extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
-        color: const Color(0xFF122432),
+        color: Colors.white,
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: const Color(0xFF294659)),
+        border: Border.all(color: AppColors.sand),
       ),
       child: Row(
         children: [
           Container(
             padding: const EdgeInsets.all(10),
             decoration: BoxDecoration(
-              color: accent.withAlpha(40),
+              color: accent.withAlpha(60),
               borderRadius: BorderRadius.circular(12),
             ),
             child: Icon(icon, color: accent, size: 20),
@@ -318,7 +313,7 @@ class _MetricCard extends StatelessWidget {
                 Text(
                   label,
                   style: const TextStyle(
-                    color: Color(0xFFB3C8D6),
+                    color: AppColors.slate,
                     fontSize: 12,
                   ),
                 ),
@@ -326,7 +321,7 @@ class _MetricCard extends StatelessWidget {
                 Text(
                   value,
                   style: const TextStyle(
-                    color: Colors.white,
+                    color: AppColors.ink,
                     fontWeight: FontWeight.w800,
                     fontSize: 18,
                   ),
@@ -335,7 +330,7 @@ class _MetricCard extends StatelessWidget {
                 Text(
                   subtitle,
                   style: const TextStyle(
-                    color: Color(0xFF8FB1C7),
+                    color: AppColors.slate,
                     fontSize: 11,
                   ),
                 ),
@@ -364,9 +359,9 @@ class _SectionCard extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: const Color(0xFF101D27),
+        color: Colors.white,
         borderRadius: BorderRadius.circular(18),
-        border: Border.all(color: const Color(0xFF294659)),
+        border: Border.all(color: AppColors.sand),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -374,7 +369,7 @@ class _SectionCard extends StatelessWidget {
           Text(
             title,
             style: const TextStyle(
-              color: Colors.white,
+              color: AppColors.ink,
               fontWeight: FontWeight.w700,
               fontSize: 16,
             ),
@@ -383,7 +378,7 @@ class _SectionCard extends StatelessWidget {
           Text(
             subtitle,
             style: const TextStyle(
-              color: Color(0xFF8FB1C7),
+              color: AppColors.slate,
               fontSize: 12,
             ),
           ),
@@ -405,7 +400,7 @@ class _ActivityStrip extends StatelessWidget {
     if (days.isEmpty) {
       return const Text(
         'No activity yet.',
-        style: TextStyle(color: Color(0xFF8FB1C7)),
+        style: TextStyle(color: AppColors.slate),
       );
     }
     final int maxCount =
@@ -423,8 +418,8 @@ class _ActivityStrip extends StatelessWidget {
                   height: 64 * heightFactor,
                   decoration: BoxDecoration(
                     color: day.count > 0
-                        ? const Color(0xFF67D2B4)
-                        : const Color(0xFF223646),
+                        ? AppColors.teal
+                        : AppColors.sand,
                     borderRadius: BorderRadius.circular(8),
                   ),
                 ),
@@ -432,7 +427,7 @@ class _ActivityStrip extends StatelessWidget {
                 Text(
                   day.label,
                   style: const TextStyle(
-                    color: Color(0xFF8FB1C7),
+                    color: AppColors.slate,
                     fontSize: 10,
                   ),
                 ),
@@ -460,7 +455,7 @@ class _EvolutionChart extends StatelessWidget {
       return const Center(
         child: Text(
           'No evolution data yet.',
-          style: TextStyle(color: Color(0xFF8FB1C7)),
+          style: TextStyle(color: AppColors.slate),
         ),
       );
     }
@@ -470,7 +465,7 @@ class _EvolutionChart extends StatelessWidget {
           show: true,
           drawVerticalLine: false,
           getDrawingHorizontalLine: (value) => FlLine(
-            color: Colors.white.withAlpha(15),
+            color: AppColors.sand,
             strokeWidth: 1,
           ),
         ),
@@ -484,22 +479,22 @@ class _EvolutionChart extends StatelessWidget {
         lineBarsData: [
           LineChartBarData(
             spots: correctSpots,
-            color: const Color(0xFF67D2B4),
+            color: AppColors.teal,
             barWidth: 3,
             isCurved: true,
             belowBarData: BarAreaData(
               show: true,
-              color: const Color(0xFF67D2B4).withAlpha(80),
+              color: AppColors.teal.withAlpha(80),
             ),
           ),
           LineChartBarData(
             spots: incorrectSpots,
-            color: const Color(0xFFFF6B6B),
+            color: AppColors.coral,
             barWidth: 3,
             isCurved: true,
             belowBarData: BarAreaData(
               show: true,
-              color: const Color(0xFFFF6B6B).withAlpha(80),
+              color: AppColors.coral.withAlpha(80),
             ),
           ),
         ],
@@ -518,9 +513,9 @@ class _EmptyStatsCard extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        color: const Color(0xFF122432),
+        color: Colors.white,
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: const Color(0xFF294659)),
+        border: Border.all(color: AppColors.sand),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -528,7 +523,7 @@ class _EmptyStatsCard extends StatelessWidget {
           const Text(
             'No stats yet',
             style: TextStyle(
-              color: Colors.white,
+              color: AppColors.ink,
               fontWeight: FontWeight.w700,
               fontSize: 18,
             ),
@@ -536,13 +531,13 @@ class _EmptyStatsCard extends StatelessWidget {
           const SizedBox(height: 6),
           const Text(
             'Complete a few tests to unlock streaks and performance graphs.',
-            style: TextStyle(color: Color(0xFF8FB1C7)),
+            style: TextStyle(color: AppColors.slate),
           ),
           const SizedBox(height: 12),
           OutlinedButton.icon(
             style: OutlinedButton.styleFrom(
-              foregroundColor: Colors.white,
-              side: const BorderSide(color: Color(0xFF294659)),
+              foregroundColor: AppColors.ink,
+              side: const BorderSide(color: AppColors.sand),
             ),
             onPressed: onReset,
             icon: const Icon(Icons.delete_sweep),
@@ -627,11 +622,11 @@ String _labelForType(KanaType type) {
 Color _accentForType(KanaType type) {
   switch (type) {
     case KanaType.hiragana:
-      return jOrange;
+      return AppColors.peach;
     case KanaType.katakana:
-      return const Color(0xFF67D2B4);
+      return AppColors.teal;
     case KanaType.kanji:
-      return const Color(0xFFE2C044);
+      return AppColors.sky;
   }
 }
 

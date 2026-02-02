@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:kana_master/domain/models/kana_entry.dart';
 
-const Color jOrange = Color(0xFFFFB61E);
-const Color jLightBLue = Color(0xFF4D8FAC);
-const Color jDarkBLue = Color(0xFF003171);
+const Color jOrange = Color(0xFFF2B54B);
+const Color jLightBLue = Color(0xFF5F8BA9);
+const Color jDarkBLue = Color(0xFF0E1B26);
 
 const int imageDimensions = 128;
 const int totalClasses = 45;

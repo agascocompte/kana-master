@@ -1,13 +1,19 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide MaterialPage;
 import 'package:go_router/go_router.dart';
 import 'package:kana_master/pages/home/home.dart';
 import 'package:kana_master/pages/settings/settings.dart';
 import 'package:kana_master/pages/stats/stats.dart';
+import 'package:kana_master/pages/study/pages/learn_page.dart';
+import 'package:kana_master/pages/study/pages/material_page.dart';
+import 'package:kana_master/pages/study/pages/practice_page.dart';
 
 class AppRouter {
   static const String homeRoute = "/home";
   static const String settingsRoute = "/settings";
   static const String statsRoute = "/stats";
+  static const String learnRoute = "/learn";
+  static const String practiceRoute = "/practice";
+  static const String materialRoute = "/material";
 
   static GoRouter router = GoRouter(
     initialLocation: homeRoute,
@@ -34,12 +40,30 @@ class AppRouter {
         path: "/stats",
         name: statsRoute,
         builder: (BuildContext context, GoRouterState state) {
-          return Scaffold(
-            appBar: AppBar(
-              title: const Text('Stats'),
-            ),
-            body: const StatsTab(),
+          return const Scaffold(
+            body: StatsTab(),
           );
+        },
+      ),
+      GoRoute(
+        path: "/learn",
+        name: learnRoute,
+        builder: (BuildContext context, GoRouterState state) {
+          return const LearnPage();
+        },
+      ),
+      GoRoute(
+        path: "/practice",
+        name: practiceRoute,
+        builder: (BuildContext context, GoRouterState state) {
+          return const PracticePage();
+        },
+      ),
+      GoRoute(
+        path: "/material",
+        name: materialRoute,
+        builder: (BuildContext context, GoRouterState state) {
+          return const MaterialPage();
         },
       ),
     ],

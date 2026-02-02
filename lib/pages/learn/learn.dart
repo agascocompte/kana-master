@@ -6,6 +6,7 @@ import 'package:kana_master/domain/models/kanji_entry.dart';
 import 'package:kana_master/pages/learn/bloc/learn_bloc.dart';
 import 'package:kana_master/pages/learn/widgets/kana_dialog.dart';
 import 'package:kana_master/pages/learn/widgets/kanji_dialog.dart';
+import 'package:kana_master/theme/app_theme.dart';
 
 class LearnTab extends StatelessWidget {
   final List<KanaEntry> entries;
@@ -62,8 +63,8 @@ class LearnTab extends StatelessWidget {
           child: GridTile(
             child: Container(
               decoration: BoxDecoration(
-                color: jLightBLue,
-                border: Border.all(color: jDarkBLue, width: 2),
+                color: Colors.white,
+                border: Border.all(color: AppColors.sand, width: 1),
                 borderRadius: BorderRadius.circular(8),
               ),
               child: Column(
@@ -72,13 +73,13 @@ class LearnTab extends StatelessWidget {
                   Text(
                     key,
                     style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                          color: Colors.black,
+                          color: AppColors.ink,
                         ),
                   ),
                   Text(
                     entry.reading,
                     style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                          color: Colors.white,
+                          color: AppColors.slate,
                         ),
                   ),
                 ],
@@ -147,8 +148,8 @@ class LearnTab extends StatelessWidget {
                 child: GridTile(
                   child: Container(
                     decoration: BoxDecoration(
-                      color: jLightBLue,
-                      border: Border.all(color: jDarkBLue, width: 2),
+                      color: Colors.white,
+                      border: Border.all(color: AppColors.sand, width: 1),
                       borderRadius: BorderRadius.circular(8),
                     ),
                     child: Column(
@@ -160,7 +161,7 @@ class LearnTab extends StatelessWidget {
                               .textTheme
                               .headlineMedium
                               ?.copyWith(
-                                color: Colors.black,
+                                color: AppColors.ink,
                               ),
                         ),
                         Padding(
@@ -172,7 +173,7 @@ class LearnTab extends StatelessWidget {
                                 .textTheme
                                 .titleSmall
                                 ?.copyWith(
-                                  color: Colors.white,
+                                  color: AppColors.slate,
                                 ),
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
