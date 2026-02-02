@@ -5,12 +5,14 @@ class StatsStateData {
   final int incorrectHiraganaCount;
   final Map<DateTime, int> correctDataMap;
   final Map<DateTime, int> incorrectDataMap;
+  final bool showBarChart;
 
   StatsStateData({
     this.correctHiraganaCount = 0,
     this.incorrectHiraganaCount = 0,
     this.correctDataMap = const {},
     this.incorrectDataMap = const {},
+    this.showBarChart = true,
   });
 
   StatsStateData copyWith({
@@ -18,6 +20,7 @@ class StatsStateData {
     int? incorrectHiraganaCount,
     Map<DateTime, int>? correctDataMap,
     Map<DateTime, int>? incorrectDataMap,
+    bool? showBarChart,
   }) {
     return StatsStateData(
       correctHiraganaCount: correctHiraganaCount ?? this.correctHiraganaCount,
@@ -25,6 +28,7 @@ class StatsStateData {
           incorrectHiraganaCount ?? this.incorrectHiraganaCount,
       correctDataMap: correctDataMap ?? this.correctDataMap,
       incorrectDataMap: incorrectDataMap ?? this.incorrectDataMap,
+      showBarChart: showBarChart ?? this.showBarChart,
     );
   }
 }

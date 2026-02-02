@@ -31,7 +31,8 @@ abstract class DictionaryState {
 }
 
 class DictionaryInitial extends DictionaryState {
-  DictionaryInitial() : super(stateData: DictionaryStateData());
+  DictionaryInitial([DictionaryStateData? stateData])
+      : super(stateData: stateData ?? DictionaryStateData());
 }
 
 class DictionaryLoading extends DictionaryState {

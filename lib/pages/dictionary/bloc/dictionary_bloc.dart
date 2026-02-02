@@ -16,6 +16,7 @@ class DictionaryBloc extends Bloc<DictionaryEvent, DictionaryState> {
     required this.dictionaryRepository,
   }) : super(DictionaryInitial()) {
     on<SearchSubmitted>(_search);
+    on<DictionaryQueryChanged>(_updateQuery);
     on<ClearSearch>(_clear);
   }
 
@@ -41,5 +42,21 @@ class DictionaryBloc extends Bloc<DictionaryEvent, DictionaryState> {
 
   FutureOr<void> _clear(ClearSearch event, Emitter<DictionaryState> emit) {
     emit(DictionaryInitial());
+  }
+
+  FutureOr<void> _updateQuery(
+    DictionaryQueryChanged event,
+    Emitter<DictionaryState> emit,
+  ) {
+    final updatedData = state.stateData.copyWith(currentQuery: event.query);
+    if (state is DictionaryLoading) {
+      emit(DictionaryLoading(updatedData));
+    } else if (state is DictionaryError) {
+      emit(DictionaryError(updatedData));
+    } else if (state is DictionaryResults) {
+      emit(DictionaryResults(updatedData));
+    } else {
+      emit(DictionaryInitial(updatedData));
+    }
   }
 }

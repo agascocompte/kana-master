@@ -18,6 +18,7 @@ class StatsBloc extends Bloc<StatsEvent, StatsState> {
     on<AddHiraganaSuccess>(_addHiraganaSuccess);
     on<AddHiraganaFail>(_addHiraganaFail);
     on<ResetStats>(_resetStats);
+    on<StatsViewChanged>(_updateView);
   }
 
   FutureOr<void> _loadMemory(
@@ -70,6 +71,15 @@ class StatsBloc extends Bloc<StatsEvent, StatsState> {
       incorrectHiraganaCount: 0,
       correctDataMap: {},
       incorrectDataMap: {},
+    )));
+  }
+
+  FutureOr<void> _updateView(
+    StatsViewChanged event,
+    Emitter<StatsState> emit,
+  ) {
+    emit(StatsUpdated(state.stateData.copyWith(
+      showBarChart: event.showBarChart,
     )));
   }
 }
