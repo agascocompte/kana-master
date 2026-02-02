@@ -2,6 +2,7 @@ import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:injectable/injectable.dart';
+import 'package:kana_master/constants.dart';
 
 @lazySingleton
 class DatabaseProvider {
@@ -24,20 +25,29 @@ class DatabaseProvider {
     String path = join(documentsDirectory.path, "HiraganaApp.db");
     var database = await openDatabase(
       path,
-      version: 4,
+      version: 5,
       onCreate: initDB,
       onUpgrade: onUpgrade,
     );
     return database;
   }
 
-  void initDB(Database database, int version) async {
+  Future<void> initDB(Database database, int version) async {
     // Crear la tabla para las respuestas de hiragana
     await database.execute(
       "CREATE TABLE hiragana_responses ("
       "id INTEGER PRIMARY KEY, "
       "timestamp TEXT, "
       "is_correct BOOLEAN"
+      ")",
+    );
+
+    await database.execute(
+      "CREATE TABLE responses ("
+      "id INTEGER PRIMARY KEY, "
+      "timestamp TEXT, "
+      "is_correct BOOLEAN, "
+      "kana_type TEXT"
       ")",
     );
 
@@ -66,17 +76,19 @@ class DatabaseProvider {
     }
   }
 
-  void onUpgrade(Database database, int oldVersion, int newVersion) {
+  Future<void> onUpgrade(
+      Database database, int oldVersion, int newVersion) async {
     if (newVersion > oldVersion) {
-      // Si la versión es anterior a 2, crear la tabla `settings`
-      database.execute(
-        "CREATE TABLE settings ("
-        "key TEXT PRIMARY KEY, "
-        "value TEXT"
-        ")",
-      );
+      if (!await tableExists(database, 'settings')) {
+        await database.execute(
+          "CREATE TABLE settings ("
+          "key TEXT PRIMARY KEY, "
+          "value TEXT"
+          ")",
+        );
+      }
       if (oldVersion < 3) {
-        database.execute(
+        await database.execute(
           "CREATE TABLE kanji ("
           "unicode TEXT PRIMARY KEY, "
           "kanji TEXT, "
@@ -89,12 +101,34 @@ class DatabaseProvider {
         );
       }
       if (oldVersion < 4) {
-        database.execute(
+        await database.execute(
           "ALTER TABLE kanji ADD COLUMN readings_name TEXT",
         );
-        database.execute(
+        await database.execute(
           "ALTER TABLE kanji ADD COLUMN jlpt TEXT",
         );
+      }
+      if (oldVersion < 5) {
+        await database.execute(
+          "CREATE TABLE IF NOT EXISTS responses ("
+          "id INTEGER PRIMARY KEY, "
+          "timestamp TEXT, "
+          "is_correct BOOLEAN, "
+          "kana_type TEXT"
+          ")",
+        );
+        if (await tableExists(database, 'hiragana_responses')) {
+          final responseCount = Sqflite.firstIntValue(
+                await database.rawQuery('SELECT COUNT(*) FROM responses'),
+              ) ??
+              0;
+          if (responseCount == 0) {
+            await database.execute(
+              "INSERT INTO responses (timestamp, is_correct, kana_type) "
+              "SELECT timestamp, is_correct, 'hiragana' FROM hiragana_responses",
+            );
+          }
+        }
       }
     }
   }
@@ -107,19 +141,32 @@ class DatabaseProvider {
     return res.isNotEmpty;
   }
 
-  Future<void> insertResponse(bool isCorrect) async {
+  Future<void> insertResponse({
+    required KanaType kanaType,
+    required bool isCorrect,
+  }) async {
     final db = await database;
     await db.insert(
-      'hiragana_responses',
+      'responses',
       {
         'timestamp': DateTime.now().toIso8601String(),
         'is_correct': isCorrect ? 1 : 0,
+        'kana_type': kanaType.name,
       },
     );
   }
 
-  Future<List<Map<String, dynamic>>> getResponses() async {
+  Future<List<Map<String, dynamic>>> getResponses({
+    KanaType? kanaType,
+  }) async {
     final db = await database;
-    return await db.query('hiragana_responses');
+    if (kanaType == null) {
+      return await db.query('responses');
+    }
+    return await db.query(
+      'responses',
+      where: 'kana_type = ?',
+      whereArgs: [kanaType.name],
+    );
   }
 }

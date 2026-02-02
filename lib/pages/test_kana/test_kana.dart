@@ -33,7 +33,10 @@ class TestTab extends StatelessWidget {
           Snackbars.showErrorScaffold(context, state.msg);
         } else if (state is HiraganaWritingSuccess ||
             state is KanaSelectedSuccess) {
-          context.read<StatsBloc>().add(AddHiraganaSuccess());
+          context.read<StatsBloc>().add(AddAnswerResult(
+                kanaType: kanaType,
+                isCorrect: true,
+              ));
           Snackbars.showSuccessScaffold(context, "You got it right!");
           context.read<TestKanaBloc>().add(TestNextKana(
                 kana: kana,
@@ -43,7 +46,10 @@ class TestTab extends StatelessWidget {
                 difficultyLevel: difficultyLevel,
               ));
         } else if (state is HiraganaWritingFail || state is KanaSelectedFail) {
-          context.read<StatsBloc>().add(AddHiraganaFail());
+          context.read<StatsBloc>().add(AddAnswerResult(
+                kanaType: kanaType,
+                isCorrect: false,
+              ));
           Snackbars.showWarningScaffold(context, "Oops, you failed...");
         }
       },

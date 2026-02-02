@@ -1,34 +1,29 @@
 part of 'stats_bloc.dart';
 
 class StatsStateData {
-  final int correctHiraganaCount;
-  final int incorrectHiraganaCount;
-  final Map<DateTime, int> correctDataMap;
-  final Map<DateTime, int> incorrectDataMap;
-  final bool showBarChart;
+  final Map<KanaType, StatsSummary> summaries;
+  final Map<KanaType, Map<DateTime, int>> correctDataByType;
+  final Map<KanaType, Map<DateTime, int>> incorrectDataByType;
+  final KanaType selectedKanaType;
 
   StatsStateData({
-    this.correctHiraganaCount = 0,
-    this.incorrectHiraganaCount = 0,
-    this.correctDataMap = const {},
-    this.incorrectDataMap = const {},
-    this.showBarChart = true,
+    this.summaries = const {},
+    this.correctDataByType = const {},
+    this.incorrectDataByType = const {},
+    this.selectedKanaType = KanaType.hiragana,
   });
 
   StatsStateData copyWith({
-    int? correctHiraganaCount,
-    int? incorrectHiraganaCount,
-    Map<DateTime, int>? correctDataMap,
-    Map<DateTime, int>? incorrectDataMap,
-    bool? showBarChart,
+    Map<KanaType, StatsSummary>? summaries,
+    Map<KanaType, Map<DateTime, int>>? correctDataByType,
+    Map<KanaType, Map<DateTime, int>>? incorrectDataByType,
+    KanaType? selectedKanaType,
   }) {
     return StatsStateData(
-      correctHiraganaCount: correctHiraganaCount ?? this.correctHiraganaCount,
-      incorrectHiraganaCount:
-          incorrectHiraganaCount ?? this.incorrectHiraganaCount,
-      correctDataMap: correctDataMap ?? this.correctDataMap,
-      incorrectDataMap: incorrectDataMap ?? this.incorrectDataMap,
-      showBarChart: showBarChart ?? this.showBarChart,
+      summaries: summaries ?? this.summaries,
+      correctDataByType: correctDataByType ?? this.correctDataByType,
+      incorrectDataByType: incorrectDataByType ?? this.incorrectDataByType,
+      selectedKanaType: selectedKanaType ?? this.selectedKanaType,
     );
   }
 }
