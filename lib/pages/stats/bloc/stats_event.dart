@@ -4,14 +4,20 @@ abstract class StatsEvent {}
 
 class LoadMemoryStats extends StatsEvent {}
 
-class AddHiraganaSuccess extends StatsEvent {}
+class AddAnswerResult extends StatsEvent {
+  final KanaType kanaType;
+  final bool isCorrect;
 
-class AddHiraganaFail extends StatsEvent {}
+  AddAnswerResult({
+    required this.kanaType,
+    required this.isCorrect,
+  });
+}
 
 class ResetStats extends StatsEvent {}
 
-class StatsViewChanged extends StatsEvent {
-  final bool showBarChart;
+class StatsKanaTypeChanged extends StatsEvent {
+  final KanaType kanaType;
 
-  StatsViewChanged(this.showBarChart);
+  StatsKanaTypeChanged(this.kanaType);
 }
