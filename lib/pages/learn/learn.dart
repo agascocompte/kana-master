@@ -1,42 +1,44 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kana_master/constants.dart';
 import 'package:kana_master/domain/models/kana_entry.dart';
 import 'package:kana_master/domain/models/kanji_entry.dart';
+import 'package:kana_master/pages/learn/bloc/learn_bloc.dart';
 import 'package:kana_master/pages/learn/widgets/kana_dialog.dart';
 import 'package:kana_master/pages/learn/widgets/kanji_dialog.dart';
 
-class LearnTab extends StatefulWidget {
+class LearnTab extends StatelessWidget {
   final List<KanaEntry> entries;
   final KanaType kanaType;
-  final List<KanjiEntry> kanjiEntries;
-  final Map<String, List<String>> kanjiMeanings;
 
   const LearnTab({
     super.key,
     required this.entries,
     required this.kanaType,
-    this.kanjiEntries = const [],
-    this.kanjiMeanings = const {},
   });
 
   @override
-  State<LearnTab> createState() => _LearnTabState();
-}
-
-class _LearnTabState extends State<LearnTab> {
-  String _query = '';
-  String _jlptFilter = 'all';
-
-  @override
   Widget build(BuildContext context) {
-    if (widget.kanaType == KanaType.kanji) {
-      return _buildKanjiGrid(context);
+    if (kanaType == KanaType.kanji) {
+      return BlocBuilder<LearnBloc, LearnState>(
+        builder: (context, state) {
+          if (state is LearnLoading) {
+            return const Center(child: CircularProgressIndicator());
+          }
+          if (state is LearnError) {
+            return Center(
+              child: Text(state.stateData.errorMessage),
+            );
+          }
+          return _buildKanjiGrid(context, state.stateData);
+        },
+      );
     }
-    final List<String?> keys = widget.kanaType == KanaType.hiragana
+    final List<String?> keys = kanaType == KanaType.hiragana
         ? hiraganaDisplayGrid
         : katakanaDisplayGrid;
     final Map<String, KanaEntry> entryByCharacter = {
-      for (final entry in widget.entries) entry.character: entry,
+      for (final entry in entries) entry.character: entry,
     };
     return GridView.builder(
       padding: const EdgeInsets.all(10),
@@ -88,23 +90,7 @@ class _LearnTabState extends State<LearnTab> {
     );
   }
 
-  Widget _buildKanjiGrid(BuildContext context) {
-    final String query = _query.trim().toLowerCase();
-    final bool filterAll = _jlptFilter == 'all';
-    final List<KanjiEntry> filteredEntries = query.isEmpty
-        ? widget.kanjiEntries
-        : widget.kanjiEntries.where((entry) {
-            final List<String> meanings =
-                widget.kanjiMeanings[entry.unicode] ?? const [];
-            return meanings
-                .any((meaning) => meaning.toLowerCase().contains(query));
-          }).toList();
-    final List<KanjiEntry> jlptFiltered = filterAll
-        ? filteredEntries
-        : filteredEntries
-            .where((entry) => entry.jlpt.toLowerCase() == _jlptFilter)
-            .toList();
-
+  Widget _buildKanjiGrid(BuildContext context, LearnStateData data) {
     return Column(
       children: [
         Padding(
@@ -117,19 +103,18 @@ class _LearnTabState extends State<LearnTab> {
                     hintText: 'Search by meaning',
                     prefixIcon: Icon(Icons.search),
                   ),
-                  onChanged: (value) => setState(() {
-                    _query = value;
-                  }),
+                  onChanged: (value) =>
+                      context.read<LearnBloc>().add(LearnQueryChanged(value)),
                 ),
               ),
               const SizedBox(width: 8),
               DropdownButton<String>(
-                value: _jlptFilter,
+                value: data.jlptFilter,
                 onChanged: (value) {
                   if (value == null) return;
-                  setState(() {
-                    _jlptFilter = value;
-                  });
+                  context
+                      .read<LearnBloc>()
+                      .add(LearnJlptFilterChanged(value));
                 },
                 items: const [
                   DropdownMenuItem(value: 'all', child: Text('All')),
@@ -151,11 +136,11 @@ class _LearnTabState extends State<LearnTab> {
               crossAxisSpacing: 10,
               mainAxisSpacing: 10,
             ),
-            itemCount: jlptFiltered.length,
+            itemCount: data.filteredKanjiEntries.length,
             itemBuilder: (context, index) {
-              final KanjiEntry entry = jlptFiltered[index];
+              final KanjiEntry entry = data.filteredKanjiEntries[index];
               final List<String> meanings =
-                  widget.kanjiMeanings[entry.unicode] ?? const [];
+                  data.kanjiMeanings[entry.unicode] ?? const [];
               final String meaning = meanings.isNotEmpty ? meanings.first : '';
               return GestureDetector(
                 onTap: () => _showKanjiDialog(context, entry, meanings),
@@ -213,7 +198,7 @@ class _LearnTabState extends State<LearnTab> {
           assetKey: entry.assetKey,
           displayText: entry.reading,
           kanaFolder:
-              widget.kanaType == KanaType.hiragana ? "hiragana" : "katakana",
+              kanaType == KanaType.hiragana ? "hiragana" : "katakana",
         );
       },
     );

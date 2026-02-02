@@ -25,7 +25,7 @@ class TimeSeriesLineChart extends StatelessWidget {
             color: Colors.green,
             belowBarData: BarAreaData(
               show: true,
-              color: Colors.green.withOpacity(0.5),
+              color: Colors.green.withAlpha(128),
             ),
           ),
           LineChartBarData(
@@ -33,7 +33,7 @@ class TimeSeriesLineChart extends StatelessWidget {
             color: Colors.red,
             belowBarData: BarAreaData(
               show: true,
-              color: Colors.red.withOpacity(0.5),
+              color: Colors.red.withAlpha(128),
             ),
           ),
         ],

@@ -167,7 +167,7 @@ class TestTab extends StatelessWidget {
                   width: double.infinity,
                   height: double.infinity,
                   alignment: Alignment.center,
-                  color: Colors.black.withOpacity(0.5),
+                  color: Colors.black.withAlpha(128),
                   child: const CircularProgressIndicator(
                     color: jOrange,
                   ),

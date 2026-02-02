@@ -115,8 +115,8 @@ class _DictionaryTabState extends State<DictionaryTab> {
                           const SizedBox(height: 6),
                           _ChipWrap(
                             items: entry.meanings,
-                            color: jOrange.withOpacity(0.14),
-                            borderColor: jOrange.withOpacity(0.6),
+                            color: jOrange.withAlpha(36),
+                            borderColor: jOrange.withAlpha(153),
                           ),
                           if (entry.partsOfSpeech.isNotEmpty ||
                               entry.tags.isNotEmpty ||
