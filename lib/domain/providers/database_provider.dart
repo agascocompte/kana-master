@@ -1,9 +1,15 @@
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:injectable/injectable.dart';
 
+@lazySingleton
 class DatabaseProvider {
-  static final DatabaseProvider dbProvider = DatabaseProvider();
+  static final DatabaseProvider dbProvider = DatabaseProvider._internal();
+
+  factory DatabaseProvider() => dbProvider;
+
+  DatabaseProvider._internal();
   Database? _database;
 
   Future<Database> get database async {

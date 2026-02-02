@@ -22,7 +22,6 @@ class TestKanaBloc extends Bloc<TestKanaEvent, TestKanaState> {
   final ModelConfig _hiraganaModelConfig = hiraganaModelV2;
   final ModelConfig _katakanaModelConfig = katakanaModelV1;
   final ModelConfig _kanjiModelConfig = kanjiModelV1;
-  Map<String, String>? _currentKana;
   KanaType _currentKanaType = KanaType.hiragana;
   List<KanjiEntry> _kanjiEntries = const [];
   Map<String, List<String>> _kanjiMeanings = const {};
@@ -59,7 +58,6 @@ class TestKanaBloc extends Bloc<TestKanaEvent, TestKanaState> {
   }
 
   FutureOr<void> _beginTest(BeginTest event, Emitter<TestKanaState> emit) {
-    _currentKana = event.kana;
     _currentKanaType = event.kanaType;
     _kanjiEntries = event.kanjiEntries;
     _kanjiMeanings = event.kanjiMeanings;
@@ -109,8 +107,7 @@ class TestKanaBloc extends Bloc<TestKanaEvent, TestKanaState> {
     if (predictions != null) {
       List<double> p = predictions[0].cast<double>();
       int predictedIndex = getIndexOfMaxValue(p);
-      print("Predicted index: $predictedIndex");
-      print("Index to predict: ${state.stateData.kanaIndex}");
+
       if (predictedIndex == state.stateData.kanaIndex) {
         emit(HiraganaWritingSuccess(
           state.stateData,
@@ -141,7 +138,6 @@ class TestKanaBloc extends Bloc<TestKanaEvent, TestKanaState> {
 
   FutureOr<void> _nextKana(TestNextKana event, Emitter<TestKanaState> emit) {
     add(ClearDrawing());
-    _currentKana = event.kana;
     _currentKanaType = event.kanaType;
     _kanjiEntries = event.kanjiEntries;
     _kanjiMeanings = event.kanjiMeanings;

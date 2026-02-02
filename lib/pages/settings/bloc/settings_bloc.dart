@@ -47,6 +47,4 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
       difficultyLevel: difficultyLevel,
     )));
   }
-
-  // TODO: Guardar en memoria los settings
 }
