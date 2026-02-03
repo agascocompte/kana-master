@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:kana_master/constants.dart';
 import 'package:kana_master/di/dependency_injector.dart';
 import 'package:kana_master/pages/learn/bloc/learn_bloc.dart';
@@ -28,9 +29,6 @@ class PracticePage extends StatelessWidget {
               languageCode: languageCode,
             )),
           child: Scaffold(
-            appBar: AppBar(
-              title: const Text('Practice'),
-            ),
             body: Container(
               decoration: const BoxDecoration(
                 gradient: LinearGradient(
@@ -39,33 +37,79 @@ class PracticePage extends StatelessWidget {
                   end: Alignment.bottomCenter,
                 ),
               ),
-              child: kanaType == KanaType.kanji
-                  ? BlocBuilder<LearnBloc, LearnState>(
-                      builder: (context, learnState) {
-                        if (learnState is LearnLoading) {
-                          return const Center(
-                            child: CircularProgressIndicator(),
-                          );
-                        }
-                        if (learnState is LearnError) {
-                          return Center(
-                            child: Text(learnState.stateData.errorMessage),
-                          );
-                        }
-                        return TestTab(
-                          kanaType: kanaType,
-                          kana: const {},
-                          kanjiEntries: learnState.stateData.kanjiEntries,
-                          kanjiMeanings: learnState.stateData.kanjiMeanings,
-                          difficultyLevel: settingsState.stateData.difficultyLevel,
-                        );
-                      },
-                    )
-                  : TestTab(
-                      kanaType: kanaType,
-                      kana: kanaMap,
-                      difficultyLevel: settingsState.stateData.difficultyLevel,
+              child: SafeArea(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(8, 18, 16, 6),
+                      child: Row(
+                        children: [
+                          IconButton(
+                            onPressed: () => context.pop(),
+                            icon: const Icon(Icons.arrow_back),
+                            color: AppColors.ink,
+                            tooltip: 'Back',
+                          ),
+                          const SizedBox(width: 6),
+                          const Text(
+                            'Practice',
+                            style: TextStyle(
+                              fontSize: 28,
+                              fontWeight: FontWeight.w800,
+                              color: AppColors.ink,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
+                    const Padding(
+                      padding: EdgeInsets.fromLTRB(16, 0, 16, 8),
+                      child: Text(
+                        'Test recognition, typing, and drawing skills.',
+                        style: TextStyle(
+                          color: AppColors.slate,
+                          fontSize: 14,
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: kanaType == KanaType.kanji
+                          ? BlocBuilder<LearnBloc, LearnState>(
+                              builder: (context, learnState) {
+                                if (learnState is LearnLoading) {
+                                  return const Center(
+                                    child: CircularProgressIndicator(),
+                                  );
+                                }
+                                if (learnState is LearnError) {
+                                  return Center(
+                                    child:
+                                        Text(learnState.stateData.errorMessage),
+                                  );
+                                }
+                                return TestTab(
+                                  kanaType: kanaType,
+                                  kana: const {},
+                                  kanjiEntries:
+                                      learnState.stateData.kanjiEntries,
+                                  kanjiMeanings:
+                                      learnState.stateData.kanjiMeanings,
+                                  difficultyLevel:
+                                      settingsState.stateData.difficultyLevel,
+                                );
+                              },
+                            )
+                          : TestTab(
+                              kanaType: kanaType,
+                              kana: kanaMap,
+                              difficultyLevel:
+                                  settingsState.stateData.difficultyLevel,
+                            ),
+                    ),
+                  ],
+                ),
+              ),
             ),
           ),
         );

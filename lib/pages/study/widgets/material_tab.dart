@@ -30,24 +30,10 @@ class MaterialTab extends StatelessWidget {
       builder: (context, state) {
         final data = state.stateData;
         return Padding(
-          padding: const EdgeInsets.fromLTRB(16, 12, 16, 24),
+          padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
-                'Materials',
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.w800,
-                  color: AppColors.ink,
-                ),
-              ),
-              const SizedBox(height: 6),
-              const Text(
-                'Import a CSV and turn it into a personal drill deck.',
-                style: TextStyle(color: AppColors.slate, fontSize: 13),
-              ),
-              const SizedBox(height: 12),
               Row(
                 children: [
                   IconButton(

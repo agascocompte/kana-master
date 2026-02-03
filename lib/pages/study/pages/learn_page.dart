@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:kana_master/constants.dart';
 import 'package:kana_master/di/dependency_injector.dart';
 import 'package:kana_master/domain/models/kana_entry.dart';
@@ -29,9 +30,6 @@ class LearnPage extends StatelessWidget {
               languageCode: languageCode,
             )),
           child: Scaffold(
-            appBar: AppBar(
-              title: const Text('Learn'),
-            ),
             body: Container(
               decoration: const BoxDecoration(
                 gradient: LinearGradient(
@@ -40,9 +38,50 @@ class LearnPage extends StatelessWidget {
                   end: Alignment.bottomCenter,
                 ),
               ),
-              child: LearnTab(
-                entries: entries,
-                kanaType: kanaType,
+              child: SafeArea(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(8, 18, 16, 6),
+                      child: Row(
+                        children: [
+                          IconButton(
+                            onPressed: () => context.pop(),
+                            icon: const Icon(Icons.arrow_back),
+                            color: AppColors.ink,
+                            tooltip: 'Back',
+                          ),
+                          const SizedBox(width: 6),
+                          const Text(
+                            'Learn',
+                            style: TextStyle(
+                              fontSize: 28,
+                              fontWeight: FontWeight.w800,
+                              color: AppColors.ink,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const Padding(
+                      padding: EdgeInsets.fromLTRB(16, 0, 16, 8),
+                      child: Text(
+                        'Explore characters and stroke order hints.',
+                        style: TextStyle(
+                          color: AppColors.slate,
+                          fontSize: 14,
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: LearnTab(
+                        entries: entries,
+                        kanaType: kanaType,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
