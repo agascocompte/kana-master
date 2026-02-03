@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:kana_master/constants.dart';
+import 'package:kana_master/pages/home/bloc/home_nav_cubit.dart';
 import 'package:kana_master/pages/settings/bloc/settings_bloc.dart';
 import 'package:kana_master/pages/stats/bloc/stats_bloc.dart';
 import 'package:kana_master/router/router.dart';
@@ -343,7 +344,7 @@ class _StatsPreview extends StatelessWidget {
               ),
               const Spacer(),
               TextButton(
-                onPressed: () => context.push(AppRouter.statsRoute),
+                onPressed: () => context.read<HomeNavCubit>().selectTab(2),
                 style: TextButton.styleFrom(
                   foregroundColor: AppColors.peach,
                 ),
