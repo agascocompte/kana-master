@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kana_master/constants.dart';
+import 'package:kana_master/theme/app_theme.dart';
 
 import '../bloc/test_kana_bloc.dart';
 
@@ -14,28 +15,80 @@ class TextFieldTest extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.all(8),
-      child: SizedBox(
-        width: 250,
-        child: TextField(
-          textAlign: TextAlign.center,
-          cursorColor: jLightBLue,
-          style: TextStyle(fontSize: 30),
-          decoration: InputDecoration(
-              border: OutlineInputBorder(),
-              enabledBorder:
-                  OutlineInputBorder(borderSide: BorderSide(color: jDarkBLue)),
-              focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: jLightBLue, width: 2)),
-              labelText: kanaType == KanaType.kanji ? 'Meaning' : 'Answer',
-              labelStyle: TextStyle(color: jDarkBLue),
-              floatingLabelBehavior: FloatingLabelBehavior.always),
-          onChanged: (value) => context
-              .read<TestKanaBloc>()
-              .add(UpdateUserTextAnswer(userAnswer: value)),
-        ),
-      ),
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final double targetHeight =
+            (constraints.maxHeight * 0.55).clamp(180.0, 320.0);
+        return Padding(
+          padding: const EdgeInsets.all(8),
+          child: Column(
+            children: [
+              Text(
+                kanaType == KanaType.kanji
+                    ? 'Type the meaning'
+                    : 'Type the romaji',
+                style: const TextStyle(
+                  color: AppColors.slate,
+                  fontSize: 12,
+                ),
+              ),
+              const SizedBox(height: 14),
+              Container(
+                height: targetHeight,
+                width: double.infinity,
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16, vertical: 18),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(22),
+                  border: Border.all(color: AppColors.sand, width: 2),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withAlpha(10),
+                      blurRadius: 12,
+                      offset: const Offset(0, 6),
+                    ),
+                  ],
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      kanaType == KanaType.kanji
+                          ? 'Meaning in English'
+                          : 'Romaji reading',
+                      style: const TextStyle(
+                        color: AppColors.graphite,
+                        fontSize: 13,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    const SizedBox(height: 12),
+                    TextField(
+                      textAlign: TextAlign.center,
+                      cursorColor: AppColors.teal,
+                      style: const TextStyle(
+                        fontSize: 30,
+                        color: AppColors.ink,
+                        fontWeight: FontWeight.w700,
+                      ),
+                      decoration: const InputDecoration(
+                        hintText: 'Tap to type',
+                        border: InputBorder.none,
+                        contentPadding:
+                            EdgeInsets.symmetric(vertical: 10),
+                      ),
+                      onChanged: (value) => context
+                          .read<TestKanaBloc>()
+                          .add(UpdateUserTextAnswer(userAnswer: value)),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        );
+      },
     );
   }
 }

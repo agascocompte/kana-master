@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kana_master/constants.dart';
 import 'package:kana_master/domain/models/kanji_entry.dart';
 import 'package:kana_master/pages/test_kana/bloc/test_kana_bloc.dart';
+import 'package:kana_master/theme/app_theme.dart';
 
 class SingleChoiceTest extends StatefulWidget {
   final TestKanaState state;
@@ -84,12 +85,25 @@ class _SingleChoiceTestState extends State<SingleChoiceTest> {
           return Padding(
             padding: const EdgeInsets.all(8.0),
             child: SizedBox(
-              width: 150,
-              height: 50,
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor:
-                      selectedAnswerIndex == idx ? jLightBLue : jOrange,
+              width: double.infinity,
+              child: OutlinedButton(
+                style: OutlinedButton.styleFrom(
+                  backgroundColor: selectedAnswerIndex == idx
+                      ? AppColors.ink
+                      : Colors.white,
+                  foregroundColor: selectedAnswerIndex == idx
+                      ? Colors.white
+                      : AppColors.ink,
+                  side: BorderSide(
+                    color: selectedAnswerIndex == idx
+                        ? AppColors.ink
+                        : AppColors.sand,
+                    width: 1,
+                  ),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 12,
+                    vertical: 12,
+                  ),
                 ),
                 onPressed: () {
                   if (!widget.state.stateData.canSubmitAnswer) {
@@ -106,8 +120,8 @@ class _SingleChoiceTestState extends State<SingleChoiceTest> {
                   answer,
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    color: Colors.white,
-                    fontSize: widget.kanaType == KanaType.kanji ? 16 : 30,
+                    fontSize: widget.kanaType == KanaType.kanji ? 16 : 28,
+                    fontWeight: FontWeight.w700,
                   ),
                 ),
               ),

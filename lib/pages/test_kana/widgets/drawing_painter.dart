@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:kana_master/constants.dart';
 import 'package:kana_master/domain/models/paint_stroke.dart';
+import 'package:kana_master/theme/app_theme.dart';
 
 class DrawingPainter extends CustomPainter {
   final List<PaintStroke> strokes;
   final Paint defaultPaint = Paint()
-    ..color = jLightBLue
+    ..color = AppColors.teal
     ..strokeWidth = 20.0
     ..strokeCap = StrokeCap.round;
 
