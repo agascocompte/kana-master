@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:kana_master/di/dependency_injector.dart';
 import 'package:kana_master/pages/study/bloc/material_bloc.dart';
 import 'package:kana_master/pages/study/widgets/material_tab.dart';
@@ -13,9 +14,6 @@ class MaterialPage extends StatelessWidget {
     return BlocProvider(
       create: (_) => sl<MaterialBloc>(),
       child: Scaffold(
-        appBar: AppBar(
-          title: const Text('Materials'),
-        ),
         body: Container(
           decoration: const BoxDecoration(
             gradient: LinearGradient(
@@ -24,7 +22,43 @@ class MaterialPage extends StatelessWidget {
               end: Alignment.bottomCenter,
             ),
           ),
-          child: const MaterialTab(),
+          child: SafeArea(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: EdgeInsets.fromLTRB(8, 18, 16, 6),
+                  child: Row(
+                    children: [
+                      IconButton(
+                        onPressed: () => context.pop(),
+                        icon: const Icon(Icons.arrow_back),
+                        color: AppColors.ink,
+                        tooltip: 'Back',
+                      ),
+                      const SizedBox(width: 6),
+                      const Text(
+                        'Materials',
+                        style: TextStyle(
+                          fontSize: 28,
+                          fontWeight: FontWeight.w800,
+                          color: AppColors.ink,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.fromLTRB(16, 0, 16, 8),
+                  child: Text(
+                    'Import a CSV and turn it into a personal drill deck.',
+                    style: TextStyle(color: AppColors.slate, fontSize: 14),
+                  ),
+                ),
+                Expanded(child: MaterialTab()),
+              ],
+            ),
+          ),
         ),
       ),
     );
