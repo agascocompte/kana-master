@@ -24,133 +24,133 @@ class StudyTab extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Row(
-                  children: [
-                    const Expanded(
-                      child: Text(
-                        'Study hub',
-                        style: TextStyle(
-                          fontSize: 28,
-                          fontWeight: FontWeight.w800,
-                          color: AppColors.ink,
+                  Row(
+                    children: [
+                      const Expanded(
+                        child: Text(
+                          'Study hub',
+                          style: TextStyle(
+                            fontSize: 28,
+                            fontWeight: FontWeight.w800,
+                            color: AppColors.ink,
+                          ),
                         ),
                       ),
+                      IconButton(
+                        onPressed: () => context.push(AppRouter.settingsRoute),
+                        icon: const Icon(Icons.tune),
+                        color: AppColors.ink,
+                        tooltip: 'Settings',
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 6),
+                  const Text(
+                    'Choose your script, then jump into learning or practice.',
+                    style: TextStyle(
+                      color: AppColors.slate,
+                      fontSize: 14,
                     ),
-                    IconButton(
-                      onPressed: () => context.push(AppRouter.settingsRoute),
-                      icon: const Icon(Icons.tune),
+                  ),
+                  const SizedBox(height: 18),
+                  _SectionCard(
+                    title: 'Script',
+                    child: _EqualSegmented<KanaType>(
+                      selected: kanaType,
+                      onSelected: (value) {
+                        context
+                            .read<SettingsBloc>()
+                            .add(SetKanaType(kanaType: value));
+                      },
+                      options: const [
+                        _SegmentOption(
+                          value: KanaType.hiragana,
+                          title: 'Hiragana',
+                          symbol: 'あ',
+                        ),
+                        _SegmentOption(
+                          value: KanaType.katakana,
+                          title: 'Katakana',
+                          symbol: 'ア',
+                        ),
+                        _SegmentOption(
+                          value: KanaType.kanji,
+                          title: 'Kanji',
+                          symbol: '漢',
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 12),
+                  _SectionCard(
+                    title: 'Difficulty',
+                    child: _EqualSegmented<DifficultyLevel>(
+                      selected: difficulty,
+                      onSelected: (value) {
+                        context.read<SettingsBloc>().add(
+                              ChangeDifficultyLevel(difficultyLevel: value),
+                            );
+                      },
+                      options: const [
+                        _SegmentOption(
+                          value: DifficultyLevel.low,
+                          title: 'Easy',
+                          subtitle: 'Single choice',
+                        ),
+                        _SegmentOption(
+                          value: DifficultyLevel.medium,
+                          title: 'Medium',
+                          subtitle: 'Text answer',
+                        ),
+                        _SegmentOption(
+                          value: DifficultyLevel.high,
+                          title: 'Hard',
+                          subtitle: 'Drawing',
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 16),
+                  const Text(
+                    'Paths',
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w700,
                       color: AppColors.ink,
-                      tooltip: 'Settings',
                     ),
-                  ],
-                ),
-                const SizedBox(height: 6),
-                const Text(
-                  'Choose your script, then jump into learning or practice.',
-                  style: TextStyle(
-                    color: AppColors.slate,
-                    fontSize: 14,
                   ),
-                ),
-                const SizedBox(height: 18),
-                _SectionCard(
-                  title: 'Script',
-                  child: _EqualSegmented<KanaType>(
-                    selected: kanaType,
-                    onSelected: (value) {
-                      context
-                          .read<SettingsBloc>()
-                          .add(SetKanaType(kanaType: value));
-                    },
-                    options: const [
-                      _SegmentOption(
-                        value: KanaType.hiragana,
-                        title: 'Hiragana',
-                        symbol: 'あ',
-                      ),
-                      _SegmentOption(
-                        value: KanaType.katakana,
-                        title: 'Katakana',
-                        symbol: 'ア',
-                      ),
-                      _SegmentOption(
-                        value: KanaType.kanji,
-                        title: 'Kanji',
-                        symbol: '漢',
-                      ),
-                    ],
+                  const SizedBox(height: 12),
+                  _ActionCard(
+                    title: 'Learn',
+                    subtitle: 'Explore characters with stroke hints.',
+                    icon: Icons.school_outlined,
+                    gradient: const LinearGradient(
+                      colors: [AppColors.peach, AppColors.coral],
+                    ),
+                    onTap: () => context.push(AppRouter.learnRoute),
                   ),
-                ),
-                const SizedBox(height: 12),
-                _SectionCard(
-                  title: 'Difficulty',
-                  child: _EqualSegmented<DifficultyLevel>(
-                    selected: difficulty,
-                    onSelected: (value) {
-                      context.read<SettingsBloc>().add(
-                            ChangeDifficultyLevel(difficultyLevel: value),
-                          );
-                    },
-                    options: const [
-                      _SegmentOption(
-                        value: DifficultyLevel.low,
-                        title: 'Easy',
-                        subtitle: 'Single choice',
-                      ),
-                      _SegmentOption(
-                        value: DifficultyLevel.medium,
-                        title: 'Medium',
-                        subtitle: 'Text answer',
-                      ),
-                      _SegmentOption(
-                        value: DifficultyLevel.high,
-                        title: 'Hard',
-                        subtitle: 'Drawing',
-                      ),
-                    ],
+                  const SizedBox(height: 12),
+                  _ActionCard(
+                    title: 'Practice',
+                    subtitle: 'Test recognition, typing, and drawing.',
+                    icon: Icons.flash_on_outlined,
+                    gradient: const LinearGradient(
+                      colors: [AppColors.teal, AppColors.sky],
+                    ),
+                    onTap: () => context.push(AppRouter.practiceRoute),
                   ),
-                ),
-                const SizedBox(height: 16),
-                const Text(
-                  'Paths',
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w700,
-                    color: AppColors.ink,
+                  const SizedBox(height: 12),
+                  _ActionCard(
+                    title: 'Materials',
+                    subtitle: 'Import your own CSV and drill it.',
+                    icon: Icons.auto_stories_outlined,
+                    gradient: const LinearGradient(
+                      colors: [AppColors.lime, AppColors.teal],
+                    ),
+                    onTap: () => context.push(AppRouter.materialRoute),
                   ),
-                ),
-                const SizedBox(height: 12),
-                _ActionCard(
-                  title: 'Learn',
-                  subtitle: 'Explore characters with stroke hints.',
-                  icon: Icons.school_outlined,
-                  gradient: const LinearGradient(
-                    colors: [AppColors.peach, AppColors.coral],
-                  ),
-                  onTap: () => context.push(AppRouter.learnRoute),
-                ),
-                const SizedBox(height: 12),
-                _ActionCard(
-                  title: 'Practice',
-                  subtitle: 'Test recognition, typing, and drawing.',
-                  icon: Icons.flash_on_outlined,
-                  gradient: const LinearGradient(
-                    colors: [AppColors.teal, AppColors.sky],
-                  ),
-                  onTap: () => context.push(AppRouter.practiceRoute),
-                ),
-                const SizedBox(height: 12),
-                _ActionCard(
-                  title: 'Materials',
-                  subtitle: 'Import your own CSV and drill it.',
-                  icon: Icons.auto_stories_outlined,
-                  gradient: const LinearGradient(
-                    colors: [AppColors.lime, AppColors.teal],
-                  ),
-                  onTap: () => context.push(AppRouter.materialRoute),
-                ),
-                const SizedBox(height: 18),
-                _StatsPreview(kanaType: kanaType),
+                  const SizedBox(height: 18),
+                  _StatsPreview(kanaType: kanaType),
               ],
             ),
           ),
@@ -215,62 +215,66 @@ class _ActionCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: onTap,
+    return Material(
+      color: Colors.transparent,
       borderRadius: BorderRadius.circular(18),
-      child: Ink(
-        width: double.infinity,
-        padding: const EdgeInsets.all(16),
-        decoration: BoxDecoration(
-          gradient: gradient,
-          borderRadius: BorderRadius.circular(18),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withAlpha(16),
-              blurRadius: 12,
-              offset: const Offset(0, 8),
-            ),
-          ],
-        ),
-        child: Row(
-          children: [
-            Container(
-              padding: const EdgeInsets.all(12),
-              decoration: BoxDecoration(
-                color: Colors.white.withAlpha(180),
-                borderRadius: BorderRadius.circular(14),
+      clipBehavior: Clip.antiAlias,
+      child: InkWell(
+        onTap: onTap,
+        child: Container(
+          width: double.infinity,
+          padding: const EdgeInsets.all(16),
+          decoration: BoxDecoration(
+            gradient: gradient,
+            borderRadius: BorderRadius.circular(18),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withAlpha(16),
+                blurRadius: 12,
+                offset: const Offset(0, 8),
               ),
-              child: Icon(icon, color: AppColors.ink, size: 24),
-            ),
-            const SizedBox(width: 14),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    title,
-                    style: const TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w800,
-                      color: AppColors.ink,
-                    ),
-                  ),
-                  const SizedBox(height: 4),
-                  Text(
-                    subtitle,
-                    style: const TextStyle(
-                      color: AppColors.graphite,
-                      fontSize: 13,
-                    ),
-                  ),
-                ],
+            ],
+          ),
+          child: Row(
+            children: [
+              Container(
+                padding: const EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                  color: Colors.white.withAlpha(180),
+                  borderRadius: BorderRadius.circular(14),
+                ),
+                child: Icon(icon, color: AppColors.ink, size: 24),
               ),
-            ),
-            const Icon(
-              Icons.arrow_forward,
-              color: AppColors.ink,
-            ),
-          ],
+              const SizedBox(width: 14),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      title,
+                      style: const TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w800,
+                        color: AppColors.ink,
+                      ),
+                    ),
+                    const SizedBox(height: 4),
+                    Text(
+                      subtitle,
+                      style: const TextStyle(
+                        color: AppColors.graphite,
+                        fontSize: 13,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const Icon(
+                Icons.arrow_forward,
+                color: AppColors.ink,
+              ),
+            ],
+          ),
         ),
       ),
     );
