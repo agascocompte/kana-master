@@ -55,58 +55,59 @@ class StudyTab extends StatelessWidget {
                 const SizedBox(height: 18),
                 _SectionCard(
                   title: 'Script',
-                  child: SegmentedButton<KanaType>(
-                    segments: const [
-                      ButtonSegment(
-                        value: KanaType.hiragana,
-                        label: Text('Hiragana'),
-                        icon: Icon(Icons.bubble_chart_outlined),
-                      ),
-                      ButtonSegment(
-                        value: KanaType.katakana,
-                        label: Text('Katakana'),
-                        icon: Icon(Icons.change_circle_outlined),
-                      ),
-                      ButtonSegment(
-                        value: KanaType.kanji,
-                        label: Text('Kanji'),
-                        icon: Icon(Icons.grid_4x4_outlined),
-                      ),
-                    ],
-                    selected: {kanaType},
-                    onSelectionChanged: (value) {
+                  child: _EqualSegmented<KanaType>(
+                    selected: kanaType,
+                    onSelected: (value) {
                       context
                           .read<SettingsBloc>()
-                          .add(SetKanaType(kanaType: value.first));
+                          .add(SetKanaType(kanaType: value));
                     },
+                    options: const [
+                      _SegmentOption(
+                        value: KanaType.hiragana,
+                        title: 'Hiragana',
+                        symbol: 'あ',
+                      ),
+                      _SegmentOption(
+                        value: KanaType.katakana,
+                        title: 'Katakana',
+                        symbol: 'ア',
+                      ),
+                      _SegmentOption(
+                        value: KanaType.kanji,
+                        title: 'Kanji',
+                        symbol: '漢',
+                      ),
+                    ],
                   ),
                 ),
                 const SizedBox(height: 12),
                 _SectionCard(
                   title: 'Difficulty',
-                  child: SegmentedButton<DifficultyLevel>(
-                    segments: const [
-                      ButtonSegment(
+                  child: _EqualSegmented<DifficultyLevel>(
+                    selected: difficulty,
+                    onSelected: (value) {
+                      context.read<SettingsBloc>().add(
+                            ChangeDifficultyLevel(difficultyLevel: value),
+                          );
+                    },
+                    options: const [
+                      _SegmentOption(
                         value: DifficultyLevel.low,
-                        label: Text('Easy'),
-                        icon: Icon(Icons.filter_1),
+                        title: 'Easy',
+                        subtitle: 'Single choice',
                       ),
-                      ButtonSegment(
+                      _SegmentOption(
                         value: DifficultyLevel.medium,
-                        label: Text('Medium'),
-                        icon: Icon(Icons.filter_2),
+                        title: 'Medium',
+                        subtitle: 'Text answer',
                       ),
-                      ButtonSegment(
+                      _SegmentOption(
                         value: DifficultyLevel.high,
-                        label: Text('Hard'),
-                        icon: Icon(Icons.filter_3),
+                        title: 'Hard',
+                        subtitle: 'Drawing',
                       ),
                     ],
-                    selected: {difficulty},
-                    onSelectionChanged: (value) {
-                      context.read<SettingsBloc>().add(
-                          ChangeDifficultyLevel(difficultyLevel: value.first));
-                    },
                   ),
                 ),
                 const SizedBox(height: 16),
@@ -171,6 +172,7 @@ class _SectionCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: double.infinity,
       padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
         color: Colors.white,
@@ -217,6 +219,7 @@ class _ActionCard extends StatelessWidget {
       onTap: onTap,
       borderRadius: BorderRadius.circular(18),
       child: Ink(
+        width: double.infinity,
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
           gradient: gradient,
@@ -270,6 +273,98 @@ class _ActionCard extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+}
+
+class _SegmentOption<T> {
+  final T value;
+  final String title;
+  final String? subtitle;
+  final String? symbol;
+
+  const _SegmentOption({
+    required this.value,
+    required this.title,
+    this.subtitle,
+    this.symbol,
+  });
+}
+
+class _EqualSegmented<T> extends StatelessWidget {
+  final T selected;
+  final List<_SegmentOption<T>> options;
+  final ValueChanged<T> onSelected;
+
+  const _EqualSegmented({
+    required this.selected,
+    required this.options,
+    required this.onSelected,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: options.map((option) {
+        final bool isSelected = option.value == selected;
+        return Expanded(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 4),
+            child: InkWell(
+              onTap: () => onSelected(option.value),
+              borderRadius: BorderRadius.circular(14),
+              child: AnimatedContainer(
+                duration: const Duration(milliseconds: 200),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10, vertical: 12),
+                constraints: const BoxConstraints(minHeight: 70),
+                decoration: BoxDecoration(
+                  color: isSelected ? AppColors.ink : AppColors.sand,
+                  borderRadius: BorderRadius.circular(14),
+                  border: Border.all(
+                    color: isSelected ? AppColors.ink : AppColors.sand,
+                  ),
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    if (option.symbol != null)
+                      Text(
+                        option.symbol!,
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w700,
+                          color: isSelected ? Colors.white : AppColors.graphite,
+                        ),
+                      ),
+                    if (option.symbol != null) const SizedBox(height: 6),
+                    Text(
+                      option.title,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontWeight: FontWeight.w700,
+                        fontSize: 13,
+                        color: isSelected ? Colors.white : AppColors.graphite,
+                      ),
+                    ),
+                    if (option.subtitle != null) ...[
+                      const SizedBox(height: 4),
+                      Text(
+                        option.subtitle!,
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 11,
+                          color: isSelected ? Colors.white70 : AppColors.slate,
+                        ),
+                      ),
+                    ],
+                  ],
+                ),
+              ),
+            ),
+          ),
+        );
+      }).toList(),
     );
   }
 }
