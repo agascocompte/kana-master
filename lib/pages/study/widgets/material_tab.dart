@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart' hide MaterialState;
-import 'package:kana_master/constants.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kana_master/pages/study/bloc/material_bloc.dart';
+import 'package:kana_master/theme/app_theme.dart';
 import 'package:kana_master/widgets/snackbars.dart';
 
 class MaterialTab extends StatelessWidget {
@@ -30,15 +30,29 @@ class MaterialTab extends StatelessWidget {
       builder: (context, state) {
         final data = state.stateData;
         return Padding(
-          padding: const EdgeInsets.all(12.0),
+          padding: const EdgeInsets.fromLTRB(16, 12, 16, 24),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              const Text(
+                'Materials',
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.w800,
+                  color: AppColors.ink,
+                ),
+              ),
+              const SizedBox(height: 6),
+              const Text(
+                'Import a CSV and turn it into a personal drill deck.',
+                style: TextStyle(color: AppColors.slate, fontSize: 13),
+              ),
+              const SizedBox(height: 12),
               Row(
                 children: [
                   IconButton(
                     tooltip: 'Expected Format',
-                    icon: const Icon(Icons.info_outline, color: Colors.black),
+                    icon: const Icon(Icons.info_outline, color: AppColors.ink),
                     onPressed: () {
                       showDialog(
                         context: context,
@@ -64,8 +78,8 @@ class MaterialTab extends StatelessWidget {
                             .read<MaterialBloc>()
                             .add(MaterialImportRequested()),
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: jOrange,
-                      foregroundColor: Colors.black,
+                      backgroundColor: AppColors.ink,
+                      foregroundColor: Colors.white,
                     ),
                     icon: const Icon(Icons.upload_file),
                     label: const Text('Import CSV'),
@@ -78,7 +92,7 @@ class MaterialTab extends StatelessWidget {
                         overflow: TextOverflow.ellipsis,
                         style: const TextStyle(
                           fontWeight: FontWeight.w600,
-                          color: jDarkBLue,
+                          color: AppColors.graphite,
                         ),
                       ),
                     ),
@@ -127,7 +141,8 @@ class MaterialTab extends StatelessWidget {
                           padding: const EdgeInsets.all(16),
                           decoration: BoxDecoration(
                             color: Colors.white,
-                            borderRadius: BorderRadius.circular(12),
+                            borderRadius: BorderRadius.circular(16),
+                            border: Border.all(color: AppColors.sand),
                             boxShadow: [
                               BoxShadow(
                                 color: Colors.black.withAlpha(10),
@@ -143,8 +158,8 @@ class MaterialTab extends StatelessWidget {
                                 children: [
                                   ElevatedButton.icon(
                                     style: ElevatedButton.styleFrom(
-                                      backgroundColor: jOrange,
-                                      foregroundColor: Colors.black,
+                                      backgroundColor: AppColors.ink,
+                                      foregroundColor: Colors.white,
                                     ),
                                     onPressed: () => context
                                         .read<MaterialBloc>()
@@ -155,8 +170,8 @@ class MaterialTab extends StatelessWidget {
                                   const SizedBox(width: 12),
                                   ElevatedButton.icon(
                                     style: ElevatedButton.styleFrom(
-                                      backgroundColor: jOrange,
-                                      foregroundColor: Colors.black,
+                                      backgroundColor: AppColors.teal,
+                                      foregroundColor: Colors.white,
                                     ),
                                     onPressed: () => context
                                         .read<MaterialBloc>()
@@ -176,13 +191,13 @@ class MaterialTab extends StatelessWidget {
                                   style: const TextStyle(
                                     fontSize: 22,
                                     fontWeight: FontWeight.w700,
-                                    color: jDarkBLue,
+                                    color: AppColors.ink,
                                   ),
                                 )
                               else
                                 const Text(
                                   'Import your CSV and press "New Question" to start.',
-                                  style: TextStyle(color: Colors.black),
+                                  style: TextStyle(color: AppColors.graphite),
                                 ),
                               const SizedBox(height: 16),
                               TextFormField(
@@ -214,7 +229,7 @@ class MaterialTab extends StatelessWidget {
                                             ? Icons.visibility_off
                                             : Icons.visibility,
                                         size: 16,
-                                        color: Colors.black,
+                                        color: AppColors.ink,
                                       ),
                                       const SizedBox(width: 6),
                                       Text(
@@ -222,7 +237,8 @@ class MaterialTab extends StatelessWidget {
                                             ? 'Answer: ${data.currentEntry!.values[data.answerColumn!] ?? ''}'
                                             : 'Show Answer',
                                         style: const TextStyle(
-                                            color: Colors.black, fontSize: 12),
+                                            color: AppColors.graphite,
+                                            fontSize: 12),
                                       ),
                                     ],
                                   ),
@@ -265,7 +281,7 @@ class _DropdownSelector extends StatelessWidget {
           label,
           style: const TextStyle(
             fontWeight: FontWeight.w700,
-            color: jDarkBLue,
+            color: AppColors.graphite,
           ),
         ),
         const SizedBox(height: 4),
