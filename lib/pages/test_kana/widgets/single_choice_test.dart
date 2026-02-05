@@ -13,6 +13,7 @@ class SingleChoiceTest extends StatefulWidget {
   final KanaType kanaType;
   final List<KanjiEntry> kanjiEntries;
   final Map<String, List<String>> kanjiMeanings;
+  final double kanaScale;
 
   const SingleChoiceTest({
     super.key,
@@ -21,6 +22,7 @@ class SingleChoiceTest extends StatefulWidget {
     required this.kanaType,
     this.kanjiEntries = const [],
     this.kanjiMeanings = const {},
+    this.kanaScale = 1.0,
   });
 
   @override
@@ -120,7 +122,9 @@ class _SingleChoiceTestState extends State<SingleChoiceTest> {
                   answer,
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    fontSize: widget.kanaType == KanaType.kanji ? 16 : 28,
+                    fontSize: widget.kanaType == KanaType.kanji
+                        ? 16
+                        : (28 * widget.kanaScale).clamp(20, 40).toDouble(),
                     fontWeight: FontWeight.w700,
                   ),
                 ),

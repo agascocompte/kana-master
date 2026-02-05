@@ -101,6 +101,14 @@
     "searchByMeaning": "按含义搜索",
     "filterAll": "全部",
     "tabStudy": "学习",
-    "tabStats": "统计"
+    "tabStats": "统计",
+    "settingsHapticsTitle": "震动",
+    "settingsHapticsSubtitle": "答对或答错时震动。",
+    "settingsKanaSizeTitle": "假名大小",
+    "settingsKanaSizeSubtitle": "调整界面中假名的大小。",
+    "settingsKanaSizeValue": "${value}x",
+    "settingsKanjiJlptTitle": "JLPT 汉字等级",
+    "settingsKanjiJlptSubtitle": "将汉字限制在某个 JLPT 等级。",
+    "kanjiFilterEmpty": "该 JLPT 等级没有汉字。"
   }
 }

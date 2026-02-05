@@ -21,3 +21,21 @@ class ChangeLanguage extends SettingsEvent {
 
   ChangeLanguage({required this.languageCode});
 }
+
+class ChangeHapticsEnabled extends SettingsEvent {
+  final bool enabled;
+
+  ChangeHapticsEnabled({required this.enabled});
+}
+
+class ChangeKanaScale extends SettingsEvent {
+  final double scale;
+
+  ChangeKanaScale({required this.scale});
+}
+
+class ChangeKanjiJlptFilter extends SettingsEvent {
+  final String filter;
+
+  ChangeKanjiJlptFilter({required this.filter});
+}

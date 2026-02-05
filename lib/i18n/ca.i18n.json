@@ -101,6 +101,14 @@
     "searchByMeaning": "Buscar per significat",
     "filterAll": "Tot",
     "tabStudy": "Estudi",
-    "tabStats": "Estadístiques"
+    "tabStats": "Estadístiques",
+    "settingsHapticsTitle": "Vibració",
+    "settingsHapticsSubtitle": "Vibra en encertar o fallar.",
+    "settingsKanaSizeTitle": "Mida del kana",
+    "settingsKanaSizeSubtitle": "Ajusta la mida dels kana a la interfície.",
+    "settingsKanaSizeValue": "${value}x",
+    "settingsKanjiJlptTitle": "Nivell JLPT de kanji",
+    "settingsKanjiJlptSubtitle": "Limita els kanji a un nivell JLPT.",
+    "kanjiFilterEmpty": "No hi ha kanji per a aquest nivell JLPT."
   }
 }

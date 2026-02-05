@@ -101,6 +101,14 @@
     "searchByMeaning": "Search by meaning",
     "filterAll": "All",
     "tabStudy": "Study",
-    "tabStats": "Stats"
+    "tabStats": "Stats",
+    "settingsHapticsTitle": "Haptics",
+    "settingsHapticsSubtitle": "Vibrate on correct and incorrect answers.",
+    "settingsKanaSizeTitle": "Kana size",
+    "settingsKanaSizeSubtitle": "Adjust the size of kana prompts and tiles.",
+    "settingsKanaSizeValue": "${value}x",
+    "settingsKanjiJlptTitle": "Kanji range",
+    "settingsKanjiJlptSubtitle": "Limit kanji questions to a JLPT level.",
+    "kanjiFilterEmpty": "No kanji match this JLPT level."
   }
 }

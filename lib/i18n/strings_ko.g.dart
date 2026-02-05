@@ -149,6 +149,14 @@ class _TranslationsAppKo implements TranslationsAppEn {
 	@override String get filterAll => '전체';
 	@override String get tabStudy => '학습';
 	@override String get tabStats => '통계';
+	@override String get settingsHapticsTitle => '진동';
+	@override String get settingsHapticsSubtitle => '정답 또는 오답 시 진동합니다.';
+	@override String get settingsKanaSizeTitle => '가나 크기';
+	@override String get settingsKanaSizeSubtitle => '인터페이스에서 가나 크기를 조정합니다.';
+	@override String settingsKanaSizeValue({required Object value}) => '${value}x';
+	@override String get settingsKanjiJlptTitle => 'JLPT 한자 레벨';
+	@override String get settingsKanjiJlptSubtitle => '한자를 JLPT 레벨로 제한합니다.';
+	@override String get kanjiFilterEmpty => '이 JLPT 레벨에는 한자가 없습니다.';
 }
 
 /// The flat map containing all translations for locale <ko>.
@@ -261,6 +269,14 @@ extension on TranslationsKo {
 			'app.filterAll' => '전체',
 			'app.tabStudy' => '학습',
 			'app.tabStats' => '통계',
+			'app.settingsHapticsTitle' => '진동',
+			'app.settingsHapticsSubtitle' => '정답 또는 오답 시 진동합니다.',
+			'app.settingsKanaSizeTitle' => '가나 크기',
+			'app.settingsKanaSizeSubtitle' => '인터페이스에서 가나 크기를 조정합니다.',
+			'app.settingsKanaSizeValue' => ({required Object value}) => '${value}x',
+			'app.settingsKanjiJlptTitle' => 'JLPT 한자 레벨',
+			'app.settingsKanjiJlptSubtitle' => '한자를 JLPT 레벨로 제한합니다.',
+			'app.kanjiFilterEmpty' => '이 JLPT 레벨에는 한자가 없습니다.',
 			_ => null,
 		};
 	}

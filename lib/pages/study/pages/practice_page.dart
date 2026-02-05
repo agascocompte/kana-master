@@ -28,6 +28,7 @@ class PracticePage extends StatelessWidget {
             ..add(LearnInitialized(
               kanaType: kanaType,
               languageCode: languageCode,
+              jlptFilter: settingsState.stateData.kanjiJlptFilter,
             )),
           child: Scaffold(
             body: Container(
@@ -89,15 +90,22 @@ class PracticePage extends StatelessWidget {
                                         Text(learnState.stateData.errorMessage),
                                   );
                                 }
+                                if (learnState
+                                    .stateData.filteredKanjiEntries.isEmpty) {
+                                  return Center(
+                                    child: Text(t.app.kanjiFilterEmpty),
+                                  );
+                                }
                                 return TestTab(
                                   kanaType: kanaType,
                                   kana: const {},
                                   kanjiEntries:
-                                      learnState.stateData.kanjiEntries,
+                                      learnState.stateData.filteredKanjiEntries,
                                   kanjiMeanings:
                                       learnState.stateData.kanjiMeanings,
                                   difficultyLevel:
                                       settingsState.stateData.difficultyLevel,
+                                  kanaScale: settingsState.stateData.kanaScale,
                                 );
                               },
                             )
@@ -106,6 +114,7 @@ class PracticePage extends StatelessWidget {
                               kana: kanaMap,
                               difficultyLevel:
                                   settingsState.stateData.difficultyLevel,
+                              kanaScale: settingsState.stateData.kanaScale,
                             ),
                     ),
                   ],

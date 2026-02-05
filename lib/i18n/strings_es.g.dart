@@ -149,6 +149,14 @@ class _TranslationsAppEs implements TranslationsAppEn {
 	@override String get filterAll => 'Todo';
 	@override String get tabStudy => 'Estudio';
 	@override String get tabStats => 'Estadísticas';
+	@override String get settingsHapticsTitle => 'Vibración';
+	@override String get settingsHapticsSubtitle => 'Vibra al acertar o fallar.';
+	@override String get settingsKanaSizeTitle => 'Tamaño del kana';
+	@override String get settingsKanaSizeSubtitle => 'Ajusta el tamaño de los kana en la interfaz.';
+	@override String settingsKanaSizeValue({required Object value}) => '${value}x';
+	@override String get settingsKanjiJlptTitle => 'Nivel JLPT kanji';
+	@override String get settingsKanjiJlptSubtitle => 'Limita los kanji a un nivel JLPT.';
+	@override String get kanjiFilterEmpty => 'No hay kanji para este nivel JLPT.';
 }
 
 /// The flat map containing all translations for locale <es>.
@@ -261,6 +269,14 @@ extension on TranslationsEs {
 			'app.filterAll' => 'Todo',
 			'app.tabStudy' => 'Estudio',
 			'app.tabStats' => 'Estadísticas',
+			'app.settingsHapticsTitle' => 'Vibración',
+			'app.settingsHapticsSubtitle' => 'Vibra al acertar o fallar.',
+			'app.settingsKanaSizeTitle' => 'Tamaño del kana',
+			'app.settingsKanaSizeSubtitle' => 'Ajusta el tamaño de los kana en la interfaz.',
+			'app.settingsKanaSizeValue' => ({required Object value}) => '${value}x',
+			'app.settingsKanjiJlptTitle' => 'Nivel JLPT kanji',
+			'app.settingsKanjiJlptSubtitle' => 'Limita los kanji a un nivel JLPT.',
+			'app.kanjiFilterEmpty' => 'No hay kanji para este nivel JLPT.',
 			_ => null,
 		};
 	}

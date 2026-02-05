@@ -149,6 +149,14 @@ class _TranslationsAppRu implements TranslationsAppEn {
 	@override String get filterAll => 'Все';
 	@override String get tabStudy => 'Обучение';
 	@override String get tabStats => 'Статистика';
+	@override String get settingsHapticsTitle => 'Вибрация';
+	@override String get settingsHapticsSubtitle => 'Вибрация при правильном или неправильном ответе.';
+	@override String get settingsKanaSizeTitle => 'Размер каны';
+	@override String get settingsKanaSizeSubtitle => 'Настройте размер каны в интерфейсе.';
+	@override String settingsKanaSizeValue({required Object value}) => '${value}x';
+	@override String get settingsKanjiJlptTitle => 'Уровень JLPT кандзи';
+	@override String get settingsKanjiJlptSubtitle => 'Ограничить кандзи уровнем JLPT.';
+	@override String get kanjiFilterEmpty => 'Нет кандзи для этого уровня JLPT.';
 }
 
 /// The flat map containing all translations for locale <ru>.
@@ -261,6 +269,14 @@ extension on TranslationsRu {
 			'app.filterAll' => 'Все',
 			'app.tabStudy' => 'Обучение',
 			'app.tabStats' => 'Статистика',
+			'app.settingsHapticsTitle' => 'Вибрация',
+			'app.settingsHapticsSubtitle' => 'Вибрация при правильном или неправильном ответе.',
+			'app.settingsKanaSizeTitle' => 'Размер каны',
+			'app.settingsKanaSizeSubtitle' => 'Настройте размер каны в интерфейсе.',
+			'app.settingsKanaSizeValue' => ({required Object value}) => '${value}x',
+			'app.settingsKanjiJlptTitle' => 'Уровень JLPT кандзи',
+			'app.settingsKanjiJlptSubtitle' => 'Ограничить кандзи уровнем JLPT.',
+			'app.kanjiFilterEmpty' => 'Нет кандзи для этого уровня JLPT.',
 			_ => null,
 		};
 	}

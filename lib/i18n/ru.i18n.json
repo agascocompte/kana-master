@@ -101,6 +101,14 @@
     "searchByMeaning": "Поиск по значению",
     "filterAll": "Все",
     "tabStudy": "Обучение",
-    "tabStats": "Статистика"
+    "tabStats": "Статистика",
+    "settingsHapticsTitle": "Вибрация",
+    "settingsHapticsSubtitle": "Вибрация при правильном или неправильном ответе.",
+    "settingsKanaSizeTitle": "Размер каны",
+    "settingsKanaSizeSubtitle": "Настройте размер каны в интерфейсе.",
+    "settingsKanaSizeValue": "${value}x",
+    "settingsKanjiJlptTitle": "Уровень JLPT кандзи",
+    "settingsKanjiJlptSubtitle": "Ограничить кандзи уровнем JLPT.",
+    "kanjiFilterEmpty": "Нет кандзи для этого уровня JLPT."
   }
 }

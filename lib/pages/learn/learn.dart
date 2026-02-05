@@ -12,11 +12,13 @@ import 'package:kana_master/i18n/strings.g.dart';
 class LearnTab extends StatelessWidget {
   final List<KanaEntry> entries;
   final KanaType kanaType;
+  final double kanaScale;
 
   const LearnTab({
     super.key,
     required this.entries,
     required this.kanaType,
+    this.kanaScale = 1.0,
   });
 
   @override
@@ -75,6 +77,12 @@ class LearnTab extends StatelessWidget {
                     key,
                     style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                           color: AppColors.ink,
+                          fontSize: (Theme.of(context)
+                                      .textTheme
+                                      .headlineMedium
+                                      ?.fontSize ??
+                                  32) *
+                              kanaScale,
                         ),
                   ),
                   Text(
