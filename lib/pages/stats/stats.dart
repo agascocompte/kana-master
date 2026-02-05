@@ -79,9 +79,7 @@ class StatsTab extends StatelessWidget {
                   ),
                   const SizedBox(height: 20),
                   if (summary.total == 0)
-                    _EmptyStatsCard(onReset: () {
-                      Dialogs.showResetStatsAlert(context);
-                    })
+                    _EmptyStatsCard()
                   else ...[
                     Row(
                       children: [
@@ -154,7 +152,7 @@ class StatsTab extends StatelessWidget {
                   ],
                   const SizedBox(height: 18),
                   Align(
-                    alignment: Alignment.centerLeft,
+                    alignment: Alignment.center,
                     child: ElevatedButton.icon(
                       style: ElevatedButton.styleFrom(
                         backgroundColor: AppColors.ink,
@@ -501,9 +499,7 @@ class _EvolutionChart extends StatelessWidget {
 }
 
 class _EmptyStatsCard extends StatelessWidget {
-  final VoidCallback onReset;
-
-  const _EmptyStatsCard({required this.onReset});
+  const _EmptyStatsCard();
 
   @override
   Widget build(BuildContext context) {
@@ -531,15 +527,6 @@ class _EmptyStatsCard extends StatelessWidget {
             style: const TextStyle(color: AppColors.slate),
           ),
           const SizedBox(height: 12),
-          OutlinedButton.icon(
-            style: OutlinedButton.styleFrom(
-              foregroundColor: AppColors.ink,
-              side: const BorderSide(color: AppColors.sand),
-            ),
-            onPressed: onReset,
-            icon: const Icon(Icons.delete_sweep),
-            label: Text(t.app.statsReset),
-          ),
         ],
       ),
     );

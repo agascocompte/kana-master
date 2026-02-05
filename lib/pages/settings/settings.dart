@@ -30,14 +30,6 @@ class SettingsPage extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    t.app.learningDefaults,
-                    style: const TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w700,
-                      color: AppColors.ink,
-                    ),
-                  ),
                   const SizedBox(height: 12),
                   DropdownTileSetting(
                     title: t.app.language,
@@ -54,49 +46,6 @@ class SettingsPage extends StatelessWidget {
                     },
                   ),
                   const SizedBox(height: 12),
-                  DropdownTileSetting(
-                    title: t.app.testDifficulty,
-                    subtitle: t.app.testDifficultySubtitle,
-                    currentValue: state.stateData.difficultyLevel,
-                    icon: Icons.speed_outlined,
-                    items: DifficultyLevel.values.map((DifficultyLevel level) {
-                      String description;
-                      switch (level) {
-                        case DifficultyLevel.low:
-                          description = t.app.difficultyEasyDesc;
-                          break;
-                        case DifficultyLevel.medium:
-                          description = t.app.difficultyMediumDesc;
-                          break;
-                        case DifficultyLevel.high:
-                          description = t.app.difficultyHardDesc;
-                          break;
-                      }
-
-                      return DropdownMenuItem<DifficultyLevel>(
-                        value: level,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(_difficultyLabel(level)),
-                            Text(
-                              description,
-                              style: const TextStyle(
-                                fontSize: 12,
-                                color: Colors.black,
-                              ),
-                            ),
-                          ],
-                        ),
-                      );
-                    }).toList(),
-                    onChanged: (DifficultyLevel? newValue) {
-                      if (newValue != null) {
-                        context.read<SettingsBloc>().add(
-                            ChangeDifficultyLevel(difficultyLevel: newValue));
-                      }
-                    },
-                  ),
                 ],
               ),
             ),
@@ -111,6 +60,7 @@ List<DropdownMenuItem<String>> _languageItems() {
   const languages = {
     'es': 'Español',
     'en': 'English',
+    'ca': 'Català',
     'fr': 'Français',
     'de': 'Deutsch',
     'it': 'Italiano',
@@ -119,7 +69,6 @@ List<DropdownMenuItem<String>> _languageItems() {
     'ja': '日本語',
     'zh': '中文',
     'ko': '한국어',
-    'ca': 'Català',
   };
   return languages.entries
       .map(
