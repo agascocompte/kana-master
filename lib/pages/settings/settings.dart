@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 import 'package:kana_master/pages/settings/bloc/settings_bloc.dart';
 import 'package:kana_master/pages/settings/widgets/dropdown_tile_setting.dart';
 import 'package:kana_master/theme/app_theme.dart';
@@ -27,25 +26,24 @@ class SettingsPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.fromLTRB(8, 18, 16, 6),
-                    child: Row(
-                      children: [
-                        IconButton(
-                          onPressed: () => context.pop(),
-                          icon: const Icon(Icons.arrow_back),
-                          color: AppColors.ink,
-                          tooltip: t.app.back,
-                        ),
-                        const SizedBox(width: 6),
-                        Text(
-                          t.app.settings,
-                          style: const TextStyle(
-                            fontSize: 28,
-                            fontWeight: FontWeight.w800,
-                            color: AppColors.ink,
-                          ),
-                        ),
-                      ],
+                    padding: const EdgeInsets.fromLTRB(16, 18, 16, 6),
+                    child: Text(
+                      t.app.settings,
+                      style: const TextStyle(
+                        fontSize: 28,
+                        fontWeight: FontWeight.w800,
+                        color: AppColors.ink,
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(16, 0, 16, 8),
+                    child: Text(
+                      t.app.learningDefaults,
+                      style: const TextStyle(
+                        color: AppColors.slate,
+                        fontSize: 14,
+                      ),
                     ),
                   ),
                   Expanded(

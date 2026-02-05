@@ -25,25 +25,13 @@ class StudyTab extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Row(
-                  children: [
-                    Expanded(
-                      child: Text(
-                        t.app.studyHubTitle,
-                        style: const TextStyle(
-                          fontSize: 28,
-                          fontWeight: FontWeight.w800,
-                          color: AppColors.ink,
-                        ),
-                      ),
-                    ),
-                    IconButton(
-                      onPressed: () => context.push(AppRouter.settingsRoute),
-                      icon: const Icon(Icons.tune),
-                      color: AppColors.ink,
-                      tooltip: t.app.settings,
-                    ),
-                  ],
+                Text(
+                  t.app.studyHubTitle,
+                  style: const TextStyle(
+                    fontSize: 28,
+                    fontWeight: FontWeight.w800,
+                    color: AppColors.ink,
+                  ),
                 ),
                 const SizedBox(height: 6),
                 Text(

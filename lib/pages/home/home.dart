@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kana_master/pages/dictionary/dictionary.dart';
 import 'package:kana_master/pages/home/bloc/home_nav_cubit.dart';
+import 'package:kana_master/pages/settings/settings.dart';
 import 'package:kana_master/pages/stats/stats.dart';
 import 'package:kana_master/pages/study/study.dart';
 import 'package:kana_master/i18n/strings.g.dart';
@@ -20,6 +21,7 @@ class HomePage extends StatelessWidget {
               StudyTab(),
               DictionaryTab(),
               StatsTab(),
+              SettingsPage(),
             ],
           ),
           bottomNavigationBar: NavigationBar(
@@ -38,6 +40,10 @@ class HomePage extends StatelessWidget {
               NavigationDestination(
                 icon: const Icon(Icons.bar_chart_outlined),
                 label: t.app.tabStats,
+              ),
+              NavigationDestination(
+                icon: const Icon(Icons.tune),
+                label: t.app.settings,
               ),
             ],
           ),
