@@ -23,6 +23,8 @@ class LearnTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final double clampedScale = kanaScale.clamp(0.8, 1.4);
+    final double tileAspectRatio = 1.0 / clampedScale;
     if (kanaType == KanaType.kanji) {
       return BlocBuilder<LearnBloc, LearnState>(
         builder: (context, state) {
@@ -34,7 +36,8 @@ class LearnTab extends StatelessWidget {
               child: Text(state.stateData.errorMessage),
             );
           }
-          return _buildKanjiGrid(context, state.stateData);
+          return _buildKanjiGrid(
+              context, state.stateData, tileAspectRatio, clampedScale);
         },
       );
     }
@@ -46,10 +49,11 @@ class LearnTab extends StatelessWidget {
     };
     return GridView.builder(
       padding: const EdgeInsets.all(10),
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 5,
         crossAxisSpacing: 10,
         mainAxisSpacing: 10,
+        childAspectRatio: tileAspectRatio,
       ),
       itemCount: keys.length,
       itemBuilder: (context, index) {
@@ -73,23 +77,45 @@ class LearnTab extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
-                    key,
-                    style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                          color: AppColors.ink,
-                          fontSize: (Theme.of(context)
-                                      .textTheme
-                                      .headlineMedium
-                                      ?.fontSize ??
-                                  32) *
-                              kanaScale,
-                        ),
+                  SizedBox(
+                    height: (36 * clampedScale).clamp(28, 52).toDouble(),
+                    child: FittedBox(
+                      fit: BoxFit.scaleDown,
+                      child: Text(
+                        key,
+                        style: Theme.of(context)
+                            .textTheme
+                            .headlineMedium
+                            ?.copyWith(
+                              color: AppColors.ink,
+                              fontSize: (Theme.of(context)
+                                          .textTheme
+                                          .headlineMedium
+                                          ?.fontSize ??
+                                      32) *
+                                  kanaScale,
+                            ),
+                      ),
+                    ),
                   ),
-                  Text(
-                    entry.reading,
-                    style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                          color: AppColors.slate,
-                        ),
+                  SizedBox(
+                    height: (18 * clampedScale).clamp(12, 28).toDouble(),
+                    child: FittedBox(
+                      fit: BoxFit.scaleDown,
+                      child: Text(
+                        entry.reading,
+                        style:
+                            Theme.of(context).textTheme.titleMedium?.copyWith(
+                                  color: AppColors.slate,
+                                  fontSize: (Theme.of(context)
+                                              .textTheme
+                                              .titleMedium
+                                              ?.fontSize ??
+                                          16) *
+                                      kanaScale,
+                                ),
+                      ),
+                    ),
                   ),
                 ],
               ),
@@ -100,7 +126,8 @@ class LearnTab extends StatelessWidget {
     );
   }
 
-  Widget _buildKanjiGrid(BuildContext context, LearnStateData data) {
+  Widget _buildKanjiGrid(BuildContext context, LearnStateData data,
+      double tileAspectRatio, double clampedScale) {
     return Column(
       children: [
         Padding(
@@ -122,9 +149,7 @@ class LearnTab extends StatelessWidget {
                 value: data.jlptFilter,
                 onChanged: (value) {
                   if (value == null) return;
-                  context
-                      .read<LearnBloc>()
-                      .add(LearnJlptFilterChanged(value));
+                  context.read<LearnBloc>().add(LearnJlptFilterChanged(value));
                 },
                 items: [
                   DropdownMenuItem(value: 'all', child: Text(t.app.filterAll)),
@@ -141,10 +166,11 @@ class LearnTab extends StatelessWidget {
         Expanded(
           child: GridView.builder(
             padding: const EdgeInsets.symmetric(horizontal: 10),
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 5,
               crossAxisSpacing: 10,
               mainAxisSpacing: 10,
+              childAspectRatio: tileAspectRatio,
             ),
             itemCount: data.filteredKanjiEntries.length,
             itemBuilder: (context, index) {
@@ -164,28 +190,53 @@ class LearnTab extends StatelessWidget {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(
-                          entry.character,
-                          style: Theme.of(context)
-                              .textTheme
-                              .headlineMedium
-                              ?.copyWith(
-                                color: AppColors.ink,
-                              ),
+                        SizedBox(
+                          height: (36 * clampedScale).clamp(28, 52).toDouble(),
+                          child: FittedBox(
+                            fit: BoxFit.scaleDown,
+                            child: Text(
+                              entry.character,
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .headlineMedium
+                                  ?.copyWith(
+                                    color: AppColors.ink,
+                                    fontSize: (Theme.of(context)
+                                                .textTheme
+                                                .headlineMedium
+                                                ?.fontSize ??
+                                            32) *
+                                        kanaScale,
+                                  ),
+                            ),
+                          ),
                         ),
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 4),
-                          child: Text(
-                            meaning,
-                            textAlign: TextAlign.center,
-                            style: Theme.of(context)
-                                .textTheme
-                                .titleSmall
-                                ?.copyWith(
-                                  color: AppColors.slate,
-                                ),
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
+                          child: SizedBox(
+                            height:
+                                (16 * clampedScale).clamp(12, 24).toDouble(),
+                            child: FittedBox(
+                              fit: BoxFit.scaleDown,
+                              child: Text(
+                                meaning,
+                                textAlign: TextAlign.center,
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .titleSmall
+                                    ?.copyWith(
+                                      color: AppColors.slate,
+                                      fontSize: (Theme.of(context)
+                                                  .textTheme
+                                                  .titleSmall
+                                                  ?.fontSize ??
+                                              12) *
+                                          kanaScale,
+                                    ),
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ),
                           ),
                         ),
                       ],
@@ -207,8 +258,7 @@ class LearnTab extends StatelessWidget {
         return KanaDialog(
           assetKey: entry.assetKey,
           displayText: entry.reading,
-          kanaFolder:
-              kanaType == KanaType.hiragana ? "hiragana" : "katakana",
+          kanaFolder: kanaType == KanaType.hiragana ? "hiragana" : "katakana",
         );
       },
     );
