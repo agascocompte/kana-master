@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kana_master/constants.dart';
 import 'package:kana_master/domain/models/kanji_entry.dart';
+import 'package:kana_master/pages/settings/bloc/settings_bloc.dart';
 import 'package:kana_master/pages/stats/bloc/stats_bloc.dart';
 import 'package:kana_master/pages/test_kana/bloc/test_kana_bloc.dart';
 import 'package:kana_master/pages/test_kana/widgets/test_body.dart';
@@ -17,6 +19,7 @@ class TestTab extends StatelessWidget {
   final List<KanjiEntry> kanjiEntries;
   final Map<String, List<String>> kanjiMeanings;
   final DifficultyLevel difficultyLevel;
+  final double kanaScale;
 
   const TestTab({
     super.key,
@@ -25,12 +28,15 @@ class TestTab extends StatelessWidget {
     this.kanjiEntries = const [],
     this.kanjiMeanings = const {},
     required this.difficultyLevel,
+    this.kanaScale = 1.0,
   });
 
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<TestKanaBloc, TestKanaState>(
       listener: (context, state) {
+        final bool hapticsEnabled =
+            context.read<SettingsBloc>().state.stateData.hapticsEnabled;
         if (state is ErrorPredictingHiragana) {
           Snackbars.showErrorScaffold(context, state.msg);
         } else if (state is HiraganaWritingSuccess ||
@@ -39,6 +45,9 @@ class TestTab extends StatelessWidget {
                 kanaType: kanaType,
                 isCorrect: true,
               ));
+          if (hapticsEnabled) {
+            HapticFeedback.lightImpact();
+          }
           Snackbars.showSuccessScaffold(context, t.app.correct);
           context.read<TestKanaBloc>().add(TestNextKana(
                 kana: kana,
@@ -52,6 +61,9 @@ class TestTab extends StatelessWidget {
                 kanaType: kanaType,
                 isCorrect: false,
               ));
+          if (hapticsEnabled) {
+            HapticFeedback.mediumImpact();
+          }
           Snackbars.showWarningScaffold(context, t.app.oops);
         }
       },
@@ -226,6 +238,7 @@ class TestTab extends StatelessWidget {
                               kana: kana,
                               kanaType: kanaType,
                               kanjiEntries: kanjiEntries,
+                              kanaScale: kanaScale,
                             ),
                             const SizedBox(height: 12),
                             Expanded(
@@ -236,6 +249,7 @@ class TestTab extends StatelessWidget {
                                 kanjiEntries: kanjiEntries,
                                 kanjiMeanings: kanjiMeanings,
                                 difficultyLevel: difficultyLevel,
+                                kanaScale: kanaScale,
                               ),
                             ),
                             const SizedBox(height: 8),

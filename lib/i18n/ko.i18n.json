@@ -101,6 +101,14 @@
     "searchByMeaning": "의미로 검색",
     "filterAll": "전체",
     "tabStudy": "학습",
-    "tabStats": "통계"
+    "tabStats": "통계",
+    "settingsHapticsTitle": "진동",
+    "settingsHapticsSubtitle": "정답 또는 오답 시 진동합니다.",
+    "settingsKanaSizeTitle": "가나 크기",
+    "settingsKanaSizeSubtitle": "인터페이스에서 가나 크기를 조정합니다.",
+    "settingsKanaSizeValue": "${value}x",
+    "settingsKanjiJlptTitle": "JLPT 한자 레벨",
+    "settingsKanjiJlptSubtitle": "한자를 JLPT 레벨로 제한합니다.",
+    "kanjiFilterEmpty": "이 JLPT 레벨에는 한자가 없습니다."
   }
 }

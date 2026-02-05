@@ -34,7 +34,7 @@ class LearnBloc extends Bloc<LearnEvent, LearnState> {
     final LearnStateData baseData = state.stateData.copyWith(
       kanaType: event.kanaType,
       query: '',
-      jlptFilter: 'all',
+      jlptFilter: event.jlptFilter,
       errorMessage: '',
       kanjiEntries: const [],
       filteredKanjiEntries: const [],

@@ -101,6 +101,14 @@
     "searchByMeaning": "Cerca per significato",
     "filterAll": "Tutto",
     "tabStudy": "Studio",
-    "tabStats": "Statistiche"
+    "tabStats": "Statistiche",
+    "settingsHapticsTitle": "Vibrazione",
+    "settingsHapticsSubtitle": "Vibra quando rispondi correttamente o sbagli.",
+    "settingsKanaSizeTitle": "Dimensione kana",
+    "settingsKanaSizeSubtitle": "Regola la dimensione dei kana nell’interfaccia.",
+    "settingsKanaSizeValue": "${value}x",
+    "settingsKanjiJlptTitle": "Livello JLPT kanji",
+    "settingsKanjiJlptSubtitle": "Limita i kanji a un livello JLPT.",
+    "kanjiFilterEmpty": "Nessun kanji per questo livello JLPT."
   }
 }

@@ -29,6 +29,7 @@ class LearnPage extends StatelessWidget {
             ..add(LearnInitialized(
               kanaType: kanaType,
               languageCode: languageCode,
+              jlptFilter: settingsState.stateData.kanjiJlptFilter,
             )),
           child: Scaffold(
             body: Container(
@@ -79,6 +80,7 @@ class LearnPage extends StatelessWidget {
                       child: LearnTab(
                         entries: entries,
                         kanaType: kanaType,
+                        kanaScale: settingsState.stateData.kanaScale,
                       ),
                     ),
                   ],

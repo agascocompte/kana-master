@@ -5,10 +5,12 @@ abstract class LearnEvent {}
 class LearnInitialized extends LearnEvent {
   final KanaType kanaType;
   final String languageCode;
+  final String jlptFilter;
 
   LearnInitialized({
     required this.kanaType,
     required this.languageCode,
+    required this.jlptFilter,
   });
 }
 

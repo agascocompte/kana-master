@@ -46,13 +46,13 @@ class AppTheme {
       navigationBarTheme: const NavigationBarThemeData(
         backgroundColor: Colors.white,
         indicatorColor: AppColors.sand,
-        labelTextStyle: MaterialStatePropertyAll(
+        labelTextStyle: WidgetStatePropertyAll(
           TextStyle(
             fontWeight: FontWeight.w600,
             color: AppColors.ink,
           ),
         ),
-        iconTheme: MaterialStatePropertyAll(
+        iconTheme: WidgetStatePropertyAll(
           IconThemeData(
             color: AppColors.ink,
           ),

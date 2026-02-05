@@ -101,6 +101,14 @@
     "searchByMeaning": "意味で検索",
     "filterAll": "すべて",
     "tabStudy": "学習",
-    "tabStats": "統計"
+    "tabStats": "統計",
+    "settingsHapticsTitle": "バイブレーション",
+    "settingsHapticsSubtitle": "正解または不正解時に振動します。",
+    "settingsKanaSizeTitle": "かなサイズ",
+    "settingsKanaSizeSubtitle": "インターフェース内のかなのサイズを調整します。",
+    "settingsKanaSizeValue": "${value}x",
+    "settingsKanjiJlptTitle": "JLPT漢字レベル",
+    "settingsKanjiJlptSubtitle": "漢字をJLPTレベルで制限します。",
+    "kanjiFilterEmpty": "このJLPTレベルに対応する漢字はありません。"
   }
 }

@@ -149,6 +149,14 @@ class _TranslationsAppJa implements TranslationsAppEn {
 	@override String get filterAll => 'すべて';
 	@override String get tabStudy => '学習';
 	@override String get tabStats => '統計';
+	@override String get settingsHapticsTitle => 'バイブレーション';
+	@override String get settingsHapticsSubtitle => '正解または不正解時に振動します。';
+	@override String get settingsKanaSizeTitle => 'かなサイズ';
+	@override String get settingsKanaSizeSubtitle => 'インターフェース内のかなのサイズを調整します。';
+	@override String settingsKanaSizeValue({required Object value}) => '${value}x';
+	@override String get settingsKanjiJlptTitle => 'JLPT漢字レベル';
+	@override String get settingsKanjiJlptSubtitle => '漢字をJLPTレベルで制限します。';
+	@override String get kanjiFilterEmpty => 'このJLPTレベルに対応する漢字はありません。';
 }
 
 /// The flat map containing all translations for locale <ja>.
@@ -261,6 +269,14 @@ extension on TranslationsJa {
 			'app.filterAll' => 'すべて',
 			'app.tabStudy' => '学習',
 			'app.tabStats' => '統計',
+			'app.settingsHapticsTitle' => 'バイブレーション',
+			'app.settingsHapticsSubtitle' => '正解または不正解時に振動します。',
+			'app.settingsKanaSizeTitle' => 'かなサイズ',
+			'app.settingsKanaSizeSubtitle' => 'インターフェース内のかなのサイズを調整します。',
+			'app.settingsKanaSizeValue' => ({required Object value}) => '${value}x',
+			'app.settingsKanjiJlptTitle' => 'JLPT漢字レベル',
+			'app.settingsKanjiJlptSubtitle' => '漢字をJLPTレベルで制限します。',
+			'app.kanjiFilterEmpty' => 'このJLPTレベルに対応する漢字はありません。',
 			_ => null,
 		};
 	}

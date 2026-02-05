@@ -10,6 +10,7 @@ class TestTitle extends StatelessWidget {
   final Map<String, String> kana;
   final KanaType kanaType;
   final List<KanjiEntry> kanjiEntries;
+  final double kanaScale;
 
   const TestTitle({
     super.key,
@@ -17,6 +18,7 @@ class TestTitle extends StatelessWidget {
     required this.kana,
     required this.kanaType,
     this.kanjiEntries = const [],
+    this.kanaScale = 1.0,
   });
 
   @override
@@ -44,6 +46,7 @@ class TestTitle extends StatelessWidget {
                   text: drawingLabel,
                   background: AppColors.peach,
                   foreground: AppColors.ink,
+                  scale: kanaScale,
                 ),
               ],
             )
@@ -62,6 +65,7 @@ class TestTitle extends StatelessWidget {
                   text: displaySymbol,
                   background: AppColors.peach,
                   foreground: AppColors.ink,
+                  scale: kanaScale,
                 ),
               ],
             ),
@@ -117,11 +121,13 @@ class _HeroPrompt extends StatelessWidget {
   final String text;
   final Color background;
   final Color foreground;
+  final double scale;
 
   const _HeroPrompt({
     required this.text,
     required this.background,
     required this.foreground,
+    required this.scale,
   });
 
   @override
@@ -146,7 +152,7 @@ class _HeroPrompt extends StatelessWidget {
           child: Text(
             text,
             style: Theme.of(context).textTheme.displaySmall?.copyWith(
-                  fontSize: 44,
+                  fontSize: (44 * scale).clamp(32, 64).toDouble(),
                   color: foreground,
                   fontWeight: FontWeight.w800,
                 ),

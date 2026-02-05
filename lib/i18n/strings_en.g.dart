@@ -356,6 +356,30 @@ class TranslationsAppEn {
 
 	/// en: 'Stats'
 	String get tabStats => 'Stats';
+
+	/// en: 'Haptics'
+	String get settingsHapticsTitle => 'Haptics';
+
+	/// en: 'Vibrate on correct and incorrect answers.'
+	String get settingsHapticsSubtitle => 'Vibrate on correct and incorrect answers.';
+
+	/// en: 'Kana size'
+	String get settingsKanaSizeTitle => 'Kana size';
+
+	/// en: 'Adjust the size of kana prompts and tiles.'
+	String get settingsKanaSizeSubtitle => 'Adjust the size of kana prompts and tiles.';
+
+	/// en: '${value}x'
+	String settingsKanaSizeValue({required Object value}) => '${value}x';
+
+	/// en: 'Kanji range'
+	String get settingsKanjiJlptTitle => 'Kanji range';
+
+	/// en: 'Limit kanji questions to a JLPT level.'
+	String get settingsKanjiJlptSubtitle => 'Limit kanji questions to a JLPT level.';
+
+	/// en: 'No kanji match this JLPT level.'
+	String get kanjiFilterEmpty => 'No kanji match this JLPT level.';
 }
 
 /// The flat map containing all translations for locale <en>.
@@ -468,6 +492,14 @@ extension on Translations {
 			'app.filterAll' => 'All',
 			'app.tabStudy' => 'Study',
 			'app.tabStats' => 'Stats',
+			'app.settingsHapticsTitle' => 'Haptics',
+			'app.settingsHapticsSubtitle' => 'Vibrate on correct and incorrect answers.',
+			'app.settingsKanaSizeTitle' => 'Kana size',
+			'app.settingsKanaSizeSubtitle' => 'Adjust the size of kana prompts and tiles.',
+			'app.settingsKanaSizeValue' => ({required Object value}) => '${value}x',
+			'app.settingsKanjiJlptTitle' => 'Kanji range',
+			'app.settingsKanjiJlptSubtitle' => 'Limit kanji questions to a JLPT level.',
+			'app.kanjiFilterEmpty' => 'No kanji match this JLPT level.',
 			_ => null,
 		};
 	}
