@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kana_master/pages/dictionary/bloc/dictionary_bloc.dart';
 import 'package:kana_master/theme/app_theme.dart';
+import 'package:kana_master/i18n/strings.g.dart';
 
 class DictionaryTab extends StatelessWidget {
   const DictionaryTab({super.key});
@@ -22,8 +23,8 @@ class DictionaryTab extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
-                'Dictionary',
+              Text(
+                t.app.dictionary,
                 style: TextStyle(
                   fontSize: 28,
                   fontWeight: FontWeight.w800,
@@ -31,9 +32,9 @@ class DictionaryTab extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 6),
-              const Text(
-                'Search words, kana, and meanings instantly.',
-                style: TextStyle(color: AppColors.slate, fontSize: 14),
+              Text(
+                t.app.dictionarySubtitle,
+                style: const TextStyle(color: AppColors.slate, fontSize: 14),
               ),
               const SizedBox(height: 16),
               Row(
@@ -42,9 +43,9 @@ class DictionaryTab extends StatelessWidget {
                     child: BlocBuilder<DictionaryBloc, DictionaryState>(
                       builder: (context, state) {
                         return TextFormField(
-                          decoration: const InputDecoration(
-                            hintText: 'Search word, kana, romaji...',
-                            prefixIcon: Icon(Icons.search),
+                          decoration: InputDecoration(
+                            hintText: t.app.searchHint,
+                            prefixIcon: const Icon(Icons.search),
                           ),
                           onChanged: (value) => context
                               .read<DictionaryBloc>()
@@ -105,10 +106,10 @@ class DictionaryTab extends StatelessWidget {
                     }
 
                     if (state.stateData.entries.isEmpty) {
-                      return const Center(
+                      return Center(
                         child: Text(
-                          'Begin searching for a word.',
-                          style: TextStyle(color: AppColors.graphite),
+                          t.app.dictionaryEmpty,
+                          style: const TextStyle(color: AppColors.graphite),
                         ),
                       );
                     }
@@ -184,12 +185,12 @@ class DictionaryTab extends StatelessWidget {
                                     children: [
                                       if (entry.info.isNotEmpty)
                                         _InfoBlock(
-                                          title: 'Notes',
+                                          title: t.app.dictionaryNotes,
                                           lines: entry.info,
                                         ),
                                       if (entry.seeAlso.isNotEmpty)
                                         _InfoBlock(
-                                          title: 'See also',
+                                          title: t.app.dictionarySeeAlso,
                                           lines: entry.seeAlso,
                                         ),
                                     ],

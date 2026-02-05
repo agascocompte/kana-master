@@ -9,6 +9,7 @@ import 'package:kana_master/pages/test_kana/widgets/test_button.dart';
 import 'package:kana_master/pages/test_kana/widgets/test_title.dart';
 import 'package:kana_master/theme/app_theme.dart';
 import 'package:kana_master/widgets/snackbars.dart';
+import 'package:kana_master/i18n/strings.g.dart';
 
 class TestTab extends StatelessWidget {
   final KanaType kanaType;
@@ -38,7 +39,7 @@ class TestTab extends StatelessWidget {
                 kanaType: kanaType,
                 isCorrect: true,
               ));
-          Snackbars.showSuccessScaffold(context, "You got it right!");
+          Snackbars.showSuccessScaffold(context, t.app.correct);
           context.read<TestKanaBloc>().add(TestNextKana(
                 kana: kana,
                 kanaType: kanaType,
@@ -51,7 +52,7 @@ class TestTab extends StatelessWidget {
                 kanaType: kanaType,
                 isCorrect: false,
               ));
-          Snackbars.showWarningScaffold(context, "Oops, you failed...");
+          Snackbars.showWarningScaffold(context, t.app.oops);
         }
       },
       builder: (context, state) {
@@ -96,10 +97,10 @@ class TestTab extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 6),
-                  const Text(
-                    'Start a fresh round and keep the streak alive.',
+                  Text(
+                    t.app.practiceStartSubtitle,
                     textAlign: TextAlign.center,
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: AppColors.slate,
                       fontSize: 13,
                     ),
@@ -124,7 +125,7 @@ class TestTab extends StatelessWidget {
                       ),
                     ),
                     icon: const Icon(Icons.play_arrow),
-                    label: const Text('Begin session'),
+                    label: Text(t.app.beginSession),
                   ),
                 ],
               ),
@@ -172,9 +173,9 @@ class TestTab extends StatelessWidget {
                                 ),
                               ),
                               const SizedBox(height: 4),
-                              const Text(
-                                'Stay focused. Submit when ready.',
-                                style: TextStyle(
+                              Text(
+                                t.app.testStayFocused,
+                                style: const TextStyle(
                                   color: AppColors.slate,
                                   fontSize: 12,
                                 ),
@@ -322,17 +323,28 @@ String _modeLabel({
   required DifficultyLevel difficulty,
   required TestType testType,
 }) {
-  final String script = kanaType.name;
+  final String script = () {
+    switch (kanaType) {
+      case KanaType.hiragana:
+        return t.app.scriptHiragana;
+      case KanaType.katakana:
+        return t.app.scriptKatakana;
+      case KanaType.kanji:
+        return t.app.scriptKanji;
+    }
+  }();
   final String difficultyLabel = () {
     switch (difficulty) {
       case DifficultyLevel.low:
-        return 'easy';
+        return t.app.difficultyEasy;
       case DifficultyLevel.medium:
-        return 'medium';
+        return t.app.difficultyMedium;
       case DifficultyLevel.high:
-        return 'hard';
+        return t.app.difficultyHard;
     }
   }();
-  final String mode = testType == TestType.drawingTest ? 'drawing' : 'quiz';
-  return '${script[0].toUpperCase()}${script.substring(1)} - $difficultyLabel - $mode';
+  final String mode = testType == TestType.drawingTest
+      ? t.app.testModeDrawing
+      : t.app.testModeQuiz;
+  return '$script - $difficultyLabel - $mode';
 }

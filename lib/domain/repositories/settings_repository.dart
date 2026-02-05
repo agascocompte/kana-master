@@ -52,4 +52,26 @@ class SettingsRepository {
       return DifficultyLevel.low; // valor por defecto
     }
   }
+
+  Future<void> saveLanguageCode(String languageCode) async {
+    final db = await _databaseProvider.database;
+    await db.insert(
+      'settings',
+      {'key': 'language_code', 'value': languageCode},
+      conflictAlgorithm: ConflictAlgorithm.replace,
+    );
+  }
+
+  Future<String> getLanguageCode() async {
+    final db = await _databaseProvider.database;
+    final result = await db.query(
+      'settings',
+      where: 'key = ?',
+      whereArgs: ['language_code'],
+    );
+    if (result.isNotEmpty) {
+      return result.first['value']?.toString() ?? 'es';
+    }
+    return 'es';
+  }
 }

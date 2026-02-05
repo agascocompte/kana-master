@@ -3,19 +3,23 @@ part of 'settings_bloc.dart';
 class SettingsStateData {
   final KanaType kanaType;
   final DifficultyLevel difficultyLevel;
+  final String languageCode;
 
   SettingsStateData({
     this.kanaType = KanaType.hiragana,
     this.difficultyLevel = DifficultyLevel.low,
+    this.languageCode = 'es',
   });
 
   SettingsStateData copyWith({
     KanaType? kanaType,
     DifficultyLevel? difficultyLevel,
+    String? languageCode,
   }) {
     return SettingsStateData(
       kanaType: kanaType ?? this.kanaType,
       difficultyLevel: difficultyLevel ?? this.difficultyLevel,
+      languageCode: languageCode ?? this.languageCode,
     );
   }
 }

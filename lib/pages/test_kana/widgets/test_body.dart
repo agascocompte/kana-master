@@ -6,6 +6,7 @@ import 'package:kana_master/pages/test_kana/widgets/drawing_board.dart';
 import 'package:kana_master/pages/test_kana/widgets/single_choice_test.dart';
 import 'package:kana_master/pages/test_kana/widgets/text_field_test.dart';
 import 'package:kana_master/theme/app_theme.dart';
+import 'package:kana_master/i18n/strings.g.dart';
 
 class TestBody extends StatelessWidget {
   final TestKanaState state;
@@ -30,9 +31,9 @@ class TestBody extends StatelessWidget {
     return state.stateData.testType == TestType.drawingTest
         ? Column(
             children: [
-              const Text(
-                'Sketch inside the canvas',
-                style: TextStyle(
+              Text(
+                t.app.testSketchHint,
+                style: const TextStyle(
                   color: AppColors.slate,
                   fontSize: 12,
                 ),

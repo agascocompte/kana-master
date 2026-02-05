@@ -4,6 +4,7 @@ import 'package:kana_master/pages/dictionary/dictionary.dart';
 import 'package:kana_master/pages/home/bloc/home_nav_cubit.dart';
 import 'package:kana_master/pages/stats/stats.dart';
 import 'package:kana_master/pages/study/study.dart';
+import 'package:kana_master/i18n/strings.g.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -25,18 +26,18 @@ class HomePage extends StatelessWidget {
             selectedIndex: index,
             onDestinationSelected: (value) =>
                 context.read<HomeNavCubit>().selectTab(value),
-            destinations: const [
+            destinations: [
               NavigationDestination(
-                icon: Icon(Icons.school_outlined),
-                label: 'Study',
+                icon: const Icon(Icons.school_outlined),
+                label: t.app.tabStudy,
               ),
               NavigationDestination(
-                icon: Icon(Icons.search),
-                label: 'Dictionary',
+                icon: const Icon(Icons.search),
+                label: t.app.dictionary,
               ),
               NavigationDestination(
-                icon: Icon(Icons.bar_chart_outlined),
-                label: 'Stats',
+                icon: const Icon(Icons.bar_chart_outlined),
+                label: t.app.tabStats,
               ),
             ],
           ),

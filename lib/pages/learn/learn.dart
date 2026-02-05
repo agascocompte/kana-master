@@ -7,6 +7,7 @@ import 'package:kana_master/pages/learn/bloc/learn_bloc.dart';
 import 'package:kana_master/pages/learn/widgets/kana_dialog.dart';
 import 'package:kana_master/pages/learn/widgets/kanji_dialog.dart';
 import 'package:kana_master/theme/app_theme.dart';
+import 'package:kana_master/i18n/strings.g.dart';
 
 class LearnTab extends StatelessWidget {
   final List<KanaEntry> entries;
@@ -100,9 +101,9 @@ class LearnTab extends StatelessWidget {
             children: [
               Expanded(
                 child: TextField(
-                  decoration: const InputDecoration(
-                    hintText: 'Search by meaning',
-                    prefixIcon: Icon(Icons.search),
+                  decoration: InputDecoration(
+                    hintText: t.app.searchByMeaning,
+                    prefixIcon: const Icon(Icons.search),
                   ),
                   onChanged: (value) =>
                       context.read<LearnBloc>().add(LearnQueryChanged(value)),
@@ -117,13 +118,13 @@ class LearnTab extends StatelessWidget {
                       .read<LearnBloc>()
                       .add(LearnJlptFilterChanged(value));
                 },
-                items: const [
-                  DropdownMenuItem(value: 'all', child: Text('All')),
-                  DropdownMenuItem(value: 'n5', child: Text('N5')),
-                  DropdownMenuItem(value: 'n4', child: Text('N4')),
-                  DropdownMenuItem(value: 'n3', child: Text('N3')),
-                  DropdownMenuItem(value: 'n2', child: Text('N2')),
-                  DropdownMenuItem(value: 'n1', child: Text('N1')),
+                items: [
+                  DropdownMenuItem(value: 'all', child: Text(t.app.filterAll)),
+                  const DropdownMenuItem(value: 'n5', child: Text('N5')),
+                  const DropdownMenuItem(value: 'n4', child: Text('N4')),
+                  const DropdownMenuItem(value: 'n3', child: Text('N3')),
+                  const DropdownMenuItem(value: 'n2', child: Text('N2')),
+                  const DropdownMenuItem(value: 'n1', child: Text('N1')),
                 ],
               ),
             ],

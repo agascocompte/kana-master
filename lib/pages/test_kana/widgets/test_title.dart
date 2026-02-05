@@ -3,6 +3,7 @@ import 'package:kana_master/constants.dart';
 import 'package:kana_master/domain/models/kanji_entry.dart';
 import 'package:kana_master/pages/test_kana/bloc/test_kana_bloc.dart';
 import 'package:kana_master/theme/app_theme.dart';
+import 'package:kana_master/i18n/strings.g.dart';
 
 class TestTitle extends StatelessWidget {
   final TestKanaState state;
@@ -20,15 +21,10 @@ class TestTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final String kanaText = kanaType == KanaType.hiragana
-        ? "hiragana"
-        : kanaType == KanaType.katakana
-            ? "katakana"
-            : "kanji";
+    final String kanaText = _scriptLabel();
     final String drawingLabel = _getDrawingLabel();
-    final String promptText = kanaType == KanaType.kanji
-        ? "Meaning of this kanji?"
-        : "Which is this $kanaText?";
+    final String promptText =
+        kanaType == KanaType.kanji ? t.app.testKanjiMeaning : t.app.testWhichIs;
     final String displaySymbol = _getDisplaySymbol();
     return Padding(
       padding: const EdgeInsets.only(bottom: 10.0),
@@ -36,7 +32,7 @@ class TestTitle extends StatelessWidget {
           ? Column(
               children: [
                 Text(
-                  'Draw the $kanaText',
+                  t.app.testDrawThe,
                   style: Theme.of(context).textTheme.titleLarge?.copyWith(
                         fontWeight: FontWeight.w700,
                         color: AppColors.ink,
@@ -91,6 +87,17 @@ class TestTitle extends StatelessWidget {
       return kana[symbols[index]] ?? '';
     }
     return '';
+  }
+
+  String _scriptLabel() {
+    switch (kanaType) {
+      case KanaType.hiragana:
+        return t.app.scriptHiragana;
+      case KanaType.katakana:
+        return t.app.scriptKatakana;
+      case KanaType.kanji:
+        return t.app.scriptKanji;
+    }
   }
 
   String _getDisplaySymbol() {

@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kana_master/pages/study/bloc/material_bloc.dart';
 import 'package:kana_master/theme/app_theme.dart';
 import 'package:kana_master/widgets/snackbars.dart';
+import 'package:kana_master/i18n/strings.g.dart';
 
 class MaterialTab extends StatelessWidget {
   const MaterialTab({super.key});
@@ -43,14 +44,12 @@ class MaterialTab extends StatelessWidget {
                       showDialog(
                         context: context,
                         builder: (context) => AlertDialog(
-                          title: const Text('Expected Format'),
-                          content: const Text(
-                            'Recommended headers:\n\nLanguage | Romaji | Hiragana | Katakana | Kanji.\n\nYou can map any column as question or answer. Use comma-separated CSV.',
-                          ),
+                          title: Text(t.app.expectedFormatTitle),
+                          content: Text(t.app.expectedFormatBody),
                           actions: [
                             TextButton(
                               onPressed: () => Navigator.of(context).pop(),
-                              child: const Text('OK'),
+                              child: Text(t.app.ok),
                             ),
                           ],
                         ),
@@ -68,13 +67,13 @@ class MaterialTab extends StatelessWidget {
                       foregroundColor: Colors.white,
                     ),
                     icon: const Icon(Icons.upload_file),
-                    label: const Text('Import CSV'),
+                    label: Text(t.app.importCsv),
                   ),
                   const SizedBox(width: 12),
                   if (data.importedFileName.isNotEmpty)
                     Expanded(
                       child: Text(
-                        'File: ${data.importedFileName} (${data.entries.length} rows)',
+                        t.app.fileLabel,
                         overflow: TextOverflow.ellipsis,
                         style: const TextStyle(
                           fontWeight: FontWeight.w600,
@@ -90,7 +89,7 @@ class MaterialTab extends StatelessWidget {
                   children: [
                     Expanded(
                       child: _DropdownSelector(
-                        label: 'Ask with',
+                        label: t.app.askWith,
                         value: data.questionColumn,
                         items: data.headers,
                         onChanged: (value) => context
@@ -101,7 +100,7 @@ class MaterialTab extends StatelessWidget {
                     const SizedBox(width: 12),
                     Expanded(
                       child: _DropdownSelector(
-                        label: 'Answer with',
+                        label: t.app.answerWith,
                         value: data.answerColumn,
                         items: data.headers,
                         onChanged: (value) => context
@@ -151,7 +150,7 @@ class MaterialTab extends StatelessWidget {
                                         .read<MaterialBloc>()
                                         .add(MaterialQuestionRequested()),
                                     icon: const Icon(Icons.play_arrow),
-                                    label: const Text('New Question'),
+                                    label: Text(t.app.newQuestion),
                                   ),
                                   const SizedBox(width: 12),
                                   ElevatedButton.icon(
@@ -163,7 +162,7 @@ class MaterialTab extends StatelessWidget {
                                         .read<MaterialBloc>()
                                         .add(MaterialAnswerSubmitted()),
                                     icon: const Icon(Icons.check),
-                                    label: const Text('Check Answer'),
+                                    label: Text(t.app.checkAnswer),
                                   ),
                                 ],
                               ),
@@ -181,9 +180,10 @@ class MaterialTab extends StatelessWidget {
                                   ),
                                 )
                               else
-                                const Text(
-                                  'Import your CSV and press "New Question" to start.',
-                                  style: TextStyle(color: AppColors.graphite),
+                                Text(
+                                  t.app.materialsEmpty,
+                                  style: const TextStyle(
+                                      color: AppColors.graphite),
                                 ),
                               const SizedBox(height: 16),
                               TextFormField(
@@ -196,9 +196,9 @@ class MaterialTab extends StatelessWidget {
                                 onFieldSubmitted: (_) => context
                                     .read<MaterialBloc>()
                                     .add(MaterialAnswerSubmitted()),
-                                decoration: const InputDecoration(
-                                  labelText: 'Your Answer',
-                                  border: OutlineInputBorder(),
+                                decoration: InputDecoration(
+                                  labelText: t.app.yourAnswer,
+                                  border: const OutlineInputBorder(),
                                 ),
                               ),
                               const SizedBox(height: 8),
@@ -220,8 +220,8 @@ class MaterialTab extends StatelessWidget {
                                       const SizedBox(width: 6),
                                       Text(
                                         data.showExpectedAnswer
-                                            ? 'Answer: ${data.currentEntry!.values[data.answerColumn!] ?? ''}'
-                                            : 'Show Answer',
+                                            ? t.app.answerPrefix
+                                            : t.app.showAnswer,
                                         style: const TextStyle(
                                             color: AppColors.graphite,
                                             fontSize: 12),

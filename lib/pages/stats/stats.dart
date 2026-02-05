@@ -6,6 +6,7 @@ import 'package:kana_master/domain/models/stats_summary.dart';
 import 'package:kana_master/pages/stats/bloc/stats_bloc.dart';
 import 'package:kana_master/widgets/dialogs.dart';
 import 'package:kana_master/theme/app_theme.dart';
+import 'package:kana_master/i18n/strings.g.dart';
 
 class StatsTab extends StatelessWidget {
   const StatsTab({super.key});
@@ -15,25 +16,24 @@ class StatsTab extends StatelessWidget {
     return BlocBuilder<StatsBloc, StatsState>(
       builder: (context, state) {
         final KanaType selectedType = state.stateData.selectedKanaType;
-        final StatsSummary summary =
-            state.stateData.summaries[selectedType] ??
-                StatsSummary(
-                  correct: 0,
-                  incorrect: 0,
-                  total: 0,
-                  accuracy: 0,
-                  currentStreak: 0,
-                  bestStreak: 0,
-                  last7DaysCount: 0,
-                  last30DaysCount: 0,
-                  lastActiveDate: null,
-                );
+        final StatsSummary summary = state.stateData.summaries[selectedType] ??
+            StatsSummary(
+              correct: 0,
+              incorrect: 0,
+              total: 0,
+              accuracy: 0,
+              currentStreak: 0,
+              bestStreak: 0,
+              last7DaysCount: 0,
+              last30DaysCount: 0,
+              lastActiveDate: null,
+            );
         final Map<DateTime, int> correctMap =
             state.stateData.correctDataByType[selectedType] ?? {};
         final Map<DateTime, int> incorrectMap =
             state.stateData.incorrectDataByType[selectedType] ?? {};
         final List<_ActivityDay> activityDays =
-            _buildActivityDays(correctMap, incorrectMap, 14);
+            _buildActivityDays(context, correctMap, incorrectMap, 14);
         final List<FlSpot> correctSpots =
             _buildSpots(correctMap, useIndex: true);
         final List<FlSpot> incorrectSpots =
@@ -53,8 +53,8 @@ class StatsTab extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
-                    'Statistics',
+                  Text(
+                    t.app.statistics,
                     style: TextStyle(
                       fontSize: 28,
                       fontWeight: FontWeight.w800,
@@ -62,9 +62,9 @@ class StatsTab extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 6),
-                  const Text(
-                    'Consistency, accuracy, and momentum by kana type.',
-                    style: TextStyle(
+                  Text(
+                    t.app.statisticsSubtitle,
+                    style: const TextStyle(
                       color: AppColors.slate,
                       fontSize: 14,
                     ),
@@ -87,11 +87,10 @@ class StatsTab extends StatelessWidget {
                       children: [
                         Expanded(
                           child: _MetricCard(
-                            label: 'Accuracy',
+                            label: t.app.statsAccuracy,
                             value:
                                 '${(summary.accuracy * 100).toStringAsFixed(1)}%',
-                            subtitle:
-                                '${summary.correct} / ${summary.total} correct',
+                            subtitle: t.app.statsCorrect,
                             accent: AppColors.coral,
                             icon: Icons.auto_graph,
                           ),
@@ -99,9 +98,9 @@ class StatsTab extends StatelessWidget {
                         const SizedBox(width: 12),
                         Expanded(
                           child: _MetricCard(
-                            label: 'Streak',
-                            value: '${summary.currentStreak} days',
-                            subtitle: 'Best ${summary.bestStreak} days',
+                            label: t.app.statsStreak,
+                            value: t.app.statsStreakDays,
+                            subtitle: t.app.statsBest,
                             accent: AppColors.teal,
                             icon: Icons.local_fire_department,
                           ),
@@ -113,9 +112,9 @@ class StatsTab extends StatelessWidget {
                       children: [
                         Expanded(
                           child: _MetricCard(
-                            label: 'Last 7 days',
+                            label: t.app.statsLast7,
                             value: '${summary.last7DaysCount}',
-                            subtitle: 'sessions',
+                            subtitle: t.app.statsSessions,
                             accent: AppColors.lime,
                             icon: Icons.bolt,
                           ),
@@ -123,9 +122,9 @@ class StatsTab extends StatelessWidget {
                         const SizedBox(width: 12),
                         Expanded(
                           child: _MetricCard(
-                            label: 'Last 30 days',
+                            label: t.app.statsLast30,
                             value: '${summary.last30DaysCount}',
-                            subtitle: 'sessions',
+                            subtitle: t.app.statsSessions,
                             accent: AppColors.peach,
                             icon: Icons.calendar_month,
                           ),
@@ -134,14 +133,14 @@ class StatsTab extends StatelessWidget {
                     ),
                     const SizedBox(height: 16),
                     _SectionCard(
-                      title: 'Daily activity',
-                      subtitle: 'Last 14 days',
+                      title: t.app.statsActivity,
+                      subtitle: t.app.statsActivitySubtitle,
                       child: _ActivityStrip(days: activityDays),
                     ),
                     const SizedBox(height: 16),
                     _SectionCard(
-                      title: 'Evolution',
-                      subtitle: 'Correct vs incorrect',
+                      title: t.app.statsEvolution,
+                      subtitle: t.app.statsEvolutionSubtitle,
                       child: SizedBox(
                         height: 220,
                         child: _EvolutionChart(
@@ -165,7 +164,7 @@ class StatsTab extends StatelessWidget {
                       ),
                       onPressed: () => Dialogs.showResetStatsAlert(context),
                       icon: const Icon(Icons.delete_sweep),
-                      label: const Text('Reset stats'),
+                      label: Text(t.app.statsReset),
                     ),
                   ),
                 ],
@@ -217,9 +216,7 @@ class _KanaTypeSwitcher extends StatelessWidget {
                 padding:
                     const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
                 decoration: BoxDecoration(
-                  color: isSelected
-                      ? accent.withAlpha(60)
-                      : Colors.white,
+                  color: isSelected ? accent.withAlpha(60) : Colors.white,
                   borderRadius: BorderRadius.circular(14),
                   border: Border.all(
                     color: isSelected ? accent : AppColors.sand,
@@ -254,7 +251,7 @@ class _KanaTypeSwitcher extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      '${summary.total} attempts',
+                      '${summary.total} ${t.app.statsAttempts}',
                       style: TextStyle(
                         color: AppColors.slate,
                         fontSize: 11,
@@ -398,9 +395,9 @@ class _ActivityStrip extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (days.isEmpty) {
-      return const Text(
-        'No activity yet.',
-        style: TextStyle(color: AppColors.slate),
+      return Text(
+        t.app.statsNoActivity,
+        style: const TextStyle(color: AppColors.slate),
       );
     }
     final int maxCount =
@@ -417,9 +414,7 @@ class _ActivityStrip extends StatelessWidget {
                 Container(
                   height: 64 * heightFactor,
                   decoration: BoxDecoration(
-                    color: day.count > 0
-                        ? AppColors.teal
-                        : AppColors.sand,
+                    color: day.count > 0 ? AppColors.teal : AppColors.sand,
                     borderRadius: BorderRadius.circular(8),
                   ),
                 ),
@@ -452,10 +447,10 @@ class _EvolutionChart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (correctSpots.isEmpty && incorrectSpots.isEmpty) {
-      return const Center(
+      return Center(
         child: Text(
-          'No evolution data yet.',
-          style: TextStyle(color: AppColors.slate),
+          t.app.statsNoEvolution,
+          style: const TextStyle(color: AppColors.slate),
         ),
       );
     }
@@ -520,8 +515,8 @@ class _EmptyStatsCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
-            'No stats yet',
+          Text(
+            t.app.statsNoDataTitle,
             style: TextStyle(
               color: AppColors.ink,
               fontWeight: FontWeight.w700,
@@ -529,9 +524,9 @@ class _EmptyStatsCard extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 6),
-          const Text(
-            'Complete a few tests to unlock streaks and performance graphs.',
-            style: TextStyle(color: AppColors.slate),
+          Text(
+            t.app.statsNoDataSubtitle,
+            style: const TextStyle(color: AppColors.slate),
           ),
           const SizedBox(height: 12),
           OutlinedButton.icon(
@@ -541,7 +536,7 @@ class _EmptyStatsCard extends StatelessWidget {
             ),
             onPressed: onReset,
             icon: const Icon(Icons.delete_sweep),
-            label: const Text('Reset stats'),
+            label: Text(t.app.statsReset),
           ),
         ],
       ),
@@ -557,19 +552,21 @@ class _ActivityDay {
 }
 
 List<_ActivityDay> _buildActivityDays(
+  BuildContext context,
   Map<DateTime, int> correctMap,
   Map<DateTime, int> incorrectMap,
   int days,
 ) {
+  final locale = MaterialLocalizations.of(context);
   final now = DateTime.now();
   final List<_ActivityDay> result = [];
   for (int i = days - 1; i >= 0; i--) {
-    final day = DateTime(now.year, now.month, now.day)
-        .subtract(Duration(days: i));
-    final count = _countForDate(correctMap, day) +
-        _countForDate(incorrectMap, day);
+    final day =
+        DateTime(now.year, now.month, now.day).subtract(Duration(days: i));
+    final count =
+        _countForDate(correctMap, day) + _countForDate(incorrectMap, day);
     result.add(_ActivityDay(
-      label: _weekdayLabel(day.weekday),
+      label: _weekdayLabel(locale, day.weekday),
       count: count,
     ));
   }
@@ -611,11 +608,11 @@ List<FlSpot> _buildSpots(
 String _labelForType(KanaType type) {
   switch (type) {
     case KanaType.hiragana:
-      return 'Hiragana';
+      return t.app.scriptHiragana;
     case KanaType.katakana:
-      return 'Katakana';
+      return t.app.scriptKatakana;
     case KanaType.kanji:
-      return 'Kanji';
+      return t.app.scriptKanji;
   }
 }
 
@@ -630,7 +627,7 @@ Color _accentForType(KanaType type) {
   }
 }
 
-String _weekdayLabel(int weekday) {
-  const labels = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
+String _weekdayLabel(MaterialLocalizations locale, int weekday) {
+  final labels = locale.narrowWeekdays;
   return labels[(weekday - 1).clamp(0, labels.length - 1)];
 }

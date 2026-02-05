@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kana_master/constants.dart';
 import 'package:kana_master/pages/stats/bloc/stats_bloc.dart';
+import 'package:kana_master/i18n/strings.g.dart';
 
 class Dialogs {
   static void showResetStatsAlert(
@@ -12,14 +13,14 @@ class Dialogs {
       context: context,
       builder: (context) {
         return AlertDialog.adaptive(
-          title: const Center(child: Text("Confirm action")),
-          content: const Text("Are you sure to delete ALL the statistics?"),
+          title: Center(child: Text(t.app.confirmActionTitle)),
+          content: Text(t.app.confirmActionBody),
           actions: [
             TextButton(
                 onPressed: () => Navigator.pop(context),
-                child: const Text(
-                  'Cancel',
-                  style: TextStyle(
+                child: Text(
+                  t.app.cancel,
+                  style: const TextStyle(
                     color: jDarkBLue,
                   ),
                 )),
@@ -28,9 +29,9 @@ class Dialogs {
                   context.read<StatsBloc>().add(ResetStats());
                   Navigator.pop(context);
                 },
-                child: const Text(
-                  'Delete',
-                  style: TextStyle(color: Colors.red),
+                child: Text(
+                  t.app.delete,
+                  style: const TextStyle(color: Colors.red),
                 )),
           ],
         );

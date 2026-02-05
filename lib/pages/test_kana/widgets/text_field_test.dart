@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kana_master/constants.dart';
 import 'package:kana_master/theme/app_theme.dart';
+import 'package:kana_master/i18n/strings.g.dart';
 
 import '../bloc/test_kana_bloc.dart';
 
@@ -25,8 +26,8 @@ class TextFieldTest extends StatelessWidget {
             children: [
               Text(
                 kanaType == KanaType.kanji
-                    ? 'Type the meaning'
-                    : 'Type the romaji',
+                    ? t.app.testTypeMeaning
+                    : t.app.testTypeRomaji,
                 style: const TextStyle(
                   color: AppColors.slate,
                   fontSize: 12,
@@ -55,8 +56,8 @@ class TextFieldTest extends StatelessWidget {
                   children: [
                     Text(
                       kanaType == KanaType.kanji
-                          ? 'Meaning in English'
-                          : 'Romaji reading',
+                          ? t.app.testMeaningLabel
+                          : t.app.testRomajiLabel,
                       style: const TextStyle(
                         color: AppColors.graphite,
                         fontSize: 13,
@@ -72,11 +73,11 @@ class TextFieldTest extends StatelessWidget {
                         color: AppColors.ink,
                         fontWeight: FontWeight.w700,
                       ),
-                      decoration: const InputDecoration(
-                        hintText: 'Tap to type',
+                      decoration: InputDecoration(
+                        hintText: t.app.testTapToType,
                         border: InputBorder.none,
                         contentPadding:
-                            EdgeInsets.symmetric(vertical: 10),
+                            const EdgeInsets.symmetric(vertical: 10),
                       ),
                       onChanged: (value) => context
                           .read<TestKanaBloc>()

@@ -5,6 +5,7 @@ import 'package:kana_master/di/dependency_injector.dart';
 import 'package:kana_master/pages/study/bloc/material_bloc.dart';
 import 'package:kana_master/pages/study/widgets/material_tab.dart';
 import 'package:kana_master/theme/app_theme.dart';
+import 'package:kana_master/i18n/strings.g.dart';
 
 class MaterialPage extends StatelessWidget {
   const MaterialPage({super.key});
@@ -34,12 +35,12 @@ class MaterialPage extends StatelessWidget {
                         onPressed: () => context.pop(),
                         icon: const Icon(Icons.arrow_back),
                         color: AppColors.ink,
-                        tooltip: 'Back',
+                        tooltip: t.app.back,
                       ),
                       const SizedBox(width: 6),
-                      const Text(
-                        'Materials',
-                        style: TextStyle(
+                      Text(
+                        t.app.materials,
+                        style: const TextStyle(
                           fontSize: 28,
                           fontWeight: FontWeight.w800,
                           color: AppColors.ink,
@@ -51,8 +52,8 @@ class MaterialPage extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.fromLTRB(16, 0, 16, 8),
                   child: Text(
-                    'Import a CSV and turn it into a personal drill deck.',
-                    style: TextStyle(color: AppColors.slate, fontSize: 14),
+                    t.app.materialsSubtitle,
+                    style: const TextStyle(color: AppColors.slate, fontSize: 14),
                   ),
                 ),
                 Expanded(child: MaterialTab()),

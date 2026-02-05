@@ -7,6 +7,7 @@ import 'package:kana_master/domain/models/material_entry.dart';
 import 'package:kana_master/domain/models/material_import_result.dart';
 import 'package:kana_master/domain/usecases/check_material_answer.dart';
 import 'package:kana_master/domain/usecases/import_material_csv.dart';
+import 'package:kana_master/i18n/strings.g.dart';
 
 part 'material_event.dart';
 part 'material_state.dart';
@@ -62,14 +63,13 @@ class MaterialBloc extends Bloc<MaterialEvent, MaterialState> {
         userAnswer: '',
         showExpectedAnswer: false,
         inputVersion: state.stateData.inputVersion + 1,
-        message:
-            'Imported ${result.entries.length} entries from ${result.fileName}',
+        message: t.app.importedEntries,
         messageType: MaterialMessageType.success,
       )));
     } catch (e) {
       emit(MaterialLoaded(state.stateData.copyWith(
         isLoading: false,
-        message: 'Error importing: $e',
+        message: t.app.errorImporting,
         messageType: MaterialMessageType.error,
       )));
     }
@@ -83,7 +83,7 @@ class MaterialBloc extends Bloc<MaterialEvent, MaterialState> {
         state.stateData.questionColumn == null ||
         state.stateData.answerColumn == null) {
       emit(MaterialLoaded(state.stateData.copyWith(
-        message: 'Import a CSV and choose columns before practicing.',
+        message: t.app.materialsNeedImport,
         messageType: MaterialMessageType.warning,
       )));
       return null;
@@ -108,7 +108,7 @@ class MaterialBloc extends Bloc<MaterialEvent, MaterialState> {
         state.stateData.questionColumn == null ||
         state.stateData.answerColumn == null) {
       emit(MaterialLoaded(state.stateData.copyWith(
-        message: 'First start a question from your material.',
+        message: t.app.materialsNeedStart,
         messageType: MaterialMessageType.warning,
       )));
       return null;
@@ -126,13 +126,13 @@ class MaterialBloc extends Bloc<MaterialEvent, MaterialState> {
         userAnswer: '',
         showExpectedAnswer: false,
         inputVersion: state.stateData.inputVersion + 1,
-        message: 'Correct!',
+        message: t.app.correct,
         messageType: MaterialMessageType.success,
       )));
       return null;
     }
     emit(MaterialLoaded(state.stateData.copyWith(
-      message: 'Incorrect answer',
+      message: t.app.incorrect,
       messageType: MaterialMessageType.warning,
     )));
   }
