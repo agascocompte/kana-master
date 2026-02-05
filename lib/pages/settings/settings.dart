@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:kana_master/constants.dart';
 import 'package:kana_master/pages/settings/bloc/settings_bloc.dart';
 import 'package:kana_master/pages/settings/widgets/dropdown_tile_setting.dart';
@@ -14,9 +15,6 @@ class SettingsPage extends StatelessWidget {
     return BlocBuilder<SettingsBloc, SettingsState>(
       builder: (context, state) {
         return Scaffold(
-          appBar: AppBar(
-            title: Text(t.app.settings),
-          ),
           body: Container(
             decoration: const BoxDecoration(
               gradient: LinearGradient(
@@ -25,27 +23,57 @@ class SettingsPage extends StatelessWidget {
                 end: Alignment.bottomCenter,
               ),
             ),
-            child: Padding(
-              padding: const EdgeInsets.all(16.0),
+            child: SafeArea(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const SizedBox(height: 12),
-                  DropdownTileSetting(
-                    title: t.app.language,
-                    subtitle: t.app.languageSubtitle,
-                    currentValue: state.stateData.languageCode,
-                    icon: Icons.translate,
-                    items: _languageItems(),
-                    onChanged: (String? newValue) {
-                      if (newValue != null) {
-                        context
-                            .read<SettingsBloc>()
-                            .add(ChangeLanguage(languageCode: newValue));
-                      }
-                    },
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(8, 18, 16, 6),
+                    child: Row(
+                      children: [
+                        IconButton(
+                          onPressed: () => context.pop(),
+                          icon: const Icon(Icons.arrow_back),
+                          color: AppColors.ink,
+                          tooltip: t.app.back,
+                        ),
+                        const SizedBox(width: 6),
+                        Text(
+                          t.app.settings,
+                          style: const TextStyle(
+                            fontSize: 28,
+                            fontWeight: FontWeight.w800,
+                            color: AppColors.ink,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
-                  const SizedBox(height: 12),
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          DropdownTileSetting(
+                            title: t.app.language,
+                            subtitle: t.app.languageSubtitle,
+                            currentValue: state.stateData.languageCode,
+                            icon: Icons.translate,
+                            items: _languageItems(),
+                            onChanged: (String? newValue) {
+                              if (newValue != null) {
+                                context.read<SettingsBloc>().add(
+                                      ChangeLanguage(languageCode: newValue),
+                                    );
+                              }
+                            },
+                          ),
+                          const SizedBox(height: 12),
+                        ],
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
