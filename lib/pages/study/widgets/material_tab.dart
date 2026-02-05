@@ -73,7 +73,9 @@ class MaterialTab extends StatelessWidget {
                   if (data.importedFileName.isNotEmpty)
                     Expanded(
                       child: Text(
-                        t.app.fileLabel,
+                        t.app.fileLabel(
+                            count: data.entries.length,
+                            name: data.importedFileName),
                         overflow: TextOverflow.ellipsis,
                         style: const TextStyle(
                           fontWeight: FontWeight.w600,
@@ -220,7 +222,11 @@ class MaterialTab extends StatelessWidget {
                                       const SizedBox(width: 6),
                                       Text(
                                         data.showExpectedAnswer
-                                            ? t.app.answerPrefix
+                                            ? t.app.answerPrefix(
+                                                answer: data.currentEntry!
+                                                            .values[
+                                                        data.answerColumn!] ??
+                                                    '')
                                             : t.app.showAnswer,
                                         style: const TextStyle(
                                             color: AppColors.graphite,

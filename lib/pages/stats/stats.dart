@@ -90,7 +90,8 @@ class StatsTab extends StatelessWidget {
                             label: t.app.statsAccuracy,
                             value:
                                 '${(summary.accuracy * 100).toStringAsFixed(1)}%',
-                            subtitle: t.app.statsCorrect,
+                            subtitle: t.app.statsCorrect(
+                                correct: summary.correct, total: summary.total),
                             accent: AppColors.coral,
                             icon: Icons.auto_graph,
                           ),
@@ -99,8 +100,9 @@ class StatsTab extends StatelessWidget {
                         Expanded(
                           child: _MetricCard(
                             label: t.app.statsStreak,
-                            value: t.app.statsStreakDays,
-                            subtitle: t.app.statsBest,
+                            value: t.app
+                                .statsStreakDays(days: summary.currentStreak),
+                            subtitle: t.app.statsBest(days: summary.bestStreak),
                             accent: AppColors.teal,
                             icon: Icons.local_fire_department,
                           ),
