@@ -7,6 +7,7 @@ import 'package:kana_master/pages/settings/bloc/settings_bloc.dart';
 import 'package:kana_master/pages/stats/bloc/stats_bloc.dart';
 import 'package:kana_master/router/router.dart';
 import 'package:kana_master/theme/app_theme.dart';
+import 'package:kana_master/i18n/strings.g.dart';
 
 class StudyTab extends StatelessWidget {
   const StudyTab({super.key});
@@ -24,133 +25,133 @@ class StudyTab extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                  Row(
-                    children: [
-                      const Expanded(
-                        child: Text(
-                          'Study hub',
-                          style: TextStyle(
-                            fontSize: 28,
-                            fontWeight: FontWeight.w800,
-                            color: AppColors.ink,
-                          ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: Text(
+                        t.app.studyHubTitle,
+                        style: const TextStyle(
+                          fontSize: 28,
+                          fontWeight: FontWeight.w800,
+                          color: AppColors.ink,
                         ),
                       ),
-                      IconButton(
-                        onPressed: () => context.push(AppRouter.settingsRoute),
-                        icon: const Icon(Icons.tune),
-                        color: AppColors.ink,
-                        tooltip: 'Settings',
+                    ),
+                    IconButton(
+                      onPressed: () => context.push(AppRouter.settingsRoute),
+                      icon: const Icon(Icons.tune),
+                      color: AppColors.ink,
+                      tooltip: t.app.settings,
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 6),
+                Text(
+                  t.app.studyHubSubtitle,
+                  style: const TextStyle(
+                    color: AppColors.slate,
+                    fontSize: 14,
+                  ),
+                ),
+                const SizedBox(height: 18),
+                _SectionCard(
+                  title: t.app.script,
+                  child: _EqualSegmented<KanaType>(
+                    selected: kanaType,
+                    onSelected: (value) {
+                      context
+                          .read<SettingsBloc>()
+                          .add(SetKanaType(kanaType: value));
+                    },
+                    options: const [
+                      _SegmentOption(
+                        value: KanaType.hiragana,
+                        title: 'Hiragana',
+                        symbol: 'あ',
+                      ),
+                      _SegmentOption(
+                        value: KanaType.katakana,
+                        title: 'Katakana',
+                        symbol: 'ア',
+                      ),
+                      _SegmentOption(
+                        value: KanaType.kanji,
+                        title: 'Kanji',
+                        symbol: '漢',
                       ),
                     ],
                   ),
-                  const SizedBox(height: 6),
-                  const Text(
-                    'Choose your script, then jump into learning or practice.',
-                    style: TextStyle(
-                      color: AppColors.slate,
-                      fontSize: 14,
-                    ),
+                ),
+                const SizedBox(height: 12),
+                _SectionCard(
+                  title: t.app.difficulty,
+                  child: _EqualSegmented<DifficultyLevel>(
+                    selected: difficulty,
+                    onSelected: (value) {
+                      context.read<SettingsBloc>().add(
+                            ChangeDifficultyLevel(difficultyLevel: value),
+                          );
+                    },
+                    options: [
+                      _SegmentOption(
+                        value: DifficultyLevel.low,
+                        title: t.app.difficultyEasy,
+                        subtitle: t.app.difficultyEasyDesc,
+                      ),
+                      _SegmentOption(
+                        value: DifficultyLevel.medium,
+                        title: t.app.difficultyMedium,
+                        subtitle: t.app.difficultyMediumDesc,
+                      ),
+                      _SegmentOption(
+                        value: DifficultyLevel.high,
+                        title: t.app.difficultyHard,
+                        subtitle: t.app.difficultyHardDesc,
+                      ),
+                    ],
                   ),
-                  const SizedBox(height: 18),
-                  _SectionCard(
-                    title: 'Script',
-                    child: _EqualSegmented<KanaType>(
-                      selected: kanaType,
-                      onSelected: (value) {
-                        context
-                            .read<SettingsBloc>()
-                            .add(SetKanaType(kanaType: value));
-                      },
-                      options: const [
-                        _SegmentOption(
-                          value: KanaType.hiragana,
-                          title: 'Hiragana',
-                          symbol: 'あ',
-                        ),
-                        _SegmentOption(
-                          value: KanaType.katakana,
-                          title: 'Katakana',
-                          symbol: 'ア',
-                        ),
-                        _SegmentOption(
-                          value: KanaType.kanji,
-                          title: 'Kanji',
-                          symbol: '漢',
-                        ),
-                      ],
-                    ),
+                ),
+                const SizedBox(height: 16),
+                Text(
+                  t.app.paths,
+                  style: const TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w700,
+                    color: AppColors.ink,
                   ),
-                  const SizedBox(height: 12),
-                  _SectionCard(
-                    title: 'Difficulty',
-                    child: _EqualSegmented<DifficultyLevel>(
-                      selected: difficulty,
-                      onSelected: (value) {
-                        context.read<SettingsBloc>().add(
-                              ChangeDifficultyLevel(difficultyLevel: value),
-                            );
-                      },
-                      options: const [
-                        _SegmentOption(
-                          value: DifficultyLevel.low,
-                          title: 'Easy',
-                          subtitle: 'Single choice',
-                        ),
-                        _SegmentOption(
-                          value: DifficultyLevel.medium,
-                          title: 'Medium',
-                          subtitle: 'Text answer',
-                        ),
-                        _SegmentOption(
-                          value: DifficultyLevel.high,
-                          title: 'Hard',
-                          subtitle: 'Drawing',
-                        ),
-                      ],
-                    ),
+                ),
+                const SizedBox(height: 12),
+                _ActionCard(
+                  title: t.app.learn,
+                  subtitle: t.app.learnSubtitle,
+                  icon: Icons.school_outlined,
+                  gradient: const LinearGradient(
+                    colors: [AppColors.peach, AppColors.coral],
                   ),
-                  const SizedBox(height: 16),
-                  const Text(
-                    'Paths',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w700,
-                      color: AppColors.ink,
-                    ),
+                  onTap: () => context.push(AppRouter.learnRoute),
+                ),
+                const SizedBox(height: 12),
+                _ActionCard(
+                  title: t.app.practice,
+                  subtitle: t.app.practiceSubtitle,
+                  icon: Icons.flash_on_outlined,
+                  gradient: const LinearGradient(
+                    colors: [AppColors.teal, AppColors.sky],
                   ),
-                  const SizedBox(height: 12),
-                  _ActionCard(
-                    title: 'Learn',
-                    subtitle: 'Explore characters with stroke hints.',
-                    icon: Icons.school_outlined,
-                    gradient: const LinearGradient(
-                      colors: [AppColors.peach, AppColors.coral],
-                    ),
-                    onTap: () => context.push(AppRouter.learnRoute),
+                  onTap: () => context.push(AppRouter.practiceRoute),
+                ),
+                const SizedBox(height: 12),
+                _ActionCard(
+                  title: t.app.materials,
+                  subtitle: t.app.materialsSubtitle,
+                  icon: Icons.auto_stories_outlined,
+                  gradient: const LinearGradient(
+                    colors: [AppColors.lime, AppColors.teal],
                   ),
-                  const SizedBox(height: 12),
-                  _ActionCard(
-                    title: 'Practice',
-                    subtitle: 'Test recognition, typing, and drawing.',
-                    icon: Icons.flash_on_outlined,
-                    gradient: const LinearGradient(
-                      colors: [AppColors.teal, AppColors.sky],
-                    ),
-                    onTap: () => context.push(AppRouter.practiceRoute),
-                  ),
-                  const SizedBox(height: 12),
-                  _ActionCard(
-                    title: 'Materials',
-                    subtitle: 'Import your own CSV and drill it.',
-                    icon: Icons.auto_stories_outlined,
-                    gradient: const LinearGradient(
-                      colors: [AppColors.lime, AppColors.teal],
-                    ),
-                    onTap: () => context.push(AppRouter.materialRoute),
-                  ),
-                  const SizedBox(height: 18),
-                  _StatsPreview(kanaType: kanaType),
+                  onTap: () => context.push(AppRouter.materialRoute),
+                ),
+                const SizedBox(height: 18),
+                _StatsPreview(kanaType: kanaType),
               ],
             ),
           ),
@@ -391,13 +392,13 @@ class _StatsPreview extends StatelessWidget {
               borderRadius: BorderRadius.circular(18),
             ),
             child: Row(
-              children: const [
-                Icon(Icons.insights, color: Colors.white),
-                SizedBox(width: 12),
+              children: [
+                const Icon(Icons.insights, color: Colors.white),
+                const SizedBox(width: 12),
                 Expanded(
                   child: Text(
-                    'Start a practice session to unlock your stats.',
-                    style: TextStyle(color: Colors.white, fontSize: 13),
+                    t.app.statsStartToUnlock,
+                    style: const TextStyle(color: Colors.white, fontSize: 13),
                   ),
                 ),
               ],
@@ -415,16 +416,16 @@ class _StatsPreview extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
-                    'Momentum',
-                    style: TextStyle(
+                  Text(
+                    t.app.statsMomentum,
+                    style: const TextStyle(
                       color: Colors.white70,
                       fontSize: 12,
                     ),
                   ),
                   const SizedBox(height: 6),
                   Text(
-                    '${summary.currentStreak} day streak',
+                    t.app.statsStreakDays,
                     style: const TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.w700,
@@ -433,7 +434,7 @@ class _StatsPreview extends StatelessWidget {
                   ),
                   const SizedBox(height: 4),
                   Text(
-                    '${(summary.accuracy * 100).toStringAsFixed(0)}% accuracy',
+                    '${t.app.statsAccuracy} ${(summary.accuracy * 100).toStringAsFixed(0)}%',
                     style: const TextStyle(
                       color: Colors.white70,
                       fontSize: 12,
@@ -447,7 +448,7 @@ class _StatsPreview extends StatelessWidget {
                 style: TextButton.styleFrom(
                   foregroundColor: AppColors.peach,
                 ),
-                child: const Text('View stats'),
+                child: Text(t.app.statsView),
               ),
             ],
           ),

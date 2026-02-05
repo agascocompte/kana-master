@@ -15,3 +15,9 @@ class ChangeDifficultyLevel extends SettingsEvent {
 
   ChangeDifficultyLevel({required this.difficultyLevel});
 }
+
+class ChangeLanguage extends SettingsEvent {
+  final String languageCode;
+
+  ChangeLanguage({required this.languageCode});
+}

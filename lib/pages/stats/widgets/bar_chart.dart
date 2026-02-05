@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
+import 'package:kana_master/i18n/strings.g.dart';
 
 class StatsBarChart extends StatelessWidget {
   final int correctHiraganaCount;
@@ -33,11 +34,11 @@ class StatsBarChart extends StatelessWidget {
               getTitlesWidget: (double value, TitleMeta meta) {
                 switch (value.toInt()) {
                   case 0:
-                    return const Text('Correct',
-                        style: TextStyle(color: Colors.green));
+                    return Text(t.app.statsCorrectLabel,
+                        style: const TextStyle(color: Colors.green));
                   case 1:
-                    return const Text('Incorrect',
-                        style: TextStyle(color: Colors.red));
+                    return Text(t.app.statsIncorrectLabel,
+                        style: const TextStyle(color: Colors.red));
                   default:
                     return const Text('');
                 }

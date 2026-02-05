@@ -7,15 +7,16 @@ import 'package:kana_master/pages/learn/bloc/learn_bloc.dart';
 import 'package:kana_master/pages/settings/bloc/settings_bloc.dart';
 import 'package:kana_master/pages/test_kana/test_kana.dart';
 import 'package:kana_master/theme/app_theme.dart';
+import 'package:kana_master/i18n/strings.g.dart';
 
 class PracticePage extends StatelessWidget {
   const PracticePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final languageCode = Localizations.localeOf(context).languageCode;
     return BlocBuilder<SettingsBloc, SettingsState>(
       builder: (context, settingsState) {
+        final languageCode = settingsState.stateData.languageCode;
         final KanaType kanaType = settingsState.stateData.kanaType;
         final Map<String, String> kanaMap = kanaType == KanaType.hiragana
             ? hiragana
@@ -49,12 +50,12 @@ class PracticePage extends StatelessWidget {
                             onPressed: () => context.pop(),
                             icon: const Icon(Icons.arrow_back),
                             color: AppColors.ink,
-                            tooltip: 'Back',
+                            tooltip: t.app.back,
                           ),
                           const SizedBox(width: 6),
-                          const Text(
-                            'Practice',
-                            style: TextStyle(
+                          Text(
+                            t.app.practice,
+                            style: const TextStyle(
                               fontSize: 28,
                               fontWeight: FontWeight.w800,
                               color: AppColors.ink,
@@ -63,11 +64,11 @@ class PracticePage extends StatelessWidget {
                         ],
                       ),
                     ),
-                    const Padding(
-                      padding: EdgeInsets.fromLTRB(16, 0, 16, 8),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(16, 0, 16, 8),
                       child: Text(
-                        'Test recognition, typing, and drawing skills.',
-                        style: TextStyle(
+                        t.app.practiceSubtitle,
+                        style: const TextStyle(
                           color: AppColors.slate,
                           fontSize: 14,
                         ),
