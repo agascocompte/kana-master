@@ -23,8 +23,9 @@ class TestTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     final String kanaText = _scriptLabel();
     final String drawingLabel = _getDrawingLabel();
-    final String promptText =
-        kanaType == KanaType.kanji ? t.app.testKanjiMeaning : t.app.testWhichIs;
+    final String promptText = kanaType == KanaType.kanji
+        ? t.app.testKanjiMeaning
+        : t.app.testWhichIs(script: kanaText.toLowerCase());
     final String displaySymbol = _getDisplaySymbol();
     return Padding(
       padding: const EdgeInsets.only(bottom: 10.0),
@@ -32,7 +33,7 @@ class TestTitle extends StatelessWidget {
           ? Column(
               children: [
                 Text(
-                  t.app.testDrawThe,
+                  t.app.testDrawThe(script: kanaText.toLowerCase()),
                   style: Theme.of(context).textTheme.titleLarge?.copyWith(
                         fontWeight: FontWeight.w700,
                         color: AppColors.ink,

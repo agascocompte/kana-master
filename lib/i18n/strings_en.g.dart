@@ -99,8 +99,8 @@ class TranslationsAppEn {
 	/// en: 'Materials'
 	String get materials => 'Materials';
 
-	/// en: 'Import a CSV and turn it into a personal drill deck.'
-	String get materialsSubtitle => 'Import a CSV and turn it into a personal drill deck.';
+	/// en: 'Import a CSV file with your own data.'
+	String get materialsSubtitle => 'Import a CSV file with your own data.';
 
 	/// en: 'Dictionary'
 	String get dictionary => 'Dictionary';
@@ -135,8 +135,8 @@ class TranslationsAppEn {
 	/// en: 'Recommended headers: Language | Romaji | Hiragana | Katakana | Kanji. You can map any column as question or answer. Use comma-separated CSV.'
 	String get expectedFormatBody => 'Recommended headers:\n\nLanguage | Romaji | Hiragana | Katakana | Kanji.\n\nYou can map any column as question or answer. Use comma-separated CSV.';
 
-	/// en: 'File: {name} ({count} rows)'
-	String get fileLabel => 'File: {name} ({count} rows)';
+	/// en: 'File: ${name} (${count} rows)'
+	String fileLabel({required Object name, required Object count}) => 'File: ${name} (${count} rows)';
 
 	/// en: 'Ask with'
 	String get askWith => 'Ask with';
@@ -156,8 +156,8 @@ class TranslationsAppEn {
 	/// en: 'Show Answer'
 	String get showAnswer => 'Show Answer';
 
-	/// en: 'Answer: {answer}'
-	String get answerPrefix => 'Answer: {answer}';
+	/// en: 'Answer: ${answer}'
+	String answerPrefix({required Object answer}) => 'Answer: ${answer}';
 
 	/// en: 'Begin session'
 	String get beginSession => 'Begin session';
@@ -186,11 +186,11 @@ class TranslationsAppEn {
 	/// en: 'Tap to type'
 	String get testTapToType => 'Tap to type';
 
-	/// en: 'Draw the {script}'
-	String get testDrawThe => 'Draw the {script}';
+	/// en: 'Draw the ${script}'
+	String testDrawThe({required Object script}) => 'Draw the ${script}';
 
-	/// en: 'Which is this {script}?'
-	String get testWhichIs => 'Which is this {script}?';
+	/// en: 'Which is this ${script}?'
+	String testWhichIs({required Object script}) => 'Which is this ${script}?';
 
 	/// en: 'Meaning of this kanji?'
 	String get testKanjiMeaning => 'Meaning of this kanji?';
@@ -237,11 +237,11 @@ class TranslationsAppEn {
 	/// en: 'sessions'
 	String get statsSessions => 'sessions';
 
-	/// en: 'Best {days} days'
-	String get statsBest => 'Best {days} days';
+	/// en: 'Best ${days} days'
+	String statsBest({required Object days}) => 'Best ${days} days';
 
-	/// en: '{correct} / {total} correct'
-	String get statsCorrect => '{correct} / {total} correct';
+	/// en: '${correct} / ${total} correct'
+	String statsCorrect({required Object correct, required Object total}) => '${correct} / ${total} correct';
 
 	/// en: 'Correct'
 	String get statsCorrectLabel => 'Correct';
@@ -273,11 +273,11 @@ class TranslationsAppEn {
 	/// en: 'Oops, you failed...'
 	String get oops => 'Oops, you failed...';
 
-	/// en: 'Error importing: {error}'
-	String get errorImporting => 'Error importing: {error}';
+	/// en: 'Error importing: ${error}'
+	String errorImporting({required Object error}) => 'Error importing: ${error}';
 
-	/// en: 'Imported {count} entries from {file}'
-	String get importedEntries => 'Imported {count} entries from {file}';
+	/// en: 'Imported ${count} entries from ${file}'
+	String importedEntries({required Object count, required Object file}) => 'Imported ${count} entries from ${file}';
 
 	/// en: 'No valid rows found.'
 	String get noValidRows => 'No valid rows found.';
@@ -306,8 +306,8 @@ class TranslationsAppEn {
 	/// en: 'Your answer'
 	String get yourAnswer => 'Your answer';
 
-	/// en: '{days} day streak'
-	String get statsStreakDays => '{days} day streak';
+	/// en: '${days} day streak'
+	String statsStreakDays({required Object days}) => '${days} day streak';
 
 	/// en: 'attempts'
 	String get statsAttempts => 'attempts';
@@ -382,7 +382,7 @@ extension on Translations {
 			'app.practice' => 'Practice',
 			'app.practiceSubtitle' => 'Test recognition, typing, and drawing skills.',
 			'app.materials' => 'Materials',
-			'app.materialsSubtitle' => 'Import a CSV and turn it into a personal drill deck.',
+			'app.materialsSubtitle' => 'Import a CSV file with your own data.',
 			'app.dictionary' => 'Dictionary',
 			'app.dictionarySubtitle' => 'Search words, kana, and meanings instantly.',
 			'app.statistics' => 'Statistics',
@@ -394,14 +394,14 @@ extension on Translations {
 			'app.importCsv' => 'Import CSV',
 			'app.expectedFormatTitle' => 'Expected Format',
 			'app.expectedFormatBody' => 'Recommended headers:\n\nLanguage | Romaji | Hiragana | Katakana | Kanji.\n\nYou can map any column as question or answer. Use comma-separated CSV.',
-			'app.fileLabel' => 'File: {name} ({count} rows)',
+			'app.fileLabel' => ({required Object name, required Object count}) => 'File: ${name} (${count} rows)',
 			'app.askWith' => 'Ask with',
 			'app.answerWith' => 'Answer with',
 			'app.newQuestion' => 'New Question',
 			'app.checkAnswer' => 'Check Answer',
 			'app.materialsEmpty' => 'Import your CSV and press "New Question" to start.',
 			'app.showAnswer' => 'Show Answer',
-			'app.answerPrefix' => 'Answer: {answer}',
+			'app.answerPrefix' => ({required Object answer}) => 'Answer: ${answer}',
 			'app.beginSession' => 'Begin session',
 			'app.practiceStartSubtitle' => 'Start a fresh round and keep the streak alive.',
 			'app.testStayFocused' => 'Stay focused. Submit when ready.',
@@ -411,8 +411,8 @@ extension on Translations {
 			'app.testRomajiLabel' => 'Romaji reading',
 			'app.testMeaningLabel' => 'Meaning in English',
 			'app.testTapToType' => 'Tap to type',
-			'app.testDrawThe' => 'Draw the {script}',
-			'app.testWhichIs' => 'Which is this {script}?',
+			'app.testDrawThe' => ({required Object script}) => 'Draw the ${script}',
+			'app.testWhichIs' => ({required Object script}) => 'Which is this ${script}?',
 			'app.testKanjiMeaning' => 'Meaning of this kanji?',
 			'app.statsNoDataTitle' => 'No stats yet',
 			'app.statsNoDataSubtitle' => 'Complete a few tests to unlock streaks and performance graphs.',
@@ -428,8 +428,8 @@ extension on Translations {
 			'app.statsLast7' => 'Last 7 days',
 			'app.statsLast30' => 'Last 30 days',
 			'app.statsSessions' => 'sessions',
-			'app.statsBest' => 'Best {days} days',
-			'app.statsCorrect' => '{correct} / {total} correct',
+			'app.statsBest' => ({required Object days}) => 'Best ${days} days',
+			'app.statsCorrect' => ({required Object correct, required Object total}) => '${correct} / ${total} correct',
 			'app.statsCorrectLabel' => 'Correct',
 			'app.statsIncorrectLabel' => 'Incorrect',
 			'app.statsMomentum' => 'Momentum',
@@ -440,8 +440,8 @@ extension on Translations {
 			'app.correct' => 'You got it right!',
 			'app.incorrect' => 'Incorrect answer',
 			'app.oops' => 'Oops, you failed...',
-			'app.errorImporting' => 'Error importing: {error}',
-			'app.importedEntries' => 'Imported {count} entries from {file}',
+			'app.errorImporting' => ({required Object error}) => 'Error importing: ${error}',
+			'app.importedEntries' => ({required Object count, required Object file}) => 'Imported ${count} entries from ${file}',
 			'app.noValidRows' => 'No valid rows found.',
 			'app.dataNotFound' => 'Data not found in CSV.',
 			'app.materialsNeedImport' => 'Import a CSV and choose columns before practicing.',
@@ -451,7 +451,7 @@ extension on Translations {
 			'app.back' => 'Back',
 			'app.ok' => 'OK',
 			'app.yourAnswer' => 'Your answer',
-			'app.statsStreakDays' => '{days} day streak',
+			'app.statsStreakDays' => ({required Object days}) => '${days} day streak',
 			'app.statsAttempts' => 'attempts',
 			'app.scriptHiragana' => 'Hiragana',
 			'app.scriptKatakana' => 'Katakana',

@@ -56,14 +56,14 @@ class _TranslationsAppEs implements TranslationsAppEn {
 	@override String get difficultyMedium => 'Media';
 	@override String get difficultyHard => 'Difícil';
 	@override String get difficultyEasyDesc => 'Opción única';
-	@override String get difficultyMediumDesc => 'Respuesta de texto';
+	@override String get difficultyMediumDesc => 'Texto';
 	@override String get difficultyHardDesc => 'Dibujo';
 	@override String get learn => 'Aprender';
 	@override String get learnSubtitle => 'Explora caracteres y pistas de trazos.';
 	@override String get practice => 'Practicar';
 	@override String get practiceSubtitle => 'Reconocimiento, escritura y dibujo.';
 	@override String get materials => 'Materiales';
-	@override String get materialsSubtitle => 'Importa un CSV y conviértelo en tu mazo personal.';
+	@override String get materialsSubtitle => 'Importa un CSV con tus propios datos.';
 	@override String get dictionary => 'Diccionario';
 	@override String get dictionarySubtitle => 'Busca palabras, kana y significados al instante.';
 	@override String get statistics => 'Estadísticas';
@@ -75,14 +75,14 @@ class _TranslationsAppEs implements TranslationsAppEn {
 	@override String get importCsv => 'Importar CSV';
 	@override String get expectedFormatTitle => 'Formato esperado';
 	@override String get expectedFormatBody => 'Encabezados recomendados:\n\nIdioma | Romaji | Hiragana | Katakana | Kanji.\n\nPuedes mapear cualquier columna como pregunta o respuesta. CSV separado por comas.';
-	@override String get fileLabel => 'Archivo: {name} ({count} filas)';
+	@override String fileLabel({required Object name, required Object count}) => 'Archivo: ${name} (${count} filas)';
 	@override String get askWith => 'Preguntar con';
 	@override String get answerWith => 'Responder con';
 	@override String get newQuestion => 'Nueva pregunta';
 	@override String get checkAnswer => 'Comprobar';
 	@override String get materialsEmpty => 'Importa un CSV y pulsa "Nueva pregunta" para empezar.';
 	@override String get showAnswer => 'Mostrar respuesta';
-	@override String get answerPrefix => 'Respuesta: {answer}';
+	@override String answerPrefix({required Object answer}) => 'Respuesta: ${answer}';
 	@override String get beginSession => 'Empezar sesión';
 	@override String get practiceStartSubtitle => 'Comienza una nueva ronda y mantén la racha.';
 	@override String get testStayFocused => 'Concéntrate y envía cuando estés listo.';
@@ -92,8 +92,8 @@ class _TranslationsAppEs implements TranslationsAppEn {
 	@override String get testRomajiLabel => 'Lectura en romaji';
 	@override String get testMeaningLabel => 'Significado en español';
 	@override String get testTapToType => 'Toca para escribir';
-	@override String get testDrawThe => 'Dibuja el {script}';
-	@override String get testWhichIs => '¿Cuál es este {script}?';
+	@override String testDrawThe({required Object script}) => 'Dibuja el ${script}';
+	@override String testWhichIs({required Object script}) => '¿Cuál es este ${script}?';
 	@override String get testKanjiMeaning => '¿Significado de este kanji?';
 	@override String get statsNoDataTitle => 'Sin estadísticas';
 	@override String get statsNoDataSubtitle => 'Completa algunos tests para desbloquear rachas y gráficos.';
@@ -109,20 +109,20 @@ class _TranslationsAppEs implements TranslationsAppEn {
 	@override String get statsLast7 => 'Últimos 7 días';
 	@override String get statsLast30 => 'Últimos 30 días';
 	@override String get statsSessions => 'sesiones';
-	@override String get statsBest => 'Mejor {days} días';
-	@override String get statsCorrect => '{correct} / {total} correctas';
+	@override String statsBest({required Object days}) => 'Mejor ${days} días';
+	@override String statsCorrect({required Object correct, required Object total}) => '${correct} / ${total} correctas';
 	@override String get statsCorrectLabel => 'Correctas';
 	@override String get statsIncorrectLabel => 'Incorrectas';
 	@override String get statsMomentum => 'Momentum';
-	@override String get statsView => 'Ver stats';
+	@override String get statsView => 'Ver estadísticas';
 	@override String get statsStartToUnlock => 'Empieza una práctica para desbloquear tus estadísticas.';
 	@override String get dictionaryEmpty => 'Empieza a buscar una palabra.';
 	@override String get searchHint => 'Buscar palabra, kana, romaji...';
 	@override String get correct => '¡Correcto!';
 	@override String get incorrect => 'Respuesta incorrecta';
 	@override String get oops => 'Ups, fallaste...';
-	@override String get errorImporting => 'Error al importar: {error}';
-	@override String get importedEntries => 'Importadas {count} entradas desde {file}';
+	@override String errorImporting({required Object error}) => 'Error al importar: ${error}';
+	@override String importedEntries({required Object count, required Object file}) => 'Importadas ${count} entradas desde ${file}';
 	@override String get noValidRows => 'No se encontraron filas válidas.';
 	@override String get dataNotFound => 'No hay datos en el CSV.';
 	@override String get materialsNeedImport => 'Importa un CSV y elige columnas antes de practicar.';
@@ -132,7 +132,7 @@ class _TranslationsAppEs implements TranslationsAppEn {
 	@override String get back => 'Atrás';
 	@override String get ok => 'OK';
 	@override String get yourAnswer => 'Tu respuesta';
-	@override String get statsStreakDays => 'Racha de {days} días';
+	@override String statsStreakDays({required Object days}) => 'Racha de ${days} días';
 	@override String get statsAttempts => 'intentos';
 	@override String get scriptHiragana => 'Hiragana';
 	@override String get scriptKatakana => 'Katakana';
@@ -148,7 +148,7 @@ class _TranslationsAppEs implements TranslationsAppEn {
 	@override String get searchByMeaning => 'Buscar por significado';
 	@override String get filterAll => 'Todo';
 	@override String get tabStudy => 'Estudio';
-	@override String get tabStats => 'Stats';
+	@override String get tabStats => 'Estadísticas';
 }
 
 /// The flat map containing all translations for locale <es>.
@@ -168,14 +168,14 @@ extension on TranslationsEs {
 			'app.difficultyMedium' => 'Media',
 			'app.difficultyHard' => 'Difícil',
 			'app.difficultyEasyDesc' => 'Opción única',
-			'app.difficultyMediumDesc' => 'Respuesta de texto',
+			'app.difficultyMediumDesc' => 'Texto',
 			'app.difficultyHardDesc' => 'Dibujo',
 			'app.learn' => 'Aprender',
 			'app.learnSubtitle' => 'Explora caracteres y pistas de trazos.',
 			'app.practice' => 'Practicar',
 			'app.practiceSubtitle' => 'Reconocimiento, escritura y dibujo.',
 			'app.materials' => 'Materiales',
-			'app.materialsSubtitle' => 'Importa un CSV y conviértelo en tu mazo personal.',
+			'app.materialsSubtitle' => 'Importa un CSV con tus propios datos.',
 			'app.dictionary' => 'Diccionario',
 			'app.dictionarySubtitle' => 'Busca palabras, kana y significados al instante.',
 			'app.statistics' => 'Estadísticas',
@@ -187,14 +187,14 @@ extension on TranslationsEs {
 			'app.importCsv' => 'Importar CSV',
 			'app.expectedFormatTitle' => 'Formato esperado',
 			'app.expectedFormatBody' => 'Encabezados recomendados:\n\nIdioma | Romaji | Hiragana | Katakana | Kanji.\n\nPuedes mapear cualquier columna como pregunta o respuesta. CSV separado por comas.',
-			'app.fileLabel' => 'Archivo: {name} ({count} filas)',
+			'app.fileLabel' => ({required Object name, required Object count}) => 'Archivo: ${name} (${count} filas)',
 			'app.askWith' => 'Preguntar con',
 			'app.answerWith' => 'Responder con',
 			'app.newQuestion' => 'Nueva pregunta',
 			'app.checkAnswer' => 'Comprobar',
 			'app.materialsEmpty' => 'Importa un CSV y pulsa "Nueva pregunta" para empezar.',
 			'app.showAnswer' => 'Mostrar respuesta',
-			'app.answerPrefix' => 'Respuesta: {answer}',
+			'app.answerPrefix' => ({required Object answer}) => 'Respuesta: ${answer}',
 			'app.beginSession' => 'Empezar sesión',
 			'app.practiceStartSubtitle' => 'Comienza una nueva ronda y mantén la racha.',
 			'app.testStayFocused' => 'Concéntrate y envía cuando estés listo.',
@@ -204,8 +204,8 @@ extension on TranslationsEs {
 			'app.testRomajiLabel' => 'Lectura en romaji',
 			'app.testMeaningLabel' => 'Significado en español',
 			'app.testTapToType' => 'Toca para escribir',
-			'app.testDrawThe' => 'Dibuja el {script}',
-			'app.testWhichIs' => '¿Cuál es este {script}?',
+			'app.testDrawThe' => ({required Object script}) => 'Dibuja el ${script}',
+			'app.testWhichIs' => ({required Object script}) => '¿Cuál es este ${script}?',
 			'app.testKanjiMeaning' => '¿Significado de este kanji?',
 			'app.statsNoDataTitle' => 'Sin estadísticas',
 			'app.statsNoDataSubtitle' => 'Completa algunos tests para desbloquear rachas y gráficos.',
@@ -221,20 +221,20 @@ extension on TranslationsEs {
 			'app.statsLast7' => 'Últimos 7 días',
 			'app.statsLast30' => 'Últimos 30 días',
 			'app.statsSessions' => 'sesiones',
-			'app.statsBest' => 'Mejor {days} días',
-			'app.statsCorrect' => '{correct} / {total} correctas',
+			'app.statsBest' => ({required Object days}) => 'Mejor ${days} días',
+			'app.statsCorrect' => ({required Object correct, required Object total}) => '${correct} / ${total} correctas',
 			'app.statsCorrectLabel' => 'Correctas',
 			'app.statsIncorrectLabel' => 'Incorrectas',
 			'app.statsMomentum' => 'Momentum',
-			'app.statsView' => 'Ver stats',
+			'app.statsView' => 'Ver estadísticas',
 			'app.statsStartToUnlock' => 'Empieza una práctica para desbloquear tus estadísticas.',
 			'app.dictionaryEmpty' => 'Empieza a buscar una palabra.',
 			'app.searchHint' => 'Buscar palabra, kana, romaji...',
 			'app.correct' => '¡Correcto!',
 			'app.incorrect' => 'Respuesta incorrecta',
 			'app.oops' => 'Ups, fallaste...',
-			'app.errorImporting' => 'Error al importar: {error}',
-			'app.importedEntries' => 'Importadas {count} entradas desde {file}',
+			'app.errorImporting' => ({required Object error}) => 'Error al importar: ${error}',
+			'app.importedEntries' => ({required Object count, required Object file}) => 'Importadas ${count} entradas desde ${file}',
 			'app.noValidRows' => 'No se encontraron filas válidas.',
 			'app.dataNotFound' => 'No hay datos en el CSV.',
 			'app.materialsNeedImport' => 'Importa un CSV y elige columnas antes de practicar.',
@@ -244,7 +244,7 @@ extension on TranslationsEs {
 			'app.back' => 'Atrás',
 			'app.ok' => 'OK',
 			'app.yourAnswer' => 'Tu respuesta',
-			'app.statsStreakDays' => 'Racha de {days} días',
+			'app.statsStreakDays' => ({required Object days}) => 'Racha de ${days} días',
 			'app.statsAttempts' => 'intentos',
 			'app.scriptHiragana' => 'Hiragana',
 			'app.scriptKatakana' => 'Katakana',
@@ -260,7 +260,7 @@ extension on TranslationsEs {
 			'app.searchByMeaning' => 'Buscar por significado',
 			'app.filterAll' => 'Todo',
 			'app.tabStudy' => 'Estudio',
-			'app.tabStats' => 'Stats',
+			'app.tabStats' => 'Estadísticas',
 			_ => null,
 		};
 	}

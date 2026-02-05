@@ -425,7 +425,7 @@ class _StatsPreview extends StatelessWidget {
                   ),
                   const SizedBox(height: 6),
                   Text(
-                    t.app.statsStreakDays,
+                    t.app.statsStreakDays(days: summary.currentStreak),
                     style: const TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.w700,

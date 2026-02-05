@@ -63,13 +63,14 @@ class MaterialBloc extends Bloc<MaterialEvent, MaterialState> {
         userAnswer: '',
         showExpectedAnswer: false,
         inputVersion: state.stateData.inputVersion + 1,
-        message: t.app.importedEntries,
+        message: t.app.importedEntries(
+            count: result.entries.length, file: result.fileName),
         messageType: MaterialMessageType.success,
       )));
     } catch (e) {
       emit(MaterialLoaded(state.stateData.copyWith(
         isLoading: false,
-        message: t.app.errorImporting,
+        message: t.app.errorImporting(error: e.toString()),
         messageType: MaterialMessageType.error,
       )));
     }

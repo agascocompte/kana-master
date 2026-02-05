@@ -11,13 +11,13 @@ class SettingsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(t.app.settings),
-      ),
-      body: BlocBuilder<SettingsBloc, SettingsState>(
-        builder: (context, state) {
-          return Container(
+    return BlocBuilder<SettingsBloc, SettingsState>(
+      builder: (context, state) {
+        return Scaffold(
+          appBar: AppBar(
+            title: Text(t.app.settings),
+          ),
+          body: Container(
             decoration: const BoxDecoration(
               gradient: LinearGradient(
                 colors: [AppColors.mist, AppColors.sand],
@@ -100,9 +100,9 @@ class SettingsPage extends StatelessWidget {
                 ],
               ),
             ),
-          );
-        },
-      ),
+          ),
+        );
+      },
     );
   }
 }
