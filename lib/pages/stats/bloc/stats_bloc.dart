@@ -29,9 +29,12 @@ class StatsBloc extends Bloc<StatsEvent, StatsState> {
     final incorrectDataByType = <KanaType, Map<DateTime, int>>{};
     for (final type in KanaType.values) {
       summaries[type] = await scoreRepository.getSummary(type);
-      correctDataByType[type] = await scoreRepository.getCorrectCountsByDate(type);
-      incorrectDataByType[type] =
-          await scoreRepository.getIncorrectCountsByDate(type);
+
+      final correctRaw = await scoreRepository.getCorrectCountsByDate(type);
+      final incorrectRaw = await scoreRepository.getIncorrectCountsByDate(type);
+
+      correctDataByType[type] = _normalizeDayMap(correctRaw);
+      incorrectDataByType[type] = _normalizeDayMap(incorrectRaw);
     }
     KanaType selected = state.stateData.selectedKanaType;
     if ((summaries[selected]?.total ?? 0) == 0) {
@@ -59,19 +62,19 @@ class StatsBloc extends Bloc<StatsEvent, StatsState> {
       isCorrect: event.isCorrect,
     );
     final summary = await scoreRepository.getSummary(event.kanaType);
-    final correctData =
+    final correctRaw =
         await scoreRepository.getCorrectCountsByDate(event.kanaType);
-    final incorrectData =
+    final incorrectRaw =
         await scoreRepository.getIncorrectCountsByDate(event.kanaType);
     final updatedSummaries =
         Map<KanaType, StatsSummary>.from(state.stateData.summaries);
-    final updatedCorrect =
-        Map<KanaType, Map<DateTime, int>>.from(state.stateData.correctDataByType);
+    final updatedCorrect = Map<KanaType, Map<DateTime, int>>.from(
+        state.stateData.correctDataByType);
     final updatedIncorrect = Map<KanaType, Map<DateTime, int>>.from(
         state.stateData.incorrectDataByType);
     updatedSummaries[event.kanaType] = summary;
-    updatedCorrect[event.kanaType] = correctData;
-    updatedIncorrect[event.kanaType] = incorrectData;
+    updatedCorrect[event.kanaType] = _normalizeDayMap(correctRaw);
+    updatedIncorrect[event.kanaType] = _normalizeDayMap(incorrectRaw);
     emit(StatsUpdated(state.stateData.copyWith(
       summaries: updatedSummaries,
       correctDataByType: updatedCorrect,
@@ -97,4 +100,15 @@ class StatsBloc extends Bloc<StatsEvent, StatsState> {
       selectedKanaType: event.kanaType,
     )));
   }
+}
+
+DateTime _dayKey(DateTime d) => DateTime(d.year, d.month, d.day);
+
+Map<DateTime, int> _normalizeDayMap(Map<DateTime, int> src) {
+  final out = <DateTime, int>{};
+  for (final e in src.entries) {
+    final k = _dayKey(e.key);
+    out[k] = (out[k] ?? 0) + e.value;
+  }
+  return out;
 }

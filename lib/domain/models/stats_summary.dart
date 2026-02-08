@@ -20,4 +20,16 @@ class StatsSummary {
     required this.last30DaysCount,
     required this.lastActiveDate,
   });
+
+  factory StatsSummary.zero() => StatsSummary(
+        correct: 0,
+        incorrect: 0,
+        total: 0,
+        accuracy: 0,
+        currentStreak: 0,
+        bestStreak: 0,
+        last7DaysCount: 0,
+        last30DaysCount: 0,
+        lastActiveDate: null,
+      );
 }
