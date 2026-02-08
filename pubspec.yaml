@@ -26,20 +26,20 @@ dependencies:
   image: ^4.7.2
   path_provider: ^2.1.5
   path: ^1.9.1
-  http: ^1.2.1
-  file_picker: ^10.3.8
+  http: ^1.6.0
+  file_picker: ^10.3.10
   csv: ^6.0.0
   # Charts
   fl_chart: ^1.1.1
   # CNN model
   tflite_flutter: ^0.12.1
   # SVG stroke order
-  flutter_svg: ^2.0.10
+  flutter_svg: ^2.2.3
   path_drawing: ^1.0.1
-  xml: ^6.5.0
+  xml: ^6.6.1
   # i18n
   slang: ^4.12.1
-  slang_flutter: ^4.11.0
+  slang_flutter: ^4.12.1
 
   cupertino_icons: ^1.0.8
 
@@ -51,7 +51,7 @@ dev_dependencies:
 
   build_runner: ^2.10.4
   injectable_generator: ^2.12.0
-  slang_build_runner: ^4.10.0
+  slang_build_runner: ^4.12.1
 
   # App icon
   flutter_launcher_icons: ^0.14.4
