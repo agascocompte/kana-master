@@ -157,6 +157,12 @@ class _TranslationsAppFr implements TranslationsAppEn {
 	@override String get settingsKanjiJlptTitle => 'Niveau JLPT des kanji';
 	@override String get settingsKanjiJlptSubtitle => 'Limite les kanji à un niveau JLPT.';
 	@override String get kanjiFilterEmpty => 'Aucun kanji pour ce niveau JLPT.';
+	@override String get loginTitle => 'Connecte-toi à Kana Master';
+	@override String get loginSubtitle => 'Sauvegarde tes progrès, synchronise entre appareils et débloque des fonctionnalités premium.';
+	@override String get loginApple => 'Continuer avec Apple';
+	@override String get loginGoogle => 'Continuer avec Google';
+	@override String get loginOr => 'ou';
+	@override String get loginFooter => 'En continuant, tu acceptes les Conditions d\'utilisation et la Politique de confidentialité.';
 }
 
 /// The flat map containing all translations for locale <fr>.
@@ -277,6 +283,12 @@ extension on TranslationsFr {
 			'app.settingsKanjiJlptTitle' => 'Niveau JLPT des kanji',
 			'app.settingsKanjiJlptSubtitle' => 'Limite les kanji à un niveau JLPT.',
 			'app.kanjiFilterEmpty' => 'Aucun kanji pour ce niveau JLPT.',
+			'app.loginTitle' => 'Connecte-toi à Kana Master',
+			'app.loginSubtitle' => 'Sauvegarde tes progrès, synchronise entre appareils et débloque des fonctionnalités premium.',
+			'app.loginApple' => 'Continuer avec Apple',
+			'app.loginGoogle' => 'Continuer avec Google',
+			'app.loginOr' => 'ou',
+			'app.loginFooter' => 'En continuant, tu acceptes les Conditions d\'utilisation et la Politique de confidentialité.',
 			_ => null,
 		};
 	}

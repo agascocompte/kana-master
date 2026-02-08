@@ -109,6 +109,12 @@
     "settingsKanaSizeValue": "${value}x",
     "settingsKanjiJlptTitle": "JLPT漢字レベル",
     "settingsKanjiJlptSubtitle": "漢字をJLPTレベルで制限します。",
-    "kanjiFilterEmpty": "このJLPTレベルに対応する漢字はありません。"
+    "kanjiFilterEmpty": "このJLPTレベルに対応する漢字はありません。",
+    "loginTitle": "Kana Masterにサインイン",
+    "loginSubtitle": "進捗を保存し、デバイス間で同期し、プレミアム特典をアンロックします。",
+    "loginApple": "Appleで続行",
+    "loginGoogle": "Googleで続行",
+    "loginOr": "または",
+    "loginFooter": "続行することで、利用規約とプライバシーポリシーに同意したことになります。"
   }
 }

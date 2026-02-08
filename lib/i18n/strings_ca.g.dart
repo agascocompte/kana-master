@@ -157,6 +157,12 @@ class _TranslationsAppCa implements TranslationsAppEn {
 	@override String get settingsKanjiJlptTitle => 'Nivell JLPT de kanji';
 	@override String get settingsKanjiJlptSubtitle => 'Limita els kanji a un nivell JLPT.';
 	@override String get kanjiFilterEmpty => 'No hi ha kanji per a aquest nivell JLPT.';
+	@override String get loginTitle => 'Inicia sessió a Kana Master';
+	@override String get loginSubtitle => 'Desa el progrés, sincronitza entre dispositius i desbloqueja funcions premium.';
+	@override String get loginApple => 'Continua amb Apple';
+	@override String get loginGoogle => 'Continua amb Google';
+	@override String get loginOr => 'o';
+	@override String get loginFooter => 'En continuar acceptes els Termes i la Política de privacitat.';
 }
 
 /// The flat map containing all translations for locale <ca>.
@@ -277,6 +283,12 @@ extension on TranslationsCa {
 			'app.settingsKanjiJlptTitle' => 'Nivell JLPT de kanji',
 			'app.settingsKanjiJlptSubtitle' => 'Limita els kanji a un nivell JLPT.',
 			'app.kanjiFilterEmpty' => 'No hi ha kanji per a aquest nivell JLPT.',
+			'app.loginTitle' => 'Inicia sessió a Kana Master',
+			'app.loginSubtitle' => 'Desa el progrés, sincronitza entre dispositius i desbloqueja funcions premium.',
+			'app.loginApple' => 'Continua amb Apple',
+			'app.loginGoogle' => 'Continua amb Google',
+			'app.loginOr' => 'o',
+			'app.loginFooter' => 'En continuar acceptes els Termes i la Política de privacitat.',
 			_ => null,
 		};
 	}

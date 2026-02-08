@@ -380,6 +380,24 @@ class TranslationsAppEn {
 
 	/// en: 'No kanji match this JLPT level.'
 	String get kanjiFilterEmpty => 'No kanji match this JLPT level.';
+
+	/// en: 'Sign in to Kana Master'
+	String get loginTitle => 'Sign in to Kana Master';
+
+	/// en: 'Save progress, sync across devices and access your stats from anywhere.'
+	String get loginSubtitle => 'Save progress, sync across devices and access your stats from anywhere.';
+
+	/// en: 'Continue with Apple'
+	String get loginApple => 'Continue with Apple';
+
+	/// en: 'Continue with Google'
+	String get loginGoogle => 'Continue with Google';
+
+	/// en: 'or'
+	String get loginOr => 'or';
+
+	/// en: 'By continuing you accept the Terms and Privacy Policy.'
+	String get loginFooter => 'By continuing you accept the Terms and Privacy Policy.';
 }
 
 /// The flat map containing all translations for locale <en>.
@@ -500,6 +518,12 @@ extension on Translations {
 			'app.settingsKanjiJlptTitle' => 'Kanji range',
 			'app.settingsKanjiJlptSubtitle' => 'Limit kanji questions to a JLPT level.',
 			'app.kanjiFilterEmpty' => 'No kanji match this JLPT level.',
+			'app.loginTitle' => 'Sign in to Kana Master',
+			'app.loginSubtitle' => 'Save progress, sync across devices and access your stats from anywhere.',
+			'app.loginApple' => 'Continue with Apple',
+			'app.loginGoogle' => 'Continue with Google',
+			'app.loginOr' => 'or',
+			'app.loginFooter' => 'By continuing you accept the Terms and Privacy Policy.',
 			_ => null,
 		};
 	}

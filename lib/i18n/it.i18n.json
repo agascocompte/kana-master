@@ -109,6 +109,12 @@
     "settingsKanaSizeValue": "${value}x",
     "settingsKanjiJlptTitle": "Livello JLPT kanji",
     "settingsKanjiJlptSubtitle": "Limita i kanji a un livello JLPT.",
-    "kanjiFilterEmpty": "Nessun kanji per questo livello JLPT."
+    "kanjiFilterEmpty": "Nessun kanji per questo livello JLPT.",
+    "loginTitle": "Accedi a Kana Master",
+    "loginSubtitle": "Salva i progressi, sincronizza tra dispositivi e sblocca funzionalità premium.",
+    "loginApple": "Continua con Apple",
+    "loginGoogle": "Continua con Google",
+    "loginOr": "o",
+    "loginFooter": "Continuando accetti i Termini e la Politica sulla privacy."
   }
 }

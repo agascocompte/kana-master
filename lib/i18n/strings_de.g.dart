@@ -157,6 +157,12 @@ class _TranslationsAppDe implements TranslationsAppEn {
 	@override String get settingsKanjiJlptTitle => 'JLPT-Kanji-Level';
 	@override String get settingsKanjiJlptSubtitle => 'Begrenze die Kanji auf ein JLPT-Level.';
 	@override String get kanjiFilterEmpty => 'Keine Kanji für dieses JLPT-Level.';
+	@override String get loginTitle => 'Melde dich bei Kana Master an';
+	@override String get loginSubtitle => 'Speichere Fortschritte, synchronisiere zwischen Geräten und schalte Premium-Funktionen frei.';
+	@override String get loginApple => 'Mit Apple fortfahren';
+	@override String get loginGoogle => 'Mit Google fortfahren';
+	@override String get loginOr => 'oder';
+	@override String get loginFooter => 'Indem du fortfährst, akzeptierst du die Nutzungsbedingungen und die Datenschutzrichtlinie.';
 }
 
 /// The flat map containing all translations for locale <de>.
@@ -277,6 +283,12 @@ extension on TranslationsDe {
 			'app.settingsKanjiJlptTitle' => 'JLPT-Kanji-Level',
 			'app.settingsKanjiJlptSubtitle' => 'Begrenze die Kanji auf ein JLPT-Level.',
 			'app.kanjiFilterEmpty' => 'Keine Kanji für dieses JLPT-Level.',
+			'app.loginTitle' => 'Melde dich bei Kana Master an',
+			'app.loginSubtitle' => 'Speichere Fortschritte, synchronisiere zwischen Geräten und schalte Premium-Funktionen frei.',
+			'app.loginApple' => 'Mit Apple fortfahren',
+			'app.loginGoogle' => 'Mit Google fortfahren',
+			'app.loginOr' => 'oder',
+			'app.loginFooter' => 'Indem du fortfährst, akzeptierst du die Nutzungsbedingungen und die Datenschutzrichtlinie.',
 			_ => null,
 		};
 	}
