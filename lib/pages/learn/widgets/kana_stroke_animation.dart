@@ -1,9 +1,9 @@
-import 'dart:math' as math;
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:kana_master/constants.dart';
+import 'package:kana_master/domain/models/stroke_data.dart';
+import 'package:kana_master/domain/models/stroke_number.dart';
+import 'package:kana_master/pages/learn/widgets/stroke_order_painter.dart';
 import 'package:path_drawing/path_drawing.dart';
 import 'package:xml/xml.dart';
 
@@ -28,7 +28,7 @@ class KanaStrokeAnimation extends StatefulWidget {
 class _KanaStrokeAnimationState extends State<KanaStrokeAnimation>
     with SingleTickerProviderStateMixin {
   AnimationController? _controller;
-  _StrokeData? _strokeData;
+  StrokeData? _strokeData;
   bool _loadFailed = false;
   int _animationToken = 0;
 
@@ -81,7 +81,7 @@ class _KanaStrokeAnimationState extends State<KanaStrokeAnimation>
     } catch (_) {
       if (!mounted) return;
       setState(() {
-        _strokeData = const _StrokeData(
+        _strokeData = const StrokeData(
           paths: [],
           numbers: [],
           viewBox: Size(109, 109),
@@ -112,7 +112,7 @@ class _KanaStrokeAnimationState extends State<KanaStrokeAnimation>
           height: 180,
           width: double.infinity,
           child: CustomPaint(
-            painter: _StrokeOrderPainter(
+            painter: StrokeOrderPainter(
               paths: _strokeData!.paths,
               numbers: _strokeData!.numbers,
               viewBox: _strokeData!.viewBox,
@@ -137,19 +137,7 @@ class _KanaStrokeAnimationState extends State<KanaStrokeAnimation>
   }
 }
 
-class _StrokeData {
-  final List<Path> paths;
-  final List<_StrokeNumber> numbers;
-  final Size viewBox;
-
-  const _StrokeData({
-    required this.paths,
-    required this.numbers,
-    required this.viewBox,
-  });
-}
-
-Future<_StrokeData> _loadStrokeData(String assetPath) async {
+Future<StrokeData> _loadStrokeData(String assetPath) async {
   final svgString = await rootBundle.loadString(assetPath);
   final document = XmlDocument.parse(svgString);
   final viewBox = _parseViewBox(document);
@@ -162,7 +150,7 @@ Future<_StrokeData> _loadStrokeData(String assetPath) async {
     paths.add(parseSvgPathData(d));
   }
 
-  final List<_StrokeNumber> numbers = [];
+  final List<StrokeNumber> numbers = [];
   for (final group in document.descendants.whereType<XmlElement>()) {
     if (group.name.local != 'g') continue;
     final String? groupId = group.getAttribute('id');
@@ -177,11 +165,11 @@ Future<_StrokeData> _loadStrokeData(String assetPath) async {
       if (number == null) continue;
       final Offset? position = _parseTextPosition(element);
       if (position == null) continue;
-      numbers.add(_StrokeNumber(number: number, position: position));
+      numbers.add(StrokeNumber(number: number, position: position));
     }
   }
 
-  return _StrokeData(paths: paths, numbers: numbers, viewBox: viewBox);
+  return StrokeData(paths: paths, numbers: numbers, viewBox: viewBox);
 }
 
 Size _parseViewBox(XmlDocument document) {
@@ -238,145 +226,4 @@ Offset? _parseTextPosition(XmlElement element) {
     }
   }
   return null;
-}
-
-class _StrokeNumber {
-  final int number;
-  final Offset position;
-
-  const _StrokeNumber({
-    required this.number,
-    required this.position,
-  });
-}
-
-class _StrokeOrderPainter extends CustomPainter {
-  final List<Path> paths;
-  final List<_StrokeNumber> numbers;
-  final Size viewBox;
-  final double progress;
-  final Duration perStrokeDuration;
-  final Duration interStrokeDelay;
-
-  _StrokeOrderPainter({
-    required this.paths,
-    required this.numbers,
-    required this.viewBox,
-    required this.progress,
-    required this.perStrokeDuration,
-    required this.interStrokeDelay,
-  });
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    final double scale = math.min(
-      size.width / viewBox.width,
-      size.height / viewBox.height,
-    );
-    final double dx = (size.width - viewBox.width * scale) / 2;
-    final double dy = (size.height - viewBox.height * scale) / 2;
-
-    canvas.save();
-    canvas.translate(dx, dy);
-    canvas.scale(scale);
-
-    final List<Color> strokePalette = [
-      jLightBLue,
-      jOrange,
-      const Color(0xFF2E7D32),
-      const Color(0xFF6D4C41),
-      const Color(0xFFD81B60),
-      const Color(0xFF0277BD),
-      const Color(0xFFF9A825),
-      const Color(0xFF8E24AA),
-    ];
-    final Paint paint = Paint()
-      ..style = PaintingStyle.stroke
-      ..strokeCap = StrokeCap.round
-      ..strokeJoin = StrokeJoin.round;
-
-    final int total = paths.length;
-    final double perStrokeMs = perStrokeDuration.inMilliseconds.toDouble();
-    final double delayMs = interStrokeDelay.inMilliseconds.toDouble();
-    final double segmentMs = perStrokeMs + delayMs;
-    final double elapsedMs = progress * segmentMs * total;
-    final int current = (elapsedMs / segmentMs).floor().clamp(0, total - 1);
-    final double segmentProgress = elapsedMs - (current * segmentMs);
-    final bool inDrawPhase = segmentProgress <= perStrokeMs || delayMs == 0;
-    final double currentProgress = perStrokeMs == 0
-        ? 1.0
-        : (segmentProgress / perStrokeMs).clamp(0.0, 1.0);
-
-    for (int i = 0; i < total; i++) {
-      final Color color = strokePalette[i % strokePalette.length];
-      if (i < current) {
-        paint
-          ..color = color
-          ..strokeWidth = 4.0;
-        canvas.drawPath(paths[i], paint);
-      } else if (i == current) {
-        paint
-          ..color = color
-          ..strokeWidth = 5.0;
-        if (inDrawPhase) {
-          _drawPartialPath(canvas, paths[i], currentProgress, paint);
-        } else {
-          canvas.drawPath(paths[i], paint);
-        }
-      }
-    }
-    _drawNumbers(canvas, current, strokePalette);
-    canvas.restore();
-  }
-
-  void _drawNumbers(
-    Canvas canvas,
-    int currentStroke,
-    List<Color> strokePalette,
-  ) {
-    if (numbers.isEmpty) return;
-    final List<_StrokeNumber> ordered = List.from(numbers)
-      ..sort((a, b) => a.number.compareTo(b.number));
-    for (int i = 0; i < ordered.length; i++) {
-      if (i > currentStroke) break;
-      final Color color = strokePalette[i % strokePalette.length];
-      final TextStyle style = TextStyle(
-        color: color,
-        fontSize: 8,
-        fontWeight: FontWeight.w600,
-      );
-      final textPainter = TextPainter(
-        text: TextSpan(text: ordered[i].number.toString(), style: style),
-        textDirection: TextDirection.ltr,
-      )..layout();
-      textPainter.paint(
-        canvas,
-        Offset(ordered[i].position.dx, ordered[i].position.dy) -
-            const Offset(2, 6),
-      );
-    }
-  }
-
-  void _drawPartialPath(
-    Canvas canvas,
-    Path path,
-    double progress,
-    Paint paint,
-  ) {
-    for (final metric in path.computeMetrics()) {
-      final double length = metric.length * progress.clamp(0.0, 1.0);
-      final Path extract = metric.extractPath(0, length);
-      canvas.drawPath(extract, paint);
-    }
-  }
-
-  @override
-  bool shouldRepaint(covariant _StrokeOrderPainter oldDelegate) {
-    return oldDelegate.progress != progress ||
-        oldDelegate.paths != paths ||
-        oldDelegate.numbers != numbers ||
-        oldDelegate.viewBox != viewBox ||
-        oldDelegate.perStrokeDuration != perStrokeDuration ||
-        oldDelegate.interStrokeDelay != interStrokeDelay;
-  }
 }
