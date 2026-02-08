@@ -109,6 +109,12 @@
     "settingsKanaSizeValue": "${value}x",
     "settingsKanjiJlptTitle": "Kanji range",
     "settingsKanjiJlptSubtitle": "Limit kanji questions to a JLPT level.",
-    "kanjiFilterEmpty": "No kanji match this JLPT level."
+    "kanjiFilterEmpty": "No kanji match this JLPT level.",
+    "loginTitle": "Sign in to Kana Master",
+    "loginSubtitle": "Save progress, sync across devices and access your stats from anywhere.",
+    "loginApple": "Continue with Apple",
+    "loginGoogle": "Continue with Google",
+    "loginOr": "or",
+    "loginFooter": "By continuing you accept the Terms and Privacy Policy."
   }
 }

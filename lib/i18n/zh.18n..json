@@ -109,6 +109,12 @@
     "settingsKanaSizeValue": "${value}x",
     "settingsKanjiJlptTitle": "JLPT 汉字等级",
     "settingsKanjiJlptSubtitle": "将汉字限制在某个 JLPT 等级。",
-    "kanjiFilterEmpty": "该 JLPT 等级没有汉字。"
+    "kanjiFilterEmpty": "该 JLPT 等级没有汉字。",
+    "loginTitle": "登录 Kana Master",
+    "loginSubtitle": "保存进度，在设备间同步，并解锁高级功能。",
+    "loginApple": "使用 Apple 继续",
+    "loginGoogle": "使用 Google 继续",
+    "loginOr": "或",
+    "loginFooter": "继续即表示您接受条款和隐私政策。"
   }
 }

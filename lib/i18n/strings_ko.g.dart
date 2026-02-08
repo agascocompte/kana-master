@@ -157,6 +157,12 @@ class _TranslationsAppKo implements TranslationsAppEn {
 	@override String get settingsKanjiJlptTitle => 'JLPT 한자 레벨';
 	@override String get settingsKanjiJlptSubtitle => '한자를 JLPT 레벨로 제한합니다.';
 	@override String get kanjiFilterEmpty => '이 JLPT 레벨에는 한자가 없습니다.';
+	@override String get loginTitle => 'Kana Master에 로그인';
+	@override String get loginSubtitle => '진행 상황을 저장하고, 기기 간 동기화하며, 프리미엄 혜택을 잠금 해제하세요.';
+	@override String get loginApple => 'Apple로 계속하기';
+	@override String get loginGoogle => 'Google로 계속하기';
+	@override String get loginOr => '또는';
+	@override String get loginFooter => '계속하면 이용 약관 및 개인정보 보호정책에 동의하는 것입니다.';
 }
 
 /// The flat map containing all translations for locale <ko>.
@@ -277,6 +283,12 @@ extension on TranslationsKo {
 			'app.settingsKanjiJlptTitle' => 'JLPT 한자 레벨',
 			'app.settingsKanjiJlptSubtitle' => '한자를 JLPT 레벨로 제한합니다.',
 			'app.kanjiFilterEmpty' => '이 JLPT 레벨에는 한자가 없습니다.',
+			'app.loginTitle' => 'Kana Master에 로그인',
+			'app.loginSubtitle' => '진행 상황을 저장하고, 기기 간 동기화하며, 프리미엄 혜택을 잠금 해제하세요.',
+			'app.loginApple' => 'Apple로 계속하기',
+			'app.loginGoogle' => 'Google로 계속하기',
+			'app.loginOr' => '또는',
+			'app.loginFooter' => '계속하면 이용 약관 및 개인정보 보호정책에 동의하는 것입니다.',
 			_ => null,
 		};
 	}
