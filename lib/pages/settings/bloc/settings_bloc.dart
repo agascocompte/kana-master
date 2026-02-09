@@ -27,18 +27,20 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
 
   FutureOr<void> _setKanaType(
       SetKanaType event, Emitter<SettingsState> emit) async {
-    await settingsRepository.saveKanaType(event.kanaType);
-
     emit(KanaTypeUpdated(state.stateData.copyWith(kanaType: event.kanaType)));
+    try {
+      await settingsRepository.saveKanaType(event.kanaType);
+    } catch (_) {}
   }
 
   FutureOr<void> _changeDifficultyLevel(
       ChangeDifficultyLevel event, Emitter<SettingsState> emit) async {
-    await settingsRepository.saveDifficultyLevel(event.difficultyLevel);
-
     emit(IsDrawingTestEnabledUpdated(state.stateData.copyWith(
       difficultyLevel: event.difficultyLevel,
     )));
+    try {
+      await settingsRepository.saveDifficultyLevel(event.difficultyLevel);
+    } catch (_) {}
   }
 
   FutureOr<void> _loadSettings(
@@ -64,30 +66,38 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
 
   FutureOr<void> _changeLanguage(
       ChangeLanguage event, Emitter<SettingsState> emit) async {
-    await settingsRepository.saveLanguageCode(event.languageCode);
     emit(SettingsUpdated(
         state.stateData.copyWith(languageCode: event.languageCode)));
     LocaleSettings.setLocale(_parseLocale(event.languageCode));
+    try {
+      await settingsRepository.saveLanguageCode(event.languageCode);
+    } catch (_) {}
   }
 
   FutureOr<void> _changeHapticsEnabled(
       ChangeHapticsEnabled event, Emitter<SettingsState> emit) async {
-    await settingsRepository.saveHapticsEnabled(event.enabled);
     emit(SettingsUpdated(
         state.stateData.copyWith(hapticsEnabled: event.enabled)));
+    try {
+      await settingsRepository.saveHapticsEnabled(event.enabled);
+    } catch (_) {}
   }
 
   FutureOr<void> _changeKanaScale(
       ChangeKanaScale event, Emitter<SettingsState> emit) async {
-    await settingsRepository.saveKanaScale(event.scale);
     emit(SettingsUpdated(state.stateData.copyWith(kanaScale: event.scale)));
+    try {
+      await settingsRepository.saveKanaScale(event.scale);
+    } catch (_) {}
   }
 
   FutureOr<void> _changeKanjiJlptFilter(
       ChangeKanjiJlptFilter event, Emitter<SettingsState> emit) async {
-    await settingsRepository.saveKanjiJlptFilter(event.filter);
     emit(SettingsUpdated(
         state.stateData.copyWith(kanjiJlptFilter: event.filter)));
+    try {
+      await settingsRepository.saveKanjiJlptFilter(event.filter);
+    } catch (_) {}
   }
 
   AppLocale _parseLocale(String code) {

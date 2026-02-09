@@ -101,12 +101,16 @@ class DatabaseProvider {
         );
       }
       if (oldVersion < 4) {
-        await database.execute(
-          "ALTER TABLE kanji ADD COLUMN readings_name TEXT",
-        );
-        await database.execute(
-          "ALTER TABLE kanji ADD COLUMN jlpt TEXT",
-        );
+        if (!await columnExists(database, 'kanji', 'readings_name')) {
+          await database.execute(
+            "ALTER TABLE kanji ADD COLUMN readings_name TEXT",
+          );
+        }
+        if (!await columnExists(database, 'kanji', 'jlpt')) {
+          await database.execute(
+            "ALTER TABLE kanji ADD COLUMN jlpt TEXT",
+          );
+        }
       }
       if (oldVersion < 5) {
         await database.execute(
@@ -139,6 +143,20 @@ class DatabaseProvider {
       [tableName],
     );
     return res.isNotEmpty;
+  }
+
+  Future<bool> columnExists(
+    Database db,
+    String tableName,
+    String columnName,
+  ) async {
+    final result = await db.rawQuery('PRAGMA table_info($tableName)');
+    for (final row in result) {
+      if (row['name']?.toString() == columnName) {
+        return true;
+      }
+    }
+    return false;
   }
 
   Future<void> insertResponse({
