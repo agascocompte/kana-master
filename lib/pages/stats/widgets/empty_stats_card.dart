@@ -7,6 +7,7 @@ class EmptyStatsCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final tr = context.t;
     return Container(
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
@@ -18,7 +19,7 @@ class EmptyStatsCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            t.app.statsNoDataTitle,
+            tr.app.statsNoDataTitle,
             style: TextStyle(
               color: AppColors.ink,
               fontWeight: FontWeight.w700,
@@ -27,7 +28,7 @@ class EmptyStatsCard extends StatelessWidget {
           ),
           const SizedBox(height: 6),
           Text(
-            t.app.statsNoDataSubtitle,
+            tr.app.statsNoDataSubtitle,
             style: const TextStyle(color: AppColors.slate),
           ),
           const SizedBox(height: 12),

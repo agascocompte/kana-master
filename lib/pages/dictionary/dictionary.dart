@@ -12,6 +12,7 @@ class DictionaryTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final tr = context.t;
     return Container(
       decoration: const BoxDecoration(
         gradient: LinearGradient(
@@ -27,7 +28,7 @@ class DictionaryTab extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                t.app.dictionary,
+                tr.app.dictionary,
                 style: TextStyle(
                   fontSize: 28,
                   fontWeight: FontWeight.w800,
@@ -36,7 +37,7 @@ class DictionaryTab extends StatelessWidget {
               ),
               const SizedBox(height: 6),
               Text(
-                t.app.dictionarySubtitle,
+                tr.app.dictionarySubtitle,
                 style: const TextStyle(color: AppColors.slate, fontSize: 14),
               ),
               const SizedBox(height: 16),
@@ -67,7 +68,7 @@ class DictionaryTab extends StatelessWidget {
                     if (state.stateData.entries.isEmpty) {
                       return Center(
                         child: Text(
-                          t.app.dictionaryEmpty,
+                          tr.app.dictionaryEmpty,
                           style: const TextStyle(color: AppColors.graphite),
                         ),
                       );

@@ -24,30 +24,34 @@ class TestTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final String kanaText = _scriptLabel();
+    final tr = context.t;
+    final bool keyboardOpen = MediaQuery.of(context).viewInsets.bottom > 0;
+    final double spacing = keyboardOpen ? 14 : 30;
+    final double heroScale = keyboardOpen ? kanaScale * 0.92 : kanaScale;
+    final String kanaText = _scriptLabel(tr);
     final String drawingLabel = _getDrawingLabel();
     final String promptText = kanaType == KanaType.kanji
-        ? t.app.testKanjiMeaning
-        : t.app.testWhichIs(script: kanaText.toLowerCase());
+        ? tr.app.testKanjiMeaning
+        : tr.app.testWhichIs(script: kanaText.toLowerCase());
     final String displaySymbol = _getDisplaySymbol();
     return Padding(
-      padding: const EdgeInsets.only(bottom: 10.0),
+      padding: EdgeInsets.only(bottom: keyboardOpen ? 6 : 10),
       child: state.stateData.testType == TestType.drawingTest
           ? Column(
               children: [
                 Text(
-                  t.app.testDrawThe(script: kanaText.toLowerCase()),
+                  tr.app.testDrawThe(script: kanaText.toLowerCase()),
                   style: Theme.of(context).textTheme.titleLarge?.copyWith(
                         fontWeight: FontWeight.w700,
                         color: AppColors.ink,
                       ),
                 ),
-                const SizedBox(height: 30),
+                SizedBox(height: spacing),
                 HeroPrompt(
                   text: drawingLabel,
                   background: AppColors.peach,
                   foreground: AppColors.ink,
-                  scale: kanaScale,
+                  scale: heroScale,
                 ),
               ],
             )
@@ -61,12 +65,12 @@ class TestTitle extends StatelessWidget {
                       ),
                   textAlign: TextAlign.center,
                 ),
-                const SizedBox(height: 30),
+                SizedBox(height: spacing),
                 HeroPrompt(
                   text: displaySymbol,
                   background: AppColors.peach,
                   foreground: AppColors.ink,
-                  scale: kanaScale,
+                  scale: heroScale,
                 ),
               ],
             ),
@@ -95,14 +99,14 @@ class TestTitle extends StatelessWidget {
     return '';
   }
 
-  String _scriptLabel() {
+  String _scriptLabel(Translations tr) {
     switch (kanaType) {
       case KanaType.hiragana:
-        return t.app.scriptHiragana;
+        return tr.app.scriptHiragana;
       case KanaType.katakana:
-        return t.app.scriptKatakana;
+        return tr.app.scriptKatakana;
       case KanaType.kanji:
-        return t.app.scriptKanji;
+        return tr.app.scriptKanji;
     }
   }
 
