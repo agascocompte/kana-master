@@ -17,6 +17,7 @@ class StudyTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final tr = context.t;
     return BlocBuilder<SettingsBloc, SettingsState>(
       builder: (context, settingsState) {
         final KanaType kanaType = settingsState.stateData.kanaType;
@@ -29,7 +30,7 @@ class StudyTab extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  t.app.studyHubTitle,
+                  tr.app.studyHubTitle,
                   style: const TextStyle(
                     fontSize: 28,
                     fontWeight: FontWeight.w800,
@@ -38,7 +39,7 @@ class StudyTab extends StatelessWidget {
                 ),
                 const SizedBox(height: 6),
                 Text(
-                  t.app.studyHubSubtitle,
+                  tr.app.studyHubSubtitle,
                   style: const TextStyle(
                     color: AppColors.slate,
                     fontSize: 14,
@@ -46,7 +47,7 @@ class StudyTab extends StatelessWidget {
                 ),
                 const SizedBox(height: 18),
                 SegmentedSectionCard(
-                  title: t.app.script,
+                  title: tr.app.script,
                   child: EqualSegmented<KanaType>(
                     selected: kanaType,
                     onSelected: (value) {
@@ -54,20 +55,20 @@ class StudyTab extends StatelessWidget {
                           .read<SettingsBloc>()
                           .add(SetKanaType(kanaType: value));
                     },
-                    options: const [
+                    options: [
                       SegmentOption(
                         value: KanaType.hiragana,
-                        title: 'Hiragana',
+                        title: tr.app.scriptHiragana,
                         symbol: 'あ',
                       ),
                       SegmentOption(
                         value: KanaType.katakana,
-                        title: 'Katakana',
+                        title: tr.app.scriptKatakana,
                         symbol: 'ア',
                       ),
                       SegmentOption(
                         value: KanaType.kanji,
-                        title: 'Kanji',
+                        title: tr.app.scriptKanji,
                         symbol: '漢',
                       ),
                     ],
@@ -75,7 +76,7 @@ class StudyTab extends StatelessWidget {
                 ),
                 const SizedBox(height: 12),
                 SegmentedSectionCard(
-                  title: t.app.difficulty,
+                  title: tr.app.difficulty,
                   child: EqualSegmented<DifficultyLevel>(
                     selected: difficulty,
                     onSelected: (value) {
@@ -86,25 +87,25 @@ class StudyTab extends StatelessWidget {
                     options: [
                       SegmentOption(
                         value: DifficultyLevel.low,
-                        title: t.app.difficultyEasy,
-                        subtitle: t.app.difficultyEasyDesc,
+                        title: tr.app.difficultyEasy,
+                        subtitle: tr.app.difficultyEasyDesc,
                       ),
                       SegmentOption(
                         value: DifficultyLevel.medium,
-                        title: t.app.difficultyMedium,
-                        subtitle: t.app.difficultyMediumDesc,
+                        title: tr.app.difficultyMedium,
+                        subtitle: tr.app.difficultyMediumDesc,
                       ),
                       SegmentOption(
                         value: DifficultyLevel.high,
-                        title: t.app.difficultyHard,
-                        subtitle: t.app.difficultyHardDesc,
+                        title: tr.app.difficultyHard,
+                        subtitle: tr.app.difficultyHardDesc,
                       ),
                     ],
                   ),
                 ),
                 const SizedBox(height: 16),
                 Text(
-                  t.app.paths,
+                  tr.app.paths,
                   style: const TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.w700,
@@ -113,8 +114,8 @@ class StudyTab extends StatelessWidget {
                 ),
                 const SizedBox(height: 12),
                 ActionCard(
-                  title: t.app.learn,
-                  subtitle: t.app.learnSubtitle,
+                  title: tr.app.learn,
+                  subtitle: tr.app.learnSubtitle,
                   icon: Icons.school_outlined,
                   gradient: const LinearGradient(
                     colors: [AppColors.peach, AppColors.coral],
@@ -123,8 +124,8 @@ class StudyTab extends StatelessWidget {
                 ),
                 const SizedBox(height: 12),
                 ActionCard(
-                  title: t.app.practice,
-                  subtitle: t.app.practiceSubtitle,
+                  title: tr.app.practice,
+                  subtitle: tr.app.practiceSubtitle,
                   icon: Icons.flash_on_outlined,
                   gradient: const LinearGradient(
                     colors: [AppColors.teal, AppColors.sky],
@@ -133,8 +134,8 @@ class StudyTab extends StatelessWidget {
                 ),
                 const SizedBox(height: 12),
                 ActionCard(
-                  title: t.app.materials,
-                  subtitle: t.app.materialsSubtitle,
+                  title: tr.app.materials,
+                  subtitle: tr.app.materialsSubtitle,
                   icon: Icons.auto_stories_outlined,
                   gradient: const LinearGradient(
                     colors: [AppColors.lime, AppColors.teal],

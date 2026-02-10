@@ -11,6 +11,7 @@ class SearchActionBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final tr = context.t;
     return Row(
       children: [
         Expanded(
@@ -18,7 +19,7 @@ class SearchActionBar extends StatelessWidget {
             builder: (context, state) {
               return TextFormField(
                 decoration: InputDecoration(
-                  hintText: t.app.searchHint,
+                  hintText: tr.app.searchHint,
                   prefixIcon: const Icon(Icons.search),
                 ),
                 onChanged: (value) => context

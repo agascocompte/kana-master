@@ -13,6 +13,7 @@ class StatsPreview extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final tr = context.t;
     return BlocBuilder<StatsBloc, StatsState>(
       builder: (context, state) {
         final summary = state.stateData.summaries[kanaType];
@@ -29,7 +30,7 @@ class StatsPreview extends StatelessWidget {
                 const SizedBox(width: 12),
                 Expanded(
                   child: Text(
-                    t.app.statsStartToUnlock,
+                    tr.app.statsStartToUnlock,
                     style: const TextStyle(color: Colors.white, fontSize: 13),
                   ),
                 ),
@@ -49,7 +50,7 @@ class StatsPreview extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    t.app.statsMomentum,
+                    tr.app.statsMomentum,
                     style: const TextStyle(
                       color: Colors.white70,
                       fontSize: 12,
@@ -57,7 +58,7 @@ class StatsPreview extends StatelessWidget {
                   ),
                   const SizedBox(height: 6),
                   Text(
-                    t.app.statsStreakDays(days: summary.currentStreak),
+                    tr.app.statsStreakDays(days: summary.currentStreak),
                     style: const TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.w700,
@@ -66,7 +67,7 @@ class StatsPreview extends StatelessWidget {
                   ),
                   const SizedBox(height: 4),
                   Text(
-                    '${t.app.statsAccuracy} ${(summary.accuracy * 100).toStringAsFixed(0)}%',
+                    '${tr.app.statsAccuracy} ${(summary.accuracy * 100).toStringAsFixed(0)}%',
                     style: const TextStyle(
                       color: Colors.white70,
                       fontSize: 12,
@@ -80,7 +81,7 @@ class StatsPreview extends StatelessWidget {
                 style: TextButton.styleFrom(
                   foregroundColor: AppColors.peach,
                 ),
-                child: Text(t.app.statsView),
+                child: Text(tr.app.statsView),
               ),
             ],
           ),

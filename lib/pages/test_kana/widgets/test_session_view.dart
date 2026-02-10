@@ -32,59 +32,74 @@ class TestSessionView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(16, 12, 16, 16),
+    final mediaQuery = MediaQuery.of(context);
+    final keyboardInset = mediaQuery.viewInsets.bottom;
+    final keyboardOpen = keyboardInset > 0;
+
+    return AnimatedPadding(
+      duration: const Duration(milliseconds: 200),
+      curve: Curves.easeOut,
+      padding: EdgeInsets.fromLTRB(16, 12, 16, 16 + keyboardInset),
       child: Column(
         children: [
-          Container(
-            width: double.infinity,
-            padding: const EdgeInsets.all(14),
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(16),
-              border: Border.all(color: AppColors.sand),
-            ),
-            child: Row(
-              children: [
-                Container(
-                  padding: const EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    color: AppColors.sand,
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  child: const Icon(
-                    Icons.bolt,
-                    color: AppColors.ink,
-                  ),
-                ),
-                const SizedBox(width: 12),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+          AnimatedSwitcher(
+            duration: const Duration(milliseconds: 180),
+            child: keyboardOpen
+                ? const SizedBox.shrink()
+                : Column(
                     children: [
-                      Text(
-                        modeLabel,
-                        style: const TextStyle(
-                          color: AppColors.ink,
-                          fontWeight: FontWeight.w700,
-                          fontSize: 14,
+                      Container(
+                        width: double.infinity,
+                        padding: const EdgeInsets.all(14),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(16),
+                          border: Border.all(color: AppColors.sand),
+                        ),
+                        child: Row(
+                          children: [
+                            Container(
+                              padding: const EdgeInsets.all(10),
+                              decoration: BoxDecoration(
+                                color: AppColors.sand,
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                              child: const Icon(
+                                Icons.bolt,
+                                color: AppColors.ink,
+                              ),
+                            ),
+                            const SizedBox(width: 12),
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    modeLabel,
+                                    style: const TextStyle(
+                                      color: AppColors.ink,
+                                      fontWeight: FontWeight.w700,
+                                      fontSize: 14,
+                                    ),
+                                  ),
+                                  const SizedBox(height: 4),
+                                  Text(
+                                    t.app.testStayFocused,
+                                    style: const TextStyle(
+                                      color: AppColors.slate,
+                                      fontSize: 12,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
                         ),
                       ),
-                      const SizedBox(height: 4),
-                      Text(
-                        t.app.testStayFocused,
-                        style: const TextStyle(
-                          color: AppColors.slate,
-                          fontSize: 12,
-                        ),
-                      ),
+                      const SizedBox(height: 12),
                     ],
                   ),
-                ),
-              ],
-            ),
           ),
-          const SizedBox(height: 12),
           Expanded(
             child: AnimatedSwitcher(
               duration: const Duration(milliseconds: 500),

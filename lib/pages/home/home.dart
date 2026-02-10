@@ -12,6 +12,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final tr = context.t;
     return BlocBuilder<HomeNavCubit, int>(
       builder: (context, index) {
         return Scaffold(
@@ -31,19 +32,19 @@ class HomePage extends StatelessWidget {
             destinations: [
               NavigationDestination(
                 icon: const Icon(Icons.school_outlined),
-                label: t.app.tabStudy,
+                label: tr.app.tabStudy,
               ),
               NavigationDestination(
                 icon: const Icon(Icons.search),
-                label: t.app.dictionary,
+                label: tr.app.dictionary,
               ),
               NavigationDestination(
                 icon: const Icon(Icons.bar_chart_outlined),
-                label: t.app.tabStats,
+                label: tr.app.tabStats,
               ),
               NavigationDestination(
                 icon: const Icon(Icons.tune),
-                label: t.app.settings,
+                label: tr.app.settings,
               ),
             ],
           ),
