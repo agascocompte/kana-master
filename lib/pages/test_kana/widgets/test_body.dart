@@ -70,6 +70,9 @@ class TestBody extends StatelessWidget {
                 kanjiMeanings: kanjiMeanings,
                 kanaScale: kanaScale,
               )
-            : TextFieldTest(kanaType: kanaType);
+            : TextFieldTest(
+                kanaType: kanaType,
+                kanaIndex: state.stateData.kanaIndex,
+              );
   }
 }
