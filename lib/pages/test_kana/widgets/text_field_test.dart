@@ -110,6 +110,8 @@ class _TextFieldTestState extends State<TextFieldTest> {
                               TextField(
                                 controller: _controller,
                                 focusNode: _focusNode,
+                                autocorrect: false,
+                                enableSuggestions: false,
                                 textAlign: TextAlign.center,
                                 cursorColor: AppColors.teal,
                                 style: TextStyle(
