@@ -157,12 +157,13 @@ class _TranslationsAppCa implements TranslationsAppEn {
 	@override String get settingsKanjiJlptTitle => 'Nivell JLPT de kanji';
 	@override String get settingsKanjiJlptSubtitle => 'Limita els kanji a un nivell JLPT.';
 	@override String get kanjiFilterEmpty => 'No hi ha kanji per a aquest nivell JLPT.';
-	@override String get loginTitle => 'Inicia sessió a Kana Master';
-	@override String get loginSubtitle => 'Desa el progrés, sincronitza entre dispositius i desbloqueja funcions premium.';
-	@override String get loginApple => 'Continua amb Apple';
-	@override String get loginGoogle => 'Continua amb Google';
-	@override String get loginOr => 'o';
-	@override String get loginFooter => 'En continuar acceptes els Termes i la Política de privacitat.';
+	@override String get settingsBackupTitle => 'Còpia de seguretat de les estadístiques';
+	@override String get settingsBackupSubtitle => 'Exporta o importa el teu progrés com un fitxer JSON.';
+	@override String get settingsBackupExportButton => 'Exporta';
+	@override String get settingsBackupImportButton => 'Importa';
+	@override String settingsBackupExported({required Object path}) => 'Còpia de seguretat exportada a ${path}';
+	@override String settingsBackupImported({required Object count}) => 'Importades ${count} respostes';
+	@override String settingsBackupError({required Object error}) => 'Error de còpia de seguretat: ${error}';
 }
 
 /// The flat map containing all translations for locale <ca>.
@@ -283,12 +284,13 @@ extension on TranslationsCa {
 			'app.settingsKanjiJlptTitle' => 'Nivell JLPT de kanji',
 			'app.settingsKanjiJlptSubtitle' => 'Limita els kanji a un nivell JLPT.',
 			'app.kanjiFilterEmpty' => 'No hi ha kanji per a aquest nivell JLPT.',
-			'app.loginTitle' => 'Inicia sessió a Kana Master',
-			'app.loginSubtitle' => 'Desa el progrés, sincronitza entre dispositius i desbloqueja funcions premium.',
-			'app.loginApple' => 'Continua amb Apple',
-			'app.loginGoogle' => 'Continua amb Google',
-			'app.loginOr' => 'o',
-			'app.loginFooter' => 'En continuar acceptes els Termes i la Política de privacitat.',
+			'app.settingsBackupTitle' => 'Còpia de seguretat de les estadístiques',
+			'app.settingsBackupSubtitle' => 'Exporta o importa el teu progrés com un fitxer JSON.',
+			'app.settingsBackupExportButton' => 'Exporta',
+			'app.settingsBackupImportButton' => 'Importa',
+			'app.settingsBackupExported' => ({required Object path}) => 'Còpia de seguretat exportada a ${path}',
+			'app.settingsBackupImported' => ({required Object count}) => 'Importades ${count} respostes',
+			'app.settingsBackupError' => ({required Object error}) => 'Error de còpia de seguretat: ${error}',
 			_ => null,
 		};
 	}

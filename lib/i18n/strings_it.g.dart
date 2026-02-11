@@ -157,12 +157,13 @@ class _TranslationsAppIt implements TranslationsAppEn {
 	@override String get settingsKanjiJlptTitle => 'Livello JLPT kanji';
 	@override String get settingsKanjiJlptSubtitle => 'Limita i kanji a un livello JLPT.';
 	@override String get kanjiFilterEmpty => 'Nessun kanji per questo livello JLPT.';
-	@override String get loginTitle => 'Accedi a Kana Master';
-	@override String get loginSubtitle => 'Salva i progressi, sincronizza tra dispositivi e sblocca funzionalità premium.';
-	@override String get loginApple => 'Continua con Apple';
-	@override String get loginGoogle => 'Continua con Google';
-	@override String get loginOr => 'o';
-	@override String get loginFooter => 'Continuando accetti i Termini e la Politica sulla privacy.';
+	@override String get settingsBackupTitle => 'Backup delle statistiche';
+	@override String get settingsBackupSubtitle => 'Esporta o importa i tuoi progressi come file JSON.';
+	@override String get settingsBackupExportButton => 'Esporta';
+	@override String get settingsBackupImportButton => 'Importa';
+	@override String settingsBackupExported({required Object path}) => 'Backup esportato in ${path}';
+	@override String settingsBackupImported({required Object count}) => 'Backup importato: ${count} risposte';
+	@override String settingsBackupError({required Object error}) => 'Errore di backup: ${error}';
 }
 
 /// The flat map containing all translations for locale <it>.
@@ -283,12 +284,13 @@ extension on TranslationsIt {
 			'app.settingsKanjiJlptTitle' => 'Livello JLPT kanji',
 			'app.settingsKanjiJlptSubtitle' => 'Limita i kanji a un livello JLPT.',
 			'app.kanjiFilterEmpty' => 'Nessun kanji per questo livello JLPT.',
-			'app.loginTitle' => 'Accedi a Kana Master',
-			'app.loginSubtitle' => 'Salva i progressi, sincronizza tra dispositivi e sblocca funzionalità premium.',
-			'app.loginApple' => 'Continua con Apple',
-			'app.loginGoogle' => 'Continua con Google',
-			'app.loginOr' => 'o',
-			'app.loginFooter' => 'Continuando accetti i Termini e la Politica sulla privacy.',
+			'app.settingsBackupTitle' => 'Backup delle statistiche',
+			'app.settingsBackupSubtitle' => 'Esporta o importa i tuoi progressi come file JSON.',
+			'app.settingsBackupExportButton' => 'Esporta',
+			'app.settingsBackupImportButton' => 'Importa',
+			'app.settingsBackupExported' => ({required Object path}) => 'Backup esportato in ${path}',
+			'app.settingsBackupImported' => ({required Object count}) => 'Backup importato: ${count} risposte',
+			'app.settingsBackupError' => ({required Object error}) => 'Errore di backup: ${error}',
 			_ => null,
 		};
 	}

@@ -110,11 +110,12 @@
     "settingsKanjiJlptTitle": "JLPT漢字レベル",
     "settingsKanjiJlptSubtitle": "漢字をJLPTレベルで制限します。",
     "kanjiFilterEmpty": "このJLPTレベルに対応する漢字はありません。",
-    "loginTitle": "Kana Masterにサインイン",
-    "loginSubtitle": "進捗を保存し、デバイス間で同期し、プレミアム特典をアンロックします。",
-    "loginApple": "Appleで続行",
-    "loginGoogle": "Googleで続行",
-    "loginOr": "または",
-    "loginFooter": "続行することで、利用規約とプライバシーポリシーに同意したことになります。"
+    "settingsBackupTitle": "統計のバックアップ",
+    "settingsBackupSubtitle": "進捗をJSONファイルとしてエクスポートまたはインポートします。",
+    "settingsBackupExportButton": "エクスポート",
+    "settingsBackupImportButton": "インポート",
+    "settingsBackupExported": "${path} にバックアップをエクスポートしました",
+    "settingsBackupImported": "${count} 件の回答をインポートしました",
+    "settingsBackupError": "バックアップエラー: ${error}"
   }
 }

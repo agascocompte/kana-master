@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart' hide MaterialPage;
 import 'package:go_router/go_router.dart';
-import 'package:kana_master/pages/auth/login_page.dart';
 import 'package:kana_master/pages/home/home.dart';
 import 'package:kana_master/pages/settings/settings.dart';
 import 'package:kana_master/pages/stats/stats.dart';
@@ -20,13 +19,6 @@ class AppRouter {
   static GoRouter router = GoRouter(
     initialLocation: homeRoute,
     routes: <GoRoute>[
-      GoRoute(
-        path: "/login",
-        name: loginRoute,
-        builder: (BuildContext context, GoRouterState state) {
-          return const LoginPage();
-        },
-      ),
       GoRoute(
         path: "/home",
         name: homeRoute,

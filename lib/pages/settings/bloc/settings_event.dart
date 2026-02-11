@@ -39,3 +39,7 @@ class ChangeKanjiJlptFilter extends SettingsEvent {
 
   ChangeKanjiJlptFilter({required this.filter});
 }
+
+class ExportStatsRequested extends SettingsEvent {}
+
+class ImportStatsRequested extends SettingsEvent {}

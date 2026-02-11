@@ -3,30 +3,45 @@ import 'package:flutter/material.dart';
 class Snackbars {
   static OverlayEntry? _currentEntry;
 
-  static void showSuccessScaffold(BuildContext context, String message) {
+  static void showSuccessScaffold(
+    BuildContext context,
+    String message, {
+    Duration? visibleDuration,
+  }) {
     showSnackBar(
       context,
       message,
       const Color(0xFF1B9A59),
       icon: Icons.check_circle_outline,
+      visibleDuration: visibleDuration,
     );
   }
 
-  static void showWarningScaffold(BuildContext context, String message) {
+  static void showWarningScaffold(
+    BuildContext context,
+    String message, {
+    Duration? visibleDuration,
+  }) {
     showSnackBar(
       context,
       message,
       const Color(0xFFE6942A),
       icon: Icons.warning_amber_outlined,
+      visibleDuration: visibleDuration,
     );
   }
 
-  static void showErrorScaffold(BuildContext context, String message) {
+  static void showErrorScaffold(
+    BuildContext context,
+    String message, {
+    Duration? visibleDuration,
+  }) {
     showSnackBar(
       context,
       message,
       const Color(0xFFC44444),
       icon: Icons.error_outline,
+      visibleDuration: visibleDuration,
     );
   }
 
@@ -35,6 +50,7 @@ class Snackbars {
     String message,
     Color color, {
     IconData? icon,
+    Duration? visibleDuration,
   }) {
     final overlay = Overlay.of(context, rootOverlay: true);
 
@@ -46,7 +62,8 @@ class Snackbars {
     final topOffset = safeTop + 12.0;
 
     const animationDuration = Duration(milliseconds: 220);
-    const visibleDuration = Duration(milliseconds: 1550);
+    final displayDuration =
+        visibleDuration ?? const Duration(milliseconds: 1550);
 
     bool isVisible = false;
 
@@ -130,7 +147,7 @@ class Snackbars {
       entry.markNeedsBuild();
     });
 
-    Future.delayed(visibleDuration, () {
+    Future.delayed(displayDuration, () {
       if (_currentEntry != entry) return;
       isVisible = false;
       entry.markNeedsBuild();

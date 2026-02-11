@@ -157,12 +157,13 @@ class _TranslationsAppFr implements TranslationsAppEn {
 	@override String get settingsKanjiJlptTitle => 'Niveau JLPT des kanji';
 	@override String get settingsKanjiJlptSubtitle => 'Limite les kanji à un niveau JLPT.';
 	@override String get kanjiFilterEmpty => 'Aucun kanji pour ce niveau JLPT.';
-	@override String get loginTitle => 'Connecte-toi à Kana Master';
-	@override String get loginSubtitle => 'Sauvegarde tes progrès, synchronise entre appareils et débloque des fonctionnalités premium.';
-	@override String get loginApple => 'Continuer avec Apple';
-	@override String get loginGoogle => 'Continuer avec Google';
-	@override String get loginOr => 'ou';
-	@override String get loginFooter => 'En continuant, tu acceptes les Conditions d\'utilisation et la Politique de confidentialité.';
+	@override String get settingsBackupTitle => 'Sauvegarde des statistiques';
+	@override String get settingsBackupSubtitle => 'Exportez ou importez votre progression sous forme de fichier JSON.';
+	@override String get settingsBackupExportButton => 'Exporter';
+	@override String get settingsBackupImportButton => 'Importer';
+	@override String settingsBackupExported({required Object path}) => 'Sauvegarde exportée vers ${path}';
+	@override String settingsBackupImported({required Object count}) => 'Sauvegarde importée : ${count} réponses';
+	@override String settingsBackupError({required Object error}) => 'Erreur de sauvegarde : ${error}';
 }
 
 /// The flat map containing all translations for locale <fr>.
@@ -283,12 +284,13 @@ extension on TranslationsFr {
 			'app.settingsKanjiJlptTitle' => 'Niveau JLPT des kanji',
 			'app.settingsKanjiJlptSubtitle' => 'Limite les kanji à un niveau JLPT.',
 			'app.kanjiFilterEmpty' => 'Aucun kanji pour ce niveau JLPT.',
-			'app.loginTitle' => 'Connecte-toi à Kana Master',
-			'app.loginSubtitle' => 'Sauvegarde tes progrès, synchronise entre appareils et débloque des fonctionnalités premium.',
-			'app.loginApple' => 'Continuer avec Apple',
-			'app.loginGoogle' => 'Continuer avec Google',
-			'app.loginOr' => 'ou',
-			'app.loginFooter' => 'En continuant, tu acceptes les Conditions d\'utilisation et la Politique de confidentialité.',
+			'app.settingsBackupTitle' => 'Sauvegarde des statistiques',
+			'app.settingsBackupSubtitle' => 'Exportez ou importez votre progression sous forme de fichier JSON.',
+			'app.settingsBackupExportButton' => 'Exporter',
+			'app.settingsBackupImportButton' => 'Importer',
+			'app.settingsBackupExported' => ({required Object path}) => 'Sauvegarde exportée vers ${path}',
+			'app.settingsBackupImported' => ({required Object count}) => 'Sauvegarde importée : ${count} réponses',
+			'app.settingsBackupError' => ({required Object error}) => 'Erreur de sauvegarde : ${error}',
 			_ => null,
 		};
 	}

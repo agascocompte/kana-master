@@ -157,12 +157,13 @@ class _TranslationsAppJa implements TranslationsAppEn {
 	@override String get settingsKanjiJlptTitle => 'JLPT漢字レベル';
 	@override String get settingsKanjiJlptSubtitle => '漢字をJLPTレベルで制限します。';
 	@override String get kanjiFilterEmpty => 'このJLPTレベルに対応する漢字はありません。';
-	@override String get loginTitle => 'Kana Masterにサインイン';
-	@override String get loginSubtitle => '進捗を保存し、デバイス間で同期し、プレミアム特典をアンロックします。';
-	@override String get loginApple => 'Appleで続行';
-	@override String get loginGoogle => 'Googleで続行';
-	@override String get loginOr => 'または';
-	@override String get loginFooter => '続行することで、利用規約とプライバシーポリシーに同意したことになります。';
+	@override String get settingsBackupTitle => '統計のバックアップ';
+	@override String get settingsBackupSubtitle => '進捗をJSONファイルとしてエクスポートまたはインポートします。';
+	@override String get settingsBackupExportButton => 'エクスポート';
+	@override String get settingsBackupImportButton => 'インポート';
+	@override String settingsBackupExported({required Object path}) => '${path} にバックアップをエクスポートしました';
+	@override String settingsBackupImported({required Object count}) => '${count} 件の回答をインポートしました';
+	@override String settingsBackupError({required Object error}) => 'バックアップエラー: ${error}';
 }
 
 /// The flat map containing all translations for locale <ja>.
@@ -283,12 +284,13 @@ extension on TranslationsJa {
 			'app.settingsKanjiJlptTitle' => 'JLPT漢字レベル',
 			'app.settingsKanjiJlptSubtitle' => '漢字をJLPTレベルで制限します。',
 			'app.kanjiFilterEmpty' => 'このJLPTレベルに対応する漢字はありません。',
-			'app.loginTitle' => 'Kana Masterにサインイン',
-			'app.loginSubtitle' => '進捗を保存し、デバイス間で同期し、プレミアム特典をアンロックします。',
-			'app.loginApple' => 'Appleで続行',
-			'app.loginGoogle' => 'Googleで続行',
-			'app.loginOr' => 'または',
-			'app.loginFooter' => '続行することで、利用規約とプライバシーポリシーに同意したことになります。',
+			'app.settingsBackupTitle' => '統計のバックアップ',
+			'app.settingsBackupSubtitle' => '進捗をJSONファイルとしてエクスポートまたはインポートします。',
+			'app.settingsBackupExportButton' => 'エクスポート',
+			'app.settingsBackupImportButton' => 'インポート',
+			'app.settingsBackupExported' => ({required Object path}) => '${path} にバックアップをエクスポートしました',
+			'app.settingsBackupImported' => ({required Object count}) => '${count} 件の回答をインポートしました',
+			'app.settingsBackupError' => ({required Object error}) => 'バックアップエラー: ${error}',
 			_ => null,
 		};
 	}

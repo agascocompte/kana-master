@@ -7,6 +7,7 @@ class SettingsStateData {
   final bool hapticsEnabled;
   final double kanaScale;
   final String kanjiJlptFilter;
+  final bool backupBusy;
 
   SettingsStateData({
     this.kanaType = KanaType.hiragana,
@@ -15,6 +16,7 @@ class SettingsStateData {
     this.hapticsEnabled = true,
     this.kanaScale = 1.0,
     this.kanjiJlptFilter = 'all',
+    this.backupBusy = false,
   });
 
   SettingsStateData copyWith({
@@ -24,6 +26,7 @@ class SettingsStateData {
     bool? hapticsEnabled,
     double? kanaScale,
     String? kanjiJlptFilter,
+    bool? backupBusy,
   }) {
     return SettingsStateData(
       kanaType: kanaType ?? this.kanaType,
@@ -32,6 +35,7 @@ class SettingsStateData {
       hapticsEnabled: hapticsEnabled ?? this.hapticsEnabled,
       kanaScale: kanaScale ?? this.kanaScale,
       kanjiJlptFilter: kanjiJlptFilter ?? this.kanjiJlptFilter,
+      backupBusy: backupBusy ?? this.backupBusy,
     );
   }
 }
@@ -57,4 +61,22 @@ class KanaTypeUpdated extends SettingsState {
 class IsDrawingTestEnabledUpdated extends SettingsState {
   IsDrawingTestEnabledUpdated(SettingsStateData stateData)
       : super(stateData: stateData);
+}
+
+class SettingsBackupSuccess extends SettingsState {
+  final String message;
+
+  SettingsBackupSuccess(
+    SettingsStateData stateData, {
+    required this.message,
+  }) : super(stateData: stateData);
+}
+
+class SettingsBackupError extends SettingsState {
+  final String message;
+
+  SettingsBackupError(
+    SettingsStateData stateData, {
+    required this.message,
+  }) : super(stateData: stateData);
 }

@@ -381,23 +381,26 @@ class TranslationsAppEn {
 	/// en: 'No kanji match this JLPT level.'
 	String get kanjiFilterEmpty => 'No kanji match this JLPT level.';
 
-	/// en: 'Sign in to Kana Master'
-	String get loginTitle => 'Sign in to Kana Master';
+	/// en: 'Stats backup'
+	String get settingsBackupTitle => 'Stats backup';
 
-	/// en: 'Save progress, sync across devices and access your stats from anywhere.'
-	String get loginSubtitle => 'Save progress, sync across devices and access your stats from anywhere.';
+	/// en: 'Export or import your progress as a JSON file.'
+	String get settingsBackupSubtitle => 'Export or import your progress as a JSON file.';
 
-	/// en: 'Continue with Apple'
-	String get loginApple => 'Continue with Apple';
+	/// en: 'Export'
+	String get settingsBackupExportButton => 'Export';
 
-	/// en: 'Continue with Google'
-	String get loginGoogle => 'Continue with Google';
+	/// en: 'Import'
+	String get settingsBackupImportButton => 'Import';
 
-	/// en: 'or'
-	String get loginOr => 'or';
+	/// en: 'Backup exported to ${path}'
+	String settingsBackupExported({required Object path}) => 'Backup exported to ${path}';
 
-	/// en: 'By continuing you accept the Terms and Privacy Policy.'
-	String get loginFooter => 'By continuing you accept the Terms and Privacy Policy.';
+	/// en: 'Imported ${count} responses'
+	String settingsBackupImported({required Object count}) => 'Imported ${count} responses';
+
+	/// en: 'Backup error: ${error}'
+	String settingsBackupError({required Object error}) => 'Backup error: ${error}';
 }
 
 /// The flat map containing all translations for locale <en>.
@@ -518,12 +521,13 @@ extension on Translations {
 			'app.settingsKanjiJlptTitle' => 'Kanji range',
 			'app.settingsKanjiJlptSubtitle' => 'Limit kanji questions to a JLPT level.',
 			'app.kanjiFilterEmpty' => 'No kanji match this JLPT level.',
-			'app.loginTitle' => 'Sign in to Kana Master',
-			'app.loginSubtitle' => 'Save progress, sync across devices and access your stats from anywhere.',
-			'app.loginApple' => 'Continue with Apple',
-			'app.loginGoogle' => 'Continue with Google',
-			'app.loginOr' => 'or',
-			'app.loginFooter' => 'By continuing you accept the Terms and Privacy Policy.',
+			'app.settingsBackupTitle' => 'Stats backup',
+			'app.settingsBackupSubtitle' => 'Export or import your progress as a JSON file.',
+			'app.settingsBackupExportButton' => 'Export',
+			'app.settingsBackupImportButton' => 'Import',
+			'app.settingsBackupExported' => ({required Object path}) => 'Backup exported to ${path}',
+			'app.settingsBackupImported' => ({required Object count}) => 'Imported ${count} responses',
+			'app.settingsBackupError' => ({required Object error}) => 'Backup error: ${error}',
 			_ => null,
 		};
 	}
