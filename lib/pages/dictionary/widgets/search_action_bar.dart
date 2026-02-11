@@ -18,6 +18,8 @@ class SearchActionBar extends StatelessWidget {
           child: BlocBuilder<DictionaryBloc, DictionaryState>(
             builder: (context, state) {
               return TextFormField(
+                enableSuggestions: false,
+                autocorrect: false,
                 decoration: InputDecoration(
                   hintText: tr.app.searchHint,
                   prefixIcon: const Icon(Icons.search),
