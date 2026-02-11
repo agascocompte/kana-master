@@ -102,66 +102,50 @@ class TestSessionView extends StatelessWidget {
             ),
           ),
           Expanded(
-            child: AnimatedSwitcher(
-              duration: const Duration(milliseconds: 500),
-              transitionBuilder: (Widget child, Animation<double> animation) {
-                const begin = Offset(0.0, 1.0);
-                const end = Offset.zero;
-                const curve = Curves.easeInOut;
-
-                var tween = Tween(begin: begin, end: end)
-                    .chain(CurveTween(curve: curve));
-
-                return SlideTransition(
-                  position: animation.drive(tween),
-                  child: child,
-                );
-              },
-              child: Container(
-                key: ValueKey<int>(state.stateData.kanaIndex),
-                padding: const EdgeInsets.all(16),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(18),
-                  border: Border.all(color: AppColors.sand),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withAlpha(12),
-                      blurRadius: 12,
-                      offset: const Offset(0, 8),
-                    ),
-                  ],
-                ),
-                child: Column(
-                  children: [
-                    TestTitle(
+            child: Container(
+              key: ValueKey<int>(state.stateData.kanaIndex),
+              padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(18),
+                border: Border.all(color: AppColors.sand),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withAlpha(12),
+                    blurRadius: 12,
+                    offset: const Offset(0, 8),
+                  ),
+                ],
+              ),
+              child: Column(
+                children: [
+                  TestTitle(
+                    state: state,
+                    kana: kana,
+                    kanaType: kanaType,
+                    kanjiEntries: kanjiEntries,
+                    kanaScale: kanaScale,
+                  ),
+                  const SizedBox(height: 12),
+                  Expanded(
+                    child: TestBody(
                       state: state,
                       kana: kana,
                       kanaType: kanaType,
                       kanjiEntries: kanjiEntries,
+                      kanjiMeanings: kanjiMeanings,
+                      difficultyLevel: difficultyLevel,
                       kanaScale: kanaScale,
                     ),
-                    const SizedBox(height: 12),
-                    Expanded(
-                      child: TestBody(
-                        state: state,
-                        kana: kana,
-                        kanaType: kanaType,
-                        kanjiEntries: kanjiEntries,
-                        kanjiMeanings: kanjiMeanings,
-                        difficultyLevel: difficultyLevel,
-                        kanaScale: kanaScale,
-                      ),
-                    ),
-                    const SizedBox(height: 8),
-                    TestButtonsRow(
-                        state: state,
-                        kanaType: kanaType,
-                        difficultyLevel: difficultyLevel,
-                        kana: kana),
-                    const SizedBox(height: 6),
-                  ],
-                ),
+                  ),
+                  const SizedBox(height: 8),
+                  TestButtonsRow(
+                      state: state,
+                      kanaType: kanaType,
+                      difficultyLevel: difficultyLevel,
+                      kana: kana),
+                  const SizedBox(height: 6),
+                ],
               ),
             ),
           ),

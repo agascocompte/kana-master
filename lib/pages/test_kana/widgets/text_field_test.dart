@@ -6,13 +6,54 @@ import 'package:kana_master/i18n/strings.g.dart';
 
 import '../bloc/test_kana_bloc.dart';
 
-class TextFieldTest extends StatelessWidget {
+class TextFieldTest extends StatefulWidget {
   final KanaType kanaType;
+  final int kanaIndex;
 
   const TextFieldTest({
     super.key,
     required this.kanaType,
+    required this.kanaIndex,
   });
+
+  @override
+  State<TextFieldTest> createState() => _TextFieldTestState();
+}
+
+class _TextFieldTestState extends State<TextFieldTest> {
+  late final TextEditingController _controller;
+  late final FocusNode _focusNode;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = TextEditingController();
+    _focusNode = FocusNode();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) _focusNode.requestFocus();
+    });
+  }
+
+  @override
+  void didUpdateWidget(covariant TextFieldTest oldWidget) {
+    super.didUpdateWidget(oldWidget);
+
+    // Si cambia de pregunta, limpia y vuelve a enfocar
+    if (oldWidget.kanaIndex != widget.kanaIndex) {
+      _controller.clear();
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (mounted) _focusNode.requestFocus();
+      });
+    }
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    _focusNode.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +68,7 @@ class TextFieldTest extends StatelessWidget {
             children: [
               if (!hideHeader) ...[
                 Text(
-                  kanaType == KanaType.kanji
+                  widget.kanaType == KanaType.kanji
                       ? tr.app.testTypeMeaning
                       : tr.app.testTypeRomaji,
                   style: const TextStyle(
@@ -61,11 +102,14 @@ class TextFieldTest extends StatelessWidget {
                       return SingleChildScrollView(
                         physics: const ClampingScrollPhysics(),
                         child: ConstrainedBox(
-                          constraints: BoxConstraints(minHeight: inner.maxHeight),
+                          constraints:
+                              BoxConstraints(minHeight: inner.maxHeight),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               TextField(
+                                controller: _controller,
+                                focusNode: _focusNode,
                                 textAlign: TextAlign.center,
                                 cursorColor: AppColors.teal,
                                 style: TextStyle(
@@ -81,7 +125,8 @@ class TextFieldTest extends StatelessWidget {
                                 ),
                                 onChanged: (value) => context
                                     .read<TestKanaBloc>()
-                                    .add(UpdateUserTextAnswer(userAnswer: value)),
+                                    .add(UpdateUserTextAnswer(
+                                        userAnswer: value)),
                               ),
                             ],
                           ),
