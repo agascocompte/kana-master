@@ -2,7 +2,7 @@ name: kana_master
 description: "Simple app to learn basics of japanese language."
 publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
-version: 1.0.4+2
+version: 1.0.5+2
 
 environment:
   sdk: ">=3.3.1 <4.0.0"
