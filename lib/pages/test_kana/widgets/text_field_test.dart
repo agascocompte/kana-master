@@ -39,7 +39,6 @@ class _TextFieldTestState extends State<TextFieldTest> {
   void didUpdateWidget(covariant TextFieldTest oldWidget) {
     super.didUpdateWidget(oldWidget);
 
-    // Si cambia de pregunta, limpia y vuelve a enfocar
     if (oldWidget.kanaIndex != widget.kanaIndex) {
       _controller.clear();
       WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -115,12 +114,14 @@ class _TextFieldTestState extends State<TextFieldTest> {
                                 textAlign: TextAlign.center,
                                 cursorColor: AppColors.teal,
                                 style: TextStyle(
-                                  fontSize: tiny ? 24 : 30,
+                                  fontSize: 24,
                                   color: AppColors.ink,
                                   fontWeight: FontWeight.w700,
                                 ),
                                 decoration: InputDecoration(
-                                  hintText: tr.app.testTapToType,
+                                  hintText: _focusNode.hasFocus
+                                      ? ''
+                                      : tr.app.testTapToType,
                                   border: InputBorder.none,
                                   contentPadding:
                                       const EdgeInsets.symmetric(vertical: 10),
