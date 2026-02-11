@@ -32,8 +32,7 @@ class TestSessionView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final mediaQuery = MediaQuery.of(context);
-    final keyboardInset = mediaQuery.viewInsets.bottom;
+    final keyboardInset = MediaQuery.of(context).viewInsets.bottom;
     final keyboardOpen = keyboardInset > 0;
 
     return AnimatedPadding(
@@ -42,63 +41,65 @@ class TestSessionView extends StatelessWidget {
       padding: EdgeInsets.fromLTRB(16, 12, 16, 16 + keyboardInset),
       child: Column(
         children: [
-          AnimatedSwitcher(
+          AnimatedSize(
             duration: const Duration(milliseconds: 180),
-            child: keyboardOpen
-                ? const SizedBox.shrink()
-                : Column(
-                    children: [
-                      Container(
-                        width: double.infinity,
-                        padding: const EdgeInsets.all(14),
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(16),
-                          border: Border.all(color: AppColors.sand),
-                        ),
-                        child: Row(
-                          children: [
-                            Container(
-                              padding: const EdgeInsets.all(10),
-                              decoration: BoxDecoration(
-                                color: AppColors.sand,
-                                borderRadius: BorderRadius.circular(12),
-                              ),
-                              child: const Icon(
-                                Icons.bolt,
-                                color: AppColors.ink,
-                              ),
-                            ),
-                            const SizedBox(width: 12),
-                            Expanded(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    modeLabel,
-                                    style: const TextStyle(
-                                      color: AppColors.ink,
-                                      fontWeight: FontWeight.w700,
-                                      fontSize: 14,
-                                    ),
-                                  ),
-                                  const SizedBox(height: 4),
-                                  Text(
-                                    t.app.testStayFocused,
-                                    style: const TextStyle(
-                                      color: AppColors.slate,
-                                      fontSize: 12,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
+            curve: Curves.easeOut,
+            child: ClipRect(
+              child: Align(
+                alignment: Alignment.topCenter,
+                heightFactor: keyboardOpen ? 0 : 1,
+                child: Column(
+                  children: [
+                    Container(
+                      width: double.infinity,
+                      padding: const EdgeInsets.all(14),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(16),
+                        border: Border.all(color: AppColors.sand),
                       ),
-                      const SizedBox(height: 12),
-                    ],
-                  ),
+                      child: Row(
+                        children: [
+                          Container(
+                            padding: const EdgeInsets.all(10),
+                            decoration: BoxDecoration(
+                              color: AppColors.sand,
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                            child: const Icon(Icons.bolt, color: AppColors.ink),
+                          ),
+                          const SizedBox(width: 12),
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  modeLabel,
+                                  style: const TextStyle(
+                                    color: AppColors.ink,
+                                    fontWeight: FontWeight.w700,
+                                    fontSize: 14,
+                                  ),
+                                ),
+                                const SizedBox(height: 4),
+                                Text(
+                                  t.app.testStayFocused,
+                                  style: const TextStyle(
+                                    color: AppColors.slate,
+                                    fontSize: 12,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(height: 12),
+                  ],
+                ),
+              ),
+            ),
           ),
           Expanded(
             child: AnimatedSwitcher(
