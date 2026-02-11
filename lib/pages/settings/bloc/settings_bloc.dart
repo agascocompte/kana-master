@@ -2,7 +2,13 @@ import 'dart:async';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kana_master/constants.dart';
+import 'package:kana_master/data/datasources/stats_backup_file_data_source.dart';
+import 'package:kana_master/data/datasources/stats_backup_local_data_source.dart';
+import 'package:kana_master/data/repositories/stats_backup_repository_impl.dart';
+import 'package:kana_master/domain/providers/database_provider.dart';
 import 'package:kana_master/domain/repositories/settings_repository.dart';
+import 'package:kana_master/domain/usecases/export_stats_backup.dart';
+import 'package:kana_master/domain/usecases/import_stats_backup.dart';
 import 'package:injectable/injectable.dart';
 import 'package:kana_master/i18n/strings.g.dart';
 
@@ -12,16 +18,24 @@ part 'settings_state.dart';
 @injectable
 class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
   final SettingsRepository settingsRepository;
+  final ExportStatsBackup exportStatsBackup;
+  final ImportStatsBackup importStatsBackup;
 
   SettingsBloc({
     required this.settingsRepository,
-  }) : super(SettingsInitial()) {
+    ExportStatsBackup? exportStatsBackup,
+    ImportStatsBackup? importStatsBackup,
+  })  : exportStatsBackup = exportStatsBackup ?? _buildExportUseCase(),
+        importStatsBackup = importStatsBackup ?? _buildImportUseCase(),
+        super(SettingsInitial()) {
     on<SetKanaType>(_setKanaType);
     on<ChangeDifficultyLevel>(_changeDifficultyLevel);
     on<ChangeLanguage>(_changeLanguage);
     on<ChangeHapticsEnabled>(_changeHapticsEnabled);
     on<ChangeKanaScale>(_changeKanaScale);
     on<ChangeKanjiJlptFilter>(_changeKanjiJlptFilter);
+    on<ExportStatsRequested>(_exportStats);
+    on<ImportStatsRequested>(_importStats);
     on<LoadSettings>(_loadSettings);
   }
 
@@ -100,6 +114,54 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
     } catch (_) {}
   }
 
+  FutureOr<void> _exportStats(
+    ExportStatsRequested event,
+    Emitter<SettingsState> emit,
+  ) async {
+    emit(SettingsUpdated(state.stateData.copyWith(backupBusy: true)));
+    try {
+      final path = await exportStatsBackup();
+      emit(SettingsBackupSuccess(
+        state.stateData.copyWith(backupBusy: false),
+        message: t.app.settingsBackupExported(path: path),
+      ));
+    } catch (e) {
+      final text = e.toString();
+      if (text.contains('Export cancelled')) {
+        emit(SettingsUpdated(state.stateData.copyWith(backupBusy: false)));
+        return;
+      }
+      emit(SettingsBackupError(
+        state.stateData.copyWith(backupBusy: false),
+        message: t.app.settingsBackupError(error: text),
+      ));
+    }
+  }
+
+  FutureOr<void> _importStats(
+    ImportStatsRequested event,
+    Emitter<SettingsState> emit,
+  ) async {
+    emit(SettingsUpdated(state.stateData.copyWith(backupBusy: true)));
+    try {
+      final imported = await importStatsBackup();
+      emit(SettingsBackupSuccess(
+        state.stateData.copyWith(backupBusy: false),
+        message: t.app.settingsBackupImported(count: imported),
+      ));
+    } catch (e) {
+      final text = e.toString();
+      if (text.contains('No backup file selected')) {
+        emit(SettingsUpdated(state.stateData.copyWith(backupBusy: false)));
+        return;
+      }
+      emit(SettingsBackupError(
+        state.stateData.copyWith(backupBusy: false),
+        message: t.app.settingsBackupError(error: text),
+      ));
+    }
+  }
+
   AppLocale _parseLocale(String code) {
     for (final locale in AppLocale.values) {
       if (locale.languageCode == code) {
@@ -107,5 +169,21 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
       }
     }
     return AppLocale.es;
+  }
+
+  static ExportStatsBackup _buildExportUseCase() {
+    final repository = StatsBackupRepositoryImpl(
+      StatsBackupLocalDataSource(DatabaseProvider.dbProvider),
+      StatsBackupFileDataSource(),
+    );
+    return ExportStatsBackup(repository);
+  }
+
+  static ImportStatsBackup _buildImportUseCase() {
+    final repository = StatsBackupRepositoryImpl(
+      StatsBackupLocalDataSource(DatabaseProvider.dbProvider),
+      StatsBackupFileDataSource(),
+    );
+    return ImportStatsBackup(repository);
   }
 }

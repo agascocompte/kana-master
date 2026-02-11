@@ -157,12 +157,13 @@ class _TranslationsAppEs implements TranslationsAppEn {
 	@override String get settingsKanjiJlptTitle => 'Nivel JLPT kanji';
 	@override String get settingsKanjiJlptSubtitle => 'Limita los kanji a un nivel JLPT.';
 	@override String get kanjiFilterEmpty => 'No hay kanji para este nivel JLPT.';
-	@override String get loginTitle => 'Inicia sesión en Kana Master';
-	@override String get loginSubtitle => 'Guarda tu progreso, sincroniza dispositivos y accede a tus estadísticas desde cualquier lugar.';
-	@override String get loginApple => 'Continuar con Apple';
-	@override String get loginGoogle => 'Continuar con Google';
-	@override String get loginOr => 'o';
-	@override String get loginFooter => 'Al continuar aceptas los Términos y la Política de privacidad.';
+	@override String get settingsBackupTitle => 'Copia de estadísticas';
+	@override String get settingsBackupSubtitle => 'Exporta o importa tu progreso en un archivo JSON.';
+	@override String get settingsBackupExportButton => 'Exportar';
+	@override String get settingsBackupImportButton => 'Importar';
+	@override String settingsBackupExported({required Object path}) => 'Copia exportada en ${path}';
+	@override String settingsBackupImported({required Object count}) => 'Importadas ${count} respuestas';
+	@override String settingsBackupError({required Object error}) => 'Error de copia: ${error}';
 }
 
 /// The flat map containing all translations for locale <es>.
@@ -283,12 +284,13 @@ extension on TranslationsEs {
 			'app.settingsKanjiJlptTitle' => 'Nivel JLPT kanji',
 			'app.settingsKanjiJlptSubtitle' => 'Limita los kanji a un nivel JLPT.',
 			'app.kanjiFilterEmpty' => 'No hay kanji para este nivel JLPT.',
-			'app.loginTitle' => 'Inicia sesión en Kana Master',
-			'app.loginSubtitle' => 'Guarda tu progreso, sincroniza dispositivos y accede a tus estadísticas desde cualquier lugar.',
-			'app.loginApple' => 'Continuar con Apple',
-			'app.loginGoogle' => 'Continuar con Google',
-			'app.loginOr' => 'o',
-			'app.loginFooter' => 'Al continuar aceptas los Términos y la Política de privacidad.',
+			'app.settingsBackupTitle' => 'Copia de estadísticas',
+			'app.settingsBackupSubtitle' => 'Exporta o importa tu progreso en un archivo JSON.',
+			'app.settingsBackupExportButton' => 'Exportar',
+			'app.settingsBackupImportButton' => 'Importar',
+			'app.settingsBackupExported' => ({required Object path}) => 'Copia exportada en ${path}',
+			'app.settingsBackupImported' => ({required Object count}) => 'Importadas ${count} respuestas',
+			'app.settingsBackupError' => ({required Object error}) => 'Error de copia: ${error}',
 			_ => null,
 		};
 	}

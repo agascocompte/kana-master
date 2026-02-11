@@ -157,12 +157,13 @@ class _TranslationsAppKo implements TranslationsAppEn {
 	@override String get settingsKanjiJlptTitle => 'JLPT 한자 레벨';
 	@override String get settingsKanjiJlptSubtitle => '한자를 JLPT 레벨로 제한합니다.';
 	@override String get kanjiFilterEmpty => '이 JLPT 레벨에는 한자가 없습니다.';
-	@override String get loginTitle => 'Kana Master에 로그인';
-	@override String get loginSubtitle => '진행 상황을 저장하고, 기기 간 동기화하며, 프리미엄 혜택을 잠금 해제하세요.';
-	@override String get loginApple => 'Apple로 계속하기';
-	@override String get loginGoogle => 'Google로 계속하기';
-	@override String get loginOr => '또는';
-	@override String get loginFooter => '계속하면 이용 약관 및 개인정보 보호정책에 동의하는 것입니다.';
+	@override String get settingsBackupTitle => '통계 백업';
+	@override String get settingsBackupSubtitle => '진행 상황을 JSON 파일로 내보내거나 가져옵니다.';
+	@override String get settingsBackupExportButton => '내보내기';
+	@override String get settingsBackupImportButton => '가져오기';
+	@override String settingsBackupExported({required Object path}) => '${path}에 백업을 내보냈습니다';
+	@override String settingsBackupImported({required Object count}) => '${count}개의 응답을 가져왔습니다';
+	@override String settingsBackupError({required Object error}) => '백업 오류: ${error}';
 }
 
 /// The flat map containing all translations for locale <ko>.
@@ -283,12 +284,13 @@ extension on TranslationsKo {
 			'app.settingsKanjiJlptTitle' => 'JLPT 한자 레벨',
 			'app.settingsKanjiJlptSubtitle' => '한자를 JLPT 레벨로 제한합니다.',
 			'app.kanjiFilterEmpty' => '이 JLPT 레벨에는 한자가 없습니다.',
-			'app.loginTitle' => 'Kana Master에 로그인',
-			'app.loginSubtitle' => '진행 상황을 저장하고, 기기 간 동기화하며, 프리미엄 혜택을 잠금 해제하세요.',
-			'app.loginApple' => 'Apple로 계속하기',
-			'app.loginGoogle' => 'Google로 계속하기',
-			'app.loginOr' => '또는',
-			'app.loginFooter' => '계속하면 이용 약관 및 개인정보 보호정책에 동의하는 것입니다.',
+			'app.settingsBackupTitle' => '통계 백업',
+			'app.settingsBackupSubtitle' => '진행 상황을 JSON 파일로 내보내거나 가져옵니다.',
+			'app.settingsBackupExportButton' => '내보내기',
+			'app.settingsBackupImportButton' => '가져오기',
+			'app.settingsBackupExported' => ({required Object path}) => '${path}에 백업을 내보냈습니다',
+			'app.settingsBackupImported' => ({required Object count}) => '${count}개의 응답을 가져왔습니다',
+			'app.settingsBackupError' => ({required Object error}) => '백업 오류: ${error}',
 			_ => null,
 		};
 	}

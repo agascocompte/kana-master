@@ -110,11 +110,12 @@
     "settingsKanjiJlptTitle": "Уровень JLPT кандзи",
     "settingsKanjiJlptSubtitle": "Ограничить кандзи уровнем JLPT.",
     "kanjiFilterEmpty": "Нет кандзи для этого уровня JLPT.",
-    "loginTitle": "Войдите в Kana Master",
-    "loginSubtitle": "Сохраняйте прогресс, синхронизируйте между устройствами и разблокируйте премиум-функции.",
-    "loginApple": "Продолжить с Apple",
-    "loginGoogle": "Продолжить с Google",
-    "loginOr": "или",
-    "loginFooter": "Продолжая, вы принимаете Условия и Политику конфиденциальности."
+    "settingsBackupTitle": "Резервное копирование статистики",
+    "settingsBackupSubtitle": "Экспорт или импорт вашего прогресса в виде JSON файла.",
+    "settingsBackupExportButton": "Экспорт",
+    "settingsBackupImportButton": "Импорт",
+    "settingsBackupExported": "Резервная копия экспортирована в ${path}",
+    "settingsBackupImported": "Импортировано ${count} ответов",
+    "settingsBackupError": "Ошибка резервного копирования: ${error}"
   }
 }

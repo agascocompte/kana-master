@@ -110,11 +110,12 @@
     "settingsKanjiJlptTitle": "Nível JLPT dos kanji",
     "settingsKanjiJlptSubtitle": "Limita os kanji a um nível JLPT.",
     "kanjiFilterEmpty": "Não há kanji para este nível JLPT.",
-    "loginTitle": "Iniciar sessão no Kana Master",
-    "loginSubtitle": "Salva o progresso, sincroniza entre dispositivos e desbloqueia benefícios premium.",
-    "loginApple": "Continuar com Apple",
-    "loginGoogle": "Continuar com Google",
-    "loginOr": "ou",
-    "loginFooter": "Ao continuar, você aceita os Termos e a Política de Privacidade."
+    "settingsBackupTitle": "Backup de estatísticas",
+    "settingsBackupSubtitle": "Exporta ou importa o teu progresso como um ficheiro JSON.",
+    "settingsBackupExportButton": "Exportar",
+    "settingsBackupImportButton": "Importar",
+    "settingsBackupExported": "Backup exportado para ${path}",
+    "settingsBackupImported": "Importadas ${count} respostas",
+    "settingsBackupError": "Erro de backup: ${error}"
   }
 }

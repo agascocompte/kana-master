@@ -157,12 +157,13 @@ class _TranslationsAppRu implements TranslationsAppEn {
 	@override String get settingsKanjiJlptTitle => 'Уровень JLPT кандзи';
 	@override String get settingsKanjiJlptSubtitle => 'Ограничить кандзи уровнем JLPT.';
 	@override String get kanjiFilterEmpty => 'Нет кандзи для этого уровня JLPT.';
-	@override String get loginTitle => 'Войдите в Kana Master';
-	@override String get loginSubtitle => 'Сохраняйте прогресс, синхронизируйте между устройствами и разблокируйте премиум-функции.';
-	@override String get loginApple => 'Продолжить с Apple';
-	@override String get loginGoogle => 'Продолжить с Google';
-	@override String get loginOr => 'или';
-	@override String get loginFooter => 'Продолжая, вы принимаете Условия и Политику конфиденциальности.';
+	@override String get settingsBackupTitle => 'Резервное копирование статистики';
+	@override String get settingsBackupSubtitle => 'Экспорт или импорт вашего прогресса в виде JSON файла.';
+	@override String get settingsBackupExportButton => 'Экспорт';
+	@override String get settingsBackupImportButton => 'Импорт';
+	@override String settingsBackupExported({required Object path}) => 'Резервная копия экспортирована в ${path}';
+	@override String settingsBackupImported({required Object count}) => 'Импортировано ${count} ответов';
+	@override String settingsBackupError({required Object error}) => 'Ошибка резервного копирования: ${error}';
 }
 
 /// The flat map containing all translations for locale <ru>.
@@ -283,12 +284,13 @@ extension on TranslationsRu {
 			'app.settingsKanjiJlptTitle' => 'Уровень JLPT кандзи',
 			'app.settingsKanjiJlptSubtitle' => 'Ограничить кандзи уровнем JLPT.',
 			'app.kanjiFilterEmpty' => 'Нет кандзи для этого уровня JLPT.',
-			'app.loginTitle' => 'Войдите в Kana Master',
-			'app.loginSubtitle' => 'Сохраняйте прогресс, синхронизируйте между устройствами и разблокируйте премиум-функции.',
-			'app.loginApple' => 'Продолжить с Apple',
-			'app.loginGoogle' => 'Продолжить с Google',
-			'app.loginOr' => 'или',
-			'app.loginFooter' => 'Продолжая, вы принимаете Условия и Политику конфиденциальности.',
+			'app.settingsBackupTitle' => 'Резервное копирование статистики',
+			'app.settingsBackupSubtitle' => 'Экспорт или импорт вашего прогресса в виде JSON файла.',
+			'app.settingsBackupExportButton' => 'Экспорт',
+			'app.settingsBackupImportButton' => 'Импорт',
+			'app.settingsBackupExported' => ({required Object path}) => 'Резервная копия экспортирована в ${path}',
+			'app.settingsBackupImported' => ({required Object count}) => 'Импортировано ${count} ответов',
+			'app.settingsBackupError' => ({required Object error}) => 'Ошибка резервного копирования: ${error}',
 			_ => null,
 		};
 	}
