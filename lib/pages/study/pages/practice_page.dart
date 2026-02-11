@@ -31,6 +31,7 @@ class PracticePage extends StatelessWidget {
               jlptFilter: settingsState.stateData.kanjiJlptFilter,
             )),
           child: Scaffold(
+            resizeToAvoidBottomInset: false,
             body: Container(
               decoration: const BoxDecoration(
                 gradient: LinearGradient(
