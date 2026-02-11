@@ -202,6 +202,8 @@ class MaterialTab extends StatelessWidget {
                                   labelText: t.app.yourAnswer,
                                   border: const OutlineInputBorder(),
                                 ),
+                                enableSuggestions: false,
+                                autocorrect: false,
                               ),
                               const SizedBox(height: 8),
                               if (data.currentEntry != null &&
