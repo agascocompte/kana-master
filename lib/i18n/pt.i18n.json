@@ -109,6 +109,12 @@
     "settingsKanaSizeValue": "${value}x",
     "settingsKanjiJlptTitle": "Nível JLPT dos kanji",
     "settingsKanjiJlptSubtitle": "Limita os kanji a um nível JLPT.",
+    "settingsUseModelHiraganaTitle": "Hiragana AI model",
+    "settingsUseModelHiraganaSubtitle": "Use model recognition for hiragana drawing tests.",
+    "settingsUseModelKatakanaTitle": "Katakana AI model",
+    "settingsUseModelKatakanaSubtitle": "Use model recognition for katakana drawing tests.",
+    "settingsUseModelKanjiTitle": "Kanji AI model",
+    "settingsUseModelKanjiSubtitle": "Use model recognition for kanji drawing tests.",
     "kanjiFilterEmpty": "Não há kanji para este nível JLPT.",
     "settingsBackupTitle": "Backup de estatísticas",
     "settingsBackupSubtitle": "Exporta ou importa o teu progresso como um ficheiro JSON.",
@@ -116,6 +122,12 @@
     "settingsBackupImportButton": "Importar",
     "settingsBackupExported": "Backup exportado para ${path}",
     "settingsBackupImported": "Importadas ${count} respostas",
-    "settingsBackupError": "Erro de backup: ${error}"
+    "settingsBackupError": "Erro de backup: ${error}",
+    "testGuideShow": "Show guide",
+    "testGuideHide": "Hide guide",
+    "testReportDrawing": "Report drawing",
+    "testReportThanks": "Thanks! Report prepared for review.",
+    "testReportError": "Could not prepare report.",
+    "testKanjiTraceHint": "Follow stroke order. Enable guide if needed."
   }
 }

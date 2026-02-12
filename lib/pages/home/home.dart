@@ -3,8 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kana_master/pages/dictionary/dictionary.dart';
 import 'package:kana_master/pages/home/bloc/home_nav_cubit.dart';
 import 'package:kana_master/pages/settings/settings.dart';
+import 'package:kana_master/pages/settings/bloc/settings_bloc.dart';
 import 'package:kana_master/pages/stats/stats.dart';
 import 'package:kana_master/pages/study/study.dart';
+import 'package:kana_master/pages/test_kana/bloc/test_kana_bloc.dart';
 import 'package:kana_master/i18n/strings.g.dart';
 
 class HomePage extends StatelessWidget {
@@ -13,43 +15,57 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final tr = context.t;
-    return BlocBuilder<HomeNavCubit, int>(
-      builder: (context, index) {
-        return Scaffold(
-          body: IndexedStack(
-            index: index,
-            children: const [
-              StudyTab(),
-              DictionaryTab(),
-              StatsTab(),
-              SettingsPage(),
-            ],
-          ),
-          bottomNavigationBar: NavigationBar(
-            selectedIndex: index,
-            onDestinationSelected: (value) =>
-                context.read<HomeNavCubit>().selectTab(value),
-            destinations: [
-              NavigationDestination(
-                icon: const Icon(Icons.school_outlined),
-                label: tr.app.tabStudy,
-              ),
-              NavigationDestination(
-                icon: const Icon(Icons.search),
-                label: tr.app.dictionary,
-              ),
-              NavigationDestination(
-                icon: const Icon(Icons.bar_chart_outlined),
-                label: tr.app.tabStats,
-              ),
-              NavigationDestination(
-                icon: const Icon(Icons.tune),
-                label: tr.app.settings,
-              ),
-            ],
-          ),
-        );
+    return BlocListener<SettingsBloc, SettingsState>(
+      listenWhen: (previous, current) {
+        final prev = previous.stateData;
+        final next = current.stateData;
+        return prev.kanaType != next.kanaType ||
+            prev.kanjiJlptFilter != next.kanjiJlptFilter ||
+            prev.useModelHiragana != next.useModelHiragana ||
+            prev.useModelKatakana != next.useModelKatakana ||
+            prev.useModelKanji != next.useModelKanji;
       },
+      listener: (context, state) {
+        context.read<TestKanaBloc>().add(ResetTest());
+      },
+      child: BlocBuilder<HomeNavCubit, int>(
+        builder: (context, index) {
+          return Scaffold(
+            body: IndexedStack(
+              index: index,
+              children: const [
+                StudyTab(),
+                DictionaryTab(),
+                StatsTab(),
+                SettingsPage(),
+              ],
+            ),
+            bottomNavigationBar: NavigationBar(
+              selectedIndex: index,
+              onDestinationSelected: (value) =>
+                  context.read<HomeNavCubit>().selectTab(value),
+              destinations: [
+                NavigationDestination(
+                  icon: const Icon(Icons.school_outlined),
+                  label: tr.app.tabStudy,
+                ),
+                NavigationDestination(
+                  icon: const Icon(Icons.search),
+                  label: tr.app.dictionary,
+                ),
+                NavigationDestination(
+                  icon: const Icon(Icons.bar_chart_outlined),
+                  label: tr.app.tabStats,
+                ),
+                NavigationDestination(
+                  icon: const Icon(Icons.tune),
+                  label: tr.app.settings,
+                ),
+              ],
+            ),
+          );
+        },
+      ),
     );
   }
 }

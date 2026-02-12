@@ -140,4 +140,70 @@ class SettingsRepository {
     }
     return 'all';
   }
+
+  Future<void> saveUseModelHiragana(bool enabled) async {
+    final db = await _databaseProvider.database;
+    await db.insert(
+      'settings',
+      {'key': 'use_model_hiragana', 'value': enabled ? '1' : '0'},
+      conflictAlgorithm: ConflictAlgorithm.replace,
+    );
+  }
+
+  Future<bool> getUseModelHiragana() async {
+    final db = await _databaseProvider.database;
+    final result = await db.query(
+      'settings',
+      where: 'key = ?',
+      whereArgs: ['use_model_hiragana'],
+    );
+    if (result.isNotEmpty) {
+      return result.first['value']?.toString() == '1';
+    }
+    return true;
+  }
+
+  Future<void> saveUseModelKatakana(bool enabled) async {
+    final db = await _databaseProvider.database;
+    await db.insert(
+      'settings',
+      {'key': 'use_model_katakana', 'value': enabled ? '1' : '0'},
+      conflictAlgorithm: ConflictAlgorithm.replace,
+    );
+  }
+
+  Future<bool> getUseModelKatakana() async {
+    final db = await _databaseProvider.database;
+    final result = await db.query(
+      'settings',
+      where: 'key = ?',
+      whereArgs: ['use_model_katakana'],
+    );
+    if (result.isNotEmpty) {
+      return result.first['value']?.toString() == '1';
+    }
+    return true;
+  }
+
+  Future<void> saveUseModelKanji(bool enabled) async {
+    final db = await _databaseProvider.database;
+    await db.insert(
+      'settings',
+      {'key': 'use_model_kanji', 'value': enabled ? '1' : '0'},
+      conflictAlgorithm: ConflictAlgorithm.replace,
+    );
+  }
+
+  Future<bool> getUseModelKanji() async {
+    final db = await _databaseProvider.database;
+    final result = await db.query(
+      'settings',
+      where: 'key = ?',
+      whereArgs: ['use_model_kanji'],
+    );
+    if (result.isNotEmpty) {
+      return result.first['value']?.toString() == '1';
+    }
+    return false;
+  }
 }

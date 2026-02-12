@@ -109,6 +109,12 @@
     "settingsKanaSizeValue": "${value}x",
     "settingsKanjiJlptTitle": "JLPT 汉字等级",
     "settingsKanjiJlptSubtitle": "将汉字限制在某个 JLPT 等级。",
+    "settingsUseModelHiraganaTitle": "Hiragana AI model",
+    "settingsUseModelHiraganaSubtitle": "Use model recognition for hiragana drawing tests.",
+    "settingsUseModelKatakanaTitle": "Katakana AI model",
+    "settingsUseModelKatakanaSubtitle": "Use model recognition for katakana drawing tests.",
+    "settingsUseModelKanjiTitle": "Kanji AI model",
+    "settingsUseModelKanjiSubtitle": "Use model recognition for kanji drawing tests.",
     "kanjiFilterEmpty": "该 JLPT 等级没有汉字。",
     "settingsBackupTitle": "统计备份",
     "settingsBackupSubtitle": "导出或导入你的进度为 JSON 文件。",
@@ -116,6 +122,12 @@
     "settingsBackupImportButton": "导入",
     "settingsBackupExported": "备份已导出到 ${path}",
     "settingsBackupImported": "已导入 ${count} 条记录",
-    "settingsBackupError": "备份错误：${error}"
+    "settingsBackupError": "备份错误：${error}",
+    "testGuideShow": "Show guide",
+    "testGuideHide": "Hide guide",
+    "testReportDrawing": "Report drawing",
+    "testReportThanks": "Thanks! Report prepared for review.",
+    "testReportError": "Could not prepare report.",
+    "testKanjiTraceHint": "Follow stroke order. Enable guide if needed."
   }
 }

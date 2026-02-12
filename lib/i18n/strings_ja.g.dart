@@ -156,6 +156,12 @@ class _TranslationsAppJa implements TranslationsAppEn {
 	@override String settingsKanaSizeValue({required Object value}) => '${value}x';
 	@override String get settingsKanjiJlptTitle => 'JLPT漢字レベル';
 	@override String get settingsKanjiJlptSubtitle => '漢字をJLPTレベルで制限します。';
+	@override String get settingsUseModelHiraganaTitle => 'Hiragana AI model';
+	@override String get settingsUseModelHiraganaSubtitle => 'Use model recognition for hiragana drawing tests.';
+	@override String get settingsUseModelKatakanaTitle => 'Katakana AI model';
+	@override String get settingsUseModelKatakanaSubtitle => 'Use model recognition for katakana drawing tests.';
+	@override String get settingsUseModelKanjiTitle => 'Kanji AI model';
+	@override String get settingsUseModelKanjiSubtitle => 'Use model recognition for kanji drawing tests.';
 	@override String get kanjiFilterEmpty => 'このJLPTレベルに対応する漢字はありません。';
 	@override String get settingsBackupTitle => '統計のバックアップ';
 	@override String get settingsBackupSubtitle => '進捗をJSONファイルとしてエクスポートまたはインポートします。';
@@ -164,6 +170,12 @@ class _TranslationsAppJa implements TranslationsAppEn {
 	@override String settingsBackupExported({required Object path}) => '${path} にバックアップをエクスポートしました';
 	@override String settingsBackupImported({required Object count}) => '${count} 件の回答をインポートしました';
 	@override String settingsBackupError({required Object error}) => 'バックアップエラー: ${error}';
+	@override String get testGuideShow => 'Show guide';
+	@override String get testGuideHide => 'Hide guide';
+	@override String get testReportDrawing => 'Report drawing';
+	@override String get testReportThanks => 'Thanks! Report prepared for review.';
+	@override String get testReportError => 'Could not prepare report.';
+	@override String get testKanjiTraceHint => 'Follow stroke order. Enable guide if needed.';
 }
 
 /// The flat map containing all translations for locale <ja>.
@@ -283,6 +295,12 @@ extension on TranslationsJa {
 			'app.settingsKanaSizeValue' => ({required Object value}) => '${value}x',
 			'app.settingsKanjiJlptTitle' => 'JLPT漢字レベル',
 			'app.settingsKanjiJlptSubtitle' => '漢字をJLPTレベルで制限します。',
+			'app.settingsUseModelHiraganaTitle' => 'Hiragana AI model',
+			'app.settingsUseModelHiraganaSubtitle' => 'Use model recognition for hiragana drawing tests.',
+			'app.settingsUseModelKatakanaTitle' => 'Katakana AI model',
+			'app.settingsUseModelKatakanaSubtitle' => 'Use model recognition for katakana drawing tests.',
+			'app.settingsUseModelKanjiTitle' => 'Kanji AI model',
+			'app.settingsUseModelKanjiSubtitle' => 'Use model recognition for kanji drawing tests.',
 			'app.kanjiFilterEmpty' => 'このJLPTレベルに対応する漢字はありません。',
 			'app.settingsBackupTitle' => '統計のバックアップ',
 			'app.settingsBackupSubtitle' => '進捗をJSONファイルとしてエクスポートまたはインポートします。',
@@ -291,6 +309,12 @@ extension on TranslationsJa {
 			'app.settingsBackupExported' => ({required Object path}) => '${path} にバックアップをエクスポートしました',
 			'app.settingsBackupImported' => ({required Object count}) => '${count} 件の回答をインポートしました',
 			'app.settingsBackupError' => ({required Object error}) => 'バックアップエラー: ${error}',
+			'app.testGuideShow' => 'Show guide',
+			'app.testGuideHide' => 'Hide guide',
+			'app.testReportDrawing' => 'Report drawing',
+			'app.testReportThanks' => 'Thanks! Report prepared for review.',
+			'app.testReportError' => 'Could not prepare report.',
+			'app.testKanjiTraceHint' => 'Follow stroke order. Enable guide if needed.',
 			_ => null,
 		};
 	}

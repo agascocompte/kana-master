@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kana_master/constants.dart';
 import 'package:kana_master/domain/models/kanji_entry.dart';
-import 'package:kana_master/i18n/strings.g.dart';
 import 'package:kana_master/pages/test_kana/bloc/test_kana_bloc.dart';
 import 'package:kana_master/pages/test_kana/widgets/test_body.dart';
 import 'package:kana_master/pages/test_kana/widgets/test_buttons_row.dart';
@@ -33,7 +32,6 @@ class TestSessionView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final keyboardInset = MediaQuery.of(context).viewInsets.bottom;
-    final keyboardOpen = keyboardInset > 0;
 
     return AnimatedPadding(
       duration: const Duration(milliseconds: 200),
@@ -41,66 +39,6 @@ class TestSessionView extends StatelessWidget {
       padding: EdgeInsets.fromLTRB(16, 12, 16, 16 + keyboardInset),
       child: Column(
         children: [
-          AnimatedSize(
-            duration: const Duration(milliseconds: 180),
-            curve: Curves.easeOut,
-            child: ClipRect(
-              child: Align(
-                alignment: Alignment.topCenter,
-                heightFactor: keyboardOpen ? 0 : 1,
-                child: Column(
-                  children: [
-                    Container(
-                      width: double.infinity,
-                      padding: const EdgeInsets.all(14),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(16),
-                        border: Border.all(color: AppColors.sand),
-                      ),
-                      child: Row(
-                        children: [
-                          Container(
-                            padding: const EdgeInsets.all(10),
-                            decoration: BoxDecoration(
-                              color: AppColors.sand,
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                            child: const Icon(Icons.bolt, color: AppColors.ink),
-                          ),
-                          const SizedBox(width: 12),
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  modeLabel,
-                                  style: const TextStyle(
-                                    color: AppColors.ink,
-                                    fontWeight: FontWeight.w700,
-                                    fontSize: 14,
-                                  ),
-                                ),
-                                const SizedBox(height: 4),
-                                Text(
-                                  t.app.testStayFocused,
-                                  style: const TextStyle(
-                                    color: AppColors.slate,
-                                    fontSize: 12,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    const SizedBox(height: 12),
-                  ],
-                ),
-              ),
-            ),
-          ),
           Expanded(
             child: Container(
               key: ValueKey<int>(state.stateData.kanaIndex),
@@ -124,6 +62,7 @@ class TestSessionView extends StatelessWidget {
                     kana: kana,
                     kanaType: kanaType,
                     kanjiEntries: kanjiEntries,
+                    kanjiMeanings: kanjiMeanings,
                     kanaScale: kanaScale,
                   ),
                   const SizedBox(height: 12),

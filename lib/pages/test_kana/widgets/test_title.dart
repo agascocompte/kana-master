@@ -11,6 +11,7 @@ class TestTitle extends StatelessWidget {
   final Map<String, String> kana;
   final KanaType kanaType;
   final List<KanjiEntry> kanjiEntries;
+  final Map<String, List<String>> kanjiMeanings;
   final double kanaScale;
 
   const TestTitle({
@@ -19,6 +20,7 @@ class TestTitle extends StatelessWidget {
     required this.kana,
     required this.kanaType,
     this.kanjiEntries = const [],
+    this.kanjiMeanings = const {},
     this.kanaScale = 1.0,
   });
 
@@ -26,8 +28,8 @@ class TestTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     final tr = context.t;
     final bool keyboardOpen = MediaQuery.of(context).viewInsets.bottom > 0;
-    final double spacing = keyboardOpen ? 14 : 30;
-    final double heroScale = keyboardOpen ? kanaScale * 0.92 : kanaScale;
+    final double spacing = keyboardOpen ? 10 : 18;
+    final double heroScale = keyboardOpen ? kanaScale * 0.9 : kanaScale * 0.95;
     final String kanaText = _scriptLabel(tr);
     final String drawingLabel = _getDrawingLabel();
     final String promptText = kanaType == KanaType.kanji
@@ -81,6 +83,11 @@ class TestTitle extends StatelessWidget {
     final int index = state.stateData.kanaIndex;
     if (kanaType == KanaType.kanji) {
       if (index >= 0 && index < kanjiEntries.length) {
+        final key = kanjiEntries[index].unicode;
+        final meanings = kanjiMeanings[key] ?? const [];
+        if (meanings.isNotEmpty) {
+          return meanings.first;
+        }
         return kanjiEntries[index].character;
       }
       return '';

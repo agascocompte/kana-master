@@ -19,6 +19,9 @@ class TestTab extends StatelessWidget {
   final Map<String, List<String>> kanjiMeanings;
   final DifficultyLevel difficultyLevel;
   final double kanaScale;
+  final bool useModelHiragana;
+  final bool useModelKatakana;
+  final bool useModelKanji;
 
   const TestTab({
     super.key,
@@ -28,6 +31,9 @@ class TestTab extends StatelessWidget {
     this.kanjiMeanings = const {},
     required this.difficultyLevel,
     this.kanaScale = 1.0,
+    this.useModelHiragana = true,
+    this.useModelKatakana = true,
+    this.useModelKanji = false,
   });
 
   @override
@@ -38,6 +44,18 @@ class TestTab extends StatelessWidget {
             context.read<SettingsBloc>().state.stateData.hapticsEnabled;
         if (state is ErrorPredictingHiragana) {
           Snackbars.showErrorScaffold(context, state.msg);
+        } else if (state is DrawingReportShared) {
+          Snackbars.showSuccessScaffold(
+            context,
+            t.app.testReportThanks,
+            visibleDuration: const Duration(milliseconds: 2600),
+          );
+        } else if (state is DrawingReportError) {
+          Snackbars.showErrorScaffold(
+            context,
+            t.app.testReportError,
+            visibleDuration: const Duration(milliseconds: 2600),
+          );
         } else if (state is HiraganaWritingSuccess ||
             state is KanaSelectedSuccess) {
           context.read<StatsBloc>().add(AddAnswerResult(
@@ -54,6 +72,9 @@ class TestTab extends StatelessWidget {
                 kanjiEntries: kanjiEntries,
                 kanjiMeanings: kanjiMeanings,
                 difficultyLevel: difficultyLevel,
+                useModelHiragana: useModelHiragana,
+                useModelKatakana: useModelKatakana,
+                useModelKanji: useModelKanji,
               ));
         } else if (state is HiraganaWritingFail || state is KanaSelectedFail) {
           context.read<StatsBloc>().add(AddAnswerResult(
@@ -79,7 +100,11 @@ class TestTab extends StatelessWidget {
               kanaType: kanaType,
               kanjiEntries: kanjiEntries,
               kanjiMeanings: kanjiMeanings,
-              difficultyLevel: difficultyLevel);
+              difficultyLevel: difficultyLevel,
+              useModelHiragana: useModelHiragana,
+              useModelKatakana: useModelKatakana,
+              useModelKanji: useModelKanji,
+          );
         }
         return Stack(
           children: [

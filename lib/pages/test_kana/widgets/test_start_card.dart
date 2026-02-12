@@ -15,6 +15,9 @@ class TestStartCard extends StatelessWidget {
     required this.kanjiEntries,
     required this.kanjiMeanings,
     required this.difficultyLevel,
+    required this.useModelHiragana,
+    required this.useModelKatakana,
+    required this.useModelKanji,
   });
 
   final String modeLabel;
@@ -23,6 +26,9 @@ class TestStartCard extends StatelessWidget {
   final List<KanjiEntry> kanjiEntries;
   final Map<String, List<String>> kanjiMeanings;
   final DifficultyLevel difficultyLevel;
+  final bool useModelHiragana;
+  final bool useModelKatakana;
+  final bool useModelKanji;
 
   @override
   Widget build(BuildContext context) {
@@ -78,6 +84,9 @@ class TestStartCard extends StatelessWidget {
                       kanjiEntries: kanjiEntries,
                       kanjiMeanings: kanjiMeanings,
                       difficultyLevel: difficultyLevel,
+                      useModelHiragana: useModelHiragana,
+                      useModelKatakana: useModelKatakana,
+                      useModelKanji: useModelKanji,
                     ),
                   ),
               style: ElevatedButton.styleFrom(

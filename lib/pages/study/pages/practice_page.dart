@@ -91,8 +91,12 @@ class PracticePage extends StatelessWidget {
                                         Text(learnState.stateData.errorMessage),
                                   );
                                 }
-                                if (learnState
-                                    .stateData.filteredKanjiEntries.isEmpty) {
+                                final bool useModelKanji =
+                                    settingsState.stateData.useModelKanji;
+                                final entriesForTest = useModelKanji
+                                    ? learnState.stateData.kanjiEntries
+                                    : learnState.stateData.filteredKanjiEntries;
+                                if (entriesForTest.isEmpty) {
                                   return Center(
                                     child: Text(t.app.kanjiFilterEmpty),
                                   );
@@ -100,13 +104,18 @@ class PracticePage extends StatelessWidget {
                                 return TestTab(
                                   kanaType: kanaType,
                                   kana: const {},
-                                  kanjiEntries:
-                                      learnState.stateData.filteredKanjiEntries,
+                                  kanjiEntries: entriesForTest,
                                   kanjiMeanings:
                                       learnState.stateData.kanjiMeanings,
                                   difficultyLevel:
                                       settingsState.stateData.difficultyLevel,
                                   kanaScale: settingsState.stateData.kanaScale,
+                                  useModelHiragana:
+                                      settingsState.stateData.useModelHiragana,
+                                  useModelKatakana:
+                                      settingsState.stateData.useModelKatakana,
+                                  useModelKanji:
+                                      settingsState.stateData.useModelKanji,
                                 );
                               },
                             )
@@ -116,6 +125,12 @@ class PracticePage extends StatelessWidget {
                               difficultyLevel:
                                   settingsState.stateData.difficultyLevel,
                               kanaScale: settingsState.stateData.kanaScale,
+                              useModelHiragana:
+                                  settingsState.stateData.useModelHiragana,
+                              useModelKatakana:
+                                  settingsState.stateData.useModelKatakana,
+                              useModelKanji:
+                                  settingsState.stateData.useModelKanji,
                             ),
                     ),
                   ],
