@@ -8,6 +8,9 @@ class SettingsStateData {
   final double kanaScale;
   final String kanjiJlptFilter;
   final bool backupBusy;
+  final bool useModelHiragana;
+  final bool useModelKatakana;
+  final bool useModelKanji;
 
   SettingsStateData({
     this.kanaType = KanaType.hiragana,
@@ -17,6 +20,9 @@ class SettingsStateData {
     this.kanaScale = 1.0,
     this.kanjiJlptFilter = 'all',
     this.backupBusy = false,
+    this.useModelHiragana = true,
+    this.useModelKatakana = true,
+    this.useModelKanji = false,
   });
 
   SettingsStateData copyWith({
@@ -27,6 +33,9 @@ class SettingsStateData {
     double? kanaScale,
     String? kanjiJlptFilter,
     bool? backupBusy,
+    bool? useModelHiragana,
+    bool? useModelKatakana,
+    bool? useModelKanji,
   }) {
     return SettingsStateData(
       kanaType: kanaType ?? this.kanaType,
@@ -36,6 +45,9 @@ class SettingsStateData {
       kanaScale: kanaScale ?? this.kanaScale,
       kanjiJlptFilter: kanjiJlptFilter ?? this.kanjiJlptFilter,
       backupBusy: backupBusy ?? this.backupBusy,
+      useModelHiragana: useModelHiragana ?? this.useModelHiragana,
+      useModelKatakana: useModelKatakana ?? this.useModelKatakana,
+      useModelKanji: useModelKanji ?? this.useModelKanji,
     );
   }
 }

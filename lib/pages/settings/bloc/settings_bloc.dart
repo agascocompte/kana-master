@@ -34,6 +34,9 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
     on<ChangeHapticsEnabled>(_changeHapticsEnabled);
     on<ChangeKanaScale>(_changeKanaScale);
     on<ChangeKanjiJlptFilter>(_changeKanjiJlptFilter);
+    on<ChangeUseModelHiragana>(_changeUseModelHiragana);
+    on<ChangeUseModelKatakana>(_changeUseModelKatakana);
+    on<ChangeUseModelKanji>(_changeUseModelKanji);
     on<ExportStatsRequested>(_exportStats);
     on<ImportStatsRequested>(_importStats);
     on<LoadSettings>(_loadSettings);
@@ -66,6 +69,9 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
     bool hapticsEnabled = await settingsRepository.getHapticsEnabled();
     double kanaScale = await settingsRepository.getKanaScale();
     String kanjiJlptFilter = await settingsRepository.getKanjiJlptFilter();
+    bool useModelHiragana = await settingsRepository.getUseModelHiragana();
+    bool useModelKatakana = await settingsRepository.getUseModelKatakana();
+    bool useModelKanji = await settingsRepository.getUseModelKanji();
 
     emit(SettingsUpdated(state.stateData.copyWith(
       kanaType: kanaType,
@@ -74,6 +80,9 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
       hapticsEnabled: hapticsEnabled,
       kanaScale: kanaScale,
       kanjiJlptFilter: kanjiJlptFilter,
+      useModelHiragana: useModelHiragana,
+      useModelKatakana: useModelKatakana,
+      useModelKanji: useModelKanji,
     )));
     LocaleSettings.setLocale(_parseLocale(languageCode));
   }
@@ -111,6 +120,32 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
         state.stateData.copyWith(kanjiJlptFilter: event.filter)));
     try {
       await settingsRepository.saveKanjiJlptFilter(event.filter);
+    } catch (_) {}
+  }
+
+  FutureOr<void> _changeUseModelHiragana(
+      ChangeUseModelHiragana event, Emitter<SettingsState> emit) async {
+    emit(SettingsUpdated(
+        state.stateData.copyWith(useModelHiragana: event.enabled)));
+    try {
+      await settingsRepository.saveUseModelHiragana(event.enabled);
+    } catch (_) {}
+  }
+
+  FutureOr<void> _changeUseModelKatakana(
+      ChangeUseModelKatakana event, Emitter<SettingsState> emit) async {
+    emit(SettingsUpdated(
+        state.stateData.copyWith(useModelKatakana: event.enabled)));
+    try {
+      await settingsRepository.saveUseModelKatakana(event.enabled);
+    } catch (_) {}
+  }
+
+  FutureOr<void> _changeUseModelKanji(
+      ChangeUseModelKanji event, Emitter<SettingsState> emit) async {
+    emit(SettingsUpdated(state.stateData.copyWith(useModelKanji: event.enabled)));
+    try {
+      await settingsRepository.saveUseModelKanji(event.enabled);
     } catch (_) {}
   }
 

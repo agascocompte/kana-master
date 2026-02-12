@@ -156,6 +156,12 @@ class _TranslationsAppRu implements TranslationsAppEn {
 	@override String settingsKanaSizeValue({required Object value}) => '${value}x';
 	@override String get settingsKanjiJlptTitle => 'Уровень JLPT кандзи';
 	@override String get settingsKanjiJlptSubtitle => 'Ограничить кандзи уровнем JLPT.';
+	@override String get settingsUseModelHiraganaTitle => 'Hiragana AI model';
+	@override String get settingsUseModelHiraganaSubtitle => 'Use model recognition for hiragana drawing tests.';
+	@override String get settingsUseModelKatakanaTitle => 'Katakana AI model';
+	@override String get settingsUseModelKatakanaSubtitle => 'Use model recognition for katakana drawing tests.';
+	@override String get settingsUseModelKanjiTitle => 'Kanji AI model';
+	@override String get settingsUseModelKanjiSubtitle => 'Use model recognition for kanji drawing tests.';
 	@override String get kanjiFilterEmpty => 'Нет кандзи для этого уровня JLPT.';
 	@override String get settingsBackupTitle => 'Резервное копирование статистики';
 	@override String get settingsBackupSubtitle => 'Экспорт или импорт вашего прогресса в виде JSON файла.';
@@ -164,6 +170,12 @@ class _TranslationsAppRu implements TranslationsAppEn {
 	@override String settingsBackupExported({required Object path}) => 'Резервная копия экспортирована в ${path}';
 	@override String settingsBackupImported({required Object count}) => 'Импортировано ${count} ответов';
 	@override String settingsBackupError({required Object error}) => 'Ошибка резервного копирования: ${error}';
+	@override String get testGuideShow => 'Show guide';
+	@override String get testGuideHide => 'Hide guide';
+	@override String get testReportDrawing => 'Report drawing';
+	@override String get testReportThanks => 'Thanks! Report prepared for review.';
+	@override String get testReportError => 'Could not prepare report.';
+	@override String get testKanjiTraceHint => 'Follow stroke order. Enable guide if needed.';
 }
 
 /// The flat map containing all translations for locale <ru>.
@@ -283,6 +295,12 @@ extension on TranslationsRu {
 			'app.settingsKanaSizeValue' => ({required Object value}) => '${value}x',
 			'app.settingsKanjiJlptTitle' => 'Уровень JLPT кандзи',
 			'app.settingsKanjiJlptSubtitle' => 'Ограничить кандзи уровнем JLPT.',
+			'app.settingsUseModelHiraganaTitle' => 'Hiragana AI model',
+			'app.settingsUseModelHiraganaSubtitle' => 'Use model recognition for hiragana drawing tests.',
+			'app.settingsUseModelKatakanaTitle' => 'Katakana AI model',
+			'app.settingsUseModelKatakanaSubtitle' => 'Use model recognition for katakana drawing tests.',
+			'app.settingsUseModelKanjiTitle' => 'Kanji AI model',
+			'app.settingsUseModelKanjiSubtitle' => 'Use model recognition for kanji drawing tests.',
 			'app.kanjiFilterEmpty' => 'Нет кандзи для этого уровня JLPT.',
 			'app.settingsBackupTitle' => 'Резервное копирование статистики',
 			'app.settingsBackupSubtitle' => 'Экспорт или импорт вашего прогресса в виде JSON файла.',
@@ -291,6 +309,12 @@ extension on TranslationsRu {
 			'app.settingsBackupExported' => ({required Object path}) => 'Резервная копия экспортирована в ${path}',
 			'app.settingsBackupImported' => ({required Object count}) => 'Импортировано ${count} ответов',
 			'app.settingsBackupError' => ({required Object error}) => 'Ошибка резервного копирования: ${error}',
+			'app.testGuideShow' => 'Show guide',
+			'app.testGuideHide' => 'Hide guide',
+			'app.testReportDrawing' => 'Report drawing',
+			'app.testReportThanks' => 'Thanks! Report prepared for review.',
+			'app.testReportError' => 'Could not prepare report.',
+			'app.testKanjiTraceHint' => 'Follow stroke order. Enable guide if needed.',
 			_ => null,
 		};
 	}

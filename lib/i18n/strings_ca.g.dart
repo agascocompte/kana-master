@@ -156,6 +156,12 @@ class _TranslationsAppCa implements TranslationsAppEn {
 	@override String settingsKanaSizeValue({required Object value}) => '${value}x';
 	@override String get settingsKanjiJlptTitle => 'Nivell JLPT de kanji';
 	@override String get settingsKanjiJlptSubtitle => 'Limita els kanji a un nivell JLPT.';
+	@override String get settingsUseModelHiraganaTitle => 'Hiragana AI model';
+	@override String get settingsUseModelHiraganaSubtitle => 'Use model recognition for hiragana drawing tests.';
+	@override String get settingsUseModelKatakanaTitle => 'Katakana AI model';
+	@override String get settingsUseModelKatakanaSubtitle => 'Use model recognition for katakana drawing tests.';
+	@override String get settingsUseModelKanjiTitle => 'Kanji AI model';
+	@override String get settingsUseModelKanjiSubtitle => 'Use model recognition for kanji drawing tests.';
 	@override String get kanjiFilterEmpty => 'No hi ha kanji per a aquest nivell JLPT.';
 	@override String get settingsBackupTitle => 'Còpia de seguretat de les estadístiques';
 	@override String get settingsBackupSubtitle => 'Exporta o importa el teu progrés com un fitxer JSON.';
@@ -164,6 +170,12 @@ class _TranslationsAppCa implements TranslationsAppEn {
 	@override String settingsBackupExported({required Object path}) => 'Còpia de seguretat exportada a ${path}';
 	@override String settingsBackupImported({required Object count}) => 'Importades ${count} respostes';
 	@override String settingsBackupError({required Object error}) => 'Error de còpia de seguretat: ${error}';
+	@override String get testGuideShow => 'Show guide';
+	@override String get testGuideHide => 'Hide guide';
+	@override String get testReportDrawing => 'Report drawing';
+	@override String get testReportThanks => 'Thanks! Report prepared for review.';
+	@override String get testReportError => 'Could not prepare report.';
+	@override String get testKanjiTraceHint => 'Follow stroke order. Enable guide if needed.';
 }
 
 /// The flat map containing all translations for locale <ca>.
@@ -283,6 +295,12 @@ extension on TranslationsCa {
 			'app.settingsKanaSizeValue' => ({required Object value}) => '${value}x',
 			'app.settingsKanjiJlptTitle' => 'Nivell JLPT de kanji',
 			'app.settingsKanjiJlptSubtitle' => 'Limita els kanji a un nivell JLPT.',
+			'app.settingsUseModelHiraganaTitle' => 'Hiragana AI model',
+			'app.settingsUseModelHiraganaSubtitle' => 'Use model recognition for hiragana drawing tests.',
+			'app.settingsUseModelKatakanaTitle' => 'Katakana AI model',
+			'app.settingsUseModelKatakanaSubtitle' => 'Use model recognition for katakana drawing tests.',
+			'app.settingsUseModelKanjiTitle' => 'Kanji AI model',
+			'app.settingsUseModelKanjiSubtitle' => 'Use model recognition for kanji drawing tests.',
 			'app.kanjiFilterEmpty' => 'No hi ha kanji per a aquest nivell JLPT.',
 			'app.settingsBackupTitle' => 'Còpia de seguretat de les estadístiques',
 			'app.settingsBackupSubtitle' => 'Exporta o importa el teu progrés com un fitxer JSON.',
@@ -291,6 +309,12 @@ extension on TranslationsCa {
 			'app.settingsBackupExported' => ({required Object path}) => 'Còpia de seguretat exportada a ${path}',
 			'app.settingsBackupImported' => ({required Object count}) => 'Importades ${count} respostes',
 			'app.settingsBackupError' => ({required Object error}) => 'Error de còpia de seguretat: ${error}',
+			'app.testGuideShow' => 'Show guide',
+			'app.testGuideHide' => 'Hide guide',
+			'app.testReportDrawing' => 'Report drawing',
+			'app.testReportThanks' => 'Thanks! Report prepared for review.',
+			'app.testReportError' => 'Could not prepare report.',
+			'app.testKanjiTraceHint' => 'Follow stroke order. Enable guide if needed.',
 			_ => null,
 		};
 	}

@@ -156,6 +156,12 @@ class _TranslationsAppKo implements TranslationsAppEn {
 	@override String settingsKanaSizeValue({required Object value}) => '${value}x';
 	@override String get settingsKanjiJlptTitle => 'JLPT 한자 레벨';
 	@override String get settingsKanjiJlptSubtitle => '한자를 JLPT 레벨로 제한합니다.';
+	@override String get settingsUseModelHiraganaTitle => 'Hiragana AI model';
+	@override String get settingsUseModelHiraganaSubtitle => 'Use model recognition for hiragana drawing tests.';
+	@override String get settingsUseModelKatakanaTitle => 'Katakana AI model';
+	@override String get settingsUseModelKatakanaSubtitle => 'Use model recognition for katakana drawing tests.';
+	@override String get settingsUseModelKanjiTitle => 'Kanji AI model';
+	@override String get settingsUseModelKanjiSubtitle => 'Use model recognition for kanji drawing tests.';
 	@override String get kanjiFilterEmpty => '이 JLPT 레벨에는 한자가 없습니다.';
 	@override String get settingsBackupTitle => '통계 백업';
 	@override String get settingsBackupSubtitle => '진행 상황을 JSON 파일로 내보내거나 가져옵니다.';
@@ -164,6 +170,12 @@ class _TranslationsAppKo implements TranslationsAppEn {
 	@override String settingsBackupExported({required Object path}) => '${path}에 백업을 내보냈습니다';
 	@override String settingsBackupImported({required Object count}) => '${count}개의 응답을 가져왔습니다';
 	@override String settingsBackupError({required Object error}) => '백업 오류: ${error}';
+	@override String get testGuideShow => 'Show guide';
+	@override String get testGuideHide => 'Hide guide';
+	@override String get testReportDrawing => 'Report drawing';
+	@override String get testReportThanks => 'Thanks! Report prepared for review.';
+	@override String get testReportError => 'Could not prepare report.';
+	@override String get testKanjiTraceHint => 'Follow stroke order. Enable guide if needed.';
 }
 
 /// The flat map containing all translations for locale <ko>.
@@ -283,6 +295,12 @@ extension on TranslationsKo {
 			'app.settingsKanaSizeValue' => ({required Object value}) => '${value}x',
 			'app.settingsKanjiJlptTitle' => 'JLPT 한자 레벨',
 			'app.settingsKanjiJlptSubtitle' => '한자를 JLPT 레벨로 제한합니다.',
+			'app.settingsUseModelHiraganaTitle' => 'Hiragana AI model',
+			'app.settingsUseModelHiraganaSubtitle' => 'Use model recognition for hiragana drawing tests.',
+			'app.settingsUseModelKatakanaTitle' => 'Katakana AI model',
+			'app.settingsUseModelKatakanaSubtitle' => 'Use model recognition for katakana drawing tests.',
+			'app.settingsUseModelKanjiTitle' => 'Kanji AI model',
+			'app.settingsUseModelKanjiSubtitle' => 'Use model recognition for kanji drawing tests.',
 			'app.kanjiFilterEmpty' => '이 JLPT 레벨에는 한자가 없습니다.',
 			'app.settingsBackupTitle' => '통계 백업',
 			'app.settingsBackupSubtitle' => '진행 상황을 JSON 파일로 내보내거나 가져옵니다.',
@@ -291,6 +309,12 @@ extension on TranslationsKo {
 			'app.settingsBackupExported' => ({required Object path}) => '${path}에 백업을 내보냈습니다',
 			'app.settingsBackupImported' => ({required Object count}) => '${count}개의 응답을 가져왔습니다',
 			'app.settingsBackupError' => ({required Object error}) => '백업 오류: ${error}',
+			'app.testGuideShow' => 'Show guide',
+			'app.testGuideHide' => 'Hide guide',
+			'app.testReportDrawing' => 'Report drawing',
+			'app.testReportThanks' => 'Thanks! Report prepared for review.',
+			'app.testReportError' => 'Could not prepare report.',
+			'app.testKanjiTraceHint' => 'Follow stroke order. Enable guide if needed.',
 			_ => null,
 		};
 	}

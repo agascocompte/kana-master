@@ -5,13 +5,19 @@ import 'package:flutter/rendering.dart';
 import 'package:kana_master/constants.dart';
 import 'package:image/image.dart' as img;
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:kana_master/domain/models/paint_stroke.dart';
 import 'package:kana_master/pages/test_kana/bloc/test_kana_bloc.dart';
 import 'package:kana_master/pages/test_kana/widgets/drawing_painter.dart';
 
 class DrawingBoard extends StatefulWidget {
+  final bool showKanjiGuide;
+  final String? kanjiGuideAssetPath;
+
   const DrawingBoard({
     super.key,
+    this.showKanjiGuide = false,
+    this.kanjiGuideAssetPath,
   });
 
   @override
@@ -40,7 +46,9 @@ class DrawingBoardState extends State<DrawingBoard> {
 
         if (!mounted) return;
 
-        context.read<TestKanaBloc>().add(EvaluateImage(image: resizedImage));
+        context
+            .read<TestKanaBloc>()
+            .add(EvaluateImage(image: resizedImage, pngBytes: imageBytes));
       }
     }
   }
@@ -54,11 +62,16 @@ class DrawingBoardState extends State<DrawingBoard> {
         }
       },
       builder: (context, state) {
+        final shortestSide = MediaQuery.of(context).size.shortestSide;
+        final brushWidth = shortestSide >= 700 ? 16.0 : 11.5;
         return GestureDetector(
           onPanStart: (details) {
             setState(() {
               _lastPoint = details.localPosition;
             });
+            context
+                .read<TestKanaBloc>()
+                .add(StartStroke(point: details.localPosition));
           },
           onPanUpdate: (details) {
             if (!state.stateData.canSubmitAnswer) {
@@ -79,11 +92,35 @@ class DrawingBoardState extends State<DrawingBoard> {
             });
           },
           child: RepaintBoundary(
-            key: painterKey,
-            child: CustomPaint(
-              painter: DrawingPainter(state.stateData.strokes),
-              size: Size.infinite,
-              child: Container(),
+            child: Stack(
+              children: [
+                if (widget.showKanjiGuide && widget.kanjiGuideAssetPath != null)
+                  Positioned.fill(
+                    child: IgnorePointer(
+                      child: Opacity(
+                        opacity: 0.2,
+                        child: Padding(
+                          padding: const EdgeInsets.all(18),
+                          child: SvgPicture.asset(
+                            widget.kanjiGuideAssetPath!,
+                            fit: BoxFit.contain,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                RepaintBoundary(
+                  key: painterKey,
+                  child: CustomPaint(
+                    painter: DrawingPainter(
+                      state.stateData.strokes,
+                      strokeWidth: brushWidth,
+                    ),
+                    size: Size.infinite,
+                    child: Container(),
+                  ),
+                ),
+              ],
             ),
           ),
         );

@@ -8,12 +8,18 @@ class BeginTest extends TestKanaEvent {
   final List<KanjiEntry> kanjiEntries;
   final Map<String, List<String>> kanjiMeanings;
   final DifficultyLevel difficultyLevel;
+  final bool useModelHiragana;
+  final bool useModelKatakana;
+  final bool useModelKanji;
   BeginTest({
     required this.kana,
     required this.kanaType,
     this.kanjiEntries = const [],
     this.kanjiMeanings = const {},
     required this.difficultyLevel,
+    required this.useModelHiragana,
+    required this.useModelKatakana,
+    required this.useModelKanji,
   });
 }
 
@@ -22,13 +28,19 @@ class AddStroke extends TestKanaEvent {
   AddStroke({required this.stroke});
 }
 
+class StartStroke extends TestKanaEvent {
+  final Offset point;
+  StartStroke({required this.point});
+}
+
 class ResetTest extends TestKanaEvent {}
 
 class ClearDrawing extends TestKanaEvent {}
 
 class EvaluateImage extends TestKanaEvent {
   final img.Image image;
-  EvaluateImage({required this.image});
+  final Uint8List pngBytes;
+  EvaluateImage({required this.image, required this.pngBytes});
 }
 
 class CaptureImage extends TestKanaEvent {}
@@ -39,12 +51,18 @@ class TestNextKana extends TestKanaEvent {
   final List<KanjiEntry> kanjiEntries;
   final Map<String, List<String>> kanjiMeanings;
   final DifficultyLevel difficultyLevel;
+  final bool useModelHiragana;
+  final bool useModelKatakana;
+  final bool useModelKanji;
   TestNextKana({
     required this.kana,
     required this.kanaType,
     this.kanjiEntries = const [],
     this.kanjiMeanings = const {},
     required this.difficultyLevel,
+    required this.useModelHiragana,
+    required this.useModelKatakana,
+    required this.useModelKanji,
   });
 }
 
@@ -73,3 +91,7 @@ class UpdateUserTextAnswer extends TestKanaEvent {
 
   UpdateUserTextAnswer({required this.userAnswer});
 }
+
+class ToggleKanjiTemplate extends TestKanaEvent {}
+
+class ReportDrawingFalseNegative extends TestKanaEvent {}

@@ -117,6 +117,42 @@ class SettingsPage extends StatelessWidget {
                           },
                         ),
                         const SizedBox(height: 12),
+                        SettingsSwitchCard(
+                          title: tr.app.settingsUseModelHiraganaTitle,
+                          subtitle: tr.app.settingsUseModelHiraganaSubtitle,
+                          icon: Icons.psychology_outlined,
+                          value: state.stateData.useModelHiragana,
+                          onChanged: (value) {
+                            context.read<SettingsBloc>().add(
+                                  ChangeUseModelHiragana(enabled: value),
+                                );
+                          },
+                        ),
+                        const SizedBox(height: 12),
+                        SettingsSwitchCard(
+                          title: tr.app.settingsUseModelKatakanaTitle,
+                          subtitle: tr.app.settingsUseModelKatakanaSubtitle,
+                          icon: Icons.psychology_alt_outlined,
+                          value: state.stateData.useModelKatakana,
+                          onChanged: (value) {
+                            context.read<SettingsBloc>().add(
+                                  ChangeUseModelKatakana(enabled: value),
+                                );
+                          },
+                        ),
+                        const SizedBox(height: 12),
+                        SettingsSwitchCard(
+                          title: tr.app.settingsUseModelKanjiTitle,
+                          subtitle: tr.app.settingsUseModelKanjiSubtitle,
+                          icon: Icons.auto_awesome_outlined,
+                          value: state.stateData.useModelKanji,
+                          onChanged: (value) {
+                            context.read<SettingsBloc>().add(
+                                  ChangeUseModelKanji(enabled: value),
+                                );
+                          },
+                        ),
+                        const SizedBox(height: 12),
                         DropdownTileSetting(
                           title: tr.app.settingsKanjiJlptTitle,
                           subtitle: tr.app.settingsKanjiJlptSubtitle,

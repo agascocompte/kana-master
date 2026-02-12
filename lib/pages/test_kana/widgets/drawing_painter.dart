@@ -4,17 +4,21 @@ import 'package:kana_master/theme/app_theme.dart';
 
 class DrawingPainter extends CustomPainter {
   final List<PaintStroke> strokes;
-  final Paint defaultPaint = Paint()
-    ..color = AppColors.teal
-    ..strokeWidth = 20.0
-    ..strokeCap = StrokeCap.round;
+  final double strokeWidth;
 
-  DrawingPainter(this.strokes);
+  DrawingPainter(
+    this.strokes, {
+    required this.strokeWidth,
+  });
 
   @override
   void paint(Canvas canvas, Size size) {
+    final paint = Paint()
+      ..color = AppColors.teal
+      ..strokeWidth = strokeWidth
+      ..strokeCap = StrokeCap.round;
     for (var stroke in strokes) {
-      canvas.drawLine(stroke.from, stroke.to, defaultPaint);
+      canvas.drawLine(stroke.from, stroke.to, paint);
     }
   }
 

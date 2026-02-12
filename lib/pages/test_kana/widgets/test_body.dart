@@ -34,29 +34,50 @@ class TestBody extends StatelessWidget {
         ? Column(
             children: [
               Text(
-                t.app.testSketchHint,
+                kanaType == KanaType.kanji
+                    ? t.app.testKanjiTraceHint
+                    : t.app.testSketchHint,
                 style: const TextStyle(
                   color: AppColors.slate,
-                  fontSize: 12,
+                  fontSize: 11,
                 ),
               ),
-              const SizedBox(height: 10),
+              const SizedBox(height: 6),
               Expanded(
-                child: Center(
-                  child: AspectRatio(
-                    aspectRatio: 1,
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: AppColors.mist,
-                        borderRadius: BorderRadius.circular(18),
-                        border: Border.all(color: AppColors.sand, width: 2),
+                child: LayoutBuilder(
+                  builder: (context, constraints) {
+                    final targetHeight =
+                        (constraints.maxHeight * 0.98).clamp(280.0, 460.0);
+                    return Align(
+                      alignment: Alignment.topCenter,
+                      child: SizedBox(
+                        width: double.infinity,
+                        height: targetHeight,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: AppColors.mist,
+                            borderRadius: BorderRadius.circular(18),
+                            border: Border.all(color: AppColors.sand, width: 2),
+                          ),
+                          child: ClipRRect(
+                            borderRadius: const BorderRadius.all(
+                              Radius.circular(18),
+                            ),
+                            child: DrawingBoard(
+                              showKanjiGuide:
+                                  !state.stateData.currentScriptUsesModel &&
+                                      state.stateData.showKanjiTemplate,
+                              kanjiGuideAssetPath: _guideAssetPath(
+                                kanaType: kanaType,
+                                kanaIndex: state.stateData.kanaIndex,
+                                kanjiEntries: kanjiEntries,
+                              ),
+                            ),
+                          ),
+                        ),
                       ),
-                      child: const ClipRRect(
-                        borderRadius: BorderRadius.all(Radius.circular(18)),
-                        child: DrawingBoard(),
-                      ),
-                    ),
-                  ),
+                    );
+                  },
                 ),
               ),
             ],
@@ -75,4 +96,31 @@ class TestBody extends StatelessWidget {
                 kanaIndex: state.stateData.kanaIndex,
               );
   }
+}
+
+String? _guideAssetPath({
+  required KanaType kanaType,
+  required int kanaIndex,
+  required List<KanjiEntry> kanjiEntries,
+}) {
+  if (kanaType == KanaType.kanji) {
+    if (kanaIndex < 0 || kanaIndex >= kanjiEntries.length) return null;
+    final unicode =
+        kanjiEntries[kanaIndex].unicode.toUpperCase().padLeft(5, '0');
+    return 'assets/svg/kanji/$unicode.svg';
+  }
+
+  final String? symbol = kanaType == KanaType.katakana
+      ? (kanaIndex >= 0 && kanaIndex < katakanaModelLabels.length
+          ? katakanaModelLabels[kanaIndex]
+          : null)
+      : (kanaIndex >= 0 && kanaIndex < hiragana.keys.length
+          ? hiragana.keys.elementAt(kanaIndex)
+          : null);
+  if (symbol == null) return null;
+  final code = symbol.runes.first.toRadixString(16).padLeft(5, '0');
+  if (kanaType == KanaType.katakana) {
+    return 'assets/svg/katakana/$code.svg';
+  }
+  return 'assets/svg/hiragana/$code.svg';
 }

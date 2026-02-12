@@ -40,6 +40,24 @@ class ChangeKanjiJlptFilter extends SettingsEvent {
   ChangeKanjiJlptFilter({required this.filter});
 }
 
+class ChangeUseModelHiragana extends SettingsEvent {
+  final bool enabled;
+
+  ChangeUseModelHiragana({required this.enabled});
+}
+
+class ChangeUseModelKatakana extends SettingsEvent {
+  final bool enabled;
+
+  ChangeUseModelKatakana({required this.enabled});
+}
+
+class ChangeUseModelKanji extends SettingsEvent {
+  final bool enabled;
+
+  ChangeUseModelKanji({required this.enabled});
+}
+
 class ExportStatsRequested extends SettingsEvent {}
 
 class ImportStatsRequested extends SettingsEvent {}
