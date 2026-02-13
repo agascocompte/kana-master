@@ -120,7 +120,7 @@ class SettingsPage extends StatelessWidget {
                         SettingsSwitchCard(
                           title: tr.app.settingsUseModelHiraganaTitle,
                           subtitle: tr.app.settingsUseModelHiraganaSubtitle,
-                          icon: Icons.psychology_outlined,
+                          icon: Icons.smart_toy_outlined,
                           value: state.stateData.useModelHiragana,
                           onChanged: (value) {
                             context.read<SettingsBloc>().add(
@@ -132,7 +132,7 @@ class SettingsPage extends StatelessWidget {
                         SettingsSwitchCard(
                           title: tr.app.settingsUseModelKatakanaTitle,
                           subtitle: tr.app.settingsUseModelKatakanaSubtitle,
-                          icon: Icons.psychology_alt_outlined,
+                          icon: Icons.smart_toy_outlined,
                           value: state.stateData.useModelKatakana,
                           onChanged: (value) {
                             context.read<SettingsBloc>().add(
@@ -144,7 +144,7 @@ class SettingsPage extends StatelessWidget {
                         SettingsSwitchCard(
                           title: tr.app.settingsUseModelKanjiTitle,
                           subtitle: tr.app.settingsUseModelKanjiSubtitle,
-                          icon: Icons.auto_awesome_outlined,
+                          icon: Icons.smart_toy_outlined,
                           value: state.stateData.useModelKanji,
                           onChanged: (value) {
                             context.read<SettingsBloc>().add(
