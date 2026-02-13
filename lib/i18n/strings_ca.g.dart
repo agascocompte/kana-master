@@ -56,26 +56,26 @@ class _TranslationsAppCa implements TranslationsAppEn {
 	@override String get difficultyMedium => 'Mitjana';
 	@override String get difficultyHard => 'Difícil';
 	@override String get difficultyEasyDesc => 'Opció única';
-	@override String get difficultyMediumDesc => 'Resposta de text';
+	@override String get difficultyMediumDesc => 'Text';
 	@override String get difficultyHardDesc => 'Dibuix';
 	@override String get learn => 'Aprendre';
 	@override String get learnSubtitle => 'Explora caràcters i pistes de traços.';
 	@override String get practice => 'Practicar';
 	@override String get practiceSubtitle => 'Reconeixement, escriptura i dibuix.';
 	@override String get materials => 'Materials';
-	@override String get materialsSubtitle => 'Importa un CSV iamb les teves pròpies dades';
+	@override String get materialsSubtitle => 'Importa un CSV amb les teves pròpies dades.';
 	@override String get dictionary => 'Diccionari';
-	@override String get dictionarySubtitle => 'Busca paraules, kana i significats a l’instant.';
+	@override String get dictionarySubtitle => 'Busca paraules, kana i significats a l\'instant.';
 	@override String get statistics => 'Estadístiques';
 	@override String get statisticsSubtitle => 'Consistència, precisió i ritme per tipus de kana.';
 	@override String get settings => 'Ajustos';
-	@override String get learningDefaults => 'Preferències d’estudi';
+	@override String get learningDefaults => 'Preferències d\'estudi';
 	@override String get testDifficulty => 'Dificultat del test';
 	@override String get testDifficultySubtitle => 'Tria la dificultat per a les pràctiques.';
 	@override String get importCsv => 'Importar CSV';
 	@override String get expectedFormatTitle => 'Format esperat';
-	@override String get expectedFormatBody => 'Encapçalaments recomanats:\n\nIdioma | Romaji | Hiragana | Katakana | Kanji.\n\nPots mapar qualsevol columna com a pregunta o resposta. CSV separat per comes.';
-	@override String fileLabel({required Object name, required Object count}) => 'Arxiu: ${name} (${count} files)';
+	@override String get expectedFormatBody => 'Capçaleres recomanades:\n\nIdioma | Romaji | Hiragana | Katakana | Kanji.\n\nPots mapar qualsevol columna com a pregunta o resposta. CSV separat per comes.';
+	@override String fileLabel({required Object name, required Object count}) => 'Fitxer: ${name} (${count} files)';
 	@override String get askWith => 'Preguntar amb';
 	@override String get answerWith => 'Respondre amb';
 	@override String get newQuestion => 'Nova pregunta';
@@ -85,7 +85,7 @@ class _TranslationsAppCa implements TranslationsAppEn {
 	@override String answerPrefix({required Object answer}) => 'Resposta: ${answer}';
 	@override String get beginSession => 'Començar sessió';
 	@override String get practiceStartSubtitle => 'Comença una nova ronda i mantén la ratxa.';
-	@override String get testStayFocused => 'Concentra’t i envia quan estigues llest.';
+	@override String get testStayFocused => 'Concentra\'t i envia quan estiguis a punt.';
 	@override String get testSketchHint => 'Dibuixa dins del llenç';
 	@override String get testTypeRomaji => 'Escriu el romaji';
 	@override String get testTypeMeaning => 'Escriu el significat';
@@ -94,7 +94,7 @@ class _TranslationsAppCa implements TranslationsAppEn {
 	@override String get testTapToType => 'Toca per escriure';
 	@override String testDrawThe({required Object script}) => 'Dibuixa el ${script}';
 	@override String testWhichIs({required Object script}) => 'Quin és aquest ${script}?';
-	@override String get testKanjiMeaning => 'Significat d’aquest kanji?';
+	@override String get testKanjiMeaning => 'Significat d\'aquest kanji?';
 	@override String get statsNoDataTitle => 'Sense estadístiques';
 	@override String get statsNoDataSubtitle => 'Completa alguns tests per desbloquejar ratxes i gràfics.';
 	@override String get statsReset => 'Reiniciar estadístiques';
@@ -102,7 +102,7 @@ class _TranslationsAppCa implements TranslationsAppEn {
 	@override String get statsActivitySubtitle => 'Últims 14 dies';
 	@override String get statsEvolution => 'Evolució';
 	@override String get statsEvolutionSubtitle => 'Correctes vs incorrectes';
-	@override String get statsNoEvolution => 'Sense dades d’evolució.';
+	@override String get statsNoEvolution => 'Sense dades d\'evolució.';
 	@override String get statsNoActivity => 'Sense activitat encara.';
 	@override String get statsAccuracy => 'Precisió';
 	@override String get statsStreak => 'Ratxa';
@@ -123,14 +123,14 @@ class _TranslationsAppCa implements TranslationsAppEn {
 	@override String get oops => 'Ups, has fallat...';
 	@override String errorImporting({required Object error}) => 'Error en importar: ${error}';
 	@override String importedEntries({required Object count, required Object file}) => 'Importades ${count} entrades des de ${file}';
-	@override String get noValidRows => 'No s’han trobat files vàlides.';
+	@override String get noValidRows => 'No s\'han trobat files vàlides.';
 	@override String get dataNotFound => 'No hi ha dades al CSV.';
 	@override String get materialsNeedImport => 'Importa un CSV i tria columnes abans de practicar.';
 	@override String get materialsNeedStart => 'Primer inicia una pregunta amb el teu material.';
 	@override String get language => 'Idioma';
-	@override String get languageSubtitle => 'Tria l’idioma de l’app.';
+	@override String get languageSubtitle => 'Tria l\'idioma de l\'app.';
 	@override String get back => 'Enrere';
-	@override String get ok => 'D’acord';
+	@override String get ok => 'D\'acord';
 	@override String get yourAnswer => 'La teva resposta';
 	@override String statsStreakDays({required Object days}) => 'Ratxa de ${days} dies';
 	@override String get statsAttempts => 'intents';
@@ -154,28 +154,28 @@ class _TranslationsAppCa implements TranslationsAppEn {
 	@override String get settingsKanaSizeTitle => 'Mida del kana';
 	@override String get settingsKanaSizeSubtitle => 'Ajusta la mida dels kana a la interfície.';
 	@override String settingsKanaSizeValue({required Object value}) => '${value}x';
-	@override String get settingsKanjiJlptTitle => 'Nivell JLPT de kanji';
+	@override String get settingsKanjiJlptTitle => 'Nivell JLPT kanji';
 	@override String get settingsKanjiJlptSubtitle => 'Limita els kanji a un nivell JLPT.';
-	@override String get settingsUseModelHiraganaTitle => 'Hiragana AI model';
-	@override String get settingsUseModelHiraganaSubtitle => 'Use model recognition for hiragana drawing tests.';
-	@override String get settingsUseModelKatakanaTitle => 'Katakana AI model';
-	@override String get settingsUseModelKatakanaSubtitle => 'Use model recognition for katakana drawing tests.';
-	@override String get settingsUseModelKanjiTitle => 'Kanji AI model';
-	@override String get settingsUseModelKanjiSubtitle => 'Use model recognition for kanji drawing tests.';
+	@override String get settingsUseModelHiraganaTitle => 'Model IA de hiragana';
+	@override String get settingsUseModelHiraganaSubtitle => 'Usar reconeixement per model en dibuix de hiragana.';
+	@override String get settingsUseModelKatakanaTitle => 'Model IA de katakana';
+	@override String get settingsUseModelKatakanaSubtitle => 'Usar reconeixement per model en dibuix de katakana.';
+	@override String get settingsUseModelKanjiTitle => 'Model IA de kanji';
+	@override String get settingsUseModelKanjiSubtitle => 'Usar reconeixement per model en dibuix de kanji.';
 	@override String get kanjiFilterEmpty => 'No hi ha kanji per a aquest nivell JLPT.';
-	@override String get settingsBackupTitle => 'Còpia de seguretat de les estadístiques';
-	@override String get settingsBackupSubtitle => 'Exporta o importa el teu progrés com un fitxer JSON.';
-	@override String get settingsBackupExportButton => 'Exporta';
-	@override String get settingsBackupImportButton => 'Importa';
-	@override String settingsBackupExported({required Object path}) => 'Còpia de seguretat exportada a ${path}';
+	@override String get settingsBackupTitle => 'Còpia d\'estadístiques';
+	@override String get settingsBackupSubtitle => 'Exporta o importa el teu progrés en un fitxer JSON.';
+	@override String get settingsBackupExportButton => 'Exportar';
+	@override String get settingsBackupImportButton => 'Importar';
+	@override String settingsBackupExported({required Object path}) => 'Còpia exportada a ${path}';
 	@override String settingsBackupImported({required Object count}) => 'Importades ${count} respostes';
-	@override String settingsBackupError({required Object error}) => 'Error de còpia de seguretat: ${error}';
-	@override String get testGuideShow => 'Show guide';
-	@override String get testGuideHide => 'Hide guide';
-	@override String get testReportDrawing => 'Report drawing';
-	@override String get testReportThanks => 'Thanks! Report prepared for review.';
-	@override String get testReportError => 'Could not prepare report.';
-	@override String get testKanjiTraceHint => 'Follow stroke order. Enable guide if needed.';
+	@override String settingsBackupError({required Object error}) => 'Error de còpia: ${error}';
+	@override String get testGuideShow => 'Mostrar guia';
+	@override String get testGuideHide => 'Amagar guia';
+	@override String get testReportDrawing => 'Reportar dibuix';
+	@override String get testReportThanks => 'Gràcies. Informe preparat per revisar.';
+	@override String get testReportError => 'No s\'ha pogut preparar l\'informe.';
+	@override String get testKanjiTraceHint => 'Segueix l\'ordre dels traços. Activa la guia si la necessites.';
 }
 
 /// The flat map containing all translations for locale <ca>.
@@ -195,26 +195,26 @@ extension on TranslationsCa {
 			'app.difficultyMedium' => 'Mitjana',
 			'app.difficultyHard' => 'Difícil',
 			'app.difficultyEasyDesc' => 'Opció única',
-			'app.difficultyMediumDesc' => 'Resposta de text',
+			'app.difficultyMediumDesc' => 'Text',
 			'app.difficultyHardDesc' => 'Dibuix',
 			'app.learn' => 'Aprendre',
 			'app.learnSubtitle' => 'Explora caràcters i pistes de traços.',
 			'app.practice' => 'Practicar',
 			'app.practiceSubtitle' => 'Reconeixement, escriptura i dibuix.',
 			'app.materials' => 'Materials',
-			'app.materialsSubtitle' => 'Importa un CSV iamb les teves pròpies dades',
+			'app.materialsSubtitle' => 'Importa un CSV amb les teves pròpies dades.',
 			'app.dictionary' => 'Diccionari',
-			'app.dictionarySubtitle' => 'Busca paraules, kana i significats a l’instant.',
+			'app.dictionarySubtitle' => 'Busca paraules, kana i significats a l\'instant.',
 			'app.statistics' => 'Estadístiques',
 			'app.statisticsSubtitle' => 'Consistència, precisió i ritme per tipus de kana.',
 			'app.settings' => 'Ajustos',
-			'app.learningDefaults' => 'Preferències d’estudi',
+			'app.learningDefaults' => 'Preferències d\'estudi',
 			'app.testDifficulty' => 'Dificultat del test',
 			'app.testDifficultySubtitle' => 'Tria la dificultat per a les pràctiques.',
 			'app.importCsv' => 'Importar CSV',
 			'app.expectedFormatTitle' => 'Format esperat',
-			'app.expectedFormatBody' => 'Encapçalaments recomanats:\n\nIdioma | Romaji | Hiragana | Katakana | Kanji.\n\nPots mapar qualsevol columna com a pregunta o resposta. CSV separat per comes.',
-			'app.fileLabel' => ({required Object name, required Object count}) => 'Arxiu: ${name} (${count} files)',
+			'app.expectedFormatBody' => 'Capçaleres recomanades:\n\nIdioma | Romaji | Hiragana | Katakana | Kanji.\n\nPots mapar qualsevol columna com a pregunta o resposta. CSV separat per comes.',
+			'app.fileLabel' => ({required Object name, required Object count}) => 'Fitxer: ${name} (${count} files)',
 			'app.askWith' => 'Preguntar amb',
 			'app.answerWith' => 'Respondre amb',
 			'app.newQuestion' => 'Nova pregunta',
@@ -224,7 +224,7 @@ extension on TranslationsCa {
 			'app.answerPrefix' => ({required Object answer}) => 'Resposta: ${answer}',
 			'app.beginSession' => 'Començar sessió',
 			'app.practiceStartSubtitle' => 'Comença una nova ronda i mantén la ratxa.',
-			'app.testStayFocused' => 'Concentra’t i envia quan estigues llest.',
+			'app.testStayFocused' => 'Concentra\'t i envia quan estiguis a punt.',
 			'app.testSketchHint' => 'Dibuixa dins del llenç',
 			'app.testTypeRomaji' => 'Escriu el romaji',
 			'app.testTypeMeaning' => 'Escriu el significat',
@@ -233,7 +233,7 @@ extension on TranslationsCa {
 			'app.testTapToType' => 'Toca per escriure',
 			'app.testDrawThe' => ({required Object script}) => 'Dibuixa el ${script}',
 			'app.testWhichIs' => ({required Object script}) => 'Quin és aquest ${script}?',
-			'app.testKanjiMeaning' => 'Significat d’aquest kanji?',
+			'app.testKanjiMeaning' => 'Significat d\'aquest kanji?',
 			'app.statsNoDataTitle' => 'Sense estadístiques',
 			'app.statsNoDataSubtitle' => 'Completa alguns tests per desbloquejar ratxes i gràfics.',
 			'app.statsReset' => 'Reiniciar estadístiques',
@@ -241,7 +241,7 @@ extension on TranslationsCa {
 			'app.statsActivitySubtitle' => 'Últims 14 dies',
 			'app.statsEvolution' => 'Evolució',
 			'app.statsEvolutionSubtitle' => 'Correctes vs incorrectes',
-			'app.statsNoEvolution' => 'Sense dades d’evolució.',
+			'app.statsNoEvolution' => 'Sense dades d\'evolució.',
 			'app.statsNoActivity' => 'Sense activitat encara.',
 			'app.statsAccuracy' => 'Precisió',
 			'app.statsStreak' => 'Ratxa',
@@ -262,14 +262,14 @@ extension on TranslationsCa {
 			'app.oops' => 'Ups, has fallat...',
 			'app.errorImporting' => ({required Object error}) => 'Error en importar: ${error}',
 			'app.importedEntries' => ({required Object count, required Object file}) => 'Importades ${count} entrades des de ${file}',
-			'app.noValidRows' => 'No s’han trobat files vàlides.',
+			'app.noValidRows' => 'No s\'han trobat files vàlides.',
 			'app.dataNotFound' => 'No hi ha dades al CSV.',
 			'app.materialsNeedImport' => 'Importa un CSV i tria columnes abans de practicar.',
 			'app.materialsNeedStart' => 'Primer inicia una pregunta amb el teu material.',
 			'app.language' => 'Idioma',
-			'app.languageSubtitle' => 'Tria l’idioma de l’app.',
+			'app.languageSubtitle' => 'Tria l\'idioma de l\'app.',
 			'app.back' => 'Enrere',
-			'app.ok' => 'D’acord',
+			'app.ok' => 'D\'acord',
 			'app.yourAnswer' => 'La teva resposta',
 			'app.statsStreakDays' => ({required Object days}) => 'Ratxa de ${days} dies',
 			'app.statsAttempts' => 'intents',
@@ -293,28 +293,28 @@ extension on TranslationsCa {
 			'app.settingsKanaSizeTitle' => 'Mida del kana',
 			'app.settingsKanaSizeSubtitle' => 'Ajusta la mida dels kana a la interfície.',
 			'app.settingsKanaSizeValue' => ({required Object value}) => '${value}x',
-			'app.settingsKanjiJlptTitle' => 'Nivell JLPT de kanji',
+			'app.settingsKanjiJlptTitle' => 'Nivell JLPT kanji',
 			'app.settingsKanjiJlptSubtitle' => 'Limita els kanji a un nivell JLPT.',
-			'app.settingsUseModelHiraganaTitle' => 'Hiragana AI model',
-			'app.settingsUseModelHiraganaSubtitle' => 'Use model recognition for hiragana drawing tests.',
-			'app.settingsUseModelKatakanaTitle' => 'Katakana AI model',
-			'app.settingsUseModelKatakanaSubtitle' => 'Use model recognition for katakana drawing tests.',
-			'app.settingsUseModelKanjiTitle' => 'Kanji AI model',
-			'app.settingsUseModelKanjiSubtitle' => 'Use model recognition for kanji drawing tests.',
+			'app.settingsUseModelHiraganaTitle' => 'Model IA de hiragana',
+			'app.settingsUseModelHiraganaSubtitle' => 'Usar reconeixement per model en dibuix de hiragana.',
+			'app.settingsUseModelKatakanaTitle' => 'Model IA de katakana',
+			'app.settingsUseModelKatakanaSubtitle' => 'Usar reconeixement per model en dibuix de katakana.',
+			'app.settingsUseModelKanjiTitle' => 'Model IA de kanji',
+			'app.settingsUseModelKanjiSubtitle' => 'Usar reconeixement per model en dibuix de kanji.',
 			'app.kanjiFilterEmpty' => 'No hi ha kanji per a aquest nivell JLPT.',
-			'app.settingsBackupTitle' => 'Còpia de seguretat de les estadístiques',
-			'app.settingsBackupSubtitle' => 'Exporta o importa el teu progrés com un fitxer JSON.',
-			'app.settingsBackupExportButton' => 'Exporta',
-			'app.settingsBackupImportButton' => 'Importa',
-			'app.settingsBackupExported' => ({required Object path}) => 'Còpia de seguretat exportada a ${path}',
+			'app.settingsBackupTitle' => 'Còpia d\'estadístiques',
+			'app.settingsBackupSubtitle' => 'Exporta o importa el teu progrés en un fitxer JSON.',
+			'app.settingsBackupExportButton' => 'Exportar',
+			'app.settingsBackupImportButton' => 'Importar',
+			'app.settingsBackupExported' => ({required Object path}) => 'Còpia exportada a ${path}',
 			'app.settingsBackupImported' => ({required Object count}) => 'Importades ${count} respostes',
-			'app.settingsBackupError' => ({required Object error}) => 'Error de còpia de seguretat: ${error}',
-			'app.testGuideShow' => 'Show guide',
-			'app.testGuideHide' => 'Hide guide',
-			'app.testReportDrawing' => 'Report drawing',
-			'app.testReportThanks' => 'Thanks! Report prepared for review.',
-			'app.testReportError' => 'Could not prepare report.',
-			'app.testKanjiTraceHint' => 'Follow stroke order. Enable guide if needed.',
+			'app.settingsBackupError' => ({required Object error}) => 'Error de còpia: ${error}',
+			'app.testGuideShow' => 'Mostrar guia',
+			'app.testGuideHide' => 'Amagar guia',
+			'app.testReportDrawing' => 'Reportar dibuix',
+			'app.testReportThanks' => 'Gràcies. Informe preparat per revisar.',
+			'app.testReportError' => 'No s\'ha pogut preparar l\'informe.',
+			'app.testKanjiTraceHint' => 'Segueix l\'ordre dels traços. Activa la guia si la necessites.',
 			_ => null,
 		};
 	}
