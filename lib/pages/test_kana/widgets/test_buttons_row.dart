@@ -41,11 +41,6 @@ class TestButtonsRow extends StatelessWidget {
                     margin: const EdgeInsets.only(bottom: 10),
                     padding:
                         const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
-                    decoration: BoxDecoration(
-                      color: AppColors.mist,
-                      borderRadius: BorderRadius.circular(14),
-                      border: Border.all(color: AppColors.sand),
-                    ),
                     child: Row(
                       children: [
                         if (showTemplateToggle)
@@ -64,6 +59,10 @@ class TestButtonsRow extends StatelessWidget {
                                 state.stateData.showKanjiTemplate
                                     ? tr.app.testGuideHide
                                     : tr.app.testGuideShow,
+                              ),
+                              style: FilledButton.styleFrom(
+                                backgroundColor: AppColors.ink,
+                                foregroundColor: Colors.white,
                               ),
                             ),
                           ),
@@ -90,6 +89,7 @@ class TestButtonsRow extends StatelessWidget {
                               label: Text(tr.app.testReportDrawing),
                               style: FilledButton.styleFrom(
                                 backgroundColor: AppColors.ink,
+                                foregroundColor: Colors.white,
                               ),
                             ),
                           ),
@@ -115,7 +115,8 @@ class TestButtonsRow extends StatelessWidget {
                 backgroundColor: AppColors.sand,
                 iconColor: AppColors.ink,
                 heroTag: "clear",
-                onPressed: () => context.read<TestKanaBloc>().add(ClearDrawing()),
+                onPressed: () =>
+                    context.read<TestKanaBloc>().add(ClearDrawing()),
               ),
             TestButton(
               icon: const Icon(Icons.check_outlined),
