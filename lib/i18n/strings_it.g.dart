@@ -47,8 +47,8 @@ class _TranslationsAppIt implements TranslationsAppEn {
 	final TranslationsIt _root; // ignore: unused_field
 
 	// Translations
-	@override String get studyHubTitle => 'Centro di studio';
-	@override String get studyHubSubtitle => 'Scegli la tua scrittura e inizia a imparare o praticare.';
+	@override String get studyHubTitle => 'Centro studio';
+	@override String get studyHubSubtitle => 'Scegli una scrittura e inizia a imparare o praticare.';
 	@override String get paths => 'Percorsi';
 	@override String get script => 'Scrittura';
 	@override String get difficulty => 'Difficoltà';
@@ -56,7 +56,7 @@ class _TranslationsAppIt implements TranslationsAppEn {
 	@override String get difficultyMedium => 'Media';
 	@override String get difficultyHard => 'Difficile';
 	@override String get difficultyEasyDesc => 'Scelta singola';
-	@override String get difficultyMediumDesc => 'Risposta testuale';
+	@override String get difficultyMediumDesc => 'Testo';
 	@override String get difficultyHardDesc => 'Disegno';
 	@override String get learn => 'Impara';
 	@override String get learnSubtitle => 'Esplora caratteri e suggerimenti sui tratti.';
@@ -65,70 +65,70 @@ class _TranslationsAppIt implements TranslationsAppEn {
 	@override String get materials => 'Materiali';
 	@override String get materialsSubtitle => 'Importa un CSV con i tuoi dati.';
 	@override String get dictionary => 'Dizionario';
-	@override String get dictionarySubtitle => 'Cerca parole, kana e significati all’istante.';
+	@override String get dictionarySubtitle => 'Cerca parole, kana e significati.';
 	@override String get statistics => 'Statistiche';
-	@override String get statisticsSubtitle => 'Costanza, precisione e ritmo per tipo di kana.';
+	@override String get statisticsSubtitle => 'Precisione, costanza e ritmo.';
 	@override String get settings => 'Impostazioni';
 	@override String get learningDefaults => 'Preferenze di studio';
-	@override String get testDifficulty => 'Difficoltà del test';
-	@override String get testDifficultySubtitle => 'Scegli la difficoltà per le pratiche.';
+	@override String get testDifficulty => 'Livello test';
+	@override String get testDifficultySubtitle => 'Scegli la difficoltà per la pratica.';
 	@override String get importCsv => 'Importa CSV';
 	@override String get expectedFormatTitle => 'Formato previsto';
-	@override String get expectedFormatBody => 'Intestazioni consigliate:\n\nIdioma | Romaji | Hiragana | Katakana | Kanji.\n\nPuoi associare qualsiasi colonna come domanda o risposta. CSV separato da virgole.';
-	@override String fileLabel({required Object name, required Object count}) => 'File: ${name} (${count} righe)';
+	@override String get expectedFormatBody => 'Intestazioni consigliate:\n\nIdioma | Romaji | Hiragana | Katakana | Kanji.\n\nPuoi usare qualsiasi colonna come domanda o risposta. CSV separato da virgole.';
+	@override String fileLabel({required Object name, required Object count}) => 'File: ${name} (${count})';
 	@override String get askWith => 'Chiedi con';
 	@override String get answerWith => 'Rispondi con';
 	@override String get newQuestion => 'Nuova domanda';
 	@override String get checkAnswer => 'Controlla';
-	@override String get materialsEmpty => 'Importa un CSV e premi "Nuova domanda" per iniziare.';
+	@override String get materialsEmpty => 'Importa un CSV e premi "Nuova domanda".';
 	@override String get showAnswer => 'Mostra risposta';
 	@override String answerPrefix({required Object answer}) => 'Risposta: ${answer}';
-	@override String get beginSession => 'Inizia sessione';
-	@override String get practiceStartSubtitle => 'Avvia un nuovo turno e mantieni la serie.';
-	@override String get testStayFocused => 'Concentrati e invia quando sei pronto.';
-	@override String get testSketchHint => 'Disegna all’interno della tela';
+	@override String get beginSession => 'Inizia';
+	@override String get practiceStartSubtitle => 'Avvia una nuova sessione.';
+	@override String get testStayFocused => 'Resta concentrato e invia quando sei pronto.';
+	@override String get testSketchHint => 'Disegna nell\'area';
 	@override String get testTypeRomaji => 'Scrivi il romaji';
 	@override String get testTypeMeaning => 'Scrivi il significato';
-	@override String get testRomajiLabel => 'Lettura in romaji';
+	@override String get testRomajiLabel => 'Lettura romaji';
 	@override String get testMeaningLabel => 'Significato in spagnolo';
 	@override String get testTapToType => 'Tocca per scrivere';
-	@override String testDrawThe({required Object script}) => 'Disegna il ${script}';
+	@override String testDrawThe({required Object script}) => 'Disegna ${script}';
 	@override String testWhichIs({required Object script}) => 'Qual è questo ${script}?';
 	@override String get testKanjiMeaning => 'Significato di questo kanji?';
 	@override String get statsNoDataTitle => 'Nessuna statistica';
-	@override String get statsNoDataSubtitle => 'Completa alcuni test per sbloccare serie e grafici.';
-	@override String get statsReset => 'Reimposta statistiche';
-	@override String get statsActivity => 'Attività giornaliera';
+	@override String get statsNoDataSubtitle => 'Completa alcuni test per sbloccarle.';
+	@override String get statsReset => 'Reset statistiche';
+	@override String get statsActivity => 'Attività';
 	@override String get statsActivitySubtitle => 'Ultimi 14 giorni';
-	@override String get statsEvolution => 'Evoluzione';
+	@override String get statsEvolution => 'Andamento';
 	@override String get statsEvolutionSubtitle => 'Corrette vs errate';
-	@override String get statsNoEvolution => 'Nessun dato di evoluzione.';
-	@override String get statsNoActivity => 'Nessuna attività ancora.';
+	@override String get statsNoEvolution => 'Nessun dato.';
+	@override String get statsNoActivity => 'Nessuna attività.';
 	@override String get statsAccuracy => 'Precisione';
 	@override String get statsStreak => 'Serie';
-	@override String get statsLast7 => 'Ultimi 7 giorni';
-	@override String get statsLast30 => 'Ultimi 30 giorni';
+	@override String get statsLast7 => '7 giorni';
+	@override String get statsLast30 => '30 giorni';
 	@override String get statsSessions => 'sessioni';
 	@override String statsBest({required Object days}) => 'Migliori ${days} giorni';
-	@override String statsCorrect({required Object correct, required Object total}) => '${correct} / ${total} corrette';
+	@override String statsCorrect({required Object correct, required Object total}) => '${correct}/${total} corrette';
 	@override String get statsCorrectLabel => 'Corrette';
 	@override String get statsIncorrectLabel => 'Errate';
 	@override String get statsMomentum => 'Momentum';
 	@override String get statsView => 'Vedi statistiche';
-	@override String get statsStartToUnlock => 'Inizia una pratica per sbloccare le tue statistiche.';
+	@override String get statsStartToUnlock => 'Inizia una pratica per vedere le statistiche.';
 	@override String get dictionaryEmpty => 'Inizia a cercare una parola.';
 	@override String get searchHint => 'Cerca parola, kana, romaji...';
 	@override String get correct => 'Corretto!';
-	@override String get incorrect => 'Risposta errata';
-	@override String get oops => 'Ops, errore...';
-	@override String errorImporting({required Object error}) => 'Errore durante l’importazione: ${error}';
-	@override String importedEntries({required Object count, required Object file}) => '${count} voci importate da ${file}';
-	@override String get noValidRows => 'Nessuna riga valida trovata.';
+	@override String get incorrect => 'Errato';
+	@override String get oops => 'Ops...';
+	@override String errorImporting({required Object error}) => 'Errore importazione: ${error}';
+	@override String importedEntries({required Object count, required Object file}) => '${count} elementi importati da ${file}';
+	@override String get noValidRows => 'Nessuna riga valida.';
 	@override String get dataNotFound => 'Nessun dato nel CSV.';
-	@override String get materialsNeedImport => 'Importa un CSV e scegli le colonne prima di praticare.';
-	@override String get materialsNeedStart => 'Prima avvia una domanda con il tuo materiale.';
+	@override String get materialsNeedImport => 'Importa un CSV e scegli le colonne.';
+	@override String get materialsNeedStart => 'Avvia prima una domanda.';
 	@override String get language => 'Lingua';
-	@override String get languageSubtitle => 'Scegli la lingua dell’app.';
+	@override String get languageSubtitle => 'Scegli la lingua dell\'app.';
 	@override String get back => 'Indietro';
 	@override String get ok => 'OK';
 	@override String get yourAnswer => 'La tua risposta';
@@ -141,8 +141,8 @@ class _TranslationsAppIt implements TranslationsAppEn {
 	@override String get testModeQuiz => 'Quiz';
 	@override String get dictionaryNotes => 'Note';
 	@override String get dictionarySeeAlso => 'Vedi anche';
-	@override String get confirmActionTitle => 'Conferma azione';
-	@override String get confirmActionBody => 'Sei sicuro di voler eliminare TUTTE le statistiche?';
+	@override String get confirmActionTitle => 'Conferma';
+	@override String get confirmActionBody => 'Vuoi davvero eliminare TUTTE le statistiche?';
 	@override String get cancel => 'Annulla';
 	@override String get delete => 'Elimina';
 	@override String get searchByMeaning => 'Cerca per significato';
@@ -150,32 +150,32 @@ class _TranslationsAppIt implements TranslationsAppEn {
 	@override String get tabStudy => 'Studio';
 	@override String get tabStats => 'Statistiche';
 	@override String get settingsHapticsTitle => 'Vibrazione';
-	@override String get settingsHapticsSubtitle => 'Vibra quando rispondi correttamente o sbagli.';
+	@override String get settingsHapticsSubtitle => 'Vibra quando giusto o sbagliato.';
 	@override String get settingsKanaSizeTitle => 'Dimensione kana';
-	@override String get settingsKanaSizeSubtitle => 'Regola la dimensione dei kana nell’interfaccia.';
+	@override String get settingsKanaSizeSubtitle => 'Regola la dimensione dei kana.';
 	@override String settingsKanaSizeValue({required Object value}) => '${value}x';
-	@override String get settingsKanjiJlptTitle => 'Livello JLPT kanji';
-	@override String get settingsKanjiJlptSubtitle => 'Limita i kanji a un livello JLPT.';
-	@override String get settingsUseModelHiraganaTitle => 'Hiragana AI model';
-	@override String get settingsUseModelHiraganaSubtitle => 'Use model recognition for hiragana drawing tests.';
-	@override String get settingsUseModelKatakanaTitle => 'Katakana AI model';
-	@override String get settingsUseModelKatakanaSubtitle => 'Use model recognition for katakana drawing tests.';
-	@override String get settingsUseModelKanjiTitle => 'Kanji AI model';
-	@override String get settingsUseModelKanjiSubtitle => 'Use model recognition for kanji drawing tests.';
+	@override String get settingsKanjiJlptTitle => 'Livello JLPT';
+	@override String get settingsKanjiJlptSubtitle => 'Limita i kanji per livello JLPT.';
+	@override String get settingsUseModelHiraganaTitle => 'IA Hiragana';
+	@override String get settingsUseModelHiraganaSubtitle => 'Usa riconoscimento IA nel disegno.';
+	@override String get settingsUseModelKatakanaTitle => 'IA Katakana';
+	@override String get settingsUseModelKatakanaSubtitle => 'Usa riconoscimento IA nel disegno.';
+	@override String get settingsUseModelKanjiTitle => 'IA Kanji';
+	@override String get settingsUseModelKanjiSubtitle => 'Usa riconoscimento IA nel disegno.';
 	@override String get kanjiFilterEmpty => 'Nessun kanji per questo livello JLPT.';
-	@override String get settingsBackupTitle => 'Backup delle statistiche';
-	@override String get settingsBackupSubtitle => 'Esporta o importa i tuoi progressi come file JSON.';
+	@override String get settingsBackupTitle => 'Backup';
+	@override String get settingsBackupSubtitle => 'Esporta o importa i progressi JSON.';
 	@override String get settingsBackupExportButton => 'Esporta';
 	@override String get settingsBackupImportButton => 'Importa';
-	@override String settingsBackupExported({required Object path}) => 'Backup esportato in ${path}';
-	@override String settingsBackupImported({required Object count}) => 'Backup importato: ${count} risposte';
-	@override String settingsBackupError({required Object error}) => 'Errore di backup: ${error}';
-	@override String get testGuideShow => 'Show guide';
-	@override String get testGuideHide => 'Hide guide';
-	@override String get testReportDrawing => 'Report drawing';
-	@override String get testReportThanks => 'Thanks! Report prepared for review.';
-	@override String get testReportError => 'Could not prepare report.';
-	@override String get testKanjiTraceHint => 'Follow stroke order. Enable guide if needed.';
+	@override String settingsBackupExported({required Object path}) => 'Esportato in ${path}';
+	@override String settingsBackupImported({required Object count}) => '${count} risposte importate';
+	@override String settingsBackupError({required Object error}) => 'Errore backup: ${error}';
+	@override String get testGuideShow => 'Mostra guida';
+	@override String get testGuideHide => 'Nascondi guida';
+	@override String get testReportDrawing => 'Segnala disegno';
+	@override String get testReportThanks => 'Grazie. Report pronto.';
+	@override String get testReportError => 'Impossibile creare il report.';
+	@override String get testKanjiTraceHint => 'Segui l\'ordine dei tratti. Attiva la guida se serve.';
 }
 
 /// The flat map containing all translations for locale <it>.
@@ -186,8 +186,8 @@ class _TranslationsAppIt implements TranslationsAppEn {
 extension on TranslationsIt {
 	dynamic _flatMapFunction(String path) {
 		return switch (path) {
-			'app.studyHubTitle' => 'Centro di studio',
-			'app.studyHubSubtitle' => 'Scegli la tua scrittura e inizia a imparare o praticare.',
+			'app.studyHubTitle' => 'Centro studio',
+			'app.studyHubSubtitle' => 'Scegli una scrittura e inizia a imparare o praticare.',
 			'app.paths' => 'Percorsi',
 			'app.script' => 'Scrittura',
 			'app.difficulty' => 'Difficoltà',
@@ -195,7 +195,7 @@ extension on TranslationsIt {
 			'app.difficultyMedium' => 'Media',
 			'app.difficultyHard' => 'Difficile',
 			'app.difficultyEasyDesc' => 'Scelta singola',
-			'app.difficultyMediumDesc' => 'Risposta testuale',
+			'app.difficultyMediumDesc' => 'Testo',
 			'app.difficultyHardDesc' => 'Disegno',
 			'app.learn' => 'Impara',
 			'app.learnSubtitle' => 'Esplora caratteri e suggerimenti sui tratti.',
@@ -204,70 +204,70 @@ extension on TranslationsIt {
 			'app.materials' => 'Materiali',
 			'app.materialsSubtitle' => 'Importa un CSV con i tuoi dati.',
 			'app.dictionary' => 'Dizionario',
-			'app.dictionarySubtitle' => 'Cerca parole, kana e significati all’istante.',
+			'app.dictionarySubtitle' => 'Cerca parole, kana e significati.',
 			'app.statistics' => 'Statistiche',
-			'app.statisticsSubtitle' => 'Costanza, precisione e ritmo per tipo di kana.',
+			'app.statisticsSubtitle' => 'Precisione, costanza e ritmo.',
 			'app.settings' => 'Impostazioni',
 			'app.learningDefaults' => 'Preferenze di studio',
-			'app.testDifficulty' => 'Difficoltà del test',
-			'app.testDifficultySubtitle' => 'Scegli la difficoltà per le pratiche.',
+			'app.testDifficulty' => 'Livello test',
+			'app.testDifficultySubtitle' => 'Scegli la difficoltà per la pratica.',
 			'app.importCsv' => 'Importa CSV',
 			'app.expectedFormatTitle' => 'Formato previsto',
-			'app.expectedFormatBody' => 'Intestazioni consigliate:\n\nIdioma | Romaji | Hiragana | Katakana | Kanji.\n\nPuoi associare qualsiasi colonna come domanda o risposta. CSV separato da virgole.',
-			'app.fileLabel' => ({required Object name, required Object count}) => 'File: ${name} (${count} righe)',
+			'app.expectedFormatBody' => 'Intestazioni consigliate:\n\nIdioma | Romaji | Hiragana | Katakana | Kanji.\n\nPuoi usare qualsiasi colonna come domanda o risposta. CSV separato da virgole.',
+			'app.fileLabel' => ({required Object name, required Object count}) => 'File: ${name} (${count})',
 			'app.askWith' => 'Chiedi con',
 			'app.answerWith' => 'Rispondi con',
 			'app.newQuestion' => 'Nuova domanda',
 			'app.checkAnswer' => 'Controlla',
-			'app.materialsEmpty' => 'Importa un CSV e premi "Nuova domanda" per iniziare.',
+			'app.materialsEmpty' => 'Importa un CSV e premi "Nuova domanda".',
 			'app.showAnswer' => 'Mostra risposta',
 			'app.answerPrefix' => ({required Object answer}) => 'Risposta: ${answer}',
-			'app.beginSession' => 'Inizia sessione',
-			'app.practiceStartSubtitle' => 'Avvia un nuovo turno e mantieni la serie.',
-			'app.testStayFocused' => 'Concentrati e invia quando sei pronto.',
-			'app.testSketchHint' => 'Disegna all’interno della tela',
+			'app.beginSession' => 'Inizia',
+			'app.practiceStartSubtitle' => 'Avvia una nuova sessione.',
+			'app.testStayFocused' => 'Resta concentrato e invia quando sei pronto.',
+			'app.testSketchHint' => 'Disegna nell\'area',
 			'app.testTypeRomaji' => 'Scrivi il romaji',
 			'app.testTypeMeaning' => 'Scrivi il significato',
-			'app.testRomajiLabel' => 'Lettura in romaji',
+			'app.testRomajiLabel' => 'Lettura romaji',
 			'app.testMeaningLabel' => 'Significato in spagnolo',
 			'app.testTapToType' => 'Tocca per scrivere',
-			'app.testDrawThe' => ({required Object script}) => 'Disegna il ${script}',
+			'app.testDrawThe' => ({required Object script}) => 'Disegna ${script}',
 			'app.testWhichIs' => ({required Object script}) => 'Qual è questo ${script}?',
 			'app.testKanjiMeaning' => 'Significato di questo kanji?',
 			'app.statsNoDataTitle' => 'Nessuna statistica',
-			'app.statsNoDataSubtitle' => 'Completa alcuni test per sbloccare serie e grafici.',
-			'app.statsReset' => 'Reimposta statistiche',
-			'app.statsActivity' => 'Attività giornaliera',
+			'app.statsNoDataSubtitle' => 'Completa alcuni test per sbloccarle.',
+			'app.statsReset' => 'Reset statistiche',
+			'app.statsActivity' => 'Attività',
 			'app.statsActivitySubtitle' => 'Ultimi 14 giorni',
-			'app.statsEvolution' => 'Evoluzione',
+			'app.statsEvolution' => 'Andamento',
 			'app.statsEvolutionSubtitle' => 'Corrette vs errate',
-			'app.statsNoEvolution' => 'Nessun dato di evoluzione.',
-			'app.statsNoActivity' => 'Nessuna attività ancora.',
+			'app.statsNoEvolution' => 'Nessun dato.',
+			'app.statsNoActivity' => 'Nessuna attività.',
 			'app.statsAccuracy' => 'Precisione',
 			'app.statsStreak' => 'Serie',
-			'app.statsLast7' => 'Ultimi 7 giorni',
-			'app.statsLast30' => 'Ultimi 30 giorni',
+			'app.statsLast7' => '7 giorni',
+			'app.statsLast30' => '30 giorni',
 			'app.statsSessions' => 'sessioni',
 			'app.statsBest' => ({required Object days}) => 'Migliori ${days} giorni',
-			'app.statsCorrect' => ({required Object correct, required Object total}) => '${correct} / ${total} corrette',
+			'app.statsCorrect' => ({required Object correct, required Object total}) => '${correct}/${total} corrette',
 			'app.statsCorrectLabel' => 'Corrette',
 			'app.statsIncorrectLabel' => 'Errate',
 			'app.statsMomentum' => 'Momentum',
 			'app.statsView' => 'Vedi statistiche',
-			'app.statsStartToUnlock' => 'Inizia una pratica per sbloccare le tue statistiche.',
+			'app.statsStartToUnlock' => 'Inizia una pratica per vedere le statistiche.',
 			'app.dictionaryEmpty' => 'Inizia a cercare una parola.',
 			'app.searchHint' => 'Cerca parola, kana, romaji...',
 			'app.correct' => 'Corretto!',
-			'app.incorrect' => 'Risposta errata',
-			'app.oops' => 'Ops, errore...',
-			'app.errorImporting' => ({required Object error}) => 'Errore durante l’importazione: ${error}',
-			'app.importedEntries' => ({required Object count, required Object file}) => '${count} voci importate da ${file}',
-			'app.noValidRows' => 'Nessuna riga valida trovata.',
+			'app.incorrect' => 'Errato',
+			'app.oops' => 'Ops...',
+			'app.errorImporting' => ({required Object error}) => 'Errore importazione: ${error}',
+			'app.importedEntries' => ({required Object count, required Object file}) => '${count} elementi importati da ${file}',
+			'app.noValidRows' => 'Nessuna riga valida.',
 			'app.dataNotFound' => 'Nessun dato nel CSV.',
-			'app.materialsNeedImport' => 'Importa un CSV e scegli le colonne prima di praticare.',
-			'app.materialsNeedStart' => 'Prima avvia una domanda con il tuo materiale.',
+			'app.materialsNeedImport' => 'Importa un CSV e scegli le colonne.',
+			'app.materialsNeedStart' => 'Avvia prima una domanda.',
 			'app.language' => 'Lingua',
-			'app.languageSubtitle' => 'Scegli la lingua dell’app.',
+			'app.languageSubtitle' => 'Scegli la lingua dell\'app.',
 			'app.back' => 'Indietro',
 			'app.ok' => 'OK',
 			'app.yourAnswer' => 'La tua risposta',
@@ -280,8 +280,8 @@ extension on TranslationsIt {
 			'app.testModeQuiz' => 'Quiz',
 			'app.dictionaryNotes' => 'Note',
 			'app.dictionarySeeAlso' => 'Vedi anche',
-			'app.confirmActionTitle' => 'Conferma azione',
-			'app.confirmActionBody' => 'Sei sicuro di voler eliminare TUTTE le statistiche?',
+			'app.confirmActionTitle' => 'Conferma',
+			'app.confirmActionBody' => 'Vuoi davvero eliminare TUTTE le statistiche?',
 			'app.cancel' => 'Annulla',
 			'app.delete' => 'Elimina',
 			'app.searchByMeaning' => 'Cerca per significato',
@@ -289,32 +289,32 @@ extension on TranslationsIt {
 			'app.tabStudy' => 'Studio',
 			'app.tabStats' => 'Statistiche',
 			'app.settingsHapticsTitle' => 'Vibrazione',
-			'app.settingsHapticsSubtitle' => 'Vibra quando rispondi correttamente o sbagli.',
+			'app.settingsHapticsSubtitle' => 'Vibra quando giusto o sbagliato.',
 			'app.settingsKanaSizeTitle' => 'Dimensione kana',
-			'app.settingsKanaSizeSubtitle' => 'Regola la dimensione dei kana nell’interfaccia.',
+			'app.settingsKanaSizeSubtitle' => 'Regola la dimensione dei kana.',
 			'app.settingsKanaSizeValue' => ({required Object value}) => '${value}x',
-			'app.settingsKanjiJlptTitle' => 'Livello JLPT kanji',
-			'app.settingsKanjiJlptSubtitle' => 'Limita i kanji a un livello JLPT.',
-			'app.settingsUseModelHiraganaTitle' => 'Hiragana AI model',
-			'app.settingsUseModelHiraganaSubtitle' => 'Use model recognition for hiragana drawing tests.',
-			'app.settingsUseModelKatakanaTitle' => 'Katakana AI model',
-			'app.settingsUseModelKatakanaSubtitle' => 'Use model recognition for katakana drawing tests.',
-			'app.settingsUseModelKanjiTitle' => 'Kanji AI model',
-			'app.settingsUseModelKanjiSubtitle' => 'Use model recognition for kanji drawing tests.',
+			'app.settingsKanjiJlptTitle' => 'Livello JLPT',
+			'app.settingsKanjiJlptSubtitle' => 'Limita i kanji per livello JLPT.',
+			'app.settingsUseModelHiraganaTitle' => 'IA Hiragana',
+			'app.settingsUseModelHiraganaSubtitle' => 'Usa riconoscimento IA nel disegno.',
+			'app.settingsUseModelKatakanaTitle' => 'IA Katakana',
+			'app.settingsUseModelKatakanaSubtitle' => 'Usa riconoscimento IA nel disegno.',
+			'app.settingsUseModelKanjiTitle' => 'IA Kanji',
+			'app.settingsUseModelKanjiSubtitle' => 'Usa riconoscimento IA nel disegno.',
 			'app.kanjiFilterEmpty' => 'Nessun kanji per questo livello JLPT.',
-			'app.settingsBackupTitle' => 'Backup delle statistiche',
-			'app.settingsBackupSubtitle' => 'Esporta o importa i tuoi progressi come file JSON.',
+			'app.settingsBackupTitle' => 'Backup',
+			'app.settingsBackupSubtitle' => 'Esporta o importa i progressi JSON.',
 			'app.settingsBackupExportButton' => 'Esporta',
 			'app.settingsBackupImportButton' => 'Importa',
-			'app.settingsBackupExported' => ({required Object path}) => 'Backup esportato in ${path}',
-			'app.settingsBackupImported' => ({required Object count}) => 'Backup importato: ${count} risposte',
-			'app.settingsBackupError' => ({required Object error}) => 'Errore di backup: ${error}',
-			'app.testGuideShow' => 'Show guide',
-			'app.testGuideHide' => 'Hide guide',
-			'app.testReportDrawing' => 'Report drawing',
-			'app.testReportThanks' => 'Thanks! Report prepared for review.',
-			'app.testReportError' => 'Could not prepare report.',
-			'app.testKanjiTraceHint' => 'Follow stroke order. Enable guide if needed.',
+			'app.settingsBackupExported' => ({required Object path}) => 'Esportato in ${path}',
+			'app.settingsBackupImported' => ({required Object count}) => '${count} risposte importate',
+			'app.settingsBackupError' => ({required Object error}) => 'Errore backup: ${error}',
+			'app.testGuideShow' => 'Mostra guida',
+			'app.testGuideHide' => 'Nascondi guida',
+			'app.testReportDrawing' => 'Segnala disegno',
+			'app.testReportThanks' => 'Grazie. Report pronto.',
+			'app.testReportError' => 'Impossibile creare il report.',
+			'app.testKanjiTraceHint' => 'Segui l\'ordine dei tratti. Attiva la guida se serve.',
 			_ => null,
 		};
 	}
