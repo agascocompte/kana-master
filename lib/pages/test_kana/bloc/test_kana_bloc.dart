@@ -118,8 +118,7 @@ class TestKanaBloc extends Bloc<TestKanaEvent, TestKanaState> {
 
   FutureOr<void> _clearDrawing(
       ClearDrawing event, Emitter<TestKanaState> emit) {
-    emit(UpdatedStrokes(
-        state.stateData.copyWith(
+    emit(UpdatedStrokes(state.stateData.copyWith(
       strokes: [],
       userStrokes: const [],
       canSubmitAnswer: false,
@@ -178,8 +177,9 @@ class TestKanaBloc extends Bloc<TestKanaEvent, TestKanaState> {
 
     final List<double> p = predictions[0].cast<double>();
     final int predictedIndex = getIndexOfMaxValue(p);
-    final double confidence =
-        predictedIndex >= 0 && predictedIndex < p.length ? p[predictedIndex] : 0;
+    final double confidence = predictedIndex >= 0 && predictedIndex < p.length
+        ? p[predictedIndex]
+        : 0;
     final String expected =
         _drawingTargetLabelForIndex(state.stateData.kanaIndex);
     final String predicted = _drawingTargetLabelForIndex(predictedIndex);
@@ -299,10 +299,9 @@ class TestKanaBloc extends Bloc<TestKanaEvent, TestKanaState> {
     }
   }
 
-  FutureOr<void> _startStroke(
-      StartStroke event, Emitter<TestKanaState> emit) {
-    final List<List<Offset>> userStrokes = List.from(state.stateData.userStrokes)
-      ..add([event.point]);
+  FutureOr<void> _startStroke(StartStroke event, Emitter<TestKanaState> emit) {
+    final List<List<Offset>> userStrokes =
+        List.from(state.stateData.userStrokes)..add([event.point]);
     emit(UpdatedStrokes(state.stateData.copyWith(
       userStrokes: userStrokes,
       canSubmitAnswer: true,
@@ -485,20 +484,26 @@ class TestKanaBloc extends Bloc<TestKanaEvent, TestKanaState> {
     final expectedPaths = await _loadSvgPaths(assetPath);
     if (expectedPaths.isEmpty) return false;
 
-    final expectedStrokes = expectedPaths.map(_samplePath).where((s) => s.length >= 2).toList();
+    final expectedStrokes =
+        expectedPaths.map(_samplePath).where((s) => s.length >= 2).toList();
     if (expectedStrokes.isEmpty) return false;
     final expectedCount = expectedStrokes.length;
     if (normalizedUser.length != expectedCount) {
       return false;
     }
 
-    final int compareCount = math.min(normalizedUser.length, expectedStrokes.length);
+    final int compareCount =
+        math.min(normalizedUser.length, expectedStrokes.length);
     int matched = 0;
     double accumulated = 0;
+    bool strictOrderedMatch = true;
     for (int i = 0; i < compareCount; i++) {
       final score = _strokeSimilarity(normalizedUser[i], expectedStrokes[i]);
       accumulated += score;
       if (score >= 0.64) matched++;
+      if (score < 0.58) {
+        strictOrderedMatch = false;
+      }
     }
 
     final coverage = matched / expectedCount;
@@ -511,13 +516,14 @@ class TestKanaBloc extends Bloc<TestKanaEvent, TestKanaState> {
         (avgScore * 0.45) -
         (countPenalty * 0.2) -
         (sequencePenalty * 0.15);
-    return finalScore >= 0.69;
+    return strictOrderedMatch && finalScore >= 0.69;
   }
 
   String? _drawingAssetPathForKana(KanaType kanaType, int index) {
     if (kanaType == KanaType.kanji) {
       if (index < 0 || index >= _kanjiEntries.length) return null;
-      final unicode = _kanjiEntries[index].unicode.toUpperCase().padLeft(5, '0');
+      final unicode =
+          _kanjiEntries[index].unicode.toUpperCase().padLeft(5, '0');
       return 'assets/svg/kanji/$unicode.svg';
     }
 
@@ -601,7 +607,8 @@ class TestKanaBloc extends Bloc<TestKanaEvent, TestKanaState> {
     for (int i = 0; i < targetCount; i++) {
       final targetDistance = total * (i / (targetCount - 1));
       int segment = 1;
-      while (segment < cumulative.length && cumulative[segment] < targetDistance) {
+      while (
+          segment < cumulative.length && cumulative[segment] < targetDistance) {
         segment++;
       }
       if (segment >= cumulative.length) {
@@ -631,9 +638,9 @@ class TestKanaBloc extends Bloc<TestKanaEvent, TestKanaState> {
             .clamp(-1.0, 1.0)
         : 0.0;
     final directionScore = ((direction + 1) / 2);
-    final lengthRatio = (math.min(userLen, expectedLen) /
-            math.max(userLen, expectedLen))
-        .clamp(0.0, 1.0);
+    final lengthRatio =
+        (math.min(userLen, expectedLen) / math.max(userLen, expectedLen))
+            .clamp(0.0, 1.0);
 
     final startScore = (1.0 - startDist).clamp(0.0, 1.0);
     final endScore = (1.0 - endDist).clamp(0.0, 1.0);
