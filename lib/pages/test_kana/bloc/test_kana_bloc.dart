@@ -498,10 +498,13 @@ class TestKanaBloc extends Bloc<TestKanaEvent, TestKanaState> {
     double accumulated = 0;
     bool strictOrderedMatch = true;
     for (int i = 0; i < compareCount; i++) {
-      final score = _strokeSimilarity(normalizedUser[i], expectedStrokes[i]);
+      final userStroke = normalizedUser[i];
+      final expectedStroke = expectedStrokes[i];
+      final score = _strokeSimilarity(userStroke, expectedStroke);
+      final lengthRatio = _strokeLengthRatio(userStroke, expectedStroke);
       accumulated += score;
       if (score >= 0.64) matched++;
-      if (score < 0.58) {
+      if (score < 0.62 || lengthRatio < 0.5) {
         strictOrderedMatch = false;
       }
     }
@@ -638,17 +641,42 @@ class TestKanaBloc extends Bloc<TestKanaEvent, TestKanaState> {
             .clamp(-1.0, 1.0)
         : 0.0;
     final directionScore = ((direction + 1) / 2);
-    final lengthRatio =
-        (math.min(userLen, expectedLen) / math.max(userLen, expectedLen))
-            .clamp(0.0, 1.0);
+    final lengthRatio = _strokeLengthRatio(user, expected);
+
+    double meanPointDistance = 0;
+    final pointCount = math.min(user.length, expected.length);
+    for (int i = 0; i < pointCount; i++) {
+      meanPointDistance += (user[i] - expected[i]).distance;
+    }
+    meanPointDistance = pointCount == 0 ? 109.0 : meanPointDistance / pointCount;
+    final shapeScore = (1.0 - (meanPointDistance / 109.0)).clamp(0.0, 1.0);
 
     final startScore = (1.0 - startDist).clamp(0.0, 1.0);
     final endScore = (1.0 - endDist).clamp(0.0, 1.0);
 
-    return (startScore * 0.35) +
-        (endScore * 0.35) +
-        (directionScore * 0.2) +
-        (lengthRatio * 0.1);
+    return (startScore * 0.18) +
+        (endScore * 0.18) +
+        (directionScore * 0.14) +
+        (lengthRatio * 0.28) +
+        (shapeScore * 0.22);
+  }
+
+  double _strokeLengthRatio(List<Offset> user, List<Offset> expected) {
+    final userPathLen = _strokePathLength(user);
+    final expectedPathLen = _strokePathLength(expected);
+    if (userPathLen <= 0 || expectedPathLen <= 0) return 0;
+    return (math.min(userPathLen, expectedPathLen) /
+            math.max(userPathLen, expectedPathLen))
+        .clamp(0.0, 1.0);
+  }
+
+  double _strokePathLength(List<Offset> points) {
+    if (points.length < 2) return 0;
+    double total = 0;
+    for (int i = 1; i < points.length; i++) {
+      total += (points[i] - points[i - 1]).distance;
+    }
+    return total;
   }
 
   Future<List<Path>> _loadSvgPaths(String assetPath) async {
