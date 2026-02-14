@@ -73,9 +73,46 @@ class TestButtonsRow extends StatelessWidget {
                             child: FilledButton.icon(
                               onPressed: state.stateData.reportBusy
                                   ? null
-                                  : () => context
-                                      .read<TestKanaBloc>()
-                                      .add(ReportDrawingFalseNegative()),
+                                  : () async {
+                                      final localizations =
+                                          MaterialLocalizations.of(context);
+                                      final bool shouldSend =
+                                          await showDialog<bool>(
+                                                context: context,
+                                                builder: (dialogContext) =>
+                                                    AlertDialog.adaptive(
+                                                  title: Text(
+                                                      tr.app.testReportDrawing),
+                                                  content: const Text(
+                                                    'Do you want to send this report now?',
+                                                  ),
+                                                  actions: [
+                                                    TextButton(
+                                                      onPressed: () =>
+                                                          Navigator.of(
+                                                            dialogContext,
+                                                          ).pop(false),
+                                                      child: Text(localizations
+                                                          .cancelButtonLabel),
+                                                    ),
+                                                    FilledButton(
+                                                      onPressed: () =>
+                                                          Navigator.of(
+                                                            dialogContext,
+                                                          ).pop(true),
+                                                      child: Text(
+                                                          localizations.okButtonLabel),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ) ??
+                                              false;
+                                      if (!shouldSend) return;
+                                      if (!context.mounted) return;
+                                      context
+                                          .read<TestKanaBloc>()
+                                          .add(ReportDrawingFalseNegative());
+                                    },
                               icon: state.stateData.reportBusy
                                   ? const SizedBox(
                                       width: 16,
