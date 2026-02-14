@@ -488,8 +488,7 @@ class TestKanaBloc extends Bloc<TestKanaEvent, TestKanaState> {
     final expectedStrokes = expectedPaths.map(_samplePath).where((s) => s.length >= 2).toList();
     if (expectedStrokes.isEmpty) return false;
     final expectedCount = expectedStrokes.length;
-    if (normalizedUser.length < (expectedCount * 0.7).ceil() ||
-        normalizedUser.length > (expectedCount * 1.35).ceil()) {
+    if (normalizedUser.length != expectedCount) {
       return false;
     }
 
