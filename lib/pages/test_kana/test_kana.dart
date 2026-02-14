@@ -53,7 +53,7 @@ class TestTab extends StatelessWidget {
         } else if (state is DrawingReportError) {
           Snackbars.showErrorScaffold(
             context,
-            t.app.testReportError,
+            state.msg.isEmpty ? t.app.testReportError : state.msg,
             visibleDuration: const Duration(milliseconds: 2600),
           );
         } else if (state is HiraganaWritingSuccess ||

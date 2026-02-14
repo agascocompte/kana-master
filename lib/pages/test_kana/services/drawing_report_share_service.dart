@@ -1,11 +1,13 @@
 import 'dart:convert';
-import 'dart:io';
 import 'dart:ui';
 
-import 'package:path_provider/path_provider.dart';
-import 'package:share_plus/share_plus.dart';
+import 'package:http/http.dart' as http;
 
 class DrawingReportShareService {
+  static const String _endpoint =
+      "http://13.60.216.164:8081/drawing-report?token=6GyDzXxhMQOJIGSbcziZPR0MRQiGeTWlVvxCaprH80kTDbi09IwT0FwhUYxEYtw2";
+  //String.fromEnvironment('DRAWING_REPORT_ENDPOINT');
+
   Future<void> shareFalseNegativeReport({
     required String script,
     required String expectedLabel,
@@ -14,20 +16,16 @@ class DrawingReportShareService {
     required List<List<Offset>> userStrokes,
     required List<int> pngBytes,
   }) async {
-    final directory = await getTemporaryDirectory();
-    final folder = Directory('${directory.path}/drawing_reports');
-    if (!await folder.exists()) {
-      await folder.create(recursive: true);
+    if (_endpoint.isEmpty) {
+      throw StateError('DRAWING_REPORT_ENDPOINT is not configured.');
+    }
+
+    final uri = Uri.tryParse(_endpoint);
+    if (uri == null) {
+      throw StateError('Invalid DRAWING_REPORT_ENDPOINT URL.');
     }
 
     final now = DateTime.now().toUtc();
-    final stamp =
-        '${now.year.toString().padLeft(4, '0')}${now.month.toString().padLeft(2, '0')}${now.day.toString().padLeft(2, '0')}_${now.hour.toString().padLeft(2, '0')}${now.minute.toString().padLeft(2, '0')}${now.second.toString().padLeft(2, '0')}';
-    final pngPath = '${folder.path}/drawing_$stamp.png';
-    final jsonPath = '${folder.path}/drawing_$stamp.json';
-
-    await File(pngPath).writeAsBytes(pngBytes);
-
     final payload = {
       'type': 'false_negative_report',
       'created_at_utc': now.toIso8601String(),
@@ -36,6 +34,7 @@ class DrawingReportShareService {
       'predicted_label': predictedLabel,
       'confidence': confidence,
       'stroke_count': userStrokes.length,
+      'drawing_png_base64': base64Encode(pngBytes),
       'strokes': userStrokes
           .map((stroke) => stroke
               .map((point) => {
@@ -46,17 +45,18 @@ class DrawingReportShareService {
           .toList(),
     };
 
-    await File(jsonPath)
-        .writeAsString(const JsonEncoder.withIndent('  ').convert(payload));
+    final response = await http
+        .post(
+          uri,
+          headers: const {'Content-Type': 'application/json'},
+          body: jsonEncode(payload),
+        )
+        .timeout(const Duration(seconds: 12));
 
-    await Share.shareXFiles(
-      [
-        XFile(pngPath),
-        XFile(jsonPath),
-      ],
-      text:
-          'Kana Master drawing report\nExpected: $expectedLabel\nPredicted: $predictedLabel (${(confidence * 100).toStringAsFixed(1)}%)',
-      subject: 'Kana Master false negative report',
-    );
+    if (response.statusCode < 200 || response.statusCode >= 300) {
+      throw StateError(
+        'Report upload failed with status ${response.statusCode}.',
+      );
+    }
   }
 }
