@@ -137,6 +137,26 @@
     "aiInfoTitle": "KI-Modelle beim Zeichnen",
     "aiInfoLine1": "KI-Erkennung kann gelegentlich fehlschlagen.",
     "aiInfoLine2": "Falls sie fehlschlägt, deaktiviere das Modell zur Verwendung einer auf Strichen basierenden Bewertung.",
-    "aiInfoLine3": "Du kannst falsche Negativwerte melden, um uns bei der Verbesserung zu helfen."
+    "aiInfoLine3": "Du kannst falsche Negativwerte melden, um uns bei der Verbesserung zu helfen.",
+    "premiumSectionTitle": "Premium",
+    "premiumSectionSubtitle": "Unlock all features and remove interstitial ads.",
+    "premiumOpenButton": "Upgrade",
+    "premiumLockedMessage": "Premium feature. Upgrade to unlock it.",
+    "premiumTitle": "Kana Master Premium",
+    "premiumSubtitle": "One-time purchase, all features unlocked.",
+    "premiumHeroTitle": "Learn without limits",
+    "premiumHeroBody": "Get the full experience and support the project.",
+    "premiumBenefitNoAds": "No interstitial ads",
+    "premiumBenefitMaterials": "Access Materials mode",
+    "premiumBenefitHard": "Use high difficulty",
+    "premiumBenefitAi": "Enable AI model options",
+    "premiumBenefitBackup": "Export/import statistics",
+    "premiumBuyButton": "Buy for ${price}",
+    "premiumRestoreButton": "Restore purchases",
+    "premiumOwnedBadge": "Premium unlocked",
+    "premiumStoreUnavailable": "Store unavailable. Try again later.",
+    "premiumPurchaseError": "Purchase failed: ${error}",
+    "premiumPurchased": "Purchase completed. Premium unlocked.",
+    "premiumRestored": "Purchases restored."
   }
 }

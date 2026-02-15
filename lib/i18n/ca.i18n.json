@@ -137,6 +137,26 @@
     "aiInfoTitle": "Models d'IA en dibuix",
     "aiInfoLine1": "El reconeixement d'IA pot fallar ocasionalment.",
     "aiInfoLine2": "Si falla, desactiva el model per utilitzar una evaluació basada en traços.",
-    "aiInfoLine3": "Pots reportar falsos negatius per ajudar-nos a millorar-lo."
+    "aiInfoLine3": "Pots reportar falsos negatius per ajudar-nos a millorar-lo.",
+    "premiumSectionTitle": "Premium",
+    "premiumSectionSubtitle": "Desbloqueja totes les funcions i elimina anuncis intersticials.",
+    "premiumOpenButton": "Millorar",
+    "premiumLockedMessage": "Funció premium. Millora per desbloquejar-la.",
+    "premiumTitle": "Kana Master Premium",
+    "premiumSubtitle": "Compra única, totes les funcions desbloquejades.",
+    "premiumHeroTitle": "Aprèn sense límits",
+    "premiumHeroBody": "Aconsegueix l'experiència completa i dona suport al projecte.",
+    "premiumBenefitNoAds": "Sense anuncis intersticials",
+    "premiumBenefitMaterials": "Accés al mode Materials",
+    "premiumBenefitHard": "Dificultat alta disponible",
+    "premiumBenefitAi": "Opcions de models IA",
+    "premiumBenefitBackup": "Exportar/importar estadístiques",
+    "premiumBuyButton": "Comprar per ${price}",
+    "premiumRestoreButton": "Restaurar compres",
+    "premiumOwnedBadge": "Premium desbloquejat",
+    "premiumStoreUnavailable": "Botiga no disponible. Torna-ho a provar més tard.",
+    "premiumPurchaseError": "Compra fallida: ${error}",
+    "premiumPurchased": "Compra completada. Premium desbloquejat.",
+    "premiumRestored": "Compres restaurades."
   }
 }

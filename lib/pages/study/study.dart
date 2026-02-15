@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:kana_master/constants.dart';
 import 'package:kana_master/domain/models/segment_option.dart';
+import 'package:kana_master/pages/premium/bloc/premium_bloc.dart';
 import 'package:kana_master/pages/settings/bloc/settings_bloc.dart';
 import 'package:kana_master/pages/study/widgets/action_card.dart';
 import 'package:kana_master/pages/study/widgets/equal_segmented.dart';
@@ -11,6 +12,7 @@ import 'package:kana_master/pages/study/widgets/stats_preview.dart';
 import 'package:kana_master/router/router.dart';
 import 'package:kana_master/theme/app_theme.dart';
 import 'package:kana_master/i18n/strings.g.dart';
+import 'package:kana_master/widgets/snackbars.dart';
 
 class StudyTab extends StatelessWidget {
   const StudyTab({super.key});
@@ -23,6 +25,7 @@ class StudyTab extends StatelessWidget {
         final KanaType kanaType = settingsState.stateData.kanaType;
         final DifficultyLevel difficulty =
             settingsState.stateData.difficultyLevel;
+        final bool isPremium = context.watch<PremiumBloc>().state.isPremium;
         return SafeArea(
           child: SingleChildScrollView(
             padding: const EdgeInsets.fromLTRB(16, 18, 16, 24),
@@ -80,6 +83,12 @@ class StudyTab extends StatelessWidget {
                   child: EqualSegmented<DifficultyLevel>(
                     selected: difficulty,
                     onSelected: (value) {
+                      if (!isPremium && value == DifficultyLevel.high) {
+                        Snackbars.showWarningScaffold(
+                            context, tr.app.premiumLockedMessage);
+                        context.push(AppRouter.premiumRoute);
+                        return;
+                      }
                       context.read<SettingsBloc>().add(
                             ChangeDifficultyLevel(difficultyLevel: value),
                           );
@@ -140,7 +149,15 @@ class StudyTab extends StatelessWidget {
                   gradient: const LinearGradient(
                     colors: [AppColors.lime, AppColors.teal],
                   ),
-                  onTap: () => context.push(AppRouter.materialRoute),
+                  onTap: () {
+                    if (isPremium) {
+                      context.push(AppRouter.materialRoute);
+                    } else {
+                      Snackbars.showWarningScaffold(
+                          context, tr.app.premiumLockedMessage);
+                      context.push(AppRouter.premiumRoute);
+                    }
+                  },
                 ),
                 const SizedBox(height: 18),
                 StatsPreview(kanaType: kanaType),

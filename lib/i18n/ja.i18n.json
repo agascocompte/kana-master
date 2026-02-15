@@ -137,6 +137,26 @@
     "aiInfoTitle": "AIモデルによる描画",
     "aiInfoLine1": "AI認識は時々失敗することがあります。",
     "aiInfoLine2": "失敗した場合は、モデルを無効にしてストロークベースの評価を使用してください。",
-    "aiInfoLine3": "誤検出を報告して改善にご協力ください。"
+    "aiInfoLine3": "誤検出を報告して改善にご協力ください。",
+    "premiumSectionTitle": "Premium",
+    "premiumSectionSubtitle": "Unlock all features and remove interstitial ads.",
+    "premiumOpenButton": "Upgrade",
+    "premiumLockedMessage": "Premium feature. Upgrade to unlock it.",
+    "premiumTitle": "Kana Master Premium",
+    "premiumSubtitle": "One-time purchase, all features unlocked.",
+    "premiumHeroTitle": "Learn without limits",
+    "premiumHeroBody": "Get the full experience and support the project.",
+    "premiumBenefitNoAds": "No interstitial ads",
+    "premiumBenefitMaterials": "Access Materials mode",
+    "premiumBenefitHard": "Use high difficulty",
+    "premiumBenefitAi": "Enable AI model options",
+    "premiumBenefitBackup": "Export/import statistics",
+    "premiumBuyButton": "Buy for ${price}",
+    "premiumRestoreButton": "Restore purchases",
+    "premiumOwnedBadge": "Premium unlocked",
+    "premiumStoreUnavailable": "Store unavailable. Try again later.",
+    "premiumPurchaseError": "Purchase failed: ${error}",
+    "premiumPurchased": "Purchase completed. Premium unlocked.",
+    "premiumRestored": "Purchases restored."
   }
 }

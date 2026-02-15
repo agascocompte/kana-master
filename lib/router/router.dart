@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart' hide MaterialPage;
 import 'package:go_router/go_router.dart';
 import 'package:kana_master/pages/home/home.dart';
+import 'package:kana_master/pages/premium/premium_page.dart';
 import 'package:kana_master/pages/settings/settings.dart';
 import 'package:kana_master/pages/stats/stats.dart';
 import 'package:kana_master/pages/study/pages/learn_page.dart';
@@ -15,6 +16,7 @@ class AppRouter {
   static const String learnRoute = "/learn";
   static const String practiceRoute = "/practice";
   static const String materialRoute = "/material";
+  static const String premiumRoute = "/premium";
 
   static GoRouter router = GoRouter(
     initialLocation: homeRoute,
@@ -65,6 +67,13 @@ class AppRouter {
         name: materialRoute,
         builder: (BuildContext context, GoRouterState state) {
           return const MaterialPage();
+        },
+      ),
+      GoRoute(
+        path: "/premium",
+        name: premiumRoute,
+        builder: (BuildContext context, GoRouterState state) {
+          return const PremiumPage();
         },
       ),
     ],

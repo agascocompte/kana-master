@@ -137,6 +137,26 @@
     "aiInfoTitle": "Modelli IA in disegno",
     "aiInfoLine1": "Il riconoscimento AI può fallire occasionalmente.",
     "aiInfoLine2": "Se fallisce, disattiva il modello per usare una valutazione basata sui tratti.",
-    "aiInfoLine3": "Puoi segnalare falsi negativi per aiutarci a migliorarlo."
+    "aiInfoLine3": "Puoi segnalare falsi negativi per aiutarci a migliorarlo.",
+    "premiumSectionTitle": "Premium",
+    "premiumSectionSubtitle": "Unlock all features and remove interstitial ads.",
+    "premiumOpenButton": "Upgrade",
+    "premiumLockedMessage": "Premium feature. Upgrade to unlock it.",
+    "premiumTitle": "Kana Master Premium",
+    "premiumSubtitle": "One-time purchase, all features unlocked.",
+    "premiumHeroTitle": "Learn without limits",
+    "premiumHeroBody": "Get the full experience and support the project.",
+    "premiumBenefitNoAds": "No interstitial ads",
+    "premiumBenefitMaterials": "Access Materials mode",
+    "premiumBenefitHard": "Use high difficulty",
+    "premiumBenefitAi": "Enable AI model options",
+    "premiumBenefitBackup": "Export/import statistics",
+    "premiumBuyButton": "Buy for ${price}",
+    "premiumRestoreButton": "Restore purchases",
+    "premiumOwnedBadge": "Premium unlocked",
+    "premiumStoreUnavailable": "Store unavailable. Try again later.",
+    "premiumPurchaseError": "Purchase failed: ${error}",
+    "premiumPurchased": "Purchase completed. Premium unlocked.",
+    "premiumRestored": "Purchases restored."
   }
 }

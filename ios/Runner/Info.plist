@@ -51,5 +51,7 @@
 	<string>This app does not use the camera. Permission is required by system libraries.</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>This app does not use the microphone.</string>
+	<key>GADApplicationIdentifier</key>
+	<string>ca-app-pub-3562387824532338~9994218439</string>
 </dict>
 </plist>

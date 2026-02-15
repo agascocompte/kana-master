@@ -464,6 +464,66 @@ class TranslationsAppEn {
 
 	/// en: 'You can report false negatives to help improve it.'
 	String get aiInfoLine3 => 'You can report false negatives to help improve it.';
+
+	/// en: 'Premium'
+	String get premiumSectionTitle => 'Premium';
+
+	/// en: 'Unlock all features and remove interstitial ads.'
+	String get premiumSectionSubtitle => 'Unlock all features and remove interstitial ads.';
+
+	/// en: 'Upgrade'
+	String get premiumOpenButton => 'Upgrade';
+
+	/// en: 'Premium feature. Upgrade to unlock it.'
+	String get premiumLockedMessage => 'Premium feature. Upgrade to unlock it.';
+
+	/// en: 'Kana Master Premium'
+	String get premiumTitle => 'Kana Master Premium';
+
+	/// en: 'One-time purchase, all features unlocked.'
+	String get premiumSubtitle => 'One-time purchase, all features unlocked.';
+
+	/// en: 'Learn without limits'
+	String get premiumHeroTitle => 'Learn without limits';
+
+	/// en: 'Get the full experience and support the project.'
+	String get premiumHeroBody => 'Get the full experience and support the project.';
+
+	/// en: 'No interstitial ads'
+	String get premiumBenefitNoAds => 'No interstitial ads';
+
+	/// en: 'Access Materials mode'
+	String get premiumBenefitMaterials => 'Access Materials mode';
+
+	/// en: 'Use high difficulty'
+	String get premiumBenefitHard => 'Use high difficulty';
+
+	/// en: 'Enable AI model options'
+	String get premiumBenefitAi => 'Enable AI model options';
+
+	/// en: 'Export/import statistics'
+	String get premiumBenefitBackup => 'Export/import statistics';
+
+	/// en: 'Buy for ${price}'
+	String premiumBuyButton({required Object price}) => 'Buy for ${price}';
+
+	/// en: 'Restore purchases'
+	String get premiumRestoreButton => 'Restore purchases';
+
+	/// en: 'Premium unlocked'
+	String get premiumOwnedBadge => 'Premium unlocked';
+
+	/// en: 'Store unavailable. Try again later.'
+	String get premiumStoreUnavailable => 'Store unavailable. Try again later.';
+
+	/// en: 'Purchase failed: ${error}'
+	String premiumPurchaseError({required Object error}) => 'Purchase failed: ${error}';
+
+	/// en: 'Purchase completed. Premium unlocked.'
+	String get premiumPurchased => 'Purchase completed. Premium unlocked.';
+
+	/// en: 'Purchases restored.'
+	String get premiumRestored => 'Purchases restored.';
 }
 
 /// The flat map containing all translations for locale <en>.
@@ -612,6 +672,26 @@ extension on Translations {
 			'app.aiInfoLine1' => 'AI recognition may fail occasionally.',
 			'app.aiInfoLine2' => 'If it fails, disable the model to use stroke-based evaluation.',
 			'app.aiInfoLine3' => 'You can report false negatives to help improve it.',
+			'app.premiumSectionTitle' => 'Premium',
+			'app.premiumSectionSubtitle' => 'Unlock all features and remove interstitial ads.',
+			'app.premiumOpenButton' => 'Upgrade',
+			'app.premiumLockedMessage' => 'Premium feature. Upgrade to unlock it.',
+			'app.premiumTitle' => 'Kana Master Premium',
+			'app.premiumSubtitle' => 'One-time purchase, all features unlocked.',
+			'app.premiumHeroTitle' => 'Learn without limits',
+			'app.premiumHeroBody' => 'Get the full experience and support the project.',
+			'app.premiumBenefitNoAds' => 'No interstitial ads',
+			'app.premiumBenefitMaterials' => 'Access Materials mode',
+			'app.premiumBenefitHard' => 'Use high difficulty',
+			'app.premiumBenefitAi' => 'Enable AI model options',
+			'app.premiumBenefitBackup' => 'Export/import statistics',
+			'app.premiumBuyButton' => ({required Object price}) => 'Buy for ${price}',
+			'app.premiumRestoreButton' => 'Restore purchases',
+			'app.premiumOwnedBadge' => 'Premium unlocked',
+			'app.premiumStoreUnavailable' => 'Store unavailable. Try again later.',
+			'app.premiumPurchaseError' => ({required Object error}) => 'Purchase failed: ${error}',
+			'app.premiumPurchased' => 'Purchase completed. Premium unlocked.',
+			'app.premiumRestored' => 'Purchases restored.',
 			_ => null,
 		};
 	}
