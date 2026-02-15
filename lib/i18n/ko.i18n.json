@@ -137,6 +137,26 @@
     "aiInfoTitle": "AI 모델로 그리기",
     "aiInfoLine1": "AI 인식은 때때로 실패할 수 있습니다.",
     "aiInfoLine2": "실패하면 모델을 비활성화하여 스트로크 기반 평가를 사용하세요.",
-    "aiInfoLine3": "오인식을 신고하여 개선에 도움을 주세요."
+    "aiInfoLine3": "오인식을 신고하여 개선에 도움을 주세요.",
+    "premiumSectionTitle": "Premium",
+    "premiumSectionSubtitle": "Unlock all features and remove interstitial ads.",
+    "premiumOpenButton": "Upgrade",
+    "premiumLockedMessage": "Premium feature. Upgrade to unlock it.",
+    "premiumTitle": "Kana Master Premium",
+    "premiumSubtitle": "One-time purchase, all features unlocked.",
+    "premiumHeroTitle": "Learn without limits",
+    "premiumHeroBody": "Get the full experience and support the project.",
+    "premiumBenefitNoAds": "No interstitial ads",
+    "premiumBenefitMaterials": "Access Materials mode",
+    "premiumBenefitHard": "Use high difficulty",
+    "premiumBenefitAi": "Enable AI model options",
+    "premiumBenefitBackup": "Export/import statistics",
+    "premiumBuyButton": "Buy for ${price}",
+    "premiumRestoreButton": "Restore purchases",
+    "premiumOwnedBadge": "Premium unlocked",
+    "premiumStoreUnavailable": "Store unavailable. Try again later.",
+    "premiumPurchaseError": "Purchase failed: ${error}",
+    "premiumPurchased": "Purchase completed. Premium unlocked.",
+    "premiumRestored": "Purchases restored."
   }
 }

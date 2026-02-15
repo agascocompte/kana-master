@@ -185,6 +185,26 @@ class _TranslationsAppPt implements TranslationsAppEn {
 	@override String get aiInfoLine1 => 'O reconhecimento de IA pode falhar ocasionalmente.';
 	@override String get aiInfoLine2 => 'Se falhar, desative o modelo para usar avaliação baseada em traços.';
 	@override String get aiInfoLine3 => 'Você pode reportar falsos negativos para ajudar a melhorar o modelo.';
+	@override String get premiumSectionTitle => 'Premium';
+	@override String get premiumSectionSubtitle => 'Unlock all features and remove interstitial ads.';
+	@override String get premiumOpenButton => 'Upgrade';
+	@override String get premiumLockedMessage => 'Premium feature. Upgrade to unlock it.';
+	@override String get premiumTitle => 'Kana Master Premium';
+	@override String get premiumSubtitle => 'One-time purchase, all features unlocked.';
+	@override String get premiumHeroTitle => 'Learn without limits';
+	@override String get premiumHeroBody => 'Get the full experience and support the project.';
+	@override String get premiumBenefitNoAds => 'No interstitial ads';
+	@override String get premiumBenefitMaterials => 'Access Materials mode';
+	@override String get premiumBenefitHard => 'Use high difficulty';
+	@override String get premiumBenefitAi => 'Enable AI model options';
+	@override String get premiumBenefitBackup => 'Export/import statistics';
+	@override String premiumBuyButton({required Object price}) => 'Buy for ${price}';
+	@override String get premiumRestoreButton => 'Restore purchases';
+	@override String get premiumOwnedBadge => 'Premium unlocked';
+	@override String get premiumStoreUnavailable => 'Store unavailable. Try again later.';
+	@override String premiumPurchaseError({required Object error}) => 'Purchase failed: ${error}';
+	@override String get premiumPurchased => 'Purchase completed. Premium unlocked.';
+	@override String get premiumRestored => 'Purchases restored.';
 }
 
 /// The flat map containing all translations for locale <pt>.
@@ -333,6 +353,26 @@ extension on TranslationsPt {
 			'app.aiInfoLine1' => 'O reconhecimento de IA pode falhar ocasionalmente.',
 			'app.aiInfoLine2' => 'Se falhar, desative o modelo para usar avaliação baseada em traços.',
 			'app.aiInfoLine3' => 'Você pode reportar falsos negativos para ajudar a melhorar o modelo.',
+			'app.premiumSectionTitle' => 'Premium',
+			'app.premiumSectionSubtitle' => 'Unlock all features and remove interstitial ads.',
+			'app.premiumOpenButton' => 'Upgrade',
+			'app.premiumLockedMessage' => 'Premium feature. Upgrade to unlock it.',
+			'app.premiumTitle' => 'Kana Master Premium',
+			'app.premiumSubtitle' => 'One-time purchase, all features unlocked.',
+			'app.premiumHeroTitle' => 'Learn without limits',
+			'app.premiumHeroBody' => 'Get the full experience and support the project.',
+			'app.premiumBenefitNoAds' => 'No interstitial ads',
+			'app.premiumBenefitMaterials' => 'Access Materials mode',
+			'app.premiumBenefitHard' => 'Use high difficulty',
+			'app.premiumBenefitAi' => 'Enable AI model options',
+			'app.premiumBenefitBackup' => 'Export/import statistics',
+			'app.premiumBuyButton' => ({required Object price}) => 'Buy for ${price}',
+			'app.premiumRestoreButton' => 'Restore purchases',
+			'app.premiumOwnedBadge' => 'Premium unlocked',
+			'app.premiumStoreUnavailable' => 'Store unavailable. Try again later.',
+			'app.premiumPurchaseError' => ({required Object error}) => 'Purchase failed: ${error}',
+			'app.premiumPurchased' => 'Purchase completed. Premium unlocked.',
+			'app.premiumRestored' => 'Purchases restored.',
 			_ => null,
 		};
 	}

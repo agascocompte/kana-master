@@ -206,4 +206,26 @@ class SettingsRepository {
     }
     return false;
   }
+
+  Future<void> savePremiumUnlocked(bool unlocked) async {
+    final db = await _databaseProvider.database;
+    await db.insert(
+      'settings',
+      {'key': 'premium_unlocked', 'value': unlocked ? '1' : '0'},
+      conflictAlgorithm: ConflictAlgorithm.replace,
+    );
+  }
+
+  Future<bool> getPremiumUnlocked() async {
+    final db = await _databaseProvider.database;
+    final result = await db.query(
+      'settings',
+      where: 'key = ?',
+      whereArgs: ['premium_unlocked'],
+    );
+    if (result.isNotEmpty) {
+      return result.first['value']?.toString() == '1';
+    }
+    return false;
+  }
 }

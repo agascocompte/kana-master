@@ -185,6 +185,26 @@ class _TranslationsAppCa implements TranslationsAppEn {
 	@override String get aiInfoLine1 => 'El reconeixement d\'IA pot fallar ocasionalment.';
 	@override String get aiInfoLine2 => 'Si falla, desactiva el model per utilitzar una evaluació basada en traços.';
 	@override String get aiInfoLine3 => 'Pots reportar falsos negatius per ajudar-nos a millorar-lo.';
+	@override String get premiumSectionTitle => 'Premium';
+	@override String get premiumSectionSubtitle => 'Desbloqueja totes les funcions i elimina anuncis intersticials.';
+	@override String get premiumOpenButton => 'Millorar';
+	@override String get premiumLockedMessage => 'Funció premium. Millora per desbloquejar-la.';
+	@override String get premiumTitle => 'Kana Master Premium';
+	@override String get premiumSubtitle => 'Compra única, totes les funcions desbloquejades.';
+	@override String get premiumHeroTitle => 'Aprèn sense límits';
+	@override String get premiumHeroBody => 'Aconsegueix l\'experiència completa i dona suport al projecte.';
+	@override String get premiumBenefitNoAds => 'Sense anuncis intersticials';
+	@override String get premiumBenefitMaterials => 'Accés al mode Materials';
+	@override String get premiumBenefitHard => 'Dificultat alta disponible';
+	@override String get premiumBenefitAi => 'Opcions de models IA';
+	@override String get premiumBenefitBackup => 'Exportar/importar estadístiques';
+	@override String premiumBuyButton({required Object price}) => 'Comprar per ${price}';
+	@override String get premiumRestoreButton => 'Restaurar compres';
+	@override String get premiumOwnedBadge => 'Premium desbloquejat';
+	@override String get premiumStoreUnavailable => 'Botiga no disponible. Torna-ho a provar més tard.';
+	@override String premiumPurchaseError({required Object error}) => 'Compra fallida: ${error}';
+	@override String get premiumPurchased => 'Compra completada. Premium desbloquejat.';
+	@override String get premiumRestored => 'Compres restaurades.';
 }
 
 /// The flat map containing all translations for locale <ca>.
@@ -333,6 +353,26 @@ extension on TranslationsCa {
 			'app.aiInfoLine1' => 'El reconeixement d\'IA pot fallar ocasionalment.',
 			'app.aiInfoLine2' => 'Si falla, desactiva el model per utilitzar una evaluació basada en traços.',
 			'app.aiInfoLine3' => 'Pots reportar falsos negatius per ajudar-nos a millorar-lo.',
+			'app.premiumSectionTitle' => 'Premium',
+			'app.premiumSectionSubtitle' => 'Desbloqueja totes les funcions i elimina anuncis intersticials.',
+			'app.premiumOpenButton' => 'Millorar',
+			'app.premiumLockedMessage' => 'Funció premium. Millora per desbloquejar-la.',
+			'app.premiumTitle' => 'Kana Master Premium',
+			'app.premiumSubtitle' => 'Compra única, totes les funcions desbloquejades.',
+			'app.premiumHeroTitle' => 'Aprèn sense límits',
+			'app.premiumHeroBody' => 'Aconsegueix l\'experiència completa i dona suport al projecte.',
+			'app.premiumBenefitNoAds' => 'Sense anuncis intersticials',
+			'app.premiumBenefitMaterials' => 'Accés al mode Materials',
+			'app.premiumBenefitHard' => 'Dificultat alta disponible',
+			'app.premiumBenefitAi' => 'Opcions de models IA',
+			'app.premiumBenefitBackup' => 'Exportar/importar estadístiques',
+			'app.premiumBuyButton' => ({required Object price}) => 'Comprar per ${price}',
+			'app.premiumRestoreButton' => 'Restaurar compres',
+			'app.premiumOwnedBadge' => 'Premium desbloquejat',
+			'app.premiumStoreUnavailable' => 'Botiga no disponible. Torna-ho a provar més tard.',
+			'app.premiumPurchaseError' => ({required Object error}) => 'Compra fallida: ${error}',
+			'app.premiumPurchased' => 'Compra completada. Premium desbloquejat.',
+			'app.premiumRestored' => 'Compres restaurades.',
 			_ => null,
 		};
 	}

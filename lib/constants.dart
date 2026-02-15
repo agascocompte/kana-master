@@ -8,6 +8,10 @@ const Color jDarkBLue = Color(0xFF0E1B26);
 
 const int imageDimensions = 128;
 const int totalClasses = 45;
+const String premiumProductId = 'kana_master_premium';
+const String admobInterstitialAndroidId =
+    'ca-app-pub-3562387824532338/9546671463';
+const String admobInterstitialIosId = 'ca-app-pub-3562387824532338/4761248645';
 
 const ModelConfig hiraganaModelV1 = ModelConfig(
   assetPath: 'assets/models/model_etl8g.tflite',

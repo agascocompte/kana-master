@@ -40,6 +40,9 @@ dependencies:
   # i18n
   slang: ^4.12.1
   slang_flutter: ^4.12.1
+  # Income
+  google_mobile_ads: ^7.0.0
+  in_app_purchase: ^3.2.3
 
   cupertino_icons: ^1.0.8
 

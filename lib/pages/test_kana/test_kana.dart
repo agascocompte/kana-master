@@ -3,12 +3,14 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kana_master/constants.dart';
 import 'package:kana_master/domain/models/kanji_entry.dart';
+import 'package:kana_master/pages/premium/bloc/premium_bloc.dart';
 import 'package:kana_master/pages/settings/bloc/settings_bloc.dart';
 import 'package:kana_master/pages/stats/bloc/stats_bloc.dart';
 import 'package:kana_master/pages/test_kana/bloc/test_kana_bloc.dart';
 import 'package:kana_master/pages/test_kana/widgets/prediction_overlay.dart';
 import 'package:kana_master/pages/test_kana/widgets/test_session_view.dart';
 import 'package:kana_master/pages/test_kana/widgets/test_start_card.dart';
+import 'package:kana_master/services/ads/interstitial_gate.dart';
 import 'package:kana_master/widgets/snackbars.dart';
 import 'package:kana_master/i18n/strings.g.dart';
 
@@ -58,6 +60,7 @@ class TestTab extends StatelessWidget {
           );
         } else if (state is HiraganaWritingSuccess ||
             state is KanaSelectedSuccess) {
+          final isPremium = context.read<PremiumBloc>().state.isPremium;
           context.read<StatsBloc>().add(AddAnswerResult(
                 kanaType: kanaType,
                 isCorrect: true,
@@ -65,6 +68,7 @@ class TestTab extends StatelessWidget {
           if (hapticsEnabled) {
             HapticFeedback.lightImpact();
           }
+          InterstitialGate.instance.onCorrectAnswer(isPremium: isPremium);
           Snackbars.showSuccessScaffold(context, t.app.correct);
           context.read<TestKanaBloc>().add(TestNextKana(
                 kana: kana,

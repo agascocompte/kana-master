@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:kana_master/constants.dart';
+import 'package:kana_master/pages/premium/bloc/premium_bloc.dart';
 import 'package:kana_master/pages/settings/bloc/settings_bloc.dart';
 import 'package:kana_master/pages/settings/widgets/settings_backup_card.dart';
 import 'package:kana_master/pages/settings/widgets/dropdown_tile_setting.dart';
@@ -8,6 +10,7 @@ import 'package:kana_master/pages/settings/widgets/settings_section_header.dart'
 import 'package:kana_master/pages/settings/widgets/settings_slider_card.dart';
 import 'package:kana_master/pages/settings/widgets/settings_switch_card.dart';
 import 'package:kana_master/pages/stats/bloc/stats_bloc.dart';
+import 'package:kana_master/router/router.dart';
 import 'package:kana_master/theme/app_theme.dart';
 import 'package:kana_master/i18n/strings.g.dart';
 import 'package:kana_master/widgets/dialogs.dart';
@@ -37,6 +40,8 @@ class SettingsPage extends StatelessWidget {
         }
       },
       builder: (context, state) {
+        final bool isPremium = context.watch<PremiumBloc>().state.isPremium;
+        void openPremium() => context.push(AppRouter.premiumRoute);
         return Scaffold(
           body: Container(
             decoration: const BoxDecoration(
@@ -75,6 +80,50 @@ class SettingsPage extends StatelessWidget {
                     child: ListView(
                       padding: const EdgeInsets.all(16.0),
                       children: [
+                        SettingsSectionHeader(
+                          title: tr.app.premiumSectionTitle,
+                        ),
+                        const SizedBox(height: 8),
+                        Container(
+                          padding: const EdgeInsets.all(14),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(16),
+                            border: Border.all(color: AppColors.sand),
+                          ),
+                          child: Row(
+                            children: [
+                              Icon(
+                                isPremium
+                                    ? Icons.verified_outlined
+                                    : Icons.workspace_premium_outlined,
+                                color: AppColors.ink,
+                              ),
+                              const SizedBox(width: 10),
+                              Expanded(
+                                child: Text(
+                                  isPremium
+                                      ? tr.app.premiumOwnedBadge
+                                      : tr.app.premiumSectionSubtitle,
+                                  style: const TextStyle(
+                                    color: AppColors.graphite,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                              ),
+                              if (!isPremium)
+                                FilledButton(
+                                  onPressed: openPremium,
+                                  style: FilledButton.styleFrom(
+                                    backgroundColor: AppColors.ink,
+                                    foregroundColor: Colors.white,
+                                  ),
+                                  child: Text(tr.app.premiumOpenButton),
+                                ),
+                            ],
+                          ),
+                        ),
+                        const SizedBox(height: 12),
                         SettingsSectionHeader(
                           title: tr.app.settingsGeneralSection,
                         ),
@@ -136,6 +185,12 @@ class SettingsPage extends StatelessWidget {
                           icon: Icons.smart_toy_outlined,
                           value: state.stateData.useModelHiragana,
                           onChanged: (value) {
+                            if (!isPremium) {
+                              Snackbars.showWarningScaffold(
+                                  context, tr.app.premiumLockedMessage);
+                              openPremium();
+                              return;
+                            }
                             context.read<SettingsBloc>().add(
                                   ChangeUseModelHiragana(enabled: value),
                                 );
@@ -148,6 +203,12 @@ class SettingsPage extends StatelessWidget {
                           icon: Icons.smart_toy_outlined,
                           value: state.stateData.useModelKatakana,
                           onChanged: (value) {
+                            if (!isPremium) {
+                              Snackbars.showWarningScaffold(
+                                  context, tr.app.premiumLockedMessage);
+                              openPremium();
+                              return;
+                            }
                             context.read<SettingsBloc>().add(
                                   ChangeUseModelKatakana(enabled: value),
                                 );
@@ -160,6 +221,12 @@ class SettingsPage extends StatelessWidget {
                           icon: Icons.smart_toy_outlined,
                           value: state.stateData.useModelKanji,
                           onChanged: (value) {
+                            if (!isPremium) {
+                              Snackbars.showWarningScaffold(
+                                  context, tr.app.premiumLockedMessage);
+                              openPremium();
+                              return;
+                            }
                             context.read<SettingsBloc>().add(
                                   ChangeUseModelKanji(enabled: value),
                                 );
@@ -177,6 +244,12 @@ class SettingsPage extends StatelessWidget {
                           icon: Icons.filter_alt_outlined,
                           items: _jlptItems(context),
                           onChanged: (String? newValue) {
+                            if (!isPremium) {
+                              Snackbars.showWarningScaffold(
+                                  context, tr.app.premiumLockedMessage);
+                              openPremium();
+                              return;
+                            }
                             if (newValue != null) {
                               context.read<SettingsBloc>().add(
                                     ChangeKanjiJlptFilter(filter: newValue),
@@ -196,11 +269,23 @@ class SettingsPage extends StatelessWidget {
                           exportLabel: tr.app.settingsBackupExportButton,
                           importLabel: tr.app.settingsBackupImportButton,
                           onExport: () {
+                            if (!isPremium) {
+                              Snackbars.showWarningScaffold(
+                                  context, tr.app.premiumLockedMessage);
+                              openPremium();
+                              return;
+                            }
                             context
                                 .read<SettingsBloc>()
                                 .add(ExportStatsRequested());
                           },
                           onImport: () {
+                            if (!isPremium) {
+                              Snackbars.showWarningScaffold(
+                                  context, tr.app.premiumLockedMessage);
+                              openPremium();
+                              return;
+                            }
                             context
                                 .read<SettingsBloc>()
                                 .add(ImportStatsRequested());

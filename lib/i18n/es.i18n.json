@@ -137,6 +137,26 @@
     "aiInfoTitle": "Modelos de IA en dibujo",
     "aiInfoLine1": "El reconocimiento de IA puede fallar ocasionalmente.",
     "aiInfoLine2": "Si falla, desactiva el modelo para usar una evaluación basada en trazos.",
-    "aiInfoLine3": "Puedes reportar falsos negativos para ayudarnos a mejorarlo."
+    "aiInfoLine3": "Puedes reportar falsos negativos para ayudarnos a mejorarlo.",
+    "premiumSectionTitle": "Premium",
+    "premiumSectionSubtitle": "Desbloquea todas las funciones y elimina anuncios intersticiales.",
+    "premiumOpenButton": "Mejorar",
+    "premiumLockedMessage": "Función premium. Mejora para desbloquearla.",
+    "premiumTitle": "Kana Master Premium",
+    "premiumSubtitle": "Compra única, todas las funciones desbloqueadas.",
+    "premiumHeroTitle": "Aprende sin límites",
+    "premiumHeroBody": "Consigue la experiencia completa y apoya el proyecto.",
+    "premiumBenefitNoAds": "Sin anuncios intersticiales",
+    "premiumBenefitMaterials": "Acceso al modo Material",
+    "premiumBenefitHard": "Dificultad alta disponible",
+    "premiumBenefitAi": "Opciones de modelos IA",
+    "premiumBenefitBackup": "Exportar/importar estadísticas",
+    "premiumBuyButton": "Comprar por ${price}",
+    "premiumRestoreButton": "Restaurar compras",
+    "premiumOwnedBadge": "Premium desbloqueado",
+    "premiumStoreUnavailable": "Tienda no disponible. Inténtalo más tarde.",
+    "premiumPurchaseError": "Compra fallida: ${error}",
+    "premiumPurchased": "Compra completada. Premium desbloqueado.",
+    "premiumRestored": "Compras restauradas."
   }
 }
