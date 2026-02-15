@@ -108,6 +108,7 @@ class StudyTab extends StatelessWidget {
                         value: DifficultyLevel.high,
                         title: tr.app.difficultyHard,
                         subtitle: tr.app.difficultyHardDesc,
+                        enabled: isPremium,
                       ),
                     ],
                   ),
@@ -149,6 +150,7 @@ class StudyTab extends StatelessWidget {
                   gradient: const LinearGradient(
                     colors: [AppColors.lime, AppColors.teal],
                   ),
+                  enabled: isPremium,
                   onTap: () {
                     if (isPremium) {
                       context.push(AppRouter.materialRoute);

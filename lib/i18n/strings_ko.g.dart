@@ -186,25 +186,25 @@ class _TranslationsAppKo implements TranslationsAppEn {
 	@override String get aiInfoLine2 => '실패하면 모델을 비활성화하여 스트로크 기반 평가를 사용하세요.';
 	@override String get aiInfoLine3 => '오인식을 신고하여 개선에 도움을 주세요.';
 	@override String get premiumSectionTitle => 'Premium';
-	@override String get premiumSectionSubtitle => 'Unlock all features and remove interstitial ads.';
-	@override String get premiumOpenButton => 'Upgrade';
-	@override String get premiumLockedMessage => 'Premium feature. Upgrade to unlock it.';
+	@override String get premiumSectionSubtitle => '모든 기능을 잠금 해제하고 전면 광고를 제거하세요.';
+	@override String get premiumOpenButton => '업그레이드';
+	@override String get premiumLockedMessage => '프리미엄 기능입니다. 업그레이드하여 잠금 해제하세요.';
 	@override String get premiumTitle => 'Kana Master Premium';
-	@override String get premiumSubtitle => 'One-time purchase, all features unlocked.';
-	@override String get premiumHeroTitle => 'Learn without limits';
-	@override String get premiumHeroBody => 'Get the full experience and support the project.';
-	@override String get premiumBenefitNoAds => 'No interstitial ads';
-	@override String get premiumBenefitMaterials => 'Access Materials mode';
-	@override String get premiumBenefitHard => 'Use high difficulty';
-	@override String get premiumBenefitAi => 'Enable AI model options';
-	@override String get premiumBenefitBackup => 'Export/import statistics';
-	@override String premiumBuyButton({required Object price}) => 'Buy for ${price}';
-	@override String get premiumRestoreButton => 'Restore purchases';
-	@override String get premiumOwnedBadge => 'Premium unlocked';
-	@override String get premiumStoreUnavailable => 'Store unavailable. Try again later.';
-	@override String premiumPurchaseError({required Object error}) => 'Purchase failed: ${error}';
-	@override String get premiumPurchased => 'Purchase completed. Premium unlocked.';
-	@override String get premiumRestored => 'Purchases restored.';
+	@override String get premiumSubtitle => '한 번 구매로 모든 기능이 잠금 해제됩니다.';
+	@override String get premiumHeroTitle => '제한 없이 학습하세요';
+	@override String get premiumHeroBody => '전체 기능을 이용하고 프로젝트를 응원해 주세요.';
+	@override String get premiumBenefitNoAds => '전면 광고 없음';
+	@override String get premiumBenefitMaterials => '자료 모드 이용';
+	@override String get premiumBenefitHard => '고난도 사용 가능';
+	@override String get premiumBenefitAi => 'AI 모델 옵션 활성화';
+	@override String get premiumBenefitBackup => '통계 내보내기/가져오기';
+	@override String premiumBuyButton({required Object price}) => '${price}에 구매';
+	@override String get premiumRestoreButton => '구매 복원';
+	@override String get premiumOwnedBadge => '프리미엄 잠금 해제됨';
+	@override String get premiumStoreUnavailable => '스토어를 사용할 수 없습니다. 나중에 다시 시도하세요.';
+	@override String premiumPurchaseError({required Object error}) => '구매 실패: ${error}';
+	@override String get premiumPurchased => '구매 완료. 프리미엄이 잠금 해제되었습니다.';
+	@override String get premiumRestored => '구매가 복원되었습니다.';
 }
 
 /// The flat map containing all translations for locale <ko>.
@@ -354,25 +354,25 @@ extension on TranslationsKo {
 			'app.aiInfoLine2' => '실패하면 모델을 비활성화하여 스트로크 기반 평가를 사용하세요.',
 			'app.aiInfoLine3' => '오인식을 신고하여 개선에 도움을 주세요.',
 			'app.premiumSectionTitle' => 'Premium',
-			'app.premiumSectionSubtitle' => 'Unlock all features and remove interstitial ads.',
-			'app.premiumOpenButton' => 'Upgrade',
-			'app.premiumLockedMessage' => 'Premium feature. Upgrade to unlock it.',
+			'app.premiumSectionSubtitle' => '모든 기능을 잠금 해제하고 전면 광고를 제거하세요.',
+			'app.premiumOpenButton' => '업그레이드',
+			'app.premiumLockedMessage' => '프리미엄 기능입니다. 업그레이드하여 잠금 해제하세요.',
 			'app.premiumTitle' => 'Kana Master Premium',
-			'app.premiumSubtitle' => 'One-time purchase, all features unlocked.',
-			'app.premiumHeroTitle' => 'Learn without limits',
-			'app.premiumHeroBody' => 'Get the full experience and support the project.',
-			'app.premiumBenefitNoAds' => 'No interstitial ads',
-			'app.premiumBenefitMaterials' => 'Access Materials mode',
-			'app.premiumBenefitHard' => 'Use high difficulty',
-			'app.premiumBenefitAi' => 'Enable AI model options',
-			'app.premiumBenefitBackup' => 'Export/import statistics',
-			'app.premiumBuyButton' => ({required Object price}) => 'Buy for ${price}',
-			'app.premiumRestoreButton' => 'Restore purchases',
-			'app.premiumOwnedBadge' => 'Premium unlocked',
-			'app.premiumStoreUnavailable' => 'Store unavailable. Try again later.',
-			'app.premiumPurchaseError' => ({required Object error}) => 'Purchase failed: ${error}',
-			'app.premiumPurchased' => 'Purchase completed. Premium unlocked.',
-			'app.premiumRestored' => 'Purchases restored.',
+			'app.premiumSubtitle' => '한 번 구매로 모든 기능이 잠금 해제됩니다.',
+			'app.premiumHeroTitle' => '제한 없이 학습하세요',
+			'app.premiumHeroBody' => '전체 기능을 이용하고 프로젝트를 응원해 주세요.',
+			'app.premiumBenefitNoAds' => '전면 광고 없음',
+			'app.premiumBenefitMaterials' => '자료 모드 이용',
+			'app.premiumBenefitHard' => '고난도 사용 가능',
+			'app.premiumBenefitAi' => 'AI 모델 옵션 활성화',
+			'app.premiumBenefitBackup' => '통계 내보내기/가져오기',
+			'app.premiumBuyButton' => ({required Object price}) => '${price}에 구매',
+			'app.premiumRestoreButton' => '구매 복원',
+			'app.premiumOwnedBadge' => '프리미엄 잠금 해제됨',
+			'app.premiumStoreUnavailable' => '스토어를 사용할 수 없습니다. 나중에 다시 시도하세요.',
+			'app.premiumPurchaseError' => ({required Object error}) => '구매 실패: ${error}',
+			'app.premiumPurchased' => '구매 완료. 프리미엄이 잠금 해제되었습니다.',
+			'app.premiumRestored' => '구매가 복원되었습니다.',
 			_ => null,
 		};
 	}

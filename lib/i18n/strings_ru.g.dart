@@ -185,26 +185,26 @@ class _TranslationsAppRu implements TranslationsAppEn {
 	@override String get aiInfoLine1 => 'Распознавание ИИ может иногда не срабатывать.';
 	@override String get aiInfoLine2 => 'Если оно не работает, отключите модель, чтобы использовать оценку по штрихам.';
 	@override String get aiInfoLine3 => 'Вы можете сообщить об ошибке, чтобы помочь улучшить ИИ.';
-	@override String get premiumSectionTitle => 'Premium';
-	@override String get premiumSectionSubtitle => 'Unlock all features and remove interstitial ads.';
-	@override String get premiumOpenButton => 'Upgrade';
-	@override String get premiumLockedMessage => 'Premium feature. Upgrade to unlock it.';
+	@override String get premiumSectionTitle => 'Премиум';
+	@override String get premiumSectionSubtitle => 'Разблокируйте все функции и удалите всплывающие объявления.';
+	@override String get premiumOpenButton => 'Оформить';
+	@override String get premiumLockedMessage => 'Премиум-функция. Оформите доступ, чтобы разблокировать.';
 	@override String get premiumTitle => 'Kana Master Premium';
-	@override String get premiumSubtitle => 'One-time purchase, all features unlocked.';
-	@override String get premiumHeroTitle => 'Learn without limits';
-	@override String get premiumHeroBody => 'Get the full experience and support the project.';
-	@override String get premiumBenefitNoAds => 'No interstitial ads';
-	@override String get premiumBenefitMaterials => 'Access Materials mode';
-	@override String get premiumBenefitHard => 'Use high difficulty';
-	@override String get premiumBenefitAi => 'Enable AI model options';
-	@override String get premiumBenefitBackup => 'Export/import statistics';
-	@override String premiumBuyButton({required Object price}) => 'Buy for ${price}';
-	@override String get premiumRestoreButton => 'Restore purchases';
-	@override String get premiumOwnedBadge => 'Premium unlocked';
-	@override String get premiumStoreUnavailable => 'Store unavailable. Try again later.';
-	@override String premiumPurchaseError({required Object error}) => 'Purchase failed: ${error}';
-	@override String get premiumPurchased => 'Purchase completed. Premium unlocked.';
-	@override String get premiumRestored => 'Purchases restored.';
+	@override String get premiumSubtitle => 'Одноразовая покупка, все функции разблокированы.';
+	@override String get premiumHeroTitle => 'Учитесь без ограничений';
+	@override String get premiumHeroBody => 'Получите полный опыт и поддержите проект.';
+	@override String get premiumBenefitNoAds => 'Без межстраничной рекламы';
+	@override String get premiumBenefitMaterials => 'Доступ к режиму «Материалы»';
+	@override String get premiumBenefitHard => 'Доступна высокая сложность';
+	@override String get premiumBenefitAi => 'Опции моделей ИИ';
+	@override String get premiumBenefitBackup => 'Экспорт/импорт статистики';
+	@override String premiumBuyButton({required Object price}) => 'Купить за ${price}';
+	@override String get premiumRestoreButton => 'Восстановить покупки';
+	@override String get premiumOwnedBadge => 'Премиум разблокирован';
+	@override String get premiumStoreUnavailable => 'Магазин недоступен. Попробуйте позже.';
+	@override String premiumPurchaseError({required Object error}) => 'Ошибка покупки: ${error}';
+	@override String get premiumPurchased => 'Покупка завершена. Премиум разблокирован.';
+	@override String get premiumRestored => 'Покупки восстановлены.';
 }
 
 /// The flat map containing all translations for locale <ru>.
@@ -353,26 +353,26 @@ extension on TranslationsRu {
 			'app.aiInfoLine1' => 'Распознавание ИИ может иногда не срабатывать.',
 			'app.aiInfoLine2' => 'Если оно не работает, отключите модель, чтобы использовать оценку по штрихам.',
 			'app.aiInfoLine3' => 'Вы можете сообщить об ошибке, чтобы помочь улучшить ИИ.',
-			'app.premiumSectionTitle' => 'Premium',
-			'app.premiumSectionSubtitle' => 'Unlock all features and remove interstitial ads.',
-			'app.premiumOpenButton' => 'Upgrade',
-			'app.premiumLockedMessage' => 'Premium feature. Upgrade to unlock it.',
+			'app.premiumSectionTitle' => 'Премиум',
+			'app.premiumSectionSubtitle' => 'Разблокируйте все функции и удалите всплывающие объявления.',
+			'app.premiumOpenButton' => 'Оформить',
+			'app.premiumLockedMessage' => 'Премиум-функция. Оформите доступ, чтобы разблокировать.',
 			'app.premiumTitle' => 'Kana Master Premium',
-			'app.premiumSubtitle' => 'One-time purchase, all features unlocked.',
-			'app.premiumHeroTitle' => 'Learn without limits',
-			'app.premiumHeroBody' => 'Get the full experience and support the project.',
-			'app.premiumBenefitNoAds' => 'No interstitial ads',
-			'app.premiumBenefitMaterials' => 'Access Materials mode',
-			'app.premiumBenefitHard' => 'Use high difficulty',
-			'app.premiumBenefitAi' => 'Enable AI model options',
-			'app.premiumBenefitBackup' => 'Export/import statistics',
-			'app.premiumBuyButton' => ({required Object price}) => 'Buy for ${price}',
-			'app.premiumRestoreButton' => 'Restore purchases',
-			'app.premiumOwnedBadge' => 'Premium unlocked',
-			'app.premiumStoreUnavailable' => 'Store unavailable. Try again later.',
-			'app.premiumPurchaseError' => ({required Object error}) => 'Purchase failed: ${error}',
-			'app.premiumPurchased' => 'Purchase completed. Premium unlocked.',
-			'app.premiumRestored' => 'Purchases restored.',
+			'app.premiumSubtitle' => 'Одноразовая покупка, все функции разблокированы.',
+			'app.premiumHeroTitle' => 'Учитесь без ограничений',
+			'app.premiumHeroBody' => 'Получите полный опыт и поддержите проект.',
+			'app.premiumBenefitNoAds' => 'Без межстраничной рекламы',
+			'app.premiumBenefitMaterials' => 'Доступ к режиму «Материалы»',
+			'app.premiumBenefitHard' => 'Доступна высокая сложность',
+			'app.premiumBenefitAi' => 'Опции моделей ИИ',
+			'app.premiumBenefitBackup' => 'Экспорт/импорт статистики',
+			'app.premiumBuyButton' => ({required Object price}) => 'Купить за ${price}',
+			'app.premiumRestoreButton' => 'Восстановить покупки',
+			'app.premiumOwnedBadge' => 'Премиум разблокирован',
+			'app.premiumStoreUnavailable' => 'Магазин недоступен. Попробуйте позже.',
+			'app.premiumPurchaseError' => ({required Object error}) => 'Ошибка покупки: ${error}',
+			'app.premiumPurchased' => 'Покупка завершена. Премиум разблокирован.',
+			'app.premiumRestored' => 'Покупки восстановлены.',
 			_ => null,
 		};
 	}

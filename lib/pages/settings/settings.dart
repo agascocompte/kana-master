@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:kana_master/constants.dart';
 import 'package:kana_master/pages/premium/bloc/premium_bloc.dart';
 import 'package:kana_master/pages/settings/bloc/settings_bloc.dart';
+import 'package:kana_master/pages/settings/widgets/premium_locked_wrapper.dart';
 import 'package:kana_master/pages/settings/widgets/settings_backup_card.dart';
 import 'package:kana_master/pages/settings/widgets/dropdown_tile_setting.dart';
 import 'package:kana_master/pages/settings/widgets/settings_section_header.dart';
@@ -42,6 +44,11 @@ class SettingsPage extends StatelessWidget {
       builder: (context, state) {
         final bool isPremium = context.watch<PremiumBloc>().state.isPremium;
         void openPremium() => context.push(AppRouter.premiumRoute);
+        void onLockedTap() {
+          Snackbars.showWarningScaffold(context, tr.app.premiumLockedMessage);
+          openPremium();
+        }
+
         return Scaffold(
           body: Container(
             decoration: const BoxDecoration(
@@ -91,39 +98,67 @@ class SettingsPage extends StatelessWidget {
                             borderRadius: BorderRadius.circular(16),
                             border: Border.all(color: AppColors.sand),
                           ),
-                          child: Row(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Icon(
-                                isPremium
-                                    ? Icons.verified_outlined
-                                    : Icons.workspace_premium_outlined,
-                                color: AppColors.ink,
+                              Row(
+                                children: [
+                                  Icon(
+                                    isPremium
+                                        ? Icons.verified_outlined
+                                        : Icons.workspace_premium_outlined,
+                                    color: AppColors.ink,
+                                  ),
+                                  const SizedBox(width: 10),
+                                  Expanded(
+                                    child: Text(
+                                      isPremium
+                                          ? tr.app.premiumOwnedBadge
+                                          : tr.app.premiumSectionSubtitle,
+                                      style: const TextStyle(
+                                        color: AppColors.graphite,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                    ),
+                                  ),
+                                ],
                               ),
-                              const SizedBox(width: 10),
-                              Expanded(
-                                child: Text(
-                                  isPremium
-                                      ? tr.app.premiumOwnedBadge
-                                      : tr.app.premiumSectionSubtitle,
-                                  style: const TextStyle(
-                                    color: AppColors.graphite,
-                                    fontWeight: FontWeight.w600,
+                              if (!isPremium) ...[
+                                const SizedBox(height: 10),
+                                Align(
+                                  alignment: Alignment.centerRight,
+                                  child: FilledButton(
+                                    onPressed: openPremium,
+                                    style: FilledButton.styleFrom(
+                                      backgroundColor: AppColors.ink,
+                                      foregroundColor: Colors.white,
+                                    ),
+                                    child: Text(tr.app.premiumOpenButton),
                                   ),
                                 ),
-                              ),
-                              if (!isPremium)
-                                FilledButton(
-                                  onPressed: openPremium,
-                                  style: FilledButton.styleFrom(
-                                    backgroundColor: AppColors.ink,
-                                    foregroundColor: Colors.white,
-                                  ),
-                                  child: Text(tr.app.premiumOpenButton),
-                                ),
+                              ],
                             ],
                           ),
                         ),
                         const SizedBox(height: 12),
+                        if (kDebugMode) ...[
+                          SettingsSectionHeader(
+                            title: 'Debug',
+                          ),
+                          const SizedBox(height: 8),
+                          SettingsSwitchCard(
+                            title: 'Force Premium',
+                            subtitle: 'Toggle local premium state for testing.',
+                            icon: Icons.bug_report_outlined,
+                            value: isPremium,
+                            onChanged: (value) {
+                              context
+                                  .read<PremiumBloc>()
+                                  .add(PremiumDebugSetLocal(value));
+                            },
+                          ),
+                          const SizedBox(height: 12),
+                        ],
                         SettingsSectionHeader(
                           title: tr.app.settingsGeneralSection,
                         ),
@@ -179,117 +214,101 @@ class SettingsPage extends StatelessWidget {
                               Dialogs.showAiInfoDialog(context),
                         ),
                         const SizedBox(height: 8),
-                        SettingsSwitchCard(
-                          title: tr.app.settingsUseModelHiraganaTitle,
-                          subtitle: tr.app.settingsUseModelHiraganaSubtitle,
-                          icon: Icons.smart_toy_outlined,
-                          value: state.stateData.useModelHiragana,
-                          onChanged: (value) {
-                            if (!isPremium) {
-                              Snackbars.showWarningScaffold(
-                                  context, tr.app.premiumLockedMessage);
-                              openPremium();
-                              return;
-                            }
-                            context.read<SettingsBloc>().add(
-                                  ChangeUseModelHiragana(enabled: value),
-                                );
-                          },
+                        PremiumLockedWrapper(
+                          locked: !isPremium,
+                          onTapLocked: onLockedTap,
+                          child: SettingsSwitchCard(
+                            title: tr.app.settingsUseModelHiraganaTitle,
+                            subtitle: tr.app.settingsUseModelHiraganaSubtitle,
+                            icon: Icons.smart_toy_outlined,
+                            value: state.stateData.useModelHiragana,
+                            onChanged: (value) {
+                              context.read<SettingsBloc>().add(
+                                    ChangeUseModelHiragana(enabled: value),
+                                  );
+                            },
+                          ),
                         ),
                         const SizedBox(height: 12),
-                        SettingsSwitchCard(
-                          title: tr.app.settingsUseModelKatakanaTitle,
-                          subtitle: tr.app.settingsUseModelKatakanaSubtitle,
-                          icon: Icons.smart_toy_outlined,
-                          value: state.stateData.useModelKatakana,
-                          onChanged: (value) {
-                            if (!isPremium) {
-                              Snackbars.showWarningScaffold(
-                                  context, tr.app.premiumLockedMessage);
-                              openPremium();
-                              return;
-                            }
-                            context.read<SettingsBloc>().add(
-                                  ChangeUseModelKatakana(enabled: value),
-                                );
-                          },
+                        PremiumLockedWrapper(
+                          locked: !isPremium,
+                          onTapLocked: onLockedTap,
+                          child: SettingsSwitchCard(
+                            title: tr.app.settingsUseModelKatakanaTitle,
+                            subtitle: tr.app.settingsUseModelKatakanaSubtitle,
+                            icon: Icons.smart_toy_outlined,
+                            value: state.stateData.useModelKatakana,
+                            onChanged: (value) {
+                              context.read<SettingsBloc>().add(
+                                    ChangeUseModelKatakana(enabled: value),
+                                  );
+                            },
+                          ),
                         ),
                         const SizedBox(height: 12),
-                        SettingsSwitchCard(
-                          title: tr.app.settingsUseModelKanjiTitle,
-                          subtitle: tr.app.settingsUseModelKanjiSubtitle,
-                          icon: Icons.smart_toy_outlined,
-                          value: state.stateData.useModelKanji,
-                          onChanged: (value) {
-                            if (!isPremium) {
-                              Snackbars.showWarningScaffold(
-                                  context, tr.app.premiumLockedMessage);
-                              openPremium();
-                              return;
-                            }
-                            context.read<SettingsBloc>().add(
-                                  ChangeUseModelKanji(enabled: value),
-                                );
-                          },
+                        PremiumLockedWrapper(
+                          locked: !isPremium,
+                          onTapLocked: onLockedTap,
+                          child: SettingsSwitchCard(
+                            title: tr.app.settingsUseModelKanjiTitle,
+                            subtitle: tr.app.settingsUseModelKanjiSubtitle,
+                            icon: Icons.smart_toy_outlined,
+                            value: state.stateData.useModelKanji,
+                            onChanged: (value) {
+                              context.read<SettingsBloc>().add(
+                                    ChangeUseModelKanji(enabled: value),
+                                  );
+                            },
+                          ),
                         ),
                         const SizedBox(height: 12),
                         SettingsSectionHeader(
                           title: tr.app.settingsKanjiFilterSection,
                         ),
                         const SizedBox(height: 8),
-                        DropdownTileSetting(
-                          title: tr.app.settingsKanjiJlptTitle,
-                          subtitle: tr.app.settingsKanjiJlptSubtitle,
-                          currentValue: state.stateData.kanjiJlptFilter,
-                          icon: Icons.filter_alt_outlined,
-                          items: _jlptItems(context),
-                          onChanged: (String? newValue) {
-                            if (!isPremium) {
-                              Snackbars.showWarningScaffold(
-                                  context, tr.app.premiumLockedMessage);
-                              openPremium();
-                              return;
-                            }
-                            if (newValue != null) {
-                              context.read<SettingsBloc>().add(
-                                    ChangeKanjiJlptFilter(filter: newValue),
-                                  );
-                            }
-                          },
+                        PremiumLockedWrapper(
+                          locked: !isPremium,
+                          onTapLocked: onLockedTap,
+                          child: DropdownTileSetting(
+                            title: tr.app.settingsKanjiJlptTitle,
+                            subtitle: tr.app.settingsKanjiJlptSubtitle,
+                            currentValue: state.stateData.kanjiJlptFilter,
+                            icon: Icons.filter_alt_outlined,
+                            items: _jlptItems(context),
+                            onChanged: (String? newValue) {
+                              if (newValue != null) {
+                                context.read<SettingsBloc>().add(
+                                      ChangeKanjiJlptFilter(filter: newValue),
+                                    );
+                              }
+                            },
+                          ),
                         ),
                         const SizedBox(height: 12),
                         SettingsSectionHeader(
                           title: tr.app.settingsDataSection,
                         ),
                         const SizedBox(height: 8),
-                        SettingsBackupCard(
-                          title: tr.app.settingsBackupTitle,
-                          subtitle: tr.app.settingsBackupSubtitle,
-                          busy: state.stateData.backupBusy,
-                          exportLabel: tr.app.settingsBackupExportButton,
-                          importLabel: tr.app.settingsBackupImportButton,
-                          onExport: () {
-                            if (!isPremium) {
-                              Snackbars.showWarningScaffold(
-                                  context, tr.app.premiumLockedMessage);
-                              openPremium();
-                              return;
-                            }
-                            context
-                                .read<SettingsBloc>()
-                                .add(ExportStatsRequested());
-                          },
-                          onImport: () {
-                            if (!isPremium) {
-                              Snackbars.showWarningScaffold(
-                                  context, tr.app.premiumLockedMessage);
-                              openPremium();
-                              return;
-                            }
-                            context
-                                .read<SettingsBloc>()
-                                .add(ImportStatsRequested());
-                          },
+                        PremiumLockedWrapper(
+                          locked: !isPremium,
+                          onTapLocked: onLockedTap,
+                          child: SettingsBackupCard(
+                            title: tr.app.settingsBackupTitle,
+                            subtitle: tr.app.settingsBackupSubtitle,
+                            busy: state.stateData.backupBusy,
+                            exportLabel: tr.app.settingsBackupExportButton,
+                            importLabel: tr.app.settingsBackupImportButton,
+                            onExport: () {
+                              context
+                                  .read<SettingsBloc>()
+                                  .add(ExportStatsRequested());
+                            },
+                            onImport: () {
+                              context
+                                  .read<SettingsBloc>()
+                                  .add(ImportStatsRequested());
+                            },
+                          ),
                         ),
                         const SizedBox(height: 12),
                       ],

@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:kana_master/domain/models/kana_entry.dart';
 import 'package:kana_master/domain/models/model_config.dart';
@@ -9,9 +10,19 @@ const Color jDarkBLue = Color(0xFF0E1B26);
 const int imageDimensions = 128;
 const int totalClasses = 45;
 const String premiumProductId = 'kana_master_premium';
-const String admobInterstitialAndroidId =
+const String admobInterstitialAndroidIdRelease =
     'ca-app-pub-3562387824532338/9546671463';
-const String admobInterstitialIosId = 'ca-app-pub-3562387824532338/4761248645';
+const String admobInterstitialIosIdRelease =
+    'ca-app-pub-3562387824532338/4761248645';
+const String admobInterstitialAndroidIdTest =
+    'ca-app-pub-3940256099942544/1033173712';
+const String admobInterstitialIosIdTest =
+    'ca-app-pub-3940256099942544/4411468910';
+
+String get admobInterstitialAndroidId =>
+    kReleaseMode ? admobInterstitialAndroidIdRelease : admobInterstitialAndroidIdTest;
+String get admobInterstitialIosId =>
+    kReleaseMode ? admobInterstitialIosIdRelease : admobInterstitialIosIdTest;
 
 const ModelConfig hiraganaModelV1 = ModelConfig(
   assetPath: 'assets/models/model_etl8g.tflite',

@@ -20,6 +20,7 @@ class PremiumBloc extends Bloc<PremiumEvent, PremiumState> {
     on<PremiumRestoreRequested>(_onRestoreRequested);
     on<_PremiumPurchaseUpdatesArrived>(_onPurchaseUpdatesArrived);
     on<PremiumNoticeCleared>(_onNoticeCleared);
+    on<PremiumDebugSetLocal>(_onDebugSetLocal);
 
     _purchaseSubscription = _inAppPurchase.purchaseStream.listen(
       (updates) => add(_PremiumPurchaseUpdatesArrived(updates)),
@@ -96,6 +97,7 @@ class PremiumBloc extends Bloc<PremiumEvent, PremiumState> {
   ) async {
     if (event.updates.isEmpty) return;
     for (final purchase in event.updates) {
+      final bool matchesPremiumProduct = purchase.productID == premiumProductId;
       if (purchase.status == PurchaseStatus.pending) {
         emit(state.copyWith(purchaseBusy: true));
         continue;
@@ -109,6 +111,12 @@ class PremiumBloc extends Bloc<PremiumEvent, PremiumState> {
       }
       if (purchase.status == PurchaseStatus.purchased ||
           purchase.status == PurchaseStatus.restored) {
+        if (!matchesPremiumProduct) {
+          if (purchase.pendingCompletePurchase) {
+            await _inAppPurchase.completePurchase(purchase);
+          }
+          continue;
+        }
         await _settingsRepository.savePremiumUnlocked(true);
         emit(state.copyWith(
           purchaseBusy: false,
@@ -129,5 +137,13 @@ class PremiumBloc extends Bloc<PremiumEvent, PremiumState> {
     Emitter<PremiumState> emit,
   ) async {
     emit(state.copyWith(clearNotice: true));
+  }
+
+  Future<void> _onDebugSetLocal(
+    PremiumDebugSetLocal event,
+    Emitter<PremiumState> emit,
+  ) async {
+    await _settingsRepository.savePremiumUnlocked(event.enabled);
+    emit(state.copyWith(isPremium: event.enabled, clearNotice: true));
   }
 }

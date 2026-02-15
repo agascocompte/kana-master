@@ -186,25 +186,25 @@ class _TranslationsAppPt implements TranslationsAppEn {
 	@override String get aiInfoLine2 => 'Se falhar, desative o modelo para usar avaliação baseada em traços.';
 	@override String get aiInfoLine3 => 'Você pode reportar falsos negativos para ajudar a melhorar o modelo.';
 	@override String get premiumSectionTitle => 'Premium';
-	@override String get premiumSectionSubtitle => 'Unlock all features and remove interstitial ads.';
-	@override String get premiumOpenButton => 'Upgrade';
-	@override String get premiumLockedMessage => 'Premium feature. Upgrade to unlock it.';
+	@override String get premiumSectionSubtitle => 'Desbloqueie todos os recursos e remova anúncios intersticiais.';
+	@override String get premiumOpenButton => 'Atualizar';
+	@override String get premiumLockedMessage => 'Recurso premium. Atualize para desbloquear.';
 	@override String get premiumTitle => 'Kana Master Premium';
-	@override String get premiumSubtitle => 'One-time purchase, all features unlocked.';
-	@override String get premiumHeroTitle => 'Learn without limits';
-	@override String get premiumHeroBody => 'Get the full experience and support the project.';
-	@override String get premiumBenefitNoAds => 'No interstitial ads';
-	@override String get premiumBenefitMaterials => 'Access Materials mode';
-	@override String get premiumBenefitHard => 'Use high difficulty';
-	@override String get premiumBenefitAi => 'Enable AI model options';
-	@override String get premiumBenefitBackup => 'Export/import statistics';
-	@override String premiumBuyButton({required Object price}) => 'Buy for ${price}';
-	@override String get premiumRestoreButton => 'Restore purchases';
-	@override String get premiumOwnedBadge => 'Premium unlocked';
-	@override String get premiumStoreUnavailable => 'Store unavailable. Try again later.';
-	@override String premiumPurchaseError({required Object error}) => 'Purchase failed: ${error}';
-	@override String get premiumPurchased => 'Purchase completed. Premium unlocked.';
-	@override String get premiumRestored => 'Purchases restored.';
+	@override String get premiumSubtitle => 'Compra única, todos os recursos desbloqueados.';
+	@override String get premiumHeroTitle => 'Aprenda sem limites';
+	@override String get premiumHeroBody => 'Tenha a experiência completa e apoie o projeto.';
+	@override String get premiumBenefitNoAds => 'Sem anúncios intersticiais';
+	@override String get premiumBenefitMaterials => 'Acesso ao modo Materiais';
+	@override String get premiumBenefitHard => 'Usar dificuldade alta';
+	@override String get premiumBenefitAi => 'Ativar opções de modelos de IA';
+	@override String get premiumBenefitBackup => 'Exportar/importar estatísticas';
+	@override String premiumBuyButton({required Object price}) => 'Comprar por ${price}';
+	@override String get premiumRestoreButton => 'Restaurar compras';
+	@override String get premiumOwnedBadge => 'Premium desbloqueado';
+	@override String get premiumStoreUnavailable => 'Loja indisponível. Tente novamente mais tarde.';
+	@override String premiumPurchaseError({required Object error}) => 'Falha na compra: ${error}';
+	@override String get premiumPurchased => 'Compra concluída. Premium desbloqueado.';
+	@override String get premiumRestored => 'Compras restauradas.';
 }
 
 /// The flat map containing all translations for locale <pt>.
@@ -354,25 +354,25 @@ extension on TranslationsPt {
 			'app.aiInfoLine2' => 'Se falhar, desative o modelo para usar avaliação baseada em traços.',
 			'app.aiInfoLine3' => 'Você pode reportar falsos negativos para ajudar a melhorar o modelo.',
 			'app.premiumSectionTitle' => 'Premium',
-			'app.premiumSectionSubtitle' => 'Unlock all features and remove interstitial ads.',
-			'app.premiumOpenButton' => 'Upgrade',
-			'app.premiumLockedMessage' => 'Premium feature. Upgrade to unlock it.',
+			'app.premiumSectionSubtitle' => 'Desbloqueie todos os recursos e remova anúncios intersticiais.',
+			'app.premiumOpenButton' => 'Atualizar',
+			'app.premiumLockedMessage' => 'Recurso premium. Atualize para desbloquear.',
 			'app.premiumTitle' => 'Kana Master Premium',
-			'app.premiumSubtitle' => 'One-time purchase, all features unlocked.',
-			'app.premiumHeroTitle' => 'Learn without limits',
-			'app.premiumHeroBody' => 'Get the full experience and support the project.',
-			'app.premiumBenefitNoAds' => 'No interstitial ads',
-			'app.premiumBenefitMaterials' => 'Access Materials mode',
-			'app.premiumBenefitHard' => 'Use high difficulty',
-			'app.premiumBenefitAi' => 'Enable AI model options',
-			'app.premiumBenefitBackup' => 'Export/import statistics',
-			'app.premiumBuyButton' => ({required Object price}) => 'Buy for ${price}',
-			'app.premiumRestoreButton' => 'Restore purchases',
-			'app.premiumOwnedBadge' => 'Premium unlocked',
-			'app.premiumStoreUnavailable' => 'Store unavailable. Try again later.',
-			'app.premiumPurchaseError' => ({required Object error}) => 'Purchase failed: ${error}',
-			'app.premiumPurchased' => 'Purchase completed. Premium unlocked.',
-			'app.premiumRestored' => 'Purchases restored.',
+			'app.premiumSubtitle' => 'Compra única, todos os recursos desbloqueados.',
+			'app.premiumHeroTitle' => 'Aprenda sem limites',
+			'app.premiumHeroBody' => 'Tenha a experiência completa e apoie o projeto.',
+			'app.premiumBenefitNoAds' => 'Sem anúncios intersticiais',
+			'app.premiumBenefitMaterials' => 'Acesso ao modo Materiais',
+			'app.premiumBenefitHard' => 'Usar dificuldade alta',
+			'app.premiumBenefitAi' => 'Ativar opções de modelos de IA',
+			'app.premiumBenefitBackup' => 'Exportar/importar estatísticas',
+			'app.premiumBuyButton' => ({required Object price}) => 'Comprar por ${price}',
+			'app.premiumRestoreButton' => 'Restaurar compras',
+			'app.premiumOwnedBadge' => 'Premium desbloqueado',
+			'app.premiumStoreUnavailable' => 'Loja indisponível. Tente novamente mais tarde.',
+			'app.premiumPurchaseError' => ({required Object error}) => 'Falha na compra: ${error}',
+			'app.premiumPurchased' => 'Compra concluída. Premium desbloqueado.',
+			'app.premiumRestored' => 'Compras restauradas.',
 			_ => null,
 		};
 	}

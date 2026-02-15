@@ -186,25 +186,25 @@ class _TranslationsAppFr implements TranslationsAppEn {
 	@override String get aiInfoLine2 => 'Si elle échoue, désactive le modèle pour utiliser une évaluation basée sur les traits.';
 	@override String get aiInfoLine3 => 'Tu peux signaler les faux négatifs pour nous aider à l\'améliorer.';
 	@override String get premiumSectionTitle => 'Premium';
-	@override String get premiumSectionSubtitle => 'Unlock all features and remove interstitial ads.';
-	@override String get premiumOpenButton => 'Upgrade';
-	@override String get premiumLockedMessage => 'Premium feature. Upgrade to unlock it.';
+	@override String get premiumSectionSubtitle => 'Débloque toutes les fonctionnalités et supprime les annonces interstitielles.';
+	@override String get premiumOpenButton => 'Passer en Premium';
+	@override String get premiumLockedMessage => 'Fonction Premium. Passe en Premium pour la débloquer.';
 	@override String get premiumTitle => 'Kana Master Premium';
-	@override String get premiumSubtitle => 'One-time purchase, all features unlocked.';
-	@override String get premiumHeroTitle => 'Learn without limits';
-	@override String get premiumHeroBody => 'Get the full experience and support the project.';
-	@override String get premiumBenefitNoAds => 'No interstitial ads';
-	@override String get premiumBenefitMaterials => 'Access Materials mode';
-	@override String get premiumBenefitHard => 'Use high difficulty';
-	@override String get premiumBenefitAi => 'Enable AI model options';
-	@override String get premiumBenefitBackup => 'Export/import statistics';
-	@override String premiumBuyButton({required Object price}) => 'Buy for ${price}';
-	@override String get premiumRestoreButton => 'Restore purchases';
-	@override String get premiumOwnedBadge => 'Premium unlocked';
-	@override String get premiumStoreUnavailable => 'Store unavailable. Try again later.';
-	@override String premiumPurchaseError({required Object error}) => 'Purchase failed: ${error}';
-	@override String get premiumPurchased => 'Purchase completed. Premium unlocked.';
-	@override String get premiumRestored => 'Purchases restored.';
+	@override String get premiumSubtitle => 'Achat unique, toutes les fonctionnalités débloquées.';
+	@override String get premiumHeroTitle => 'Apprends sans limites';
+	@override String get premiumHeroBody => 'Profite de l\'expérience complète et soutiens le projet.';
+	@override String get premiumBenefitNoAds => 'Sans annonces interstitielles';
+	@override String get premiumBenefitMaterials => 'Accès au mode Matériaux';
+	@override String get premiumBenefitHard => 'Niveau difficile disponible';
+	@override String get premiumBenefitAi => 'Options des modèles IA';
+	@override String get premiumBenefitBackup => 'Exporter/importer les statistiques';
+	@override String premiumBuyButton({required Object price}) => 'Acheter pour ${price}';
+	@override String get premiumRestoreButton => 'Restaurer les achats';
+	@override String get premiumOwnedBadge => 'Premium débloqué';
+	@override String get premiumStoreUnavailable => 'Boutique indisponible. Réessaie plus tard.';
+	@override String premiumPurchaseError({required Object error}) => 'Achat échoué : ${error}';
+	@override String get premiumPurchased => 'Achat terminé. Premium débloqué.';
+	@override String get premiumRestored => 'Achats restaurés.';
 }
 
 /// The flat map containing all translations for locale <fr>.
@@ -354,25 +354,25 @@ extension on TranslationsFr {
 			'app.aiInfoLine2' => 'Si elle échoue, désactive le modèle pour utiliser une évaluation basée sur les traits.',
 			'app.aiInfoLine3' => 'Tu peux signaler les faux négatifs pour nous aider à l\'améliorer.',
 			'app.premiumSectionTitle' => 'Premium',
-			'app.premiumSectionSubtitle' => 'Unlock all features and remove interstitial ads.',
-			'app.premiumOpenButton' => 'Upgrade',
-			'app.premiumLockedMessage' => 'Premium feature. Upgrade to unlock it.',
+			'app.premiumSectionSubtitle' => 'Débloque toutes les fonctionnalités et supprime les annonces interstitielles.',
+			'app.premiumOpenButton' => 'Passer en Premium',
+			'app.premiumLockedMessage' => 'Fonction Premium. Passe en Premium pour la débloquer.',
 			'app.premiumTitle' => 'Kana Master Premium',
-			'app.premiumSubtitle' => 'One-time purchase, all features unlocked.',
-			'app.premiumHeroTitle' => 'Learn without limits',
-			'app.premiumHeroBody' => 'Get the full experience and support the project.',
-			'app.premiumBenefitNoAds' => 'No interstitial ads',
-			'app.premiumBenefitMaterials' => 'Access Materials mode',
-			'app.premiumBenefitHard' => 'Use high difficulty',
-			'app.premiumBenefitAi' => 'Enable AI model options',
-			'app.premiumBenefitBackup' => 'Export/import statistics',
-			'app.premiumBuyButton' => ({required Object price}) => 'Buy for ${price}',
-			'app.premiumRestoreButton' => 'Restore purchases',
-			'app.premiumOwnedBadge' => 'Premium unlocked',
-			'app.premiumStoreUnavailable' => 'Store unavailable. Try again later.',
-			'app.premiumPurchaseError' => ({required Object error}) => 'Purchase failed: ${error}',
-			'app.premiumPurchased' => 'Purchase completed. Premium unlocked.',
-			'app.premiumRestored' => 'Purchases restored.',
+			'app.premiumSubtitle' => 'Achat unique, toutes les fonctionnalités débloquées.',
+			'app.premiumHeroTitle' => 'Apprends sans limites',
+			'app.premiumHeroBody' => 'Profite de l\'expérience complète et soutiens le projet.',
+			'app.premiumBenefitNoAds' => 'Sans annonces interstitielles',
+			'app.premiumBenefitMaterials' => 'Accès au mode Matériaux',
+			'app.premiumBenefitHard' => 'Niveau difficile disponible',
+			'app.premiumBenefitAi' => 'Options des modèles IA',
+			'app.premiumBenefitBackup' => 'Exporter/importer les statistiques',
+			'app.premiumBuyButton' => ({required Object price}) => 'Acheter pour ${price}',
+			'app.premiumRestoreButton' => 'Restaurer les achats',
+			'app.premiumOwnedBadge' => 'Premium débloqué',
+			'app.premiumStoreUnavailable' => 'Boutique indisponible. Réessaie plus tard.',
+			'app.premiumPurchaseError' => ({required Object error}) => 'Achat échoué : ${error}',
+			'app.premiumPurchased' => 'Achat terminé. Premium débloqué.',
+			'app.premiumRestored' => 'Achats restaurés.',
 			_ => null,
 		};
 	}
