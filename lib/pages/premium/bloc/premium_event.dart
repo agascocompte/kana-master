@@ -20,6 +20,11 @@ class PremiumNoticeCleared extends PremiumEvent {
   const PremiumNoticeCleared();
 }
 
+class PremiumDebugSetLocal extends PremiumEvent {
+  const PremiumDebugSetLocal(this.enabled);
+  final bool enabled;
+}
+
 class _PremiumPurchaseUpdatesArrived extends PremiumEvent {
   const _PremiumPurchaseUpdatesArrived(this.updates);
   final List<PurchaseDetails> updates;

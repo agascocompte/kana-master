@@ -35,9 +35,9 @@ class PremiumPage extends StatelessWidget {
           body: Container(
             decoration: const BoxDecoration(
               gradient: LinearGradient(
-                colors: [AppColors.ink, AppColors.teal],
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
+                colors: [AppColors.mist, AppColors.sand],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
               ),
             ),
             child: SafeArea(
@@ -48,45 +48,57 @@ class PremiumPage extends StatelessWidget {
                   children: [
                     IconButton(
                       onPressed: () => Navigator.of(context).pop(),
-                      icon: const Icon(Icons.arrow_back, color: Colors.white),
+                      icon: const Icon(Icons.arrow_back, color: AppColors.ink),
                     ),
                     const SizedBox(height: 8),
                     Text(
                       tr.app.premiumTitle,
                       style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 32,
+                        color: AppColors.ink,
+                        fontSize: 30,
                         fontWeight: FontWeight.w800,
                       ),
                     ),
                     const SizedBox(height: 8),
                     Text(
                       tr.app.premiumSubtitle,
-                      style: const TextStyle(color: Colors.white70),
+                      style: const TextStyle(color: AppColors.slate),
                     ),
-                    const SizedBox(height: 20),
+                    const SizedBox(height: 16),
                     Container(
                       width: double.infinity,
                       padding: const EdgeInsets.all(18),
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(20),
+                        border: Border.all(color: AppColors.sand),
                       ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
-                            tr.app.premiumHeroTitle,
-                            style: const TextStyle(
-                              color: AppColors.ink,
-                              fontWeight: FontWeight.w800,
-                              fontSize: 20,
+                          Container(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 10, vertical: 6),
+                            decoration: BoxDecoration(
+                              color: AppColors.peach.withAlpha(90),
+                              borderRadius: BorderRadius.circular(999),
+                            ),
+                            child: Text(
+                              tr.app.premiumHeroTitle,
+                              style: const TextStyle(
+                                color: AppColors.ink,
+                                fontWeight: FontWeight.w800,
+                                fontSize: 13,
+                              ),
                             ),
                           ),
                           const SizedBox(height: 6),
                           Text(
                             tr.app.premiumHeroBody,
-                            style: const TextStyle(color: AppColors.slate),
+                            style: const TextStyle(
+                              color: AppColors.slate,
+                              fontSize: 14,
+                            ),
                           ),
                           const SizedBox(height: 14),
                           _benefit(tr.app.premiumBenefitNoAds),
@@ -103,8 +115,9 @@ class PremiumPage extends StatelessWidget {
                         width: double.infinity,
                         padding: const EdgeInsets.symmetric(vertical: 12),
                         decoration: BoxDecoration(
-                          color: Colors.white,
+                          color: AppColors.lime.withAlpha(110),
                           borderRadius: BorderRadius.circular(12),
+                          border: Border.all(color: AppColors.lime),
                         ),
                         child: Text(
                           tr.app.premiumOwnedBadge,
@@ -125,15 +138,21 @@ class PremiumPage extends StatelessWidget {
                                   .read<PremiumBloc>()
                                   .add(const PremiumBuyRequested()),
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.white,
-                            foregroundColor: AppColors.ink,
+                            backgroundColor: AppColors.ink,
+                            foregroundColor: Colors.white,
                             minimumSize: const Size.fromHeight(48),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12),
+                            ),
                           ),
                           child: state.purchaseBusy
                               ? const SizedBox(
                                   width: 16,
                                   height: 16,
-                                  child: CircularProgressIndicator(strokeWidth: 2),
+                                  child: CircularProgressIndicator(
+                                    strokeWidth: 2,
+                                    color: Colors.white,
+                                  ),
                                 )
                               : Text(tr.app.premiumBuyButton(price: price)),
                         ),
@@ -149,7 +168,7 @@ class PremiumPage extends StatelessWidget {
                                   .add(const PremiumRestoreRequested()),
                           child: Text(
                             tr.app.premiumRestoreButton,
-                            style: const TextStyle(color: Colors.white),
+                            style: const TextStyle(color: AppColors.ink),
                           ),
                         ),
                       ),
@@ -171,7 +190,12 @@ class PremiumPage extends StatelessWidget {
         children: [
           const Icon(Icons.check_circle_outline, size: 18, color: AppColors.teal),
           const SizedBox(width: 8),
-          Expanded(child: Text(text)),
+          Expanded(
+            child: Text(
+              text,
+              style: const TextStyle(color: AppColors.graphite),
+            ),
+          ),
         ],
       ),
     );

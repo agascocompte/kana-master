@@ -31,10 +31,14 @@ class EqualSegmented<T> extends StatelessWidget {
                     const EdgeInsets.symmetric(horizontal: 10, vertical: 12),
                 constraints: const BoxConstraints(minHeight: 70),
                 decoration: BoxDecoration(
-                  color: isSelected ? AppColors.ink : AppColors.sand,
+                  color: option.enabled
+                      ? (isSelected ? AppColors.ink : AppColors.sand)
+                      : AppColors.sand.withAlpha(150),
                   borderRadius: BorderRadius.circular(14),
                   border: Border.all(
-                    color: isSelected ? AppColors.ink : AppColors.sand,
+                    color: option.enabled
+                        ? (isSelected ? AppColors.ink : AppColors.sand)
+                        : AppColors.slate.withAlpha(60),
                   ),
                 ),
                 child: Column(
@@ -46,18 +50,39 @@ class EqualSegmented<T> extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.w700,
-                          color: isSelected ? Colors.white : AppColors.graphite,
+                          color: option.enabled
+                              ? (isSelected ? Colors.white : AppColors.graphite)
+                              : AppColors.slate,
                         ),
                       ),
                     if (option.symbol != null) const SizedBox(height: 6),
-                    Text(
-                      option.title,
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontWeight: FontWeight.w700,
-                        fontSize: 13,
-                        color: isSelected ? Colors.white : AppColors.graphite,
-                      ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Flexible(
+                          child: Text(
+                            option.title,
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontWeight: FontWeight.w700,
+                              fontSize: 13,
+                              color: option.enabled
+                                  ? (isSelected
+                                      ? Colors.white
+                                      : AppColors.graphite)
+                                  : AppColors.slate,
+                            ),
+                          ),
+                        ),
+                        if (!option.enabled) ...[
+                          const SizedBox(width: 4),
+                          Icon(
+                            Icons.lock_outline,
+                            size: 12,
+                            color: AppColors.slate.withAlpha(180),
+                          ),
+                        ],
+                      ],
                     ),
                     if (option.subtitle != null) ...[
                       const SizedBox(height: 4),
@@ -66,7 +91,9 @@ class EqualSegmented<T> extends StatelessWidget {
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 11,
-                          color: isSelected ? Colors.white70 : AppColors.slate,
+                          color: option.enabled
+                              ? (isSelected ? Colors.white70 : AppColors.slate)
+                              : AppColors.slate.withAlpha(180),
                         ),
                       ),
                     ],
