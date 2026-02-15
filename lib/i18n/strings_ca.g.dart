@@ -170,12 +170,20 @@ class _TranslationsAppCa implements TranslationsAppEn {
 	@override String settingsBackupExported({required Object path}) => 'Còpia exportada a ${path}';
 	@override String settingsBackupImported({required Object count}) => 'Importades ${count} respostes';
 	@override String settingsBackupError({required Object error}) => 'Error de còpia: ${error}';
+	@override String get settingsGeneralSection => 'General';
+	@override String get settingsAiModelsSection => 'Models IA';
+	@override String get settingsKanjiFilterSection => 'Kanji';
+	@override String get settingsDataSection => 'Dades';
 	@override String get testGuideShow => 'Mostrar guia';
 	@override String get testGuideHide => 'Amagar guia';
 	@override String get testReportDrawing => 'Reportar dibuix';
 	@override String get testReportThanks => 'Gràcies. Informe preparat per revisar.';
 	@override String get testReportError => 'No s\'ha pogut preparar l\'informe.';
 	@override String get testKanjiTraceHint => 'Segueix l\'ordre dels traços. Activa la guia si la necessites.';
+	@override String get aiInfoTitle => 'Models d\'IA en dibuix';
+	@override String get aiInfoLine1 => 'El reconeixement d\'IA pot fallar ocasionalment.';
+	@override String get aiInfoLine2 => 'Si falla, desactiva el model per utilitzar una evaluació basada en traços.';
+	@override String get aiInfoLine3 => 'Pots reportar falsos negatius per ajudar-nos a millorar-lo.';
 }
 
 /// The flat map containing all translations for locale <ca>.
@@ -309,12 +317,20 @@ extension on TranslationsCa {
 			'app.settingsBackupExported' => ({required Object path}) => 'Còpia exportada a ${path}',
 			'app.settingsBackupImported' => ({required Object count}) => 'Importades ${count} respostes',
 			'app.settingsBackupError' => ({required Object error}) => 'Error de còpia: ${error}',
+			'app.settingsGeneralSection' => 'General',
+			'app.settingsAiModelsSection' => 'Models IA',
+			'app.settingsKanjiFilterSection' => 'Kanji',
+			'app.settingsDataSection' => 'Dades',
 			'app.testGuideShow' => 'Mostrar guia',
 			'app.testGuideHide' => 'Amagar guia',
 			'app.testReportDrawing' => 'Reportar dibuix',
 			'app.testReportThanks' => 'Gràcies. Informe preparat per revisar.',
 			'app.testReportError' => 'No s\'ha pogut preparar l\'informe.',
 			'app.testKanjiTraceHint' => 'Segueix l\'ordre dels traços. Activa la guia si la necessites.',
+			'app.aiInfoTitle' => 'Models d\'IA en dibuix',
+			'app.aiInfoLine1' => 'El reconeixement d\'IA pot fallar ocasionalment.',
+			'app.aiInfoLine2' => 'Si falla, desactiva el model per utilitzar una evaluació basada en traços.',
+			'app.aiInfoLine3' => 'Pots reportar falsos negatius per ajudar-nos a millorar-lo.',
 			_ => null,
 		};
 	}

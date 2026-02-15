@@ -170,12 +170,20 @@ class _TranslationsAppKo implements TranslationsAppEn {
 	@override String settingsBackupExported({required Object path}) => '${path}에 저장됨';
 	@override String settingsBackupImported({required Object count}) => '${count}개 가져옴';
 	@override String settingsBackupError({required Object error}) => '백업 오류: ${error}';
+	@override String get settingsGeneralSection => '일반';
+	@override String get settingsAiModelsSection => 'AI 모델';
+	@override String get settingsKanjiFilterSection => '한자 필터';
+	@override String get settingsDataSection => '데이터';
 	@override String get testGuideShow => '가이드 보기';
 	@override String get testGuideHide => '가이드 숨기기';
 	@override String get testReportDrawing => '그림 신고';
 	@override String get testReportThanks => '감사합니다. 리포트를 준비했습니다.';
 	@override String get testReportError => '리포트 생성 실패.';
 	@override String get testKanjiTraceHint => '획순을 따라 그리세요. 필요하면 가이드를 켜세요.';
+	@override String get aiInfoTitle => 'AI 모델로 그리기';
+	@override String get aiInfoLine1 => 'AI 인식은 때때로 실패할 수 있습니다.';
+	@override String get aiInfoLine2 => '실패하면 모델을 비활성화하여 스트로크 기반 평가를 사용하세요.';
+	@override String get aiInfoLine3 => '오인식을 신고하여 개선에 도움을 주세요.';
 }
 
 /// The flat map containing all translations for locale <ko>.
@@ -309,12 +317,20 @@ extension on TranslationsKo {
 			'app.settingsBackupExported' => ({required Object path}) => '${path}에 저장됨',
 			'app.settingsBackupImported' => ({required Object count}) => '${count}개 가져옴',
 			'app.settingsBackupError' => ({required Object error}) => '백업 오류: ${error}',
+			'app.settingsGeneralSection' => '일반',
+			'app.settingsAiModelsSection' => 'AI 모델',
+			'app.settingsKanjiFilterSection' => '한자 필터',
+			'app.settingsDataSection' => '데이터',
 			'app.testGuideShow' => '가이드 보기',
 			'app.testGuideHide' => '가이드 숨기기',
 			'app.testReportDrawing' => '그림 신고',
 			'app.testReportThanks' => '감사합니다. 리포트를 준비했습니다.',
 			'app.testReportError' => '리포트 생성 실패.',
 			'app.testKanjiTraceHint' => '획순을 따라 그리세요. 필요하면 가이드를 켜세요.',
+			'app.aiInfoTitle' => 'AI 모델로 그리기',
+			'app.aiInfoLine1' => 'AI 인식은 때때로 실패할 수 있습니다.',
+			'app.aiInfoLine2' => '실패하면 모델을 비활성화하여 스트로크 기반 평가를 사용하세요.',
+			'app.aiInfoLine3' => '오인식을 신고하여 개선에 도움을 주세요.',
 			_ => null,
 		};
 	}

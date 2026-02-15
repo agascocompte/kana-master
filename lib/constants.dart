@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kana_master/domain/models/kana_entry.dart';
+import 'package:kana_master/domain/models/model_config.dart';
 
 const Color jOrange = Color(0xFFF2B54B);
 const Color jLightBLue = Color(0xFF5F8BA9);
@@ -7,20 +8,6 @@ const Color jDarkBLue = Color(0xFF0E1B26);
 
 const int imageDimensions = 128;
 const int totalClasses = 45;
-
-class ModelConfig {
-  final String assetPath;
-  final int inputSize;
-  final int numClasses;
-  final bool normalize;
-
-  const ModelConfig({
-    required this.assetPath,
-    required this.inputSize,
-    required this.numClasses,
-    required this.normalize,
-  });
-}
 
 const ModelConfig hiraganaModelV1 = ModelConfig(
   assetPath: 'assets/models/model_etl8g.tflite',
@@ -422,9 +409,19 @@ const List<String> katakanaDrawingLabels = [
   "ン",
 ];
 
-
-
-
+const languages = {
+  'es': 'Español',
+  'en': 'English',
+  'ca': 'Català',
+  'fr': 'Français',
+  'de': 'Deutsch',
+  'it': 'Italiano',
+  'pt': 'Português',
+  'ru': 'Русский',
+  'ja': '日本語',
+  'zh': '中文',
+  'ko': '한국어',
+};
 
 final List<KanaEntry> hiraganaEntries = _buildKanaEntries(hiragana);
 

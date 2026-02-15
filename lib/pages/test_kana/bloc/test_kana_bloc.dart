@@ -7,6 +7,7 @@ import 'package:image/image.dart' as img;
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kana_master/constants.dart';
+import 'package:kana_master/domain/models/model_config.dart';
 import 'package:kana_master/domain/models/paint_stroke.dart';
 import 'package:kana_master/domain/models/kanji_entry.dart';
 import 'package:kana_master/pages/test_kana/services/drawing_report_share_service.dart';
@@ -648,7 +649,8 @@ class TestKanaBloc extends Bloc<TestKanaEvent, TestKanaState> {
     for (int i = 0; i < pointCount; i++) {
       meanPointDistance += (user[i] - expected[i]).distance;
     }
-    meanPointDistance = pointCount == 0 ? 109.0 : meanPointDistance / pointCount;
+    meanPointDistance =
+        pointCount == 0 ? 109.0 : meanPointDistance / pointCount;
     final shapeScore = (1.0 - (meanPointDistance / 109.0)).clamp(0.0, 1.0);
 
     final startScore = (1.0 - startDist).clamp(0.0, 1.0);

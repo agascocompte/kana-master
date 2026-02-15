@@ -2,12 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kana_master/constants.dart';
 import 'package:kana_master/domain/models/kana_entry.dart';
-import 'package:kana_master/domain/models/kanji_entry.dart';
 import 'package:kana_master/pages/learn/bloc/learn_bloc.dart';
-import 'package:kana_master/pages/learn/widgets/kana_dialog.dart';
 import 'package:kana_master/pages/learn/widgets/kana_grid.dart';
-import 'package:kana_master/pages/learn/widgets/kanji_dialog.dart';
 import 'package:kana_master/pages/learn/widgets/kanji_grid_section.dart';
+import 'package:kana_master/widgets/dialogs.dart';
 
 class LearnTab extends StatelessWidget {
   final List<KanaEntry> entries;
@@ -48,7 +46,7 @@ class LearnTab extends StatelessWidget {
               onJlptChanged: (jlpt) =>
                   context.read<LearnBloc>().add(LearnJlptFilterChanged(jlpt)),
               onTapEntry: (entry, meanings) =>
-                  _showKanjiDialog(context, entry, meanings));
+                  Dialogs.showKanjiDialog(context, entry, meanings));
         },
       );
     }
@@ -59,32 +57,7 @@ class LearnTab extends StatelessWidget {
         tileAspectRatio: tileAspectRatio,
         clampedScale: clampedScale,
         kanaScale: kanaScale,
-        onTapEntry: (entry) => _showKanaDialog(context, entry));
-  }
-
-  void _showKanaDialog(BuildContext context, KanaEntry entry) {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return KanaDialog(
-          assetKey: entry.assetKey,
-          displayText: entry.reading,
-          kanaFolder: kanaType == KanaType.hiragana ? "hiragana" : "katakana",
-        );
-      },
-    );
-  }
-
-  void _showKanjiDialog(
-    BuildContext context,
-    KanjiEntry entry,
-    List<String> meanings,
-  ) {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return KanjiDialog(entry: entry, meanings: meanings);
-      },
-    );
+        onTapEntry: (entry) =>
+            Dialogs.showKanaDialog(context, entry, kanaType));
   }
 }

@@ -123,11 +123,19 @@
     "settingsBackupExported": "已导出至 ${path}",
     "settingsBackupImported": "已导入 ${count} 条记录",
     "settingsBackupError": "备份错误：${error}",
+    "settingsGeneralSection": "通用",
+    "settingsAiModelsSection": "AI 模型",
+    "settingsKanjiFilterSection": "汉字过滤器",
+    "settingsDataSection": "数据",
     "testGuideShow": "显示指南",
     "testGuideHide": "隐藏指南",
     "testReportDrawing": "报告手写问题",
     "testReportThanks": "感谢反馈，报告已生成。",
     "testReportError": "无法生成报告。",
-    "testKanjiTraceHint": "请按照笔顺书写，需要时可开启指南。"
+    "testKanjiTraceHint": "请按照笔顺书写，需要时可开启指南。",
+    "aiInfoTitle": "AI 模型在手写中的应用",
+    "aiInfoLine1": "AI 识别有时可能失败。",
+    "aiInfoLine2": "如果失败，请禁用模型以使用基于笔画的评估。",
+    "aiInfoLine3": "您可以报告误判以帮助改进 AI。"
   }
 }

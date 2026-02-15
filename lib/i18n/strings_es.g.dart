@@ -170,12 +170,20 @@ class _TranslationsAppEs implements TranslationsAppEn {
 	@override String settingsBackupExported({required Object path}) => 'Copia exportada en ${path}';
 	@override String settingsBackupImported({required Object count}) => 'Importadas ${count} respuestas';
 	@override String settingsBackupError({required Object error}) => 'Error de copia: ${error}';
+	@override String get settingsGeneralSection => 'General';
+	@override String get settingsAiModelsSection => 'Modelos IA';
+	@override String get settingsKanjiFilterSection => 'Kanji';
+	@override String get settingsDataSection => 'Datos';
 	@override String get testGuideShow => 'Mostrar guía';
 	@override String get testGuideHide => 'Ocultar guía';
 	@override String get testReportDrawing => 'Reportar dibujo';
 	@override String get testReportThanks => 'Gracias. Informe preparado para revisar.';
 	@override String get testReportError => 'No se pudo preparar el informe.';
 	@override String get testKanjiTraceHint => 'Sigue el orden de trazos. Activa la guía si la necesitas.';
+	@override String get aiInfoTitle => 'Modelos de IA en dibujo';
+	@override String get aiInfoLine1 => 'El reconocimiento de IA puede fallar ocasionalmente.';
+	@override String get aiInfoLine2 => 'Si falla, desactiva el modelo para usar una evaluación basada en trazos.';
+	@override String get aiInfoLine3 => 'Puedes reportar falsos negativos para ayudarnos a mejorarlo.';
 }
 
 /// The flat map containing all translations for locale <es>.
@@ -309,12 +317,20 @@ extension on TranslationsEs {
 			'app.settingsBackupExported' => ({required Object path}) => 'Copia exportada en ${path}',
 			'app.settingsBackupImported' => ({required Object count}) => 'Importadas ${count} respuestas',
 			'app.settingsBackupError' => ({required Object error}) => 'Error de copia: ${error}',
+			'app.settingsGeneralSection' => 'General',
+			'app.settingsAiModelsSection' => 'Modelos IA',
+			'app.settingsKanjiFilterSection' => 'Kanji',
+			'app.settingsDataSection' => 'Datos',
 			'app.testGuideShow' => 'Mostrar guía',
 			'app.testGuideHide' => 'Ocultar guía',
 			'app.testReportDrawing' => 'Reportar dibujo',
 			'app.testReportThanks' => 'Gracias. Informe preparado para revisar.',
 			'app.testReportError' => 'No se pudo preparar el informe.',
 			'app.testKanjiTraceHint' => 'Sigue el orden de trazos. Activa la guía si la necesitas.',
+			'app.aiInfoTitle' => 'Modelos de IA en dibujo',
+			'app.aiInfoLine1' => 'El reconocimiento de IA puede fallar ocasionalmente.',
+			'app.aiInfoLine2' => 'Si falla, desactiva el modelo para usar una evaluación basada en trazos.',
+			'app.aiInfoLine3' => 'Puedes reportar falsos negativos para ayudarnos a mejorarlo.',
 			_ => null,
 		};
 	}

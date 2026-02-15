@@ -420,6 +420,18 @@ class TranslationsAppEn {
 	/// en: 'Backup error: ${error}'
 	String settingsBackupError({required Object error}) => 'Backup error: ${error}';
 
+	/// en: 'General'
+	String get settingsGeneralSection => 'General';
+
+	/// en: 'AI Models'
+	String get settingsAiModelsSection => 'AI Models';
+
+	/// en: 'Kanji'
+	String get settingsKanjiFilterSection => 'Kanji';
+
+	/// en: 'Data'
+	String get settingsDataSection => 'Data';
+
 	/// en: 'Show guide'
 	String get testGuideShow => 'Show guide';
 
@@ -437,6 +449,18 @@ class TranslationsAppEn {
 
 	/// en: 'Follow stroke order. Enable guide if needed.'
 	String get testKanjiTraceHint => 'Follow stroke order. Enable guide if needed.';
+
+	/// en: 'AI models in drawing'
+	String get aiInfoTitle => 'AI models in drawing';
+
+	/// en: 'AI recognition may fail occasionally.'
+	String get aiInfoLine1 => 'AI recognition may fail occasionally.';
+
+	/// en: 'If it fails, disable the model to use stroke-based evaluation.'
+	String get aiInfoLine2 => 'If it fails, disable the model to use stroke-based evaluation.';
+
+	/// en: 'You can report false negatives to help improve it.'
+	String get aiInfoLine3 => 'You can report false negatives to help improve it.';
 }
 
 /// The flat map containing all translations for locale <en>.
@@ -570,12 +594,20 @@ extension on Translations {
 			'app.settingsBackupExported' => ({required Object path}) => 'Backup exported to ${path}',
 			'app.settingsBackupImported' => ({required Object count}) => 'Imported ${count} responses',
 			'app.settingsBackupError' => ({required Object error}) => 'Backup error: ${error}',
+			'app.settingsGeneralSection' => 'General',
+			'app.settingsAiModelsSection' => 'AI Models',
+			'app.settingsKanjiFilterSection' => 'Kanji',
+			'app.settingsDataSection' => 'Data',
 			'app.testGuideShow' => 'Show guide',
 			'app.testGuideHide' => 'Hide guide',
 			'app.testReportDrawing' => 'Report drawing',
 			'app.testReportThanks' => 'Thanks! Report prepared for review.',
 			'app.testReportError' => 'Could not prepare report.',
 			'app.testKanjiTraceHint' => 'Follow stroke order. Enable guide if needed.',
+			'app.aiInfoTitle' => 'AI models in drawing',
+			'app.aiInfoLine1' => 'AI recognition may fail occasionally.',
+			'app.aiInfoLine2' => 'If it fails, disable the model to use stroke-based evaluation.',
+			'app.aiInfoLine3' => 'You can report false negatives to help improve it.',
 			_ => null,
 		};
 	}

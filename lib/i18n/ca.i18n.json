@@ -123,11 +123,19 @@
     "settingsBackupExported": "Còpia exportada a ${path}",
     "settingsBackupImported": "Importades ${count} respostes",
     "settingsBackupError": "Error de còpia: ${error}",
+    "settingsGeneralSection": "General",
+    "settingsAiModelsSection": "Models IA",
+    "settingsKanjiFilterSection": "Kanji",
+    "settingsDataSection": "Dades",
     "testGuideShow": "Mostrar guia",
     "testGuideHide": "Amagar guia",
     "testReportDrawing": "Reportar dibuix",
     "testReportThanks": "Gràcies. Informe preparat per revisar.",
     "testReportError": "No s'ha pogut preparar l'informe.",
-    "testKanjiTraceHint": "Segueix l'ordre dels traços. Activa la guia si la necessites."
+    "testKanjiTraceHint": "Segueix l'ordre dels traços. Activa la guia si la necessites.",
+    "aiInfoTitle": "Models d'IA en dibuix",
+    "aiInfoLine1": "El reconeixement d'IA pot fallar ocasionalment.",
+    "aiInfoLine2": "Si falla, desactiva el model per utilitzar una evaluació basada en traços.",
+    "aiInfoLine3": "Pots reportar falsos negatius per ajudar-nos a millorar-lo."
   }
 }

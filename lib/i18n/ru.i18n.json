@@ -123,11 +123,19 @@
     "settingsBackupExported": "Экспортировано в ${path}",
     "settingsBackupImported": "Импортировано ${count} ответов",
     "settingsBackupError": "Ошибка резервной копии: ${error}",
+    "settingsGeneralSection": "Общие",
+    "settingsAiModelsSection": "Модели ИИ",
+    "settingsKanjiFilterSection": "Фильтр кандзи",
+    "settingsDataSection": "Данные",
     "testGuideShow": "Показать гайд",
     "testGuideHide": "Скрыть гайд",
     "testReportDrawing": "Сообщить о рисунке",
     "testReportThanks": "Спасибо. Отчёт подготовлен.",
     "testReportError": "Не удалось создать отчёт.",
-    "testKanjiTraceHint": "Следуйте порядку штрихов. При необходимости включите подсказку."
+    "testKanjiTraceHint": "Следуйте порядку штрихов. При необходимости включите подсказку.",
+    "aiInfoTitle": "AI модели при рисовании",
+    "aiInfoLine1": "Распознавание ИИ может иногда не срабатывать.",
+    "aiInfoLine2": "Если оно не работает, отключите модель, чтобы использовать оценку по штрихам.",
+    "aiInfoLine3": "Вы можете сообщить об ошибке, чтобы помочь улучшить ИИ."
   }
 }

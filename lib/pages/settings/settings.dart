@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:kana_master/constants.dart';
 import 'package:kana_master/pages/settings/bloc/settings_bloc.dart';
 import 'package:kana_master/pages/settings/widgets/settings_backup_card.dart';
 import 'package:kana_master/pages/settings/widgets/dropdown_tile_setting.dart';
+import 'package:kana_master/pages/settings/widgets/settings_section_header.dart';
 import 'package:kana_master/pages/settings/widgets/settings_slider_card.dart';
 import 'package:kana_master/pages/settings/widgets/settings_switch_card.dart';
 import 'package:kana_master/pages/stats/bloc/stats_bloc.dart';
 import 'package:kana_master/theme/app_theme.dart';
 import 'package:kana_master/i18n/strings.g.dart';
+import 'package:kana_master/widgets/dialogs.dart';
 import 'package:kana_master/widgets/snackbars.dart';
 
 class SettingsPage extends StatelessWidget {
@@ -72,6 +75,10 @@ class SettingsPage extends StatelessWidget {
                     child: ListView(
                       padding: const EdgeInsets.all(16.0),
                       children: [
+                        SettingsSectionHeader(
+                          title: tr.app.settingsGeneralSection,
+                        ),
+                        const SizedBox(height: 8),
                         DropdownTileSetting(
                           title: tr.app.language,
                           subtitle: tr.app.languageSubtitle,
@@ -117,6 +124,12 @@ class SettingsPage extends StatelessWidget {
                           },
                         ),
                         const SizedBox(height: 12),
+                        SettingsSectionHeader(
+                          title: tr.app.settingsAiModelsSection,
+                          onInfoPressed: () =>
+                              Dialogs.showAiInfoDialog(context),
+                        ),
+                        const SizedBox(height: 8),
                         SettingsSwitchCard(
                           title: tr.app.settingsUseModelHiraganaTitle,
                           subtitle: tr.app.settingsUseModelHiraganaSubtitle,
@@ -153,6 +166,10 @@ class SettingsPage extends StatelessWidget {
                           },
                         ),
                         const SizedBox(height: 12),
+                        SettingsSectionHeader(
+                          title: tr.app.settingsKanjiFilterSection,
+                        ),
+                        const SizedBox(height: 8),
                         DropdownTileSetting(
                           title: tr.app.settingsKanjiJlptTitle,
                           subtitle: tr.app.settingsKanjiJlptSubtitle,
@@ -168,6 +185,10 @@ class SettingsPage extends StatelessWidget {
                           },
                         ),
                         const SizedBox(height: 12),
+                        SettingsSectionHeader(
+                          title: tr.app.settingsDataSection,
+                        ),
+                        const SizedBox(height: 8),
                         SettingsBackupCard(
                           title: tr.app.settingsBackupTitle,
                           subtitle: tr.app.settingsBackupSubtitle,
@@ -200,19 +221,6 @@ class SettingsPage extends StatelessWidget {
 }
 
 List<DropdownMenuItem<String>> _languageItems() {
-  const languages = {
-    'es': 'Español',
-    'en': 'English',
-    'ca': 'Català',
-    'fr': 'Français',
-    'de': 'Deutsch',
-    'it': 'Italiano',
-    'pt': 'Português',
-    'ru': 'Русский',
-    'ja': '日本語',
-    'zh': '中文',
-    'ko': '한국어',
-  };
   return languages.entries
       .map(
         (entry) => DropdownMenuItem<String>(
