@@ -468,8 +468,8 @@ class TranslationsAppEn {
 	/// en: 'Premium'
 	String get premiumSectionTitle => 'Premium';
 
-	/// en: 'Unlock all features and remove interstitial ads.'
-	String get premiumSectionSubtitle => 'Unlock all features and remove interstitial ads.';
+	/// en: 'Unlock all features and remove ads.'
+	String get premiumSectionSubtitle => 'Unlock all features and remove ads.';
 
 	/// en: 'Upgrade'
 	String get premiumOpenButton => 'Upgrade';
@@ -489,8 +489,8 @@ class TranslationsAppEn {
 	/// en: 'Get the full experience and support the project.'
 	String get premiumHeroBody => 'Get the full experience and support the project.';
 
-	/// en: 'No interstitial ads'
-	String get premiumBenefitNoAds => 'No interstitial ads';
+	/// en: 'No ads'
+	String get premiumBenefitNoAds => 'No ads';
 
 	/// en: 'Access Materials mode'
 	String get premiumBenefitMaterials => 'Access Materials mode';
@@ -673,14 +673,14 @@ extension on Translations {
 			'app.aiInfoLine2' => 'If it fails, disable the model to use stroke-based evaluation.',
 			'app.aiInfoLine3' => 'You can report false negatives to help improve it.',
 			'app.premiumSectionTitle' => 'Premium',
-			'app.premiumSectionSubtitle' => 'Unlock all features and remove interstitial ads.',
+			'app.premiumSectionSubtitle' => 'Unlock all features and remove ads.',
 			'app.premiumOpenButton' => 'Upgrade',
 			'app.premiumLockedMessage' => 'Premium feature. Upgrade to unlock it.',
 			'app.premiumTitle' => 'Kana Master Premium',
 			'app.premiumSubtitle' => 'One-time purchase, all features unlocked.',
 			'app.premiumHeroTitle' => 'Learn without limits',
 			'app.premiumHeroBody' => 'Get the full experience and support the project.',
-			'app.premiumBenefitNoAds' => 'No interstitial ads',
+			'app.premiumBenefitNoAds' => 'No ads',
 			'app.premiumBenefitMaterials' => 'Access Materials mode',
 			'app.premiumBenefitHard' => 'Use high difficulty',
 			'app.premiumBenefitAi' => 'Enable AI model options',
