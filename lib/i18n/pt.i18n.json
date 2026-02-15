@@ -130,6 +130,7 @@
     "testGuideShow": "Mostrar guia",
     "testGuideHide": "Ocultar guia",
     "testReportDrawing": "Reportar desenho",
+    "testReportConfirmBody": "Deseja enviar este relatório agora?",
     "testReportThanks": "Obrigado. Relatório preparado.",
     "testReportError": "Falha ao criar relatório.",
     "testKanjiTraceHint": "Siga a ordem dos traços. Ative o guia se necessário.",

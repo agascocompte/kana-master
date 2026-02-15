@@ -130,6 +130,7 @@
     "testGuideShow": "ガイド表示",
     "testGuideHide": "ガイド非表示",
     "testReportDrawing": "手書きを報告",
+    "testReportConfirmBody": "このレポートを今送信しますか？",
     "testReportThanks": "ありがとうございます。レポートを作成しました。",
     "testReportError": "レポート作成に失敗しました。",
     "testKanjiTraceHint": "書き順に沿って描きましょう。必要ならガイドを表示。",

@@ -177,6 +177,7 @@ class _TranslationsAppKo implements TranslationsAppEn {
 	@override String get testGuideShow => '가이드 보기';
 	@override String get testGuideHide => '가이드 숨기기';
 	@override String get testReportDrawing => '그림 신고';
+	@override String get testReportConfirmBody => '이 리포트를 지금 전송하시겠습니까?';
 	@override String get testReportThanks => '감사합니다. 리포트를 준비했습니다.';
 	@override String get testReportError => '리포트 생성 실패.';
 	@override String get testKanjiTraceHint => '획순을 따라 그리세요. 필요하면 가이드를 켜세요.';
@@ -324,6 +325,7 @@ extension on TranslationsKo {
 			'app.testGuideShow' => '가이드 보기',
 			'app.testGuideHide' => '가이드 숨기기',
 			'app.testReportDrawing' => '그림 신고',
+			'app.testReportConfirmBody' => '이 리포트를 지금 전송하시겠습니까?',
 			'app.testReportThanks' => '감사합니다. 리포트를 준비했습니다.',
 			'app.testReportError' => '리포트 생성 실패.',
 			'app.testKanjiTraceHint' => '획순을 따라 그리세요. 필요하면 가이드를 켜세요.',

@@ -130,6 +130,7 @@
     "testGuideShow": "显示指南",
     "testGuideHide": "隐藏指南",
     "testReportDrawing": "报告手写问题",
+    "testReportConfirmBody": "现在要发送这份报告吗？",
     "testReportThanks": "感谢反馈，报告已生成。",
     "testReportError": "无法生成报告。",
     "testKanjiTraceHint": "请按照笔顺书写，需要时可开启指南。",

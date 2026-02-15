@@ -177,6 +177,7 @@ class _TranslationsAppIt implements TranslationsAppEn {
 	@override String get testGuideShow => 'Mostra guida';
 	@override String get testGuideHide => 'Nascondi guida';
 	@override String get testReportDrawing => 'Segnala disegno';
+	@override String get testReportConfirmBody => 'Vuoi inviare questo report adesso?';
 	@override String get testReportThanks => 'Grazie. Report pronto.';
 	@override String get testReportError => 'Impossibile creare il report.';
 	@override String get testKanjiTraceHint => 'Segui l\'ordine dei tratti. Attiva la guida se serve.';
@@ -324,6 +325,7 @@ extension on TranslationsIt {
 			'app.testGuideShow' => 'Mostra guida',
 			'app.testGuideHide' => 'Nascondi guida',
 			'app.testReportDrawing' => 'Segnala disegno',
+			'app.testReportConfirmBody' => 'Vuoi inviare questo report adesso?',
 			'app.testReportThanks' => 'Grazie. Report pronto.',
 			'app.testReportError' => 'Impossibile creare il report.',
 			'app.testKanjiTraceHint' => 'Segui l\'ordine dei tratti. Attiva la guida se serve.',

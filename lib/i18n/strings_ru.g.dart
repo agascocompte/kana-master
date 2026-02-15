@@ -177,6 +177,7 @@ class _TranslationsAppRu implements TranslationsAppEn {
 	@override String get testGuideShow => 'Показать гайд';
 	@override String get testGuideHide => 'Скрыть гайд';
 	@override String get testReportDrawing => 'Сообщить о рисунке';
+	@override String get testReportConfirmBody => 'Отправить этот отчёт сейчас?';
 	@override String get testReportThanks => 'Спасибо. Отчёт подготовлен.';
 	@override String get testReportError => 'Не удалось создать отчёт.';
 	@override String get testKanjiTraceHint => 'Следуйте порядку штрихов. При необходимости включите подсказку.';
@@ -324,6 +325,7 @@ extension on TranslationsRu {
 			'app.testGuideShow' => 'Показать гайд',
 			'app.testGuideHide' => 'Скрыть гайд',
 			'app.testReportDrawing' => 'Сообщить о рисунке',
+			'app.testReportConfirmBody' => 'Отправить этот отчёт сейчас?',
 			'app.testReportThanks' => 'Спасибо. Отчёт подготовлен.',
 			'app.testReportError' => 'Не удалось создать отчёт.',
 			'app.testKanjiTraceHint' => 'Следуйте порядку штрихов. При необходимости включите подсказку.',

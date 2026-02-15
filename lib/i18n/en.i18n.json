@@ -130,6 +130,7 @@
     "testGuideShow": "Show guide",
     "testGuideHide": "Hide guide",
     "testReportDrawing": "Report drawing",
+    "testReportConfirmBody": "Do you want to send this report now?",
     "testReportThanks": "Thanks! Report prepared for review.",
     "testReportError": "Could not prepare report.",
     "testKanjiTraceHint": "Follow stroke order. Enable guide if needed.",

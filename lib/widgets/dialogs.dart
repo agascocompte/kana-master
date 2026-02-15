@@ -97,4 +97,45 @@ class Dialogs {
       },
     );
   }
+
+  static void showExpectedFormatDialog(BuildContext context) {
+    final tr = context.t;
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text(tr.app.expectedFormatTitle),
+        content: Text(tr.app.expectedFormatBody),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(),
+            child: Text(tr.app.ok),
+          ),
+        ],
+      ),
+    );
+  }
+
+  static Future<bool> showReportDrawingConfirmDialog(
+      BuildContext context) async {
+    final tr = context.t;
+    final localizations = MaterialLocalizations.of(context);
+    return await showDialog<bool>(
+          context: context,
+          builder: (dialogContext) => AlertDialog.adaptive(
+            title: Text(tr.app.testReportDrawing),
+            content: Text(tr.app.testReportConfirmBody),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.of(dialogContext).pop(false),
+                child: Text(localizations.cancelButtonLabel),
+              ),
+              FilledButton(
+                onPressed: () => Navigator.of(dialogContext).pop(true),
+                child: Text(localizations.okButtonLabel),
+              ),
+            ],
+          ),
+        ) ??
+        false;
+  }
 }

@@ -177,6 +177,7 @@ class _TranslationsAppPt implements TranslationsAppEn {
 	@override String get testGuideShow => 'Mostrar guia';
 	@override String get testGuideHide => 'Ocultar guia';
 	@override String get testReportDrawing => 'Reportar desenho';
+	@override String get testReportConfirmBody => 'Deseja enviar este relatório agora?';
 	@override String get testReportThanks => 'Obrigado. Relatório preparado.';
 	@override String get testReportError => 'Falha ao criar relatório.';
 	@override String get testKanjiTraceHint => 'Siga a ordem dos traços. Ative o guia se necessário.';
@@ -324,6 +325,7 @@ extension on TranslationsPt {
 			'app.testGuideShow' => 'Mostrar guia',
 			'app.testGuideHide' => 'Ocultar guia',
 			'app.testReportDrawing' => 'Reportar desenho',
+			'app.testReportConfirmBody' => 'Deseja enviar este relatório agora?',
 			'app.testReportThanks' => 'Obrigado. Relatório preparado.',
 			'app.testReportError' => 'Falha ao criar relatório.',
 			'app.testKanjiTraceHint' => 'Siga a ordem dos traços. Ative o guia se necessário.',

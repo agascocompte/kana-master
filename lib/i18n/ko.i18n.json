@@ -130,6 +130,7 @@
     "testGuideShow": "가이드 보기",
     "testGuideHide": "가이드 숨기기",
     "testReportDrawing": "그림 신고",
+    "testReportConfirmBody": "이 리포트를 지금 전송하시겠습니까?",
     "testReportThanks": "감사합니다. 리포트를 준비했습니다.",
     "testReportError": "리포트 생성 실패.",
     "testKanjiTraceHint": "획순을 따라 그리세요. 필요하면 가이드를 켜세요.",

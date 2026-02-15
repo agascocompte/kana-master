@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart' hide MaterialState;
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kana_master/pages/study/bloc/material_bloc.dart';
+import 'package:kana_master/pages/study/widgets/dropdown_selector.dart';
 import 'package:kana_master/theme/app_theme.dart';
+import 'package:kana_master/widgets/dialogs.dart';
 import 'package:kana_master/widgets/snackbars.dart';
 import 'package:kana_master/i18n/strings.g.dart';
 
@@ -38,22 +40,9 @@ class MaterialTab extends StatelessWidget {
               Row(
                 children: [
                   IconButton(
-                    tooltip: 'Expected Format',
                     icon: const Icon(Icons.info_outline, color: AppColors.ink),
                     onPressed: () {
-                      showDialog(
-                        context: context,
-                        builder: (context) => AlertDialog(
-                          title: Text(t.app.expectedFormatTitle),
-                          content: Text(t.app.expectedFormatBody),
-                          actions: [
-                            TextButton(
-                              onPressed: () => Navigator.of(context).pop(),
-                              child: Text(t.app.ok),
-                            ),
-                          ],
-                        ),
-                      );
+                      Dialogs.showExpectedFormatDialog(context);
                     },
                   ),
                   ElevatedButton.icon(
@@ -90,7 +79,7 @@ class MaterialTab extends StatelessWidget {
                 Row(
                   children: [
                     Expanded(
-                      child: _DropdownSelector(
+                      child: DropdownSelector(
                         label: t.app.askWith,
                         value: data.questionColumn,
                         items: data.headers,
@@ -101,7 +90,7 @@ class MaterialTab extends StatelessWidget {
                     ),
                     const SizedBox(width: 12),
                     Expanded(
-                      child: _DropdownSelector(
+                      child: DropdownSelector(
                         label: t.app.answerWith,
                         value: data.answerColumn,
                         items: data.headers,
@@ -249,52 +238,6 @@ class MaterialTab extends StatelessWidget {
           ),
         );
       },
-    );
-  }
-}
-
-class _DropdownSelector extends StatelessWidget {
-  final String label;
-  final String? value;
-  final List<String> items;
-  final ValueChanged<String?> onChanged;
-
-  const _DropdownSelector({
-    required this.label,
-    required this.value,
-    required this.items,
-    required this.onChanged,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          label,
-          style: const TextStyle(
-            fontWeight: FontWeight.w700,
-            color: AppColors.graphite,
-          ),
-        ),
-        const SizedBox(height: 4),
-        DropdownButtonFormField<String>(
-          initialValue: value,
-          decoration: const InputDecoration(
-            border: OutlineInputBorder(),
-          ),
-          items: items
-              .map(
-                (e) => DropdownMenuItem(
-                  value: e,
-                  child: Text(e),
-                ),
-              )
-              .toList(),
-          onChanged: onChanged,
-        ),
-      ],
     );
   }
 }

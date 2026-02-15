@@ -177,6 +177,7 @@ class _TranslationsAppCa implements TranslationsAppEn {
 	@override String get testGuideShow => 'Mostrar guia';
 	@override String get testGuideHide => 'Amagar guia';
 	@override String get testReportDrawing => 'Reportar dibuix';
+	@override String get testReportConfirmBody => 'Vols enviar aquest informe ara?';
 	@override String get testReportThanks => 'Gràcies. Informe preparat per revisar.';
 	@override String get testReportError => 'No s\'ha pogut preparar l\'informe.';
 	@override String get testKanjiTraceHint => 'Segueix l\'ordre dels traços. Activa la guia si la necessites.';
@@ -324,6 +325,7 @@ extension on TranslationsCa {
 			'app.testGuideShow' => 'Mostrar guia',
 			'app.testGuideHide' => 'Amagar guia',
 			'app.testReportDrawing' => 'Reportar dibuix',
+			'app.testReportConfirmBody' => 'Vols enviar aquest informe ara?',
 			'app.testReportThanks' => 'Gràcies. Informe preparat per revisar.',
 			'app.testReportError' => 'No s\'ha pogut preparar l\'informe.',
 			'app.testKanjiTraceHint' => 'Segueix l\'ordre dels traços. Activa la guia si la necessites.',

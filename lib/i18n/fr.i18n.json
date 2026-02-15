@@ -130,6 +130,7 @@
     "testGuideShow": "Voir le guide",
     "testGuideHide": "Masquer le guide",
     "testReportDrawing": "Signaler dessin",
+    "testReportConfirmBody": "Voulez-vous envoyer ce rapport maintenant ?",
     "testReportThanks": "Merci. Rapport prêt.",
     "testReportError": "Impossible de créer le rapport.",
     "testKanjiTraceHint": "Suis l'ordre des traits. Active le guide si besoin.",
