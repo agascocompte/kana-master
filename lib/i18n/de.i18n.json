@@ -123,11 +123,19 @@
     "settingsBackupExported": "Exportiert: ${path}",
     "settingsBackupImported": "${count} Antworten importiert",
     "settingsBackupError": "Backup-Fehler: ${error}",
+    "settingsGeneralSection": "Allgemein",
+    "settingsAiModelsSection": "KI-Modelle",
+    "settingsKanjiFilterSection": "Kanji",
+    "settingsDataSection": "Daten",
     "testGuideShow": "Guide zeigen",
     "testGuideHide": "Guide aus",
     "testReportDrawing": "Zeichnung melden",
     "testReportThanks": "Danke! Bericht erstellt.",
     "testReportError": "Bericht fehlgeschlagen.",
-    "testKanjiTraceHint": "Strichfolge folgen. Guide aktivieren wenn nötig."
+    "testKanjiTraceHint": "Strichfolge folgen. Guide aktivieren wenn nötig.",
+    "aiInfoTitle": "KI-Modelle beim Zeichnen",
+    "aiInfoLine1": "KI-Erkennung kann gelegentlich fehlschlagen.",
+    "aiInfoLine2": "Falls sie fehlschlägt, deaktiviere das Modell zur Verwendung einer auf Strichen basierenden Bewertung.",
+    "aiInfoLine3": "Du kannst falsche Negativwerte melden, um uns bei der Verbesserung zu helfen."
   }
 }

@@ -123,11 +123,19 @@
     "settingsBackupExported": "Exporté vers ${path}",
     "settingsBackupImported": "${count} réponses importées",
     "settingsBackupError": "Erreur de sauvegarde : ${error}",
+    "settingsGeneralSection": "Général",
+    "settingsAiModelsSection": "Modèles IA",
+    "settingsKanjiFilterSection": "Kanji",
+    "settingsDataSection": "Données",
     "testGuideShow": "Voir le guide",
     "testGuideHide": "Masquer le guide",
     "testReportDrawing": "Signaler dessin",
     "testReportThanks": "Merci. Rapport prêt.",
     "testReportError": "Impossible de créer le rapport.",
-    "testKanjiTraceHint": "Suis l'ordre des traits. Active le guide si besoin."
+    "testKanjiTraceHint": "Suis l'ordre des traits. Active le guide si besoin.",
+    "aiInfoTitle": "Modèles IA en dessin",
+    "aiInfoLine1": "Le reconnaissance IA peut échouer occasionnellement.",
+    "aiInfoLine2": "Si elle échoue, désactive le modèle pour utiliser une évaluation basée sur les traits.",
+    "aiInfoLine3": "Tu peux signaler les faux négatifs pour nous aider à l'améliorer."
   }
 }

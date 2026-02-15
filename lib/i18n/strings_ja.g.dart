@@ -170,12 +170,20 @@ class _TranslationsAppJa implements TranslationsAppEn {
 	@override String settingsBackupExported({required Object path}) => '${path} に保存しました';
 	@override String settingsBackupImported({required Object count}) => '${count} 件を読み込み';
 	@override String settingsBackupError({required Object error}) => 'バックアップエラー: ${error}';
+	@override String get settingsGeneralSection => '一般';
+	@override String get settingsAiModelsSection => 'AIモデル';
+	@override String get settingsKanjiFilterSection => '漢字フィルター';
+	@override String get settingsDataSection => 'データ';
 	@override String get testGuideShow => 'ガイド表示';
 	@override String get testGuideHide => 'ガイド非表示';
 	@override String get testReportDrawing => '手書きを報告';
 	@override String get testReportThanks => 'ありがとうございます。レポートを作成しました。';
 	@override String get testReportError => 'レポート作成に失敗しました。';
 	@override String get testKanjiTraceHint => '書き順に沿って描きましょう。必要ならガイドを表示。';
+	@override String get aiInfoTitle => 'AIモデルによる描画';
+	@override String get aiInfoLine1 => 'AI認識は時々失敗することがあります。';
+	@override String get aiInfoLine2 => '失敗した場合は、モデルを無効にしてストロークベースの評価を使用してください。';
+	@override String get aiInfoLine3 => '誤検出を報告して改善にご協力ください。';
 }
 
 /// The flat map containing all translations for locale <ja>.
@@ -309,12 +317,20 @@ extension on TranslationsJa {
 			'app.settingsBackupExported' => ({required Object path}) => '${path} に保存しました',
 			'app.settingsBackupImported' => ({required Object count}) => '${count} 件を読み込み',
 			'app.settingsBackupError' => ({required Object error}) => 'バックアップエラー: ${error}',
+			'app.settingsGeneralSection' => '一般',
+			'app.settingsAiModelsSection' => 'AIモデル',
+			'app.settingsKanjiFilterSection' => '漢字フィルター',
+			'app.settingsDataSection' => 'データ',
 			'app.testGuideShow' => 'ガイド表示',
 			'app.testGuideHide' => 'ガイド非表示',
 			'app.testReportDrawing' => '手書きを報告',
 			'app.testReportThanks' => 'ありがとうございます。レポートを作成しました。',
 			'app.testReportError' => 'レポート作成に失敗しました。',
 			'app.testKanjiTraceHint' => '書き順に沿って描きましょう。必要ならガイドを表示。',
+			'app.aiInfoTitle' => 'AIモデルによる描画',
+			'app.aiInfoLine1' => 'AI認識は時々失敗することがあります。',
+			'app.aiInfoLine2' => '失敗した場合は、モデルを無効にしてストロークベースの評価を使用してください。',
+			'app.aiInfoLine3' => '誤検出を報告して改善にご協力ください。',
 			_ => null,
 		};
 	}

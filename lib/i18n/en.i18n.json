@@ -123,11 +123,19 @@
     "settingsBackupExported": "Backup exported to ${path}",
     "settingsBackupImported": "Imported ${count} responses",
     "settingsBackupError": "Backup error: ${error}",
+    "settingsGeneralSection": "General",
+    "settingsAiModelsSection": "AI Models",
+    "settingsKanjiFilterSection": "Kanji",
+    "settingsDataSection": "Data",
     "testGuideShow": "Show guide",
     "testGuideHide": "Hide guide",
     "testReportDrawing": "Report drawing",
     "testReportThanks": "Thanks! Report prepared for review.",
     "testReportError": "Could not prepare report.",
-    "testKanjiTraceHint": "Follow stroke order. Enable guide if needed."
+    "testKanjiTraceHint": "Follow stroke order. Enable guide if needed.",
+    "aiInfoTitle": "AI models in drawing",
+    "aiInfoLine1": "AI recognition may fail occasionally.",
+    "aiInfoLine2": "If it fails, disable the model to use stroke-based evaluation.",
+    "aiInfoLine3": "You can report false negatives to help improve it."
   }
 }

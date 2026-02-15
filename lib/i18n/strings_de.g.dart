@@ -170,12 +170,20 @@ class _TranslationsAppDe implements TranslationsAppEn {
 	@override String settingsBackupExported({required Object path}) => 'Exportiert: ${path}';
 	@override String settingsBackupImported({required Object count}) => '${count} Antworten importiert';
 	@override String settingsBackupError({required Object error}) => 'Backup-Fehler: ${error}';
+	@override String get settingsGeneralSection => 'Allgemein';
+	@override String get settingsAiModelsSection => 'KI-Modelle';
+	@override String get settingsKanjiFilterSection => 'Kanji';
+	@override String get settingsDataSection => 'Daten';
 	@override String get testGuideShow => 'Guide zeigen';
 	@override String get testGuideHide => 'Guide aus';
 	@override String get testReportDrawing => 'Zeichnung melden';
 	@override String get testReportThanks => 'Danke! Bericht erstellt.';
 	@override String get testReportError => 'Bericht fehlgeschlagen.';
 	@override String get testKanjiTraceHint => 'Strichfolge folgen. Guide aktivieren wenn nötig.';
+	@override String get aiInfoTitle => 'KI-Modelle beim Zeichnen';
+	@override String get aiInfoLine1 => 'KI-Erkennung kann gelegentlich fehlschlagen.';
+	@override String get aiInfoLine2 => 'Falls sie fehlschlägt, deaktiviere das Modell zur Verwendung einer auf Strichen basierenden Bewertung.';
+	@override String get aiInfoLine3 => 'Du kannst falsche Negativwerte melden, um uns bei der Verbesserung zu helfen.';
 }
 
 /// The flat map containing all translations for locale <de>.
@@ -309,12 +317,20 @@ extension on TranslationsDe {
 			'app.settingsBackupExported' => ({required Object path}) => 'Exportiert: ${path}',
 			'app.settingsBackupImported' => ({required Object count}) => '${count} Antworten importiert',
 			'app.settingsBackupError' => ({required Object error}) => 'Backup-Fehler: ${error}',
+			'app.settingsGeneralSection' => 'Allgemein',
+			'app.settingsAiModelsSection' => 'KI-Modelle',
+			'app.settingsKanjiFilterSection' => 'Kanji',
+			'app.settingsDataSection' => 'Daten',
 			'app.testGuideShow' => 'Guide zeigen',
 			'app.testGuideHide' => 'Guide aus',
 			'app.testReportDrawing' => 'Zeichnung melden',
 			'app.testReportThanks' => 'Danke! Bericht erstellt.',
 			'app.testReportError' => 'Bericht fehlgeschlagen.',
 			'app.testKanjiTraceHint' => 'Strichfolge folgen. Guide aktivieren wenn nötig.',
+			'app.aiInfoTitle' => 'KI-Modelle beim Zeichnen',
+			'app.aiInfoLine1' => 'KI-Erkennung kann gelegentlich fehlschlagen.',
+			'app.aiInfoLine2' => 'Falls sie fehlschlägt, deaktiviere das Modell zur Verwendung einer auf Strichen basierenden Bewertung.',
+			'app.aiInfoLine3' => 'Du kannst falsche Negativwerte melden, um uns bei der Verbesserung zu helfen.',
 			_ => null,
 		};
 	}

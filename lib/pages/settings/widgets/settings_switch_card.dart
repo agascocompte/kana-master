@@ -7,6 +7,7 @@ class SettingsSwitchCard extends StatelessWidget {
   final IconData icon;
   final bool value;
   final ValueChanged<bool> onChanged;
+  final VoidCallback? onInfoPressed;
 
   const SettingsSwitchCard({
     super.key,
@@ -15,6 +16,7 @@ class SettingsSwitchCard extends StatelessWidget {
     required this.icon,
     required this.value,
     required this.onChanged,
+    this.onInfoPressed,
   });
 
   @override
@@ -30,13 +32,29 @@ class SettingsSwitchCard extends StatelessWidget {
         value: value,
         onChanged: onChanged,
         secondary: Icon(icon, color: AppColors.ink),
-        title: Text(
-          title,
-          style: const TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.w700,
-            color: AppColors.ink,
-          ),
+        title: Row(
+          children: [
+            Expanded(
+              child: Text(
+                title,
+                style: const TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w700,
+                  color: AppColors.ink,
+                ),
+              ),
+            ),
+            if (onInfoPressed != null)
+              IconButton(
+                icon: const Icon(
+                  Icons.info_outline,
+                  size: 18,
+                  color: AppColors.slate,
+                ),
+                tooltip: 'Info',
+                onPressed: onInfoPressed,
+              ),
+          ],
         ),
         subtitle: Text(
           subtitle,

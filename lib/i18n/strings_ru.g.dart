@@ -170,12 +170,20 @@ class _TranslationsAppRu implements TranslationsAppEn {
 	@override String settingsBackupExported({required Object path}) => 'Экспортировано в ${path}';
 	@override String settingsBackupImported({required Object count}) => 'Импортировано ${count} ответов';
 	@override String settingsBackupError({required Object error}) => 'Ошибка резервной копии: ${error}';
+	@override String get settingsGeneralSection => 'Общие';
+	@override String get settingsAiModelsSection => 'Модели ИИ';
+	@override String get settingsKanjiFilterSection => 'Фильтр кандзи';
+	@override String get settingsDataSection => 'Данные';
 	@override String get testGuideShow => 'Показать гайд';
 	@override String get testGuideHide => 'Скрыть гайд';
 	@override String get testReportDrawing => 'Сообщить о рисунке';
 	@override String get testReportThanks => 'Спасибо. Отчёт подготовлен.';
 	@override String get testReportError => 'Не удалось создать отчёт.';
 	@override String get testKanjiTraceHint => 'Следуйте порядку штрихов. При необходимости включите подсказку.';
+	@override String get aiInfoTitle => 'AI модели при рисовании';
+	@override String get aiInfoLine1 => 'Распознавание ИИ может иногда не срабатывать.';
+	@override String get aiInfoLine2 => 'Если оно не работает, отключите модель, чтобы использовать оценку по штрихам.';
+	@override String get aiInfoLine3 => 'Вы можете сообщить об ошибке, чтобы помочь улучшить ИИ.';
 }
 
 /// The flat map containing all translations for locale <ru>.
@@ -309,12 +317,20 @@ extension on TranslationsRu {
 			'app.settingsBackupExported' => ({required Object path}) => 'Экспортировано в ${path}',
 			'app.settingsBackupImported' => ({required Object count}) => 'Импортировано ${count} ответов',
 			'app.settingsBackupError' => ({required Object error}) => 'Ошибка резервной копии: ${error}',
+			'app.settingsGeneralSection' => 'Общие',
+			'app.settingsAiModelsSection' => 'Модели ИИ',
+			'app.settingsKanjiFilterSection' => 'Фильтр кандзи',
+			'app.settingsDataSection' => 'Данные',
 			'app.testGuideShow' => 'Показать гайд',
 			'app.testGuideHide' => 'Скрыть гайд',
 			'app.testReportDrawing' => 'Сообщить о рисунке',
 			'app.testReportThanks' => 'Спасибо. Отчёт подготовлен.',
 			'app.testReportError' => 'Не удалось создать отчёт.',
 			'app.testKanjiTraceHint' => 'Следуйте порядку штрихов. При необходимости включите подсказку.',
+			'app.aiInfoTitle' => 'AI модели при рисовании',
+			'app.aiInfoLine1' => 'Распознавание ИИ может иногда не срабатывать.',
+			'app.aiInfoLine2' => 'Если оно не работает, отключите модель, чтобы использовать оценку по штрихам.',
+			'app.aiInfoLine3' => 'Вы можете сообщить об ошибке, чтобы помочь улучшить ИИ.',
 			_ => null,
 		};
 	}
