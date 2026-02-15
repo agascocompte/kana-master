@@ -121,7 +121,7 @@ class Dialogs {
     final localizations = MaterialLocalizations.of(context);
     return await showDialog<bool>(
           context: context,
-          builder: (dialogContext) => AlertDialog.adaptive(
+          builder: (dialogContext) => AlertDialog(
             title: Text(tr.app.testReportDrawing),
             content: Text(tr.app.testReportConfirmBody),
             actions: [
@@ -129,8 +129,19 @@ class Dialogs {
                 onPressed: () => Navigator.of(dialogContext).pop(false),
                 child: Text(localizations.cancelButtonLabel),
               ),
-              FilledButton(
+              ElevatedButton(
                 onPressed: () => Navigator.of(dialogContext).pop(true),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: jDarkBLue,
+                  foregroundColor: Colors.white,
+                  elevation: 0,
+                  minimumSize: const Size(100, 40),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 18, vertical: 10),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                ),
                 child: Text(localizations.okButtonLabel),
               ),
             ],
