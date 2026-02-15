@@ -177,6 +177,7 @@ class _TranslationsAppEs implements TranslationsAppEn {
 	@override String get testGuideShow => 'Mostrar guía';
 	@override String get testGuideHide => 'Ocultar guía';
 	@override String get testReportDrawing => 'Reportar dibujo';
+	@override String get testReportConfirmBody => '¿Quieres enviar este informe ahora?';
 	@override String get testReportThanks => 'Gracias. Informe preparado para revisar.';
 	@override String get testReportError => 'No se pudo preparar el informe.';
 	@override String get testKanjiTraceHint => 'Sigue el orden de trazos. Activa la guía si la necesitas.';
@@ -324,6 +325,7 @@ extension on TranslationsEs {
 			'app.testGuideShow' => 'Mostrar guía',
 			'app.testGuideHide' => 'Ocultar guía',
 			'app.testReportDrawing' => 'Reportar dibujo',
+			'app.testReportConfirmBody' => '¿Quieres enviar este informe ahora?',
 			'app.testReportThanks' => 'Gracias. Informe preparado para revisar.',
 			'app.testReportError' => 'No se pudo preparar el informe.',
 			'app.testKanjiTraceHint' => 'Sigue el orden de trazos. Activa la guía si la necesitas.',

@@ -130,6 +130,7 @@
     "testGuideShow": "Показать гайд",
     "testGuideHide": "Скрыть гайд",
     "testReportDrawing": "Сообщить о рисунке",
+    "testReportConfirmBody": "Отправить этот отчёт сейчас?",
     "testReportThanks": "Спасибо. Отчёт подготовлен.",
     "testReportError": "Не удалось создать отчёт.",
     "testKanjiTraceHint": "Следуйте порядку штрихов. При необходимости включите подсказку.",

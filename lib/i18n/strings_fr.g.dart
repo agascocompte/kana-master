@@ -177,6 +177,7 @@ class _TranslationsAppFr implements TranslationsAppEn {
 	@override String get testGuideShow => 'Voir le guide';
 	@override String get testGuideHide => 'Masquer le guide';
 	@override String get testReportDrawing => 'Signaler dessin';
+	@override String get testReportConfirmBody => 'Voulez-vous envoyer ce rapport maintenant ?';
 	@override String get testReportThanks => 'Merci. Rapport prêt.';
 	@override String get testReportError => 'Impossible de créer le rapport.';
 	@override String get testKanjiTraceHint => 'Suis l\'ordre des traits. Active le guide si besoin.';
@@ -324,6 +325,7 @@ extension on TranslationsFr {
 			'app.testGuideShow' => 'Voir le guide',
 			'app.testGuideHide' => 'Masquer le guide',
 			'app.testReportDrawing' => 'Signaler dessin',
+			'app.testReportConfirmBody' => 'Voulez-vous envoyer ce rapport maintenant ?',
 			'app.testReportThanks' => 'Merci. Rapport prêt.',
 			'app.testReportError' => 'Impossible de créer le rapport.',
 			'app.testKanjiTraceHint' => 'Suis l\'ordre des traits. Active le guide si besoin.',

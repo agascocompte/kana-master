@@ -5,6 +5,7 @@ import 'package:kana_master/i18n/strings.g.dart';
 import 'package:kana_master/pages/test_kana/bloc/test_kana_bloc.dart';
 import 'package:kana_master/pages/test_kana/widgets/test_button.dart';
 import 'package:kana_master/theme/app_theme.dart';
+import 'package:kana_master/widgets/dialogs.dart';
 
 class TestButtonsRow extends StatelessWidget {
   const TestButtonsRow({
@@ -74,39 +75,9 @@ class TestButtonsRow extends StatelessWidget {
                               onPressed: state.stateData.reportBusy
                                   ? null
                                   : () async {
-                                      final localizations =
-                                          MaterialLocalizations.of(context);
-                                      final bool shouldSend =
-                                          await showDialog<bool>(
-                                                context: context,
-                                                builder: (dialogContext) =>
-                                                    AlertDialog.adaptive(
-                                                  title: Text(
-                                                      tr.app.testReportDrawing),
-                                                  content: const Text(
-                                                    'Do you want to send this report now?',
-                                                  ),
-                                                  actions: [
-                                                    TextButton(
-                                                      onPressed: () =>
-                                                          Navigator.of(
-                                                            dialogContext,
-                                                          ).pop(false),
-                                                      child: Text(localizations
-                                                          .cancelButtonLabel),
-                                                    ),
-                                                    FilledButton(
-                                                      onPressed: () =>
-                                                          Navigator.of(
-                                                            dialogContext,
-                                                          ).pop(true),
-                                                      child: Text(
-                                                          localizations.okButtonLabel),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ) ??
-                                              false;
+                                      final bool shouldSend = await Dialogs
+                                          .showReportDrawingConfirmDialog(
+                                              context);
                                       if (!shouldSend) return;
                                       if (!context.mounted) return;
                                       context

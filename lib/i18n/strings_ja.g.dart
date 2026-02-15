@@ -177,6 +177,7 @@ class _TranslationsAppJa implements TranslationsAppEn {
 	@override String get testGuideShow => 'ガイド表示';
 	@override String get testGuideHide => 'ガイド非表示';
 	@override String get testReportDrawing => '手書きを報告';
+	@override String get testReportConfirmBody => 'このレポートを今送信しますか？';
 	@override String get testReportThanks => 'ありがとうございます。レポートを作成しました。';
 	@override String get testReportError => 'レポート作成に失敗しました。';
 	@override String get testKanjiTraceHint => '書き順に沿って描きましょう。必要ならガイドを表示。';
@@ -324,6 +325,7 @@ extension on TranslationsJa {
 			'app.testGuideShow' => 'ガイド表示',
 			'app.testGuideHide' => 'ガイド非表示',
 			'app.testReportDrawing' => '手書きを報告',
+			'app.testReportConfirmBody' => 'このレポートを今送信しますか？',
 			'app.testReportThanks' => 'ありがとうございます。レポートを作成しました。',
 			'app.testReportError' => 'レポート作成に失敗しました。',
 			'app.testKanjiTraceHint' => '書き順に沿って描きましょう。必要ならガイドを表示。',

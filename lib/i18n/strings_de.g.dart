@@ -177,6 +177,7 @@ class _TranslationsAppDe implements TranslationsAppEn {
 	@override String get testGuideShow => 'Guide zeigen';
 	@override String get testGuideHide => 'Guide aus';
 	@override String get testReportDrawing => 'Zeichnung melden';
+	@override String get testReportConfirmBody => 'Möchtest du diesen Bericht jetzt senden?';
 	@override String get testReportThanks => 'Danke! Bericht erstellt.';
 	@override String get testReportError => 'Bericht fehlgeschlagen.';
 	@override String get testKanjiTraceHint => 'Strichfolge folgen. Guide aktivieren wenn nötig.';
@@ -324,6 +325,7 @@ extension on TranslationsDe {
 			'app.testGuideShow' => 'Guide zeigen',
 			'app.testGuideHide' => 'Guide aus',
 			'app.testReportDrawing' => 'Zeichnung melden',
+			'app.testReportConfirmBody' => 'Möchtest du diesen Bericht jetzt senden?',
 			'app.testReportThanks' => 'Danke! Bericht erstellt.',
 			'app.testReportError' => 'Bericht fehlgeschlagen.',
 			'app.testKanjiTraceHint' => 'Strichfolge folgen. Guide aktivieren wenn nötig.',

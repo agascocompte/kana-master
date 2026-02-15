@@ -441,6 +441,9 @@ class TranslationsAppEn {
 	/// en: 'Report drawing'
 	String get testReportDrawing => 'Report drawing';
 
+	/// en: 'Do you want to send this report now?'
+	String get testReportConfirmBody => 'Do you want to send this report now?';
+
 	/// en: 'Thanks! Report prepared for review.'
 	String get testReportThanks => 'Thanks! Report prepared for review.';
 
@@ -601,6 +604,7 @@ extension on Translations {
 			'app.testGuideShow' => 'Show guide',
 			'app.testGuideHide' => 'Hide guide',
 			'app.testReportDrawing' => 'Report drawing',
+			'app.testReportConfirmBody' => 'Do you want to send this report now?',
 			'app.testReportThanks' => 'Thanks! Report prepared for review.',
 			'app.testReportError' => 'Could not prepare report.',
 			'app.testKanjiTraceHint' => 'Follow stroke order. Enable guide if needed.',

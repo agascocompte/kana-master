@@ -130,6 +130,7 @@
     "testGuideShow": "Mostrar guia",
     "testGuideHide": "Amagar guia",
     "testReportDrawing": "Reportar dibuix",
+    "testReportConfirmBody": "Vols enviar aquest informe ara?",
     "testReportThanks": "Gràcies. Informe preparat per revisar.",
     "testReportError": "No s'ha pogut preparar l'informe.",
     "testKanjiTraceHint": "Segueix l'ordre dels traços. Activa la guia si la necessites.",

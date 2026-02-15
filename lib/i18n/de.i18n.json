@@ -130,6 +130,7 @@
     "testGuideShow": "Guide zeigen",
     "testGuideHide": "Guide aus",
     "testReportDrawing": "Zeichnung melden",
+    "testReportConfirmBody": "Möchtest du diesen Bericht jetzt senden?",
     "testReportThanks": "Danke! Bericht erstellt.",
     "testReportError": "Bericht fehlgeschlagen.",
     "testKanjiTraceHint": "Strichfolge folgen. Guide aktivieren wenn nötig.",
