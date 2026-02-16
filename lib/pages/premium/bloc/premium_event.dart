@@ -29,3 +29,12 @@ class _PremiumPurchaseUpdatesArrived extends PremiumEvent {
   const _PremiumPurchaseUpdatesArrived(this.updates);
   final List<PurchaseDetails> updates;
 }
+
+class _PremiumPurchaseStreamError extends PremiumEvent {
+  const _PremiumPurchaseStreamError(this.error);
+  final Object error;
+}
+
+class _PremiumBusyTimeout extends PremiumEvent {
+  const _PremiumBusyTimeout();
+}
