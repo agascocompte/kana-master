@@ -79,7 +79,7 @@ class TestKanaBloc extends Bloc<TestKanaEvent, TestKanaState> {
     _kanjiEntries = event.kanjiEntries;
     _kanjiMeanings = event.kanjiMeanings;
     TestType testType = event.difficultyLevel == DifficultyLevel.high
-        ? TestType.values[random.nextInt(TestType.values.length)]
+        ? TestType.drawingTest
         : TestType.singleAnswer;
     emit(TestKanaDraw(state.stateData.copyWith(
       kanaIndex: _pickKanaIndex(event.kana, testType),
@@ -227,7 +227,7 @@ class TestKanaBloc extends Bloc<TestKanaEvent, TestKanaState> {
     _kanjiEntries = event.kanjiEntries;
     _kanjiMeanings = event.kanjiMeanings;
     TestType testType = event.difficultyLevel == DifficultyLevel.high
-        ? TestType.values[random.nextInt(TestType.values.length)]
+        ? TestType.drawingTest
         : TestType.singleAnswer;
     emit(NextKanaLoaded(state.stateData.copyWith(
       kanaIndex: _pickKanaIndex(event.kana, testType),
