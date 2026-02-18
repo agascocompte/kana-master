@@ -19,17 +19,11 @@ const String admobInterstitialAndroidIdTest =
 const String admobInterstitialIosIdTest =
     'ca-app-pub-3940256099942544/4411468910';
 
-String get admobInterstitialAndroidId =>
-    kReleaseMode ? admobInterstitialAndroidIdRelease : admobInterstitialAndroidIdTest;
+String get admobInterstitialAndroidId => kReleaseMode
+    ? admobInterstitialAndroidIdRelease
+    : admobInterstitialAndroidIdTest;
 String get admobInterstitialIosId =>
     kReleaseMode ? admobInterstitialIosIdRelease : admobInterstitialIosIdTest;
-
-const ModelConfig hiraganaModelV1 = ModelConfig(
-  assetPath: 'assets/models/model_etl8g.tflite',
-  inputSize: 128,
-  numClasses: 45,
-  normalize: false,
-);
 
 const ModelConfig hiraganaModelV2 = ModelConfig(
   assetPath: 'assets/models/hiragana.tflite',
