@@ -189,7 +189,7 @@ class _TranslationsAppPt implements TranslationsAppEn {
 	@override String get premiumSectionSubtitle => 'Desbloqueie todos os recursos e remova anúncios.';
 	@override String get premiumOpenButton => 'Atualizar';
 	@override String get premiumLockedMessage => 'Recurso premium. Atualize para desbloquear.';
-	@override String get premiumTitle => 'Kana Master Premium';
+	@override String get premiumTitle => 'KanaGo Premium';
 	@override String get premiumSubtitle => 'Compra única, todos os recursos desbloqueados.';
 	@override String get premiumHeroTitle => 'Aprenda sem limites';
 	@override String get premiumHeroBody => 'Tenha a experiência completa e apoie o projeto.';
@@ -357,7 +357,7 @@ extension on TranslationsPt {
 			'app.premiumSectionSubtitle' => 'Desbloqueie todos os recursos e remova anúncios.',
 			'app.premiumOpenButton' => 'Atualizar',
 			'app.premiumLockedMessage' => 'Recurso premium. Atualize para desbloquear.',
-			'app.premiumTitle' => 'Kana Master Premium',
+			'app.premiumTitle' => 'KanaGo Premium',
 			'app.premiumSubtitle' => 'Compra única, todos os recursos desbloqueados.',
 			'app.premiumHeroTitle' => 'Aprenda sem limites',
 			'app.premiumHeroBody' => 'Tenha a experiência completa e apoie o projeto.',
