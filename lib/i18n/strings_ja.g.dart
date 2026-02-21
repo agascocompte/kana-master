@@ -189,7 +189,7 @@ class _TranslationsAppJa implements TranslationsAppEn {
 	@override String get premiumSectionSubtitle => 'すべての機能を解放し、インタースティシャル広告を削除します。';
 	@override String get premiumOpenButton => 'アップグレード';
 	@override String get premiumLockedMessage => 'プレミアム機能です。アップグレードして解放してください。';
-	@override String get premiumTitle => 'Kana Master Premium';
+	@override String get premiumTitle => 'KanaGo Premium';
 	@override String get premiumSubtitle => '一度の購入で、すべての機能が解放されます。';
 	@override String get premiumHeroTitle => '制限なく学習';
 	@override String get premiumHeroBody => 'フル機能を利用して、プロジェクトを応援してください。';
@@ -357,7 +357,7 @@ extension on TranslationsJa {
 			'app.premiumSectionSubtitle' => 'すべての機能を解放し、インタースティシャル広告を削除します。',
 			'app.premiumOpenButton' => 'アップグレード',
 			'app.premiumLockedMessage' => 'プレミアム機能です。アップグレードして解放してください。',
-			'app.premiumTitle' => 'Kana Master Premium',
+			'app.premiumTitle' => 'KanaGo Premium',
 			'app.premiumSubtitle' => '一度の購入で、すべての機能が解放されます。',
 			'app.premiumHeroTitle' => '制限なく学習',
 			'app.premiumHeroBody' => 'フル機能を利用して、プロジェクトを応援してください。',

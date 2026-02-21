@@ -477,8 +477,8 @@ class TranslationsAppEn {
 	/// en: 'Premium feature. Upgrade to unlock it.'
 	String get premiumLockedMessage => 'Premium feature. Upgrade to unlock it.';
 
-	/// en: 'Kana Master Premium'
-	String get premiumTitle => 'Kana Master Premium';
+	/// en: 'KanaGo Premium'
+	String get premiumTitle => 'KanaGo Premium';
 
 	/// en: 'One-time purchase, all features unlocked.'
 	String get premiumSubtitle => 'One-time purchase, all features unlocked.';
@@ -676,7 +676,7 @@ extension on Translations {
 			'app.premiumSectionSubtitle' => 'Unlock all features and remove ads.',
 			'app.premiumOpenButton' => 'Upgrade',
 			'app.premiumLockedMessage' => 'Premium feature. Upgrade to unlock it.',
-			'app.premiumTitle' => 'Kana Master Premium',
+			'app.premiumTitle' => 'KanaGo Premium',
 			'app.premiumSubtitle' => 'One-time purchase, all features unlocked.',
 			'app.premiumHeroTitle' => 'Learn without limits',
 			'app.premiumHeroBody' => 'Get the full experience and support the project.',

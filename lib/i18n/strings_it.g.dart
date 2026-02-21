@@ -189,7 +189,7 @@ class _TranslationsAppIt implements TranslationsAppEn {
 	@override String get premiumSectionSubtitle => 'Sblocca tutte le funzioni e rimuovi gli annunci.';
 	@override String get premiumOpenButton => 'Passa a Premium';
 	@override String get premiumLockedMessage => 'Funzione Premium. Passa a Premium per sbloccarla.';
-	@override String get premiumTitle => 'Kana Master Premium';
+	@override String get premiumTitle => 'KanaGo Premium';
 	@override String get premiumSubtitle => 'Acquisto una tantum, tutte le funzioni sbloccate.';
 	@override String get premiumHeroTitle => 'Impara senza limiti';
 	@override String get premiumHeroBody => 'Ottieni l\'esperienza completa e supporta il progetto.';
@@ -357,7 +357,7 @@ extension on TranslationsIt {
 			'app.premiumSectionSubtitle' => 'Sblocca tutte le funzioni e rimuovi gli annunci.',
 			'app.premiumOpenButton' => 'Passa a Premium',
 			'app.premiumLockedMessage' => 'Funzione Premium. Passa a Premium per sbloccarla.',
-			'app.premiumTitle' => 'Kana Master Premium',
+			'app.premiumTitle' => 'KanaGo Premium',
 			'app.premiumSubtitle' => 'Acquisto una tantum, tutte le funzioni sbloccate.',
 			'app.premiumHeroTitle' => 'Impara senza limiti',
 			'app.premiumHeroBody' => 'Ottieni l\'esperienza completa e supporta il progetto.',

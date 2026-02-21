@@ -189,7 +189,7 @@ class _TranslationsAppRu implements TranslationsAppEn {
 	@override String get premiumSectionSubtitle => 'Разблокируйте все функции и удалите всплывающие объявления.';
 	@override String get premiumOpenButton => 'Оформить';
 	@override String get premiumLockedMessage => 'Премиум-функция. Оформите доступ, чтобы разблокировать.';
-	@override String get premiumTitle => 'Kana Master Premium';
+	@override String get premiumTitle => 'KanaGo Premium';
 	@override String get premiumSubtitle => 'Одноразовая покупка, все функции разблокированы.';
 	@override String get premiumHeroTitle => 'Учитесь без ограничений';
 	@override String get premiumHeroBody => 'Получите полный опыт и поддержите проект.';
@@ -357,7 +357,7 @@ extension on TranslationsRu {
 			'app.premiumSectionSubtitle' => 'Разблокируйте все функции и удалите всплывающие объявления.',
 			'app.premiumOpenButton' => 'Оформить',
 			'app.premiumLockedMessage' => 'Премиум-функция. Оформите доступ, чтобы разблокировать.',
-			'app.premiumTitle' => 'Kana Master Premium',
+			'app.premiumTitle' => 'KanaGo Premium',
 			'app.premiumSubtitle' => 'Одноразовая покупка, все функции разблокированы.',
 			'app.premiumHeroTitle' => 'Учитесь без ограничений',
 			'app.premiumHeroBody' => 'Получите полный опыт и поддержите проект.',

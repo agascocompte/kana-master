@@ -189,7 +189,7 @@ class _TranslationsAppKo implements TranslationsAppEn {
 	@override String get premiumSectionSubtitle => '모든 기능을 잠금 해제하고 전면 광고를 제거하세요.';
 	@override String get premiumOpenButton => '업그레이드';
 	@override String get premiumLockedMessage => '프리미엄 기능입니다. 업그레이드하여 잠금 해제하세요.';
-	@override String get premiumTitle => 'Kana Master Premium';
+	@override String get premiumTitle => 'KanaGo Premium';
 	@override String get premiumSubtitle => '한 번 구매로 모든 기능이 잠금 해제됩니다.';
 	@override String get premiumHeroTitle => '제한 없이 학습하세요';
 	@override String get premiumHeroBody => '전체 기능을 이용하고 프로젝트를 응원해 주세요.';
@@ -357,7 +357,7 @@ extension on TranslationsKo {
 			'app.premiumSectionSubtitle' => '모든 기능을 잠금 해제하고 전면 광고를 제거하세요.',
 			'app.premiumOpenButton' => '업그레이드',
 			'app.premiumLockedMessage' => '프리미엄 기능입니다. 업그레이드하여 잠금 해제하세요.',
-			'app.premiumTitle' => 'Kana Master Premium',
+			'app.premiumTitle' => 'KanaGo Premium',
 			'app.premiumSubtitle' => '한 번 구매로 모든 기능이 잠금 해제됩니다.',
 			'app.premiumHeroTitle' => '제한 없이 학습하세요',
 			'app.premiumHeroBody' => '전체 기능을 이용하고 프로젝트를 응원해 주세요.',

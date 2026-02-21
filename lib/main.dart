@@ -39,8 +39,8 @@ class MyApp extends StatelessWidget {
         BlocProvider(
             create: (context) => sl<SettingsBloc>()..add(LoadSettings())),
         BlocProvider(
-            create: (context) =>
-                PremiumBloc(settingsRepository: sl())..add(const PremiumStarted())),
+            create: (context) => PremiumBloc(settingsRepository: sl())
+              ..add(const PremiumStarted())),
         BlocProvider(create: (context) => sl<TestKanaBloc>()),
         BlocProvider(
             create: (context) => sl<StatsBloc>()..add(LoadMemoryStats())),
@@ -52,7 +52,7 @@ class MyApp extends StatelessWidget {
           builder: (context) {
             return MaterialApp.router(
               debugShowCheckedModeBanner: false,
-              title: 'Kana Master',
+              title: 'KanaGo',
               theme: AppTheme.build(),
               locale: TranslationProvider.of(context).flutterLocale,
               supportedLocales: AppLocaleUtils.supportedLocales,

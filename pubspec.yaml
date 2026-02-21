@@ -2,7 +2,7 @@ name: kana_master
 description: "Simple app to learn basics of japanese language."
 publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
-version: 1.0.8+2
+version: 1.0.9+3
 
 environment:
   sdk: ">=3.3.1 <4.0.0"
@@ -60,7 +60,7 @@ dev_dependencies:
   flutter_launcher_icons: ^0.14.4
 
   # Splash screen
-  flutter_native_splash: ^2.4.7
+  #flutter_native_splash: ^2.4.7
 
   # Change app package name
   change_app_package_name: ^1.4.0 # flutter pub run change_app_package_name:main com.agasco.kanamaster

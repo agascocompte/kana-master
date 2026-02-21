@@ -189,7 +189,7 @@ class _TranslationsAppCa implements TranslationsAppEn {
 	@override String get premiumSectionSubtitle => 'Desbloqueja totes les funcions i elimina anuncis.';
 	@override String get premiumOpenButton => 'Millorar';
 	@override String get premiumLockedMessage => 'Funció premium. Millora per desbloquejar-la.';
-	@override String get premiumTitle => 'Kana Master Premium';
+	@override String get premiumTitle => 'KanaGo Premium';
 	@override String get premiumSubtitle => 'Compra única, totes les funcions desbloquejades.';
 	@override String get premiumHeroTitle => 'Aprèn sense límits';
 	@override String get premiumHeroBody => 'Aconsegueix l\'experiència completa i dona suport al projecte.';
@@ -357,7 +357,7 @@ extension on TranslationsCa {
 			'app.premiumSectionSubtitle' => 'Desbloqueja totes les funcions i elimina anuncis.',
 			'app.premiumOpenButton' => 'Millorar',
 			'app.premiumLockedMessage' => 'Funció premium. Millora per desbloquejar-la.',
-			'app.premiumTitle' => 'Kana Master Premium',
+			'app.premiumTitle' => 'KanaGo Premium',
 			'app.premiumSubtitle' => 'Compra única, totes les funcions desbloquejades.',
 			'app.premiumHeroTitle' => 'Aprèn sense límits',
 			'app.premiumHeroBody' => 'Aconsegueix l\'experiència completa i dona suport al projecte.',
