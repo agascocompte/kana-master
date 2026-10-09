@@ -1,15 +1,11 @@
 {
   "0611B": [
-    "afecto",
-    "favorito",
-    "amor"
+    "amor",
+    "cariño"
   ],
   "059D4": [
-    "comité",
-    "devoto",
-    "descarte",
-    "confiar en",
-    "permiso para"
+    "confiar",
+    "comité"
   ],
   "058F1": [
     "uno (en documentos)"
@@ -18,138 +14,104 @@
     "nube"
   ],
   "05186": [
+    "yen",
     "círculo",
-    "redonda",
-    "yen"
+    "redondo"
   ],
   "0738B": [
     "rey",
-    "magnate",
-    "regla"
+    "monarca"
   ],
   "04F55": [
-    "¿qué"
+    "qué"
   ],
   "0706B": [
     "fuego"
   ],
   "04F1A": [
-    "asociación",
-    "entrevista",
-    "únase",
-    "nos vemos",
+    "reunirse",
     "reunión",
-    "fiesta"
+    "asociación"
   ],
   "0968E": [
-    "para los almacenes de un edificio",
-    "escalera",
-    "tienda"
+    "piso",
+    "planta",
+    "escalera"
   ],
   "09769": [
-    "en serio",
     "cuero",
-    "reforma",
-    "piel"
+    "reforma"
   ],
   "05B98": [
-    "burócrata",
-    "órgano",
-    "el gobierno"
+    "funcionario",
+    "gobierno"
   ],
   "09928": [
-    "construcción",
-    "gran edificio",
-    "mansión",
-    "palacio"
+    "edificio",
+    "sala",
+    "mansión"
   ],
   "05E0C": [
-    "Grecia",
-    "por favor",
-    "beseech",
-    "diluido (ácido)",
-    "pocos",
     "esperanza",
-    "fenomenal",
-    "rezar",
     "raro",
-    "solicitud"
+    "pedir"
   ],
   "08A18": [
-    "cuenta",
-    "narrativa",
-    "escriba"
+    "registrar",
+    "anotar",
+    "crónica"
   ],
   "04F11": [
-    "día libre",
-    "descansa",
-    "jubilado",
-    "dormir"
+    "descanso",
+    "día libre"
   ],
   "0725B": [
-    "vaca"
+    "vaca",
+    "buey"
   ],
   "05171": [
-    "alike",
-    "todos",
-    "y",
-    "ambos",
-    "ni tampoco",
     "juntos",
+    "ambos",
     "con"
   ],
   "066F2": [
-    "curva",
-    "composición",
-    "torcido",
-    "culpa",
-    "injusticia",
-    "lean",
-    "melody",
-    "música",
-    "perverso",
-    "placer"
+    "curvar",
+    "melodía",
+    "música"
   ],
   "053E5": [
+    "frase",
     "cláusula",
-    "contraparador para haiku",
-    "párrafo",
-    "pasaje",
-    "frases",
-    "sentencia"
+    "verso"
   ],
   "04FC2": [
-    "preocupación uno mismo",
-    "conexión",
-    "deber",
-    "persona a cargo"
+    "encargado",
+    "relación",
+    "deber"
   ],
   "082B8": [
-    "actuación profesional",
     "arte",
-    "artesanía",
-    "rendimiento",
-    "stunt",
-    "técnica",
-    "truco"
+    "actuación",
+    "habilidad"
   ],
   "05238": [
-    "ticket"
+    "billete",
+    "entrada",
+    "boleto"
   ],
   "0967A": [
-    "posición inexpugnable",
-    "lugar inaccesible",
-    "precipitous",
-    "ojos afilados",
-    "lugar empinado"
+    "empinado",
+    "peligroso",
+    "severo"
   ],
   "053E4": [
-    "viejo"
+    "viejo",
+    "antiguo"
   ],
   "08A9E": [
     "idioma",
-    "discurso",
-    "palabra"
+    "palabra",
+    "habla"
   ],
   "053E3": [
     "boca"
@@ -158,383 +120,283 @@
     "puerto"
   ],
   "05408": [
-    "0.1",
-    "ajuste",
-    "únase",
-    "traje"
+    "encajar",
+    "unir",
+    "coincidir"
   ],
   "067FB": [
-    "investigación"
+    "investigar",
+    "inspeccionar"
   ],
   "083DC": [
-    "verdes",
-    "plato lateral",
-    "vegetal"
+    "verdura",
+    "hortaliza",
+    "guarnición"
   ],
   "05237": [
-    "cepillo",
-    "impresión"
+    "imprimir",
+    "cepillar"
   ],
   "08695": [
     "gusano de seda"
   ],
   "059CB": [
-    "comienzo"
+    "empezar",
+    "comenzar"
   ],
   "06B7B": [
     "muerte",
     "morir"
   ],
   "08CC7": [
-    "activos",
-    "ser propicio",
+    "recursos",
     "capital",
-    "contribuir a",
-    "datos",
-    "fondos",
-    "recursos"
+    "fondos"
   ],
   "06CBB": [
-    "en paz",
-    "cálmate",
-    "conserva",
-    "cura",
-    "govt",
-    "quell",
-    "reina",
-    "regla",
-    "subdue"
+    "gobernar",
+    "curar",
+    "sanar"
   ],
   "08CEA": [
-    "materia",
     "calidad",
-    "sustancia",
-    "temperamento"
+    "materia",
+    "carácter"
   ],
   "05F31": [
-    "fragil",
-    "débil"
+    "débil",
+    "frágil"
   ],
   "09700": [
     "demanda",
-    "necesidad",
-    "solicitud"
+    "necesidad"
   ],
   "07FD2": [
     "aprender"
   ],
   "051FA": [
-    "sal",
+    "salir",
     "salida",
-    "vete",
-    "licencia",
-    "protrusión",
-    "fuera"
+    "sacar"
   ],
   "06691": [
-    "caliente",
-    "sultry",
-    "calor"
+    "caluroso",
+    "calor de verano"
   ],
   "05C0F": [
     "pequeño"
   ],
   "07AE0": [
-    "badge",
     "capítulo",
-    "composición",
-    "diseño",
-    "poema"
+    "insignia"
   ],
   "072B6": [
-    "apariencia",
-    "circunstancias",
-    "condiciones",
+    "estado",
     "forma",
-    "status quo"
+    "carta"
   ],
   "06DF1": [
-    "profundo",
-    "alto",
-    "intensificación",
-    "fortalecimiento"
+    "profundo"
   ],
   "056F3": [
-    "audaz",
-    "dibujo",
-    "extraordinario",
     "mapa",
-    "plan"
+    "dibujo",
+    "plano"
   ],
   "0653F": [
-    "gobierno",
-    "política"
+    "política",
+    "gobierno"
   ],
   "088FD": [
-    "hecho en...",
-    "fabricación"
+    "fabricar",
+    "hecho en"
   ],
   "08CAC": [
-    "culpa",
-    "censura",
-    "condena"
+    "culpar",
+    "responsabilidad"
   ],
   "0820C": [
-    "clapper",
-    "reed",
     "lengua"
   ],
   "09078": [
     "elegir",
-    "elegidos",
-    "preferir",
     "seleccionar"
   ],
   "05009": [
-    "sótano",
-    "godown",
     "almacén",
-    "tesoro"
+    "depósito"
   ],
   "05897": [
-    "añadir",
-    "aumento",
-    "ganancia",
-    "promoción"
+    "aumentar",
+    "añadir"
   ],
   "05C5E": [
-    "afiliados",
-    "pertenecen",
-    "genus",
-    "subordinado oficial"
+    "pertenecer",
+    "género"
   ],
   "0591A": [
-    "frecuentes",
-    "muchos",
-    "mucho"
+    "mucho",
+    "muchos"
   ],
   "0968A": [
-    "empresa",
-    "fiesta",
-    "regimiento",
-    "escuadrón"
+    "escuadrón",
+    "tropa",
+    "grupo"
   ],
   "077ED": [
-    "brevedad",
-    "defecto",
-    "culpa",
     "corto",
-    "punto débil"
+    "defecto"
   ],
   "07AF9": [
-    "bamboo"
+    "bambú"
   ],
   "08CAF": [
-    "manténganse",
-    "en",
-    "economías",
-    "tienda",
-    "bigote"
+    "ahorrar",
+    "almacenar"
   ],
   "076F4": [
-    "arregle",
-    "franqueza",
-    "honestidad",
-    "reparación",
-    "directamente"
+    "recto",
+    "arreglar",
+    "honesto"
   ],
   "063D0": [
-    "en la mano",
-    "propuesta"
+    "proponer",
+    "llevar en la mano"
   ],
   "08EE2": [
-    "cambio",
-    "giratoria",
-    "date la vuelta"
+    "girar",
+    "rodar",
+    "cambiar"
   ],
   "0571F": [
-    "Turquía",
     "tierra",
     "suelo"
   ],
   "07B49": [
-    "y así sucesivamente",
-    "clase (primera)",
-    "iguales",
-    "etc.",
-    "calidad",
-    "similar"
+    "igual",
+    "clase",
+    "etc."
   ],
   "07AE5": [
-    "niño",
-    "menores"
+    "niño"
   ],
   "05185": [
-    "entre",
-    "casa",
-    "dentro"
+    "dentro",
+    "interior"
   ],
   "071B1": [
-    "fiebre",
     "calor",
-    "mania",
-    "pasión",
-    "temperatura"
+    "fiebre",
+    "pasión"
   ],
   "099AC": [
     "caballo"
   ],
   "07551": [
-    "(kokuji)",
-    "granja",
-    "sobre el terreno",
-    "jardín",
-    "una especialidad"
+    "campo de cultivo",
+    "huerto"
   ],
   "0756A": [
-    "número en una serie",
-    "turno"
+    "número",
+    "turno",
+    "guardia"
   ],
   "07F8E": [
-    "hermosa",
-    "belleza"
+    "belleza",
+    "bello"
   ],
   "08A55": [
-    "comentario",
+    "evaluar",
     "crítica",
-    "evaluación"
+    "comentario"
   ],
   "05E03": [
     "tela",
-    "distribución",
-    "lino",
-    "propagación"
+    "extender"
   ],
   "0798F": [
-    "bendición",
     "fortuna",
     "suerte",
-    "riqueza"
+    "bendición"
   ],
   "05F01": [
-    "trenza",
-    "gorro cónico",
-    "dialecto",
-    "discriminación",
-    "disponer de",
-    "distinción",
-    "petal",
     "discurso",
+    "dialecto",
     "válvula"
   ],
   "06CD5": [
-    "derecho",
+    "ley",
     "método",
-    "modelo",
-    "principio",
-    "regla",
-    "sistema"
+    "norma"
   ],
   "06BCE": [
-    "cada uno"
+    "cada"
   ],
   "0540D": [
-    "distinguido",
     "nombre",
-    "notas",
-    "reputación"
+    "reputación",
+    "famoso"
   ],
   "076EE": [
-    "cuidado",
-    "clase",
-    "experiencia",
     "ojo",
-    "favor",
-    "conocimiento",
-    "mira"
+    "mirada"
   ],
   "08F38": [
-    "ser inferior",
-    "enviar",
-    "transporte"
+    "transportar",
+    "enviar"
   ],
   "05BB9": [
     "contener",
     "forma",
-    "mira"
+    "aspecto"
   ],
   "06D74": [
-    "bajo en",
-    "bata",
-    "ser favorecido con"
+    "bañarse",
+    "tomar (sol)"
   ],
   "07565": [
     "abreviatura",
-    "captura",
-    "omisión",
-    "esbozo",
-    "saqueo",
-    "shorten"
+    "omitir",
+    "resumen"
   ],
   "07E01": [
-    "afinidad",
-    "frontera",
-    "brink",
-    "conexión",
+    "vínculo",
     "borde",
-    "relación",
-    "verge"
+    "destino"
   ],
   "05217": [
-    "columna",
-    "archivo",
-    "rango",
     "fila",
-    "tierno"
+    "hilera",
+    "columna"
   ],
   "08A71": [
-    "tal",
-    "hablar"
+    "hablar",
+    "historia",
+    "conversación"
   ],
   "060AA": [
+    "malo",
     "mal",
-    "maldad",
-    "falso",
-    "rascal",
-    "vice"
+    "incorrecto"
   ],
   "0610F": [
-    "cuidado",
-    "deseo",
-    "corazón",
-    "idea",
-    "me gusta",
     "mente",
-    "sabor",
-    "pensamiento"
+    "idea",
+    "significado"
   ],
   "05370": [
-    "India",
-    "emblema",
-    "pruebas",
-    "impresión",
-    "marca",
     "sello",
-    "souvenir",
-    "símbolo",
-    "marcas registradas"
+    "estampar",
+    "marca"
   ],
   "055B6": [
-    "construcción",
-    "campamento",
-    "conduct (business)",
-    "perform"
+    "gestionar",
+    "dirigir (negocio)",
+    "campamento"
   ],
   "05712": [
-    "granja",
     "jardín",
-    "parque",
-    "yarda"
+    "parque"
   ],
   "09EC4": [
     "amarillo"
@@ -547,762 +409,604 @@
     "flor"
   ],
   "089E3": [
-    "absolver",
-    "respuesta",
-    "cancelación",
-    "explicación",
-    "clave",
-    "minuto",
-    "notas",
     "resolver",
-    "comprensión",
-    "undo",
-    "desenfrenada",
-    "untie"
+    "explicar",
+    "desatar"
   ],
   "08C9D": [
-    "marisco"
+    "marisco",
+    "concha"
   ],
   "05B66": [
+    "estudio",
     "aprendizaje",
-    "ciencia",
-    "estudio"
+    "ciencia"
   ],
   "05E79": [
-    "capacidad",
+    "tronco",
     "parte principal",
-    "talento",
-    "árbol tronco"
+    "talento"
   ],
   "05CB8": [
+    "orilla",
+    "ribera",
     "playa"
   ],
   "065D7": [
-    "banner",
-    "bandera nacional",
-    "estándar"
+    "bandera",
+    "estandarte"
   ],
   "08CB4": [
-    "estima",
-    "honor",
     "precioso",
-    "premio",
-    "valor"
+    "noble",
+    "valioso"
   ],
   "05BAE": [
-    "Santuario de Shinto",
-    "constelaciones",
     "palacio",
-    "princesa"
+    "santuario",
+    "príncipe"
   ],
   "053BB": [
-    "divorcio",
-    "elapse",
-    "eliminar",
-    "desaparecido",
-    "licencia",
+    "irse",
     "pasado",
-    "renuncio"
+    "marcharse"
   ],
   "05354": [
-    "co-",
-    "cooperación"
+    "cooperación",
+    "co-"
   ],
   "06975": [
-    "10**48",
-    "conclusión",
-    "polos eléctricos",
-    "final",
-    "extremadamente",
-    "más alto rango",
-    "altamente",
-    "más",
-    "postes",
-    "liquidación",
-    "muy bien"
+    "extremo",
+    "polo",
+    "sumamente"
   ],
   "0533A": [
     "distrito",
-    "ward"
+    "barrio",
+    "sección"
   ],
   "05144": [
     "hermano mayor"
   ],
   "06B20": [
-    "falla",
-    "brecha",
+    "carecer",
     "falta",
-    "bostezando radical (no 76)"
+    "ausente"
   ],
   "05EFA": [
-    "construcción"
+    "construir",
+    "edificar"
   ],
   "09A13": [
-    "efecto",
-    "pruebas",
-    "verificación"
+    "prueba",
+    "verificar",
+    "efecto"
   ],
   "056FA": [
-    "coágulo",
-    "cursi",
-    "harden",
-    "set"
+    "duro",
+    "sólido",
+    "firme"
   ],
   "08AA4": [
-    "¿te equivocas",
-    "err",
-    "mislead",
-    "error"
+    "error",
+    "equivocarse"
   ],
   "05411": [
-    "enfoque",
-    "más allá",
-    "confrontación",
-    "defy",
-    "orientación",
-    "tiende hacia",
-    "#"
+    "mirar hacia",
+    "dirección",
+    "hacia"
   ],
   "07687": [
     "emperador"
   ],
   "0544A": [
-    "anuncio",
-    "información",
-    "revelación",
-    "díselo"
+    "anunciar",
+    "informar",
+    "comunicar"
   ],
   "0518D": [
     "otra vez",
-    "segunda vez",
+    "de nuevo",
     "dos veces"
   ],
   "0969B": [
-    "aventurero",
-    "peligroso",
-    "borde",
-    "indecente",
     "ocasión",
-    "lado",
-    "tiempo",
-    "verge",
+    "borde",
     "cuando"
   ],
   "05BDF": [
-    "supongo",
-    "juez",
-    "presunción",
-    "surmise",
-    "entender"
+    "suponer",
+    "percibir",
+    "comprender"
   ],
   "08CDB": [
-    "de acuerdo con",
-    "aprobación",
-    "asistencia",
-    "alabanza",
-    "título o inscripción en la imagen"
+    "elogiar",
+    "aprobar",
+    "estar de acuerdo"
   ],
   "059C9": [
     "hermana mayor"
   ],
   "06C0F": [
+    "apellido",
     "clan",
-    "nombre de familia",
-    "apellido"
+    "señor"
   ],
   "06B6F": [
-    "cog",
     "diente"
   ],
   "0793A": [
-    "pantalla",
-    "expresa",
-    "indicación",
-    "punto",
-    "show"
+    "mostrar",
+    "indicar"
   ],
   "05B9F": [
-    "fruta",
-    "nueces",
+    "verdad",
     "realidad",
-    "semillas",
-    "verdad"
+    "fruto"
   ],
   "04E3B": [
-    "jefe",
-    "señor",
-    "cosa principal",
-    "maestro",
-    "principal"
+    "amo",
+    "principal",
+    "señor"
   ],
   "053CE": [
+    "obtener",
     "ingresos",
-    "obtención",
-    "sueldo",
-    "cosecha",
-    "tienda",
-    "suministro"
+    "recoger"
   ],
   "08846": [
-    "grandes números",
     "masas",
     "multitud",
-    "población"
+    "gente"
   ],
   "08853": [
     "arte",
-    "magia",
-    "medios",
-    "recursos",
-    "habilidad",
     "técnica",
-    "truco"
+    "medio"
   ],
   "066F8": [
-    "escribir"
+    "escribir",
+    "libro",
+    "documento"
   ],
   "05C11": [
-    "pocos",
-    "pequeño"
+    "poco",
+    "pocos"
   ],
   "08A3C": [
-    "certificado",
-    "pruebas",
-    "prueba"
+    "prueba",
+    "evidencia",
+    "certificado"
   ],
   "0690D": [
+    "plantar",
     "planta"
   ],
   "07533": [
-    "3-5PM",
-    "tener el honor de",
-    "noveno signo del zodiaco chino",
-    "signo del mono"
+    "decir (humilde)",
+    "informar",
+    "declarar"
   ],
   "063A8": [
-    "conjetura",
-    "supongo",
-    "inferente",
-    "empuje (para)",
-    "apoyo"
+    "empujar",
+    "deducir",
+    "recomendar"
   ],
   "06574": [
-    "arreglos",
-    "llave (música)",
-    "metro",
+    "ordenar",
     "organizar",
-    "tono",
-    "sintonía"
+    "arreglar"
   ],
   "0897F": [
-    "España",
-    "oeste"
+    "oeste",
+    "occidente"
   ],
   "08D64": [
     "rojo"
   ],
   "05148": [
     "adelante",
-    "antes",
-    "futuro",
-    "precedencia",
-    "anterior"
+    "anterior",
+    "punta"
   ],
   "092AD": [
-    ".01 yen",
     "moneda",
-    "dinero"
+    "dinero",
+    "sen"
   ],
   "060F3": [
-    "concepto",
-    "idea",
     "pensar",
-    "pensamiento"
+    "idea",
+    "concepto"
   ],
   "08535": [
-    "han tenido",
-    "escondido",
-    "propia",
+    "almacén",
     "poseer",
-    "almacén"
+    "guardar"
   ],
   "065CF": [
     "familia",
-    "tribu"
+    "tribu",
+    "clan"
   ],
   "0592A": [
-    "grandes",
-    "fontanería",
-    "grueso"
+    "grueso",
+    "gordo",
+    "grande"
   ],
   "04EE3": [
-    "edad",
-    "cambio",
-    "cargo",
-    "convertidor",
-    "contador para décadas de edades, épocas, etc.",
-    "tarifa",
     "generación",
-    "período de sesiones",
-    "tasa",
-    "reemplazar",
-    "sustituto"
+    "sustituir",
+    "tarifa"
   ],
   "056E3": [
-    "asociación",
-    "grupo"
+    "grupo",
+    "asociación"
   ],
   "08336": [
     "té"
   ],
   "04E01": [
-    "signo del cuarto calendario",
-    "para pistolas, herramientas, hojas o tortas de algo",
-    "incluso número",
     "calle",
-    "ciudad",
-    "ward"
+    "manzana",
+    "contador de herramientas"
   ],
   "08CC3": [
-    "cargo",
-    "fare",
-    "tarifa",
+    "salario",
     "alquiler",
-    "salarios"
+    "tarifa"
   ],
   "07A0B": [
-    "monto",
     "grado",
-    "distancia",
-    "fórmula",
-    "derecho",
-    "límites"
+    "medida",
+    "distancia"
   ],
   "070B9": [
-    "decimal point",
-    "marca",
     "punto",
-    "speck",
-    "spot"
+    "mancha",
+    "nota"
   ],
   "0515A": [
-    "camarilla",
-    "facción",
-    "fiesta"
+    "partido (político)",
+    "facción"
   ],
   "07B54": [
     "respuesta",
     "solución"
   ],
   "09053": [
-    "claro",
-    "distrito",
-    "viaje",
-    "moral",
-    "carretera",
-    "calle",
-    "enseñanzas"
+    "camino",
+    "vía",
+    "sendero"
   ],
   "05357": [
     "sur"
   ],
   "05E74": [
-    "contraproducente para años",
-    "año"
+    "año",
+    "edad"
   ],
   "062DD": [
-    "adore",
-    "rezar para",
-    "adoración"
+    "adorar",
+    "rezar",
+    "venerar"
   ],
   "0516B": [
-    "8",
-    "8 radicales (no 12)"
+    "ocho"
   ],
   "05426": [
-    "declinación",
-    "negar",
-    "negate",
     "no",
-    "rechaza"
+    "negar",
+    "rechazar"
   ],
   "09F3B": [
-    "nariz",
-    "snout"
+    "nariz"
   ],
   "075C5": [
-    "enfermos"
+    "enfermedad",
+    "enfermo"
   ],
   "05E9C": [
-    "municipio",
-    "govt office",
-    "órgano representativo",
-    "almacén",
-    "prefectura urbana"
+    "prefectura urbana",
+    "oficina gubernamental"
   ],
   "08907": [
-    "compuesto",
+    "duplicar",
     "doble",
-    "duplicado",
-    "múltiple"
+    "compuesto"
   ],
   "0965B": [
-    "alteza",
-    "pasos (de trono)"
+    "majestad",
+    "escalones (del trono)"
   ],
   "04FDD": [
-    "garantía",
-    "manténganse",
-    "preservar",
-    "protección",
-    "apoyo",
-    "sostenimiento"
+    "proteger",
+    "mantener",
+    "conservar"
   ],
   "08C4A": [
-    "botín",
-    "excelente",
-    "ricos"
+    "abundante",
+    "rico",
+    "copioso"
   ],
   "0672B": [
-    "cerca",
-    "final",
-    "posteridad",
-    "polvo",
-    "punta"
+    "fin",
+    "punta",
+    "final"
   ],
   "0547D": [
-    "nombramiento",
-    "comando",
-    "decreto",
-    "destino",
-    "vida"
+    "vida",
+    "orden",
+    "destino"
   ],
   "0554F": [
     "pregunta",
-    "problema",
-    "cuestión"
+    "preguntar",
+    "problema"
   ],
   "052C7": [
-    "estar en espíritus altos",
-    "valentía",
-    "¡aplausos",
-    "coraje",
-    "heroísmo"
+    "valor",
+    "valentía"
   ],
   "066DC": [
-    "semana"
+    "día de la semana"
   ],
   "06765": [
-    "se convirtió en",
-    "causa",
-    "ven",
-    "vencimiento",
-    "siguiente"
+    "venir",
+    "próximo"
   ],
   "06D41": [
-    "un lavabo",
+    "fluir",
     "corriente",
-    "flujo",
-    "forfeit"
+    "flujo"
   ],
   "06797": [
-    "bosque",
-    "ranura"
+    "arboleda",
+    "bosque"
   ],
   "07DF4": [
-    "perforación",
-    "brillo",
-    "pulido",
-    "práctica",
-    "refinería",
-    "tren"
+    "practicar",
+    "entrenar",
+    "refinar"
   ],
   "05727": [
-    "dominar",
-    "oprimir",
-    "♪",
     "presión",
-    "empujar"
+    "oprimir"
   ],
   "06613": [
-    "adivinación",
     "fácil",
-    "fortuna",
-    "listo para",
-    "simple"
+    "sencillo",
+    "adivinación"
   ],
   "054E1": [
-    "empleado",
     "miembro",
-    "número",
-    "el encargado"
+    "empleado"
   ],
   "06804": [
-    "floreciente",
-    "gloria",
-    "honor",
     "prosperidad",
-    "esplendor"
+    "gloria",
+    "florecer"
   ],
   "05EF6": [
-    "prolongación",
-    "estiramiento"
+    "extender",
+    "prolongar",
+    "aplazar"
   ],
   "05104": [
-    "10**8",
-    "cientos de millones"
+    "cien millones"
   ],
   "052A0": [
-    "Canadá",
     "añadir",
-    "adición",
-    "incluir",
-    "aumento",
-    "únase"
+    "aumentar",
+    "unirse"
   ],
   "08377": [
-    "equipaje",
-    "oso (una carga)",
     "carga",
-    "flete",
-    "hombro (un arma)",
-    "carga de la capa del hombro"
+    "equipaje",
+    "cargamento"
   ],
   "056DE": [
-    "-tiempos",
-    "contraproducentes para casos",
-    "juego",
-    "giratoria",
-    "redonda"
+    "vez",
+    "girar",
+    "vuelta"
   ],
   "05916": [
-    "afuera"
+    "fuera",
+    "exterior",
+    "extranjero"
   ],
   "0697D": [
-    "confort",
-    "facilidad",
-    "música"
+    "música",
+    "comodidad",
+    "placer"
   ],
   "0611F": [
-    "emoción",
     "sentimiento",
+    "emoción",
     "sensación"
   ],
   "0773C": [
+    "ojo",
     "globo ocular"
   ],
   "0671F": [
-    "fecha",
-    "período de sesiones",
-    "mandato",
+    "período",
+    "plazo",
     "tiempo"
   ],
   "08D77": [
-    "levántate",
-    "rouse",
-    "despierta"
+    "despertar",
+    "levantarse",
+    "provocar"
   ],
   "06025": [
-    "emergencia",
-    "date prisa",
-    "empinada",
-    "repentino"
+    "prisa",
+    "repentino",
+    "urgente"
   ],
   "05C45": [
-    "existiendo",
-    "vivir con",
-    "residencia",
-    "para ser"
+    "residir",
+    "estar",
+    "existir"
   ],
   "05883": [
+    "límite",
     "frontera",
     "región"
   ],
   "07389": [
     "bola",
-    "joya"
+    "joya",
+    "gema"
   ],
   "082E6": [
-    "sentir amargo",
-    "dificultades",
-    "scowl",
     "sufrimiento",
-    "juicio",
-    "tranquilo"
+    "amargo",
+    "penuria"
   ],
   "0578B": [
+    "tipo",
     "modelo",
-    "molde",
-    "tipo"
+    "molde"
   ],
   "06C7A": [
-    "acuerdo",
-    "nombramiento",
     "decidir",
-    "arregle"
+    "determinar"
   ],
   "061B2": [
     "constitución",
-    "derecho"
+    "ley"
   ],
   "05143": [
-    "comienzo",
-    "tiempo anterior",
-    "origen"
+    "origen",
+    "principio",
+    "anterior"
   ],
   "05DF1": [
-    "auto"
+    "uno mismo",
+    "sí mismo"
   ],
   "08B77": [
-    "protección",
-    "salvaguardia"
+    "proteger",
+    "defender"
   ],
   "0540E": [
-    "después",
-    "atrás",
-    "detrás",
     "emperatriz",
-    "más tarde",
-    "queen"
+    "reina"
   ],
   "08015": [
+    "arar",
     "cultivar",
-    "flujo",
-    "hasta"
+    "labrar"
   ],
   "056FD": [
-    "país"
+    "país",
+    "nación"
   ],
   "06700": [
-    "extremo",
-    "más",
-    "lo máximo"
+    "el más",
+    "máximo",
+    "extremo"
   ],
   "05728": [
-    "existiendo",
-    "situado en",
-    "afuera",
-    "suburbios"
+    "existir",
+    "estar situado",
+    "afueras"
   ],
   "06BBA": [
-    "carnicero",
-    "disminución",
     "matar",
-    "asesinato",
-    "reducción",
-    "rebanada",
-    "división",
-    "botín"
+    "asesinar"
   ],
   "09178": [
     "ácido",
-    "amargura",
-    "agria",
-    "tart"
+    "agrio"
   ],
   "05B50": [
-    "11PM-1AM",
     "niño",
-    "primer signo del zodiaco chino",
-    "señal de la rata"
+    "hijo"
   ],
   "079C1": [
-    "I",
-    "me",
+    "yo",
     "privado"
   ],
   "04E8B": [
-    "negocios",
-    "hecho",
-    "materia",
-    "posiblemente",
-    "razón",
-    "cosa"
+    "cosa",
+    "asunto",
+    "hecho"
   ],
   "08033": [
-    "oreja"
+    "oreja",
+    "oído"
   ],
   "0820E": [
-    "cabaña",
     "casa",
-    "hut",
-    "inn",
-    "mansión"
+    "alojamiento",
+    "posada"
   ],
   "053D6": [
-    "toma",
-    "arriba"
+    "tomar",
+    "coger",
+    "obtener"
   ],
   "05468": [
-    "circuito",
     "circunferencia",
-    "lap"
+    "vuelta",
+    "alrededor"
   ],
   "09031": [
     "semana"
   ],
   "08FF0": [
-    "mención",
-    "relacionados",
-    "hablar",
-    "estado"
+    "declarar",
+    "mencionar",
+    "relatar"
   ],
   "08AF8": [
-    "muchos",
     "varios",
-    "juntos",
+    "muchos",
     "diversos"
   ],
   "0627F": [
-    "absolución",
-    "ser informado",
-    "oír",
-    "escuchar",
-    "recibir"
+    "consentir",
+    "recibir",
+    "escuchar"
   ],
   "08C61": [
     "elefante",
     "imagen",
-    "imitar",
-    "patrón después",
-    "forma",
-    "señal (de los tiempos)"
+    "fenómeno"
   ],
   "07E54": [
-    "tela",
-    "weave"
+    "tejer",
+    "tejido"
   ],
   "0771F": [
-    "Budista",
+    "verdadero",
     "realidad",
-    "verdadero"
+    "auténtico"
   ],
   "06C34": [
     "agua"
   ],
   "0661F": [
-    "♪",
-    "marca",
-    "spot",
     "estrella"
   ],
   "08AA0": [
-    "admonish",
-    "fidelidad",
-    "prohibición",
     "sinceridad",
     "verdad",
-    "warn"
+    "fidelidad"
   ],
   "05207": [
-    "ser agudo",
-    "corte"
+    "cortar",
+    "recortar",
+    "importante"
   ],
   "05343": [
-    "miles"
+    "mil"
   ],
   "0524D": [
     "antes",
+    "frente",
     "delante"
   ],
   "065E9": [
@@ -1310,10 +1014,9 @@
     "rápido"
   ],
   "09020": [
-    "crear",
     "hacer",
-    "físico",
-    "estructura"
+    "crear",
+    "construir"
   ],
   "07D9A": [
     "continuar",
@@ -1321,400 +1024,299 @@
     "serie"
   ],
   "06253": [
-    "docenas",
-    "hit",
-    "toc",
-    "libra",
-    "huelga"
+    "golpear",
+    "pegar",
+    "batir"
   ],
   "053F0": [
-    "un stand",
-    "para máquinas y vehículos",
-    "pedestal"
+    "soporte",
+    "plataforma",
+    "contador de máquinas"
   ],
   "065AD": [
-    "disculpa",
-    "corte",
-    "decisión",
-    "declinación",
-    "despido",
-    "fallo",
-    "prohibición",
-    "rechaza",
-    "cese",
-    "warn"
+    "cortar",
+    "decidir",
+    "rechazar"
   ],
   "07740": [
-    "llegada",
-    "mostrador para trajes de ropa",
-    "don",
-    "desgaste"
+    "vestir",
+    "llegar",
+    "ponerse"
   ],
   "05E33": [
-    "libro de cuentas",
-    "álbum",
-    "cortina",
-    "neto",
-    "portátil",
-    "tienda",
-    "velo"
+    "cuaderno",
+    "registro",
+    "cortina"
   ],
   "08FFD": [
-    "chase",
-    "lejos",
+    "perseguir",
     "seguir",
-    "mientras tanto",
-    "persecución"
+    "ahuyentar"
   ],
   "06575": [
     "enemigo",
-    "foe",
-    "oponente"
+    "adversario",
+    "rival"
   ],
   "04F1D": [
-    "comunicarse",
-    "seguir",
-    "vamos",
-    "leyenda",
-    "informe",
+    "transmitir",
     "tradición",
-    "transmisión",
-    "caminar"
+    "leyenda"
   ],
   "051AC": [
     "invierno"
   ],
   "07D71": [
-    "de gobierno",
-    "general",
-    "relación",
-    "sentencia"
+    "unificar",
+    "gobernar",
+    "conjunto"
   ],
   "09285": [
-    "cobre"
+    "cobre",
+    "bronce"
   ],
   "096E3": [
-    "accidente",
-    "defecto",
     "difícil",
-    "imposible",
-    "problemas"
+    "problema",
+    "dificultad"
   ],
   "05FF5": [
-    "atención",
+    "pensamiento",
     "deseo",
-    "sentimiento",
-    "idea",
-    "sentido",
-    "pensamiento"
+    "sentimiento"
   ],
   "06557": [
     "derrota",
-    "fracaso",
-    "inversión"
+    "fracaso"
   ],
   "0767A": [
-    "para disparos",
     "salida",
-    "descarga",
-    "revelación",
-    "emisión",
-    "publicar",
-    "empezar desde"
+    "emitir",
+    "comenzar"
   ],
   "060B2": [
-    "deplore",
-    "duelo",
-    "lamento",
-    "triste"
+    "triste",
+    "tristeza",
+    "afligirse"
   ],
   "05FC5": [
-    "cierta",
+    "seguro",
     "inevitable",
-    "invariable"
+    "necesariamente"
   ],
   "079D2": [
-    "segundo (1/60 minutos)"
+    "segundo (de tiempo)"
   ],
   "07236": [
     "padre"
   ],
   "04ECF": [
-    "Buda",
-    "Francia",
-    "los muertos"
+    "Buda"
   ],
   "07C73": [
-    "USA",
-    "metre",
-    "arroz"
+    "arroz",
+    "América",
+    "metro"
   ],
   "06B69": [
-    "homologación para las medidas",
-    "caminar"
+    "caminar",
+    "paso"
   ],
   "066B4": [
-    "crueldad",
-    "fuerza",
-    "fres",
-    "desembolso",
-    "indignación",
-    "rave",
-    "violencia"
+    "violencia",
+    "descontrolarse",
+    "revelar"
   ],
   "04E07": [
-    "10.000",
     "diez mil"
   ],
   "0660E": [
     "brillante",
-    "luz"
+    "luz",
+    "claro"
   ],
   "09580": [
-    "contador para cañones",
-    "puerta"
+    "puerta",
+    "portón"
   ],
   "053CB": [
     "amigo"
   ],
   "069D8": [
-    "Esq.",
-    "de la manera",
-    "polite suffix",
-    "situación",
-    "camino"
+    "señor/señora (honorífico)",
+    "manera",
+    "modo"
   ],
   "0843D": [
-    "baja",
-    "gota",
-    "caída",
-    "hamlet",
-    "aldea"
+    "caer",
+    "dejar caer"
   ],
   "07559": [
-    "detain",
-    "rápido",
-    "stop",
-    "para"
+    "quedarse",
+    "retener",
+    "sujetar"
   ],
   "081E8": [
-    "asistente",
-    "llamada",
-    "confrontación",
-    "cara",
-    "mira",
-    "nos vemos"
+    "enfrentar",
+    "asistir",
+    "encarar"
   ],
   "09023": [
-    "camarilla",
     "conectar",
-    "pandillas",
-    "únase",
-    "plomo",
-    "fiesta"
+    "enlazar",
+    "llevar consigo"
   ],
   "05B89": [
     "barato",
-    "contenido",
-    "bajo",
-    "pacífica",
-    "silencio",
-    "relax",
-    "descansado"
+    "tranquilo",
+    "seguro"
   ],
   "07570": [
-    "curiosidad",
-    "diferentes",
-    "queerness",
-    "extraño",
-    "poco común",
+    "diferente",
     "inusual",
-    "maravilloso"
+    "extraño"
   ],
   "056E0": [
-    "estar asociado con",
-    "estar limitado a",
     "causa",
-    "depende de",
     "factor"
   ],
   "06C38": [
     "eternidad",
-    "longitudinal",
     "largo"
   ],
   "06F14": [
-    "acto",
-    "rendimiento",
-    "jugar",
-    "render",
-    "etapa"
+    "interpretar",
+    "actuar",
+    "representar"
   ],
   "05C4B": [
-    "distribuidor",
+    "tienda",
     "casa",
-    "techo",
-    "vendedor",
-    "shop"
+    "tejado"
   ],
   "053EF": [
-    "puede",
-    "no",
-    "no debe",
-    "pasible",
-    "no debería"
+    "posible",
+    "aprobar",
+    "poder"
   ],
   "08AB2": [
-    "capítulo",
-    "para capítulos (de un libro)",
-    "departamento",
-    "división",
     "lección",
-    "sección"
+    "sección",
+    "departamento"
   ],
   "05FEB": [
-    "aceptable",
-    "alegre",
+    "agradable",
     "cómodo",
-    "agradable"
+    "alegre"
   ],
   "05BB3": [
     "daño",
+    "perjuicio",
     "lesión"
   ],
   "0984D": [
-    "monto",
     "frente",
-    "cuadro enmarcado",
-    "placa",
-    "suma",
-    "tableta",
-    "volumen"
+    "cantidad",
+    "cuadro enmarcado"
   ],
   "06163": [
-    "acostumbrado",
-    "ser experimentado",
-    "acostumbrarse"
+    "acostumbrarse",
+    "habituado"
   ],
   "05CA9": [
-    "boulder",
-    "acantilado",
-    "rock"
+    "roca",
+    "peñasco",
+    "acantilado"
   ],
   "06A5F": [
-    "avión",
-    "rendimiento",
-    "loom",
     "máquina",
-    "mecanismo",
-    "ocasión",
     "oportunidad",
-    "potencia"
+    "avión"
   ],
   "06280": [
     "habilidad",
-    "arte",
-    "artes",
-    "artesanía",
-    "feat",
-    "rendimiento",
-    "vocación"
+    "técnica",
+    "arte"
   ],
   "06551": [
-    "ayuda",
-    "reclama",
-    "rescate",
-    "salvación",
-    "guardar"
+    "rescatar",
+    "salvar",
+    "ayudar"
   ],
   "06319": [
-    "acciones",
+    "levantar",
     "comportamiento",
-    "plan",
-    "proyecto",
-    "aumento"
+    "plan"
   ],
   "05F37": [
     "fuerte"
   ],
   "052E4": [
-    "empleados",
-    "diligence",
-    "servir"
+    "trabajar",
+    "servir",
+    "diligente"
   ],
   "05177": [
-    "para armadura, trajes, conjuntos de muebles",
-    "ingredientes",
-    "medios",
-    "poseer",
     "herramienta",
-    "utensilios"
+    "utensilio",
+    "ingrediente"
   ],
   "05F62": [
     "forma",
+    "figura",
     "estilo"
   ],
   "06F54": [
-    "limpio",
-    "gallant",
     "puro",
-    "justo",
-    "sin perfil"
+    "limpio",
+    "íntegro"
   ],
   "0691C": [
-    "examen",
-    "investigación"
+    "examinar",
+    "inspeccionar",
+    "investigar"
   ],
   "0539F": [
-    "sobre el terreno",
-    "meadow",
     "original",
-    "llanura",
-    "prairie",
-    "primitivo",
-    "tundra",
-    "desierto"
+    "campo",
+    "llanura"
   ],
   "05EAB": [
-    "almacén"
+    "almacén",
+    "depósito"
   ],
   "04EA4": [
-    "asociación",
-    "voy",
-    "mingle",
-    "mezcla"
+    "intercambiar",
+    "mezclar",
+    "relacionarse"
   ],
   "05B5D": [
-    "respeto del niño",
     "piedad filial"
   ],
   "08003": [
-    "considerar",
-    "pensar en"
+    "pensar",
+    "considerar"
   ],
   "07A40": [
-    "cereales",
-    "grano"
+    "grano",
+    "cereal"
   ],
   "059BB": [
-    "cónyuge",
     "esposa"
   ],
   "06750": [
-    "ingredientes",
-    "log",
+    "material",
     "madera",
-    "materiales",
-    "talento",
-    "madera aserrada"
+    "talento"
   ],
   "096D1": [
-    "diversos"
+    "misceláneo",
+    "tosco"
   ],
   "06B8B": [
-    "saldo",
-    "sobrantes",
-    "resto"
+    "quedar",
+    "resto",
+    "cruel"
   ],
   "05E02": [
     "ciudad",
@@ -1724,268 +1326,209 @@
     "hilo"
   ],
   "04F3C": [
-    "convirtiéndose en",
-    "falsificación",
-    "imitar",
-    "asemble",
-    "adecuado"
+    "parecerse",
+    "similar"
   ],
   "081EA": [
-    "uno mismo"
+    "uno mismo",
+    "propio"
   ],
   "05199": [
-    "ser fotografiado",
-    "copia",
+    "copiar",
+    "fotografiar",
     "describir"
   ],
   "05B88": [
-    "defender",
-    "guardia",
-    "obedecer",
-    "protección"
+    "proteger",
+    "guardar",
+    "obedecer"
   ],
   "05B97": [
-    "denominación",
-    "esencia",
-    "punto principal",
-    "origen",
     "religión",
-    "sect"
+    "secta"
   ],
   "096C6": [
-    "congregaciones",
-    "ovejas",
-    "#",
-    "nos vemos",
-    "swarm"
+    "reunir",
+    "recoger",
+    "colección"
   ],
   "06625": [
-    "primavera (temporada)",
     "primavera"
   ],
   "052A9": [
-    "asistencia",
-    "ayuda",
-    "rescate"
+    "ayudar",
+    "asistir",
+    "rescatar"
   ],
   "062DB": [
-    "beckon",
-    "participación",
     "invitar",
-    "convocación"
+    "llamar con la mano"
   ],
   "08CDE": [
-    "alabanza",
     "premio",
-    "recompensa"
+    "galardón",
+    "elogio"
   ],
   "08077": [
+    "trabajo",
     "empleo",
-    "puestos",
-    "trabajo"
+    "puesto"
   ],
   "0795E": [
-    "dioses",
-    "mente",
-    "alma"
+    "dios",
+    "espíritu",
+    "mente"
   ],
   "06570": [
-    "destino",
-    "cifras",
-    "derecho",
     "número",
-    "fuerza"
+    "contar"
   ],
   "06674": [
-    "despejado"
+    "despejar",
+    "soleado"
   ],
   "09752": [
     "azul",
-    "verde"
+    "verde",
+    "joven"
   ],
   "063A5": [
-    "adjoin",
     "contacto",
-    "juntos",
-    "tacto"
+    "tocar",
+    "conectar"
   ],
   "05BA3": [
-    "anuncio",
-    "proclama",
-    "di:"
+    "proclamar",
+    "anunciar",
+    "declarar"
   ],
   "05584": [
-    "bien",
-    "dios",
-    "virtuoso"
+    "bueno",
+    "virtud",
+    "bondad"
   ],
   "04E89": [
-    "argumentar",
-    "contendientes",
-    "controversia"
+    "disputar",
+    "competir",
+    "luchar"
   ],
   "05074": [
-    "lean",
-    "oposición",
-    "lamento",
     "lado"
   ],
   "05352": [
-    "morir",
-    "graduado",
-    "privado",
+    "graduarse",
     "soldado"
   ],
   "04F53": [
     "cuerpo",
-    "contador para imágenes",
-    "objeto",
-    "realidad",
     "sustancia"
   ],
   "05927": [
     "grande"
   ],
   "07537": [
-    "hombre"
+    "hombre",
+    "varón"
   ],
   "04E2D": [
-    "centro",
+    "medio",
     "dentro",
-    "#",
-    "medio"
+    "centro"
   ],
   "05F35": [
-    "contador para arcos & instrumentos de cuerda",
-    "(tent)",
-    "propagación",
-    "estiramiento"
+    "estirar",
+    "extender",
+    "tender"
   ],
   "0901A": [
-    "avenida",
-    "coma",
-    "contador para cartas, notas, documentos, etc.",
-    "paso",
+    "pasar",
+    "ir y venir",
     "tráfico"
   ],
   "07684": [
-    "final adjetivo",
-    "ojo del toro",
-    "marca",
-    "objeto",
-    "objetivo"
+    "blanco",
+    "objetivo",
+    "-al (sufijo)"
   ],
   "07530": [
-    "arroz"
+    "arrozal",
+    "campo de arroz"
   ],
   "05200": [
+    "espada",
     "cuchillo",
-    "sable",
-    "espada"
+    "hoja"
   ],
   "08A0E": [
-    "ataque",
-    "chastise",
-    "conquista",
-    "derrota",
-    "destruir"
+    "atacar",
+    "someter",
+    "debatir"
   ],
   "05F97": [
-    "capaz de",
-    "adquiere",
-    "ventaja",
-    "beneficio",
-    "puede",
-    "gana",
-    "encontrar",
-    "ganancia",
-    "#",
-    "podrá"
+    "ganar",
+    "obtener",
+    "beneficio"
   ],
   "04E8C": [
-    "dos",
-    "dos radicales (no 7)"
+    "dos"
   ],
   "071C3": [
-    "blaze",
-    "quemadura",
-    "brillo"
+    "arder",
+    "quemar"
   ],
   "0914D": [
-    "distribución",
-    "exilio",
-    "ratio",
-    "cónyuge"
+    "distribuir",
+    "repartir",
+    "disponer"
   ],
   "05224": [
-    "fallo",
-    "juicio",
+    "juzgar",
     "sello",
-    "firma"
+    "timbre"
   ],
   "06BD4": [
-    "Philippines",
     "comparar",
-    "raza",
-    "ratio"
+    "proporción"
   ],
   "07B46": [
+    "pincel",
     "escritura",
-    "pincel de pintura",
-    "escritura cepillo"
+    "caligrafía"
   ],
   "054C1": [
+    "producto",
     "artículo",
-    "para cursos de comida",
-    "dignidad",
-    "mercancías",
-    "perfeccionamiento"
+    "calidad"
   ],
   "08CA0": [
-    "-",
-    "asumir una responsabilidad",
-    "oso",
-    "derrota",
-    "menos",
-    "negativo",
-    "deudas"
+    "perder",
+    "cargar",
+    "deber"
   ],
   "07269": [
-    "materia",
+    "cosa",
     "objeto",
-    "cosa"
+    "materia"
   ],
   "05225": [
-    "otro",
-    "rama apagada",
-    "divergentes",
-    "extra",
-    "hork",
-    "separados",
-    "especialmente"
+    "separar",
+    "diferente",
+    "otro"
   ],
   "088DC": [
-    "asistente",
-    "compensación",
-    "aprender",
-    "hacer bien",
-    "offset",
-    "suplemento",
-    "suministro"
+    "complementar",
+    "compensar",
+    "asistente"
   ],
   "0671B": [
-    "ambición",
-    "aspirar a",
-    "deseo",
-    "espera",
-    "luna llena",
-    "esperanza"
+    "esperanza",
+    "desear",
+    "deseo"
   ],
   "06E80": [
-    "suficiente",
-    "completo",
-    "plenitud",
-    "satisfacción"
+    "lleno",
+    "satisfacer",
+    "suficiente"
   ],
   "076DF": [
     "alianza",
@@ -1995,651 +1538,513 @@
     "noche"
   ],
   "06709": [
-    "aprox",
-    "existiendo",
-    "sucede",
-    "han tenido",
-    "ocurre",
+    "tener",
+    "existir",
     "poseer"
   ],
   "06D0B": [
-    "Estilo occidental",
-    "extranjeros",
     "océano",
-    "mar"
+    "occidental",
+    "extranjero"
   ],
   "05229": [
-    "ventaja",
-    "beneficio"
+    "beneficio",
+    "provecho",
+    "ventaja"
   ],
   "065C5": [
-    "viajes",
-    "viaje"
+    "viaje",
+    "viajar"
   ],
   "08F2A": [
-    "círculo",
-    "para ruedas y flores",
-    "enlace",
-    "bucle",
+    "rueda",
     "anillo",
-    "rueda"
+    "círculo"
   ],
   "08DEF": [
-    "distancia",
+    "camino",
     "sendero",
-    "carretera",
     "ruta"
   ],
   "06697": [
-    "ser cegado",
-    "oscuridad",
-    "desaparece",
-    "♪",
-    "oficiosas",
-    "sombra"
+    "oscuro",
+    "oscuridad"
   ],
   "079FB": [
-    "(frío, fuego)",
-    "cambio",
-    "deriva",
-    "movimiento",
-    "paso"
+    "mover",
+    "trasladar",
+    "transferir"
   ],
   "05F15": [
-    "admitir",
-    "instalar",
-    "imbécil",
-    "tira",
-    "cita",
-    "referencia a",
-    "tug"
+    "tirar",
+    "jalar",
+    "citar"
   ],
   "06CF3": [
-    "nadando"
+    "nadar"
   ],
   "09060": [
-    "distante",
-    "lejos"
+    "lejos",
+    "lejano"
   ],
   "06069": [
-    "beneficio",
-    "bendición",
+    "bondad",
     "favor",
-    "dios",
-    "gracia",
-    "bondadosa",
-    "misericordia"
+    "gratitud"
   ],
   "0590F": [
     "verano"
   ],
   "08CA8": [
-    "flete",
-    "mercancías",
-    "propiedad"
+    "mercancía",
+    "carga",
+    "dinero"
   ],
   "06539": [
-    "cambio",
-    "examen",
-    "inspección",
-    "mend",
-    "modificación",
-    "reforma",
-    "renovación",
-    "búsqueda"
+    "reformar",
+    "cambiar",
+    "revisar"
   ],
   "05404": [
-    "cada uno",
-    "o"
+    "cada",
+    "cada uno"
   ],
   "06D3B": [
-    "ser ayudado",
-    "vivaz",
-    "vivir",
-    "reanimación"
+    "vida",
+    "animado",
+    "activo"
   ],
   "06B53": [
-    "delicia",
-    "alegría"
+    "alegría",
+    "regocijo"
   ],
   "09854": [
-    "expresión",
-    "cara"
+    "cara",
+    "expresión"
   ],
   "05E30": [
-    "llegar a",
-    "regreso",
-    "plomo",
-    "resultado"
+    "volver",
+    "regresar a casa"
   ],
   "07591": [
-    "ser sospechoso",
-    "desconfianza",
     "duda",
-    "cuestión"
+    "sospechar"
   ],
   "06C42": [
-    "demanda",
-    "solicitud",
-    "necesidad",
-    "#",
-    "deseo"
+    "pedir",
+    "buscar",
+    "exigir"
   ],
   "08A31": [
-    "aprobación",
-    "permiso"
+    "permitir",
+    "autorizar",
+    "perdonar"
   ],
   "06559": [
-    "doctrina",
-    "fe",
-    "enseñar"
+    "enseñar",
+    "doctrina"
   ],
   "05747": [
+    "nivelado",
     "promedio",
-    "nivel"
+    "igual"
   ],
   "07A7A": [
-    "vacío",
     "cielo",
-    "vacante"
+    "vacío",
+    "aire"
   ],
   "0656C": [
-    "awe",
-    "honor",
     "respeto",
-    "revere"
+    "honrar",
+    "venerar"
   ],
   "07D50": [
-    "bind",
-    "contrato",
-    "do up hair",
-    "rápido",
-    "únase",
-    "organizar",
-    "corbata"
+    "atar",
+    "unir",
+    "concluir"
   ],
   "06A29": [
+    "derecho",
     "autoridad",
-    "poder",
-    "derechos"
+    "poder"
   ],
   "053B3": [
-    "rigidez",
-    "gravedad",
-    "stern",
-    "rigor"
+    "estricto",
+    "severo",
+    "solemne"
   ],
   "06238": [
-    "mostrador para casas",
-    "puerta",
-    "puerta radical (no 63)"
+    "puerta"
   ],
   "05019": [
-    "clima",
-    "espera",
-    "temporada",
-    "tiempo"
+    "tiempo",
+    "estación",
+    "clima"
   ],
   "05DE5": [
-    "construcción",
     "artesanía",
-    "katakana e radical (no 48)"
+    "construcción",
+    "industria"
   ],
   "0822A": [
-    "crucero",
-    "mosca",
-    "navigate",
-    "vela"
+    "navegar",
+    "zarpar",
+    "volar"
   ],
   "09ED2": [
     "negro"
   ],
   "0624D": [
-    "shaku",
+    "talento",
     "genio",
-    "años"
+    "años de edad"
   ],
   "07F6A": [
-    "culpa",
     "crimen",
-    "ofensa",
-    "pecado"
+    "pecado",
+    "culpa"
   ],
   "04E09": [
     "tres"
   ],
   "04ED5": [
-    "asistente",
-    "haciendo",
-    "funcionario",
-    "servir"
+    "servir",
+    "trabajar"
   ],
   "05E2B": [
-    "ejército (incl. contra)",
-    "ejemplar",
-    "expert",
     "maestro",
-    "modelo",
     "profesor",
-    "guerra"
+    "experto"
   ],
   "07D19": [
     "papel"
   ],
   "05150": [
     "niño",
-    "bebé recién nacido",
-    "jóvenes de animales"
+    "infante"
   ],
   "08F9E": [
-    "expresión",
-    "dimisión",
-    "mandato",
-    "palabra"
+    "palabra",
+    "dimitir",
+    "diccionario"
   ],
   "0793E": [
-    "asociación",
     "empresa",
-    "firma",
-    "oficina",
+    "sociedad",
     "santuario"
   ],
   "0624B": [
     "mano"
   ],
   "05C31": [
-    "relativa",
-    "partir",
-    "per",
-    "arreglos",
-    "estudio",
-    "to take position"
+    "asumir (un cargo)",
+    "instalarse",
+    "respecto a"
   ],
   "04F4F": [
-    "habitar",
-    "habitado",
-    "vivo",
-    "residencia"
+    "vivir",
+    "residir",
+    "habitar"
   ],
   "06E96": [
-    "conformidad",
-    "corresponde a",
-    "imitar",
-    "proporcional a",
-    "semi -"
+    "semi-",
+    "norma",
+    "ajustarse"
   ],
   "05973": [
-    "hembra",
-    "mujer"
+    "mujer",
+    "femenino"
   ],
   "0662D": [
     "brillante",
-    "brillando"
+    "resplandeciente"
   ],
   "04E0A": [
-    "arriba"
+    "arriba",
+    "encima",
+    "superior"
   ],
   "08272": [
     "color"
   ],
   "081E3": [
-    "retenedor",
-    "sujeto"
+    "vasallo",
+    "súbdito",
+    "ministro"
   ],
   "04E16": [
+    "mundo",
     "generación",
-    "público",
-    "sociedad",
-    "mundo"
+    "sociedad"
   ],
   "06B63": [
-    "10**40",
     "correcto",
-    "justicia",
-    "justo"
+    "justo",
+    "justicia"
   ],
   "09759": [
-    "silencio"
+    "tranquilo",
+    "calma"
   ],
   "06298": [
-    "curva",
-    "descanso",
-    "plegable",
-    "fractura",
-    "presentar",
-    "rendimiento"
+    "doblar",
+    "romper",
+    "plegar"
   ],
   "05C02": [
-    "exclusiva",
-    "principalmente",
-    "exclusivamente",
-    "especialidad"
+    "exclusivo",
+    "especialidad",
+    "principalmente"
   ],
   "07136": [
-    "si es así",
-    "en ese caso",
-    "así que..",
-    "algo",
-    "bien"
+    "así",
+    "de ese modo",
+    "natural"
   ],
   "076F8": [
-    "aspecto",
-    "councillor",
-    "uno al otro",
-    "inter-",
-    "ministro de estado",
     "mutuo",
-    "fase",
-    "fisionomía",
-    "juntos"
+    "juntos",
+    "ministro"
   ],
   "05247": [
-    "basado en",
-    "seguir",
-    "derecho",
-    "modelo después",
-    "regla"
+    "regla",
+    "ley",
+    "seguir"
   ],
   "05B58": [
-    "ser consciente de",
-    "creer",
-    "existiendo",
-    "sentir",
-    "supongo"
+    "existir",
+    "saber",
+    "suponer"
   ],
   "05BFE": [
-    "anticonceptivo -",
-    "comparar",
-    "iguales",
-    "incluso",
     "opuesto",
-    "versus",
-    "vis-a-vis"
+    "contra",
+    "par"
   ],
   "07B2C": [
-    "No.",
-    "residencia"
+    "prefijo ordinal (n.º)"
   ],
   "08AC7": [
-    "debate",
-    "hablar"
+    "hablar",
+    "discutir",
+    "conversación"
   ],
   "05FE0": [
-    "fidelidad",
-    "lealtad"
+    "lealtad",
+    "fidelidad"
   ],
   "0671D": [
-    "Corea",
-    "dinastía",
-    "epoca",
     "mañana",
-    "período de sesiones",
-    "régimen"
+    "dinastía"
   ],
   "04F4E": [
-    "humilde",
-    "inferior",
-    "corto"
+    "bajo",
+    "corto",
+    "humilde"
   ],
   "09069": [
-    "capaz",
-    "ocasional",
-    "cualificado",
-    "raro",
-    "adecuado"
+    "adecuado",
+    "apto",
+    "apropiado"
   ],
   "096FB": [
-    "electricidad"
+    "electricidad",
+    "relámpago"
   ],
   "05CF6": [
     "isla"
   ],
   "0982D": [
-    "para animales grandes",
-    "cabeza"
+    "cabeza",
+    "contador de animales grandes"
   ],
   "05FB3": [
-    "benevolencia",
-    "el respeto",
-    "dios",
-    "virtud"
+    "virtud",
+    "benevolencia"
   ],
   "05F10": [
-    "II",
-    "segundo",
-    "dos"
+    "dos (en documentos)"
   ],
   "07D0D": [
-    "obtención",
-    "sueldo",
-    "cosecha",
-    "liquidación",
-    "tienda",
-    "suministro"
+    "pagar",
+    "suministrar",
+    "guardar"
   ],
   "0500D": [
     "doble",
-    "plegable",
     "veces",
-    "dos veces"
+    "multiplicado"
   ],
   "0534A": [
     "mitad",
-    "medio",
-    "número extraño",
-    "parte-",
-    "semi -"
+    "medio"
   ],
   "076AE": [
-    "escondido",
-    "cuero",
-    "peluche",
     "piel",
-    "radical de la piel (no 107)"
+    "cuero",
+    "pellejo"
   ],
   "0767E": [
-    "cientos"
+    "cien"
   ],
   "08CA7": [
-    "pobres",
+    "pobre",
     "pobreza"
   ],
   "06B66": [
-    "armas",
-    "caballería",
-    "militares",
-    "guerrero"
+    "militar",
+    "guerrero",
+    "marcial"
   ],
   "05206": [
-    "1%",
-    "oportunidades",
-    "grado",
-    "deber",
-    "lo sé",
-    "minuto de tiempo",
-    "uno es mucho",
     "parte",
-    "tasa",
-    "serie de sesiones",
-    "shaku/100",
+    "minuto",
     "entender"
   ],
   "05909": [
-    "cambio",
+    "cambiar",
     "extraño",
     "inusual"
   ],
   "05893": [
-    "tumba"
+    "tumba",
+    "sepulcro"
   ],
   "08CBF": [
-    "cambio",
-    "comercio"
+    "comercio",
+    "intercambio"
   ],
   "05473": [
-    "sabor"
+    "sabor",
+    "gusto"
   ],
   "08FF7": [
-    "astray",
-    "estar perplejo",
-    "err",
-    "ilusión",
-    "sin duda",
-    "perdido"
+    "perdido",
+    "extraviado",
+    "confundido"
   ],
   "091CE": [
-    "civiles",
-    "sobre el terreno",
-    "llanuras",
-    "rústico"
+    "campo",
+    "llanura",
+    "salvaje"
   ],
   "07531": [
-    "una razón",
-    "¿por qué"
+    "razón",
+    "causa",
+    "desde"
   ],
   "07528": [
-    "negocios",
-    "empleados",
-    "servicio",
-    "uso"
+    "usar",
+    "asunto",
+    "recado"
   ],
   "07406": [
-    "arreglo",
-    "justicia",
-    "lógica",
     "razón",
-    "verdad"
+    "lógica",
+    "principio"
   ],
   "04E21": [
     "ambos",
-    "mostrador para carros (por ejemplo, en un tren)",
-    "vieja moneda japonesa",
     "dos"
   ],
   "0985E": [
+    "tipo",
     "clase",
-    "genus",
-    "especie",
-    "variedad"
+    "especie"
   ],
   "052B4": [
     "trabajo",
-    "recompensa por",
-    "gracias",
-    "toil",
-    "problemas"
+    "esfuerzo",
+    "fatiga"
   ],
   "06848": [
-    "banco",
-    "proyecto",
-    "expectativa",
-    "miedo",
-    "idea",
     "plan",
-    "ponderador",
-    "proposición",
-    "propuesta",
-    "cuadro",
-    "tranquilo"
+    "idea",
+    "propuesta"
   ],
   "080C3": [
-    "grúa",
-    "cultivos",
-    "paunch",
     "estómago"
   ],
   "098F2": [
-    "bebida",
-    "humo",
-    "toma"
+    "beber"
   ],
   "082F1": [
     "Inglaterra",
-    "Inglés",
-    "calyx",
-    "héroe",
-    "pendientes"
+    "inglés",
+    "héroe"
   ],
   "05869": [
     "sal"
   ],
   "06E29": [
-    "cálido"
+    "cálido",
+    "templado"
   ],
   "05BB6": [
-    "expert",
-    "familia",
     "casa",
-    "performer",
-    "profesionales"
+    "hogar",
+    "familia"
   ],
   "0904E": [
-    "error",
-    "excedentes",
-    "ir más allá",
-    "overdo"
+    "pasar",
+    "exceder",
+    "error"
   ],
   "068B0": [
-    "contraptación",
-    "#",
-    "instrumento",
-    "máquina"
+    "máquina",
+    "instrumento"
   ],
   "062E1": [
-    "ampliación",
-    "agrandar"
+    "ampliar",
+    "agrandar",
+    "extender"
   ],
   "0682A": [
-    "para pequeñas plantas",
-    "partes",
-    "stock",
-    "existencias",
-    "stump"
+    "acción (bolsa)",
+    "participación",
+    "tocón"
   ],
   "06F22": [
     "China",
-    "Sino.."
+    "chino",
+    "hombre"
   ],
   "09858": [
-    "esperanza",
-    "petición",
-    "solicitud",
-    "voto",
-    "deseo"
+    "deseo",
+    "pedir",
+    "rezar"
   ],
   "06C17": [
-    "aire",
-    "atmósfera",
-    "mente",
-    "estado de ánimo",
-    "espíritu"
+    "espíritu",
+    "ánimo",
+    "aire"
   ],
   "07FA9": [
-    "honor",
+    "rectitud",
     "justicia",
-    "lealtad",
-    "significado",
-    "moralidad"
+    "significado"
   ],
   "07403": [
-    "bola",
+    "pelota",
     "esfera"
   ],
   "06F01": [
-    "pesca"
+    "pesca",
+    "pesquería"
   ],
   "06A4B": [
     "puente"
   ],
   "07981": [
-    "prohibición",
-    "prohibir"
+    "prohibir",
+    "vedar",
+    "prohibición"
   ],
   "0541B": [
-    "nombre masculino sufijo",
-    "señor",
-    "ruler",
-    "tú"
+    "tú",
+    "soberano",
+    "señor (a menores)"
   ],
   "0666F": [
     "paisaje",
@@ -2652,434 +2057,314 @@
     "perro"
   ],
   "06E1B": [
-    "fracción",
-    "declinación",
-    "disminución",
-    "dwindle",
-    "tengo hambre",
-    "reducción"
+    "disminuir",
+    "reducir"
   ],
   "06545": [
-    "causa",
-    "circunstancias",
-    "en consecuencia",
-    "especialmente",
-    "oportunidad",
-    "intencionalmente",
     "razón",
-    "tarde",
-    "por consiguiente"
+    "difunto",
+    "incidente"
   ],
   "05149": [
     "luz",
-    "rayo"
+    "rayo",
+    "brillar"
   ],
   "05E78": [
-    "bendición",
+    "felicidad",
     "fortuna",
-    "felicidad"
+    "suerte"
   ],
   "0884C": [
-    "acto",
-    "banco",
-    "cabo",
-    "conducta",
-    "voy",
-    "viaje",
-    "línea",
-    "fila"
+    "ir",
+    "realizar",
+    "línea"
   ],
   "04ECA": [
-    "ahora"
+    "ahora",
+    "presente"
   ],
   "063A1": [
-    "elige",
-    "toma",
-    "arriba"
+    "recoger",
+    "recolectar",
+    "adoptar"
   ],
   "08CA1": [
-    "activos",
-    "dinero",
-    "propiedad",
-    "riqueza"
+    "riqueza",
+    "bienes",
+    "dinero"
   ],
   "053C2": [
-    "ser derrotado",
-    "estar locamente enamorado",
-    "viene",
-    "morir",
-    "voy",
-    "no superadas",
     "participar",
-    "participar en",
-    "tres (en documentos)",
-    "visita"
+    "visitar",
+    "tres (en documentos)"
   ],
   "04F7F": [
-    "embajador",
-    "causa",
-    "enviado",
+    "usar",
     "mensajero",
-    "orden",
-    "enviar a una misión",
-    "uso"
+    "enviado"
   ],
   "05FD7": [
-    "aspire",
-    "esperanzas",
+    "voluntad",
     "intención",
-    "móvil",
-    "plan",
-    "resolver",
-    "chelín"
+    "aspirar"
   ],
   "081F3": [
-    "llegada",
     "alcanzar",
-    "climax",
-    "procede",
-    "alcance",
-    "resultado"
+    "llegar",
+    "máximo"
   ],
   "05B57": [
     "carácter",
-    "carta",
-    "sección de la aldea",
+    "letra",
     "palabra"
   ],
   "05F0F": [
     "ceremonia",
-    "expresión",
-    "forma",
-    "función",
-    "método",
-    "rito",
     "estilo",
-    "sistema"
+    "fórmula"
   ],
   "08005": [
     "persona",
     "alguien"
   ],
   "07A2E": [
-    "clase",
-    "especie",
-    "semillas",
-    "variedad"
+    "semilla",
+    "tipo",
+    "especie"
   ],
   "05DDE": [
-    "provincia",
-    "estado"
+    "estado",
+    "provincia"
   ],
   "05341": [
-    "10"
+    "diez"
   ],
   "07D14": [
+    "puro",
     "genuino",
-    "inocencia",
-    "net (profit)",
-    "pureza"
+    "inocente"
   ],
   "05E8F": [
-    "comienzo",
-    "oportunidad",
-    "incidentalmente",
-    "ocasión",
     "orden",
-    "precedencia",
-    "prefacio"
+    "prefacio",
+    "comienzo"
   ],
   "06D88": [
-    "golpes",
-    "cancelación",
-    "extinciones",
-    "neutralización",
-    "apagado"
+    "apagar",
+    "borrar",
+    "desaparecer"
   ],
   "04E57": [
-    "junta",
-    "para vehículos",
-    "únase",
-    "montaje",
-    "multiplicación",
-    "poder",
-    "récord",
-    "paseo"
+    "montar",
+    "subir",
+    "abordar"
   ],
   "098DF": [
     "comer",
-    "alimentos"
+    "comida"
   ],
   "089AA": [
-    "distribuidor (tarjetas)",
-    "familiaridad",
-    "intimidad",
-    "padre",
-    "relativo"
+    "padre/madre",
+    "íntimo",
+    "pariente"
   ],
   "0662F": [
-    "sólo así",
-    "justicia",
-    "derecho",
+    "correcto",
+    "justamente",
     "esto"
   ],
   "06E05": [
-    "Manchu dinastía",
-    "limpieza",
-    "exorciso",
     "puro",
-    "purificación"
+    "limpio",
+    "claro"
   ],
   "07A0E": [
-    "deber",
-    "impuestos"
+    "impuesto",
+    "tasa"
   ],
   "08A2D": [
-    "establecimiento",
-    "prepararse",
-    "disposición"
+    "establecer",
+    "instalar",
+    "proveer"
   ],
   "05DDD": [
     "río",
-    "radical del río o de tres tiempos (no 47)",
-    "streaming"
+    "arroyo"
   ],
   "05168": [
-    "todos",
-    "completo",
+    "todo",
     "entero",
-    "cumplimiento"
+    "completo"
   ],
   "07DCF": [
-    "todos",
-    "completo",
-    "general",
     "total",
-    "entero"
+    "general",
+    "todo"
   ],
   "0606F": [
     "aliento",
-    "llegar a un final",
-    "intereses (en dinero)",
-    "desnudo",
-    "respiración",
-    "descansa",
+    "respirar",
     "hijo"
   ],
   "05B6B": [
-    "descendientes",
     "nieto"
   ],
   "05E2F": [
     "cinturón",
-    "obi",
-    "región",
-    "sash",
+    "faja",
     "zona"
   ],
   "0984C": [
-    "sujeto",
-    "tema"
+    "tema",
+    "asunto",
+    "título"
   ],
   "077E5": [
-    "lo sé",
+    "saber",
     "sabiduría"
   ],
   "0663C": [
-    "horas diarias",
-    "mediodía"
+    "mediodía",
+    "de día"
   ],
   "0753A": [
-    "bloque",
-    "calle",
-    "ciudad",
-    "aldea"
+    "pueblo",
+    "manzana",
+    "calle"
   ],
   "0505C": [
-    "stop",
-    "para detenerte"
+    "parar",
+    "detenerse"
   ],
   "09244": [
-    "plancha"
+    "hierro"
   ],
   "05F92": [
-    "vacío",
-    "cosa efímera",
-    "futilidad",
-    "pandillas",
-    "junior",
     "a pie",
-    "fiesta",
-    "gente",
-    "set",
-    "imprevistos",
-    "vanidad"
+    "discípulo",
+    "inútil"
   ],
   "06295": [
-    "abandono",
-    "descarte",
-    "renuncia",
-    "hurl",
-    "invertir en",
-    "únase",
-    "lanzamiento",
-    "vender a una pérdida",
-    "tiro"
+    "lanzar",
+    "arrojar",
+    "invertir"
   ],
   "050CD": [
-    "(kokuji)",
+    "trabajar",
     "trabajo"
   ],
   "07279": [
-    "especiales"
+    "especial",
+    "particular"
   ],
   "08089": [
     "carne"
   ],
   "080FD": [
-    "habilidad",
     "capacidad",
-    "talento"
+    "talento",
+    "Noh"
   ],
   "08CB7": [
     "comprar"
   ],
   "053CD": [
-    "anticonceptivo -"
+    "anti-",
+    "oponerse",
+    "invertir"
   ],
   "080A5": [
-    "fértil",
-    "fertilizante",
-    "grasa",
-    "maní",
-    "mimos"
+    "abono",
+    "gordo",
+    "fértil"
   ],
   "04FF5": [
-    "bolsa",
-    "bale",
-    "para bolsas",
-    "saco"
+    "saco de paja",
+    "fardo"
   ],
   "04E0D": [
-    "mal",
-    "torpe",
-    "negativo",
     "no",
-    "feo"
+    "in-",
+    "des-"
   ],
   "090E8": [
-    "mesa",
-    "clase",
-    "copia",
-    "para copias de un periódico o revista",
-    "dept",
     "parte",
-    "porción",
-    "sección"
+    "sección",
+    "departamento"
   ],
   "0596E": [
-    "ser vigorizado",
-    "floreciente",
-    "revuelto"
+    "animarse",
+    "exaltado"
   ],
   "07DE8": [
-    "trenza",
-    "recopilación",
-    "poema terminado",
-    "edición",
-    "derecho",
-    "parte de un libro",
-    "plat",
-    "giro"
+    "editar",
+    "compilar",
+    "tejer"
   ],
   "06BCD": [
     "madre"
   ],
   "09632": [
     "defender",
-    "protección",
-    "resistencia",
-    "ward"
+    "proteger",
+    "prevenir"
   ],
   "0672A": [
-    "1-3PM",
-    "octavo signo de zodiaco chino",
-    "incluso ahora",
-    "hasta ahora",
-    "aún no",
-    "señal del carnero",
-    "todavía",
-    "no.."
+    "todavía no",
+    "in-"
   ],
   "09CF4": [
-    "bark",
-    "chirp",
-    "llorar",
-    "eco",
-    "honk",
-    "anillo",
-    "sonido"
+    "cantar (aves)",
+    "gritar",
+    "sonar"
   ],
   "05F79": [
-    "campaña",
-    "trabajo borrado",
+    "papel",
     "deber",
-    "oficina",
-    "función",
-    "servicio",
-    "guerra"
+    "servicio"
   ],
   "0904A": [
-    "jugar"
+    "jugar",
+    "diversión"
   ],
   "08449": [
-    "hoja",
-    "contador para cosas planas",
-    "fragmento",
-    "lobe",
-    "aguja",
-    "pieza",
-    "avión",
-    "lanza"
+    "hoja (de planta)"
   ],
   "091CC": [
-    "liga",
-    "padre de casa",
-    "aldea"
+    "aldea",
+    "tierra natal",
+    "ri (unidad)"
   ],
   "06599": [
     "tarifa",
-    "materiales"
+    "materiales",
+    "cargo"
   ],
   "04EE4": [
-    "comando",
-    "decreto",
-    "bien",
-    "leyes",
-    "órdenes"
+    "orden",
+    "mandato",
+    "decreto"
   ],
   "08001": [
-    "madura",
+    "viejo",
     "vejez",
-    "viejo"
+    "anciano"
   ],
   "04EE5": [
-    "porque",
     "por medio de",
-    "comparado con",
-    "en vista de"
+    "desde",
+    "comparado con"
   ],
   "0907A": [
-    "bequeath",
     "dejar atrás",
-    "reserva"
+    "legar",
+    "restos"
   ],
   "09662": [
-    "Inst.",
     "institución",
-    "mansión",
-    "escuela",
-    "templo"
+    "templo",
+    "hospital"
   ],
   "0885B": [
     "defensa",
@@ -3090,416 +2375,340 @@
     "medio"
   ],
   "097F3": [
-    "ruido",
-    "sonido"
+    "sonido",
+    "ruido"
   ],
   "079D1": [
-    "claro",
     "departamento",
+    "curso",
     "sección"
   ],
   "06211": [
-    "I",
-    "ego",
+    "yo",
     "uno mismo",
-    "nuestra",
-    "egoísta"
+    "ego"
   ],
   "06D77": [
-    "océano",
-    "mar"
+    "mar",
+    "océano"
   ],
   "0683C": [
-    "capacidad",
-    "caso (ley, gramática)",
-    "carácter",
+    "estatus",
     "rango",
-    "situación"
+    "caso"
   ],
   "05BD2": [
     "frío"
   ],
   "07BA1": [
-    "control",
-    "borracha hablar",
-    "jurisdicción",
-    "tubería",
     "tubo",
-    "instrumento de viento"
+    "caño",
+    "controlar"
   ],
   "0559C": [
-    "regocijo",
-    "tomar placer en"
+    "alegrarse",
+    "alegría",
+    "placer"
   ],
   "06C7D": [
     "vapor"
   ],
   "08B70": [
-    "examen",
-    "consulta",
-    "debate",
-    "deliberación"
+    "deliberación",
+    "discusión",
+    "debate"
   ],
   "07A76": [
-    "investigación",
-    "estudio"
+    "investigar",
+    "estudiar",
+    "indagar"
   ],
   "09B5A": [
-    "peces"
+    "pez",
+    "pescado"
   ],
   "08208": [
-    "entretenido",
-    "intereses",
-    "placer",
-    "recuperar",
-    "revive"
+    "interés",
+    "reavivar",
+    "entretener"
   ],
   "08FD1": [
-    "akin",
-    "temprano",
     "cerca",
-    "equivalente"
+    "cercano"
   ],
   "08A13": [
-    "Japonés lectura de caracteres",
-    "explicación",
+    "lectura kun",
     "instrucción",
-    "leído"
+    "lección"
   ],
   "07CFB": [
-    "linaje",
-    "sistema"
+    "sistema",
+    "linaje"
   ],
   "06708": [
-    "mes",
-    "luna"
+    "luna",
+    "mes"
   ],
   "07814": [
-    "pulido",
-    "afilado",
-    "estudio de"
+    "pulir",
+    "afilar",
+    "estudiar"
   ],
   "073FE": [
-    "efectivos",
-    "existentes",
-    "presentes"
+    "presente",
+    "actual",
+    "aparecer"
   ],
   "06E56": [
     "lago"
   ],
   "0516C": [
-    "gobierno",
-    "funcionario",
-    "príncipe",
-    "público"
+    "público",
+    "oficial",
+    "príncipe"
   ],
   "05E83": [
-    "amplia",
-    "espacioso",
-    "ancho"
+    "ancho",
+    "amplio",
+    "espacioso"
   ],
   "08B1B": [
-    "asociación",
+    "conferencia",
     "club",
-    "conferencia"
+    "asociación"
   ],
   "06839": [
-    "cabeza (pimple)",
-    "radical",
-    "root"
+    "raíz",
+    "base"
   ],
   "06E08": [
-    "llegar a un fin",
-    "excusable",
-    "acabado",
-    "no necesita",
-    "alivio (burden)",
-    "(deuda, etc.)"
+    "terminar",
+    "saldar",
+    "aliviar"
   ],
   "05742": [
-    "colina",
-    "incline",
+    "cuesta",
     "pendiente"
   ],
   "05C71": [
     "montaña"
   ],
   "053F8": [
-    "administración",
-    "director",
-    "govt office",
+    "administrar",
     "funcionario",
-    "regla"
+    "director"
   ],
   "0601D": [
     "pensar"
   ],
   "08996": [
-    "inspección",
-    "mira",
-    "por el secretario general",
-    "ver"
+    "mirar",
+    "ver",
+    "considerar"
   ],
   "05BFA": [
-    "Templo budista"
+    "templo budista"
   ],
   "08B58": [
-    "discriminación",
-    "lo sé",
-    "escribir"
+    "conocer",
+    "discernir",
+    "conciencia"
   ],
   "08B1D": [
-    "disculpa",
-    "rechaza",
-    "gracias"
+    "agradecer",
+    "disculparse",
+    "rechazar"
   ],
   "09152": [
     "alcohol",
-    "sake"
+    "sake",
+    "licor"
   ],
   "04FEE": [
-    "conducirse bien",
+    "estudiar",
     "disciplina",
-    "maestro",
-    "estudio"
+    "reparar"
   ],
   "05F93": [
-    "acompañantes",
-    "cumplimiento",
     "seguir",
-    "incidental",
     "obedecer",
-    "secundaria",
-    "presentar",
-    "subordinados"
+    "acompañar"
   ],
   "09806": [
-    "docilidad",
-    "obedecer",
-    "ocasión",
     "orden",
-    "derecho",
-    "turno"
+    "turno",
+    "obedecer"
   ],
   "09664": [
-    "supresión abolida",
-    "cancelación",
-    "división (x/3)",
-    "salvo",
-    "exclusión",
-    "retirar"
+    "quitar",
+    "excluir",
+    "excepto"
   ],
   "0713C": [
-    "panadería",
-    "quema"
+    "quemar",
+    "hornear",
+    "asar"
   ],
   "05834": [
-    "ubicación",
-    "lugar"
+    "lugar",
+    "sitio"
   ],
   "04FE1": [
-    "fe",
-    "fidelidad",
     "confianza",
-    "verdad"
+    "fe",
+    "creer"
   ],
   "08EAB": [
-    "una estación en la vida",
-    "persona",
-    "alguien"
+    "cuerpo",
+    "uno mismo",
+    "persona"
   ],
   "05236": [
-    "derecho",
-    "regla",
-    "sistema"
+    "sistema",
+    "control",
+    "regla"
   ],
   "0751F": [
+    "vida",
     "nacimiento",
-    "genuino",
-    "vida"
+    "crudo"
   ],
   "05E2D": [
-    "alfombra",
-    "ocasión",
-    "lugar",
-    "asiento"
+    "asiento",
+    "lugar"
   ],
   "07BC0": [
-    "cláusula",
-    "honor",
-    "conjunta",
-    "knob",
+    "estación",
     "nudo",
-    "knuckle",
-    "melody",
-    "nodos",
-    "ocasión",
-    "período de sesiones",
-    "temporada",
-    "stanza",
-    "sintonía",
-    "verso"
+    "sección"
   ],
   "06226": [
+    "guerra",
     "batalla",
-    "partido",
-    "guerra"
+    "luchar"
   ],
   "07956": [
-    "antepastor",
-    "fundador",
-    "pionero"
+    "antepasado",
+    "fundador"
   ],
   "08349": [
-    "proyecto",
     "hierba",
-    "hierbas",
-    "pasto",
-    "malas hierbas",
-    "escribir"
+    "maleza",
+    "borrador"
   ],
   "06E2C": [
-    "gordo",
-    "medida",
-    "plan",
-    "esquema"
+    "medir",
+    "sondear",
+    "estimar"
   ],
   "05C0A": [
-    "exaltado",
-    "noble",
-    "precioso",
     "venerado",
-    "valioso"
+    "precioso",
+    "noble"
   ],
   "05F85": [
-    "depende de",
-    "espera"
+    "esperar"
   ],
   "09054": [
-    "logrados",
-    "llegada",
     "alcanzar",
-    "alcance"
+    "lograr",
+    "sufijo plural"
   ],
   "05730": [
-    "tierra"
+    "suelo",
+    "tierra",
+    "terreno"
   ],
   "067F1": [
-    "cilindro",
     "pilar",
-    "puestos",
-    "apoyo"
+    "poste",
+    "columna"
   ],
   "08178": [
     "intestinos",
-    "tripas",
-    "viscera"
+    "tripas"
   ],
   "05B9A": [
     "decidir",
-    "determinar",
-    "establecer",
-    "arregle"
+    "fijar",
+    "establecer"
   ],
   "05178": [
-    "ceremonia",
     "código",
-    "derecho",
-    "regla"
+    "ceremonia",
+    "clásico"
   ],
   "0767B": [
-    "ascender",
-    "sube"
+    "subir",
+    "escalar"
   ],
   "06771": [
-    "este"
+    "este",
+    "oriente"
   ],
   "052D5": [
-    "cambio",
-    "confusión",
-    "moción",
-    "movimiento",
-    "#"
+    "mover",
+    "movimiento"
   ],
   "06BD2": [
-    "germen",
-    "daño",
-    "lesión",
     "veneno",
-    "respeto",
-    "venom",
-    "virus"
+    "tóxico"
   ],
   "065E5": [
-    "Japón",
-    "contador por días",
     "día",
-    "sol"
+    "sol",
+    "Japón"
   ],
   "08FB2": [
     "agricultura",
-    "agricultores"
+    "labranza"
   ],
   "058F2": [
-    "venta"
+    "vender"
   ],
   "0677F": [
-    "junta",
-    "plank",
-    "placa",
-    "etapa"
+    "tabla",
+    "tablón",
+    "placa"
   ],
   "08CBB": [
-    "consumir",
-    "costo",
-    "gastos",
-    "gastar",
-    "desechos"
+    "gasto",
+    "coste",
+    "gastar"
   ],
   "06A19": [
-    "emblema",
-    "pruebas",
-    "impresión",
     "marca",
-    "sello",
-    "señalización",
-    "souvenir",
-    "símbolo",
-    "objetivo",
-    "marcas registradas"
+    "señal",
+    "objetivo"
   ],
   "04ED8": [
-    "adhesión",
-    "apéndice",
-    "adjunta",
-    "referencia a"
+    "adjuntar",
+    "pegar",
+    "dar"
   ],
   "098A8": [
-    "aire",
-    "de la manera",
+    "viento",
     "estilo",
-    "viento"
+    "manera"
   ],
   "07C89": [
-    "polvo",
-    "harina"
+    "harina",
+    "polvo"
   ],
   "08FBA": [
-    "frontera",
-    "environs",
-    "proximidad"
+    "alrededores",
+    "zona",
+    "lado"
   ],
   "05305": [
-    "ocultación",
-    "cubierta",
-    "empaque",
-    "enrollado"
+    "envolver",
+    "empaquetar",
+    "cubrir"
   ],
   "05317": [
     "norte"
   ],
   "08108": [
-    "esperanza",
     "pulso",
     "vena"
   ],
@@ -3508,132 +2717,99 @@
   ],
   "07D04": [
     "aproximadamente",
-    "promesa",
-    "contracción"
+    "promesa"
   ],
   "05915": [
-    "noche"
+    "atardecer",
+    "tarde"
   ],
   "08981": [
-    "esencia",
-    "clave para",
+    "necesitar",
     "punto principal",
-    "necesidad",
-    "pivote"
+    "esencial"
   ],
   "09678": [
-    "tierra",
-    "6"
+    "tierra firme"
   ],
   "0826F": [
-    "bien",
-    "pleasing",
-    "cualificado"
+    "bueno",
+    "agradable",
+    "hábil"
   ],
   "04F8B": [
-    "personalizado",
     "ejemplo",
-    "precedente",
-    "uso"
+    "costumbre",
+    "precedente"
   ],
   "0516D": [
-    "6"
+    "seis"
   ],
   "04F4D": [
-    "sobre",
-    "corona",
-    "grado",
     "rango",
-    "algunos",
-    "trono"
+    "grado",
+    "aproximadamente"
   ],
   "0533B": [
-    "doctor",
+    "médico",
     "medicina"
   ],
   "053F3": [
-    "derecho"
+    "derecha"
   ],
   "06DB2": [
-    "fluido",
-    "jugo",
     "líquido",
-    "sap",
-    "secreción"
+    "fluido",
+    "jugo"
   ],
   "05F80": [
-    "antes",
-    "chase",
-    "voy",
+    "ir",
     "viaje",
-    "¡vamos",
-    "viajes"
+    "antiguamente"
   ],
   "04E0B": [
-    "infra",
-    "descendente",
     "abajo",
-    "dar",
-    "inferior",
-    "bajo"
+    "debajo",
+    "bajar"
   ],
   "0679C": [
-    "alcanzar",
-    "cabo",
-    "completo",
-    "final",
-    "acabado",
     "fruta",
-    "recompensa",
-    "éxito"
+    "resultado",
+    "realizar"
   ],
   "0753B": [
-    "pincelada",
-    "imagen"
+    "cuadro",
+    "dibujo",
+    "trazo"
   ],
   "0754C": [
-    "frontera",
-    "mundo"
+    "mundo",
+    "límite"
   ],
   "078BA": [
-    "garantía",
-    "clara",
+    "seguro",
     "confirmar",
-    "evidente",
-    "firma",
-    "duro",
-    "sólido",
-    "apretado"
+    "firme"
   ],
   "0520A": [
-    "carve",
-    "engrave",
-    "publicar"
+    "publicar",
+    "edición"
   ],
   "089B3": [
-    "apariencia",
-    "condición",
-    "mira",
-    "perspectivas",
-    "vista"
+    "vista",
+    "observar",
+    "perspectiva"
   ],
   "05668": [
-    "habilidad",
-    "contenedor",
-    "aplicación",
-    "instrumento",
-    "receptáculo",
-    "set",
-    "herramienta",
-    "utensilios",
-    "buque"
+    "recipiente",
+    "vasija",
+    "herramienta"
   ],
   "05B63": [
-    "temporadas"
+    "estación (del año)"
   ],
   "05BA2": [
-    "cliente",
     "invitado",
+    "cliente",
     "visitante"
   ],
   "07D1A": [
@@ -3642,1161 +2818,894 @@
     "rango"
   ],
   "04EAC": [
-    "10**16",
     "capital"
   ],
   "093E1": [
-    "cabeza de barril",
-    "espejo",
-    "oferta de arroz redondo",
-    "speculum"
+    "espejo"
   ],
   "091D1": [
-    "oro"
+    "oro",
+    "dinero",
+    "metal"
   ],
   "07FA4": [
-    "grupo temático",
-    "multitudes",
-    "ovejas",
     "grupo",
-    "herd",
-    "swarm"
+    "multitud",
+    "rebaño"
   ],
   "07D4C": [
-    "expiración",
-    "longitud",
-    "pass thru",
-    "sutra",
-    "warp"
+    "pasar por",
+    "administrar",
+    "sutra"
   ],
   "04EF6": [
-    "aventura",
+    "asunto",
     "caso",
-    "tema",
-    "materia"
+    "artículo"
   ],
   "07D79": [
     "seda"
   ],
   "08A00": [
-    "di:",
-    "palabra"
+    "decir",
+    "palabra",
+    "habla"
   ],
   "04E94": [
-    "5"
+    "cinco"
   ],
   "0529F": [
     "logro",
-    "crédito",
-    "honor",
-    "méritos",
+    "mérito",
     "éxito"
   ],
   "05EB7": [
-    "facilidad",
-    "paz"
+    "salud",
+    "paz",
+    "tranquilidad"
   ],
   "09271": [
     "mineral",
-    "ore"
+    "mena"
   ],
   "06DF7": [
-    "mezcla",
-    "confusa"
+    "mezclar",
+    "combinar",
+    "abarrotado"
   ],
   "0707D": [
-    "calamidad",
-    "maldición",
     "desastre",
-    "maldad",
-    "woe"
+    "calamidad"
   ],
   "04F5C": [
-    "construcción",
     "hacer",
-    "prepararse",
-    "producción"
+    "producir",
+    "obra"
   ],
   "06563": [
-    "dispersa",
-    "scatter",
-    "gastar",
-    "squander"
+    "dispersar",
+    "esparcir",
+    "gastar"
   ],
   "053F2": [
-    "crónica",
-    "historia"
+    "historia",
+    "crónica"
   ],
   "06307": [
     "dedo",
-    "indicación",
-    "medida (reglamento)",
-    "juego (chess)",
-    "punto a",
-    "puesto"
+    "señalar",
+    "indicar"
   ],
   "08A5E": [
-    "parte del discurso",
-    "poesía",
-    "palabras"
+    "palabra",
+    "categoría gramatical",
+    "letra"
   ],
   "06301": [
-    "han tenido",
-    "espera"
+    "sostener",
+    "tener",
+    "llevar"
   ],
   "04E03": [
-    "7"
+    "siete"
   ],
   "08ECA": [
-    "coche"
+    "coche",
+    "vehículo",
+    "rueda"
   ],
   "09996": [
-    "para canciones y poemas",
-    "cuello"
+    "cuello",
+    "cabeza",
+    "jefe"
   ],
   "062FE": [
-    "encontrar",
-    "#",
-    "vamos a pie",
-    "recoge",
-    "10"
+    "recoger",
+    "reunir",
+    "diez (en documentos)"
   ],
   "091CD": [
-    "- sí",
-    "estima",
-    "arriba",
     "pesado",
     "importante",
-    "nido de cajas",
-    "montón",
-    "respeto"
+    "apilar"
   ],
   "051E6": [
-    "acto",
-    "comportamiento",
-    "condena",
-    "trato con",
-    "desechos",
-    "gestión",
+    "tratar",
     "lugar",
-    "sentencia"
+    "disponer"
   ],
   "052DD": [
-    "excel",
-    "prevalecer",
+    "ganar",
     "victoria",
-    "gana"
+    "superar"
   ],
   "07167": [
-    "bashful",
-    "comparar",
-    "iluminación",
-    "brillo"
+    "brillar",
+    "iluminar",
+    "comparar"
   ],
   "05E38": [
+    "habitual",
     "siempre",
-    "común",
-    "continuamente",
-    "larga duración",
-    "normal",
-    "ordinario",
-    "de costumbre"
+    "normal"
   ],
   "05FC3": [
     "corazón",
-    "radical del corazón (no 61)",
     "mente",
     "espíritu"
   ],
   "09032": [
-    "anticipos",
-    "procede",
-    "progreso",
-    "promoción"
+    "avanzar",
+    "progresar",
+    "proceder"
   ],
   "052E2": [
-    "energía",
-    "fuerzas",
-    "fuerza militar"
+    "fuerza",
+    "poder",
+    "energía"
   ],
   "07CBE": [
-    "energía",
-    "excelencia",
-    "hada",
-    "fantasma",
-    "pureza",
+    "espíritu",
     "refinado",
-    "semen",
-    "habilidad",
-    "vitalidad"
+    "energía"
   ],
   "077F3": [
     "piedra"
   ],
   "08AAC": [
-    "explicación",
-    "opinión",
-    "rumor",
-    "teoría"
+    "teoría",
+    "explicar",
+    "opinión"
   ],
   "06D45": [
-    "frívolo",
-    "sauce",
-    "vergonzoso",
-    "superficial",
-    "miserable"
+    "poco profundo",
+    "superficial"
   ],
   "07D20": [
-    "elemental",
-    "desnudo",
-    "principio",
-    "descubiertos"
+    "elemento",
+    "sencillo",
+    "desnudo"
   ],
   "08D70": [
-    "corre"
+    "correr"
   ],
   "08DB3": [
-    "suficiente",
-    "para pares de calzado",
     "pie",
-    "pierna"
+    "pierna",
+    "suficiente"
   ],
   "0640D": [
+    "pérdida",
     "daño",
-    "desventaja",
-    "herida",
-    "lesiones",
-    "pérdida"
+    "perjuicio"
   ],
   "0614B": [
-    "apariencia",
+    "estado",
     "actitud",
-    "condición",
-    "gráfico",
-    "voz (de verbos)"
+    "aspecto"
   ],
   "08C37": [
     "valle"
   ],
   "06C60": [
-    "cisterna",
     "estanque",
-    "piscina",
-    "embalse"
+    "charca"
   ],
   "06CE8": [
-    "anotato",
-    "comentario",
-    "concentrado en",
-    "flujo",
-    "irrigate",
-    "notas",
-    "pour",
-    "shed (tears)"
+    "verter",
+    "nota",
+    "concentrar"
   ],
   "08ABF": [
-    "exorciso",
-    "armonización",
-    "investigación",
-    "llave (música)",
-    "mediate",
-    "metro",
-    "prepararse",
-    "tono",
-    "sintonía",
-    "estilo de escritura"
+    "investigar",
+    "afinar",
+    "tono"
   ],
   "05E95": [
+    "fondo",
     "base",
-    "inferior",
-    "precio inferior",
-    "profundidad",
-    "especie",
-    "sole"
+    "profundidad"
   ],
   "05929": [
-    "cielos",
-    "imperial",
-    "cielo"
+    "cielo",
+    "firmamento"
   ],
   "090FD": [
-    "todos",
     "capital",
-    "todo",
-    "metrópolis"
+    "metrópoli",
+    "todo"
   ],
   "06E6F": [
+    "agua caliente",
     "baño",
-    "primavera caliente",
-    "agua caliente"
+    "aguas termales"
   ],
   "0540C": [
-    "acuerdo",
-    "iguales",
-    "igual"
+    "mismo",
+    "igual",
+    "estar de acuerdo"
   ],
   "072EC": [
-    "Alemania",
-    "sola",
-    "single",
-    "espontáneamente"
+    "solo",
+    "único",
+    "Alemania"
   ],
   "05165": [
-    "entra",
+    "entrar",
     "insertar"
   ],
   "06CE2": [
-    "Polonia",
-    "billows",
-    "ondas"
+    "ola",
+    "onda"
   ],
   "0535A": [
-    "Dr.",
-    "Doctorado.",
-    "comando",
-    "estima",
+    "doctor (PhD)",
     "exposición",
-    "justo",
-    "ganar aclamación"
+    "amplio"
   ],
   "07248": [
     "edición",
-    "impresión",
-    "etiqueta",
-    "bloque de impresión",
-    "plancha de impresión"
+    "plancha de impresión",
+    "versión"
   ],
   "0975E": [
-    "injusticia",
-    "error",
-    "negativo",
-    "no",
-    "no.."
+    "no-",
+    "in-",
+    "incorrecto"
   ],
   "06C37": [
-    "congeal",
-    "congelación",
-    "ave",
     "hielo",
-    "icicle"
+    "congelar"
   ],
   "0592B": [
     "marido",
     "hombre"
   ],
   "05FA9": [
-    "restauración",
-    "continuación",
-    "retorno a",
-    "revertir"
+    "restaurar",
+    "volver",
+    "repetir"
   ],
   "06587": [
-    "arte",
-    "decoración",
-    "cifras",
-    "radical literario (no 67)",
-    "literatura",
-    "plan",
-    "sentencia",
-    "estilo"
+    "oración",
+    "escritura",
+    "cultura"
   ],
   "08FD4": [
-    "respuesta",
-    "fade",
-    "pago",
-    "regreso"
+    "devolver",
+    "responder",
+    "pagar"
   ],
   "05831": [
-    "noticias",
     "informe",
-    "retribución",
+    "noticia",
     "recompensa"
   ],
   "07267": [
-    "raza",
-    "cuidado",
-    "alimentación",
     "pasto",
-    "pastor"
+    "pastorear",
+    "criar"
   ],
   "06C11": [
+    "pueblo",
     "nación",
-    "gente",
-    "sujetos"
+    "ciudadanos"
   ],
   "09762": [
     "cara",
-    "características",
-    "máscara",
-    "superficie"
+    "superficie",
+    "máscara"
   ],
   "085AC": [
-    "beneficio",
-    "química",
-    "esmalte",
-    "pólvora",
-    "medicina"
+    "medicina",
+    "medicamento"
   ],
   "04E88": [
-    "I",
-    "antes",
-    "yo",
-    "anterior"
+    "de antemano",
+    "con antelación",
+    "previo"
   ],
   "0967D": [
-    "horas diarias",
-    "cielos",
-    "hombre",
-    "positivo",
     "sol",
-    "principio yang"
+    "luz solar",
+    "yang"
   ],
   "05F8B": [
-    "control",
-    "medidor",
-    "derecho",
-    "regulación",
+    "ley",
+    "regla",
     "ritmo"
   ],
   "091CF": [
-    "monto",
-    "considerar",
-    "estimación",
-    "medida",
     "cantidad",
-    "surmise",
-    "peso"
+    "volumen",
+    "medir"
   ],
   "051B7": [
     "frío",
-    "frío (beer, person)",
-    "genial"
+    "fresco",
+    "enfriar"
   ],
   "09332": [
-    "récord"
+    "registro",
+    "anotar"
   ],
   "04F9D": [
-    "en consecuencia",
-    "depende de",
-    "debido a",
-    "reliant",
-    "por consiguiente"
+    "depender de",
+    "confiar en",
+    "debido a"
   ],
   "080B2": [
-    "levántate",
-    "crecer",
-    "aumento",
-    "trasero"
+    "criar",
+    "educar",
+    "crecer"
   ],
   "096E8": [
     "lluvia"
   ],
   "076CA": [
-    "ventaja",
     "beneficio",
+    "provecho",
     "ganancia"
   ],
   "05FDC": [
-    "OK",
-    "aceptar",
-    "respuesta",
-    "aplicación",
-    "sí"
+    "responder",
+    "contestar",
+    "aceptar"
   ],
   "05316": [
-    "-ización",
-    "cambio",
-    "diluido",
-    "encantador",
-    "influencia",
-    "tomar la forma de"
+    "cambiar",
+    "transformar",
+    "-ización"
   ],
   "06B4C": [
-    "cantar",
-    "canción"
+    "canción",
+    "cantar"
   ],
   "082BD": [
-    "#",
-    "germen",
-    "lanza",
-    "brote"
+    "brote",
+    "yema"
   ],
   "07D75": [
-    "dibujo",
+    "cuadro",
     "pintura",
-    "imagen",
-    "esbozo"
+    "dibujo"
   ],
   "0899A": [
-    "despierto",
-    "aprender",
+    "recordar",
     "memorizar",
-    "recuerda",
-    "sobrio"
+    "despertar"
   ],
   "052E7": [
-    "asesor",
-    "alentar",
-    "oferta",
-    "persuadir",
-    "recomendar"
+    "recomendar",
+    "animar",
+    "aconsejar"
   ],
   "09593": [
     "intervalo",
-    "espacio"
+    "espacio",
+    "entre"
   ],
   "057FA": [
-    "para máquinas",
-    "fundación",
-    "fundamentales",
-    "radical (chem)"
+    "fundamento",
+    "base",
+    "cimiento"
   ],
   "07D00": [
-    "cuenta",
-    "anales",
     "crónica",
-    "período geológico",
     "historia",
-    "narrativa"
+    "período"
   ],
   "09006": [
-    "invertidos",
+    "inverso",
     "opuesto",
-    "inversa",
-    "malvado"
+    "invertido"
   ],
   "07D66": [
-    "permitir",
-    "otorgamiento",
-    "regalo",
-    "subvención",
+    "salario",
     "sueldo",
-    "salario"
+    "suministrar"
   ],
   "04F9B": [
-    "acompañantes",
-    "oferta",
-    "presentes",
-    "servir (carne)",
-    "presentar"
+    "ofrecer",
+    "suministrar",
+    "acompañante"
   ],
   "0696D": [
-    "artes",
-    "negocios",
-    "rendimiento",
-    "vocación"
+    "negocio",
+    "industria",
+    "trabajo"
   ],
   "09280": [
     "plata"
   ],
   "08ECD": [
     "ejército",
-    "batalla",
-    "fuerza",
-    "tropas",
-    "guerra"
+    "militar",
+    "tropas"
   ],
   "08A08": [
-    "medida",
+    "medir",
     "plan",
-    "parcela",
-    "esquema"
+    "total"
   ],
   "05065": [
+    "sano",
     "salud",
-    "saludable",
-    "persistencia",
-    "fuerza"
+    "fuerte"
   ],
   "0770C": [
     "prefectura"
   ],
   "09650": [
     "límite",
-    "restricción",
-    "al mejor de la capacidad"
+    "restringir"
   ],
   "05348": [
-    "11AM-1PM",
-    "mediodía",
-    "séptimo signo del zodiaco chino",
-    "señal del caballo"
+    "mediodía"
   ],
   "052B9": [
-    "beneficio",
-    "rendimiento",
-    "eficiencia",
-    "mérito"
+    "efecto",
+    "eficacia",
+    "beneficio"
   ],
   "06821": [
-    "corrección",
-    "examen",
-    "impresión",
-    "prueba",
     "escuela"
   ],
   "09AD8": [
-    "caro",
-    "alto"
+    "alto",
+    "caro"
   ],
   "05DE6": [
     "izquierda"
   ],
   "0796D": [
-    "celebración",
-    "deificar",
-    "enshrine",
-    "ofrecer oraciones",
-    "ritual",
-    "adoración"
+    "festival",
+    "culto",
+    "celebrar"
   ],
   "06628": [
-    "anterior",
-    "ayer"
+    "ayer",
+    "anterior"
   ],
   "07523": [
-    "oso",
-    "parto",
-    "nacimiento",
-    "nativo",
-    "productos",
-    "propiedad",
-    "rendimiento"
+    "producir",
+    "dar a luz",
+    "producto"
   ],
   "056DB": [
-    "4"
+    "cuatro"
   ],
   "0652F": [
     "rama",
-    "radical (no 65)",
-    "apoyo",
-    "sostenimiento"
+    "apoyar",
+    "pagar"
   ],
   "08A69": [
     "poema",
     "poesía"
   ],
   "06642": [
-    "hora",
-    "tiempo"
+    "tiempo",
+    "hora"
   ],
   "05931": [
-    "desventaja",
-    "error",
-    "culpa",
     "perder",
-    "pérdida"
+    "pérdida",
+    "error"
   ],
   "0501F": [
-    "prestado",
-    "alquiler"
+    "pedir prestado",
+    "alquilar"
   ],
   "053D7": [
-    "aceptar",
-    "respuesta (teléfono)",
-    "captura",
-    "#",
     "recibir",
-    "toma",
-    "en curso"
+    "aceptar",
+    "someterse a"
   ],
   "079CB": [
     "otoño"
   ],
   "05BBF": [
-    "embarazada",
-    "habitar",
-    "vivienda",
-    "casa",
-    "inn",
-    "lodge",
+    "posada",
     "alojamiento",
-    "estación de servicio"
+    "hospedarse"
   ],
   "0521D": [
-    "comienzo",
-    "primera vez"
+    "primero",
+    "comienzo"
   ],
   "05546": [
-    "en relación con los",
-    "hacer un trato",
-    "comerciante",
-    "venta"
+    "comercio",
+    "negocio",
+    "comerciante"
   ],
   "07701": [
-    "conserva",
-    "ministerio gubernamental",
-    "omit"
+    "ministerio",
+    "omitir",
+    "reflexionar"
   ],
   "060C5": [
-    "circunstancias",
     "emoción",
-    "hechos",
     "sentimientos",
-    "pasión",
-    "solidaridad"
+    "circunstancias"
   ],
   "065B0": [
     "nuevo"
   ],
   "04EBA": [
-    "persona"
+    "persona",
+    "gente"
   ],
   "06027": [
-    "género",
     "naturaleza",
-    "sexo"
+    "sexo",
+    "género"
   ],
   "08056": [
     "santo",
-    "maestro",
-    "sacerdote",
-    "salvia"
+    "sagrado",
+    "sabio"
   ],
   "07A4D": [
-    "acreage",
-    "amasa",
-    "contenidos",
-    "carga",
-    "montón",
-    "producto (x*y)",
-    "pila",
-    "volumen"
+    "apilar",
+    "acumular",
+    "producto (mat.)"
   ],
   "096EA": [
     "nieve"
   ],
   "07DDA": [
     "línea",
-    "pista"
+    "vía",
+    "cable"
   ],
   "07D44": [
-    "ensamblar",
-    "asociación",
-    "trenza",
-    "construcción",
-    "cooperar",
-    "grapple",
-    "plat",
-    "unite"
+    "grupo",
+    "montar",
+    "clase"
   ],
   "09001": [
-    "escort",
-    "enviar"
+    "enviar",
+    "acompañar"
   ],
   "0901F": [
-    "rápido"
+    "rápido",
+    "veloz",
+    "velocidad"
   ],
   "06751": [
-    "ciudad",
+    "pueblo",
     "aldea"
   ],
   "08CB8": [
-    "préstamos"
+    "prestar",
+    "alquilar (a otro)"
   ],
   "05358": [
-    "meramente",
-    "uno",
+    "único",
     "simple",
-    "single"
+    "unidad"
   ],
   "07F6E": [
-    "depósito",
-    "empleados",
-    "manténganse",
-    "dejar atrás",
-    "peón",
-    "colocación",
-    "#",
-    "set"
+    "poner",
+    "colocar",
+    "dejar"
   ],
   "0866B": [
-    "bug",
-    "insectos",
-    "temperamento"
+    "insecto",
+    "bicho",
+    "gusano"
   ],
   "09577": [
-    "líder",
     "largo",
-    "senior",
-    "superior"
+    "líder",
+    "jefe"
   ],
   "05EAD": [
-    "patio",
     "jardín",
-    "yarda"
+    "patio",
+    "corral"
   ],
   "05C55": [
-    "ampliación",
-    "desplegable"
+    "expandir",
+    "exhibir",
+    "desplegar"
   ],
   "052AA": [
-    "tanto como sea posible",
-    "diligente",
-    "toil"
+    "esfuerzo",
+    "esforzarse",
+    "diligente"
   ],
   "071C8": [
-    "contador para luces",
     "lámpara",
     "luz"
   ],
   "05802": [
-    "hall",
-    "cámara pública"
+    "salón",
+    "templo",
+    "sala pública"
   ],
   "08AAD": [
-    "leído"
+    "leer"
   ],
   "04EFB": [
-    "nombramiento",
     "deber",
-    "confiar en",
-    "responsabilidad",
-    "mandato"
+    "confiar",
+    "responsabilidad"
   ],
   "06D3E": [
-    "camarilla",
     "facción",
     "grupo",
-    "fiesta",
-    "escuela",
-    "sect"
+    "escuela (de pensamiento)"
   ],
   "0767D": [
     "blanco"
   ],
   "072AF": [
     "crimen",
-    "ofensa",
-    "pecado"
+    "delito",
+    "violar"
   ],
   "098DB": [
-    "mosca",
-    "scatter",
-    "(páginas)"
+    "volar",
+    "saltar"
   ],
   "07968": [
-    "cédulas",
-    "etiqueta",
-    "signatura",
-    "ticket"
+    "voto",
+    "papeleta",
+    "boleto"
   ],
   "05A66": [
-    "novia",
-    "señora",
+    "mujer",
     "esposa",
-    "mujer"
+    "dama"
   ],
   "05E45": [
-    "rollo colgado",
-    "ancho"
+    "anchura",
+    "amplitud",
+    "pergamino colgante"
   ],
   "0805E": [
-    "pregunta",
     "oír",
-    "escucha"
+    "escuchar",
+    "preguntar"
   ],
   "04FBF": [
-    "oportunidad",
-    "comodidad",
-    "excremento",
-    "instalaciones",
-    "heces",
-    "carta"
+    "conveniencia",
+    "correo",
+    "excremento"
   ],
   "0653E": [
-    "destierro",
-    "emisión",
-    "fuego",
-    "liberada",
-    "liberación",
-    "gratis",
-    "disparar"
+    "soltar",
+    "liberar",
+    "emitir"
   ],
   "0672C": [
     "libro",
-    "contador para cosas cilíndricas largas",
-    "principal",
     "origen",
-    "presentes",
-    "real",
-    "verdadero"
+    "principal"
   ],
   "052D9": [
-    "derechos",
-    "tarea"
+    "deber",
+    "tarea",
+    "trabajo"
   ],
   "06BDB": [
-    "abajo",
-    "pluma",
-    "fur",
-    "cabello"
+    "pelo",
+    "piel",
+    "pluma"
   ],
   "08A33": [
-    "caso",
-    "circunstancia",
+    "traducir",
     "razón",
-    "traducción"
+    "sentido"
   ],
   "04F59": [
-    "yo",
-    "otros",
+    "sobrante",
     "resto",
-    "superávit",
-    "demasiado"
+    "exceso"
   ],
   "0990A": [
-    "levántate",
-    "desarrollo",
-    "foster",
-    "nutrida",
-    "trasero"
+    "criar",
+    "nutrir",
+    "mantener"
   ],
   "07387": [
-    "%",
-    "comando",
-    "factor",
-    "plomo",
-    "proporción",
     "tasa",
-    "ratio",
-    "cabeza de lanza"
+    "proporción",
+    "dirigir"
   ],
   "09818": [
+    "territorio",
     "dominio",
-    "fiebre",
-    "jurisdicción",
-    "reina",
-    "territorio"
+    "gobernar"
   ],
   "0793C": [
-    "arco",
-    "ceremonia",
-    "remuneración",
-    "salud",
-    "gracias"
+    "gracias",
+    "reverencia",
+    "cortesía"
   ],
   "08AD6": [
-    "argumentación",
-    "discurso"
+    "argumento",
+    "teoría",
+    "discutir"
   ],
   "056F2": [
-    "besiege",
-    "encircle",
-    "enclosure",
-    "manténganse",
-    "palidez",
-    "preservar",
-    "tienda",
-    "rodear"
+    "rodear",
+    "cercar",
+    "asediar"
   ],
   "04E00": [
-    "uno",
-    "un radical (no.1)"
+    "uno"
   ],
   "0904B": [
-    "anticipos",
-    "transporte",
-    "destino",
-    "mucho",
+    "llevar",
     "suerte",
-    "progreso"
+    "transporte"
   ],
   "099C5": [
     "estación"
   ],
   "06A2A": [
-    "horizontal",
-    "perverso",
     "lado",
-    "laterales",
-    "irrazonable",
-    "ancho",
-    "woof"
+    "horizontal",
+    "anchura"
   ],
   "04EEE": [
-    "(nombre)",
-    "oficiosas",
+    "temporal",
     "provisional",
-    "sham",
-    "temporal"
+    "falso"
   ],
   "06CB3": [
     "río"
   ],
   "08CC0": [
     "felicitaciones",
-    "alegría"
+    "celebrar"
   ],
   "089D2": [
-    "ángulo",
-    "antlers",
     "esquina",
-    "cuerno",
-    "cuadrado"
+    "ángulo",
+    "cuerno"
   ],
   "05B8C": [
-    "finalización",
-    "final",
-    "perfecto"
+    "completo",
+    "perfecto",
+    "terminar"
   ],
   "095A2": [
     "barrera",
-    "relativa",
-    "conexión",
-    "puerta",
-    "participación"
+    "relación",
+    "relativo a"
   ],
   "05BC4": [
     "acercarse",
-    "cobro",
-    "cerca",
-    "para el futuro",
-    "#",
-    "enviar",
-    "para"
+    "pasar por",
+    "enviar"
   ],
   "0898F": [
-    "medida",
-    "estándar"
+    "norma",
+    "regla",
+    "medida"
   ],
   "04E45": [
     "mucho tiempo",
-    "vieja historia"
+    "antiguo"
   ],
   "065E7": [
-    "ex-",
-    "ex",
-    "viejo amigo",
-    "cosas viejas",
-    "viejos tiempos"
+    "viejo",
+    "antiguo",
+    "ex-"
   ],
   "07AF6": [
-    "licitación",
-    "bout",
-    "competir con",
+    "competir",
     "concurso",
-    "emular",
-    "raza",
-    "vender en subasta"
+    "carrera"
   ],
   "05C40": [
-    "aventura",
-    "junta",
-    "mesa",
-    "conclusión",
-    "corte señora",
-    "su apartamento",
-    "señora en espera",
-    "oficina"
+    "oficina",
+    "departamento",
+    "situación"
   ],
   "04E5D": [
-    "9"
+    "nueve"
   ],
   "090E1": [
     "condado",
     "distrito"
   ],
   "08EFD": [
-    "ligeramente",
-    "trifling",
-    "unimportante"
+    "ligero",
+    "fácil",
+    "trivial"
   ],
   "0517C": [
-    "y",
-    "antes",
-    "concurrente",
-    "por adelantado"
+    "a la vez",
+    "combinar",
+    "también"
   ],
   "0898B": [
-    "oportunidades",
-    "esperanzas",
-    "idea",
-    "mira",
-    "opinión",
     "ver",
-    "visible"
+    "mirar",
+    "vista"
   ],
   "0500B": [
-    "para los artículos",
-    "individual"
+    "individual",
+    "contador de objetos"
   ],
   "05F8C": [
-    "atrás",
+    "después",
     "detrás",
     "más tarde"
   ],
   "0539A": [
-    "brazen",
-    "cordial",
-    "pesado",
-    "especie",
-    "ricos",
-    "desvergonzada",
-    "grueso"
+    "grueso",
+    "amable",
+    "cordial"
   ],
   "069CB": [
-    "apariencia",
-    "construcción",
+    "construir",
     "postura",
-    "preparado"
+    "importar"
   ],
   "053F7": [
-    "llamada",
-    "tema",
-    "nombre",
-    "apodo",
     "número",
-    "pseudonym",
+    "edición",
     "título"
   ],
   "05DEE": [
-    "saldo",
     "diferencia",
-    "discrepancia",
-    "distinción",
-    "margen",
-    "variación"
+    "brecha",
+    "margen"
   ],
   "07D30": [
-    "dainty",
-    "detallado",
-    "################################################################################################################################################################################################################################################################",
-    "estrecho",
-    "preciso",
-    "slender",
-    "grabador"
+    "delgado",
+    "fino",
+    "detallado"
   ],
   "07B56": [
-    "medios",
     "plan",
     "política",
-    "esquema",
-    "paso"
+    "medida"
   ],
   "07B97": [
-    "abacus",
     "calcular",
-    "diviniendo",
-    "número",
-    "probabilidad"
+    "contar",
+    "ábaco"
   ],
   "058EB": [
+    "samurái",
     "caballero",
-    "samurai",
-    "samurai radical (no. 33)",
-    "académico"
+    "erudito"
   ],
   "06B62": [
-    "stop",
-    "para"
+    "parar",
+    "detener"
   ],
   "08A66": [
-    "intento",
-    "experimento",
-    "ordeal",
     "prueba",
-    "pruebe"
+    "probar",
+    "intentar"
   ],
   "06B21": [
     "siguiente",
@@ -4804,318 +3713,242 @@
     "secuencia"
   ],
   "05BA4": [
-    "apartamento",
-    "sótano",
-    "cámara",
-    "invernadero",
-    "habitación"
+    "habitación",
+    "sala"
   ],
   "091C8": [
-    "explicación"
+    "explicación",
+    "liberar"
   ],
   "06388": [
-    "conferente",
-    "subvención",
-    "impart",
-    "instrucciones"
+    "enseñar",
+    "conceder",
+    "otorgar"
   ],
   "07D42": [
-    "final",
-    "acabado"
+    "fin",
+    "terminar"
   ],
   "0795D": [
-    "celebración",
-    "felicitaciones"
+    "celebrar",
+    "felicitar"
   ],
   "06240": [
-    "grado",
-    "lugar"
+    "lugar",
+    "sitio"
   ],
   "05531": [
-    "exhortación",
-    "canto",
+    "cantar",
     "recitar",
-    "grita"
+    "entonar"
   ],
   "079F0": [
-    "admirador",
-    "denominación",
-    "fama",
     "nombre",
-    "alabanza",
-    "título"
+    "título",
+    "elogiar"
   ],
   "06761": [
     "artículo",
     "cláusula",
-    "para artículos, cláusulas, párrafos, etc.",
-    "tema",
-    "streak",
-    "stripe",
-    "twig"
+    "franja"
   ],
   "068EE": [
     "bosque",
-    "maderas"
+    "selva"
   ],
   "04EC1": [
     "benevolencia",
-    "caridad",
     "humanidad",
-    "kernel",
-    "hombre",
     "virtud"
   ],
   "06210": [
-    "se convirtió en",
-    "elapse",
-    "#",
-    "crecer",
-    "alcance",
-    "convertido en"
+    "convertirse",
+    "lograr",
+    "crecer"
   ],
   "058F0": [
-    "voz"
+    "voz",
+    "sonido"
   ],
   "07E3E": [
-    "logros",
-    "exploits",
-    "capullos sin relanzar"
+    "logro",
+    "hazaña",
+    "hilado"
   ],
   "07D76": [
-    "abstenerse",
-    "más allá",
-    "cortada",
-    "discontinua",
-    "interrumpida",
-    "sin pares",
-    "sever",
-    "supresión",
-    "sin precedentes",
-    "sin partido"
+    "cortar",
+    "extinto",
+    "absolutamente"
   ],
   "08239": [
     "barco",
     "buque"
   ],
   "05275": [
-    "génesis",
-    "herida",
-    "lesión",
-    "originario",
-    "empieza"
+    "crear",
+    "originar",
+    "herida"
   ],
   "050CF": [
-    "gráfico",
+    "estatua",
     "imagen",
-    "retrato",
-    "estatua"
+    "retrato"
   ],
   "04FD7": [
-    "aduanas",
-    "maneras",
-    "cosas mundanas",
+    "costumbres",
     "vulgar",
-    "worldliness"
+    "mundano"
   ],
   "04ED6": [
     "otro",
-    "otros",
-    "los otros"
+    "ajeno"
   ],
   "09000": [
-    "expel",
-    "rechazo",
-    "repelente",
-    "dimisión",
-    "jubilado",
-    "retiro",
-    "retirada"
+    "retirarse",
+    "retroceder",
+    "jubilarse"
   ],
   "070AD": [
     "carbón vegetal",
     "carbón"
   ],
   "07BC9": [
-    "construcción",
-    "fabricar"
+    "construir",
+    "edificar"
   ],
   "08457": [
-    "llegada",
-    "mostrador para trajes de ropa",
-    "don",
-    "acabado (raza)",
-    "obra literaria",
-    "fenomenal",
-    "publicar",
-    "ponte",
+    "autor",
     "notable",
-    "renombrado",
-    "desgaste",
     "escribir"
   ],
   "09CE5": [
     "pájaro",
-    "pollo"
+    "ave"
   ],
   "05F1F": [
-    "servicio fiel a los ancianos",
     "hermano menor"
   ],
   "05E97": [
-    "shop",
-    "tienda"
+    "tienda",
+    "comercio"
   ],
   "05EA6": [
-    "actitud",
-    "considerar",
-    "contraproducentes para casos",
-    "grados",
-    "sucesos",
-    "tiempo"
+    "grado",
+    "veces",
+    "ocasión"
   ],
   "05F53": [
-    "apropiado",
-    "él mismo",
-    "hit",
-    "derecho"
+    "acertar",
+    "correcto",
+    "este"
   ],
   "05C0E": [
-    "conducta",
-    "orientación",
-    "líder",
-    "usher"
+    "guiar",
+    "conducir",
+    "dirigir"
   ],
   "05C4A": [
-    "llegada",
-    "entrega",
-    "para el futuro",
-    "notificación",
-    "alcance",
-    "informe"
+    "entregar",
+    "llegar",
+    "notificar"
   ],
   "08A8D": [
-    "reconocimiento",
-    "gracias",
-    "creer",
-    "discernimiento",
     "reconocer",
-    "testigo"
+    "admitir",
+    "aprobar"
   ],
   "07834": [
-    "descanso",
-    "derrota",
-    "destruir",
-    "frustrado",
-    "rend",
-    "maduración",
-    "lágrimas"
+    "romper",
+    "rasgar",
+    "derrotar"
   ],
   "09EA6": [
-    "barley",
-    "trigo"
+    "trigo",
+    "cebada"
   ],
   "098EF": [
-    "arroz hervido",
-    "comida"
+    "comida",
+    "arroz cocido"
   ],
   "05099": [
-    "equipación",
-    "preparación",
-    "disposición"
+    "preparar",
+    "equipar",
+    "provisión"
   ],
   "08868": [
-    "gráfico",
-    "diagrama",
     "superficie",
-    "cuadro"
+    "tabla",
+    "expresar"
   ],
   "05BCC": [
-    "abundante",
-    "enriquecimiento",
-    "riqueza"
+    "riqueza",
+    "rico",
+    "abundante"
   ],
   "0670D": [
-    "admitir",
     "ropa",
-    "descarga",
-    "obedecer"
+    "obedecer",
+    "dosis"
   ],
   "05175": [
-    "ejército",
-    "privado",
     "soldado",
-    "estrategia",
-    "táctica",
-    "tropas",
-    "guerra"
+    "ejército",
+    "tropas"
   ],
   "052C9": [
-    "diligente",
-    "alentar",
     "esfuerzo",
-    "ejercito",
-    "hacer esfuerzos"
+    "empeño",
+    "diligente"
   ],
   "065B9": [
-    "alternativa",
     "dirección",
-    "persona"
+    "manera",
+    "persona (cortés)"
   ],
   "059B9": [
     "hermana menor"
   ],
   "07121": [
-    "no",
-    "nil",
+    "nada",
     "ninguno",
-    "nada"
+    "sin"
   ],
   "06728": [
     "árbol",
     "madera"
   ],
   "06CB9": [
-    "grasa",
-    "aceite"
+    "aceite",
+    "grasa"
   ],
   "09810": [
-    "custodia",
-    "depósito",
-    "confiar en",
-    "licencia con"
+    "depositar",
+    "confiar",
+    "dejar a cargo"
   ],
   "06B32": [
-    "codicia",
-    "antojo",
     "deseo",
-    "anhelo",
-    "pasión"
+    "codicia",
+    "querer"
   ],
   "07ACB": [
-    "erecto",
-    "ascenso",
-    "preparado",
-    "de pie"
+    "estar de pie",
+    "levantarse",
+    "establecer"
   ],
   "0529B": [
-    "oso",
-    "esfuerzo",
     "poder",
-    "tensión",
     "fuerza",
-    "fuerte"
+    "potencia"
   ],
   "06B74": [
-    "continuación",
-    "curriculum",
+    "historia",
+    "trayectoria",
     "paso del tiempo"
   ],
   "0548C": [
-    "Japón",
-    "Estilo japonés",
     "armonía",
     "paz",
-    "suavidad"
+    "estilo japonés"
   ]
 }

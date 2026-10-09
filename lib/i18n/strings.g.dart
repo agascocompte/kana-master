@@ -3,10 +3,10 @@
 /// Source: lib/i18n
 /// To regenerate, run: `dart run slang`
 ///
-/// Locales: 10
-/// Strings: 1580 (158 per locale)
+/// Locales: 11
+/// Strings: 1738 (158 per locale)
 ///
-/// Built on 2026-02-21 at 13:11 UTC
+/// Built on 2026-10-09 at 20:08 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint, unused_import
@@ -27,6 +27,7 @@ import 'strings_ja.g.dart' deferred as l_ja;
 import 'strings_ko.g.dart' deferred as l_ko;
 import 'strings_pt.g.dart' deferred as l_pt;
 import 'strings_ru.g.dart' deferred as l_ru;
+import 'strings_zh.g.dart' deferred as l_zh;
 part 'strings_en.g.dart';
 
 /// Supported locales.
@@ -45,7 +46,8 @@ enum AppLocale with BaseAppLocale<AppLocale, Translations> {
 	ja(languageCode: 'ja'),
 	ko(languageCode: 'ko'),
 	pt(languageCode: 'pt'),
-	ru(languageCode: 'ru');
+	ru(languageCode: 'ru'),
+	zh(languageCode: 'zh');
 
 	const AppLocale({
 		required this.languageCode,
@@ -133,6 +135,13 @@ enum AppLocale with BaseAppLocale<AppLocale, Translations> {
 					cardinalResolver: cardinalResolver,
 					ordinalResolver: ordinalResolver,
 				);
+			case AppLocale.zh:
+				await l_zh.loadLibrary();
+				return l_zh.TranslationsZh(
+					overrides: overrides,
+					cardinalResolver: cardinalResolver,
+					ordinalResolver: ordinalResolver,
+				);
 		}
 	}
 
@@ -199,6 +208,12 @@ enum AppLocale with BaseAppLocale<AppLocale, Translations> {
 				);
 			case AppLocale.ru:
 				return l_ru.TranslationsRu(
+					overrides: overrides,
+					cardinalResolver: cardinalResolver,
+					ordinalResolver: ordinalResolver,
+				);
+			case AppLocale.zh:
+				return l_zh.TranslationsZh(
 					overrides: overrides,
 					cardinalResolver: cardinalResolver,
 					ordinalResolver: ordinalResolver,

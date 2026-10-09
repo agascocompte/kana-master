@@ -1,15 +1,11 @@
 {
   "0611B": [
-    "affection",
-    "favourite",
-    "love"
+    "love",
+    "affection"
   ],
   "059D4": [
-    "committee",
-    "devote",
-    "discard",
-    "entrust to",
-    "leave to"
+    "entrust",
+    "committee"
   ],
   "058F1": [
     "one (in documents)"
@@ -18,14 +14,13 @@
     "cloud"
   ],
   "05186": [
+    "yen",
     "circle",
-    "round",
-    "yen"
+    "round"
   ],
   "0738B": [
     "king",
-    "magnate",
-    "rule"
+    "ruler"
   ],
   "04F55": [
     "what"
@@ -34,521 +29,376 @@
     "fire"
   ],
   "04F1A": [
-    "association",
-    "interview",
-    "join",
     "meet",
     "meeting",
-    "party"
+    "association"
   ],
   "0968E": [
-    "counter for storeys of a building",
-    "stair",
-    "storey"
+    "floor",
+    "storey",
+    "stairs"
   ],
   "09769": [
-    "become serious",
     "leather",
-    "reform",
-    "skin"
+    "reform"
   ],
   "05B98": [
-    "bureaucrat",
-    "organ",
-    "the government"
+    "government official",
+    "bureaucrat"
   ],
   "09928": [
     "building",
-    "large building",
-    "mansion",
-    "palace"
+    "hall",
+    "mansion"
   ],
   "05E0C": [
-    "Greece",
-    "beg",
-    "beseech",
-    "dilute (acid)",
-    "few",
     "hope",
-    "phenomenal",
-    "pray",
     "rare",
     "request"
   ],
   "08A18": [
-    "account",
-    "narrative",
-    "scribe"
+    "record",
+    "write down",
+    "account"
   ],
   "04F11": [
-    "day off",
     "rest",
-    "retire",
-    "sleep"
+    "day off"
   ],
   "0725B": [
-    "cow"
+    "cow",
+    "cattle"
   ],
   "05171": [
-    "alike",
-    "all",
-    "and",
-    "both",
-    "neither",
     "together",
+    "both",
     "with"
   ],
   "066F2": [
     "bend",
-    "composition",
-    "crooked",
-    "curve",
-    "fault",
-    "injustice",
-    "lean",
     "melody",
-    "music",
-    "perverse",
-    "pleasure"
+    "music"
   ],
   "053E5": [
-    "clause",
-    "counter for haiku",
-    "paragraph",
-    "passage",
     "phrase",
-    "sentence"
+    "clause",
+    "verse"
   ],
   "04FC2": [
-    "concern oneself",
+    "person in charge",
     "connection",
-    "duty",
-    "person in charge"
+    "duty"
   ],
   "082B8": [
-    "acting",
     "art",
-    "craft",
     "performance",
-    "stunt",
-    "technique",
-    "trick"
+    "skill"
   ],
   "05238": [
     "ticket"
   ],
   "0967A": [
-    "impregnable position",
-    "inaccessible place",
-    "precipitous",
-    "sharp eyes",
-    "steep place"
+    "steep",
+    "dangerous",
+    "harsh"
   ],
   "053E4": [
     "old"
   ],
   "08A9E": [
     "language",
-    "speech",
-    "word"
+    "word",
+    "speech"
   ],
   "053E3": [
     "mouth"
   ],
   "06E2F": [
-    "harbor"
+    "harbor",
+    "port"
   ],
   "05408": [
-    "0.1",
     "fit",
     "join",
-    "suit"
+    "match"
   ],
   "067FB": [
-    "investigate"
+    "investigate",
+    "inspect"
   ],
   "083DC": [
+    "vegetable",
     "greens",
-    "side dish",
-    "vegetable"
+    "side dish"
   ],
   "05237": [
-    "brush",
     "print",
-    "printing"
+    "brush"
   ],
   "08695": [
     "silkworm"
   ],
   "059CB": [
     "begin",
-    "commence"
+    "start"
   ],
   "06B7B": [
     "death",
     "die"
   ],
   "08CC7": [
-    "assets",
-    "be conducive to",
+    "resources",
     "capital",
-    "contribute to",
-    "data",
-    "funds",
-    "resources"
+    "funds"
   ],
   "06CBB": [
-    "be at peace",
-    "calm down",
-    "conserve",
+    "govern",
     "cure",
-    "govt",
-    "heal",
-    "quell",
-    "reign",
-    "rule",
-    "subdue"
+    "heal"
   ],
   "08CEA": [
-    "matter",
     "quality",
-    "substance",
-    "temperament"
+    "matter",
+    "nature"
   ],
   "05F31": [
-    "frail",
-    "weak"
+    "weak",
+    "frail"
   ],
   "09700": [
     "demand",
-    "need",
-    "request"
+    "need"
   ],
   "07FD2": [
     "learn"
   ],
   "051FA": [
-    "come out",
-    "exit",
     "go out",
-    "leave",
-    "protrude",
-    "put out"
+    "exit",
+    "leave"
   ],
   "06691": [
     "hot",
-    "sultry",
     "summer heat"
   ],
   "05C0F": [
-    "little",
-    "small"
+    "small",
+    "little"
   ],
   "07AE0": [
-    "badge",
     "chapter",
-    "composition",
-    "design",
-    "poem"
+    "badge"
   ],
   "072B6": [
-    "appearance",
-    "circumstances",
-    "conditions",
+    "condition",
     "form",
-    "status quo"
+    "letter"
   ],
   "06DF1": [
-    "deep",
-    "heighten",
-    "intensify",
-    "strengthen"
+    "deep"
   ],
   "056F3": [
-    "audacious",
-    "drawing",
-    "extraordinary",
     "map",
+    "drawing",
     "plan"
   ],
   "0653F": [
-    "government",
-    "politics"
+    "politics",
+    "government"
   ],
   "088FD": [
-    "made in...",
-    "manufacture"
+    "manufacture",
+    "made in"
   ],
   "08CAC": [
     "blame",
-    "censure",
-    "condemn"
+    "responsibility"
   ],
   "0820C": [
-    "clapper",
-    "reed",
     "tongue"
   ],
   "09078": [
     "choose",
-    "elect",
-    "prefer",
-    "select"
+    "select",
+    "elect"
   ],
   "05009": [
-    "cellar",
-    "godown",
-    "storehouse",
-    "treasury",
-    "warehouse"
+    "warehouse",
+    "storehouse"
   ],
   "05897": [
-    "add",
-    "augment",
-    "gain",
     "increase",
-    "promote"
+    "add"
   ],
   "05C5E": [
-    "affiliated",
     "belong",
-    "genus",
-    "subordinate official"
+    "genus"
   ],
   "0591A": [
-    "frequent",
     "many",
     "much"
   ],
   "0968A": [
-    "company",
-    "party",
-    "regiment",
-    "squad"
+    "squad",
+    "troop",
+    "party"
   ],
   "077ED": [
-    "brevity",
-    "defect",
-    "fault",
     "short",
-    "weak point"
+    "defect"
   ],
   "07AF9": [
     "bamboo"
   ],
   "08CAF": [
-    "keep",
-    "lay in",
-    "savings",
-    "store",
-    "wear mustache"
+    "save",
+    "store"
   ],
   "076F4": [
+    "straight",
     "fix",
-    "frankness",
-    "honesty",
-    "repair",
-    "straightaway"
+    "honest"
   ],
   "063D0": [
-    "carry in hand",
     "propose",
-    "take along"
+    "carry in hand"
   ],
   "08EE2": [
-    "change",
-    "revolve",
-    "turn around"
+    "turn",
+    "roll",
+    "change"
   ],
   "0571F": [
-    "Turkey",
     "earth",
-    "ground",
-    "soil"
+    "soil",
+    "ground"
   ],
   "07B49": [
-    "and so forth",
-    "class (first)",
     "equal",
-    "etc.",
-    "quality",
-    "similar"
+    "class",
+    "etc."
   ],
   "07AE5": [
-    "child",
-    "juvenile"
+    "child"
   ],
   "05185": [
-    "among",
-    "between",
-    "home",
-    "house",
     "inside",
     "within"
   ],
   "071B1": [
-    "fever",
     "heat",
-    "mania",
-    "passion",
-    "temperature"
+    "fever",
+    "passion"
   ],
   "099AC": [
     "horse"
   ],
   "07551": [
-    "(kokuji)",
-    "farm",
     "field",
-    "garden",
-    "one's specialty"
+    "farm"
   ],
   "0756A": [
-    "number in a series",
-    "turn"
+    "number",
+    "turn",
+    "guard"
   ],
   "07F8E": [
-    "beautiful",
-    "beauty"
+    "beauty",
+    "beautiful"
   ],
   "08A55": [
-    "comment",
+    "evaluate",
     "criticism",
-    "evaluate"
+    "comment"
   ],
   "05E03": [
     "cloth",
-    "distribute",
-    "linen",
     "spread"
   ],
   "0798F": [
-    "blessing",
     "fortune",
     "luck",
-    "wealth"
+    "blessing"
   ],
   "05F01": [
-    "braid",
-    "conical cap",
-    "dialect",
-    "discrimination",
-    "dispose of",
-    "distinguish",
-    "petal",
     "speech",
+    "dialect",
     "valve"
   ],
   "06CD5": [
     "law",
     "method",
-    "model",
-    "principle",
-    "rule",
-    "system"
+    "rule"
   ],
   "06BCE": [
-    "every"
+    "every",
+    "each"
   ],
   "0540D": [
-    "distinguished",
     "name",
-    "noted",
-    "reputation"
+    "reputation",
+    "famous"
   ],
   "076EE": [
-    "care",
-    "class",
-    "experience",
     "eye",
-    "favor",
-    "insight",
     "look"
   ],
   "08F38": [
-    "be inferior",
-    "send",
-    "transport"
+    "transport",
+    "send"
   ],
   "05BB9": [
     "contain",
     "form",
-    "looks"
+    "appearance"
   ],
   "06D74": [
-    "bask in",
     "bathe",
-    "be favored with"
+    "bask in"
   ],
   "07565": [
     "abbreviation",
-    "capture",
-    "omission",
-    "outline",
-    "plunder",
-    "shorten"
+    "omit",
+    "outline"
   ],
   "07E01": [
-    "affinity",
-    "border",
-    "brink",
-    "connection",
-    "edge",
     "relation",
-    "verge"
+    "edge",
+    "fate"
   ],
   "05217": [
-    "column",
-    "file",
-    "rank",
     "row",
-    "tier"
+    "line",
+    "column"
   ],
   "08A71": [
-    "tale",
-    "talk"
+    "talk",
+    "story",
+    "speak"
   ],
   "060AA": [
     "bad",
     "evil",
-    "false",
-    "rascal",
-    "vice",
     "wrong"
   ],
   "0610F": [
-    "care",
-    "desire",
-    "heart",
-    "idea",
-    "liking",
     "mind",
-    "taste",
-    "thought"
+    "idea",
+    "meaning"
   ],
   "05370": [
-    "India",
-    "emblem",
-    "evidence",
-    "imprint",
-    "mark",
     "seal",
-    "souvenir",
     "stamp",
-    "symbol",
-    "trademark"
+    "mark"
   ],
   "055B6": [
-    "build",
-    "camp",
-    "conduct (business)",
-    "perform"
+    "manage",
+    "run (business)",
+    "camp"
   ],
   "05712": [
-    "farm",
     "garden",
-    "park",
-    "yard"
+    "park"
   ],
   "09EC4": [
     "yellow"
@@ -561,123 +411,92 @@
     "flower"
   ],
   "089E3": [
-    "absolve",
-    "answer",
-    "cancel",
-    "explain",
-    "explanation",
-    "key",
-    "minute",
-    "notes",
     "solve",
-    "understanding",
-    "undo",
-    "unravel",
+    "explain",
     "untie"
   ],
   "08C9D": [
-    "shellfish"
+    "shellfish",
+    "shell"
   ],
   "05B66": [
+    "study",
     "learning",
-    "science",
-    "study"
+    "science"
   ],
   "05E79": [
-    "capability",
+    "trunk",
     "main part",
-    "talent",
-    "tree trunk"
+    "talent"
   ],
   "05CB8": [
+    "shore",
+    "bank",
     "beach"
   ],
   "065D7": [
-    "banner",
-    "national flag",
-    "standard"
+    "flag",
+    "banner"
   ],
   "08CB4": [
-    "esteem",
-    "honor",
     "precious",
-    "prize",
-    "value"
+    "noble",
+    "valuable"
   ],
   "05BAE": [
-    "Shinto shrine",
-    "constellations",
     "palace",
-    "princess"
+    "shrine",
+    "prince"
   ],
   "053BB": [
-    "divorce",
-    "elapse",
-    "eliminate",
-    "gone",
     "leave",
     "past",
-    "quit"
+    "go away"
   ],
   "05354": [
-    "co-",
-    "cooperation"
+    "cooperation",
+    "co-"
   ],
   "06975": [
-    "10**48",
-    "conclusion",
-    "electric poles",
-    "end",
-    "extremely",
-    "highest rank",
-    "highly",
-    "most",
-    "poles",
-    "settlement",
+    "extreme",
+    "pole",
     "very"
   ],
   "0533A": [
+    "ward",
     "district",
-    "ward"
+    "section"
   ],
   "05144": [
-    "big brother",
     "elder brother"
   ],
   "06B20": [
-    "fail",
-    "gap",
     "lack",
-    "yawning radical (no. 76)"
+    "gap",
+    "absent"
   ],
   "05EFA": [
-    "build"
+    "build",
+    "construct"
   ],
   "09A13": [
-    "effect",
-    "testing",
-    "verification"
+    "test",
+    "verify",
+    "effect"
   ],
   "056FA": [
-    "clot",
-    "curdle",
-    "harden",
-    "set"
+    "hard",
+    "solid",
+    "firm"
   ],
   "08AA4": [
-    "do wrong",
-    "err",
-    "mislead",
-    "mistake"
+    "mistake",
+    "error"
   ],
   "05411": [
-    "approach",
-    "beyond",
-    "confront",
-    "defy",
-    "facing",
-    "tend toward",
-    "yonder"
+    "face",
+    "direction",
+    "toward"
   ],
   "07687": [
     "emperor"
@@ -685,134 +504,100 @@
   "0544A": [
     "announce",
     "inform",
-    "revelation",
     "tell"
   ],
   "0518D": [
     "again",
-    "second time",
     "twice"
   ],
   "0969B": [
-    "adventurous",
-    "dangerous",
-    "edge",
-    "indecent",
     "occasion",
-    "side",
-    "time",
-    "verge",
+    "edge",
     "when"
   ],
   "05BDF": [
     "guess",
-    "judge",
-    "presume",
-    "surmise",
+    "perceive",
     "understand"
   ],
   "08CDB": [
-    "agree with",
-    "approve",
-    "assist",
     "praise",
-    "title or inscription on picture"
+    "approve",
+    "agree"
   ],
   "059C9": [
     "elder sister"
   ],
   "06C0F": [
+    "surname",
     "clan",
-    "family name",
-    "surname"
+    "Mr."
   ],
   "06B6F": [
-    "cog",
     "tooth"
   ],
   "0793A": [
-    "display",
-    "express",
-    "indicate",
-    "point out",
-    "show"
+    "show",
+    "indicate"
   ],
   "05B9F": [
-    "fruit",
-    "nut",
+    "truth",
     "reality",
-    "seed",
-    "truth"
+    "fruit"
   ],
   "04E3B": [
-    "chief",
-    "lord",
-    "main thing",
     "master",
-    "principal"
+    "main",
+    "lord"
   ],
   "053CE": [
-    "income",
     "obtain",
-    "pay",
-    "reap",
-    "store",
-    "supply"
+    "income",
+    "collect"
   ],
   "08846": [
-    "great numbers",
     "masses",
-    "multitude",
-    "populace"
+    "crowd",
+    "people"
   ],
   "08853": [
     "art",
-    "magic",
-    "means",
-    "resources",
-    "skill",
     "technique",
-    "trick"
+    "means"
   ],
   "066F8": [
-    "write"
+    "write",
+    "book",
+    "document"
   ],
   "05C11": [
     "few",
     "little"
   ],
   "08A3C": [
-    "certificate",
+    "proof",
     "evidence",
-    "proof"
+    "certificate"
   ],
   "0690D": [
     "plant"
   ],
   "07533": [
-    "3-5PM",
-    "have the honor to",
-    "ninth sign of Chinese zodiac",
-    "sign of the monkey"
+    "say (humble)",
+    "report",
+    "state"
   ],
   "063A8": [
-    "conjecture",
-    "guess",
+    "push",
     "infer",
-    "push (for)",
-    "support",
-    "suppose"
+    "recommend"
   ],
   "06574": [
-    "arranging",
-    "key (music)",
-    "meter",
+    "arrange",
     "organize",
-    "tone",
-    "tune"
+    "tidy"
   ],
   "0897F": [
-    "Spain",
     "west"
   ],
   "08D64": [
@@ -820,515 +605,404 @@
   ],
   "05148": [
     "ahead",
-    "before",
-    "future",
-    "precedence",
-    "previous"
+    "previous",
+    "tip"
   ],
   "092AD": [
-    ".01 yen",
     "coin",
-    "money"
+    "money",
+    "sen (1/100 yen)"
   ],
   "060F3": [
-    "concept",
-    "idea",
     "think",
-    "thought"
+    "idea",
+    "concept"
   ],
   "08535": [
-    "have",
-    "hide",
-    "own",
+    "storehouse",
     "possess",
-    "storehouse"
+    "hide"
   ],
   "065CF": [
     "family",
-    "tribe"
+    "tribe",
+    "clan"
   ],
   "0592A": [
-    "big around",
-    "plump",
-    "thick"
+    "thick",
+    "fat",
+    "big"
   ],
   "04EE3": [
-    "age",
-    "change",
-    "charge",
-    "convert",
-    "counter for decades of ages, eras, etc.",
-    "fee",
     "generation",
-    "period",
-    "rate",
-    "replace",
-    "substitute"
+    "substitute",
+    "fee"
   ],
   "056E3": [
-    "association",
-    "group"
+    "group",
+    "association"
   ],
   "08336": [
     "tea"
   ],
   "04E01": [
-    "4th calendar sign",
-    "counter for guns, tools, leaves or cakes of something",
-    "even number",
     "street",
-    "town",
-    "ward"
+    "block",
+    "counter for tools"
   ],
   "08CC3": [
-    "charge",
-    "fare",
-    "fee",
-    "hire",
+    "wages",
     "rent",
-    "wages"
+    "fee"
   ],
   "07A0B": [
-    "amount",
-    "degree",
-    "distance",
     "extent",
-    "formula",
-    "law",
-    "limits"
+    "degree",
+    "distance"
   ],
   "070B9": [
-    "decimal point",
-    "mark",
     "point",
-    "speck",
-    "spot"
+    "dot",
+    "mark"
   ],
   "0515A": [
-    "clique",
-    "faction",
-    "party"
+    "party (political)",
+    "faction"
   ],
   "07B54": [
     "answer",
     "solution"
   ],
   "09053": [
-    "course",
-    "district",
-    "journey",
-    "moral",
-    "road-way",
-    "street",
-    "teachings"
+    "road",
+    "way",
+    "path"
   ],
   "05357": [
     "south"
   ],
   "05E74": [
-    "counter for years",
-    "year"
+    "year",
+    "age"
   ],
   "062DD": [
-    "adore",
-    "pray to",
-    "worship"
+    "worship",
+    "pray",
+    "adore"
   ],
   "0516B": [
-    "eight",
-    "eight radical (no. 12)"
+    "eight"
   ],
   "05426": [
-    "decline",
-    "deny",
-    "negate",
     "no",
-    "noes",
+    "deny",
     "refuse"
   ],
   "09F3B": [
-    "nose",
-    "snout"
+    "nose"
   ],
   "075C5": [
-    "ill",
+    "illness",
     "sick"
   ],
   "05E9C": [
-    "borough",
-    "govt office",
-    "representative body",
-    "storehouse",
-    "urban prefecture"
+    "urban prefecture",
+    "government office"
   ],
   "08907": [
-    "compound",
-    "double",
     "duplicate",
-    "multiple"
+    "double",
+    "compound"
   ],
   "0965B": [
-    "highness",
+    "Highness",
     "steps (of throne)"
   ],
   "04FDD": [
-    "guarantee",
-    "keep",
-    "preserve",
     "protect",
-    "support",
-    "sustain"
+    "keep",
+    "preserve"
   ],
   "08C4A": [
-    "bountiful",
-    "excellent",
-    "rich"
+    "abundant",
+    "rich",
+    "plentiful"
   ],
   "0672B": [
-    "close",
     "end",
-    "posterity",
-    "powder",
-    "tip"
+    "tip",
+    "close"
   ],
   "0547D": [
-    "appoint",
+    "life",
     "command",
-    "decree",
-    "destiny",
-    "fate",
-    "life"
+    "fate"
   ],
   "0554F": [
+    "question",
     "ask",
-    "problem",
-    "question"
+    "problem"
   ],
   "052C7": [
-    "be in high spirits",
-    "bravery",
-    "cheer up",
     "courage",
-    "heroism"
+    "bravery"
   ],
   "066DC": [
     "weekday"
   ],
   "06765": [
-    "become",
-    "cause",
     "come",
-    "due",
     "next"
   ],
   "06D41": [
-    "a sink",
-    "current",
     "flow",
-    "forfeit"
+    "current",
+    "stream"
   ],
   "06797": [
-    "forest",
-    "grove"
+    "grove",
+    "woods"
   ],
   "07DF4": [
-    "drill",
-    "gloss",
-    "polish",
     "practice",
-    "refine",
-    "train"
+    "train",
+    "refine"
   ],
   "05727": [
-    "dominate",
-    "oppress",
-    "overwhelm",
     "pressure",
-    "push"
+    "oppress"
   ],
   "06613": [
-    "divination",
     "easy",
-    "fortune-telling",
-    "ready to",
-    "simple"
+    "simple",
+    "divination"
   ],
   "054E1": [
-    "employee",
     "member",
-    "number",
-    "the one in charge"
+    "employee"
   ],
   "06804": [
-    "flourish",
-    "glory",
-    "honor",
     "prosperity",
-    "splendor"
+    "glory",
+    "flourish"
   ],
   "05EF6": [
+    "extend",
     "prolong",
-    "stretching"
+    "postpone"
   ],
   "05104": [
-    "10**8",
     "hundred million"
   ],
   "052A0": [
-    "Canada",
     "add",
-    "addition",
-    "include",
     "increase",
     "join"
   ],
   "08377": [
-    "baggage",
-    "bear (a burden)",
-    "cargo",
-    "freight",
     "load",
-    "shoulder (a gun)",
-    "shoulder-pole load"
+    "baggage",
+    "cargo"
   ],
   "056DE": [
-    "-times",
-    "counter for occurrences",
-    "game",
-    "revolve",
+    "times",
+    "turn",
     "round"
   ],
   "05916": [
-    "outside"
+    "outside",
+    "foreign"
   ],
   "0697D": [
+    "music",
     "comfort",
-    "ease",
-    "music"
+    "pleasure"
   ],
   "0611F": [
-    "emotion",
     "feeling",
+    "emotion",
     "sensation"
   ],
   "0773C": [
+    "eye",
     "eyeball"
   ],
   "0671F": [
-    "date",
     "period",
     "term",
     "time"
   ],
   "08D77": [
+    "wake up",
     "get up",
-    "rouse",
-    "wake up"
+    "rouse"
   ],
   "06025": [
-    "emergency",
     "hurry",
-    "steep",
-    "sudden"
+    "sudden",
+    "urgent"
   ],
   "05C45": [
-    "exist",
-    "live with",
     "reside",
-    "to be"
+    "be",
+    "exist"
   ],
   "05883": [
-    "border",
     "boundary",
+    "border",
     "region"
   ],
   "07389": [
     "ball",
-    "jewel"
+    "jewel",
+    "gem"
   ],
   "082E6": [
-    "feel bitter",
-    "hardship",
-    "scowl",
     "suffering",
-    "trial",
-    "worry"
+    "bitter",
+    "hardship"
   ],
   "0578B": [
+    "type",
     "model",
-    "mould",
-    "type"
+    "mold"
   ],
   "06C7A": [
-    "agree upon",
-    "appoint",
     "decide",
-    "fix"
+    "determine"
   ],
   "061B2": [
     "constitution",
     "law"
   ],
   "05143": [
+    "origin",
     "beginning",
-    "former time",
-    "origin"
+    "former"
   ],
   "05DF1": [
-    "self"
+    "self",
+    "oneself"
   ],
   "08B77": [
     "protect",
-    "safeguard"
+    "defend"
   ],
   "0540E": [
-    "after",
-    "back",
-    "behind",
     "empress",
-    "later",
     "queen"
   ],
   "08015": [
-    "cultivate",
     "plow",
+    "cultivate",
     "till"
   ],
   "056FD": [
-    "country"
+    "country",
+    "nation"
   ],
   "06700": [
-    "extreme",
     "most",
-    "utmost"
+    "utmost",
+    "extreme"
   ],
   "05728": [
     "exist",
-    "located in",
-    "outskirts",
-    "suburbs"
+    "be located",
+    "outskirts"
   ],
   "06BBA": [
-    "butcher",
-    "diminish",
     "kill",
-    "murder",
-    "reduce",
-    "slice off",
-    "split",
-    "spoil"
+    "murder"
   ],
   "09178": [
     "acid",
-    "bitterness",
-    "sour",
-    "tart"
+    "sour"
   ],
   "05B50": [
-    "11PM-1AM",
-    "child",
-    "first sign of Chinese zodiac",
-    "sign of the rat"
+    "child"
   ],
   "079C1": [
     "I",
-    "me",
     "private"
   ],
   "04E8B": [
-    "business",
-    "fact",
+    "thing",
     "matter",
-    "possibly",
-    "reason",
-    "thing"
+    "affair"
   ],
   "08033": [
     "ear"
   ],
   "0820E": [
-    "cottage",
     "house",
-    "hut",
-    "inn",
-    "mansion"
+    "quarters",
+    "inn"
   ],
   "053D6": [
-    "fetch",
     "take",
-    "take up"
+    "get",
+    "fetch"
   ],
   "05468": [
-    "circuit",
     "circumference",
-    "lap"
+    "lap",
+    "around"
   ],
   "09031": [
     "week"
   ],
   "08FF0": [
+    "state",
     "mention",
-    "relate",
-    "speak",
-    "state"
+    "relate"
   ],
   "08AF8": [
+    "various",
     "many",
-    "several",
-    "together",
-    "various"
+    "several"
   ],
   "0627F": [
-    "acquiesce",
-    "be informed",
-    "hear",
-    "listen to",
-    "receive"
+    "consent",
+    "receive",
+    "hear"
   ],
   "08C61": [
     "elephant",
     "image",
-    "imitate",
-    "pattern after",
-    "shape",
-    "sign (of the times)"
+    "phenomenon"
   ],
   "07E54": [
-    "fabric",
-    "weave"
+    "weave",
+    "fabric"
   ],
   "0771F": [
-    "Buddhist sect",
+    "true",
     "reality",
-    "true"
+    "genuine"
   ],
   "06C34": [
     "water"
   ],
   "0661F": [
-    "dot",
-    "mark",
-    "spot",
     "star"
   ],
   "08AA0": [
-    "admonish",
-    "fidelity",
-    "prohibit",
     "sincerity",
     "truth",
-    "warn"
+    "fidelity"
   ],
   "05207": [
-    "be sharp",
     "cut",
-    "cutoff"
+    "cut off",
+    "important"
   ],
   "05343": [
     "thousand"
   ],
   "0524D": [
     "before",
+    "front",
     "in front"
   ],
   "065E9": [
@@ -1336,10 +1010,9 @@
     "fast"
   ],
   "09020": [
-    "create",
     "make",
-    "physique",
-    "structure"
+    "create",
+    "build"
   ],
   "07D9A": [
     "continue",
@@ -1347,50 +1020,34 @@
     "series"
   ],
   "06253": [
-    "dozen",
     "hit",
-    "knock",
-    "pound",
-    "strike"
+    "strike",
+    "beat"
   ],
   "053F0": [
-    "a stand",
-    "counter for machines and vehicles",
-    "pedestal"
+    "stand",
+    "platform",
+    "counter for machines"
   ],
   "065AD": [
-    "apologize",
-    "cutting",
-    "decision",
-    "decline",
-    "dismiss",
-    "judgement",
-    "prohibit",
-    "refuse",
-    "severance",
-    "warn"
+    "cut off",
+    "decide",
+    "refuse"
   ],
   "07740": [
+    "wear",
     "arrive",
-    "counter for suits of clothing",
-    "don",
-    "wear"
+    "put on"
   ],
   "05E33": [
-    "account book",
-    "album",
-    "curtain",
-    "net",
     "notebook",
-    "tent",
-    "veil"
+    "register",
+    "curtain"
   ],
   "08FFD": [
     "chase",
-    "drive away",
-    "follow",
-    "meanwhile",
-    "pursue"
+    "pursue",
+    "follow"
   ],
   "06575": [
     "enemy",
@@ -1398,67 +1055,50 @@
     "opponent"
   ],
   "04F1D": [
-    "communicate",
-    "follow",
-    "go along",
-    "legend",
-    "report",
-    "tradition",
     "transmit",
-    "walk along"
+    "tradition",
+    "legend"
   ],
   "051AC": [
     "winter"
   ],
   "07D71": [
-    "governing",
-    "overall",
-    "relationship",
-    "ruling"
+    "unite",
+    "govern",
+    "overall"
   ],
   "09285": [
-    "copper"
+    "copper",
+    "bronze"
   ],
   "096E3": [
-    "accident",
-    "defect",
     "difficult",
-    "impossible",
-    "trouble"
+    "trouble",
+    "hardship"
   ],
   "05FF5": [
-    "attention",
-    "desire",
-    "feeling",
-    "idea",
-    "sense",
     "thought",
-    "wish"
+    "wish",
+    "sense"
   ],
   "06557": [
     "defeat",
-    "failure",
-    "reversal"
+    "failure"
   ],
   "0767A": [
-    "counter for gunshots",
     "departure",
-    "discharge",
-    "disclose",
     "emit",
-    "publish",
-    "start from"
+    "start"
   ],
   "060B2": [
-    "deplore",
-    "grieve",
-    "regret",
-    "sad"
+    "sad",
+    "sorrow",
+    "grieve"
   ],
   "05FC5": [
     "certain",
     "inevitable",
-    "invariably"
+    "necessarily"
   ],
   "079D2": [
     "second (1/60 minute)"
@@ -1467,1025 +1107,782 @@
     "father"
   ],
   "04ECF": [
-    "Buddha",
-    "France",
-    "the dead"
+    "Buddha"
   ],
   "07C73": [
-    "USA",
-    "metre",
-    "rice"
+    "rice",
+    "America",
+    "meter"
   ],
   "06B69": [
-    "counter for steps",
-    "walk"
+    "walk",
+    "step"
   ],
   "066B4": [
-    "cruelty",
-    "force",
-    "fret",
-    "outburst",
-    "outrage",
-    "rave",
-    "violence"
+    "violence",
+    "rampage",
+    "expose"
   ],
   "04E07": [
-    "10,000",
     "ten thousand"
   ],
   "0660E": [
     "bright",
-    "light"
+    "light",
+    "clear"
   ],
   "09580": [
-    "counter for cannons",
     "gate"
   ],
   "053CB": [
     "friend"
   ],
   "069D8": [
-    "Esq.",
+    "Mr./Ms. (honorific)",
     "manner",
-    "polite suffix",
-    "situation",
     "way"
   ],
   "0843D": [
-    "come down",
-    "drop",
     "fall",
-    "hamlet",
-    "village"
+    "drop"
   ],
   "07559": [
+    "stay",
     "detain",
-    "fasten",
-    "halt",
-    "stop"
+    "fasten"
   ],
   "081E8": [
-    "attend",
-    "call on",
-    "confront",
     "face",
-    "look to",
-    "meet"
+    "attend",
+    "confront"
   ],
   "09023": [
-    "clique",
     "connect",
-    "gang",
-    "join",
-    "lead",
-    "party",
+    "link",
     "take along"
   ],
   "05B89": [
     "cheap",
-    "contented",
-    "low",
     "peaceful",
-    "quiet",
-    "relax",
-    "rested"
+    "safe"
   ],
   "07570": [
-    "curious",
     "different",
-    "queerness",
-    "strangeness",
-    "uncommon",
     "unusual",
-    "wonderful"
+    "strange"
   ],
   "056E0": [
-    "be associated with",
-    "be limited to",
     "cause",
-    "depend on",
     "factor"
   ],
   "06C38": [
     "eternity",
-    "lengthy",
     "long"
   ],
   "06F14": [
+    "perform",
     "act",
-    "performance",
-    "play",
-    "render",
-    "stage"
+    "play"
   ],
   "05C4B": [
-    "dealer",
+    "shop",
     "house",
-    "roof",
-    "seller",
-    "shop"
+    "roof"
   ],
   "053EF": [
-    "can",
-    "do not",
-    "mustn't",
-    "passable",
-    "should not"
+    "possible",
+    "approve",
+    "can"
   ],
   "08AB2": [
-    "chapter",
-    "counter for chapters (of a book)",
-    "department",
-    "division",
     "lesson",
-    "section"
+    "section",
+    "department"
   ],
   "05FEB": [
-    "agreeable",
-    "cheerful",
+    "pleasant",
     "comfortable",
-    "pleasant"
+    "cheerful"
   ],
   "05BB3": [
     "harm",
+    "damage",
     "injury"
   ],
   "0984D": [
-    "amount",
     "forehead",
-    "framed picture",
-    "plaque",
-    "sum",
-    "tablet",
-    "volume"
+    "amount",
+    "framed picture"
   ],
   "06163": [
-    "accustomed",
-    "become experienced",
-    "get used to"
+    "get used to",
+    "accustomed"
   ],
   "05CA9": [
+    "rock",
     "boulder",
-    "cliff",
-    "rock"
+    "cliff"
   ],
   "06A5F": [
-    "airplane",
-    "efficacy",
-    "loom",
     "machine",
-    "mechanism",
-    "occasion",
     "opportunity",
-    "potency"
+    "airplane"
   ],
   "06280": [
-    "ability",
-    "art",
-    "arts",
-    "craft",
-    "feat",
-    "performance",
     "skill",
-    "vocation"
+    "technique",
+    "art"
   ],
   "06551": [
-    "help",
-    "reclaim",
     "rescue",
-    "salvation",
-    "save"
+    "save",
+    "help"
   ],
   "06319": [
-    "actions",
+    "raise",
     "behavior",
-    "plan",
-    "project",
-    "raise"
+    "plan"
   ],
   "05F37": [
     "strong"
   ],
   "052E4": [
-    "become employed",
-    "diligence",
-    "serve"
+    "work",
+    "serve",
+    "diligent"
   ],
   "05177": [
-    "counter for armor, suits, sets of furniture",
-    "ingredients",
-    "means",
-    "possess",
     "tool",
-    "utensil"
+    "utensil",
+    "ingredient"
   ],
   "05F62": [
-    "form",
     "shape",
+    "form",
     "style"
   ],
   "06F54": [
-    "clean",
-    "gallant",
     "pure",
-    "righteous",
-    "undefiled"
+    "clean",
+    "righteous"
   ],
   "0691C": [
-    "examination",
+    "examine",
+    "inspect",
     "investigate"
   ],
   "0539F": [
-    "field",
-    "meadow",
     "original",
-    "plain",
-    "prairie",
-    "primitive",
-    "tundra",
-    "wilderness"
+    "field",
+    "plain"
   ],
   "05EAB": [
-    "storehouse",
-    "warehouse"
+    "warehouse",
+    "storehouse"
   ],
   "04EA4": [
-    "association",
-    "coming & going",
-    "mingle",
-    "mixing"
+    "exchange",
+    "mix",
+    "associate"
   ],
   "05B5D": [
-    "child's respect",
     "filial piety"
   ],
   "08003": [
-    "consider",
-    "think over"
+    "think",
+    "consider"
   ],
   "07A40": [
-    "cereals",
-    "grain"
+    "grain",
+    "cereal"
   ],
   "059BB": [
-    "spouse",
     "wife"
   ],
   "06750": [
-    "ingredients",
-    "log",
-    "lumber",
-    "materials",
-    "talent",
+    "material",
     "timber",
-    "wood"
+    "talent"
   ],
   "096D1": [
-    "miscellaneous"
+    "miscellaneous",
+    "rough"
   ],
   "06B8B": [
-    "balance",
+    "remain",
     "leftover",
-    "remainder"
+    "cruel"
   ],
   "05E02": [
     "city",
-    "market",
-    "town"
+    "market"
   ],
   "07CF8": [
     "thread"
   ],
   "04F3C": [
-    "becoming",
-    "counterfeit",
-    "imitate",
     "resemble",
-    "suitable"
+    "similar"
   ],
   "081EA": [
+    "self",
     "oneself"
   ],
   "05199": [
-    "be photographed",
     "copy",
+    "photograph",
     "describe"
   ],
   "05B88": [
-    "defend",
+    "protect",
     "guard",
-    "obey",
-    "protect"
+    "obey"
   ],
   "05B97": [
-    "denomination",
-    "essence",
-    "main point",
-    "origin",
     "religion",
     "sect"
   ],
   "096C6": [
-    "congregate",
-    "flock",
     "gather",
-    "meet",
-    "swarm"
+    "collect"
   ],
   "06625": [
-    "spring (season)",
-    "springtime"
+    "spring (season)"
   ],
   "052A9": [
-    "assist",
     "help",
+    "assist",
     "rescue"
   ],
   "062DB": [
-    "beckon",
-    "engage",
     "invite",
-    "summon"
+    "beckon"
   ],
   "08CDE": [
-    "praise",
     "prize",
-    "reward"
+    "award",
+    "praise"
   ],
   "08077": [
+    "job",
     "employment",
-    "post",
-    "work"
+    "post"
   ],
   "0795E": [
-    "gods",
-    "mind",
-    "soul"
+    "god",
+    "spirit",
+    "mind"
   ],
   "06570": [
-    "fate",
-    "figures",
-    "law",
     "number",
-    "strength"
+    "count"
   ],
   "06674": [
-    "clear up"
+    "clear up",
+    "sunny"
   ],
   "09752": [
     "blue",
-    "green"
+    "green",
+    "young"
   ],
   "063A5": [
-    "adjoin",
     "contact",
-    "piece together",
-    "touch"
+    "touch",
+    "connect"
   ],
   "05BA3": [
-    "announce",
     "proclaim",
-    "say"
+    "announce",
+    "declare"
   ],
   "05584": [
     "good",
-    "goodness",
-    "virtuous"
+    "virtue",
+    "goodness"
   ],
   "04E89": [
-    "argue",
-    "contend",
-    "dispute"
+    "dispute",
+    "compete",
+    "fight"
   ],
   "05074": [
-    "lean",
-    "oppose",
-    "regret",
     "side"
   ],
   "05352": [
-    "die",
     "graduate",
-    "private",
     "soldier"
   ],
   "04F53": [
     "body",
-    "counter for images",
-    "object",
-    "reality",
     "substance"
   ],
   "05927": [
     "big",
-    "large"
+    "large",
+    "great"
   ],
   "07537": [
+    "man",
     "male"
   ],
   "04E2D": [
-    "center",
-    "in",
+    "middle",
     "inside",
-    "mean",
-    "middle"
+    "center"
   ],
   "05F35": [
-    "counter for bows & stringed instruments",
-    "put up (tent)",
+    "stretch",
     "spread",
-    "stretch"
+    "put up"
   ],
   "0901A": [
-    "avenue",
-    "commute",
-    "counter for letters, notes, documents, etc.",
     "pass through",
+    "commute",
     "traffic"
   ],
   "07684": [
-    "adjective ending",
-    "bull's eye",
+    "target",
     "mark",
-    "object",
-    "target"
+    "-like (suffix)"
   ],
   "07530": [
     "rice field",
-    "rice paddy"
+    "paddy"
   ],
   "05200": [
+    "sword",
     "knife",
-    "saber",
-    "sword"
+    "blade"
   ],
   "08A0E": [
     "attack",
-    "chastise",
-    "conquer",
-    "defeat",
-    "destroy"
+    "subjugate",
+    "discuss"
   ],
   "05F97": [
-    "able to",
-    "acquire",
-    "advantage",
-    "benefit",
-    "can",
-    "earn",
-    "find",
     "gain",
-    "get",
-    "may",
+    "obtain",
     "profit"
   ],
   "04E8C": [
-    "two",
-    "two radical (no. 7)"
+    "two"
   ],
   "071C3": [
-    "blaze",
     "burn",
-    "glow"
+    "blaze"
   ],
   "0914D": [
     "distribute",
-    "exile",
-    "rationing",
-    "spouse"
+    "deliver",
+    "arrange"
   ],
   "05224": [
-    "judgement",
-    "judgment",
+    "judge",
     "seal",
-    "signature",
     "stamp"
   ],
   "06BD4": [
-    "Philippines",
     "compare",
-    "race",
     "ratio"
   ],
   "07B46": [
-    "handwriting",
-    "painting brush",
+    "brush",
     "writing",
-    "writing brush"
+    "handwriting"
   ],
   "054C1": [
-    "article",
-    "counter for meal courses",
-    "dignity",
     "goods",
-    "refinement"
+    "article",
+    "quality"
   ],
   "08CA0": [
-    "-",
-    "assume a responsibility",
+    "lose",
     "bear",
-    "defeat",
-    "minus",
-    "negative",
     "owe"
   ],
   "07269": [
-    "matter",
+    "thing",
     "object",
-    "thing"
+    "matter"
   ],
   "05225": [
-    "another",
-    "branch off",
-    "diverge",
-    "extra",
-    "fork",
     "separate",
-    "specially"
+    "different",
+    "another"
   ],
   "088DC": [
-    "assistant",
-    "compensate",
-    "learner",
-    "make good",
-    "offset",
     "supplement",
-    "supply"
+    "compensate",
+    "assistant"
   ],
   "0671B": [
-    "ambition",
-    "aspire to",
-    "desire",
-    "expect",
-    "full moon",
-    "hope"
+    "hope",
+    "wish",
+    "desire"
   ],
   "06E80": [
-    "enough",
     "full",
-    "fullness",
-    "satisfy"
+    "satisfy",
+    "enough"
   ],
   "076DF": [
     "alliance",
     "oath"
   ],
   "0591C": [
-    "evening",
-    "night"
+    "night",
+    "evening"
   ],
   "06709": [
-    "approx",
-    "exist",
-    "happen",
     "have",
-    "occur",
+    "exist",
     "possess"
   ],
   "06D0B": [
-    "Western style",
-    "foreign",
     "ocean",
-    "sea"
+    "Western",
+    "foreign"
   ],
   "05229": [
-    "advantage",
+    "profit",
     "benefit",
-    "profit"
+    "advantage"
   ],
   "065C5": [
     "travel",
-    "trip"
+    "trip",
+    "journey"
   ],
   "08F2A": [
-    "circle",
-    "counter for wheels and flowers",
-    "link",
-    "loop",
+    "wheel",
     "ring",
-    "wheel"
+    "circle"
   ],
   "08DEF": [
-    "distance",
-    "path",
     "road",
+    "path",
     "route"
   ],
   "06697": [
-    "be blinded",
-    "darkness",
-    "disappear",
-    "grow dark",
-    "informal",
-    "shade"
+    "dark",
+    "darkness"
   ],
   "079FB": [
-    "catch (cold, fire)",
-    "change",
-    "drift",
     "move",
-    "pass into",
-    "shift"
+    "shift",
+    "transfer"
   ],
   "05F15": [
-    "admit",
-    "install",
-    "jerk",
     "pull",
-    "quote",
-    "refer to",
-    "tug"
+    "draw",
+    "quote"
   ],
   "06CF3": [
     "swim"
   ],
   "09060": [
-    "distant",
-    "far"
+    "far",
+    "distant"
   ],
   "06069": [
-    "benefit",
-    "blessing",
-    "favor",
-    "goodness",
-    "grace",
     "kindness",
-    "mercy"
+    "favor",
+    "gratitude"
   ],
   "0590F": [
     "summer"
   ],
   "08CA8": [
-    "freight",
     "goods",
-    "property"
+    "freight",
+    "money"
   ],
   "06539": [
+    "reform",
     "change",
-    "examine",
-    "inspect",
-    "mend",
-    "modify",
-    "reformation",
-    "renew",
-    "search"
+    "revise"
   ],
   "05404": [
     "each",
-    "either",
     "every"
   ],
   "06D3B": [
-    "being helped",
+    "life",
     "lively",
-    "living",
-    "resuscitation"
+    "active"
   ],
   "06B53": [
-    "delight",
-    "joy"
+    "joy",
+    "delight"
   ],
   "09854": [
-    "expression",
-    "face"
+    "face",
+    "expression"
   ],
   "05E30": [
-    "arrive at",
-    "homecoming",
-    "lead to",
-    "result in"
+    "return",
+    "go home"
   ],
   "07591": [
-    "be suspicious",
-    "distrust",
     "doubt",
-    "question"
+    "suspect"
   ],
   "06C42": [
-    "demand",
     "request",
-    "require",
-    "want",
-    "wish for"
+    "seek",
+    "demand"
   ],
   "08A31": [
-    "approve",
-    "permit"
+    "permit",
+    "allow",
+    "forgive"
   ],
   "06559": [
-    "doctrine",
-    "faith",
-    "teach"
+    "teach",
+    "doctrine"
   ],
   "05747": [
+    "level",
     "average",
-    "level"
+    "equal"
   ],
   "07A7A": [
-    "empty",
     "sky",
-    "vacant",
-    "vacuum",
-    "void"
+    "empty",
+    "air"
   ],
   "0656C": [
-    "awe",
-    "honor",
     "respect",
+    "honor",
     "revere"
   ],
   "07D50": [
+    "tie",
     "bind",
-    "contract",
-    "do up hair",
-    "fasten",
-    "join",
-    "organize",
-    "tie"
+    "conclude"
   ],
   "06A29": [
+    "right",
     "authority",
-    "power",
-    "rights"
+    "power"
   ],
   "053B3": [
-    "rigidity",
-    "severity",
-    "stern",
-    "strictness"
+    "strict",
+    "severe",
+    "solemn"
   ],
   "06238": [
-    "counter for houses",
-    "door",
-    "door radical (no. 63)"
+    "door"
   ],
   "05019": [
-    "climate",
-    "expect",
+    "weather",
     "season",
-    "wait for",
-    "weather"
+    "climate"
   ],
   "05DE5": [
-    "construction",
     "craft",
-    "katakana e radical (no. 48)"
+    "construction",
+    "industry"
   ],
   "0822A": [
-    "cruise",
-    "fly",
     "navigate",
-    "sail"
+    "sail",
+    "fly"
   ],
   "09ED2": [
     "black"
   ],
   "0624D": [
-    "cubic shaku",
+    "talent",
     "genius",
     "years old"
   ],
   "07F6A": [
-    "blame",
     "crime",
-    "fault",
-    "guilt",
-    "offense",
-    "sin"
+    "sin",
+    "guilt"
   ],
   "04E09": [
     "three"
   ],
   "04ED5": [
-    "attend",
-    "doing",
-    "official",
-    "serve"
+    "serve",
+    "work"
   ],
   "05E2B": [
-    "army (incl. counter)",
-    "exemplar",
-    "expert",
-    "master",
-    "model",
     "teacher",
-    "war"
+    "master",
+    "expert"
   ],
   "07D19": [
     "paper"
   ],
   "05150": [
     "child",
-    "newborn babe",
-    "young of animals"
+    "infant"
   ],
   "08F9E": [
-    "expression",
+    "word",
     "resign",
-    "term",
-    "word"
+    "dictionary"
   ],
   "0793E": [
-    "association",
     "company",
-    "firm",
-    "office",
+    "society",
     "shrine"
   ],
   "0624B": [
     "hand"
   ],
   "05C31": [
-    "concerning",
-    "depart",
-    "per",
-    "settle",
-    "study",
-    "take position"
+    "take up (a post)",
+    "settle in",
+    "concerning"
   ],
   "04F4F": [
-    "dwell",
-    "inhabit",
     "live",
-    "reside"
+    "reside",
+    "dwell"
   ],
   "06E96": [
-    "conform",
-    "correspond to",
-    "imitate",
-    "proportionate to",
-    "semi-"
+    "semi-",
+    "standard",
+    "conform"
   ],
   "05973": [
-    "female",
-    "woman"
+    "woman",
+    "female"
   ],
   "0662D": [
     "bright",
     "shining"
   ],
   "04E0A": [
+    "up",
     "above",
-    "up"
+    "top"
   ],
   "08272": [
     "color"
   ],
   "081E3": [
     "retainer",
-    "subject"
+    "subject",
+    "minister"
   ],
   "04E16": [
+    "world",
     "generation",
-    "public",
-    "society",
-    "world"
+    "society"
   ],
   "06B63": [
-    "10**40",
     "correct",
-    "justice",
-    "righteous"
+    "right",
+    "justice"
   ],
   "09759": [
-    "quiet"
+    "quiet",
+    "calm"
   ],
   "06298": [
-    "bend",
-    "break",
     "fold",
-    "fracture",
-    "submit",
-    "yield"
+    "break",
+    "bend"
   ],
   "05C02": [
     "exclusive",
-    "mainly",
-    "solely",
-    "specialty"
+    "specialty",
+    "mainly"
   ],
   "07136": [
-    "if so",
-    "in that case",
     "so",
-    "sort of thing",
-    "well"
+    "in that way",
+    "natural"
   ],
   "076F8": [
-    "aspect",
-    "councillor",
-    "each other",
-    "inter-",
-    "minister of state",
     "mutual",
-    "phase",
-    "physiognomy",
-    "together"
+    "together",
+    "minister"
   ],
   "05247": [
-    "based on",
-    "follow",
+    "rule",
     "law",
-    "model after",
-    "rule"
+    "follow"
   ],
   "05B58": [
-    "be aware of",
-    "believe",
     "exist",
-    "feel",
+    "know",
     "suppose"
   ],
   "05BFE": [
-    "anti-",
-    "compare",
-    "equal",
-    "even",
     "opposite",
     "versus",
-    "vis-a-vis"
+    "pair"
   ],
   "07B2C": [
-    "No.",
-    "residence"
+    "ordinal prefix (No.)"
   ],
   "08AC7": [
+    "talk",
     "discuss",
-    "talk"
+    "conversation"
   ],
   "05FE0": [
-    "faithfulness",
+    "loyalty",
     "fidelity",
-    "loyalty"
+    "faithfulness"
   ],
   "0671D": [
-    "(North) Korea",
-    "dynasty",
-    "epoch",
     "morning",
-    "period",
-    "regime"
+    "dynasty"
   ],
   "04F4E": [
-    "humble",
-    "lower",
-    "short"
+    "low",
+    "short",
+    "humble"
   ],
   "09069": [
-    "capable",
-    "occasional",
-    "qualified",
-    "rare",
-    "suitable"
+    "suitable",
+    "fit",
+    "appropriate"
   ],
   "096FB": [
-    "electricity"
+    "electricity",
+    "lightning"
   ],
   "05CF6": [
     "island"
   ],
   "0982D": [
-    "counter for large animals",
-    "head"
+    "head",
+    "counter for large animals"
   ],
   "05FB3": [
-    "benevolence",
-    "commanding respect",
-    "goodness",
-    "virtue"
+    "virtue",
+    "benevolence"
   ],
   "05F10": [
-    "II",
-    "second",
-    "two"
+    "two (in documents)"
   ],
   "07D0D": [
-    "obtain",
     "pay",
-    "reap",
-    "settlement",
-    "store",
-    "supply"
+    "supply",
+    "store"
   ],
   "0500D": [
     "double",
-    "fold",
     "times",
-    "twice"
+    "-fold"
   ],
   "0534A": [
     "half",
-    "middle",
-    "odd number",
-    "part-",
-    "semi-"
+    "middle"
   ],
   "076AE": [
-    "hide",
-    "leather",
-    "pelt",
     "skin",
-    "skin radical (no. 107)"
+    "leather",
+    "hide"
   ],
   "0767E": [
     "hundred"
@@ -2495,24 +1892,13 @@
     "poverty"
   ],
   "06B66": [
-    "arms",
-    "chivalry",
     "military",
-    "warrior"
+    "warrior",
+    "martial"
   ],
   "05206": [
-    "1%",
-    "chances",
-    "degree",
-    "duty",
-    "know",
-    "minute of time",
-    "one's lot",
     "part",
-    "rate",
-    "segment",
-    "shaku/100",
-    "share",
+    "minute",
     "understand"
   ],
   "05909": [
@@ -2525,95 +1911,67 @@
     "tomb"
   ],
   "08CBF": [
-    "exchange",
-    "trade"
+    "trade",
+    "exchange"
   ],
   "05473": [
-    "flavor",
-    "taste"
+    "taste",
+    "flavor"
   ],
   "08FF7": [
+    "lost",
     "astray",
-    "be perplexed",
-    "err",
-    "illusion",
-    "in doubt",
-    "lost"
+    "confused"
   ],
   "091CE": [
-    "civilian life",
     "field",
     "plains",
-    "rustic"
+    "wild"
   ],
   "07531": [
-    "a reason",
-    "wherefore"
+    "reason",
+    "cause",
+    "from"
   ],
   "07528": [
-    "business",
-    "employ",
-    "service",
     "use",
-    "utilize"
+    "business",
+    "errand"
   ],
   "07406": [
-    "arrangement",
-    "justice",
-    "logic",
     "reason",
-    "truth"
+    "logic",
+    "principle"
   ],
   "04E21": [
     "both",
-    "counter for carriages (e.g., in a train)",
-    "old Japanese coin",
     "two"
   ],
   "0985E": [
-    "class",
-    "genus",
     "kind",
-    "sort",
-    "variety"
+    "type",
+    "sort"
   ],
   "052B4": [
     "labor",
-    "reward for",
-    "thank for",
     "toil",
-    "trouble"
+    "effort"
   ],
   "06848": [
-    "bench",
-    "draft",
-    "expectation",
-    "fear",
-    "idea",
     "plan",
-    "ponder",
-    "proposition",
-    "suggestion",
-    "table",
-    "worry"
+    "idea",
+    "proposal"
   ],
   "080C3": [
-    "craw",
-    "crop",
-    "paunch",
     "stomach"
   ],
   "098F2": [
-    "drink",
-    "smoke",
-    "take"
+    "drink"
   ],
   "082F1": [
     "England",
     "English",
-    "calyx",
-    "hero",
-    "outstanding"
+    "hero"
   ],
   "05869": [
     "salt"
@@ -2622,85 +1980,69 @@
     "warm"
   ],
   "05BB6": [
-    "expert",
-    "family",
-    "home",
     "house",
-    "performer",
-    "professional"
+    "home",
+    "family"
   ],
   "0904E": [
-    "error",
+    "pass",
     "exceed",
-    "go beyond",
-    "overdo"
+    "error"
   ],
   "068B0": [
-    "contraption",
-    "fetter",
-    "instrument",
-    "machine"
+    "machine",
+    "instrument"
   ],
   "062E1": [
-    "broaden",
-    "enlarge",
     "expand",
+    "enlarge",
     "extend"
   ],
   "0682A": [
-    "counter for small plants",
-    "shares",
     "stock",
-    "stocks",
+    "share",
     "stump"
   ],
   "06F22": [
     "China",
-    "Sino-"
+    "Chinese",
+    "man"
   ],
   "09858": [
-    "hope",
-    "petition",
+    "wish",
     "request",
-    "vow",
-    "wish"
+    "pray"
   ],
   "06C17": [
-    "air",
-    "atmosphere",
+    "spirit",
     "mind",
-    "mood",
-    "spirit"
+    "air"
   ],
   "07FA9": [
-    "honor",
+    "righteousness",
     "justice",
-    "loyalty",
-    "meaning",
-    "morality",
-    "righteousness"
+    "meaning"
   ],
   "07403": [
     "ball",
     "sphere"
   ],
   "06F01": [
-    "fishery",
-    "fishing"
+    "fishing",
+    "fishery"
   ],
   "06A4B": [
     "bridge"
   ],
   "07981": [
-    "ban",
+    "prohibit",
     "forbid",
-    "prohibition"
+    "ban"
   ],
   "0541B": [
-    "male name suffix",
-    "mister",
+    "you",
     "ruler",
-    "you"
+    "Mr. (junior)"
   ],
   "0666F": [
     "scenery",
@@ -2713,350 +2055,252 @@
     "dog"
   ],
   "06E1B": [
-    "curtail",
-    "decline",
     "decrease",
-    "dwindle",
-    "get hungry",
     "reduce"
   ],
   "06545": [
-    "cause",
-    "circumstances",
-    "consequently",
-    "especially",
-    "happenstance",
-    "intentionally",
     "reason",
     "the late",
-    "therefore"
+    "incident"
   ],
   "05149": [
     "light",
-    "ray"
+    "ray",
+    "shine"
   ],
   "05E78": [
-    "blessing",
+    "happiness",
     "fortune",
-    "happiness"
+    "luck"
   ],
   "0884C": [
-    "act",
-    "bank",
+    "go",
     "carry out",
-    "conduct",
-    "going",
-    "journey",
-    "line",
-    "row"
+    "line"
   ],
   "04ECA": [
-    "now"
+    "now",
+    "present"
   ],
   "063A1": [
-    "fetch",
     "pick",
-    "take",
-    "take up"
+    "gather",
+    "adopt"
   ],
   "08CA1": [
-    "assets",
-    "money",
+    "wealth",
     "property",
-    "wealth"
+    "money"
   ],
   "053C2": [
-    "be defeated",
-    "be madly in love",
-    "coming",
-    "die",
-    "going",
-    "nonplussed",
     "participate",
-    "take part in",
-    "three (in documents)",
     "visit",
-    "visiting"
+    "three (in documents)"
   ],
   "04F7F": [
-    "ambassador",
-    "cause",
-    "envoy",
+    "use",
     "messenger",
-    "order",
-    "send on a mission",
-    "use"
+    "envoy"
   ],
   "05FD7": [
-    "aspire",
-    "hopes",
+    "will",
     "intention",
-    "motive",
-    "plan",
-    "resolve",
-    "shilling"
+    "aspire"
   ],
   "081F3": [
-    "arrive",
-    "attain",
-    "climax",
-    "proceed",
     "reach",
-    "result in"
+    "arrive",
+    "utmost"
   ],
   "05B57": [
     "character",
     "letter",
-    "section of village",
     "word"
   ],
   "05F0F": [
     "ceremony",
-    "expression",
-    "form",
-    "function",
-    "method",
-    "rite",
     "style",
-    "system"
+    "formula"
   ],
   "08005": [
     "person",
     "someone"
   ],
   "07A2E": [
-    "class",
-    "kind",
     "seed",
-    "species",
-    "variety"
+    "kind",
+    "species"
   ],
   "05DDE": [
-    "province",
-    "state"
+    "state",
+    "province"
   ],
   "05341": [
     "ten"
   ],
   "07D14": [
+    "pure",
     "genuine",
-    "innocence",
-    "net (profit)",
-    "purity"
+    "innocent"
   ],
   "05E8F": [
-    "beginning",
-    "chance",
-    "incidentally",
-    "occasion",
     "order",
-    "precedence",
-    "preface"
+    "preface",
+    "beginning"
   ],
   "06D88": [
-    "blow out",
-    "cancel",
     "extinguish",
-    "neutralize",
-    "turn off"
+    "erase",
+    "disappear"
   ],
   "04E57": [
+    "ride",
     "board",
-    "counter for vehicles",
-    "join",
-    "mount",
-    "multiplication",
-    "power",
-    "record",
-    "ride"
+    "get on"
   ],
   "098DF": [
     "eat",
-    "food"
+    "food",
+    "meal"
   ],
   "089AA": [
-    "dealer (cards)",
-    "familiarity",
-    "intimacy",
     "parent",
+    "intimate",
     "relative"
   ],
   "0662F": [
-    "just so",
-    "justice",
     "right",
+    "just so",
     "this"
   ],
   "06E05": [
-    "Manchu dynasty",
-    "cleanse",
-    "exorcise",
     "pure",
-    "purify"
+    "clean",
+    "clear"
   ],
   "07A0E": [
-    "duty",
-    "tax"
+    "tax",
+    "duty"
   ],
   "08A2D": [
-    "establishment",
-    "prepare",
-    "provision"
+    "establish",
+    "set up",
+    "provide"
   ],
   "05DDD": [
     "river",
-    "river or three-stroke river radical (no. 47)",
     "stream"
   ],
   "05168": [
     "all",
-    "complete",
-    "entire",
-    "fulfill",
-    "whole"
+    "whole",
+    "complete"
   ],
   "07DCF": [
-    "all",
-    "full",
-    "general",
     "total",
-    "whole"
+    "general",
+    "all"
   ],
   "0606F": [
     "breath",
-    "coming to an end",
-    "interest (on money)",
-    "nuture",
-    "respiration",
-    "rest",
+    "breathe",
     "son"
   ],
   "05B6B": [
-    "descendants",
     "grandchild"
   ],
   "05E2F": [
     "belt",
-    "obi",
-    "region",
     "sash",
     "zone"
   ],
   "0984C": [
+    "topic",
     "subject",
-    "topic"
+    "title"
   ],
   "077E5": [
     "know",
     "wisdom"
   ],
   "0663C": [
-    "daytime",
-    "noon"
+    "noon",
+    "daytime"
   ],
   "0753A": [
-    "block",
-    "street",
     "town",
-    "village"
+    "block",
+    "street"
   ],
   "0505C": [
-    "halt",
-    "stopping"
+    "stop",
+    "halt"
   ],
   "09244": [
     "iron"
   ],
   "05F92": [
-    "emptiness",
-    "ephemeral thing",
-    "futility",
-    "gang",
-    "junior",
     "on foot",
-    "party",
-    "people",
-    "set",
-    "uselessness",
-    "vanity"
+    "disciple",
+    "futile"
   ],
   "06295": [
-    "abandon",
-    "discard",
-    "give up",
-    "hurl",
-    "invest in",
-    "join",
-    "launch into",
-    "sell at a loss",
-    "throw"
+    "throw",
+    "cast",
+    "invest"
   ],
   "050CD": [
-    "(kokuji)",
-    "work"
+    "work",
+    "labor"
   ],
   "07279": [
-    "special"
+    "special",
+    "particular"
   ],
   "08089": [
-    "meat"
+    "meat",
+    "flesh"
   ],
   "080FD": [
     "ability",
-    "capacity",
-    "skill",
-    "talent"
+    "talent",
+    "Noh"
   ],
   "08CB7": [
     "buy"
   ],
   "053CD": [
-    "anti-"
+    "anti-",
+    "oppose",
+    "reverse"
   ],
   "080A5": [
-    "fertile",
     "fertilizer",
-    "get fat",
-    "manure",
-    "pamper"
+    "fat",
+    "fertile"
   ],
   "04FF5": [
-    "bag",
-    "bale",
-    "counter for bags",
-    "sack"
+    "straw bag",
+    "bale"
   ],
   "04E0D": [
-    "bad",
-    "clumsy",
-    "negative",
-    "non-",
-    "ugly"
+    "not",
+    "un-",
+    "non-"
   ],
   "090E8": [
-    "bureau",
-    "class",
-    "copy",
-    "counter for copies of a newspaper or magazine",
-    "dept",
     "part",
-    "portion",
-    "section"
+    "section",
+    "department"
   ],
   "0596E": [
-    "be invigorated",
-    "flourish",
-    "stirred up"
+    "stirred up",
+    "invigorated"
   ],
   "07DE8": [
-    "braid",
-    "compilation",
-    "completed poem",
-    "editing",
-    "knit",
-    "part of a book",
-    "plait",
-    "twist"
+    "edit",
+    "compile",
+    "knit"
   ],
   "06BCD": [
     "mother"
@@ -3064,90 +2308,63 @@
   "09632": [
     "defend",
     "protect",
-    "resist",
-    "ward off"
+    "prevent"
   ],
   "0672A": [
-    "1-3PM",
-    "eighth sign of Chinese zodiac",
-    "even now",
-    "hitherto",
     "not yet",
-    "sign of the ram",
-    "still",
     "un-"
   ],
   "09CF4": [
-    "bark",
     "chirp",
     "cry",
-    "echo",
-    "honk",
-    "ring",
-    "sound"
+    "ring"
   ],
   "05F79": [
-    "campaign",
-    "drafted labor",
-    "duty",
-    "office",
     "role",
-    "service",
-    "war"
+    "duty",
+    "service"
   ],
   "0904A": [
-    "play"
+    "play",
+    "amusement"
   ],
   "08449": [
-    "blade",
-    "counter for flat things",
-    "fragment",
-    "leaf",
-    "lobe",
-    "needle",
-    "piece",
-    "plane",
-    "spear"
+    "leaf"
   ],
   "091CC": [
-    "league",
-    "parent's home",
-    "ri",
-    "village"
+    "village",
+    "hometown",
+    "ri (unit)"
   ],
   "06599": [
     "fee",
-    "materials"
+    "materials",
+    "charge"
   ],
   "04EE4": [
+    "order",
     "command",
-    "decree",
-    "good",
-    "laws",
-    "orders"
+    "decree"
   ],
   "08001": [
-    "grow old",
+    "old",
     "old age",
-    "old man"
+    "elderly"
   ],
   "04EE5": [
-    "because",
     "by means of",
-    "compared with",
-    "in view of"
+    "since",
+    "compared with"
   ],
   "0907A": [
-    "bequeath",
     "leave behind",
-    "reserve"
+    "bequeath",
+    "remains"
   ],
   "09662": [
-    "Inst.",
     "institution",
-    "mansion",
-    "school",
-    "temple"
+    "temple",
+    "hospital"
   ],
   "0885B": [
     "defense",
@@ -3158,359 +2375,292 @@
     "middle"
   ],
   "097F3": [
-    "noise",
-    "sound"
+    "sound",
+    "noise"
   ],
   "079D1": [
-    "course",
     "department",
+    "course",
     "section"
   ],
   "06211": [
     "I",
-    "ego",
-    "oneself",
-    "our",
-    "selfish"
+    "self",
+    "ego"
   ],
   "06D77": [
-    "ocean",
-    "sea"
+    "sea",
+    "ocean"
   ],
   "0683C": [
-    "capacity",
-    "case (law, grammar)",
-    "character",
+    "status",
     "rank",
-    "status"
+    "case"
   ],
   "05BD2": [
     "cold"
   ],
   "07BA1": [
-    "control",
-    "drunken talk",
-    "jurisdiction",
     "pipe",
     "tube",
-    "wind instrument"
+    "control"
   ],
   "0559C": [
     "rejoice",
-    "take pleasure in"
+    "joy",
+    "pleasure"
   ],
   "06C7D": [
     "steam",
     "vapor"
   ],
   "08B70": [
-    "consideration",
-    "consultation",
-    "debate",
-    "deliberation"
+    "deliberation",
+    "discussion",
+    "debate"
   ],
   "07A76": [
     "research",
-    "study"
+    "study",
+    "investigate"
   ],
   "09B5A": [
     "fish"
   ],
   "08208": [
-    "entertain",
     "interest",
-    "pleasure",
-    "retrieve",
-    "revive"
+    "revive",
+    "entertain"
   ],
   "08FD1": [
-    "akin",
-    "early",
     "near",
-    "tantamount"
+    "close"
   ],
   "08A13": [
-    "Japanese character reading",
-    "explanation",
+    "kun reading",
     "instruction",
-    "read"
+    "lesson"
   ],
   "07CFB": [
-    "lineage",
-    "system"
+    "system",
+    "lineage"
   ],
   "06708": [
-    "month",
-    "moon"
+    "moon",
+    "month"
   ],
   "07814": [
     "polish",
     "sharpen",
-    "study of"
+    "study"
   ],
   "073FE": [
+    "present",
     "actual",
-    "existing",
-    "present"
+    "appear"
   ],
   "06E56": [
     "lake"
   ],
   "0516C": [
-    "governmental",
+    "public",
     "official",
-    "prince",
-    "public"
+    "prince"
   ],
   "05E83": [
+    "wide",
     "broad",
-    "spacious",
-    "wide"
+    "spacious"
   ],
   "08B1B": [
-    "association",
+    "lecture",
     "club",
-    "lecture"
+    "association"
   ],
   "06839": [
-    "head (pimple)",
-    "radical",
-    "root"
+    "root",
+    "base"
   ],
   "06E08": [
-    "come to an end",
-    "excusable",
     "finish",
-    "need not",
-    "relieve (burden)",
-    "settle (debt, etc.)"
+    "settle",
+    "relieve"
   ],
   "05742": [
-    "hill",
-    "incline",
-    "slope"
+    "slope",
+    "hill"
   ],
   "05C71": [
     "mountain"
   ],
   "053F8": [
     "administer",
-    "director",
-    "govt office",
     "official",
-    "rule"
+    "director"
   ],
   "0601D": [
     "think"
   ],
   "08996": [
-    "inspection",
     "look at",
-    "regard as",
-    "see"
+    "view",
+    "regard"
   ],
   "05BFA": [
     "Buddhist temple"
   ],
   "08B58": [
-    "discriminating",
     "know",
-    "write"
+    "discern",
+    "consciousness"
   ],
   "08B1D": [
+    "thank",
     "apologize",
-    "refuse",
-    "thank"
+    "refuse"
   ],
   "09152": [
     "alcohol",
-    "sake"
+    "sake",
+    "liquor"
   ],
   "04FEE": [
-    "conduct oneself well",
+    "study",
     "discipline",
-    "master",
-    "study"
+    "repair"
   ],
   "05F93": [
-    "accompany",
-    "comply",
     "follow",
-    "incidental",
     "obey",
-    "secondary",
-    "submit to",
-    "subordinate"
+    "accompany"
   ],
   "09806": [
-    "docility",
-    "obey",
-    "occasion",
     "order",
-    "right",
-    "turn"
+    "turn",
+    "obey"
   ],
   "09664": [
-    "abolish",
-    "cancel",
-    "division (x/3)",
-    "except",
+    "remove",
     "exclude",
-    "remove"
+    "except"
   ],
   "0713C": [
+    "burn",
     "bake",
-    "burning"
+    "grill"
   ],
   "05834": [
-    "location",
-    "place"
+    "place",
+    "location"
   ],
   "04FE1": [
-    "faith",
-    "fidelity",
     "trust",
-    "truth"
+    "faith",
+    "believe"
   ],
   "08EAB": [
-    "one's station in life",
-    "person",
-    "somebody"
+    "body",
+    "oneself",
+    "person"
   ],
   "05236": [
-    "law",
-    "rule",
-    "system"
+    "system",
+    "control",
+    "rule"
   ],
   "0751F": [
+    "life",
     "birth",
-    "genuine",
-    "life"
+    "raw"
   ],
   "05E2D": [
-    "mat",
-    "occasion",
-    "place",
-    "seat"
+    "seat",
+    "place"
   ],
   "07BC0": [
-    "clause",
-    "honor",
-    "joint",
-    "knob",
-    "knot",
-    "knuckle",
-    "melody",
-    "node",
-    "occasion",
-    "period",
     "season",
-    "stanza",
-    "tune",
-    "verse"
+    "node",
+    "section"
   ],
   "06226": [
+    "war",
     "battle",
-    "match",
-    "war"
+    "fight"
   ],
   "07956": [
     "ancestor",
-    "founder",
-    "pioneer"
+    "founder"
   ],
   "08349": [
-    "draft",
     "grass",
-    "herbs",
-    "pasture",
-    "weeds",
-    "write"
+    "weed",
+    "draft"
   ],
   "06E2C": [
-    "fathom",
     "measure",
-    "plan",
-    "scheme"
+    "fathom",
+    "estimate"
   ],
   "05C0A": [
-    "exalted",
-    "noble",
-    "precious",
     "revered",
-    "valuable"
+    "precious",
+    "noble"
   ],
   "05F85": [
-    "depend on",
     "wait"
   ],
   "09054": [
-    "accomplished",
-    "arrive",
+    "reach",
     "attain",
-    "reach"
+    "plural suffix"
   ],
   "05730": [
+    "ground",
     "earth",
-    "ground"
+    "land"
   ],
   "067F1": [
-    "cylinder",
     "pillar",
     "post",
-    "support"
+    "column"
   ],
   "08178": [
-    "bowels",
-    "guts",
     "intestines",
-    "viscera"
+    "bowels"
   ],
   "05B9A": [
     "decide",
-    "determine",
-    "establish",
-    "fix"
+    "fix",
+    "establish"
   ],
   "05178": [
-    "ceremony",
     "code",
-    "law",
-    "rule"
+    "ceremony",
+    "classic"
   ],
   "0767B": [
-    "ascend",
-    "climb up"
+    "climb",
+    "ascend"
   ],
   "06771": [
     "east"
   ],
   "052D5": [
-    "change",
-    "confusion",
-    "motion",
     "move",
-    "shake",
-    "shift"
+    "motion"
   ],
   "06BD2": [
-    "germ",
-    "harm",
-    "injury",
     "poison",
-    "spite",
-    "venom",
-    "virus"
+    "toxic"
   ],
   "065E5": [
-    "Japan",
-    "counter for days",
     "day",
-    "sun"
+    "sun",
+    "Japan"
   ],
   "08FB2": [
     "agriculture",
-    "farmers"
+    "farming"
   ],
   "058F2": [
     "sell"
@@ -3518,63 +2668,46 @@
   "0677F": [
     "board",
     "plank",
-    "plate",
-    "stage"
+    "plate"
   ],
   "08CBB": [
-    "consume",
-    "cost",
     "expense",
-    "spend",
-    "waste"
+    "cost",
+    "spend"
   ],
   "06A19": [
-    "emblem",
-    "evidence",
-    "imprint",
     "mark",
-    "seal",
-    "signpost",
-    "souvenir",
-    "stamp",
-    "symbol",
-    "target",
-    "trademark"
+    "sign",
+    "target"
   ],
   "04ED8": [
-    "adhere",
-    "append",
     "attach",
-    "refer to"
+    "stick",
+    "give"
   ],
   "098A8": [
-    "air",
-    "manner",
+    "wind",
     "style",
-    "wind"
+    "manner"
   ],
   "07C89": [
-    "dust",
     "flour",
     "powder"
   ],
   "08FBA": [
-    "border",
-    "boundary",
-    "environs",
-    "vicinity"
+    "vicinity",
+    "area",
+    "side"
   ],
   "05305": [
-    "conceal",
-    "cover",
-    "pack up",
-    "wrap"
+    "wrap",
+    "pack",
+    "envelop"
   ],
   "05317": [
     "north"
   ],
   "08108": [
-    "hope",
     "pulse",
     "vein"
   ],
@@ -3583,22 +2716,18 @@
   ],
   "07D04": [
     "approximately",
-    "promise",
-    "shrink"
+    "promise"
   ],
   "05915": [
     "evening"
   ],
   "08981": [
-    "essence",
-    "key to",
-    "main point",
     "need",
-    "pivot"
+    "main point",
+    "essential"
   ],
   "09678": [
-    "land",
-    "six"
+    "land"
   ],
   "0826F": [
     "good",
@@ -3606,21 +2735,17 @@
     "skilled"
   ],
   "04F8B": [
-    "custom",
     "example",
-    "precedent",
-    "usage"
+    "custom",
+    "precedent"
   ],
   "0516D": [
     "six"
   ],
   "04F4D": [
-    "about",
-    "crown",
-    "grade",
     "rank",
-    "some",
-    "throne"
+    "grade",
+    "about"
   ],
   "0533B": [
     "doctor",
@@ -3630,87 +2755,59 @@
     "right"
   ],
   "06DB2": [
-    "fluid",
-    "juice",
     "liquid",
-    "sap",
-    "secretion"
+    "fluid",
+    "juice"
   ],
   "05F80": [
-    "before",
-    "chase away",
-    "formerly",
-    "going",
+    "go",
     "journey",
-    "let go",
-    "travel"
+    "formerly"
   ],
   "04E0B": [
-    "below",
-    "descend",
     "down",
-    "give",
-    "inferior",
-    "low"
+    "below",
+    "lower"
   ],
   "0679C": [
-    "achieve",
-    "carry out",
-    "complete",
-    "end",
-    "finish",
     "fruit",
-    "reward",
-    "succeed"
+    "result",
+    "accomplish"
   ],
   "0753B": [
-    "brush-stroke",
-    "picture"
+    "picture",
+    "drawing",
+    "stroke"
   ],
   "0754C": [
-    "boundary",
-    "world"
+    "world",
+    "boundary"
   ],
   "078BA": [
-    "assurance",
-    "clear",
+    "certain",
     "confirm",
-    "evident",
-    "firm",
-    "hard",
-    "solid",
-    "tight"
+    "firm"
   ],
   "0520A": [
-    "carve",
-    "engrave",
-    "publish"
+    "publish",
+    "edition"
   ],
   "089B3": [
-    "appearance",
-    "condition",
-    "look",
-    "outlook",
-    "view"
+    "view",
+    "observe",
+    "outlook"
   ],
   "05668": [
-    "ability",
+    "vessel",
     "container",
-    "implement",
-    "instrument",
-    "receptacle",
-    "set",
-    "tool",
-    "utensil",
-    "vessel"
+    "tool"
   ],
   "05B63": [
-    "seasons"
+    "season"
   ],
   "05BA2": [
-    "client",
-    "customer",
     "guest",
+    "customer",
     "visitor"
   ],
   "07D1A": [
@@ -3719,346 +2816,264 @@
     "rank"
   ],
   "04EAC": [
-    "10**16",
     "capital"
   ],
   "093E1": [
-    "barrel-head",
-    "mirror",
-    "round rice-cake offering",
-    "speculum"
+    "mirror"
   ],
   "091D1": [
-    "gold"
+    "gold",
+    "money",
+    "metal"
   ],
   "07FA4": [
-    "cluster",
-    "crowd",
-    "flock",
     "group",
-    "herd",
-    "swarm"
+    "crowd",
+    "flock"
   ],
   "07D4C": [
-    "expire",
-    "longitude",
-    "pass thru",
-    "sutra",
-    "warp"
+    "pass through",
+    "manage",
+    "sutra"
   ],
   "04EF6": [
-    "affair",
+    "matter",
     "case",
-    "item",
-    "matter"
+    "item"
   ],
   "07D79": [
     "silk"
   ],
   "08A00": [
     "say",
-    "word"
+    "word",
+    "speech"
   ],
   "04E94": [
     "five"
   ],
   "0529F": [
     "achievement",
-    "credit",
-    "honor",
-    "merits",
+    "merit",
     "success"
   ],
   "05EB7": [
-    "ease",
-    "peace"
+    "health",
+    "peace",
+    "ease"
   ],
   "09271": [
     "mineral",
     "ore"
   ],
   "06DF7": [
+    "mix",
     "blend",
-    "confuse",
-    "mix"
+    "crowded"
   ],
   "0707D": [
-    "calamity",
-    "curse",
     "disaster",
-    "evil",
-    "woe"
+    "calamity"
   ],
   "04F5C": [
-    "build",
     "make",
-    "prepare",
-    "production"
+    "produce",
+    "work"
   ],
   "06563": [
-    "disperse",
     "scatter",
-    "spend",
-    "squander"
+    "disperse",
+    "spend"
   ],
   "053F2": [
-    "chronicle",
-    "history"
+    "history",
+    "chronicle"
   ],
   "06307": [
     "finger",
-    "indicate",
-    "measure (ruler)",
-    "play (chess)",
-    "point to",
-    "put into"
+    "point",
+    "indicate"
   ],
   "08A5E": [
+    "word",
     "part of speech",
-    "poetry",
-    "words"
+    "lyrics"
   ],
   "06301": [
+    "hold",
     "have",
-    "hold"
+    "carry"
   ],
   "04E03": [
     "seven"
   ],
   "08ECA": [
-    "car"
+    "car",
+    "vehicle",
+    "wheel"
   ],
   "09996": [
-    "counter for songs and poems",
-    "neck"
+    "neck",
+    "head",
+    "chief"
   ],
   "062FE": [
-    "find",
-    "gather",
-    "go on foot",
     "pick up",
-    "ten"
+    "gather",
+    "ten (in documents)"
   ],
   "091CD": [
-    "-fold",
-    "esteem",
-    "heap up",
     "heavy",
     "important",
-    "nest of boxes",
-    "pile up",
-    "respect"
+    "pile up"
   ],
   "051E6": [
-    "act",
-    "behave",
-    "condemn",
     "deal with",
-    "dispose",
-    "manage",
     "place",
-    "sentence"
+    "dispose"
   ],
   "052DD": [
-    "excel",
-    "prevail",
+    "win",
     "victory",
-    "win"
+    "excel"
   ],
   "07167": [
-    "bashful",
-    "compare",
+    "shine",
     "illuminate",
-    "shine"
+    "compare"
   ],
   "05E38": [
+    "usual",
     "always",
-    "common",
-    "continually",
-    "long-lasting",
-    "normal",
-    "ordinary",
-    "regular",
-    "usual"
+    "normal"
   ],
   "05FC3": [
     "heart",
-    "heart radical (no. 61)",
     "mind",
     "spirit"
   ],
   "09032": [
     "advance",
-    "proceed",
     "progress",
-    "promote"
+    "proceed"
   ],
   "052E2": [
-    "energy",
-    "forces",
-    "military strength"
+    "force",
+    "power",
+    "energy"
   ],
   "07CBE": [
-    "energy",
-    "excellence",
-    "fairy",
-    "ghost",
-    "purity",
+    "spirit",
     "refined",
-    "semen",
-    "skill",
-    "vitality"
+    "energy"
   ],
   "077F3": [
     "stone"
   ],
   "08AAC": [
-    "explanation",
-    "opinion",
-    "rumor",
-    "theory"
+    "theory",
+    "explain",
+    "opinion"
   ],
   "06D45": [
-    "frivolous",
     "shallow",
-    "shameful",
-    "superficial",
-    "wretched"
+    "superficial"
   ],
   "07D20": [
-    "elementary",
-    "naked",
-    "principle",
-    "uncovered"
+    "element",
+    "plain",
+    "naked"
   ],
   "08D70": [
     "run"
   ],
   "08DB3": [
-    "be sufficient",
-    "counter for pairs of footwear",
     "foot",
-    "leg"
+    "leg",
+    "sufficient"
   ],
   "0640D": [
+    "loss",
     "damage",
-    "disadvantage",
-    "hurt",
-    "injure",
-    "loss"
+    "harm"
   ],
   "0614B": [
-    "appearance",
-    "attitude",
     "condition",
-    "figure",
-    "voice (of verbs)"
+    "attitude",
+    "appearance"
   ],
   "08C37": [
     "valley"
   ],
   "06C60": [
-    "cistern",
     "pond",
-    "pool",
-    "reservoir"
+    "pool"
   ],
   "06CE8": [
-    "annotate",
-    "comment",
-    "concentrate on",
-    "flow into",
-    "irrigate",
-    "notes",
     "pour",
-    "shed (tears)"
+    "note",
+    "concentrate"
   ],
   "08ABF": [
-    "exorcise",
-    "harmonize",
     "investigate",
-    "key (music)",
-    "mediate",
-    "meter",
-    "prepare",
-    "tone",
     "tune",
-    "writing style"
+    "tone"
   ],
   "05E95": [
-    "base",
     "bottom",
-    "bottom price",
-    "depth",
-    "kind",
-    "sole",
-    "sort"
+    "base",
+    "depth"
   ],
   "05929": [
-    "heavens",
-    "imperial",
+    "heaven",
     "sky"
   ],
   "090FD": [
-    "all",
     "capital",
-    "everything",
-    "metropolis"
+    "metropolis",
+    "all"
   ],
   "06E6F": [
+    "hot water",
     "bath",
-    "hot spring",
-    "hot water"
+    "hot spring"
   ],
   "0540C": [
-    "agree",
+    "same",
     "equal",
-    "same"
+    "agree"
   ],
   "072EC": [
-    "Germany",
     "alone",
     "single",
-    "spontaneously"
+    "Germany"
   ],
   "05165": [
     "enter",
     "insert"
   ],
   "06CE2": [
-    "Poland",
-    "billows",
-    "waves"
+    "wave",
+    "billow"
   ],
   "0535A": [
-    "Dr.",
-    "Ph.D.",
-    "command",
-    "esteem",
+    "doctor (PhD)",
     "exposition",
-    "fair",
-    "win acclaim"
+    "extensive"
   ],
   "07248": [
     "edition",
-    "impression",
-    "label",
     "printing block",
-    "printing plate"
+    "version"
   ],
   "0975E": [
-    "injustice",
-    "mistake",
-    "negative",
     "non-",
-    "un-"
+    "un-",
+    "wrong"
   ],
   "06C37": [
-    "congeal",
-    "freeze",
-    "hail",
     "ice",
-    "icicle"
+    "freeze"
   ],
   "0592B": [
     "husband",
@@ -4066,486 +3081,381 @@
   ],
   "05FA9": [
     "restore",
-    "resume",
-    "return to",
-    "revert"
+    "return",
+    "repeat"
   ],
   "06587": [
-    "art",
-    "decoration",
-    "figures",
-    "literary radical (no. 67)",
-    "literature",
-    "plan",
     "sentence",
-    "style"
+    "writing",
+    "culture"
   ],
   "08FD4": [
-    "answer",
-    "fade",
-    "repay",
-    "return"
+    "return",
+    "reply",
+    "repay"
   ],
   "05831": [
-    "news",
     "report",
-    "retribution",
+    "news",
     "reward"
   ],
   "07267": [
-    "breed",
-    "care for",
-    "feed",
     "pasture",
-    "shepherd"
+    "shepherd",
+    "breed"
   ],
   "06C11": [
-    "nation",
     "people",
-    "subjects"
+    "nation",
+    "citizens"
   ],
   "09762": [
     "face",
-    "features",
-    "mask",
-    "surface"
+    "surface",
+    "mask"
   ],
   "085AC": [
-    "benefit",
-    "chemical",
-    "enamel",
-    "gunpowder",
-    "medicine"
+    "medicine",
+    "drug"
   ],
   "04E88": [
-    "I",
     "beforehand",
-    "myself",
+    "in advance",
     "previous"
   ],
   "0967D": [
-    "daytime",
-    "heaven",
-    "male",
-    "positive",
+    "sun",
     "sunshine",
-    "yang principle"
+    "yang"
   ],
   "05F8B": [
-    "control",
-    "gauge",
     "law",
-    "regulation",
+    "rule",
     "rhythm"
   ],
   "091CF": [
-    "amount",
-    "consider",
-    "estimate",
-    "measure",
     "quantity",
-    "surmise",
-    "weight"
+    "amount",
+    "measure"
   ],
   "051B7": [
-    "chill",
-    "cold (beer, person)",
-    "cool"
+    "cold",
+    "cool",
+    "chill"
   ],
   "09332": [
-    "record"
+    "record",
+    "write down"
   ],
   "04F9D": [
-    "consequently",
     "depend on",
-    "due to",
-    "reliant",
-    "therefore"
+    "rely on",
+    "due to"
   ],
   "080B2": [
-    "bring up",
-    "grow up",
     "raise",
-    "rear"
+    "bring up",
+    "grow"
   ],
   "096E8": [
     "rain"
   ],
   "076CA": [
-    "advantage",
     "benefit",
-    "gain",
-    "profit"
+    "profit",
+    "gain"
   ],
   "05FDC": [
-    "OK",
-    "accept",
+    "respond",
     "answer",
-    "apply",
-    "reply",
-    "yes"
+    "accept"
   ],
   "05316": [
-    "-ization",
     "change",
-    "delude",
-    "enchant",
-    "influence",
-    "take the form of"
+    "transform",
+    "-ization"
   ],
   "06B4C": [
-    "sing",
-    "song"
+    "song",
+    "sing"
   ],
   "082BD": [
     "bud",
-    "germ",
-    "spear",
     "sprout"
   ],
   "07D75": [
-    "drawing",
-    "painting",
     "picture",
-    "sketch"
+    "painting",
+    "drawing"
   ],
   "0899A": [
-    "awake",
-    "learn",
-    "memorize",
     "remember",
-    "sober up"
+    "memorize",
+    "wake up"
   ],
   "052E7": [
-    "advise",
+    "recommend",
     "encourage",
-    "offer",
-    "persuade",
-    "recommend"
+    "advise"
   ],
   "09593": [
     "interval",
-    "space"
+    "space",
+    "between"
   ],
   "057FA": [
-    "counter for machines",
     "foundation",
-    "fundamentals",
-    "radical (chem)"
+    "base",
+    "basis"
   ],
   "07D00": [
-    "account",
-    "annals",
     "chronicle",
-    "geologic period",
     "history",
-    "narrative"
+    "period"
   ],
   "09006": [
-    "inverted",
-    "opposite",
     "reverse",
-    "wicked"
+    "opposite",
+    "inverted"
   ],
   "07D66": [
-    "allow",
-    "bestow on",
-    "gift",
-    "grant",
     "salary",
-    "wage"
+    "wage",
+    "supply"
   ],
   "04F9B": [
-    "accompany",
     "offer",
-    "present",
-    "serve (meal)",
-    "submit"
+    "supply",
+    "companion"
   ],
   "0696D": [
-    "arts",
     "business",
-    "performance",
-    "vocation"
+    "industry",
+    "work"
   ],
   "09280": [
     "silver"
   ],
   "08ECD": [
     "army",
-    "battle",
-    "force",
-    "troops",
-    "war"
+    "military",
+    "troops"
   ],
   "08A08": [
     "measure",
     "plan",
-    "plot",
-    "scheme"
+    "total"
   ],
   "05065": [
-    "health",
     "healthy",
-    "persistence",
-    "strength"
+    "health",
+    "strong"
   ],
   "0770C": [
     "prefecture"
   ],
   "09650": [
     "limit",
-    "restrict",
-    "to best of ability"
+    "restrict"
   ],
   "05348": [
-    "11AM-1PM",
-    "noon",
-    "seventh sign of Chinese zodiac",
-    "sign of the horse"
+    "noon"
   ],
   "052B9": [
-    "benefit",
+    "effect",
     "efficacy",
-    "efficiency",
-    "merit"
+    "benefit"
   ],
   "06821": [
-    "correction",
-    "exam",
-    "printing",
-    "proof",
     "school"
   ],
   "09AD8": [
-    "expensive",
     "high",
-    "tall"
+    "tall",
+    "expensive"
   ],
   "05DE6": [
     "left"
   ],
   "0796D": [
-    "celebrate",
-    "deify",
-    "enshrine",
-    "offer prayers",
-    "ritual",
-    "worship"
+    "festival",
+    "worship",
+    "celebrate"
   ],
   "06628": [
-    "previous",
-    "yesterday"
+    "yesterday",
+    "previous"
   ],
   "07523": [
-    "bear",
-    "childbirth",
+    "produce",
     "give birth",
-    "native",
-    "products",
-    "property",
-    "yield"
+    "product"
   ],
   "056DB": [
     "four"
   ],
   "0652F": [
     "branch",
-    "branch radical (no. 65)",
     "support",
-    "sustain"
+    "pay"
   ],
   "08A69": [
     "poem",
     "poetry"
   ],
   "06642": [
-    "hour",
-    "time"
+    "time",
+    "hour"
   ],
   "05931": [
-    "disadvantage",
-    "error",
-    "fault",
     "lose",
-    "loss"
+    "loss",
+    "mistake"
   ],
   "0501F": [
     "borrow",
     "rent"
   ],
   "053D7": [
-    "accept",
-    "answer (phone)",
-    "catch",
-    "get",
     "receive",
-    "take",
+    "accept",
     "undergo"
   ],
   "079CB": [
-    "autumn"
+    "autumn",
+    "fall"
   ],
   "05BBF": [
-    "be pregnant",
-    "dwell",
-    "dwelling",
-    "home",
     "inn",
-    "lodge",
     "lodging",
-    "relay station"
+    "stay"
   ],
   "0521D": [
-    "beginning",
-    "first time"
+    "first",
+    "beginning"
   ],
   "05546": [
-    "dealing in",
-    "make a deal",
-    "merchant",
-    "selling"
+    "commerce",
+    "trade",
+    "merchant"
   ],
   "07701": [
-    "conserve",
-    "government ministry",
-    "omit"
+    "ministry",
+    "omit",
+    "reflect"
   ],
   "060C5": [
-    "circumstances",
     "emotion",
-    "facts",
     "feelings",
-    "passion",
-    "sympathy"
+    "circumstances"
   ],
   "065B0": [
     "new"
   ],
   "04EBA": [
-    "person"
+    "person",
+    "people"
   ],
   "06027": [
-    "gender",
     "nature",
-    "sex"
+    "sex",
+    "gender"
   ],
   "08056": [
     "holy",
-    "master",
-    "priest",
-    "sage",
-    "saint"
+    "saint",
+    "sage"
   ],
   "07A4D": [
-    "acreage",
-    "amass",
-    "contents",
-    "load",
     "pile up",
-    "product (x*y)",
-    "stack",
-    "volume"
+    "accumulate",
+    "product (math)"
   ],
   "096EA": [
     "snow"
   ],
   "07DDA": [
     "line",
-    "track"
+    "track",
+    "wire"
   ],
   "07D44": [
+    "group",
     "assemble",
-    "association",
-    "braid",
-    "construct",
-    "cooperate",
-    "grapple",
-    "plait",
-    "unite"
+    "class"
   ],
   "09001": [
-    "escort",
-    "send"
+    "send",
+    "escort"
   ],
   "0901F": [
     "fast",
-    "quick"
+    "quick",
+    "speed"
   ],
   "06751": [
-    "town",
     "village"
   ],
   "08CB8": [
-    "lend"
+    "lend",
+    "rent out"
   ],
   "05358": [
-    "merely",
-    "one",
+    "single",
     "simple",
-    "single"
+    "unit"
   ],
   "07F6E": [
-    "deposit",
-    "employ",
-    "keep",
-    "leave behind",
-    "pawn",
-    "placement",
     "put",
-    "set"
+    "place",
+    "leave"
   ],
   "0866B": [
-    "bug",
     "insect",
-    "temper"
+    "bug",
+    "worm"
   ],
   "09577": [
-    "leader",
     "long",
-    "senior",
-    "superior"
+    "leader",
+    "chief"
   ],
   "05EAD": [
-    "courtyard",
     "garden",
-    "yard"
+    "yard",
+    "courtyard"
   ],
   "05C55": [
     "expand",
+    "exhibit",
     "unfold"
   ],
   "052AA": [
-    "as much as possible",
-    "diligent",
-    "toil"
+    "effort",
+    "strive",
+    "diligent"
   ],
   "071C8": [
-    "counter for lights",
     "lamp",
     "light"
   ],
   "05802": [
     "hall",
+    "temple",
     "public chamber"
   ],
   "08AAD": [
     "read"
   ],
   "04EFB": [
-    "appoint",
     "duty",
-    "entrust to",
-    "responsibility",
-    "term"
+    "entrust",
+    "responsibility"
   ],
   "06D3E": [
-    "clique",
     "faction",
     "group",
-    "party",
-    "school",
-    "sect"
+    "school (of thought)"
   ],
   "0767D": [
     "white"
@@ -4553,229 +3463,168 @@
   "072AF": [
     "crime",
     "offense",
-    "sin"
+    "violate"
   ],
   "098DB": [
     "fly",
-    "scatter",
-    "skip (pages)"
+    "leap"
   ],
   "07968": [
+    "vote",
     "ballot",
-    "label",
-    "sign",
     "ticket"
   ],
   "05A66": [
-    "bride",
-    "lady",
+    "woman",
     "wife",
-    "woman"
+    "lady"
   ],
   "05E45": [
-    "hanging scroll",
-    "width"
+    "width",
+    "breadth",
+    "hanging scroll"
   ],
   "0805E": [
-    "ask",
     "hear",
-    "listen"
+    "listen",
+    "ask"
   ],
   "04FBF": [
-    "chance",
     "convenience",
-    "excrement",
-    "facility",
-    "feces",
-    "letter"
+    "mail",
+    "excrement"
   ],
   "0653E": [
-    "banish",
-    "emit",
-    "fire",
-    "liberate",
     "release",
-    "set free",
-    "shoot"
+    "let go",
+    "emit"
   ],
   "0672C": [
     "book",
-    "counter for long cylindrical things",
-    "main",
     "origin",
-    "present",
-    "real",
-    "true"
+    "main"
   ],
   "052D9": [
-    "duties",
-    "task"
+    "duty",
+    "task",
+    "work"
   ],
   "06BDB": [
-    "down",
-    "feather",
+    "hair",
     "fur",
-    "hair"
+    "feather"
   ],
   "08A33": [
-    "case",
-    "circumstance",
+    "translate",
     "reason",
-    "translate"
+    "meaning"
   ],
   "04F59": [
-    "myself",
-    "other",
-    "remainder",
     "surplus",
-    "too much"
+    "remainder",
+    "excess"
   ],
   "0990A": [
-    "bring up",
-    "develop",
-    "foster",
     "nurture",
-    "rear"
+    "raise",
+    "support"
   ],
   "07387": [
-    "%",
-    "command",
-    "factor",
-    "lead",
-    "proportion",
     "rate",
     "ratio",
-    "spearhead"
+    "lead"
   ],
   "09818": [
-    "dominion",
-    "fief",
-    "jurisdiction",
-    "reign",
-    "territory"
+    "territory",
+    "domain",
+    "govern"
   ],
   "0793C": [
+    "thanks",
     "bow",
-    "ceremony",
-    "remuneration",
-    "salute",
-    "thanks"
+    "courtesy"
   ],
   "08AD6": [
     "argument",
-    "discourse"
+    "theory",
+    "discuss"
   ],
   "056F2": [
-    "besiege",
-    "encircle",
-    "enclosure",
-    "keep",
-    "paling",
-    "preserve",
-    "store",
-    "surround"
+    "surround",
+    "enclose",
+    "besiege"
   ],
   "04E00": [
-    "one",
-    "one radical (no.1)"
+    "one"
   ],
   "0904B": [
-    "advance",
     "carry",
-    "destiny",
-    "fate",
-    "lot",
     "luck",
-    "progress",
     "transport"
   ],
   "099C5": [
     "station"
   ],
   "06A2A": [
-    "horizontal",
-    "perverse",
     "side",
-    "sideways",
-    "unreasonable",
-    "width",
-    "woof"
+    "horizontal",
+    "width"
   ],
   "04EEE": [
-    "assumed (name)",
-    "informal",
-    "interim",
-    "sham",
-    "temporary"
+    "temporary",
+    "provisional",
+    "false"
   ],
   "06CB3": [
     "river"
   ],
   "08CC0": [
     "congratulations",
-    "joy"
+    "celebrate"
   ],
   "089D2": [
-    "angle",
-    "antlers",
     "corner",
-    "horn",
-    "square"
+    "angle",
+    "horn"
   ],
   "05B8C": [
-    "completion",
-    "end",
-    "perfect"
+    "complete",
+    "perfect",
+    "finish"
   ],
   "095A2": [
     "barrier",
-    "concerning",
-    "connection",
-    "gateway",
-    "involve"
+    "relation",
+    "concerning"
   ],
   "05BC4": [
-    "bring near",
-    "collect",
-    "draw near",
-    "forward",
-    "gather",
-    "send",
-    "stop in"
+    "approach",
+    "drop in",
+    "send"
   ],
   "0898F": [
-    "measure",
-    "standard"
+    "standard",
+    "rule",
+    "measure"
   ],
   "04E45": [
     "long time",
-    "old story"
+    "old"
   ],
   "065E7": [
-    "ex-",
+    "old",
     "former",
-    "old friend",
-    "old things",
-    "old times"
+    "ex-"
   ],
   "07AF6": [
-    "bid",
-    "bout",
-    "compete with",
+    "compete",
     "contest",
-    "emulate",
-    "race",
-    "sell at auction"
+    "race"
   ],
   "05C40": [
-    "affair",
-    "board",
     "bureau",
-    "conclusion",
-    "court lady",
-    "her apartment",
-    "lady-in-waiting",
-    "office"
+    "office",
+    "situation"
   ],
   "04E5D": [
     "nine"
@@ -4785,106 +3634,77 @@
     "district"
   ],
   "08EFD": [
-    "lightly",
-    "trifling",
-    "unimportant"
+    "light (weight)",
+    "easy",
+    "trivial"
   ],
   "0517C": [
-    "and",
-    "beforehand",
     "concurrently",
-    "in advance"
+    "combine",
+    "also"
   ],
   "0898B": [
-    "chances",
-    "hopes",
-    "idea",
-    "look at",
-    "opinion",
     "see",
-    "visible"
+    "look",
+    "view"
   ],
   "0500B": [
-    "counter for articles",
-    "individual"
+    "individual",
+    "counter for objects"
   ],
   "05F8C": [
-    "back",
+    "after",
     "behind",
     "later"
   ],
   "0539A": [
-    "brazen",
-    "cordial",
-    "heavy",
+    "thick",
     "kind",
-    "rich",
-    "shameless",
-    "thick"
+    "cordial"
   ],
   "069CB": [
-    "appearance",
-    "build",
+    "construct",
     "posture",
-    "set up",
-    "stance"
+    "mind"
   ],
   "053F7": [
-    "call",
-    "item",
-    "name",
-    "nickname",
     "number",
-    "pseudonym",
+    "issue",
     "title"
   ],
   "05DEE": [
-    "balance",
     "difference",
-    "discrepancy",
-    "distinction",
-    "margin",
-    "variation"
+    "gap",
+    "margin"
   ],
   "07D30": [
-    "dainty",
-    "detailed",
-    "get thin",
-    "narrow",
-    "precise",
-    "slender",
-    "taper"
+    "thin",
+    "fine",
+    "detailed"
   ],
   "07B56": [
-    "means",
     "plan",
     "policy",
-    "scheme",
-    "step"
+    "measure"
   ],
   "07B97": [
-    "abacus",
     "calculate",
-    "divining",
-    "number",
-    "probability"
+    "count",
+    "abacus"
   ],
   "058EB": [
-    "gentleman",
     "samurai",
-    "samurai radical (no. 33)",
+    "gentleman",
     "scholar"
   ],
   "06B62": [
-    "halt",
-    "stop"
+    "stop",
+    "halt"
   ],
   "08A66": [
-    "attempt",
-    "experiment",
-    "ordeal",
     "test",
-    "try"
+    "try",
+    "attempt"
   ],
   "06B21": [
     "next",
@@ -4892,20 +3712,17 @@
     "sequence"
   ],
   "05BA4": [
-    "apartment",
-    "cellar",
-    "chamber",
-    "greenhouse",
-    "room"
+    "room",
+    "chamber"
   ],
   "091C8": [
-    "explanation"
+    "explanation",
+    "release"
   ],
   "06388": [
-    "confer",
+    "teach",
     "grant",
-    "impart",
-    "instruct"
+    "confer"
   ],
   "07D42": [
     "end",
@@ -4916,31 +3733,23 @@
     "congratulate"
   ],
   "06240": [
-    "extent",
-    "place"
+    "place",
+    "location"
   ],
   "05531": [
-    "call upon",
     "chant",
     "recite",
-    "yell"
+    "sing"
   ],
   "079F0": [
-    "admire",
-    "appellation",
-    "fame",
     "name",
-    "praise",
-    "title"
+    "title",
+    "praise"
   ],
   "06761": [
     "article",
     "clause",
-    "counter for articles, clauses, paragraphs, etc.",
-    "item",
-    "streak",
-    "stripe",
-    "twig"
+    "stripe"
   ],
   "068EE": [
     "forest",
@@ -4948,79 +3757,55 @@
   ],
   "04EC1": [
     "benevolence",
-    "charity",
     "humanity",
-    "kernel",
-    "man",
     "virtue"
   ],
   "06210": [
     "become",
-    "elapse",
-    "get",
-    "grow",
-    "reach",
-    "turn into"
+    "achieve",
+    "grow"
   ],
   "058F0": [
-    "voice"
+    "voice",
+    "sound"
   ],
   "07E3E": [
-    "achievements",
-    "exploits",
-    "unreeling cocoons"
+    "achievement",
+    "exploit",
+    "spinning"
   ],
   "07D76": [
-    "abstain",
-    "be beyond",
     "cut off",
-    "discontinue",
-    "interrupt",
-    "peerless",
-    "sever",
-    "suppress",
-    "unparalleled",
-    "without match"
+    "extinct",
+    "absolutely"
   ],
   "08239": [
-    "boat",
-    "ship"
+    "ship",
+    "boat"
   ],
   "05275": [
-    "genesis",
-    "hurt",
-    "injury",
+    "create",
     "originate",
-    "start",
     "wound"
   ],
   "050CF": [
-    "figure",
+    "statue",
     "image",
-    "picture",
-    "portrait",
-    "statue"
+    "portrait"
   ],
   "04FD7": [
     "customs",
-    "manners",
-    "mundane things",
     "vulgar",
-    "worldliness"
+    "worldly"
   ],
   "04ED6": [
-    "another",
     "other",
-    "the others"
+    "another"
   ],
   "09000": [
-    "expel",
-    "reject",
-    "repel",
-    "resign",
-    "retire",
     "retreat",
-    "withdraw"
+    "withdraw",
+    "retire"
   ],
   "070AD": [
     "charcoal",
@@ -5028,29 +3813,17 @@
   ],
   "07BC9": [
     "build",
-    "construct",
-    "fabricate"
+    "construct"
   ],
   "08457": [
-    "arrival",
-    "counter for suits of clothing",
-    "don",
-    "finish (race)",
-    "literary work",
-    "phenomenal",
-    "publish",
-    "put on",
+    "author",
     "remarkable",
-    "renowned",
-    "wear",
     "write"
   ],
   "09CE5": [
-    "bird",
-    "chicken"
+    "bird"
   ],
   "05F1F": [
-    "faithful service to elders",
     "younger brother"
   ],
   "05E97": [
@@ -5058,159 +3831,122 @@
     "store"
   ],
   "05EA6": [
-    "attitude",
-    "consider",
-    "counter for occurrences",
-    "degrees",
-    "occurrence",
-    "time"
+    "degree",
+    "times",
+    "occasion"
   ],
   "05F53": [
-    "appropriate",
-    "himself",
     "hit",
-    "right"
+    "right",
+    "this"
   ],
   "05C0E": [
-    "conduct",
-    "guidance",
-    "leading",
-    "usher"
+    "guide",
+    "lead",
+    "conduct"
   ],
   "05C4A": [
-    "arrive",
     "deliver",
-    "forward",
-    "notify",
     "reach",
-    "report"
+    "notify"
   ],
   "08A8D": [
-    "acknowledge",
-    "appreciate",
-    "believe",
-    "discern",
     "recognize",
-    "witness"
+    "acknowledge",
+    "approve"
   ],
   "07834": [
     "break",
-    "defeat",
-    "destroy",
-    "frustrate",
-    "rend",
-    "rip",
-    "tear"
+    "tear",
+    "defeat"
   ],
   "09EA6": [
-    "barley",
-    "wheat"
+    "wheat",
+    "barley"
   ],
   "098EF": [
-    "boiled rice",
-    "meal"
+    "meal",
+    "cooked rice"
   ],
   "05099": [
+    "prepare",
     "equip",
-    "preparation",
     "provision"
   ],
   "08868": [
-    "chart",
-    "diagram",
     "surface",
-    "table"
+    "table",
+    "express"
   ],
   "05BCC": [
-    "abundant",
-    "enrich",
-    "wealth"
+    "wealth",
+    "rich",
+    "abundant"
   ],
   "0670D": [
-    "admit",
-    "clothing",
-    "discharge",
-    "obey"
+    "clothes",
+    "obey",
+    "dose"
   ],
   "05175": [
-    "army",
-    "private",
     "soldier",
-    "strategy",
-    "tactics",
-    "troops",
-    "warfare"
+    "army",
+    "troops"
   ],
   "052C9": [
-    "diligent",
-    "encourage",
-    "endeavour",
     "exertion",
-    "make effort",
-    "strive"
+    "endeavor",
+    "diligent"
   ],
   "065B9": [
-    "alternative",
     "direction",
-    "person"
+    "way",
+    "person (polite)"
   ],
   "059B9": [
     "younger sister"
   ],
   "07121": [
-    "ain't",
-    "nil",
-    "none",
-    "not",
     "nothing",
-    "nothingness"
+    "none",
+    "without"
   ],
   "06728": [
     "tree",
     "wood"
   ],
   "06CB9": [
-    "fat",
-    "oil"
+    "oil",
+    "fat"
   ],
   "09810": [
-    "custody",
     "deposit",
-    "entrust to",
+    "entrust",
     "leave with"
   ],
   "06B32": [
-    "covetousness",
-    "craving",
     "desire",
     "greed",
-    "longing",
-    "passion"
+    "want"
   ],
   "07ACB": [
-    "erect",
+    "stand",
     "rise",
-    "set up",
-    "stand up"
+    "establish"
   ],
   "0529B": [
-    "bear up",
-    "exert",
     "power",
-    "strain",
     "strength",
-    "strong"
+    "force"
   ],
   "06B74": [
-    "continuation",
-    "curriculum",
+    "history",
+    "career",
     "passage of time"
   ],
   "0548C": [
-    "Japan",
-    "Japanese style",
     "harmony",
     "peace",
-    "soften"
+    "Japanese style"
   ]
 }
