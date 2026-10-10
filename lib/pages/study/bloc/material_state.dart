@@ -15,7 +15,11 @@ class MaterialStateData {
   final int inputVersion;
   final String message;
   final MaterialMessageType messageType;
+  final int correctCount;
+  final int answeredCount;
 
+  /// Whether the current question already counted towards the score.
+  final bool currentScored;
   MaterialStateData({
     this.headers = const [],
     this.entries = const [],
@@ -29,6 +33,9 @@ class MaterialStateData {
     this.inputVersion = 0,
     this.message = '',
     this.messageType = MaterialMessageType.none,
+    this.correctCount = 0,
+    this.answeredCount = 0,
+    this.currentScored = false,
   });
 
   MaterialStateData copyWith({
@@ -44,6 +51,9 @@ class MaterialStateData {
     int? inputVersion,
     String? message,
     MaterialMessageType? messageType,
+    int? correctCount,
+    int? answeredCount,
+    bool? currentScored,
   }) {
     return MaterialStateData(
       headers: headers ?? this.headers,
@@ -58,6 +68,9 @@ class MaterialStateData {
       inputVersion: inputVersion ?? this.inputVersion,
       message: message ?? this.message,
       messageType: messageType ?? this.messageType,
+      correctCount: correctCount ?? this.correctCount,
+      answeredCount: answeredCount ?? this.answeredCount,
+      currentScored: currentScored ?? this.currentScored,
     );
   }
 }

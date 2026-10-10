@@ -8,7 +8,6 @@ const Color jLightBLue = Color(0xFF5F8BA9);
 const Color jDarkBLue = Color(0xFF0E1B26);
 
 const int imageDimensions = 128;
-const int totalClasses = 45;
 const String premiumProductId = 'kana_master_premium';
 const String admobInterstitialAndroidIdRelease =
     'ca-app-pub-3562387824532338/9546671463';
@@ -46,7 +45,6 @@ const ModelConfig kanjiModelV1 = ModelConfig(
   normalize: false,
 );
 
-const ModelConfig activeHiraganaModel = hiraganaModelV2;
 
 enum KanaType { hiragana, katakana, kanji }
 
@@ -56,6 +54,9 @@ enum TestType { drawingTest, singleAnswer }
 
 /// Questions per practice session.
 const List<int> sessionLengths = [10, 20, 40];
+
+/// Kanji JLPT filters available without premium.
+const Set<String> freeJlptFilters = {'n5', 'all'};
 const int defaultSessionLength = 20;
 
 const Map<String, String> hiragana = {

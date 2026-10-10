@@ -99,12 +99,13 @@ extension GetItInjectableX on _i174.GetIt {
             gh<_i188.KanjiMeaningsLocalDataSource>()));
     gh.factory<_i729.ImportMaterialCsv>(
         () => _i729.ImportMaterialCsv(gh<_i863.MaterialRepository>()));
-    gh.factory<_i340.GetKanjiMeanings>(
-        () => _i340.GetKanjiMeanings(gh<_i445.KanjiMeaningsRepository>()));
     gh.factory<_i222.MaterialBloc>(() => _i222.MaterialBloc(
           importMaterialCsv: gh<_i729.ImportMaterialCsv>(),
           checkMaterialAnswer: gh<_i763.CheckMaterialAnswer>(),
+          settingsRepository: gh<_i816.SettingsRepository>(),
         ));
+    gh.factory<_i340.GetKanjiMeanings>(
+        () => _i340.GetKanjiMeanings(gh<_i445.KanjiMeaningsRepository>()));
     gh.lazySingleton<_i785.KanjiRepository>(
         () => _i590.KanjiRepositoryImpl(gh<_i439.KanjiLocalDataSource>()));
     gh.lazySingleton<_i631.StatsBackupRepository>(

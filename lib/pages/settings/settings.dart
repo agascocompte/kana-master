@@ -266,23 +266,24 @@ class SettingsPage extends StatelessWidget {
                           title: tr.app.settingsKanjiFilterSection,
                         ),
                         const SizedBox(height: 8),
-                        PremiumLockedWrapper(
-                          locked: !isPremium,
-                          onTapLocked: onLockedTap,
-                          child: DropdownTileSetting(
-                            title: tr.app.settingsKanjiJlptTitle,
-                            subtitle: tr.app.settingsKanjiJlptSubtitle,
-                            currentValue: state.stateData.kanjiJlptFilter,
-                            icon: Icons.filter_alt_outlined,
-                            items: _jlptItems(context),
-                            onChanged: (String? newValue) {
-                              if (newValue != null) {
-                                context.read<SettingsBloc>().add(
-                                      ChangeKanjiJlptFilter(filter: newValue),
-                                    );
-                              }
-                            },
-                          ),
+                        // N5 and "all" are free; single N4–N1 levels are
+                        // premium.
+                        DropdownTileSetting(
+                          title: tr.app.settingsKanjiJlptTitle,
+                          subtitle: tr.app.settingsKanjiJlptSubtitle,
+                          currentValue: state.stateData.kanjiJlptFilter,
+                          icon: Icons.filter_alt_outlined,
+                          items: _jlptItems(context, isPremium: isPremium),
+                          onChanged: (String? newValue) {
+                            if (newValue == null) return;
+                            if (!isPremium && !freeJlptFilters.contains(newValue)) {
+                              onLockedTap();
+                              return;
+                            }
+                            context.read<SettingsBloc>().add(
+                                  ChangeKanjiJlptFilter(filter: newValue),
+                                );
+                          },
                         ),
                         const SizedBox(height: 12),
                         SettingsSectionHeader(
@@ -303,7 +304,10 @@ class SettingsPage extends StatelessWidget {
                                   .read<SettingsBloc>()
                                   .add(ExportStatsRequested());
                             },
-                            onImport: () {
+                            onImport: () async {
+                              final bool confirmed = await Dialogs
+                                  .showImportBackupConfirmDialog(context);
+                              if (!confirmed || !context.mounted) return;
                               context
                                   .read<SettingsBloc>()
                                   .add(ImportStatsRequested());
@@ -335,14 +339,27 @@ List<DropdownMenuItem<String>> _languageItems() {
       .toList();
 }
 
-List<DropdownMenuItem<String>> _jlptItems(BuildContext context) {
+List<DropdownMenuItem<String>> _jlptItems(
+  BuildContext context, {
+  required bool isPremium,
+}) {
   final tr = context.t;
+  Widget label(String value, String text) {
+    final bool locked = !isPremium && !freeJlptFilters.contains(value);
+    if (!locked) return Text(text);
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Text(text, style: const TextStyle(color: AppColors.slate)),
+        const SizedBox(width: 4),
+        const Icon(Icons.lock_outline, size: 14, color: AppColors.slate),
+      ],
+    );
+  }
+
   return [
-    DropdownMenuItem(value: 'all', child: Text(tr.app.filterAll)),
-    const DropdownMenuItem(value: 'n5', child: Text('N5')),
-    const DropdownMenuItem(value: 'n4', child: Text('N4')),
-    const DropdownMenuItem(value: 'n3', child: Text('N3')),
-    const DropdownMenuItem(value: 'n2', child: Text('N2')),
-    const DropdownMenuItem(value: 'n1', child: Text('N1')),
+    DropdownMenuItem(value: 'all', child: label('all', tr.app.filterAll)),
+    for (final level in ['n5', 'n4', 'n3', 'n2', 'n1'])
+      DropdownMenuItem(value: level, child: label(level, level.toUpperCase())),
   ];
 }

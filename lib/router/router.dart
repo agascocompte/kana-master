@@ -10,7 +10,6 @@ import 'package:kana_master/pages/study/pages/practice_page.dart';
 
 class AppRouter {
   static const String homeRoute = "/home";
-  static const String loginRoute = "/login";
   static const String settingsRoute = "/settings";
   static const String statsRoute = "/stats";
   static const String learnRoute = "/learn";

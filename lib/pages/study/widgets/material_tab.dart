@@ -59,7 +59,7 @@ class MaterialTab extends StatelessWidget {
                     label: Text(t.app.importCsv),
                   ),
                   const SizedBox(width: 12),
-                  if (data.importedFileName.isNotEmpty)
+                  if (data.importedFileName.isNotEmpty) ...[
                     Expanded(
                       child: Text(
                         t.app.fileLabel(
@@ -72,6 +72,15 @@ class MaterialTab extends StatelessWidget {
                         ),
                       ),
                     ),
+                    IconButton(
+                      tooltip: t.app.materialsClear,
+                      icon: const Icon(Icons.delete_outline,
+                          color: AppColors.slate),
+                      onPressed: () => context
+                          .read<MaterialBloc>()
+                          .add(MaterialClearRequested()),
+                    ),
+                  ],
                 ],
               ),
               const SizedBox(height: 12),
@@ -157,6 +166,19 @@ class MaterialTab extends StatelessWidget {
                                   ),
                                 ],
                               ),
+                              if (data.answeredCount > 0) ...[
+                                const SizedBox(height: 12),
+                                Text(
+                                  t.app.materialsScore(
+                                    correct: data.correctCount,
+                                    total: data.answeredCount,
+                                  ),
+                                  style: const TextStyle(
+                                    color: AppColors.slate,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                              ],
                               const SizedBox(height: 16),
                               if (data.currentEntry != null &&
                                   data.questionColumn != null)

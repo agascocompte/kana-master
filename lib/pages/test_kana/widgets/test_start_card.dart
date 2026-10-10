@@ -91,6 +91,15 @@ class _TestStartCardState extends State<TestStartCard> {
                 color: AppColors.ink,
               ),
             ),
+            if (widget.kanaType == KanaType.kanji) ...[
+              const SizedBox(height: 4),
+              Text(
+                '${tr.app.settingsKanjiJlptTitle}: '
+                '${settings.kanjiJlptFilter == 'all' ? tr.app.filterAll : settings.kanjiJlptFilter.toUpperCase()}',
+                textAlign: TextAlign.center,
+                style: const TextStyle(color: AppColors.slate, fontSize: 13),
+              ),
+            ],
             const SizedBox(height: 18),
             if (widget.kanaType != KanaType.kanji)
               _KanaGroupPicker(

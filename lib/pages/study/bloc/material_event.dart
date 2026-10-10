@@ -27,3 +27,9 @@ class MaterialAnswerColumnChanged extends MaterialEvent {
 }
 
 class MaterialToggleExpectedAnswer extends MaterialEvent {}
+
+/// Restores the last imported list.
+class MaterialLoadSaved extends MaterialEvent {}
+
+/// Forgets the imported list.
+class MaterialClearRequested extends MaterialEvent {}

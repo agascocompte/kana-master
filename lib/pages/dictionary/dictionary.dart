@@ -42,6 +42,14 @@ class DictionaryTab extends StatelessWidget {
               ),
               const SizedBox(height: 16),
               SearchActionBar(),
+              // Jisho only returns English glosses.
+              if (TranslationProvider.of(context).locale != AppLocale.en) ...[
+                const SizedBox(height: 8),
+                Text(
+                  tr.app.dictionaryEnglishNote,
+                  style: const TextStyle(color: AppColors.slate, fontSize: 12),
+                ),
+              ],
               const SizedBox(height: 16),
               Expanded(
                 child: BlocBuilder<DictionaryBloc, DictionaryState>(
@@ -58,8 +66,8 @@ class DictionaryTab extends StatelessWidget {
                         state.stateData.errorMessage.isNotEmpty) {
                       return Center(
                         child: Text(
-                          state.stateData.errorMessage,
-                          style: const TextStyle(color: Colors.red),
+                          tr.app.dictionaryError,
+                          style: const TextStyle(color: AppColors.coral),
                           textAlign: TextAlign.center,
                         ),
                       );

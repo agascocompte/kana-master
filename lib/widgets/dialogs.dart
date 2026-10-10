@@ -115,15 +115,35 @@ class Dialogs {
     );
   }
 
-  static Future<bool> showReportDrawingConfirmDialog(
-      BuildContext context) async {
+  static Future<bool> showReportDrawingConfirmDialog(BuildContext context) {
     final tr = context.t;
+    return showConfirmDialog(
+      context,
+      title: tr.app.testReportDrawing,
+      body: tr.app.testReportConfirmBody,
+    );
+  }
+
+  static Future<bool> showImportBackupConfirmDialog(BuildContext context) {
+    final tr = context.t;
+    return showConfirmDialog(
+      context,
+      title: tr.app.settingsBackupImportButton,
+      body: tr.app.settingsBackupImportConfirm,
+    );
+  }
+
+  static Future<bool> showConfirmDialog(
+    BuildContext context, {
+    required String title,
+    required String body,
+  }) async {
     final localizations = MaterialLocalizations.of(context);
     return await showDialog<bool>(
           context: context,
           builder: (dialogContext) => AlertDialog(
-            title: Text(tr.app.testReportDrawing),
-            content: Text(tr.app.testReportConfirmBody),
+            title: Text(title),
+            content: Text(body),
             actions: [
               TextButton(
                 onPressed: () => Navigator.of(dialogContext).pop(false),

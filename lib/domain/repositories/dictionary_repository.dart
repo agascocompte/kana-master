@@ -14,7 +14,8 @@ class DictionaryRepository {
     final uri = Uri.parse(_baseUrl).replace(queryParameters: {
       'keyword': query,
     });
-    final response = await http.get(uri);
+    final response =
+        await http.get(uri).timeout(const Duration(seconds: 15));
 
     if (response.statusCode != 200) {
       throw Exception('Error searching Jisho: ${response.statusCode}');

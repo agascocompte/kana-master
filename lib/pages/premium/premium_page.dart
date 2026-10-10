@@ -104,6 +104,7 @@ class PremiumPage extends StatelessWidget {
                           _benefit(tr.app.premiumBenefitNoAds),
                           _benefit(tr.app.premiumBenefitMaterials),
                           _benefit(tr.app.premiumBenefitHard),
+                          _benefit(tr.app.premiumBenefitJlpt),
                           _benefit(tr.app.premiumBenefitAi),
                           _benefit(tr.app.premiumBenefitBackup),
                         ],
