@@ -180,6 +180,18 @@ _StreakResult _computeStreaks(List<DateTime> dates) {
     }
   }
   final DateTime lastDate = sorted.last;
+  // The streak is only alive if the last practice was today or yesterday.
+  final DateTime now = DateTime.now();
+  final DateTime today = DateTime.utc(now.year, now.month, now.day);
+  final DateTime lastDay =
+      DateTime.utc(lastDate.year, lastDate.month, lastDate.day);
+  if (today.difference(lastDay).inDays > 1) {
+    return _StreakResult(
+      currentStreak: 0,
+      bestStreak: best,
+      lastActiveDate: lastDate,
+    );
+  }
   int currentStreak = 1;
   for (int i = sorted.length - 1; i > 0; i--) {
     final diff = sorted[i].difference(sorted[i - 1]).inDays;

@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:kana_master/domain/providers/database_provider.dart';
 import 'package:kana_master/constants.dart';
 import 'package:sqflite/sqflite.dart';
@@ -69,10 +71,23 @@ class SettingsRepository {
       where: 'key = ?',
       whereArgs: ['language_code'],
     );
-    if (result.isNotEmpty) {
-      return result.first['value']?.toString() ?? 'es';
+    final String? saved = result.isNotEmpty
+        ? result.first['value']?.toString()
+        : null;
+    if (saved != null && languages.containsKey(saved)) {
+      return saved;
     }
-    return 'es';
+    return _deviceLanguageCode();
+  }
+
+  /// Device language if the app supports it, otherwise English.
+  String _deviceLanguageCode() {
+    for (final locale in PlatformDispatcher.instance.locales) {
+      if (languages.containsKey(locale.languageCode)) {
+        return locale.languageCode;
+      }
+    }
+    return 'en';
   }
 
   Future<void> saveHapticsEnabled(bool enabled) async {

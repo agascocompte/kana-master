@@ -33,6 +33,8 @@ class TestKanaBloc extends Bloc<TestKanaEvent, TestKanaState> {
   bool _useModelKatakana = true;
   bool _useModelKanji = false;
   List<KanjiEntry> _kanjiEntries = const [];
+  // Full kanji list in model class order; _kanjiEntries may be a filtered pool.
+  List<KanjiEntry> _kanjiModelEntries = const [];
   Map<String, List<String>> _kanjiMeanings = const {};
   ModelConfig? _loadedModelConfig;
   final DrawingReportShareService _reportShareService =
@@ -77,6 +79,7 @@ class TestKanaBloc extends Bloc<TestKanaEvent, TestKanaState> {
     _useModelKatakana = event.useModelKatakana;
     _useModelKanji = event.useModelKanji;
     _kanjiEntries = event.kanjiEntries;
+    _kanjiModelEntries = event.kanjiModelEntries;
     _kanjiMeanings = event.kanjiMeanings;
     TestType testType = event.difficultyLevel == DifficultyLevel.high
         ? TestType.drawingTest
@@ -183,9 +186,12 @@ class TestKanaBloc extends Bloc<TestKanaEvent, TestKanaState> {
         : 0;
     final String expected =
         _drawingTargetLabelForIndex(state.stateData.kanaIndex);
-    final String predicted = _drawingTargetLabelForIndex(predictedIndex);
+    final String predicted = _predictedLabelForIndex(predictedIndex);
+    final bool isMatch = _currentKanaType == KanaType.kanji
+        ? predicted == expected
+        : predictedIndex == state.stateData.kanaIndex;
 
-    if (predictedIndex == state.stateData.kanaIndex) {
+    if (isMatch) {
       emit(HiraganaWritingSuccess(state.stateData.copyWith(
         canReportDrawing: false,
         reportBusy: false,
@@ -225,6 +231,7 @@ class TestKanaBloc extends Bloc<TestKanaEvent, TestKanaState> {
     _useModelKatakana = event.useModelKatakana;
     _useModelKanji = event.useModelKanji;
     _kanjiEntries = event.kanjiEntries;
+    _kanjiModelEntries = event.kanjiModelEntries;
     _kanjiMeanings = event.kanjiMeanings;
     TestType testType = event.difficultyLevel == DifficultyLevel.high
         ? TestType.drawingTest
@@ -271,10 +278,11 @@ class TestKanaBloc extends Bloc<TestKanaEvent, TestKanaState> {
       if (index >= 0 && index < _kanjiEntries.length) {
         final String key = _kanjiEntries[index].unicode;
         final List<String> meanings = _kanjiMeanings[key] ?? const [];
-        final String answer =
-            state.stateData.userTextAnswer.trim().toLowerCase();
-        final bool matches =
-            meanings.any((meaning) => meaning.trim().toLowerCase() == answer);
+        final String answer = _normalizeMeaning(state.stateData.userTextAnswer);
+        final bool matches = answer.isNotEmpty &&
+            meanings.any((meaning) =>
+                _normalizeMeaning(meaning) == answer ||
+                _normalizeMeaning(_stripParenthetical(meaning)) == answer);
         if (matches) {
           emit(KanaSelectedSuccess(state.stateData));
         } else {
@@ -288,8 +296,8 @@ class TestKanaBloc extends Bloc<TestKanaEvent, TestKanaState> {
     if ((event.difficultyLevel == DifficultyLevel.low &&
             state.stateData.kanaIndex == state.stateData.userAnswerKanaIndex) ||
         (event.difficultyLevel != DifficultyLevel.low &&
-            state.stateData.userTextAnswer ==
-                event.kana.values.toList()[state.stateData.kanaIndex])) {
+            _romajiMatches(state.stateData.userTextAnswer,
+                event.kana.values.toList()[state.stateData.kanaIndex]))) {
       emit(KanaSelectedSuccess(
         state.stateData,
       ));
@@ -298,6 +306,47 @@ class TestKanaBloc extends Bloc<TestKanaEvent, TestKanaState> {
         state.stateData,
       ));
     }
+  }
+
+  static const Map<String, String> _diacritics = {
+    'á': 'a', 'à': 'a', 'â': 'a', 'ä': 'a', 'ã': 'a',
+    'é': 'e', 'è': 'e', 'ê': 'e', 'ë': 'e',
+    'í': 'i', 'ì': 'i', 'î': 'i', 'ï': 'i',
+    'ó': 'o', 'ò': 'o', 'ô': 'o', 'ö': 'o', 'õ': 'o',
+    'ú': 'u', 'ù': 'u', 'û': 'u', 'ü': 'u',
+    'ç': 'c', 'ñ': 'n', 'ß': 'ss', 'ё': 'е',
+  };
+
+  String _normalizeMeaning(String value) {
+    final String lower = value.trim().toLowerCase();
+    final buffer = StringBuffer();
+    for (final rune in lower.runes) {
+      final String char = String.fromCharCode(rune);
+      buffer.write(_diacritics[char] ?? char);
+    }
+    return buffer.toString().replaceAll(RegExp(r'\s+'), ' ');
+  }
+
+  String _stripParenthetical(String value) =>
+      value.replaceAll(RegExp(r'[(（][^)）]*[)）]'), '').trim();
+
+  // Alternative romanizations (Kunrei-shiki and common variants).
+  static const Map<String, List<String>> _romajiAliases = {
+    'shi': ['si'],
+    'chi': ['ti'],
+    'tsu': ['tu'],
+    'fu': ['hu'],
+    'ji': ['zi', 'di'],
+    'zu': ['du'],
+    'wo': ['o'],
+    'n': ['nn'],
+  };
+
+  bool _romajiMatches(String userAnswer, String expected) {
+    final String answer = userAnswer.trim().toLowerCase();
+    if (answer.isEmpty) return false;
+    return answer == expected ||
+        (_romajiAliases[expected]?.contains(answer) ?? false);
   }
 
   FutureOr<void> _startStroke(StartStroke event, Emitter<TestKanaState> emit) {
@@ -437,11 +486,25 @@ class TestKanaBloc extends Bloc<TestKanaEvent, TestKanaState> {
     return _hiraganaModelConfig;
   }
 
+  List<KanjiEntry> get _kanjiModelClasses =>
+      _kanjiModelEntries.isNotEmpty ? _kanjiModelEntries : _kanjiEntries;
+
   int _resolveNumClasses(ModelConfig modelConfig) {
     if (_currentKanaType == KanaType.kanji) {
-      return _kanjiEntries.length;
+      return _kanjiModelClasses.length;
     }
     return modelConfig.numClasses;
+  }
+
+  String _predictedLabelForIndex(int index) {
+    if (_currentKanaType == KanaType.kanji) {
+      final classes = _kanjiModelClasses;
+      if (index >= 0 && index < classes.length) {
+        return classes[index].character;
+      }
+      return 'unknown';
+    }
+    return _drawingTargetLabelForIndex(index);
   }
 
   String _drawingTargetLabelForIndex(int index) {

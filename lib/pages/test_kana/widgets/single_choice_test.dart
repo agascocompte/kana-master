@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kana_master/constants.dart';
@@ -44,25 +42,23 @@ class _SingleChoiceTestState extends State<SingleChoiceTest> {
 
   void generateAnswers() {
     final correctIndex = context.read<TestKanaBloc>().state.stateData.kanaIndex;
-    if (widget.kanaType == KanaType.kanji) {
-      final String correctAnswer =
-          _kanjiAnswerForIndex(correctIndex, widget.kanjiEntries);
-      options = {correctAnswer: correctIndex};
-      while (options.length < 4 && widget.kanjiEntries.length >= 4) {
-        int randomIndex = Random().nextInt(widget.kanjiEntries.length);
-        String randomOption =
-            _kanjiAnswerForIndex(randomIndex, widget.kanjiEntries);
-        options[randomOption] = randomIndex;
-      }
-    } else {
-      final correctAnswer = widget.kana.values.elementAt(correctIndex);
-      options = {correctAnswer: correctIndex};
+    final bool isKanji = widget.kanaType == KanaType.kanji;
+    final int poolSize =
+        isKanji ? widget.kanjiEntries.length : widget.kana.length;
+    String labelFor(int index) => isKanji
+        ? _kanjiAnswerForIndex(index, widget.kanjiEntries)
+        : widget.kana.values.elementAt(index);
 
-      while (options.length < 4) {
-        int randomIndex = Random().nextInt(widget.kana.length);
-        String randomOption = widget.kana.values.elementAt(randomIndex);
-        options[randomOption] = randomIndex;
-      }
+    // Distractors come from the same pool as the question. Labels shared by
+    // several characters (e.g. じ/ぢ "ji", 希/望 "hope") must never replace
+    // the correct option, so only add labels that aren't present yet.
+    options = {labelFor(correctIndex): correctIndex};
+    final candidates = List<int>.generate(poolSize, (i) => i)..shuffle();
+    for (final index in candidates) {
+      if (options.length >= 4) break;
+      final String label = labelFor(index);
+      if (label.isEmpty) continue;
+      options.putIfAbsent(label, () => index);
     }
 
     answers = options.keys.toList();

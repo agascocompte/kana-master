@@ -13,6 +13,7 @@ class TestStartCard extends StatelessWidget {
     required this.kana,
     required this.kanaType,
     required this.kanjiEntries,
+    required this.kanjiModelEntries,
     required this.kanjiMeanings,
     required this.difficultyLevel,
     required this.useModelHiragana,
@@ -24,6 +25,7 @@ class TestStartCard extends StatelessWidget {
   final Map<String, String> kana;
   final KanaType kanaType;
   final List<KanjiEntry> kanjiEntries;
+  final List<KanjiEntry> kanjiModelEntries;
   final Map<String, List<String>> kanjiMeanings;
   final DifficultyLevel difficultyLevel;
   final bool useModelHiragana;
@@ -82,6 +84,7 @@ class TestStartCard extends StatelessWidget {
                       kana: kana,
                       kanaType: kanaType,
                       kanjiEntries: kanjiEntries,
+                      kanjiModelEntries: kanjiModelEntries,
                       kanjiMeanings: kanjiMeanings,
                       difficultyLevel: difficultyLevel,
                       useModelHiragana: useModelHiragana,

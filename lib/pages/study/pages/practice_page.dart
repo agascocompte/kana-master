@@ -91,11 +91,8 @@ class PracticePage extends StatelessWidget {
                                         Text(learnState.stateData.errorMessage),
                                   );
                                 }
-                                final bool useModelKanji =
-                                    settingsState.stateData.useModelKanji;
-                                final entriesForTest = useModelKanji
-                                    ? learnState.stateData.kanjiEntries
-                                    : learnState.stateData.filteredKanjiEntries;
+                                final entriesForTest =
+                                    learnState.stateData.filteredKanjiEntries;
                                 if (entriesForTest.isEmpty) {
                                   return Center(
                                     child: Text(t.app.kanjiFilterEmpty),
@@ -105,6 +102,8 @@ class PracticePage extends StatelessWidget {
                                   kanaType: kanaType,
                                   kana: const {},
                                   kanjiEntries: entriesForTest,
+                                  kanjiModelEntries:
+                                      learnState.stateData.kanjiEntries,
                                   kanjiMeanings:
                                       learnState.stateData.kanjiMeanings,
                                   difficultyLevel:

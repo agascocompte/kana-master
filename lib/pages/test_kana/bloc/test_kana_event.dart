@@ -6,6 +6,7 @@ class BeginTest extends TestKanaEvent {
   final Map<String, String> kana;
   final KanaType kanaType;
   final List<KanjiEntry> kanjiEntries;
+  final List<KanjiEntry> kanjiModelEntries;
   final Map<String, List<String>> kanjiMeanings;
   final DifficultyLevel difficultyLevel;
   final bool useModelHiragana;
@@ -15,6 +16,7 @@ class BeginTest extends TestKanaEvent {
     required this.kana,
     required this.kanaType,
     this.kanjiEntries = const [],
+    this.kanjiModelEntries = const [],
     this.kanjiMeanings = const {},
     required this.difficultyLevel,
     required this.useModelHiragana,
@@ -49,6 +51,7 @@ class TestNextKana extends TestKanaEvent {
   final Map<String, String> kana;
   final KanaType kanaType;
   final List<KanjiEntry> kanjiEntries;
+  final List<KanjiEntry> kanjiModelEntries;
   final Map<String, List<String>> kanjiMeanings;
   final DifficultyLevel difficultyLevel;
   final bool useModelHiragana;
@@ -58,6 +61,7 @@ class TestNextKana extends TestKanaEvent {
     required this.kana,
     required this.kanaType,
     this.kanjiEntries = const [],
+    this.kanjiModelEntries = const [],
     this.kanjiMeanings = const {},
     required this.difficultyLevel,
     required this.useModelHiragana,

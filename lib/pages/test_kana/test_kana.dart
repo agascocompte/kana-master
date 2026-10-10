@@ -18,6 +18,7 @@ class TestTab extends StatelessWidget {
   final KanaType kanaType;
   final Map<String, String> kana;
   final List<KanjiEntry> kanjiEntries;
+  final List<KanjiEntry> kanjiModelEntries;
   final Map<String, List<String>> kanjiMeanings;
   final DifficultyLevel difficultyLevel;
   final double kanaScale;
@@ -30,6 +31,7 @@ class TestTab extends StatelessWidget {
     required this.kanaType,
     required this.kana,
     this.kanjiEntries = const [],
+    this.kanjiModelEntries = const [],
     this.kanjiMeanings = const {},
     required this.difficultyLevel,
     this.kanaScale = 1.0,
@@ -74,6 +76,7 @@ class TestTab extends StatelessWidget {
                 kana: kana,
                 kanaType: kanaType,
                 kanjiEntries: kanjiEntries,
+                kanjiModelEntries: kanjiModelEntries,
                 kanjiMeanings: kanjiMeanings,
                 difficultyLevel: difficultyLevel,
                 useModelHiragana: useModelHiragana,
@@ -103,6 +106,7 @@ class TestTab extends StatelessWidget {
               kana: kana,
               kanaType: kanaType,
               kanjiEntries: kanjiEntries,
+              kanjiModelEntries: kanjiModelEntries,
               kanjiMeanings: kanjiMeanings,
               difficultyLevel: difficultyLevel,
               useModelHiragana: useModelHiragana,
