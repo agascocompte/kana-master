@@ -7,10 +7,12 @@ class LoadMemoryStats extends StatsEvent {}
 class AddAnswerResult extends StatsEvent {
   final KanaType kanaType;
   final bool isCorrect;
+  final String? item;
 
   AddAnswerResult({
     required this.kanaType,
     required this.isCorrect,
+    this.item,
   });
 }
 

@@ -31,6 +31,7 @@ class StatsBackupLocalDataSource {
           'timestamp': response.timestamp,
           'is_correct': response.isCorrect ? 1 : 0,
           'kana_type': response.kanaType,
+          'item': response.item,
         }, conflictAlgorithm: ConflictAlgorithm.replace);
       }
     });

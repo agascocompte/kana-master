@@ -7,7 +7,7 @@ class ImportStatsBackup {
 
   ImportStatsBackup(this.repository);
 
-  Future<int> call({bool replaceExisting = true}) {
-    return repository.importBackupFile(replaceExisting: replaceExisting);
+  Future<int> call() {
+    return repository.importBackupFile();
   }
 }

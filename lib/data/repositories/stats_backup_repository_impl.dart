@@ -20,7 +20,7 @@ class StatsBackupRepositoryImpl implements StatsBackupRepository {
   Future<String> exportBackupFile() async {
     final responses = await localDataSource.readAllResponses();
     final backup = StatsBackup(
-      version: 1,
+      version: 2,
       exportedAt: DateTime.now().toUtc().toIso8601String(),
       responses: responses,
     );
@@ -29,7 +29,7 @@ class StatsBackupRepositoryImpl implements StatsBackupRepository {
   }
 
   @override
-  Future<int> importBackupFile({bool replaceExisting = true}) async {
+  Future<int> importBackupFile() async {
     final contents = await fileDataSource.pickBackupFileContents();
     if (contents == null || contents.trim().isEmpty) {
       throw Exception('No backup file selected.');
@@ -42,11 +42,7 @@ class StatsBackupRepositoryImpl implements StatsBackupRepository {
     if (backup.responses.isEmpty) {
       throw Exception('Backup file has no responses.');
     }
-    if (replaceExisting) {
-      await localDataSource.replaceResponses(backup.responses);
-    } else {
-      await localDataSource.replaceResponses(backup.responses);
-    }
+    await localDataSource.replaceResponses(backup.responses);
     return backup.responses.length;
   }
 }

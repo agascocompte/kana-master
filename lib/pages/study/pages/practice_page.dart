@@ -18,11 +18,6 @@ class PracticePage extends StatelessWidget {
       builder: (context, settingsState) {
         final languageCode = settingsState.stateData.languageCode;
         final KanaType kanaType = settingsState.stateData.kanaType;
-        final Map<String, String> kanaMap = kanaType == KanaType.hiragana
-            ? hiragana
-            : kanaType == KanaType.katakana
-                ? katakana
-                : const {};
         return BlocProvider(
           create: (_) => sl<LearnBloc>()
             ..add(LearnInitialized(
@@ -100,37 +95,15 @@ class PracticePage extends StatelessWidget {
                                 }
                                 return TestTab(
                                   kanaType: kanaType,
-                                  kana: const {},
                                   kanjiEntries: entriesForTest,
                                   kanjiModelEntries:
                                       learnState.stateData.kanjiEntries,
                                   kanjiMeanings:
                                       learnState.stateData.kanjiMeanings,
-                                  difficultyLevel:
-                                      settingsState.stateData.difficultyLevel,
-                                  kanaScale: settingsState.stateData.kanaScale,
-                                  useModelHiragana:
-                                      settingsState.stateData.useModelHiragana,
-                                  useModelKatakana:
-                                      settingsState.stateData.useModelKatakana,
-                                  useModelKanji:
-                                      settingsState.stateData.useModelKanji,
                                 );
                               },
                             )
-                          : TestTab(
-                              kanaType: kanaType,
-                              kana: kanaMap,
-                              difficultyLevel:
-                                  settingsState.stateData.difficultyLevel,
-                              kanaScale: settingsState.stateData.kanaScale,
-                              useModelHiragana:
-                                  settingsState.stateData.useModelHiragana,
-                              useModelKatakana:
-                                  settingsState.stateData.useModelKatakana,
-                              useModelKanji:
-                                  settingsState.stateData.useModelKanji,
-                            ),
+                          : TestTab(kanaType: kanaType),
                     ),
                   ],
                 ),

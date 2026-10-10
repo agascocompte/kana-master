@@ -9,6 +9,7 @@ import 'package:kana_master/pages/stats/widgets/activity_strip.dart';
 import 'package:kana_master/pages/stats/widgets/empty_stats_card.dart';
 import 'package:kana_master/pages/stats/widgets/evolution_chart.dart';
 import 'package:kana_master/pages/stats/widgets/kana_type_switcher.dart';
+import 'package:kana_master/pages/stats/widgets/mastery_section.dart';
 import 'package:kana_master/pages/stats/widgets/metric_card.dart';
 import 'package:kana_master/pages/stats/widgets/section_card.dart';
 import 'package:kana_master/widgets/dialogs.dart';
@@ -127,6 +128,13 @@ class StatsTab extends StatelessWidget {
                           ),
                         ),
                       ],
+                    ),
+                    const SizedBox(height: 16),
+                    MasterySection(
+                      kanaType: selectedType,
+                      itemStats: state.stateData
+                              .itemStatsByType[selectedType] ??
+                          const {},
                     ),
                     const SizedBox(height: 16),
                     SectionCard(

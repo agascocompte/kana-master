@@ -206,6 +206,50 @@ class _Translations$app$ru implements Translations$app$en {
 	@override String premiumPurchaseError({required Object error}) => 'Ошибка покупки: ${error}';
 	@override String get premiumPurchased => 'Покупка завершена. Премиум разблокирован.';
 	@override String get premiumRestored => 'Покупки восстановлены.';
+	@override String get testNext => 'Далее';
+	@override String testCorrectAnswerWas({required Object answer}) => 'Правильный ответ: ${answer}';
+	@override String testQuestionProgress({required Object current, required Object total}) => 'Вопрос ${current} из ${total}';
+	@override String get testKanjiReading => 'Как читается этот кандзи?';
+	@override String get testTypeReading => 'Введите чтение (кана или ромадзи)';
+	@override String get sessionSummaryTitle => 'Сессия завершена';
+	@override String get sessionReviewSummaryTitle => 'Повторение завершено';
+	@override String sessionScore({required Object correct, required Object total}) => '${correct} из ${total} верно';
+	@override String get sessionPerfect => 'Отлично! Без ошибок.';
+	@override String get sessionMistakesTitle => 'Повторить';
+	@override String sessionReviewMistakes({required Object count}) => 'Повторить ошибки (${count})';
+	@override String get sessionNew => 'Новая сессия';
+	@override String get sessionExit => 'Завершить';
+	@override String get practiceWhat => 'Что тренировать';
+	@override String get practiceRowsBasic => 'Основные';
+	@override String get practiceRowsDakuten => 'Дакутэн';
+	@override String get practiceRowsCombos => 'Сочетания';
+	@override String get practiceSelectAll => 'Все';
+	@override String practiceItemsCount({required Object count}) => 'Символов: ${count}';
+	@override String get practiceNotDrawable => 'Сочетания и катакану с дакутэном нельзя нарисовать, поэтому в режиме рисования они пропускаются.';
+	@override String get practiceNothingToDraw => 'Ни один из выбранных символов нельзя нарисовать. Выберите другие ряды или меньшую сложность.';
+	@override String get practiceSessionLength => 'Вопросов за сессию';
+	@override String get practiceSource => 'Вопросы из';
+	@override String get practiceSourceAll => 'Всего';
+	@override String practiceSourceMistakes({required Object count}) => 'Мои ошибки (${count})';
+	@override String get kanjiQuizMode => 'Спрашивать';
+	@override String get kanjiModeMeaning => 'Значение';
+	@override String get kanjiModeReading => 'Чтение';
+	@override String get statsMasteryTitle => 'Освоение';
+	@override String get statsMasterySubtitle => 'Символ освоен после 3 правильных ответов подряд.';
+	@override String statsMasteredCount({required Object mastered, required Object total}) => 'Освоено ${mastered} из ${total}';
+	@override String get statsLegendMastered => 'Освоено';
+	@override String get statsLegendLearning => 'Изучается';
+	@override String get statsLegendWeak => 'Повторить';
+	@override String get statsLegendNew => 'Ещё не встречалось';
+	@override String get statsWeakest => 'Повторить';
+	@override String get learnDakutenTitle => 'Дакутэн';
+	@override String get learnCombosTitle => 'Сочетания';
+	@override String get settingsBackupImportConfirm => 'Импорт заменит всю текущую статистику. Продолжить?';
+	@override String get dictionaryEnglishNote => 'Результаты берутся с Jisho.org и приводятся на английском.';
+	@override String get dictionaryError => 'Не удалось выполнить поиск. Проверьте соединение и попробуйте снова.';
+	@override String materialsScore({required Object correct, required Object total}) => '${correct} / ${total} верно';
+	@override String get materialsClear => 'Удалить список';
+	@override String get premiumBenefitJlpt => 'Все уровни JLPT (N4–N1)';
 }
 
 /// The flat map containing all translations for locale <ru>.
@@ -374,6 +418,50 @@ extension on TranslationsRu {
 			'app.premiumPurchaseError' => ({required Object error}) => 'Ошибка покупки: ${error}',
 			'app.premiumPurchased' => 'Покупка завершена. Премиум разблокирован.',
 			'app.premiumRestored' => 'Покупки восстановлены.',
+			'app.testNext' => 'Далее',
+			'app.testCorrectAnswerWas' => ({required Object answer}) => 'Правильный ответ: ${answer}',
+			'app.testQuestionProgress' => ({required Object current, required Object total}) => 'Вопрос ${current} из ${total}',
+			'app.testKanjiReading' => 'Как читается этот кандзи?',
+			'app.testTypeReading' => 'Введите чтение (кана или ромадзи)',
+			'app.sessionSummaryTitle' => 'Сессия завершена',
+			'app.sessionReviewSummaryTitle' => 'Повторение завершено',
+			'app.sessionScore' => ({required Object correct, required Object total}) => '${correct} из ${total} верно',
+			'app.sessionPerfect' => 'Отлично! Без ошибок.',
+			'app.sessionMistakesTitle' => 'Повторить',
+			'app.sessionReviewMistakes' => ({required Object count}) => 'Повторить ошибки (${count})',
+			'app.sessionNew' => 'Новая сессия',
+			'app.sessionExit' => 'Завершить',
+			'app.practiceWhat' => 'Что тренировать',
+			'app.practiceRowsBasic' => 'Основные',
+			'app.practiceRowsDakuten' => 'Дакутэн',
+			'app.practiceRowsCombos' => 'Сочетания',
+			'app.practiceSelectAll' => 'Все',
+			'app.practiceItemsCount' => ({required Object count}) => 'Символов: ${count}',
+			'app.practiceNotDrawable' => 'Сочетания и катакану с дакутэном нельзя нарисовать, поэтому в режиме рисования они пропускаются.',
+			'app.practiceNothingToDraw' => 'Ни один из выбранных символов нельзя нарисовать. Выберите другие ряды или меньшую сложность.',
+			'app.practiceSessionLength' => 'Вопросов за сессию',
+			'app.practiceSource' => 'Вопросы из',
+			'app.practiceSourceAll' => 'Всего',
+			'app.practiceSourceMistakes' => ({required Object count}) => 'Мои ошибки (${count})',
+			'app.kanjiQuizMode' => 'Спрашивать',
+			'app.kanjiModeMeaning' => 'Значение',
+			'app.kanjiModeReading' => 'Чтение',
+			'app.statsMasteryTitle' => 'Освоение',
+			'app.statsMasterySubtitle' => 'Символ освоен после 3 правильных ответов подряд.',
+			'app.statsMasteredCount' => ({required Object mastered, required Object total}) => 'Освоено ${mastered} из ${total}',
+			'app.statsLegendMastered' => 'Освоено',
+			'app.statsLegendLearning' => 'Изучается',
+			'app.statsLegendWeak' => 'Повторить',
+			'app.statsLegendNew' => 'Ещё не встречалось',
+			'app.statsWeakest' => 'Повторить',
+			'app.learnDakutenTitle' => 'Дакутэн',
+			'app.learnCombosTitle' => 'Сочетания',
+			'app.settingsBackupImportConfirm' => 'Импорт заменит всю текущую статистику. Продолжить?',
+			'app.dictionaryEnglishNote' => 'Результаты берутся с Jisho.org и приводятся на английском.',
+			'app.dictionaryError' => 'Не удалось выполнить поиск. Проверьте соединение и попробуйте снова.',
+			'app.materialsScore' => ({required Object correct, required Object total}) => '${correct} / ${total} верно',
+			'app.materialsClear' => 'Удалить список',
+			'app.premiumBenefitJlpt' => 'Все уровни JLPT (N4–N1)',
 			_ => null,
 		};
 	}

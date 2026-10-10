@@ -2,98 +2,81 @@ part of 'test_kana_bloc.dart';
 
 abstract class TestKanaEvent {}
 
-class BeginTest extends TestKanaEvent {
-  final Map<String, String> kana;
+class StartSession extends TestKanaEvent {
   final KanaType kanaType;
-  final List<KanjiEntry> kanjiEntries;
-  final List<KanjiEntry> kanjiModelEntries;
-  final Map<String, List<String>> kanjiMeanings;
-  final DifficultyLevel difficultyLevel;
-  final bool useModelHiragana;
-  final bool useModelKatakana;
-  final bool useModelKanji;
-  BeginTest({
-    required this.kana,
+  final DifficultyLevel difficulty;
+  final List<QuizItem> pool;
+  final int length;
+  final bool useModel;
+
+  /// Symbol for each class of the drawing model, in class order.
+  final List<String> modelLabels;
+
+  /// Known answer history, used to weight the questions.
+  final Map<String, ItemStat> stats;
+  final bool isReview;
+
+  StartSession({
     required this.kanaType,
-    this.kanjiEntries = const [],
-    this.kanjiModelEntries = const [],
-    this.kanjiMeanings = const {},
-    required this.difficultyLevel,
-    required this.useModelHiragana,
-    required this.useModelKatakana,
-    required this.useModelKanji,
+    required this.difficulty,
+    required this.pool,
+    required this.length,
+    required this.useModel,
+    this.modelLabels = const [],
+    this.stats = const {},
+    this.isReview = false,
   });
 }
 
-class AddStroke extends TestKanaEvent {
-  final PaintStroke stroke;
-  AddStroke({required this.stroke});
-}
+/// Starts a new session with the mistakes of the finished one.
+class ReviewMistakes extends TestKanaEvent {}
 
-class StartStroke extends TestKanaEvent {
-  final Offset point;
-  StartStroke({required this.point});
-}
+/// Starts a new session with the same settings as the finished one.
+class RestartSession extends TestKanaEvent {}
 
-class ResetTest extends TestKanaEvent {}
+class OptionSelected extends TestKanaEvent {
+  final QuizItem option;
 
-class ClearDrawing extends TestKanaEvent {}
-
-class EvaluateImage extends TestKanaEvent {
-  final img.Image image;
-  final Uint8List pngBytes;
-  EvaluateImage({required this.image, required this.pngBytes});
-}
-
-class CaptureImage extends TestKanaEvent {}
-
-class TestNextKana extends TestKanaEvent {
-  final Map<String, String> kana;
-  final KanaType kanaType;
-  final List<KanjiEntry> kanjiEntries;
-  final List<KanjiEntry> kanjiModelEntries;
-  final Map<String, List<String>> kanjiMeanings;
-  final DifficultyLevel difficultyLevel;
-  final bool useModelHiragana;
-  final bool useModelKatakana;
-  final bool useModelKanji;
-  TestNextKana({
-    required this.kana,
-    required this.kanaType,
-    this.kanjiEntries = const [],
-    this.kanjiModelEntries = const [],
-    this.kanjiMeanings = const {},
-    required this.difficultyLevel,
-    required this.useModelHiragana,
-    required this.useModelKatakana,
-    required this.useModelKanji,
-  });
-}
-
-class EnableCheckAnswer extends TestKanaEvent {}
-
-class CheckAnswer extends TestKanaEvent {
-  final KanaType kanaType;
-  final DifficultyLevel difficultyLevel;
-  final Map<String, String> kana;
-
-  CheckAnswer({
-    required this.kanaType,
-    required this.difficultyLevel,
-    required this.kana,
-  });
-}
-
-class UpdateUserKanaIndexAnswer extends TestKanaEvent {
-  final int userIndex;
-
-  UpdateUserKanaIndexAnswer({required this.userIndex});
+  OptionSelected(this.option);
 }
 
 class UpdateUserTextAnswer extends TestKanaEvent {
   final String userAnswer;
 
   UpdateUserTextAnswer({required this.userAnswer});
+}
+
+/// Checks a single choice or typed answer.
+class SubmitAnswer extends TestKanaEvent {}
+
+/// Moves on after a revealed mistake.
+class NextQuestion extends TestKanaEvent {}
+
+class ResetTest extends TestKanaEvent {}
+
+class EnableCheckAnswer extends TestKanaEvent {}
+
+class AddStroke extends TestKanaEvent {
+  final PaintStroke stroke;
+
+  AddStroke({required this.stroke});
+}
+
+class StartStroke extends TestKanaEvent {
+  final Offset point;
+
+  StartStroke({required this.point});
+}
+
+class ClearDrawing extends TestKanaEvent {}
+
+class CaptureImage extends TestKanaEvent {}
+
+class EvaluateImage extends TestKanaEvent {
+  final img.Image image;
+  final Uint8List pngBytes;
+
+  EvaluateImage({required this.image, required this.pngBytes});
 }
 
 class ToggleKanjiTemplate extends TestKanaEvent {}

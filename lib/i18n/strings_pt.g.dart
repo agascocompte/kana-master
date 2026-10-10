@@ -206,6 +206,50 @@ class _Translations$app$pt implements Translations$app$en {
 	@override String premiumPurchaseError({required Object error}) => 'Falha na compra: ${error}';
 	@override String get premiumPurchased => 'Compra concluída. Premium desbloqueado.';
 	@override String get premiumRestored => 'Compras restauradas.';
+	@override String get testNext => 'Seguinte';
+	@override String testCorrectAnswerWas({required Object answer}) => 'Resposta correta: ${answer}';
+	@override String testQuestionProgress({required Object current, required Object total}) => 'Pergunta ${current} de ${total}';
+	@override String get testKanjiReading => 'Como se lê este kanji?';
+	@override String get testTypeReading => 'Escreve a leitura (kana ou romaji)';
+	@override String get sessionSummaryTitle => 'Sessão concluída';
+	@override String get sessionReviewSummaryTitle => 'Revisão concluída';
+	@override String sessionScore({required Object correct, required Object total}) => '${correct} de ${total} corretas';
+	@override String get sessionPerfect => 'Perfeito! Sem erros.';
+	@override String get sessionMistakesTitle => 'Para rever';
+	@override String sessionReviewMistakes({required Object count}) => 'Rever erros (${count})';
+	@override String get sessionNew => 'Nova sessão';
+	@override String get sessionExit => 'Terminar';
+	@override String get practiceWhat => 'O que praticar';
+	@override String get practiceRowsBasic => 'Básicos';
+	@override String get practiceRowsDakuten => 'Dakuten';
+	@override String get practiceRowsCombos => 'Combinações';
+	@override String get practiceSelectAll => 'Todos';
+	@override String practiceItemsCount({required Object count}) => '${count} caracteres';
+	@override String get practiceNotDrawable => 'As combinações e o katakana com dakuten não podem ser desenhados, por isso são omitidos no modo de desenho.';
+	@override String get practiceNothingToDraw => 'Nenhum dos caracteres escolhidos pode ser desenhado. Escolhe outras linhas ou uma dificuldade menor.';
+	@override String get practiceSessionLength => 'Perguntas por sessão';
+	@override String get practiceSource => 'Perguntas de';
+	@override String get practiceSourceAll => 'Tudo';
+	@override String practiceSourceMistakes({required Object count}) => 'Os meus erros (${count})';
+	@override String get kanjiQuizMode => 'Perguntar por';
+	@override String get kanjiModeMeaning => 'Significado';
+	@override String get kanjiModeReading => 'Leitura';
+	@override String get statsMasteryTitle => 'Domínio';
+	@override String get statsMasterySubtitle => 'Dominas um caractere depois de 3 respostas corretas seguidas.';
+	@override String statsMasteredCount({required Object mastered, required Object total}) => '${mastered} de ${total} dominados';
+	@override String get statsLegendMastered => 'Dominado';
+	@override String get statsLegendLearning => 'A aprender';
+	@override String get statsLegendWeak => 'Para rever';
+	@override String get statsLegendNew => 'Ainda não visto';
+	@override String get statsWeakest => 'Para rever';
+	@override String get learnDakutenTitle => 'Dakuten';
+	@override String get learnCombosTitle => 'Combinações';
+	@override String get settingsBackupImportConfirm => 'Importar substitui todas as tuas estatísticas atuais. Continuar?';
+	@override String get dictionaryEnglishNote => 'Os resultados vêm do Jisho.org e estão em inglês.';
+	@override String get dictionaryError => 'Não foi possível pesquisar. Verifica a ligação e tenta novamente.';
+	@override String materialsScore({required Object correct, required Object total}) => '${correct} / ${total} corretas';
+	@override String get materialsClear => 'Remover lista';
+	@override String get premiumBenefitJlpt => 'Todos os níveis JLPT (N4–N1)';
 }
 
 /// The flat map containing all translations for locale <pt>.
@@ -374,6 +418,50 @@ extension on TranslationsPt {
 			'app.premiumPurchaseError' => ({required Object error}) => 'Falha na compra: ${error}',
 			'app.premiumPurchased' => 'Compra concluída. Premium desbloqueado.',
 			'app.premiumRestored' => 'Compras restauradas.',
+			'app.testNext' => 'Seguinte',
+			'app.testCorrectAnswerWas' => ({required Object answer}) => 'Resposta correta: ${answer}',
+			'app.testQuestionProgress' => ({required Object current, required Object total}) => 'Pergunta ${current} de ${total}',
+			'app.testKanjiReading' => 'Como se lê este kanji?',
+			'app.testTypeReading' => 'Escreve a leitura (kana ou romaji)',
+			'app.sessionSummaryTitle' => 'Sessão concluída',
+			'app.sessionReviewSummaryTitle' => 'Revisão concluída',
+			'app.sessionScore' => ({required Object correct, required Object total}) => '${correct} de ${total} corretas',
+			'app.sessionPerfect' => 'Perfeito! Sem erros.',
+			'app.sessionMistakesTitle' => 'Para rever',
+			'app.sessionReviewMistakes' => ({required Object count}) => 'Rever erros (${count})',
+			'app.sessionNew' => 'Nova sessão',
+			'app.sessionExit' => 'Terminar',
+			'app.practiceWhat' => 'O que praticar',
+			'app.practiceRowsBasic' => 'Básicos',
+			'app.practiceRowsDakuten' => 'Dakuten',
+			'app.practiceRowsCombos' => 'Combinações',
+			'app.practiceSelectAll' => 'Todos',
+			'app.practiceItemsCount' => ({required Object count}) => '${count} caracteres',
+			'app.practiceNotDrawable' => 'As combinações e o katakana com dakuten não podem ser desenhados, por isso são omitidos no modo de desenho.',
+			'app.practiceNothingToDraw' => 'Nenhum dos caracteres escolhidos pode ser desenhado. Escolhe outras linhas ou uma dificuldade menor.',
+			'app.practiceSessionLength' => 'Perguntas por sessão',
+			'app.practiceSource' => 'Perguntas de',
+			'app.practiceSourceAll' => 'Tudo',
+			'app.practiceSourceMistakes' => ({required Object count}) => 'Os meus erros (${count})',
+			'app.kanjiQuizMode' => 'Perguntar por',
+			'app.kanjiModeMeaning' => 'Significado',
+			'app.kanjiModeReading' => 'Leitura',
+			'app.statsMasteryTitle' => 'Domínio',
+			'app.statsMasterySubtitle' => 'Dominas um caractere depois de 3 respostas corretas seguidas.',
+			'app.statsMasteredCount' => ({required Object mastered, required Object total}) => '${mastered} de ${total} dominados',
+			'app.statsLegendMastered' => 'Dominado',
+			'app.statsLegendLearning' => 'A aprender',
+			'app.statsLegendWeak' => 'Para rever',
+			'app.statsLegendNew' => 'Ainda não visto',
+			'app.statsWeakest' => 'Para rever',
+			'app.learnDakutenTitle' => 'Dakuten',
+			'app.learnCombosTitle' => 'Combinações',
+			'app.settingsBackupImportConfirm' => 'Importar substitui todas as tuas estatísticas atuais. Continuar?',
+			'app.dictionaryEnglishNote' => 'Os resultados vêm do Jisho.org e estão em inglês.',
+			'app.dictionaryError' => 'Não foi possível pesquisar. Verifica a ligação e tenta novamente.',
+			'app.materialsScore' => ({required Object correct, required Object total}) => '${correct} / ${total} corretas',
+			'app.materialsClear' => 'Remover lista',
+			'app.premiumBenefitJlpt' => 'Todos os níveis JLPT (N4–N1)',
 			_ => null,
 		};
 	}

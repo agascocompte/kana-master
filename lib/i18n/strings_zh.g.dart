@@ -206,6 +206,50 @@ class _Translations$app$zh implements Translations$app$en {
 	@override String premiumPurchaseError({required Object error}) => '购买失败：${error}';
 	@override String get premiumPurchased => '购买完成，高级版已解锁。';
 	@override String get premiumRestored => '购买已恢复。';
+	@override String get testNext => '下一题';
+	@override String testCorrectAnswerWas({required Object answer}) => '正确答案：${answer}';
+	@override String testQuestionProgress({required Object current, required Object total}) => '第 ${current} 题，共 ${total} 题';
+	@override String get testKanjiReading => '这个汉字怎么读？';
+	@override String get testTypeReading => '输入读音（假名或罗马字）';
+	@override String get sessionSummaryTitle => '练习完成';
+	@override String get sessionReviewSummaryTitle => '复习完成';
+	@override String sessionScore({required Object correct, required Object total}) => '答对 ${correct} / ${total}';
+	@override String get sessionPerfect => '完美！全部答对。';
+	@override String get sessionMistakesTitle => '需要复习';
+	@override String sessionReviewMistakes({required Object count}) => '复习错题（${count}）';
+	@override String get sessionNew => '新的练习';
+	@override String get sessionExit => '结束';
+	@override String get practiceWhat => '练习内容';
+	@override String get practiceRowsBasic => '清音';
+	@override String get practiceRowsDakuten => '浊音';
+	@override String get practiceRowsCombos => '拗音';
+	@override String get practiceSelectAll => '全部';
+	@override String practiceItemsCount({required Object count}) => '${count} 个字符';
+	@override String get practiceNotDrawable => '拗音和带浊点的片假名无法书写，因此在书写模式中会被跳过。';
+	@override String get practiceNothingToDraw => '所选字符都无法书写。请选择其他行或较低的难度。';
+	@override String get practiceSessionLength => '每次练习的题数';
+	@override String get practiceSource => '题目来源';
+	@override String get practiceSourceAll => '全部';
+	@override String practiceSourceMistakes({required Object count}) => '我的错题（${count}）';
+	@override String get kanjiQuizMode => '考查';
+	@override String get kanjiModeMeaning => '意思';
+	@override String get kanjiModeReading => '读音';
+	@override String get statsMasteryTitle => '掌握程度';
+	@override String get statsMasterySubtitle => '连续答对 3 次即算掌握该字符。';
+	@override String statsMasteredCount({required Object mastered, required Object total}) => '已掌握 ${mastered} / ${total}';
+	@override String get statsLegendMastered => '已掌握';
+	@override String get statsLegendLearning => '学习中';
+	@override String get statsLegendWeak => '需复习';
+	@override String get statsLegendNew => '未出现';
+	@override String get statsWeakest => '需复习';
+	@override String get learnDakutenTitle => '浊音';
+	@override String get learnCombosTitle => '拗音';
+	@override String get settingsBackupImportConfirm => '导入将替换你当前的所有统计数据。是否继续？';
+	@override String get dictionaryEnglishNote => '结果来自 Jisho.org，为英文内容。';
+	@override String get dictionaryError => '搜索失败。请检查网络连接后重试。';
+	@override String materialsScore({required Object correct, required Object total}) => '答对 ${correct} / ${total}';
+	@override String get materialsClear => '移除列表';
+	@override String get premiumBenefitJlpt => '所有 JLPT 级别（N4–N1）';
 }
 
 /// The flat map containing all translations for locale <zh>.
@@ -374,6 +418,50 @@ extension on TranslationsZh {
 			'app.premiumPurchaseError' => ({required Object error}) => '购买失败：${error}',
 			'app.premiumPurchased' => '购买完成，高级版已解锁。',
 			'app.premiumRestored' => '购买已恢复。',
+			'app.testNext' => '下一题',
+			'app.testCorrectAnswerWas' => ({required Object answer}) => '正确答案：${answer}',
+			'app.testQuestionProgress' => ({required Object current, required Object total}) => '第 ${current} 题，共 ${total} 题',
+			'app.testKanjiReading' => '这个汉字怎么读？',
+			'app.testTypeReading' => '输入读音（假名或罗马字）',
+			'app.sessionSummaryTitle' => '练习完成',
+			'app.sessionReviewSummaryTitle' => '复习完成',
+			'app.sessionScore' => ({required Object correct, required Object total}) => '答对 ${correct} / ${total}',
+			'app.sessionPerfect' => '完美！全部答对。',
+			'app.sessionMistakesTitle' => '需要复习',
+			'app.sessionReviewMistakes' => ({required Object count}) => '复习错题（${count}）',
+			'app.sessionNew' => '新的练习',
+			'app.sessionExit' => '结束',
+			'app.practiceWhat' => '练习内容',
+			'app.practiceRowsBasic' => '清音',
+			'app.practiceRowsDakuten' => '浊音',
+			'app.practiceRowsCombos' => '拗音',
+			'app.practiceSelectAll' => '全部',
+			'app.practiceItemsCount' => ({required Object count}) => '${count} 个字符',
+			'app.practiceNotDrawable' => '拗音和带浊点的片假名无法书写，因此在书写模式中会被跳过。',
+			'app.practiceNothingToDraw' => '所选字符都无法书写。请选择其他行或较低的难度。',
+			'app.practiceSessionLength' => '每次练习的题数',
+			'app.practiceSource' => '题目来源',
+			'app.practiceSourceAll' => '全部',
+			'app.practiceSourceMistakes' => ({required Object count}) => '我的错题（${count}）',
+			'app.kanjiQuizMode' => '考查',
+			'app.kanjiModeMeaning' => '意思',
+			'app.kanjiModeReading' => '读音',
+			'app.statsMasteryTitle' => '掌握程度',
+			'app.statsMasterySubtitle' => '连续答对 3 次即算掌握该字符。',
+			'app.statsMasteredCount' => ({required Object mastered, required Object total}) => '已掌握 ${mastered} / ${total}',
+			'app.statsLegendMastered' => '已掌握',
+			'app.statsLegendLearning' => '学习中',
+			'app.statsLegendWeak' => '需复习',
+			'app.statsLegendNew' => '未出现',
+			'app.statsWeakest' => '需复习',
+			'app.learnDakutenTitle' => '浊音',
+			'app.learnCombosTitle' => '拗音',
+			'app.settingsBackupImportConfirm' => '导入将替换你当前的所有统计数据。是否继续？',
+			'app.dictionaryEnglishNote' => '结果来自 Jisho.org，为英文内容。',
+			'app.dictionaryError' => '搜索失败。请检查网络连接后重试。',
+			'app.materialsScore' => ({required Object correct, required Object total}) => '答对 ${correct} / ${total}',
+			'app.materialsClear' => '移除列表',
+			'app.premiumBenefitJlpt' => '所有 JLPT 级别（N4–N1）',
 			_ => null,
 		};
 	}

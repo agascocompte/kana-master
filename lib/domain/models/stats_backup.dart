@@ -33,11 +33,12 @@ class StatsBackupResponse {
   final String timestamp;
   final bool isCorrect;
   final String kanaType;
-
+  final String? item;
   const StatsBackupResponse({
     required this.timestamp,
     required this.isCorrect,
     required this.kanaType,
+    this.item,
   });
 
   factory StatsBackupResponse.fromJson(Map<String, dynamic> json) {
@@ -46,6 +47,7 @@ class StatsBackupResponse {
       timestamp: json['timestamp']?.toString() ?? '',
       isCorrect: isCorrectRaw == true || isCorrectRaw == 1,
       kanaType: json['kana_type']?.toString() ?? 'hiragana',
+      item: json['item']?.toString(),
     );
   }
 
@@ -54,6 +56,7 @@ class StatsBackupResponse {
       'timestamp': timestamp,
       'is_correct': isCorrect ? 1 : 0,
       'kana_type': kanaType,
+      if (item != null) 'item': item,
     };
   }
 }

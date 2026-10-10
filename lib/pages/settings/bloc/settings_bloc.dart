@@ -5,6 +5,8 @@ import 'package:kana_master/constants.dart';
 import 'package:kana_master/data/datasources/stats_backup_file_data_source.dart';
 import 'package:kana_master/data/datasources/stats_backup_local_data_source.dart';
 import 'package:kana_master/data/repositories/stats_backup_repository_impl.dart';
+import 'package:kana_master/domain/models/kana_groups.dart';
+import 'package:kana_master/domain/models/quiz_item.dart';
 import 'package:kana_master/domain/providers/database_provider.dart';
 import 'package:kana_master/domain/repositories/settings_repository.dart';
 import 'package:kana_master/domain/usecases/export_stats_backup.dart';
@@ -37,6 +39,9 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
     on<ChangeUseModelHiragana>(_changeUseModelHiragana);
     on<ChangeUseModelKatakana>(_changeUseModelKatakana);
     on<ChangeUseModelKanji>(_changeUseModelKanji);
+    on<ChangeKanaGroups>(_changeKanaGroups);
+    on<ChangeKanjiQuizMode>(_changeKanjiQuizMode);
+    on<ChangeSessionLength>(_changeSessionLength);
     on<ExportStatsRequested>(_exportStats);
     on<ImportStatsRequested>(_importStats);
     on<LoadSettings>(_loadSettings);
@@ -72,6 +77,13 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
     bool useModelHiragana = await settingsRepository.getUseModelHiragana();
     bool useModelKatakana = await settingsRepository.getUseModelKatakana();
     bool useModelKanji = await settingsRepository.getUseModelKanji();
+    final Set<String>? kanaGroupsHiragana =
+        await settingsRepository.getKanaGroups(KanaType.hiragana);
+    final Set<String>? kanaGroupsKatakana =
+        await settingsRepository.getKanaGroups(KanaType.katakana);
+    final KanjiQuizMode kanjiQuizMode =
+        await settingsRepository.getKanjiQuizMode();
+    final int sessionLength = await settingsRepository.getSessionLength();
 
     emit(SettingsUpdated(state.stateData.copyWith(
       kanaType: kanaType,
@@ -83,6 +95,10 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
       useModelHiragana: useModelHiragana,
       useModelKatakana: useModelKatakana,
       useModelKanji: useModelKanji,
+      kanaGroupsHiragana: _validGroups(KanaType.hiragana, kanaGroupsHiragana),
+      kanaGroupsKatakana: _validGroups(KanaType.katakana, kanaGroupsKatakana),
+      kanjiQuizMode: kanjiQuizMode,
+      sessionLength: sessionLength,
     )));
     LocaleSettings.setLocale(_parseLocale(languageCode));
   }
@@ -146,6 +162,41 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
     emit(SettingsUpdated(state.stateData.copyWith(useModelKanji: event.enabled)));
     try {
       await settingsRepository.saveUseModelKanji(event.enabled);
+    } catch (_) {}
+  }
+
+  /// Saved groups that still exist, or the defaults if none remain.
+  Set<String> _validGroups(KanaType type, Set<String>? saved) {
+    final known = kanaGroupsFor(type).map((g) => g.id).toSet();
+    final valid = saved?.where(known.contains).toSet() ?? const <String>{};
+    return valid.isEmpty ? defaultKanaGroupIds(type) : valid;
+  }
+
+  FutureOr<void> _changeKanaGroups(
+      ChangeKanaGroups event, Emitter<SettingsState> emit) async {
+    if (event.groupIds.isEmpty) return;
+    emit(SettingsUpdated(event.kanaType == KanaType.katakana
+        ? state.stateData.copyWith(kanaGroupsKatakana: event.groupIds)
+        : state.stateData.copyWith(kanaGroupsHiragana: event.groupIds)));
+    try {
+      await settingsRepository.saveKanaGroups(event.kanaType, event.groupIds);
+    } catch (_) {}
+  }
+
+  FutureOr<void> _changeKanjiQuizMode(
+      ChangeKanjiQuizMode event, Emitter<SettingsState> emit) async {
+    emit(SettingsUpdated(state.stateData.copyWith(kanjiQuizMode: event.mode)));
+    try {
+      await settingsRepository.saveKanjiQuizMode(event.mode);
+    } catch (_) {}
+  }
+
+  FutureOr<void> _changeSessionLength(
+      ChangeSessionLength event, Emitter<SettingsState> emit) async {
+    emit(SettingsUpdated(
+        state.stateData.copyWith(sessionLength: event.length)));
+    try {
+      await settingsRepository.saveSessionLength(event.length);
     } catch (_) {}
   }
 

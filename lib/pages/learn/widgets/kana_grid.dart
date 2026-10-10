@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:kana_master/constants.dart';
 import 'package:kana_master/domain/models/kana_entry.dart';
+import 'package:kana_master/domain/models/kana_groups.dart';
+import 'package:kana_master/i18n/strings.g.dart';
 import 'package:kana_master/pages/learn/widgets/kana_tile.dart';
+import 'package:kana_master/theme/app_theme.dart';
 
 class KanaGrid extends StatelessWidget {
   const KanaGrid(
@@ -22,37 +25,135 @@ class KanaGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final tr = context.t;
     final keys = kanaType == KanaType.hiragana
         ? hiraganaDisplayGrid
         : katakanaDisplayGrid;
     final entryByCharacter = {for (final e in entries) e.character: e};
+    final bool isKatakana = kanaType == KanaType.katakana;
 
-    return GridView.builder(
-      padding: const EdgeInsets.all(10),
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 5,
-        crossAxisSpacing: 10,
-        mainAxisSpacing: 10,
-        childAspectRatio: tileAspectRatio,
+    return CustomScrollView(
+      slivers: [
+        SliverPadding(
+          padding: const EdgeInsets.all(10),
+          sliver: SliverGrid.builder(
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 5,
+              crossAxisSpacing: 10,
+              mainAxisSpacing: 10,
+              childAspectRatio: tileAspectRatio,
+            ),
+            itemCount: keys.length,
+            itemBuilder: (context, index) {
+              final String? key = keys[index];
+              final KanaEntry? entry =
+                  key == null ? null : entryByCharacter[key];
+              if (key == null || entry == null) {
+                return const SizedBox.shrink();
+              }
+              return GestureDetector(
+                onTap: () => onTapEntry(entry),
+                child: KanaTile(
+                  character: key,
+                  reading: entry.reading,
+                  clampedScale: clampedScale,
+                  kanaScale: kanaScale,
+                ),
+              );
+            },
+          ),
+        ),
+        // Hiragana dakuten are already in the main grid; katakana ones aren't.
+        if (isKatakana)
+          ..._extraSection(
+            context,
+            title: tr.app.learnDakutenTitle,
+            kana: katakanaDakuten,
+            columns: 5,
+          ),
+        ..._extraSection(
+          context,
+          title: tr.app.learnCombosTitle,
+          kana: isKatakana ? katakanaCombos : hiraganaCombos,
+          columns: 3,
+        ),
+        const SliverToBoxAdapter(child: SizedBox(height: 16)),
+      ],
+    );
+  }
+
+  /// Characters without stroke data: tapping shows them large with their
+  /// reading.
+  List<Widget> _extraSection(
+    BuildContext context, {
+    required String title,
+    required Map<String, String> kana,
+    required int columns,
+  }) {
+    final items = kana.entries.toList();
+    return [
+      SliverToBoxAdapter(
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(12, 14, 12, 2),
+          child: Text(
+            title,
+            style: const TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.w700,
+              color: AppColors.ink,
+            ),
+          ),
+        ),
       ),
-      itemCount: keys.length,
-      itemBuilder: (context, index) {
-        String? key = keys[index];
-        if (key == null) {
-          return const SizedBox.shrink();
-        }
-        final KanaEntry? entry = entryByCharacter[key];
-        if (entry == null) {
-          return const SizedBox.shrink();
-        }
-        return GestureDetector(
-            onTap: () => onTapEntry(entry),
-            child: KanaTile(
-                character: key,
-                reading: entry.reading,
+      SliverPadding(
+        padding: const EdgeInsets.all(10),
+        sliver: SliverGrid.builder(
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: columns,
+            crossAxisSpacing: 10,
+            mainAxisSpacing: 10,
+            childAspectRatio: tileAspectRatio * 5 / columns,
+          ),
+          itemCount: items.length,
+          itemBuilder: (context, index) {
+            final item = items[index];
+            return GestureDetector(
+              onTap: () => _showKanaInfo(context, item.key, item.value),
+              child: KanaTile(
+                character: item.key,
+                reading: item.value,
                 clampedScale: clampedScale,
-                kanaScale: kanaScale));
-      },
+                kanaScale: kanaScale,
+              ),
+            );
+          },
+        ),
+      ),
+    ];
+  }
+
+  void _showKanaInfo(BuildContext context, String symbol, String reading) {
+    showDialog<void>(
+      context: context,
+      builder: (context) => AlertDialog(
+        elevation: 0,
+        backgroundColor: Colors.white,
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              symbol,
+              style: const TextStyle(
+                fontSize: 72,
+                fontWeight: FontWeight.w700,
+                color: AppColors.ink,
+              ),
+            ),
+            const SizedBox(height: 8),
+            Text(reading, style: const TextStyle(fontSize: 24)),
+          ],
+        ),
+      ),
     );
   }
 }

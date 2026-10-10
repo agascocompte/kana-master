@@ -11,6 +11,10 @@ class SettingsStateData {
   final bool useModelHiragana;
   final bool useModelKatakana;
   final bool useModelKanji;
+  final Set<String> kanaGroupsHiragana;
+  final Set<String> kanaGroupsKatakana;
+  final KanjiQuizMode kanjiQuizMode;
+  final int sessionLength;
 
   SettingsStateData({
     this.kanaType = KanaType.hiragana,
@@ -18,12 +22,22 @@ class SettingsStateData {
     this.languageCode = 'es',
     this.hapticsEnabled = true,
     this.kanaScale = 1.0,
-    this.kanjiJlptFilter = 'all',
+    this.kanjiJlptFilter = 'n5',
     this.backupBusy = false,
     this.useModelHiragana = true,
     this.useModelKatakana = true,
     this.useModelKanji = false,
-  });
+    Set<String>? kanaGroupsHiragana,
+    Set<String>? kanaGroupsKatakana,
+    this.kanjiQuizMode = KanjiQuizMode.meaning,
+    this.sessionLength = defaultSessionLength,
+  })  : kanaGroupsHiragana =
+            kanaGroupsHiragana ?? defaultKanaGroupIds(KanaType.hiragana),
+        kanaGroupsKatakana =
+            kanaGroupsKatakana ?? defaultKanaGroupIds(KanaType.katakana);
+
+  Set<String> kanaGroupsFor(KanaType type) =>
+      type == KanaType.katakana ? kanaGroupsKatakana : kanaGroupsHiragana;
 
   SettingsStateData copyWith({
     KanaType? kanaType,
@@ -36,6 +50,10 @@ class SettingsStateData {
     bool? useModelHiragana,
     bool? useModelKatakana,
     bool? useModelKanji,
+    Set<String>? kanaGroupsHiragana,
+    Set<String>? kanaGroupsKatakana,
+    KanjiQuizMode? kanjiQuizMode,
+    int? sessionLength,
   }) {
     return SettingsStateData(
       kanaType: kanaType ?? this.kanaType,
@@ -48,6 +66,10 @@ class SettingsStateData {
       useModelHiragana: useModelHiragana ?? this.useModelHiragana,
       useModelKatakana: useModelKatakana ?? this.useModelKatakana,
       useModelKanji: useModelKanji ?? this.useModelKanji,
+      kanaGroupsHiragana: kanaGroupsHiragana ?? this.kanaGroupsHiragana,
+      kanaGroupsKatakana: kanaGroupsKatakana ?? this.kanaGroupsKatakana,
+      kanjiQuizMode: kanjiQuizMode ?? this.kanjiQuizMode,
+      sessionLength: sessionLength ?? this.sessionLength,
     );
   }
 }

@@ -54,6 +54,10 @@ enum DifficultyLevel { low, medium, high }
 
 enum TestType { drawingTest, singleAnswer }
 
+/// Questions per practice session.
+const List<int> sessionLengths = [10, 20, 40];
+const int defaultSessionLength = 20;
+
 const Map<String, String> hiragana = {
   "あ": "a",
   "い": "i",

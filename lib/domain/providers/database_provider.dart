@@ -25,7 +25,7 @@ class DatabaseProvider {
     String path = join(documentsDirectory.path, "HiraganaApp.db");
     var database = await openDatabase(
       path,
-      version: 5,
+      version: 6,
       onCreate: initDB,
       onUpgrade: onUpgrade,
     );
@@ -33,21 +33,13 @@ class DatabaseProvider {
   }
 
   Future<void> initDB(Database database, int version) async {
-    // Crear la tabla para las respuestas de hiragana
-    await database.execute(
-      "CREATE TABLE hiragana_responses ("
-      "id INTEGER PRIMARY KEY, "
-      "timestamp TEXT, "
-      "is_correct BOOLEAN"
-      ")",
-    );
-
     await database.execute(
       "CREATE TABLE responses ("
       "id INTEGER PRIMARY KEY, "
       "timestamp TEXT, "
       "is_correct BOOLEAN, "
-      "kana_type TEXT"
+      "kana_type TEXT, "
+      "item TEXT"
       ")",
     );
 
@@ -134,6 +126,12 @@ class DatabaseProvider {
           }
         }
       }
+      if (oldVersion < 6) {
+        // Character asked in each answer, for per-item stats.
+        if (!await columnExists(database, 'responses', 'item')) {
+          await database.execute("ALTER TABLE responses ADD COLUMN item TEXT");
+        }
+      }
     }
   }
 
@@ -162,6 +160,7 @@ class DatabaseProvider {
   Future<void> insertResponse({
     required KanaType kanaType,
     required bool isCorrect,
+    String? item,
   }) async {
     final db = await database;
     await db.insert(
@@ -170,21 +169,8 @@ class DatabaseProvider {
         'timestamp': DateTime.now().toIso8601String(),
         'is_correct': isCorrect ? 1 : 0,
         'kana_type': kanaType.name,
+        'item': item,
       },
-    );
-  }
-
-  Future<List<Map<String, dynamic>>> getResponses({
-    KanaType? kanaType,
-  }) async {
-    final db = await database;
-    if (kanaType == null) {
-      return await db.query('responses');
-    }
-    return await db.query(
-      'responses',
-      where: 'kana_type = ?',
-      whereArgs: [kanaType.name],
     );
   }
 }

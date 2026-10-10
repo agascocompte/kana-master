@@ -3,11 +3,14 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kana_master/constants.dart';
 import 'package:kana_master/domain/models/kanji_entry.dart';
+import 'package:kana_master/domain/models/quiz_item.dart';
+import 'package:kana_master/domain/quiz_engine.dart';
 import 'package:kana_master/pages/premium/bloc/premium_bloc.dart';
 import 'package:kana_master/pages/settings/bloc/settings_bloc.dart';
 import 'package:kana_master/pages/stats/bloc/stats_bloc.dart';
 import 'package:kana_master/pages/test_kana/bloc/test_kana_bloc.dart';
 import 'package:kana_master/pages/test_kana/widgets/prediction_overlay.dart';
+import 'package:kana_master/pages/test_kana/widgets/session_summary_card.dart';
 import 'package:kana_master/pages/test_kana/widgets/test_session_view.dart';
 import 'package:kana_master/pages/test_kana/widgets/test_start_card.dart';
 import 'package:kana_master/services/ads/interstitial_gate.dart';
@@ -16,121 +19,133 @@ import 'package:kana_master/i18n/strings.g.dart';
 
 class TestTab extends StatelessWidget {
   final KanaType kanaType;
-  final Map<String, String> kana;
+
+  /// Kanji to ask about (already filtered by JLPT level).
   final List<KanjiEntry> kanjiEntries;
+
+  /// Every kanji, in the drawing model's class order.
   final List<KanjiEntry> kanjiModelEntries;
   final Map<String, List<String>> kanjiMeanings;
-  final DifficultyLevel difficultyLevel;
-  final double kanaScale;
-  final bool useModelHiragana;
-  final bool useModelKatakana;
-  final bool useModelKanji;
 
   const TestTab({
     super.key,
     required this.kanaType,
-    required this.kana,
     this.kanjiEntries = const [],
     this.kanjiModelEntries = const [],
     this.kanjiMeanings = const {},
-    required this.difficultyLevel,
-    this.kanaScale = 1.0,
-    this.useModelHiragana = true,
-    this.useModelKatakana = true,
-    this.useModelKanji = false,
   });
 
   @override
   Widget build(BuildContext context) {
+    final settings = context.watch<SettingsBloc>().state.stateData;
+    final DifficultyLevel difficulty = settings.difficultyLevel;
+    final bool useModel = switch (kanaType) {
+      KanaType.hiragana => settings.useModelHiragana,
+      KanaType.katakana => settings.useModelKatakana,
+      KanaType.kanji => settings.useModelKanji,
+    };
+    final List<QuizItem> pool = kanaType == KanaType.kanji
+        ? QuizEngine.kanjiPool(
+            entries: kanjiEntries,
+            modelEntries: kanjiModelEntries,
+            meanings: kanjiMeanings,
+            mode: difficulty == DifficultyLevel.high
+                ? KanjiQuizMode.meaning
+                : settings.kanjiQuizMode,
+          )
+        : QuizEngine.kanaPool(kanaType, settings.kanaGroupsFor(kanaType));
+    final List<String> modelLabels = switch (kanaType) {
+      KanaType.hiragana => hiragana.keys.toList(),
+      KanaType.katakana => katakanaModelLabels,
+      KanaType.kanji => [for (final e in kanjiModelEntries) e.character],
+    };
+
     return BlocConsumer<TestKanaBloc, TestKanaState>(
-      listener: (context, state) {
-        final bool hapticsEnabled =
-            context.read<SettingsBloc>().state.stateData.hapticsEnabled;
-        if (state is ErrorPredictingHiragana) {
-          Snackbars.showErrorScaffold(context, state.msg);
-        } else if (state is DrawingReportShared) {
-          Snackbars.showSuccessScaffold(
-            context,
-            t.app.testReportThanks,
-            visibleDuration: const Duration(milliseconds: 2600),
-          );
-        } else if (state is DrawingReportError) {
-          Snackbars.showErrorScaffold(
-            context,
-            state.msg.isEmpty ? t.app.testReportError : state.msg,
-            visibleDuration: const Duration(milliseconds: 2600),
-          );
-        } else if (state is HiraganaWritingSuccess ||
-            state is KanaSelectedSuccess) {
-          final isPremium = context.read<PremiumBloc>().state.isPremium;
-          context.read<StatsBloc>().add(AddAnswerResult(
-                kanaType: kanaType,
-                isCorrect: true,
-              ));
-          if (hapticsEnabled) {
-            HapticFeedback.lightImpact();
-          }
-          InterstitialGate.instance.onCorrectAnswer(isPremium: isPremium);
-          Snackbars.showSuccessScaffold(context, t.app.correct);
-          context.read<TestKanaBloc>().add(TestNextKana(
-                kana: kana,
-                kanaType: kanaType,
-                kanjiEntries: kanjiEntries,
-                kanjiModelEntries: kanjiModelEntries,
-                kanjiMeanings: kanjiMeanings,
-                difficultyLevel: difficultyLevel,
-                useModelHiragana: useModelHiragana,
-                useModelKatakana: useModelKatakana,
-                useModelKanji: useModelKanji,
-              ));
-        } else if (state is HiraganaWritingFail || state is KanaSelectedFail) {
-          context.read<StatsBloc>().add(AddAnswerResult(
-                kanaType: kanaType,
-                isCorrect: false,
-              ));
-          if (hapticsEnabled) {
-            HapticFeedback.mediumImpact();
-          }
-          Snackbars.showWarningScaffold(context, t.app.oops);
-        }
-      },
+      listener: (context, state) => _onStateChanged(context, state),
       builder: (context, state) {
         final String modeLabel = _modeLabel(
           kanaType: kanaType,
-          difficulty: difficultyLevel,
-          testType: state.stateData.testType,
+          difficulty: difficulty,
+          testType: TestKanaBloc.testTypeFor(difficulty),
         );
-        if (state is TestKanaInitial) {
+        if (state is SessionFinished) {
+          return SessionSummaryCard(session: state.stateData.session!);
+        }
+        if (state is TestKanaInitial || state.stateData.session == null) {
           return TestStartCard(
-              modeLabel: modeLabel,
-              kana: kana,
-              kanaType: kanaType,
-              kanjiEntries: kanjiEntries,
-              kanjiModelEntries: kanjiModelEntries,
-              kanjiMeanings: kanjiMeanings,
-              difficultyLevel: difficultyLevel,
-              useModelHiragana: useModelHiragana,
-              useModelKatakana: useModelKatakana,
-              useModelKanji: useModelKanji,
+            modeLabel: modeLabel,
+            kanaType: kanaType,
+            difficulty: difficulty,
+            pool: pool,
+            useModel: useModel,
+            onStart: (selectedPool, isReview) {
+              final stats = context
+                      .read<StatsBloc>()
+                      .state
+                      .stateData
+                      .itemStatsByType[kanaType] ??
+                  const {};
+              context.read<TestKanaBloc>().add(StartSession(
+                    kanaType: kanaType,
+                    difficulty: difficulty,
+                    pool: selectedPool,
+                    length: settings.sessionLength,
+                    useModel: useModel,
+                    modelLabels: modelLabels,
+                    stats: stats,
+                    isReview: isReview,
+                  ));
+            },
           );
         }
         return Stack(
           children: [
             TestSessionView(
               state: state,
-              kana: kana,
-              kanaType: kanaType,
-              kanjiEntries: kanjiEntries,
-              kanjiMeanings: kanjiMeanings,
-              difficultyLevel: difficultyLevel,
               modeLabel: modeLabel,
-              kanaScale: kanaScale,
+              kanaScale: settings.kanaScale,
             ),
-            if (state is PredictionInProgress) const PredictionOverlay()
+            if (state is PredictionInProgress) const PredictionOverlay(),
           ],
         );
       },
     );
+  }
+
+  void _onStateChanged(BuildContext context, TestKanaState state) {
+    final bool hapticsEnabled =
+        context.read<SettingsBloc>().state.stateData.hapticsEnabled;
+    if (state is ErrorPredicting) {
+      Snackbars.showErrorScaffold(context, state.msg);
+    } else if (state is DrawingReportShared) {
+      Snackbars.showSuccessScaffold(
+        context,
+        t.app.testReportThanks,
+        visibleDuration: const Duration(milliseconds: 2600),
+      );
+    } else if (state is DrawingReportError) {
+      Snackbars.showErrorScaffold(
+        context,
+        state.msg.isEmpty ? t.app.testReportError : state.msg,
+        visibleDuration: const Duration(milliseconds: 2600),
+      );
+    } else if (state is AnswerResult) {
+      final session = state.stateData.session!;
+      context.read<StatsBloc>().add(AddAnswerResult(
+            kanaType: session.kanaType,
+            isCorrect: state.isCorrect,
+            item: state.item.symbol,
+          ));
+      if (state.isCorrect) {
+        if (hapticsEnabled) HapticFeedback.lightImpact();
+        Snackbars.showSuccessScaffold(context, t.app.correct);
+      } else if (hapticsEnabled) {
+        HapticFeedback.mediumImpact();
+      }
+    } else if (state is SessionFinished) {
+      final isPremium = context.read<PremiumBloc>().state.isPremium;
+      InterstitialGate.instance.onSessionFinished(isPremium: isPremium);
+    }
   }
 }
 
@@ -139,26 +154,16 @@ String _modeLabel({
   required DifficultyLevel difficulty,
   required TestType testType,
 }) {
-  final String script = () {
-    switch (kanaType) {
-      case KanaType.hiragana:
-        return t.app.scriptHiragana;
-      case KanaType.katakana:
-        return t.app.scriptKatakana;
-      case KanaType.kanji:
-        return t.app.scriptKanji;
-    }
-  }();
-  final String difficultyLabel = () {
-    switch (difficulty) {
-      case DifficultyLevel.low:
-        return t.app.difficultyEasy;
-      case DifficultyLevel.medium:
-        return t.app.difficultyMedium;
-      case DifficultyLevel.high:
-        return t.app.difficultyHard;
-    }
-  }();
+  final String script = switch (kanaType) {
+    KanaType.hiragana => t.app.scriptHiragana,
+    KanaType.katakana => t.app.scriptKatakana,
+    KanaType.kanji => t.app.scriptKanji,
+  };
+  final String difficultyLabel = switch (difficulty) {
+    DifficultyLevel.low => t.app.difficultyEasy,
+    DifficultyLevel.medium => t.app.difficultyMedium,
+    DifficultyLevel.high => t.app.difficultyHard,
+  };
   final String mode = testType == TestType.drawingTest
       ? t.app.testModeDrawing
       : t.app.testModeQuiz;

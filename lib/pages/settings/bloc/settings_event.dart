@@ -58,6 +58,25 @@ class ChangeUseModelKanji extends SettingsEvent {
   ChangeUseModelKanji({required this.enabled});
 }
 
+class ChangeKanaGroups extends SettingsEvent {
+  final KanaType kanaType;
+  final Set<String> groupIds;
+
+  ChangeKanaGroups({required this.kanaType, required this.groupIds});
+}
+
+class ChangeKanjiQuizMode extends SettingsEvent {
+  final KanjiQuizMode mode;
+
+  ChangeKanjiQuizMode({required this.mode});
+}
+
+class ChangeSessionLength extends SettingsEvent {
+  final int length;
+
+  ChangeSessionLength({required this.length});
+}
+
 class ExportStatsRequested extends SettingsEvent {}
 
 class ImportStatsRequested extends SettingsEvent {}

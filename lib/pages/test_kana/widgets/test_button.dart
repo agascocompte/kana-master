@@ -8,10 +8,12 @@ class TestButton extends StatelessWidget {
   final void Function()? onPressed;
   final Icon? icon;
   final String heroTag;
+  final String? tooltip;
 
   const TestButton({
     super.key,
     required this.heroTag,
+    this.tooltip,
     this.backgroundColor,
     this.iconColor,
     this.opacity,
@@ -28,6 +30,7 @@ class TestButton extends StatelessWidget {
         elevation: 4.0,
         onPressed: onPressed,
         heroTag: heroTag,
+        tooltip: tooltip,
         child: Opacity(
           opacity: opacity ?? 1,
           child: icon == null

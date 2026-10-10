@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:kana_master/domain/providers/database_provider.dart';
 import 'package:kana_master/constants.dart';
+import 'package:kana_master/domain/models/quiz_item.dart';
 import 'package:sqflite/sqflite.dart';
 
 class SettingsRepository {
@@ -151,9 +152,9 @@ class SettingsRepository {
       whereArgs: ['kanji_jlpt_filter'],
     );
     if (result.isNotEmpty) {
-      return result.first['value']?.toString() ?? 'all';
+      return result.first['value']?.toString() ?? 'n5';
     }
-    return 'all';
+    return 'n5';
   }
 
   Future<void> saveUseModelHiragana(bool enabled) async {
@@ -221,6 +222,60 @@ class SettingsRepository {
     }
     return false;
   }
+
+  Future<String?> _getValue(String key) async {
+    final db = await _databaseProvider.database;
+    final result = await db.query(
+      'settings',
+      where: 'key = ?',
+      whereArgs: [key],
+    );
+    return result.isNotEmpty ? result.first['value']?.toString() : null;
+  }
+
+  Future<void> _setValue(String key, String value) async {
+    final db = await _databaseProvider.database;
+    await db.insert(
+      'settings',
+      {'key': key, 'value': value},
+      conflictAlgorithm: ConflictAlgorithm.replace,
+    );
+  }
+
+  /// Kana groups selected for practice, or null if never chosen.
+  Future<Set<String>?> getKanaGroups(KanaType kanaType) async {
+    final value = await _getValue('kana_groups_${kanaType.name}');
+    if (value == null) return null;
+    return value.split(',').where((id) => id.isNotEmpty).toSet();
+  }
+
+  Future<void> saveKanaGroups(KanaType kanaType, Set<String> groupIds) =>
+      _setValue('kana_groups_${kanaType.name}', groupIds.join(','));
+
+  Future<KanjiQuizMode> getKanjiQuizMode() async {
+    final value = await _getValue('kanji_quiz_mode');
+    return KanjiQuizMode.values.firstWhere(
+      (mode) => mode.name == value,
+      orElse: () => KanjiQuizMode.meaning,
+    );
+  }
+
+  Future<void> saveKanjiQuizMode(KanjiQuizMode mode) =>
+      _setValue('kanji_quiz_mode', mode.name);
+
+  Future<int> getSessionLength() async {
+    final value = int.tryParse(await _getValue('session_length') ?? '');
+    return sessionLengths.contains(value) ? value! : defaultSessionLength;
+  }
+
+  Future<void> saveSessionLength(int length) =>
+      _setValue('session_length', length.toString());
+
+  /// Imported materials (headers, rows and chosen columns) as JSON.
+  Future<String?> getMaterialsJson() => _getValue('materials_json');
+
+  Future<void> saveMaterialsJson(String json) =>
+      _setValue('materials_json', json);
 
   Future<void> savePremiumUnlocked(bool unlocked) async {
     final db = await _databaseProvider.database;

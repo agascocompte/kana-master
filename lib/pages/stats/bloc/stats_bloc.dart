@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kana_master/domain/repositories/score_repository.dart';
 import 'package:injectable/injectable.dart';
 import 'package:kana_master/constants.dart';
+import 'package:kana_master/domain/models/quiz_item.dart';
 import 'package:kana_master/domain/models/stats_summary.dart';
 
 part 'stats_event.dart';
@@ -27,6 +28,7 @@ class StatsBloc extends Bloc<StatsEvent, StatsState> {
     final summaries = <KanaType, StatsSummary>{};
     final correctDataByType = <KanaType, Map<DateTime, int>>{};
     final incorrectDataByType = <KanaType, Map<DateTime, int>>{};
+    final itemStatsByType = <KanaType, Map<String, ItemStat>>{};
     for (final type in KanaType.values) {
       summaries[type] = await scoreRepository.getSummary(type);
 
@@ -35,6 +37,7 @@ class StatsBloc extends Bloc<StatsEvent, StatsState> {
 
       correctDataByType[type] = _normalizeDayMap(correctRaw);
       incorrectDataByType[type] = _normalizeDayMap(incorrectRaw);
+      itemStatsByType[type] = await scoreRepository.getItemStats(type);
     }
     KanaType selected = state.stateData.selectedKanaType;
     if ((summaries[selected]?.total ?? 0) == 0) {
@@ -50,6 +53,7 @@ class StatsBloc extends Bloc<StatsEvent, StatsState> {
       correctDataByType: correctDataByType,
       incorrectDataByType: incorrectDataByType,
       selectedKanaType: selected,
+      itemStatsByType: itemStatsByType,
     )));
   }
 
@@ -60,6 +64,7 @@ class StatsBloc extends Bloc<StatsEvent, StatsState> {
     await scoreRepository.addResponse(
       kanaType: event.kanaType,
       isCorrect: event.isCorrect,
+      item: event.item,
     );
     final summary = await scoreRepository.getSummary(event.kanaType);
     final correctRaw =
@@ -75,10 +80,21 @@ class StatsBloc extends Bloc<StatsEvent, StatsState> {
     updatedSummaries[event.kanaType] = summary;
     updatedCorrect[event.kanaType] = _normalizeDayMap(correctRaw);
     updatedIncorrect[event.kanaType] = _normalizeDayMap(incorrectRaw);
+    final updatedItemStats = Map<KanaType, Map<String, ItemStat>>.from(
+        state.stateData.itemStatsByType);
+    final String? item = event.item;
+    if (item != null) {
+      final typeStats =
+          Map<String, ItemStat>.from(updatedItemStats[event.kanaType] ?? {});
+      typeStats[item] =
+          (typeStats[item] ?? const ItemStat()).record(event.isCorrect);
+      updatedItemStats[event.kanaType] = typeStats;
+    }
     emit(StatsUpdated(state.stateData.copyWith(
       summaries: updatedSummaries,
       correctDataByType: updatedCorrect,
       incorrectDataByType: updatedIncorrect,
+      itemStatsByType: updatedItemStats,
     )));
   }
 
@@ -89,6 +105,7 @@ class StatsBloc extends Bloc<StatsEvent, StatsState> {
       correctDataByType: {},
       incorrectDataByType: {},
       selectedKanaType: KanaType.hiragana,
+      itemStatsByType: {},
     )));
   }
 

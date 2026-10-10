@@ -13,11 +13,12 @@ import 'package:kana_master/pages/test_kana/widgets/drawing_painter.dart';
 class DrawingBoard extends StatefulWidget {
   final bool showKanjiGuide;
   final String? kanjiGuideAssetPath;
-
+  final double guideOpacity;
   const DrawingBoard({
     super.key,
     this.showKanjiGuide = false,
     this.kanjiGuideAssetPath,
+    this.guideOpacity = 0.2,
   });
 
   @override
@@ -98,7 +99,7 @@ class DrawingBoardState extends State<DrawingBoard> {
                   Positioned.fill(
                     child: IgnorePointer(
                       child: Opacity(
-                        opacity: 0.2,
+                        opacity: widget.guideOpacity,
                         child: Padding(
                           padding: const EdgeInsets.all(18),
                           child: SvgPicture.asset(

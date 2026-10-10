@@ -206,6 +206,50 @@ class _Translations$app$ko implements Translations$app$en {
 	@override String premiumPurchaseError({required Object error}) => '구매 실패: ${error}';
 	@override String get premiumPurchased => '구매 완료. 프리미엄이 잠금 해제되었습니다.';
 	@override String get premiumRestored => '구매가 복원되었습니다.';
+	@override String get testNext => '다음';
+	@override String testCorrectAnswerWas({required Object answer}) => '정답: ${answer}';
+	@override String testQuestionProgress({required Object total, required Object current}) => '${total}문제 중 ${current}번째';
+	@override String get testKanjiReading => '이 한자는 어떻게 읽나요?';
+	@override String get testTypeReading => '읽는 법을 입력하세요 (가나 또는 로마자)';
+	@override String get sessionSummaryTitle => '세션 완료';
+	@override String get sessionReviewSummaryTitle => '복습 완료';
+	@override String sessionScore({required Object total, required Object correct}) => '${total}문제 중 ${correct}개 정답';
+	@override String get sessionPerfect => '완벽해요! 틀린 문제가 없어요.';
+	@override String get sessionMistakesTitle => '복습할 문자';
+	@override String sessionReviewMistakes({required Object count}) => '틀린 문제 복습 (${count})';
+	@override String get sessionNew => '새 세션';
+	@override String get sessionExit => '종료';
+	@override String get practiceWhat => '연습할 문자';
+	@override String get practiceRowsBasic => '기본';
+	@override String get practiceRowsDakuten => '탁음';
+	@override String get practiceRowsCombos => '요음';
+	@override String get practiceSelectAll => '전체';
+	@override String practiceItemsCount({required Object count}) => '${count}자';
+	@override String get practiceNotDrawable => '요음과 탁점이 있는 가타카나는 그릴 수 없어서 그리기 모드에서는 제외됩니다.';
+	@override String get practiceNothingToDraw => '선택한 문자 중 그릴 수 있는 것이 없습니다. 다른 행이나 낮은 난이도를 선택하세요.';
+	@override String get practiceSessionLength => '세션당 문제 수';
+	@override String get practiceSource => '출제 범위';
+	@override String get practiceSourceAll => '전체';
+	@override String practiceSourceMistakes({required Object count}) => '내가 틀린 문자 (${count})';
+	@override String get kanjiQuizMode => '출제 방식';
+	@override String get kanjiModeMeaning => '뜻';
+	@override String get kanjiModeReading => '읽기';
+	@override String get statsMasteryTitle => '숙달도';
+	@override String get statsMasterySubtitle => '3번 연속으로 맞히면 숙달한 문자가 됩니다.';
+	@override String statsMasteredCount({required Object total, required Object mastered}) => '${total}자 중 ${mastered}자 숙달';
+	@override String get statsLegendMastered => '숙달';
+	@override String get statsLegendLearning => '학습 중';
+	@override String get statsLegendWeak => '복습 필요';
+	@override String get statsLegendNew => '아직 안 나옴';
+	@override String get statsWeakest => '복습 필요';
+	@override String get learnDakutenTitle => '탁음';
+	@override String get learnCombosTitle => '요음';
+	@override String get settingsBackupImportConfirm => '가져오기를 하면 현재 통계가 모두 대체됩니다. 계속할까요?';
+	@override String get dictionaryEnglishNote => '결과는 Jisho.org에서 가져오며 영어로 표시됩니다.';
+	@override String get dictionaryError => '검색하지 못했습니다. 연결을 확인하고 다시 시도하세요.';
+	@override String materialsScore({required Object correct, required Object total}) => '${correct} / ${total} 정답';
+	@override String get materialsClear => '목록 삭제';
+	@override String get premiumBenefitJlpt => '모든 JLPT 레벨 (N4–N1)';
 }
 
 /// The flat map containing all translations for locale <ko>.
@@ -374,6 +418,50 @@ extension on TranslationsKo {
 			'app.premiumPurchaseError' => ({required Object error}) => '구매 실패: ${error}',
 			'app.premiumPurchased' => '구매 완료. 프리미엄이 잠금 해제되었습니다.',
 			'app.premiumRestored' => '구매가 복원되었습니다.',
+			'app.testNext' => '다음',
+			'app.testCorrectAnswerWas' => ({required Object answer}) => '정답: ${answer}',
+			'app.testQuestionProgress' => ({required Object total, required Object current}) => '${total}문제 중 ${current}번째',
+			'app.testKanjiReading' => '이 한자는 어떻게 읽나요?',
+			'app.testTypeReading' => '읽는 법을 입력하세요 (가나 또는 로마자)',
+			'app.sessionSummaryTitle' => '세션 완료',
+			'app.sessionReviewSummaryTitle' => '복습 완료',
+			'app.sessionScore' => ({required Object total, required Object correct}) => '${total}문제 중 ${correct}개 정답',
+			'app.sessionPerfect' => '완벽해요! 틀린 문제가 없어요.',
+			'app.sessionMistakesTitle' => '복습할 문자',
+			'app.sessionReviewMistakes' => ({required Object count}) => '틀린 문제 복습 (${count})',
+			'app.sessionNew' => '새 세션',
+			'app.sessionExit' => '종료',
+			'app.practiceWhat' => '연습할 문자',
+			'app.practiceRowsBasic' => '기본',
+			'app.practiceRowsDakuten' => '탁음',
+			'app.practiceRowsCombos' => '요음',
+			'app.practiceSelectAll' => '전체',
+			'app.practiceItemsCount' => ({required Object count}) => '${count}자',
+			'app.practiceNotDrawable' => '요음과 탁점이 있는 가타카나는 그릴 수 없어서 그리기 모드에서는 제외됩니다.',
+			'app.practiceNothingToDraw' => '선택한 문자 중 그릴 수 있는 것이 없습니다. 다른 행이나 낮은 난이도를 선택하세요.',
+			'app.practiceSessionLength' => '세션당 문제 수',
+			'app.practiceSource' => '출제 범위',
+			'app.practiceSourceAll' => '전체',
+			'app.practiceSourceMistakes' => ({required Object count}) => '내가 틀린 문자 (${count})',
+			'app.kanjiQuizMode' => '출제 방식',
+			'app.kanjiModeMeaning' => '뜻',
+			'app.kanjiModeReading' => '읽기',
+			'app.statsMasteryTitle' => '숙달도',
+			'app.statsMasterySubtitle' => '3번 연속으로 맞히면 숙달한 문자가 됩니다.',
+			'app.statsMasteredCount' => ({required Object total, required Object mastered}) => '${total}자 중 ${mastered}자 숙달',
+			'app.statsLegendMastered' => '숙달',
+			'app.statsLegendLearning' => '학습 중',
+			'app.statsLegendWeak' => '복습 필요',
+			'app.statsLegendNew' => '아직 안 나옴',
+			'app.statsWeakest' => '복습 필요',
+			'app.learnDakutenTitle' => '탁음',
+			'app.learnCombosTitle' => '요음',
+			'app.settingsBackupImportConfirm' => '가져오기를 하면 현재 통계가 모두 대체됩니다. 계속할까요?',
+			'app.dictionaryEnglishNote' => '결과는 Jisho.org에서 가져오며 영어로 표시됩니다.',
+			'app.dictionaryError' => '검색하지 못했습니다. 연결을 확인하고 다시 시도하세요.',
+			'app.materialsScore' => ({required Object correct, required Object total}) => '${correct} / ${total} 정답',
+			'app.materialsClear' => '목록 삭제',
+			'app.premiumBenefitJlpt' => '모든 JLPT 레벨 (N4–N1)',
 			_ => null,
 		};
 	}

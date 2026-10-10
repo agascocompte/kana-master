@@ -1,4 +1,5 @@
 import 'package:kana_master/constants.dart';
+import 'package:kana_master/domain/models/quiz_item.dart';
 import 'package:kana_master/domain/models/stats_summary.dart';
 import 'package:kana_master/domain/providers/database_provider.dart';
 import 'package:sqflite/sqflite.dart';
@@ -9,11 +10,32 @@ class ScoreRepository {
   Future<void> addResponse({
     required KanaType kanaType,
     required bool isCorrect,
+    String? item,
   }) async {
     await _databaseProvider.insertResponse(
       kanaType: kanaType,
       isCorrect: isCorrect,
+      item: item,
     );
+  }
+
+  /// Answer history per character (only answers recorded with an item).
+  Future<Map<String, ItemStat>> getItemStats(KanaType kanaType) async {
+    final db = await _databaseProvider.database;
+    final rows = await db.rawQuery(
+      'SELECT item, is_correct FROM responses '
+      'WHERE kana_type = ? AND item IS NOT NULL '
+      'ORDER BY timestamp ASC, id ASC',
+      [kanaType.name],
+    );
+    final stats = <String, ItemStat>{};
+    for (final row in rows) {
+      final String? item = row['item'] as String?;
+      if (item == null || item.isEmpty) continue;
+      final bool isCorrect = row['is_correct'] == 1 || row['is_correct'] == true;
+      stats[item] = (stats[item] ?? const ItemStat()).record(isCorrect);
+    }
+    return stats;
   }
 
   Future<int> getCorrectCount(KanaType kanaType) async {

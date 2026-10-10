@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kana_master/constants.dart';
-import 'package:kana_master/domain/models/kanji_entry.dart';
+import 'package:kana_master/i18n/strings.g.dart';
 import 'package:kana_master/pages/test_kana/bloc/test_kana_bloc.dart';
 import 'package:kana_master/pages/test_kana/widgets/test_body.dart';
 import 'package:kana_master/pages/test_kana/widgets/test_buttons_row.dart';
@@ -12,36 +11,55 @@ class TestSessionView extends StatelessWidget {
     super.key,
     required this.state,
     required this.modeLabel,
-    required this.kana,
-    required this.kanaType,
-    required this.kanjiEntries,
     required this.kanaScale,
-    required this.kanjiMeanings,
-    required this.difficultyLevel,
   });
 
   final TestKanaState state;
   final String modeLabel;
-  final Map<String, String> kana;
-  final KanaType kanaType;
-  final List<KanjiEntry> kanjiEntries;
   final double kanaScale;
-  final Map<String, List<String>> kanjiMeanings;
-  final DifficultyLevel difficultyLevel;
 
   @override
   Widget build(BuildContext context) {
     final keyboardInset = MediaQuery.of(context).viewInsets.bottom;
+    final session = state.stateData.session!;
 
     return AnimatedPadding(
       duration: const Duration(milliseconds: 200),
       curve: Curves.easeOut,
-      padding: EdgeInsets.fromLTRB(16, 12, 16, 16 + keyboardInset),
+      padding: EdgeInsets.fromLTRB(16, 4, 16, 16 + keyboardInset),
       child: Column(
         children: [
+          Row(
+            children: [
+              Text(
+                context.t.app.testQuestionProgress(
+                  current: session.questionNumber,
+                  total: session.length,
+                ),
+                style: const TextStyle(
+                  color: AppColors.slate,
+                  fontSize: 12,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              const SizedBox(width: 10),
+              Expanded(
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(4),
+                  child: LinearProgressIndicator(
+                    value: session.answeredCount / session.length,
+                    minHeight: 6,
+                    color: AppColors.teal,
+                    backgroundColor: AppColors.sand,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 8),
           Expanded(
             child: Container(
-              key: ValueKey<int>(state.stateData.kanaIndex),
+              key: ValueKey<int>(session.questionNumber),
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
                 color: Colors.white,
@@ -57,32 +75,13 @@ class TestSessionView extends StatelessWidget {
               ),
               child: Column(
                 children: [
-                  TestTitle(
-                    state: state,
-                    kana: kana,
-                    kanaType: kanaType,
-                    kanjiEntries: kanjiEntries,
-                    kanjiMeanings: kanjiMeanings,
-                    kanaScale: kanaScale,
-                  ),
+                  TestTitle(state: state, kanaScale: kanaScale),
                   const SizedBox(height: 12),
                   Expanded(
-                    child: TestBody(
-                      state: state,
-                      kana: kana,
-                      kanaType: kanaType,
-                      kanjiEntries: kanjiEntries,
-                      kanjiMeanings: kanjiMeanings,
-                      difficultyLevel: difficultyLevel,
-                      kanaScale: kanaScale,
-                    ),
+                    child: TestBody(state: state, kanaScale: kanaScale),
                   ),
                   const SizedBox(height: 8),
-                  TestButtonsRow(
-                      state: state,
-                      kanaType: kanaType,
-                      difficultyLevel: difficultyLevel,
-                      kana: kana),
+                  TestButtonsRow(state: state),
                   const SizedBox(height: 6),
                 ],
               ),

@@ -206,6 +206,50 @@ class _Translations$app$ja implements Translations$app$en {
 	@override String premiumPurchaseError({required Object error}) => '購入に失敗しました: ${error}';
 	@override String get premiumPurchased => '購入が完了しました。プレミアムが解放されました。';
 	@override String get premiumRestored => '購入を復元しました。';
+	@override String get testNext => '次へ';
+	@override String testCorrectAnswerWas({required Object answer}) => '正解：${answer}';
+	@override String testQuestionProgress({required Object total, required Object current}) => '${total}問中${current}問目';
+	@override String get testKanjiReading => 'この漢字の読みは？';
+	@override String get testTypeReading => '読みを入力（かなまたはローマ字）';
+	@override String get sessionSummaryTitle => 'セッション完了';
+	@override String get sessionReviewSummaryTitle => '復習完了';
+	@override String sessionScore({required Object total, required Object correct}) => '${total}問中${correct}問正解';
+	@override String get sessionPerfect => '完璧！ミスなし。';
+	@override String get sessionMistakesTitle => '復習する文字';
+	@override String sessionReviewMistakes({required Object count}) => '間違いを復習（${count}）';
+	@override String get sessionNew => '新しいセッション';
+	@override String get sessionExit => '終了';
+	@override String get practiceWhat => '練習する文字';
+	@override String get practiceRowsBasic => '基本';
+	@override String get practiceRowsDakuten => '濁音・半濁音';
+	@override String get practiceRowsCombos => '拗音';
+	@override String get practiceSelectAll => 'すべて';
+	@override String practiceItemsCount({required Object count}) => '${count}文字';
+	@override String get practiceNotDrawable => '拗音と濁点付きのカタカナは書けないため、書き取りモードでは除外されます。';
+	@override String get practiceNothingToDraw => '選んだ文字はどれも書き取りできません。別の行か、低い難易度を選んでください。';
+	@override String get practiceSessionLength => '1セッションの問題数';
+	@override String get practiceSource => '出題範囲';
+	@override String get practiceSourceAll => 'すべて';
+	@override String practiceSourceMistakes({required Object count}) => '間違えた文字（${count}）';
+	@override String get kanjiQuizMode => '出題内容';
+	@override String get kanjiModeMeaning => '意味';
+	@override String get kanjiModeReading => '読み';
+	@override String get statsMasteryTitle => '習得状況';
+	@override String get statsMasterySubtitle => '3回連続で正解すると習得済みになります。';
+	@override String statsMasteredCount({required Object total, required Object mastered}) => '${total}文字中${mastered}文字を習得';
+	@override String get statsLegendMastered => '習得済み';
+	@override String get statsLegendLearning => '学習中';
+	@override String get statsLegendWeak => '要復習';
+	@override String get statsLegendNew => '未出題';
+	@override String get statsWeakest => '要復習';
+	@override String get learnDakutenTitle => '濁音・半濁音';
+	@override String get learnCombosTitle => '拗音';
+	@override String get settingsBackupImportConfirm => 'インポートすると現在の統計がすべて置き換えられます。続けますか？';
+	@override String get dictionaryEnglishNote => '結果はJisho.orgからの英語の情報です。';
+	@override String get dictionaryError => '検索できませんでした。接続を確認して、もう一度お試しください。';
+	@override String materialsScore({required Object total, required Object correct}) => '${total}問中${correct}問正解';
+	@override String get materialsClear => 'リストを削除';
+	@override String get premiumBenefitJlpt => 'すべてのJLPTレベル（N4〜N1）';
 }
 
 /// The flat map containing all translations for locale <ja>.
@@ -374,6 +418,50 @@ extension on TranslationsJa {
 			'app.premiumPurchaseError' => ({required Object error}) => '購入に失敗しました: ${error}',
 			'app.premiumPurchased' => '購入が完了しました。プレミアムが解放されました。',
 			'app.premiumRestored' => '購入を復元しました。',
+			'app.testNext' => '次へ',
+			'app.testCorrectAnswerWas' => ({required Object answer}) => '正解：${answer}',
+			'app.testQuestionProgress' => ({required Object total, required Object current}) => '${total}問中${current}問目',
+			'app.testKanjiReading' => 'この漢字の読みは？',
+			'app.testTypeReading' => '読みを入力（かなまたはローマ字）',
+			'app.sessionSummaryTitle' => 'セッション完了',
+			'app.sessionReviewSummaryTitle' => '復習完了',
+			'app.sessionScore' => ({required Object total, required Object correct}) => '${total}問中${correct}問正解',
+			'app.sessionPerfect' => '完璧！ミスなし。',
+			'app.sessionMistakesTitle' => '復習する文字',
+			'app.sessionReviewMistakes' => ({required Object count}) => '間違いを復習（${count}）',
+			'app.sessionNew' => '新しいセッション',
+			'app.sessionExit' => '終了',
+			'app.practiceWhat' => '練習する文字',
+			'app.practiceRowsBasic' => '基本',
+			'app.practiceRowsDakuten' => '濁音・半濁音',
+			'app.practiceRowsCombos' => '拗音',
+			'app.practiceSelectAll' => 'すべて',
+			'app.practiceItemsCount' => ({required Object count}) => '${count}文字',
+			'app.practiceNotDrawable' => '拗音と濁点付きのカタカナは書けないため、書き取りモードでは除外されます。',
+			'app.practiceNothingToDraw' => '選んだ文字はどれも書き取りできません。別の行か、低い難易度を選んでください。',
+			'app.practiceSessionLength' => '1セッションの問題数',
+			'app.practiceSource' => '出題範囲',
+			'app.practiceSourceAll' => 'すべて',
+			'app.practiceSourceMistakes' => ({required Object count}) => '間違えた文字（${count}）',
+			'app.kanjiQuizMode' => '出題内容',
+			'app.kanjiModeMeaning' => '意味',
+			'app.kanjiModeReading' => '読み',
+			'app.statsMasteryTitle' => '習得状況',
+			'app.statsMasterySubtitle' => '3回連続で正解すると習得済みになります。',
+			'app.statsMasteredCount' => ({required Object total, required Object mastered}) => '${total}文字中${mastered}文字を習得',
+			'app.statsLegendMastered' => '習得済み',
+			'app.statsLegendLearning' => '学習中',
+			'app.statsLegendWeak' => '要復習',
+			'app.statsLegendNew' => '未出題',
+			'app.statsWeakest' => '要復習',
+			'app.learnDakutenTitle' => '濁音・半濁音',
+			'app.learnCombosTitle' => '拗音',
+			'app.settingsBackupImportConfirm' => 'インポートすると現在の統計がすべて置き換えられます。続けますか？',
+			'app.dictionaryEnglishNote' => '結果はJisho.orgからの英語の情報です。',
+			'app.dictionaryError' => '検索できませんでした。接続を確認して、もう一度お試しください。',
+			'app.materialsScore' => ({required Object total, required Object correct}) => '${total}問中${correct}問正解',
+			'app.materialsClear' => 'リストを削除',
+			'app.premiumBenefitJlpt' => 'すべてのJLPTレベル（N4〜N1）',
 			_ => null,
 		};
 	}

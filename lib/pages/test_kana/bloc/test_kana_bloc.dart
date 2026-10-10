@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:io';
 import 'dart:math' as math;
 import 'dart:typed_data';
 import 'dart:ui';
@@ -9,12 +8,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kana_master/constants.dart';
 import 'package:kana_master/domain/models/model_config.dart';
 import 'package:kana_master/domain/models/paint_stroke.dart';
-import 'package:kana_master/domain/models/kanji_entry.dart';
+import 'package:kana_master/domain/models/quiz_item.dart';
+import 'package:kana_master/domain/quiz_engine.dart';
 import 'package:kana_master/pages/test_kana/services/drawing_report_share_service.dart';
 import 'package:injectable/injectable.dart';
-import 'package:path/path.dart';
 import 'package:path_drawing/path_drawing.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:tflite_flutter/tflite_flutter.dart';
 import 'package:xml/xml.dart';
 
@@ -23,36 +21,40 @@ part 'test_kana_state.dart';
 
 @injectable
 class TestKanaBloc extends Bloc<TestKanaEvent, TestKanaState> {
-  final random = math.Random();
   Interpreter? interpreter;
   final ModelConfig _hiraganaModelConfig = hiraganaModelV2;
   final ModelConfig _katakanaModelConfig = katakanaModelV1;
   final ModelConfig _kanjiModelConfig = kanjiModelV1;
-  KanaType _currentKanaType = KanaType.hiragana;
-  bool _useModelHiragana = true;
-  bool _useModelKatakana = true;
-  bool _useModelKanji = false;
-  List<KanjiEntry> _kanjiEntries = const [];
-  // Full kanji list in model class order; _kanjiEntries may be a filtered pool.
-  List<KanjiEntry> _kanjiModelEntries = const [];
-  Map<String, List<String>> _kanjiMeanings = const {};
   ModelConfig? _loadedModelConfig;
   final DrawingReportShareService _reportShareService =
       DrawingReportShareService();
+  final QuizEngine _engine = QuizEngine();
+
+  KanaType _currentKanaType = KanaType.hiragana;
+  bool _useModel = false;
+  List<String> _modelLabels = const [];
+
+  /// Answer history, updated with this session's answers so later questions
+  /// adapt immediately.
+  Map<String, ItemStat> _stats = {};
+  final Set<QuizItem> _asked = {};
+  StartSession? _lastStart;
 
   TestKanaBloc() : super(TestKanaInitial()) {
-    on<BeginTest>(_beginTest);
+    on<StartSession>(_startSession);
+    on<ReviewMistakes>(_reviewMistakes);
+    on<RestartSession>(_restartSession);
+    on<OptionSelected>(_optionSelected);
+    on<UpdateUserTextAnswer>(_updateUserTextAnswer);
+    on<SubmitAnswer>(_submitAnswer);
+    on<NextQuestion>(_nextQuestion);
+    on<ResetTest>(_resetTest);
     on<EnableCheckAnswer>(_setDrawingStarted);
+    on<StartStroke>(_startStroke);
     on<AddStroke>(_addStroke);
     on<ClearDrawing>(_clearDrawing);
-    on<ResetTest>(_resetTest);
-    on<EvaluateImage>(_evaluateImage);
     on<CaptureImage>(_captureImage);
-    on<TestNextKana>(_nextKana);
-    on<UpdateUserKanaIndexAnswer>(_updateUserKanaIndexAnswer);
-    on<UpdateUserTextAnswer>(_updateUserTextAnswer);
-    on<CheckAnswer>(_checkAnswer);
-    on<StartStroke>(_startStroke);
+    on<EvaluateImage>(_evaluateImage);
     on<ToggleKanjiTemplate>(_toggleKanjiTemplate);
     on<ReportDrawingFalseNegative>(_reportDrawingFalseNegative);
   }
@@ -73,47 +75,223 @@ class TestKanaBloc extends Bloc<TestKanaEvent, TestKanaState> {
     return super.close();
   }
 
-  FutureOr<void> _beginTest(BeginTest event, Emitter<TestKanaState> emit) {
+  // ---------------------------------------------------------------------------
+  // Session flow
+
+  /// Items usable for [testType]: drawing needs stroke data, and the model
+  /// can only judge items it has a class for.
+  static List<QuizItem> usableItems(
+    List<QuizItem> pool, {
+    required TestType testType,
+    required bool useModel,
+  }) {
+    if (testType != TestType.drawingTest) return pool;
+    return pool
+        .where((i) => i.drawable && (!useModel || i.modelClass != null))
+        .toList();
+  }
+
+  static TestType testTypeFor(DifficultyLevel difficulty) =>
+      difficulty == DifficultyLevel.high
+          ? TestType.drawingTest
+          : TestType.singleAnswer;
+
+  FutureOr<void> _startSession(
+      StartSession event, Emitter<TestKanaState> emit) {
+    _lastStart = event;
     _currentKanaType = event.kanaType;
-    _useModelHiragana = event.useModelHiragana;
-    _useModelKatakana = event.useModelKatakana;
-    _useModelKanji = event.useModelKanji;
-    _kanjiEntries = event.kanjiEntries;
-    _kanjiModelEntries = event.kanjiModelEntries;
-    _kanjiMeanings = event.kanjiMeanings;
-    TestType testType = event.difficultyLevel == DifficultyLevel.high
-        ? TestType.drawingTest
-        : TestType.singleAnswer;
-    emit(TestKanaDraw(state.stateData.copyWith(
-      kanaIndex: _pickKanaIndex(event.kana, testType),
+    _useModel = event.useModel;
+    _modelLabels = event.modelLabels;
+    _stats = Map.of(event.stats);
+    _asked.clear();
+
+    final TestType testType = testTypeFor(event.difficulty);
+    final pool =
+        usableItems(event.pool, testType: testType, useModel: event.useModel);
+    if (pool.isEmpty) {
+      emit(TestKanaInitial());
+      return null;
+    }
+    final session = TestSession(
+      kanaType: event.kanaType,
+      difficulty: event.difficulty,
       testType: testType,
-      canReportDrawing: false,
-      reportBusy: false,
-      userStrokes: const [],
-      lastDrawingPngBytes: null,
-      currentScriptUsesModel: _shouldUseModelForCurrentKana(),
+      pool: pool,
+      length: event.length,
+      isReview: event.isReview,
+    );
+    _advance(emit, session);
+  }
+
+  FutureOr<void> _reviewMistakes(
+      ReviewMistakes event, Emitter<TestKanaState> emit) {
+    final session = state.stateData.session;
+    final start = _lastStart;
+    if (session == null || start == null || session.mistakes.isEmpty) {
+      return null;
+    }
+    final mistakes = session.mistakes.toSet().toList();
+    add(StartSession(
+      kanaType: start.kanaType,
+      difficulty: start.difficulty,
+      pool: mistakes,
+      length: mistakes.length,
+      useModel: start.useModel,
+      modelLabels: start.modelLabels,
+      stats: _stats,
+      isReview: true,
+    ));
+  }
+
+  FutureOr<void> _restartSession(
+      RestartSession event, Emitter<TestKanaState> emit) {
+    final start = _lastStart;
+    if (start == null) {
+      emit(TestKanaInitial());
+      return null;
+    }
+    add(StartSession(
+      kanaType: start.kanaType,
+      difficulty: start.difficulty,
+      pool: start.pool,
+      length: start.length,
+      useModel: start.useModel,
+      modelLabels: start.modelLabels,
+      stats: _stats,
+      isReview: start.isReview,
+    ));
+  }
+
+  /// Emits the next question, or the summary when the session is complete.
+  void _advance(Emitter<TestKanaState> emit, TestSession session) {
+    if (session.questionNumber >= session.length) {
+      emit(SessionFinished(state.stateData.copyWith(
+        session: session.copyWith(finished: true),
+        phase: QuestionPhase.answering,
+      )));
+      return;
+    }
+    if (_asked.length >= session.pool.length) _asked.clear();
+    final QuizItem item = _engine.pick(
+      session.pool,
+      stats: _stats,
+      exclude: _asked,
+      previous: session.current,
+    );
+    _asked.add(item);
+    final bool singleChoice = session.testType == TestType.singleAnswer &&
+        session.difficulty == DifficultyLevel.low;
+    emit(QuestionReady(TestKanaStateData(
+      session: session.copyWith(
+        questionNumber: session.questionNumber + 1,
+        current: item,
+        options: singleChoice ? _engine.options(item, session.pool) : const [],
+      ),
+      currentScriptUsesModel: _useModel,
     )));
   }
 
+  FutureOr<void> _optionSelected(
+      OptionSelected event, Emitter<TestKanaState> emit) {
+    if (state.stateData.revealed) return null;
+    emit(AnswerChanged(state.stateData.copyWith(
+      selectedOption: event.option,
+      canSubmitAnswer: true,
+    )));
+  }
+
+  FutureOr<void> _updateUserTextAnswer(
+      UpdateUserTextAnswer event, Emitter<TestKanaState> emit) {
+    if (state.stateData.revealed) return null;
+    emit(AnswerChanged(state.stateData.copyWith(
+      userTextAnswer: event.userAnswer,
+      canSubmitAnswer: event.userAnswer.trim().isNotEmpty,
+    )));
+  }
+
+  FutureOr<void> _submitAnswer(
+      SubmitAnswer event, Emitter<TestKanaState> emit) {
+    final data = state.stateData;
+    final session = data.session;
+    final item = data.current;
+    if (session == null || item == null || data.revealed) return null;
+    final bool isCorrect = session.difficulty == DifficultyLevel.low
+        ? data.selectedOption?.label == item.label
+        : QuizEngine.checkTypedAnswer(item, data.userTextAnswer);
+    _handleResult(emit, isCorrect, data);
+  }
+
+  void _handleResult(
+    Emitter<TestKanaState> emit,
+    bool isCorrect,
+    TestKanaStateData data,
+  ) {
+    final session = data.session!;
+    final item = session.current!;
+    _stats[item.symbol] =
+        (_stats[item.symbol] ?? const ItemStat()).record(isCorrect);
+    if (isCorrect) {
+      final updated = session.copyWith(correctCount: session.correctCount + 1);
+      emit(AnswerCorrect(data.copyWith(session: updated), item: item));
+      _advance(emit, updated);
+    } else {
+      final updated = session.copyWith(mistakes: [...session.mistakes, item]);
+      emit(AnswerWrong(
+        data.copyWith(
+          session: updated,
+          phase: QuestionPhase.revealed,
+          canSubmitAnswer: false,
+        ),
+        item: item,
+      ));
+    }
+  }
+
+  FutureOr<void> _nextQuestion(
+      NextQuestion event, Emitter<TestKanaState> emit) {
+    final session = state.stateData.session;
+    if (session == null || !state.stateData.revealed) return null;
+    _advance(emit, session);
+  }
+
+  FutureOr<void> _resetTest(ResetTest event, Emitter<TestKanaState> emit) {
+    _lastStart = null;
+    emit(TestKanaInitial());
+  }
+
+  // ---------------------------------------------------------------------------
+  // Drawing
+
   FutureOr<void> _setDrawingStarted(
       EnableCheckAnswer event, Emitter<TestKanaState> emit) {
-    emit(TestKanaDraw(state.stateData.copyWith(canSubmitAnswer: true)));
+    if (state.stateData.revealed) return null;
+    emit(AnswerChanged(state.stateData.copyWith(canSubmitAnswer: true)));
+  }
+
+  FutureOr<void> _startStroke(StartStroke event, Emitter<TestKanaState> emit) {
+    if (state.stateData.revealed) return null;
+    final List<List<Offset>> userStrokes =
+        List.from(state.stateData.userStrokes)..add([event.point]);
+    emit(AnswerChanged(state.stateData.copyWith(
+      userStrokes: userStrokes,
+      canSubmitAnswer: true,
+    )));
   }
 
   FutureOr<void> _addStroke(AddStroke event, Emitter<TestKanaState> emit) {
-    List<PaintStroke> strokes = List.from(state.stateData.strokes);
-    strokes.add(event.stroke);
+    if (state.stateData.revealed) return null;
+    final List<PaintStroke> strokes = List.from(state.stateData.strokes)
+      ..add(event.stroke);
     List<List<Offset>> userStrokes = List.from(state.stateData.userStrokes);
     if (userStrokes.isEmpty) {
       userStrokes = [
         [event.stroke.from, event.stroke.to]
       ];
     } else {
-      final current = List<Offset>.from(userStrokes.last);
-      current.add(event.stroke.to);
+      final current = List<Offset>.from(userStrokes.last)..add(event.stroke.to);
       userStrokes[userStrokes.length - 1] = current;
     }
-    emit(UpdatedStrokes(state.stateData.copyWith(
+    emit(AnswerChanged(state.stateData.copyWith(
       strokes: strokes,
       userStrokes: userStrokes,
       canReportDrawing: false,
@@ -122,49 +300,45 @@ class TestKanaBloc extends Bloc<TestKanaEvent, TestKanaState> {
 
   FutureOr<void> _clearDrawing(
       ClearDrawing event, Emitter<TestKanaState> emit) {
-    emit(UpdatedStrokes(state.stateData.copyWith(
-      strokes: [],
+    if (state.stateData.revealed) return null;
+    emit(AnswerChanged(state.stateData.copyWith(
+      strokes: const [],
       userStrokes: const [],
       canSubmitAnswer: false,
       canReportDrawing: false,
       reportBusy: false,
-      lastDrawingPngBytes: null,
+      clearLastDrawing: true,
       reportPredictedLabel: '',
       reportExpectedLabel: '',
       reportConfidence: 0,
     )));
   }
 
-  FutureOr<void> _resetTest(ResetTest event, Emitter<TestKanaState> emit) {
-    emit(TestKanaInitial());
+  FutureOr<void> _captureImage(
+      CaptureImage event, Emitter<TestKanaState> emit) {
+    if (state.stateData.revealed) return null;
+    emit(TestKanaCapturing(state.stateData));
   }
 
   FutureOr<void> _evaluateImage(
       EvaluateImage event, Emitter<TestKanaState> emit) async {
-    if (_currentKanaType == KanaType.kanji && _kanjiEntries.isEmpty) {
-      emit(ErrorPredictingHiragana(state.stateData,
-          msg: "No kanji data loaded for prediction"));
-      return;
-    }
-    final bool shouldUseModel = _shouldUseModelForCurrentKana();
-    if (!shouldUseModel) {
+    final item = state.stateData.current;
+    if (item == null || state.stateData.revealed) return;
+
+    if (!_useModel) {
       emit(PredictionInProgress(state.stateData));
       final bool success = await _evaluateStrokeDrawing(
-        kanaType: _currentKanaType,
-        kanaIndex: state.stateData.kanaIndex,
+        assetPath: item.strokeAsset,
         userStrokes: state.stateData.userStrokes,
       );
-      if (success) {
-        emit(HiraganaWritingSuccess(state.stateData.copyWith(
+      _handleResult(
+        emit,
+        success,
+        state.stateData.copyWith(
           canReportDrawing: false,
           lastDrawingPngBytes: event.pngBytes,
-        )));
-      } else {
-        emit(HiraganaWritingFail(state.stateData.copyWith(
-          canReportDrawing: false,
-          lastDrawingPngBytes: event.pngBytes,
-        )));
-      }
+        ),
+      );
       return;
     }
 
@@ -174,7 +348,7 @@ class TestKanaBloc extends Bloc<TestKanaEvent, TestKanaState> {
 
     final List<dynamic>? predictions = await predict(event.image, interpreter!);
     if (predictions == null) {
-      emit(ErrorPredictingHiragana(state.stateData,
+      emit(ErrorPredicting(state.stateData,
           msg: "Prediction failed. Try again."));
       return;
     }
@@ -184,183 +358,29 @@ class TestKanaBloc extends Bloc<TestKanaEvent, TestKanaState> {
     final double confidence = predictedIndex >= 0 && predictedIndex < p.length
         ? p[predictedIndex]
         : 0;
-    final String expected =
-        _drawingTargetLabelForIndex(state.stateData.kanaIndex);
-    final String predicted = _predictedLabelForIndex(predictedIndex);
-    final bool isMatch = _currentKanaType == KanaType.kanji
-        ? predicted == expected
-        : predictedIndex == state.stateData.kanaIndex;
+    final String predicted =
+        predictedIndex >= 0 && predictedIndex < _modelLabels.length
+            ? _modelLabels[predictedIndex]
+            : 'unknown';
+    final bool isMatch = predictedIndex == item.modelClass;
 
-    if (isMatch) {
-      emit(HiraganaWritingSuccess(state.stateData.copyWith(
-        canReportDrawing: false,
+    _handleResult(
+      emit,
+      isMatch,
+      state.stateData.copyWith(
+        canReportDrawing: !isMatch,
         reportBusy: false,
         lastDrawingPngBytes: event.pngBytes,
-        reportExpectedLabel: expected,
+        reportExpectedLabel: item.symbol,
         reportPredictedLabel: predicted,
         reportConfidence: confidence,
-      )));
-    } else {
-      emit(HiraganaWritingFail(state.stateData.copyWith(
-        canReportDrawing: true,
-        reportBusy: false,
-        lastDrawingPngBytes: event.pngBytes,
-        reportExpectedLabel: expected,
-        reportPredictedLabel: predicted,
-        reportConfidence: confidence,
-      )));
-    }
-  }
-
-  FutureOr<void> _captureImage(
-      CaptureImage event, Emitter<TestKanaState> emit) {
-    emit(TestKanaCapturing(state.stateData));
-  }
-
-  Future<void> saveImage(Uint8List pngBytes) async {
-    final directory = await getApplicationDocumentsDirectory();
-    final path = join(directory.path, 'myImage.png');
-    final file = File(path);
-    await file.writeAsBytes(pngBytes);
-  }
-
-  FutureOr<void> _nextKana(TestNextKana event, Emitter<TestKanaState> emit) {
-    add(ClearDrawing());
-    _currentKanaType = event.kanaType;
-    _useModelHiragana = event.useModelHiragana;
-    _useModelKatakana = event.useModelKatakana;
-    _useModelKanji = event.useModelKanji;
-    _kanjiEntries = event.kanjiEntries;
-    _kanjiModelEntries = event.kanjiModelEntries;
-    _kanjiMeanings = event.kanjiMeanings;
-    TestType testType = event.difficultyLevel == DifficultyLevel.high
-        ? TestType.drawingTest
-        : TestType.singleAnswer;
-    emit(NextKanaLoaded(state.stateData.copyWith(
-      kanaIndex: _pickKanaIndex(event.kana, testType),
-      testType: testType,
-      canReportDrawing: false,
-      reportBusy: false,
-      userStrokes: const [],
-      lastDrawingPngBytes: null,
-      reportPredictedLabel: '',
-      reportExpectedLabel: '',
-      reportConfidence: 0,
-      currentScriptUsesModel: _shouldUseModelForCurrentKana(),
-    )));
-  }
-
-  FutureOr<void> _updateUserKanaIndexAnswer(
-      UpdateUserKanaIndexAnswer event, Emitter<TestKanaState> emit) {
-    emit(UserKanaIndexAnswerUpdated(
-        state.stateData.copyWith(userAnswerKanaIndex: event.userIndex)));
-  }
-
-  FutureOr<void> _updateUserTextAnswer(
-      UpdateUserTextAnswer event, Emitter<TestKanaState> emit) {
-    emit(UserKanaIndexAnswerUpdated(state.stateData.copyWith(
-      userTextAnswer: event.userAnswer,
-      canSubmitAnswer: true,
-    )));
-  }
-
-  FutureOr<void> _checkAnswer(CheckAnswer event, Emitter<TestKanaState> emit) {
-    if (event.kanaType == KanaType.kanji) {
-      if (event.difficultyLevel == DifficultyLevel.low) {
-        if (state.stateData.kanaIndex == state.stateData.userAnswerKanaIndex) {
-          emit(KanaSelectedSuccess(state.stateData));
-        } else {
-          emit(KanaSelectedFail(state.stateData));
-        }
-        return null;
-      }
-      final int index = state.stateData.kanaIndex;
-      if (index >= 0 && index < _kanjiEntries.length) {
-        final String key = _kanjiEntries[index].unicode;
-        final List<String> meanings = _kanjiMeanings[key] ?? const [];
-        final String answer = _normalizeMeaning(state.stateData.userTextAnswer);
-        final bool matches = answer.isNotEmpty &&
-            meanings.any((meaning) =>
-                _normalizeMeaning(meaning) == answer ||
-                _normalizeMeaning(_stripParenthetical(meaning)) == answer);
-        if (matches) {
-          emit(KanaSelectedSuccess(state.stateData));
-        } else {
-          emit(KanaSelectedFail(state.stateData));
-        }
-      } else {
-        emit(KanaSelectedFail(state.stateData));
-      }
-      return null;
-    }
-    if ((event.difficultyLevel == DifficultyLevel.low &&
-            state.stateData.kanaIndex == state.stateData.userAnswerKanaIndex) ||
-        (event.difficultyLevel != DifficultyLevel.low &&
-            _romajiMatches(state.stateData.userTextAnswer,
-                event.kana.values.toList()[state.stateData.kanaIndex]))) {
-      emit(KanaSelectedSuccess(
-        state.stateData,
-      ));
-    } else {
-      emit(KanaSelectedFail(
-        state.stateData,
-      ));
-    }
-  }
-
-  static const Map<String, String> _diacritics = {
-    'á': 'a', 'à': 'a', 'â': 'a', 'ä': 'a', 'ã': 'a',
-    'é': 'e', 'è': 'e', 'ê': 'e', 'ë': 'e',
-    'í': 'i', 'ì': 'i', 'î': 'i', 'ï': 'i',
-    'ó': 'o', 'ò': 'o', 'ô': 'o', 'ö': 'o', 'õ': 'o',
-    'ú': 'u', 'ù': 'u', 'û': 'u', 'ü': 'u',
-    'ç': 'c', 'ñ': 'n', 'ß': 'ss', 'ё': 'е',
-  };
-
-  String _normalizeMeaning(String value) {
-    final String lower = value.trim().toLowerCase();
-    final buffer = StringBuffer();
-    for (final rune in lower.runes) {
-      final String char = String.fromCharCode(rune);
-      buffer.write(_diacritics[char] ?? char);
-    }
-    return buffer.toString().replaceAll(RegExp(r'\s+'), ' ');
-  }
-
-  String _stripParenthetical(String value) =>
-      value.replaceAll(RegExp(r'[(（][^)）]*[)）]'), '').trim();
-
-  // Alternative romanizations (Kunrei-shiki and common variants).
-  static const Map<String, List<String>> _romajiAliases = {
-    'shi': ['si'],
-    'chi': ['ti'],
-    'tsu': ['tu'],
-    'fu': ['hu'],
-    'ji': ['zi', 'di'],
-    'zu': ['du'],
-    'wo': ['o'],
-    'n': ['nn'],
-  };
-
-  bool _romajiMatches(String userAnswer, String expected) {
-    final String answer = userAnswer.trim().toLowerCase();
-    if (answer.isEmpty) return false;
-    return answer == expected ||
-        (_romajiAliases[expected]?.contains(answer) ?? false);
-  }
-
-  FutureOr<void> _startStroke(StartStroke event, Emitter<TestKanaState> emit) {
-    final List<List<Offset>> userStrokes =
-        List.from(state.stateData.userStrokes)..add([event.point]);
-    emit(UpdatedStrokes(state.stateData.copyWith(
-      userStrokes: userStrokes,
-      canSubmitAnswer: true,
-    )));
+      ),
+    );
   }
 
   FutureOr<void> _toggleKanjiTemplate(
       ToggleKanjiTemplate event, Emitter<TestKanaState> emit) {
-    emit(TestKanaDraw(state.stateData.copyWith(
+    emit(AnswerChanged(state.stateData.copyWith(
       showKanjiTemplate: !state.stateData.showKanjiTemplate,
     )));
   }
@@ -386,7 +406,10 @@ class TestKanaBloc extends Bloc<TestKanaEvent, TestKanaState> {
         userStrokes: state.stateData.userStrokes,
         pngBytes: state.stateData.lastDrawingPngBytes!,
       );
-      emit(DrawingReportShared(state.stateData.copyWith(reportBusy: false)));
+      emit(DrawingReportShared(state.stateData.copyWith(
+        reportBusy: false,
+        canReportDrawing: false,
+      )));
     } catch (e) {
       emit(DrawingReportError(
         state.stateData.copyWith(reportBusy: false),
@@ -395,7 +418,72 @@ class TestKanaBloc extends Bloc<TestKanaEvent, TestKanaState> {
     }
   }
 
-  // Private functions
+  ModelConfig _modelConfigForKanaType() {
+    if (_currentKanaType == KanaType.katakana) {
+      return _katakanaModelConfig;
+    }
+    if (_currentKanaType == KanaType.kanji) {
+      return _kanjiModelConfig;
+    }
+    return _hiraganaModelConfig;
+  }
+
+  int _resolveNumClasses(ModelConfig modelConfig) {
+    if (_currentKanaType == KanaType.kanji) {
+      return _modelLabels.length;
+    }
+    return modelConfig.numClasses;
+  }
+
+  Future<bool> _evaluateStrokeDrawing({
+    required String? assetPath,
+    required List<List<Offset>> userStrokes,
+  }) async {
+    final normalizedUser = _normalizeUserStrokes(userStrokes);
+    if (normalizedUser.isEmpty) return false;
+
+    if (assetPath == null) return false;
+    final expectedPaths = await _loadSvgPaths(assetPath);
+    if (expectedPaths.isEmpty) return false;
+
+    final expectedStrokes =
+        expectedPaths.map(_samplePath).where((s) => s.length >= 2).toList();
+    if (expectedStrokes.isEmpty) return false;
+    final expectedCount = expectedStrokes.length;
+    if (normalizedUser.length != expectedCount) {
+      return false;
+    }
+
+    final int compareCount =
+        math.min(normalizedUser.length, expectedStrokes.length);
+    int matched = 0;
+    double accumulated = 0;
+    bool strictOrderedMatch = true;
+    for (int i = 0; i < compareCount; i++) {
+      final userStroke = normalizedUser[i];
+      final expectedStroke = expectedStrokes[i];
+      final score = _strokeSimilarity(userStroke, expectedStroke);
+      final lengthRatio = _strokeLengthRatio(userStroke, expectedStroke);
+      accumulated += score;
+      if (score >= 0.64) matched++;
+      if (score < 0.62 || lengthRatio < 0.5) {
+        strictOrderedMatch = false;
+      }
+    }
+
+    final coverage = matched / expectedCount;
+    final avgScore = compareCount == 0 ? 0 : accumulated / compareCount;
+    final countPenalty =
+        (normalizedUser.length - expectedCount).abs() / expectedCount;
+    final sequencePenalty =
+        (1 - (compareCount / expectedCount)).clamp(0.0, 1.0);
+    final finalScore = (coverage * 0.55) +
+        (avgScore * 0.45) -
+        (countPenalty * 0.2) -
+        (sequencePenalty * 0.15);
+    return strictOrderedMatch && finalScore >= 0.69;
+  }
+
   img.Image preprocessImage(img.Image image) {
     final ModelConfig modelConfig = _modelConfigForKanaType();
     img.Image resizedImg = img.copyResize(
@@ -456,157 +544,6 @@ class TestKanaBloc extends Bloc<TestKanaEvent, TestKanaState> {
       }
     }
     return maxIndex;
-  }
-
-  int _pickKanaIndex(Map<String, String> kana, TestType testType) {
-    if (testType != TestType.drawingTest) {
-      if (_currentKanaType == KanaType.kanji) {
-        return _kanjiEntries.isEmpty ? 0 : random.nextInt(_kanjiEntries.length);
-      }
-      return random.nextInt(kana.length);
-    }
-    if (_currentKanaType == KanaType.kanji) {
-      return _kanjiEntries.isEmpty ? 0 : random.nextInt(_kanjiEntries.length);
-    }
-    if (_currentKanaType == KanaType.katakana) {
-      final String target =
-          katakanaDrawingLabels[random.nextInt(katakanaDrawingLabels.length)];
-      return katakanaModelLabels.indexOf(target);
-    }
-    return random.nextInt(hiragana.length);
-  }
-
-  ModelConfig _modelConfigForKanaType() {
-    if (_currentKanaType == KanaType.katakana) {
-      return _katakanaModelConfig;
-    }
-    if (_currentKanaType == KanaType.kanji) {
-      return _kanjiModelConfig;
-    }
-    return _hiraganaModelConfig;
-  }
-
-  List<KanjiEntry> get _kanjiModelClasses =>
-      _kanjiModelEntries.isNotEmpty ? _kanjiModelEntries : _kanjiEntries;
-
-  int _resolveNumClasses(ModelConfig modelConfig) {
-    if (_currentKanaType == KanaType.kanji) {
-      return _kanjiModelClasses.length;
-    }
-    return modelConfig.numClasses;
-  }
-
-  String _predictedLabelForIndex(int index) {
-    if (_currentKanaType == KanaType.kanji) {
-      final classes = _kanjiModelClasses;
-      if (index >= 0 && index < classes.length) {
-        return classes[index].character;
-      }
-      return 'unknown';
-    }
-    return _drawingTargetLabelForIndex(index);
-  }
-
-  String _drawingTargetLabelForIndex(int index) {
-    if (_currentKanaType == KanaType.kanji) {
-      if (index >= 0 && index < _kanjiEntries.length) {
-        return _kanjiEntries[index].character;
-      }
-      return 'unknown';
-    }
-    if (_currentKanaType == KanaType.katakana) {
-      if (index >= 0 && index < katakanaModelLabels.length) {
-        final symbol = katakanaModelLabels[index];
-        return katakana[symbol] ?? symbol;
-      }
-      return 'unknown';
-    }
-    final symbols = hiragana.keys.toList();
-    if (index >= 0 && index < symbols.length) {
-      final symbol = symbols[index];
-      return hiragana[symbol] ?? symbol;
-    }
-    return 'unknown';
-  }
-
-  bool _shouldUseModelForCurrentKana() {
-    if (_currentKanaType == KanaType.hiragana) return _useModelHiragana;
-    if (_currentKanaType == KanaType.katakana) return _useModelKatakana;
-    return _useModelKanji;
-  }
-
-  Future<bool> _evaluateStrokeDrawing({
-    required KanaType kanaType,
-    required int kanaIndex,
-    required List<List<Offset>> userStrokes,
-  }) async {
-    final normalizedUser = _normalizeUserStrokes(userStrokes);
-    if (normalizedUser.isEmpty) return false;
-
-    final assetPath = _drawingAssetPathForKana(kanaType, kanaIndex);
-    if (assetPath == null) return false;
-    final expectedPaths = await _loadSvgPaths(assetPath);
-    if (expectedPaths.isEmpty) return false;
-
-    final expectedStrokes =
-        expectedPaths.map(_samplePath).where((s) => s.length >= 2).toList();
-    if (expectedStrokes.isEmpty) return false;
-    final expectedCount = expectedStrokes.length;
-    if (normalizedUser.length != expectedCount) {
-      return false;
-    }
-
-    final int compareCount =
-        math.min(normalizedUser.length, expectedStrokes.length);
-    int matched = 0;
-    double accumulated = 0;
-    bool strictOrderedMatch = true;
-    for (int i = 0; i < compareCount; i++) {
-      final userStroke = normalizedUser[i];
-      final expectedStroke = expectedStrokes[i];
-      final score = _strokeSimilarity(userStroke, expectedStroke);
-      final lengthRatio = _strokeLengthRatio(userStroke, expectedStroke);
-      accumulated += score;
-      if (score >= 0.64) matched++;
-      if (score < 0.62 || lengthRatio < 0.5) {
-        strictOrderedMatch = false;
-      }
-    }
-
-    final coverage = matched / expectedCount;
-    final avgScore = compareCount == 0 ? 0 : accumulated / compareCount;
-    final countPenalty =
-        (normalizedUser.length - expectedCount).abs() / expectedCount;
-    final sequencePenalty =
-        (1 - (compareCount / expectedCount)).clamp(0.0, 1.0);
-    final finalScore = (coverage * 0.55) +
-        (avgScore * 0.45) -
-        (countPenalty * 0.2) -
-        (sequencePenalty * 0.15);
-    return strictOrderedMatch && finalScore >= 0.69;
-  }
-
-  String? _drawingAssetPathForKana(KanaType kanaType, int index) {
-    if (kanaType == KanaType.kanji) {
-      if (index < 0 || index >= _kanjiEntries.length) return null;
-      final unicode =
-          _kanjiEntries[index].unicode.toUpperCase().padLeft(5, '0');
-      return 'assets/svg/kanji/$unicode.svg';
-    }
-
-    final String? symbol = kanaType == KanaType.katakana
-        ? (index >= 0 && index < katakanaModelLabels.length
-            ? katakanaModelLabels[index]
-            : null)
-        : (index >= 0 && index < hiragana.keys.length
-            ? hiragana.keys.elementAt(index)
-            : null);
-    if (symbol == null || symbol.isEmpty) return null;
-    final code = symbol.runes.first.toRadixString(16).padLeft(5, '0');
-    if (kanaType == KanaType.katakana) {
-      return 'assets/svg/katakana/$code.svg';
-    }
-    return 'assets/svg/hiragana/$code.svg';
   }
 
   List<List<Offset>> _normalizeUserStrokes(List<List<Offset>> raw) {

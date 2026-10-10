@@ -525,6 +525,138 @@ class Translations$app$en {
 
 	/// en: 'Purchases restored.'
 	String get premiumRestored => 'Purchases restored.';
+
+	/// en: 'Next'
+	String get testNext => 'Next';
+
+	/// en: 'Correct answer: ${answer}'
+	String testCorrectAnswerWas({required Object answer}) => 'Correct answer: ${answer}';
+
+	/// en: 'Question ${current} of ${total}'
+	String testQuestionProgress({required Object current, required Object total}) => 'Question ${current} of ${total}';
+
+	/// en: 'Reading of this kanji?'
+	String get testKanjiReading => 'Reading of this kanji?';
+
+	/// en: 'Type the reading (kana or romaji)'
+	String get testTypeReading => 'Type the reading (kana or romaji)';
+
+	/// en: 'Session complete'
+	String get sessionSummaryTitle => 'Session complete';
+
+	/// en: 'Review complete'
+	String get sessionReviewSummaryTitle => 'Review complete';
+
+	/// en: '${correct} of ${total} correct'
+	String sessionScore({required Object correct, required Object total}) => '${correct} of ${total} correct';
+
+	/// en: 'Perfect! No mistakes.'
+	String get sessionPerfect => 'Perfect! No mistakes.';
+
+	/// en: 'To review'
+	String get sessionMistakesTitle => 'To review';
+
+	/// en: 'Review mistakes (${count})'
+	String sessionReviewMistakes({required Object count}) => 'Review mistakes (${count})';
+
+	/// en: 'New session'
+	String get sessionNew => 'New session';
+
+	/// en: 'Finish'
+	String get sessionExit => 'Finish';
+
+	/// en: 'What to practice'
+	String get practiceWhat => 'What to practice';
+
+	/// en: 'Basic'
+	String get practiceRowsBasic => 'Basic';
+
+	/// en: 'Dakuten'
+	String get practiceRowsDakuten => 'Dakuten';
+
+	/// en: 'Combinations'
+	String get practiceRowsCombos => 'Combinations';
+
+	/// en: 'All'
+	String get practiceSelectAll => 'All';
+
+	/// en: '${count} characters'
+	String practiceItemsCount({required Object count}) => '${count} characters';
+
+	/// en: 'Combinations and katakana with dakuten can't be drawn, so they're skipped in drawing mode.'
+	String get practiceNotDrawable => 'Combinations and katakana with dakuten can\'t be drawn, so they\'re skipped in drawing mode.';
+
+	/// en: 'None of the selected characters can be drawn. Choose other rows or a lower difficulty.'
+	String get practiceNothingToDraw => 'None of the selected characters can be drawn. Choose other rows or a lower difficulty.';
+
+	/// en: 'Questions per session'
+	String get practiceSessionLength => 'Questions per session';
+
+	/// en: 'Questions from'
+	String get practiceSource => 'Questions from';
+
+	/// en: 'Everything'
+	String get practiceSourceAll => 'Everything';
+
+	/// en: 'My mistakes (${count})'
+	String practiceSourceMistakes({required Object count}) => 'My mistakes (${count})';
+
+	/// en: 'Ask for'
+	String get kanjiQuizMode => 'Ask for';
+
+	/// en: 'Meaning'
+	String get kanjiModeMeaning => 'Meaning';
+
+	/// en: 'Reading'
+	String get kanjiModeReading => 'Reading';
+
+	/// en: 'Mastery'
+	String get statsMasteryTitle => 'Mastery';
+
+	/// en: 'A character is mastered after 3 correct answers in a row.'
+	String get statsMasterySubtitle => 'A character is mastered after 3 correct answers in a row.';
+
+	/// en: '${mastered} of ${total} mastered'
+	String statsMasteredCount({required Object mastered, required Object total}) => '${mastered} of ${total} mastered';
+
+	/// en: 'Mastered'
+	String get statsLegendMastered => 'Mastered';
+
+	/// en: 'Learning'
+	String get statsLegendLearning => 'Learning';
+
+	/// en: 'Needs review'
+	String get statsLegendWeak => 'Needs review';
+
+	/// en: 'Not seen yet'
+	String get statsLegendNew => 'Not seen yet';
+
+	/// en: 'Needs review'
+	String get statsWeakest => 'Needs review';
+
+	/// en: 'Dakuten'
+	String get learnDakutenTitle => 'Dakuten';
+
+	/// en: 'Combinations'
+	String get learnCombosTitle => 'Combinations';
+
+	/// en: 'Importing replaces all your current statistics. Continue?'
+	String get settingsBackupImportConfirm => 'Importing replaces all your current statistics. Continue?';
+
+	/// en: 'Results come from Jisho.org and are in English.'
+	String get dictionaryEnglishNote => 'Results come from Jisho.org and are in English.';
+
+	/// en: 'Couldn't search. Check your connection and try again.'
+	String get dictionaryError => 'Couldn\'t search. Check your connection and try again.';
+
+	/// en: '${correct} / ${total} correct'
+	String materialsScore({required Object correct, required Object total}) => '${correct} / ${total} correct';
+
+	/// en: 'Remove list'
+	String get materialsClear => 'Remove list';
+
+	/// en: 'Every JLPT level (N4–N1)'
+	String get premiumBenefitJlpt => 'Every JLPT level (N4–N1)';
 }
 
 /// The flat map containing all translations for locale <en>.
@@ -693,6 +825,50 @@ extension on Translations {
 			'app.premiumPurchaseError' => ({required Object error}) => 'Purchase failed: ${error}',
 			'app.premiumPurchased' => 'Purchase completed. Premium unlocked.',
 			'app.premiumRestored' => 'Purchases restored.',
+			'app.testNext' => 'Next',
+			'app.testCorrectAnswerWas' => ({required Object answer}) => 'Correct answer: ${answer}',
+			'app.testQuestionProgress' => ({required Object current, required Object total}) => 'Question ${current} of ${total}',
+			'app.testKanjiReading' => 'Reading of this kanji?',
+			'app.testTypeReading' => 'Type the reading (kana or romaji)',
+			'app.sessionSummaryTitle' => 'Session complete',
+			'app.sessionReviewSummaryTitle' => 'Review complete',
+			'app.sessionScore' => ({required Object correct, required Object total}) => '${correct} of ${total} correct',
+			'app.sessionPerfect' => 'Perfect! No mistakes.',
+			'app.sessionMistakesTitle' => 'To review',
+			'app.sessionReviewMistakes' => ({required Object count}) => 'Review mistakes (${count})',
+			'app.sessionNew' => 'New session',
+			'app.sessionExit' => 'Finish',
+			'app.practiceWhat' => 'What to practice',
+			'app.practiceRowsBasic' => 'Basic',
+			'app.practiceRowsDakuten' => 'Dakuten',
+			'app.practiceRowsCombos' => 'Combinations',
+			'app.practiceSelectAll' => 'All',
+			'app.practiceItemsCount' => ({required Object count}) => '${count} characters',
+			'app.practiceNotDrawable' => 'Combinations and katakana with dakuten can\'t be drawn, so they\'re skipped in drawing mode.',
+			'app.practiceNothingToDraw' => 'None of the selected characters can be drawn. Choose other rows or a lower difficulty.',
+			'app.practiceSessionLength' => 'Questions per session',
+			'app.practiceSource' => 'Questions from',
+			'app.practiceSourceAll' => 'Everything',
+			'app.practiceSourceMistakes' => ({required Object count}) => 'My mistakes (${count})',
+			'app.kanjiQuizMode' => 'Ask for',
+			'app.kanjiModeMeaning' => 'Meaning',
+			'app.kanjiModeReading' => 'Reading',
+			'app.statsMasteryTitle' => 'Mastery',
+			'app.statsMasterySubtitle' => 'A character is mastered after 3 correct answers in a row.',
+			'app.statsMasteredCount' => ({required Object mastered, required Object total}) => '${mastered} of ${total} mastered',
+			'app.statsLegendMastered' => 'Mastered',
+			'app.statsLegendLearning' => 'Learning',
+			'app.statsLegendWeak' => 'Needs review',
+			'app.statsLegendNew' => 'Not seen yet',
+			'app.statsWeakest' => 'Needs review',
+			'app.learnDakutenTitle' => 'Dakuten',
+			'app.learnCombosTitle' => 'Combinations',
+			'app.settingsBackupImportConfirm' => 'Importing replaces all your current statistics. Continue?',
+			'app.dictionaryEnglishNote' => 'Results come from Jisho.org and are in English.',
+			'app.dictionaryError' => 'Couldn\'t search. Check your connection and try again.',
+			'app.materialsScore' => ({required Object correct, required Object total}) => '${correct} / ${total} correct',
+			'app.materialsClear' => 'Remove list',
+			'app.premiumBenefitJlpt' => 'Every JLPT level (N4–N1)',
 			_ => null,
 		};
 	}
