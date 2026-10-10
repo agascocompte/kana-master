@@ -1,0 +1,42 @@
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+val newBuildDir: Directory =
+    rootProject.layout.buildDirectory
+        .dir("../../build")
+        .get()
+rootProject.layout.buildDirectory.value(newBuildDir)
+
+subprojects {
+    val newSubprojectBuildDir: Directory = newBuildDir.dir(project.name)
+    project.layout.buildDirectory.value(newSubprojectBuildDir)
+}
+subprojects {
+    project.evaluationDependsOn(":app")
+}
+
+// Some plugins (e.g. tflite_flutter) set a Java target but no Kotlin target, so
+// Kotlin defaults to the JDK version and the build fails target validation.
+// Align each Kotlin compile task with its matching Java compile task.
+subprojects {
+    plugins.withId("org.jetbrains.kotlin.android") {
+        tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
+            val javaTaskName = name.replace("Kotlin", "JavaWithJavac")
+            val javaTask = project.tasks.findByName(javaTaskName) as? JavaCompile
+            val target = javaTask?.targetCompatibility
+            if (target != null) {
+                compilerOptions.jvmTarget.set(
+                    org.jetbrains.kotlin.gradle.dsl.JvmTarget.fromTarget(target)
+                )
+            }
+        }
+    }
+}
+
+tasks.register<Delete>("clean") {
+    delete(rootProject.layout.buildDirectory)
+}

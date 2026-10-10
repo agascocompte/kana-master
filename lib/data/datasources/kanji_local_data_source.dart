@@ -34,11 +34,8 @@ class KanjiLocalDataSource {
 
   Future<void> importFromCsvAsset(String assetPath) async {
     final String csvData = await rootBundle.loadString(assetPath);
-    final List<List<dynamic>> rows =
-        const CsvToListConverter(eol: '\n').convert(
-      csvData,
-      shouldParseNumbers: false,
-    );
+    // Fields contain ";"-separated lists, so never auto-detect the delimiter.
+    final List<List<dynamic>> rows = Csv(autoDetect: false).decode(csvData);
     if (rows.length <= 1) return;
 
     final List<String> headers =

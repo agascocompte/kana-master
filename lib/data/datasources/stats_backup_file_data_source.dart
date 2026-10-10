@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:file_picker/file_picker.dart';
@@ -8,32 +7,34 @@ import 'package:injectable/injectable.dart';
 @lazySingleton
 class StatsBackupFileDataSource {
   Future<String?> pickBackupFileContents() async {
-    final result = await FilePicker.platform.pickFiles(
+    final file = await FilePicker.pickFile(
       type: FileType.custom,
       allowedExtensions: ['json'],
-      withData: false,
     );
-    if (result == null || result.files.isEmpty) return null;
-    final path = result.files.single.path;
-    if (path == null || path.isEmpty) return null;
-    return File(path).readAsString();
+    if (file == null) return null;
+    return utf8.decode(await file.readAsBytes());
   }
 
   Future<String> saveBackupContents(String jsonContent) async {
     final prettyJson =
         const JsonEncoder.withIndent('  ').convert(jsonDecode(jsonContent));
     final fileName = _buildFileName();
-    final selectedPath = await FilePicker.platform.saveFile(
+    final savedUri = await FilePicker.saveFile(
       dialogTitle: 'Save stats backup',
       fileName: fileName,
+      mimeType: 'application/json',
       type: FileType.custom,
       allowedExtensions: ['json'],
       bytes: Uint8List.fromList(utf8.encode(prettyJson)),
     );
-    if (selectedPath != null && selectedPath.isNotEmpty) {
-      return selectedPath;
+    if (savedUri == null) {
+      throw Exception('Export cancelled.');
     }
-    throw Exception('Export cancelled.');
+    return savedUri.scheme == 'file'
+        ? savedUri.toFilePath()
+        : savedUri.pathSegments.isNotEmpty
+            ? Uri.decodeComponent(savedUri.pathSegments.last)
+            : fileName;
   }
 
   String _buildFileName() {

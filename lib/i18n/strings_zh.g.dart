@@ -16,20 +16,21 @@ class TranslationsZh with BaseTranslations<AppLocale, Translations> implements T
 	/// Constructing via the enum [AppLocale.build] is preferred.
 	TranslationsZh({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver, TranslationMetadata<AppLocale, Translations>? meta})
 		: assert(overrides == null, 'Set "translation_overrides: true" in order to enable this feature.'),
-		  $meta = meta ?? TranslationMetadata(
+		  _meta = meta ?? TranslationMetadata(
 		    locale: AppLocale.zh,
 		    overrides: overrides ?? {},
 		    cardinalResolver: cardinalResolver,
 		    ordinalResolver: ordinalResolver,
 		  ) {
-		$meta.setFlatMapFunction(_flatMapFunction);
+		_meta.setFlatMapFunction(_flatMapFunction);
 	}
 
 	/// Metadata for the translations of <zh>.
-	@override final TranslationMetadata<AppLocale, Translations> $meta;
+	final TranslationMetadata<AppLocale, Translations> _meta;
+	@override TranslationMetadata<AppLocale, Translations> get $meta => _meta;
 
 	/// Access flat map
-	@override dynamic operator[](String key) => $meta.getTranslation(key);
+	@override dynamic operator[](String key) => _meta.getTranslation(key);
 
 	late final TranslationsZh _root = this; // ignore: unused_field
 
@@ -37,12 +38,12 @@ class TranslationsZh with BaseTranslations<AppLocale, Translations> implements T
 	TranslationsZh $copyWith({TranslationMetadata<AppLocale, Translations>? meta}) => TranslationsZh(meta: meta ?? this.$meta);
 
 	// Translations
-	@override late final _TranslationsAppZh app = _TranslationsAppZh._(_root);
+	@override late final _Translations$app$zh app = _Translations$app$zh._(_root);
 }
 
 // Path: app
-class _TranslationsAppZh implements TranslationsAppEn {
-	_TranslationsAppZh._(this._root);
+class _Translations$app$zh implements Translations$app$en {
+	_Translations$app$zh._(this._root);
 
 	final TranslationsZh _root; // ignore: unused_field
 

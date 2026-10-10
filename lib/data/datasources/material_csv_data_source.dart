@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:io';
 
 import 'package:csv/csv.dart';
 import 'package:file_picker/file_picker.dart';
@@ -10,20 +9,19 @@ import 'package:kana_master/domain/models/material_import_result.dart';
 @lazySingleton
 class MaterialCsvDataSource {
   Future<MaterialImportResult?> pickAndParseCsv() async {
-    final result = await FilePicker.platform.pickFiles(
+    final file = await FilePicker.pickFile(
       type: FileType.custom,
       allowedExtensions: ['csv'],
-      withData: true,
     );
-    if (result == null) {
+    if (file == null) {
       return null;
     }
 
-    final file = result.files.first;
-    final bytes = file.bytes ?? await File(file.path!).readAsBytes();
-    final content = utf8.decode(bytes);
+    var content = utf8.decode(await file.readAsBytes(), allowMalformed: true);
+    if (content.startsWith('﻿')) content = content.substring(1);
 
-    final rows = const CsvToListConverter(eol: '\n').convert(content);
+    // Auto-detects "," or ";" (Excel exports with ";" in many locales).
+    final rows = csv.decode(content);
     if (rows.isEmpty || rows.first.isEmpty) {
       throw Exception('Data not found in CSV.');
     }
