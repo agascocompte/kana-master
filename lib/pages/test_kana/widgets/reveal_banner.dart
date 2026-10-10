@@ -20,12 +20,12 @@ class RevealBanner extends StatelessWidget {
       ),
       child: Row(
         children: [
-          const Icon(Icons.close_rounded, color: AppColors.coral),
+          Icon(Icons.close_rounded, color: AppColors.coral),
           const SizedBox(width: 8),
           Expanded(
             child: Text(
               context.t.app.testCorrectAnswerWas(answer: answer),
-              style: const TextStyle(
+              style: TextStyle(
                 color: AppColors.ink,
                 fontSize: 16,
                 fontWeight: FontWeight.w700,

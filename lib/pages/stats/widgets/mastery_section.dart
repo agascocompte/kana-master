@@ -53,7 +53,7 @@ class MasterySection extends StatelessWidget {
           Text(
             tr.app.statsMasteredCount(
                 mastered: mastered, total: symbols.length),
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.w700,
               color: AppColors.ink,
@@ -106,7 +106,7 @@ class _KanjiToReview extends StatelessWidget {
       children: [
         Text(
           context.t.app.statsWeakest,
-          style: const TextStyle(color: AppColors.slate, fontSize: 12),
+          style: TextStyle(color: AppColors.slate, fontSize: 12),
         ),
         const SizedBox(height: 6),
         Wrap(
@@ -173,7 +173,7 @@ class _Legend extends StatelessWidget {
           ),
         ),
         const SizedBox(width: 4),
-        Text(label, style: const TextStyle(fontSize: 12, color: AppColors.slate)),
+        Text(label, style: TextStyle(fontSize: 12, color: AppColors.slate)),
       ],
     );
   }

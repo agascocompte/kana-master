@@ -73,19 +73,19 @@ class TestButtonsRow extends StatelessWidget {
                                             .add(ReportDrawingFalseNegative());
                                       },
                                 icon: data.reportBusy
-                                    ? const SizedBox(
+                                    ? SizedBox(
                                         width: 16,
                                         height: 16,
                                         child: CircularProgressIndicator(
                                           strokeWidth: 2,
-                                          color: Colors.white,
+                                          color: AppColors.onInk,
                                         ),
                                       )
                                     : const Icon(Icons.flag_outlined, size: 18),
                                 label: Text(tr.app.testReportDrawing),
                                 style: FilledButton.styleFrom(
                                   backgroundColor: AppColors.ink,
-                                  foregroundColor: Colors.white,
+                                  foregroundColor: AppColors.onInk,
                                 ),
                               ),
                             ),
@@ -121,7 +121,7 @@ class TestButtonsRow extends StatelessWidget {
                 heroTag: "next",
                 tooltip: tr.app.testNext,
                 backgroundColor: AppColors.ink,
-                iconColor: Colors.white,
+                iconColor: AppColors.onInk,
                 onPressed: () =>
                     context.read<TestKanaBloc>().add(NextQuestion()),
               )
@@ -130,7 +130,7 @@ class TestButtonsRow extends StatelessWidget {
                 icon: const Icon(Icons.check_outlined),
                 heroTag: "submit",
                 backgroundColor: canSubmit ? AppColors.ink : AppColors.sand,
-                iconColor: canSubmit ? Colors.white : AppColors.graphite,
+                iconColor: canSubmit ? AppColors.onInk : AppColors.graphite,
                 opacity: canSubmit ? 1.0 : 0.5,
                 onPressed: canSubmit
                     ? () => context.read<TestKanaBloc>().add(

@@ -66,7 +66,7 @@ class _TestStartCardState extends State<TestStartCard> {
       child: Container(
         padding: const EdgeInsets.all(20),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: AppColors.surface,
           borderRadius: BorderRadius.circular(18),
           border: Border.all(color: AppColors.sand),
           boxShadow: [
@@ -80,12 +80,12 @@ class _TestStartCardState extends State<TestStartCard> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            const Icon(Icons.flash_on_outlined, size: 32, color: AppColors.ink),
+            Icon(Icons.flash_on_outlined, size: 32, color: AppColors.ink),
             const SizedBox(height: 8),
             Text(
               widget.modeLabel,
               textAlign: TextAlign.center,
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.w700,
                 color: AppColors.ink,
@@ -97,7 +97,7 @@ class _TestStartCardState extends State<TestStartCard> {
                 '${tr.app.settingsKanjiJlptTitle}: '
                 '${settings.kanjiJlptFilter == 'all' ? tr.app.filterAll : settings.kanjiJlptFilter.toUpperCase()}',
                 textAlign: TextAlign.center,
-                style: const TextStyle(color: AppColors.slate, fontSize: 13),
+                style: TextStyle(color: AppColors.slate, fontSize: 13),
               ),
             ],
             const SizedBox(height: 18),
@@ -172,7 +172,7 @@ class _TestStartCardState extends State<TestStartCard> {
               Text(
                 tr.app.practiceItemsCount(count: selected.length),
                 textAlign: TextAlign.center,
-                style: const TextStyle(color: AppColors.slate, fontSize: 13),
+                style: TextStyle(color: AppColors.slate, fontSize: 13),
               ),
             const SizedBox(height: 12),
             Center(
@@ -182,7 +182,7 @@ class _TestStartCardState extends State<TestStartCard> {
                     : () => widget.onStart(selected, onlyMistakes),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: AppColors.ink,
-                  foregroundColor: Colors.white,
+                  foregroundColor: AppColors.onInk,
                   padding: const EdgeInsets.symmetric(
                     horizontal: 22,
                     vertical: 12,
@@ -227,7 +227,7 @@ class _KanaGroupPicker extends StatelessWidget {
           children: [
             Text(
               title,
-              style: const TextStyle(color: AppColors.slate, fontSize: 12),
+              style: TextStyle(color: AppColors.slate, fontSize: 12),
             ),
             const SizedBox(height: 6),
             Wrap(
@@ -285,7 +285,7 @@ class _SectionLabel extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: 8),
       child: Text(
         text,
-        style: const TextStyle(
+        style: TextStyle(
           fontSize: 14,
           fontWeight: FontWeight.w700,
           color: AppColors.ink,
@@ -311,12 +311,12 @@ class _Notice extends StatelessWidget {
       ),
       child: Row(
         children: [
-          const Icon(Icons.info_outline, size: 18, color: AppColors.slate),
+          Icon(Icons.info_outline, size: 18, color: AppColors.slate),
           const SizedBox(width: 8),
           Expanded(
             child: Text(
               text,
-              style: const TextStyle(color: AppColors.slate, fontSize: 12),
+              style: TextStyle(color: AppColors.slate, fontSize: 12),
             ),
           ),
         ],

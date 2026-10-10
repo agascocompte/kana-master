@@ -30,7 +30,7 @@ class SettingsSliderCard extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColors.surface,
         borderRadius: BorderRadius.circular(16),
         border: Border.all(color: AppColors.sand),
       ),
@@ -40,7 +40,7 @@ class SettingsSliderCard extends StatelessWidget {
             leading: Icon(icon, color: AppColors.ink),
             title: Text(
               title,
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.w700,
                 color: AppColors.ink,
@@ -48,11 +48,11 @@ class SettingsSliderCard extends StatelessWidget {
             ),
             subtitle: Text(
               subtitle,
-              style: const TextStyle(fontSize: 12, color: AppColors.slate),
+              style: TextStyle(fontSize: 12, color: AppColors.slate),
             ),
             trailing: Text(
               label,
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 12,
                 fontWeight: FontWeight.w700,
                 color: AppColors.ink,

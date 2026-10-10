@@ -24,7 +24,7 @@ class SettingsSwitchCard extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColors.surface,
         borderRadius: BorderRadius.circular(16),
         border: Border.all(color: AppColors.sand),
       ),
@@ -37,7 +37,7 @@ class SettingsSwitchCard extends StatelessWidget {
             Expanded(
               child: Text(
                 title,
-                style: const TextStyle(
+                style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.w700,
                   color: AppColors.ink,
@@ -46,7 +46,7 @@ class SettingsSwitchCard extends StatelessWidget {
             ),
             if (onInfoPressed != null)
               IconButton(
-                icon: const Icon(
+                icon: Icon(
                   Icons.info_outline,
                   size: 18,
                   color: AppColors.slate,
@@ -58,7 +58,7 @@ class SettingsSwitchCard extends StatelessWidget {
         ),
         subtitle: Text(
           subtitle,
-          style: const TextStyle(fontSize: 12, color: AppColors.slate),
+          style: TextStyle(fontSize: 12, color: AppColors.slate),
         ),
         activeThumbColor: AppColors.ink,
       ),

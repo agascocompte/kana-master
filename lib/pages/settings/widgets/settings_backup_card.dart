@@ -26,7 +26,7 @@ class SettingsBackupCard extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColors.surface,
         borderRadius: BorderRadius.circular(16),
         border: Border.all(color: AppColors.sand),
       ),
@@ -38,10 +38,10 @@ class SettingsBackupCard extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: AppColors.surface,
                   borderRadius: BorderRadius.circular(10),
                 ),
-                child: const Icon(
+                child: Icon(
                   Icons.folder_zip_outlined,
                   color: AppColors.ink,
                 ),
@@ -53,7 +53,7 @@ class SettingsBackupCard extends StatelessWidget {
                   children: [
                     Text(
                       title,
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontWeight: FontWeight.w700,
                         color: AppColors.ink,
                         fontSize: 16,
@@ -62,7 +62,7 @@ class SettingsBackupCard extends StatelessWidget {
                     const SizedBox(height: 2),
                     Text(
                       subtitle,
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontSize: 12,
                         color: AppColors.slate,
                       ),
@@ -88,15 +88,15 @@ class SettingsBackupCard extends StatelessWidget {
                   onPressed: busy ? null : onImport,
                   style: ElevatedButton.styleFrom(
                     backgroundColor: AppColors.ink,
-                    foregroundColor: Colors.white,
+                    foregroundColor: AppColors.onInk,
                   ),
                   icon: busy
-                      ? const SizedBox(
+                      ? SizedBox(
                           width: 14,
                           height: 14,
                           child: CircularProgressIndicator(
                             strokeWidth: 2,
-                            color: Colors.white,
+                            color: AppColors.onInk,
                           ),
                         )
                       : const Icon(Icons.download_outlined),

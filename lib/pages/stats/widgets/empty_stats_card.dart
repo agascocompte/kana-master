@@ -11,7 +11,7 @@ class EmptyStatsCard extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColors.surface,
         borderRadius: BorderRadius.circular(16),
         border: Border.all(color: AppColors.sand),
       ),
@@ -29,7 +29,7 @@ class EmptyStatsCard extends StatelessWidget {
           const SizedBox(height: 6),
           Text(
             tr.app.statsNoDataSubtitle,
-            style: const TextStyle(color: AppColors.slate),
+            style: TextStyle(color: AppColors.slate),
           ),
           const SizedBox(height: 12),
         ],

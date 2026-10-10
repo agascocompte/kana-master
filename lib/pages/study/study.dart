@@ -34,7 +34,7 @@ class StudyTab extends StatelessWidget {
               children: [
                 Text(
                   tr.app.studyHubTitle,
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 28,
                     fontWeight: FontWeight.w800,
                     color: AppColors.ink,
@@ -43,7 +43,7 @@ class StudyTab extends StatelessWidget {
                 const SizedBox(height: 6),
                 Text(
                   tr.app.studyHubSubtitle,
-                  style: const TextStyle(
+                  style: TextStyle(
                     color: AppColors.slate,
                     fontSize: 14,
                   ),
@@ -116,7 +116,7 @@ class StudyTab extends StatelessWidget {
                 const SizedBox(height: 16),
                 Text(
                   tr.app.paths,
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.w700,
                     color: AppColors.ink,
@@ -127,7 +127,7 @@ class StudyTab extends StatelessWidget {
                   title: tr.app.learn,
                   subtitle: tr.app.learnSubtitle,
                   icon: Icons.school_outlined,
-                  gradient: const LinearGradient(
+                  gradient: LinearGradient(
                     colors: [AppColors.peach, AppColors.coral],
                   ),
                   onTap: () => context.push(AppRouter.learnRoute),
@@ -137,7 +137,7 @@ class StudyTab extends StatelessWidget {
                   title: tr.app.practice,
                   subtitle: tr.app.practiceSubtitle,
                   icon: Icons.flash_on_outlined,
-                  gradient: const LinearGradient(
+                  gradient: LinearGradient(
                     colors: [AppColors.teal, AppColors.sky],
                   ),
                   onTap: () => context.push(AppRouter.practiceRoute),
@@ -147,7 +147,7 @@ class StudyTab extends StatelessWidget {
                   title: tr.app.materials,
                   subtitle: tr.app.materialsSubtitle,
                   icon: Icons.auto_stories_outlined,
-                  gradient: const LinearGradient(
+                  gradient: LinearGradient(
                     colors: [AppColors.lime, AppColors.teal],
                   ),
                   enabled: isPremium,

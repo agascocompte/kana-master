@@ -18,7 +18,7 @@ class DictionaryEntryCard extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColors.surface,
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
@@ -33,7 +33,7 @@ class DictionaryEntryCard extends StatelessWidget {
         children: [
           SelectableText(
             entry.word,
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,
               color: AppColors.ink,
@@ -44,7 +44,7 @@ class DictionaryEntryCard extends StatelessWidget {
               padding: const EdgeInsets.only(top: 2.0),
               child: SelectableText(
                 entry.reading,
-                style: const TextStyle(color: AppColors.slate),
+                style: TextStyle(color: AppColors.slate),
               ),
             ),
           const SizedBox(height: 8),

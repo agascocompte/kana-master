@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kana_master/pages/learn/widgets/kana_stroke_animation.dart';
+import 'package:kana_master/theme/app_theme.dart';
 
 class KanaDialog extends StatelessWidget {
   final String assetKey;
@@ -17,7 +18,7 @@ class KanaDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     return AlertDialog(
       elevation: 0,
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.surface,
       content: Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[

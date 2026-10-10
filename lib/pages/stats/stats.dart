@@ -38,7 +38,7 @@ class StatsTab extends StatelessWidget {
             _buildSpots(incorrectMap, useIndex: true);
 
         return Container(
-          decoration: const BoxDecoration(
+          decoration: BoxDecoration(
             gradient: LinearGradient(
               colors: [AppColors.mist, AppColors.sand],
               begin: Alignment.topCenter,
@@ -62,7 +62,7 @@ class StatsTab extends StatelessWidget {
                   const SizedBox(height: 6),
                   Text(
                     t.app.statisticsSubtitle,
-                    style: const TextStyle(
+                    style: TextStyle(
                       color: AppColors.slate,
                       fontSize: 14,
                     ),
@@ -112,7 +112,7 @@ class StatsTab extends StatelessWidget {
                           child: MetricCard(
                             label: t.app.statsLast7,
                             value: '${summary.last7DaysCount}',
-                            subtitle: t.app.statsSessions,
+                            subtitle: t.app.statsAttempts,
                             accent: AppColors.lime,
                             icon: Icons.bolt,
                           ),
@@ -122,7 +122,7 @@ class StatsTab extends StatelessWidget {
                           child: MetricCard(
                             label: t.app.statsLast30,
                             value: '${summary.last30DaysCount}',
-                            subtitle: t.app.statsSessions,
+                            subtitle: t.app.statsAttempts,
                             accent: AppColors.peach,
                             icon: Icons.calendar_month,
                           ),
@@ -161,7 +161,7 @@ class StatsTab extends StatelessWidget {
                     child: ElevatedButton.icon(
                       style: ElevatedButton.styleFrom(
                         backgroundColor: AppColors.ink,
-                        foregroundColor: Colors.white,
+                        foregroundColor: AppColors.onInk,
                         padding: const EdgeInsets.symmetric(
                           horizontal: 16,
                           vertical: 12,

@@ -50,7 +50,7 @@ class SearchActionBar extends StatelessWidget {
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: AppColors.ink,
-                foregroundColor: Colors.white,
+                foregroundColor: AppColors.onInk,
                 padding: const EdgeInsets.all(14),
               ),
               child: const Icon(Icons.arrow_forward),

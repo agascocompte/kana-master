@@ -23,7 +23,7 @@ class KanjiTile extends StatelessWidget {
     return GridTile(
       child: Container(
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: AppColors.surface,
           border: Border.all(color: AppColors.sand, width: 1),
           borderRadius: BorderRadius.circular(8),
         ),

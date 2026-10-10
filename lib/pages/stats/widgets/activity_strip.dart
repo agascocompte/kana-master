@@ -13,7 +13,7 @@ class ActivityStrip extends StatelessWidget {
     if (days.isEmpty) {
       return Text(
         t.app.statsNoActivity,
-        style: const TextStyle(color: AppColors.slate),
+        style: TextStyle(color: AppColors.slate),
       );
     }
     final int maxCount =
@@ -37,7 +37,7 @@ class ActivityStrip extends StatelessWidget {
                 const SizedBox(height: 6),
                 Text(
                   day.label,
-                  style: const TextStyle(
+                  style: TextStyle(
                     color: AppColors.slate,
                     fontSize: 10,
                   ),

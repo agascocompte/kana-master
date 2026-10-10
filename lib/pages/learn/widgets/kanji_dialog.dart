@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kana_master/domain/models/kanji_entry.dart';
 import 'package:kana_master/pages/learn/widgets/kana_stroke_animation.dart';
+import 'package:kana_master/theme/app_theme.dart';
 
 class KanjiDialog extends StatelessWidget {
   final KanjiEntry entry;
@@ -17,7 +18,7 @@ class KanjiDialog extends StatelessWidget {
     final String meaningsText = meanings.join(', ');
     return AlertDialog(
       elevation: 0,
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.surface,
       content: SizedBox(
         width: MediaQuery.of(context).size.width * 0.8,
         child: ConstrainedBox(

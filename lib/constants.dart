@@ -5,7 +5,6 @@ import 'package:kana_master/domain/models/model_config.dart';
 
 const Color jOrange = Color(0xFFF2B54B);
 const Color jLightBLue = Color(0xFF5F8BA9);
-const Color jDarkBLue = Color(0xFF0E1B26);
 
 const int imageDimensions = 128;
 const String premiumProductId = 'kana_master_premium';

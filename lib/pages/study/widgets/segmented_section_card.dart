@@ -17,7 +17,7 @@ class SegmentedSectionCard extends StatelessWidget {
       width: double.infinity,
       padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColors.surface,
         borderRadius: BorderRadius.circular(16),
         border: Border.all(color: AppColors.sand),
       ),
@@ -26,7 +26,7 @@ class SegmentedSectionCard extends StatelessWidget {
         children: [
           Text(
             title,
-            style: const TextStyle(
+            style: TextStyle(
               color: AppColors.graphite,
               fontWeight: FontWeight.w700,
               fontSize: 13,

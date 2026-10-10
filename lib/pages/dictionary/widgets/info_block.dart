@@ -18,7 +18,7 @@ class InfoBlock extends StatelessWidget {
       children: [
         Text(
           title,
-          style: const TextStyle(
+          style: TextStyle(
             fontWeight: FontWeight.w700,
             fontSize: 12,
             color: AppColors.ink,
@@ -30,7 +30,7 @@ class InfoBlock extends StatelessWidget {
             padding: const EdgeInsets.only(bottom: 2.0),
             child: SelectableText(
               '• $line',
-              style: const TextStyle(fontSize: 12, color: Colors.black),
+              style: TextStyle(fontSize: 12, color: AppColors.ink),
             ),
           ),
         ),

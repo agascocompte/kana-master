@@ -36,7 +36,7 @@ class TestSessionView extends StatelessWidget {
                   current: session.questionNumber,
                   total: session.length,
                 ),
-                style: const TextStyle(
+                style: TextStyle(
                   color: AppColors.slate,
                   fontSize: 12,
                   fontWeight: FontWeight.w600,
@@ -62,7 +62,7 @@ class TestSessionView extends StatelessWidget {
               key: ValueKey<int>(session.questionNumber),
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: AppColors.surface,
                 borderRadius: BorderRadius.circular(18),
                 border: Border.all(color: AppColors.sand),
                 boxShadow: [

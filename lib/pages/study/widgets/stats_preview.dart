@@ -26,12 +26,12 @@ class StatsPreview extends StatelessWidget {
             ),
             child: Row(
               children: [
-                const Icon(Icons.insights, color: Colors.white),
+                Icon(Icons.insights, color: AppColors.onInk),
                 const SizedBox(width: 12),
                 Expanded(
                   child: Text(
                     tr.app.statsStartToUnlock,
-                    style: const TextStyle(color: Colors.white, fontSize: 13),
+                    style: TextStyle(color: AppColors.onInk, fontSize: 13),
                   ),
                 ),
               ],
@@ -51,16 +51,16 @@ class StatsPreview extends StatelessWidget {
                 children: [
                   Text(
                     tr.app.statsMomentum,
-                    style: const TextStyle(
-                      color: Colors.white70,
+                    style: TextStyle(
+                      color: AppColors.onInk.withAlpha(180),
                       fontSize: 12,
                     ),
                   ),
                   const SizedBox(height: 6),
                   Text(
                     tr.app.statsStreakDays(days: summary.currentStreak),
-                    style: const TextStyle(
-                      color: Colors.white,
+                    style: TextStyle(
+                      color: AppColors.onInk,
                       fontWeight: FontWeight.w700,
                       fontSize: 16,
                     ),
@@ -68,8 +68,8 @@ class StatsPreview extends StatelessWidget {
                   const SizedBox(height: 4),
                   Text(
                     '${tr.app.statsAccuracy} ${(summary.accuracy * 100).toStringAsFixed(0)}%',
-                    style: const TextStyle(
-                      color: Colors.white70,
+                    style: TextStyle(
+                      color: AppColors.onInk.withAlpha(180),
                       fontSize: 12,
                     ),
                   ),

@@ -14,7 +14,7 @@ class DictionaryTab extends StatelessWidget {
   Widget build(BuildContext context) {
     final tr = context.t;
     return Container(
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: [AppColors.mist, AppColors.sand],
           begin: Alignment.topCenter,
@@ -38,7 +38,7 @@ class DictionaryTab extends StatelessWidget {
               const SizedBox(height: 6),
               Text(
                 tr.app.dictionarySubtitle,
-                style: const TextStyle(color: AppColors.slate, fontSize: 14),
+                style: TextStyle(color: AppColors.slate, fontSize: 14),
               ),
               const SizedBox(height: 16),
               SearchActionBar(),
@@ -47,7 +47,7 @@ class DictionaryTab extends StatelessWidget {
                 const SizedBox(height: 8),
                 Text(
                   tr.app.dictionaryEnglishNote,
-                  style: const TextStyle(color: AppColors.slate, fontSize: 12),
+                  style: TextStyle(color: AppColors.slate, fontSize: 12),
                 ),
               ],
               const SizedBox(height: 16),
@@ -55,7 +55,7 @@ class DictionaryTab extends StatelessWidget {
                 child: BlocBuilder<DictionaryBloc, DictionaryState>(
                   builder: (context, state) {
                     if (state is DictionaryLoading) {
-                      return const Center(
+                      return Center(
                         child: CircularProgressIndicator(
                           color: AppColors.ink,
                         ),
@@ -67,7 +67,7 @@ class DictionaryTab extends StatelessWidget {
                       return Center(
                         child: Text(
                           tr.app.dictionaryError,
-                          style: const TextStyle(color: AppColors.coral),
+                          style: TextStyle(color: AppColors.coral),
                           textAlign: TextAlign.center,
                         ),
                       );
@@ -77,7 +77,7 @@ class DictionaryTab extends StatelessWidget {
                       return Center(
                         child: Text(
                           tr.app.dictionaryEmpty,
-                          style: const TextStyle(color: AppColors.graphite),
+                          style: TextStyle(color: AppColors.graphite),
                         ),
                       );
                     }

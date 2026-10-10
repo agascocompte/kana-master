@@ -44,7 +44,7 @@ class KanaTypeSwitcher extends StatelessWidget {
                 padding:
                     const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
                 decoration: BoxDecoration(
-                  color: isSelected ? accent.withAlpha(60) : Colors.white,
+                  color: isSelected ? accent.withAlpha(60) : AppColors.surface,
                   borderRadius: BorderRadius.circular(14),
                   border: Border.all(
                     color: isSelected ? accent : AppColors.sand,

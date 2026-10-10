@@ -53,7 +53,19 @@ class MyApp extends StatelessWidget {
             return MaterialApp.router(
               debugShowCheckedModeBanner: false,
               title: 'KanaGo',
-              theme: AppTheme.build(),
+              theme: AppTheme.build(Brightness.light),
+              darkTheme: AppTheme.build(Brightness.dark),
+              // Screens read AppColors directly, so set the palette before
+              // they build and rebuild everything when the system switches
+              // between light and dark.
+              builder: (context, child) {
+                final brightness = Theme.of(context).brightness;
+                AppColors.setBrightness(brightness);
+                return KeyedSubtree(
+                  key: ValueKey(brightness),
+                  child: child ?? const SizedBox.shrink(),
+                );
+              },
               locale: TranslationProvider.of(context).flutterLocale,
               supportedLocales: AppLocaleUtils.supportedLocales,
               localizationsDelegates: GlobalMaterialLocalizations.delegates,

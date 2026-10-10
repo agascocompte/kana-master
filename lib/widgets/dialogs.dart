@@ -7,6 +7,7 @@ import 'package:kana_master/pages/learn/widgets/kana_dialog.dart';
 import 'package:kana_master/pages/learn/widgets/kanji_dialog.dart';
 import 'package:kana_master/pages/stats/bloc/stats_bloc.dart';
 import 'package:kana_master/i18n/strings.g.dart';
+import 'package:kana_master/theme/app_theme.dart';
 
 class Dialogs {
   static void showResetStatsAlert(
@@ -24,8 +25,8 @@ class Dialogs {
                 onPressed: () => Navigator.pop(context),
                 child: Text(
                   t.app.cancel,
-                  style: const TextStyle(
-                    color: jDarkBLue,
+                  style: TextStyle(
+                    color: AppColors.ink,
                   ),
                 )),
             TextButton(
@@ -35,7 +36,7 @@ class Dialogs {
                 },
                 child: Text(
                   t.app.delete,
-                  style: const TextStyle(color: Colors.red),
+                  style: TextStyle(color: AppColors.coral),
                 )),
           ],
         );
@@ -152,8 +153,8 @@ class Dialogs {
               ElevatedButton(
                 onPressed: () => Navigator.of(dialogContext).pop(true),
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: jDarkBLue,
-                  foregroundColor: Colors.white,
+                  backgroundColor: AppColors.ink,
+                  foregroundColor: AppColors.onInk,
                   elevation: 0,
                   minimumSize: const Size(100, 40),
                   padding:

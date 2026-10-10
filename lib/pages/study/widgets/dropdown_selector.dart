@@ -22,7 +22,7 @@ class DropdownSelector extends StatelessWidget {
       children: [
         Text(
           label,
-          style: const TextStyle(
+          style: TextStyle(
             fontWeight: FontWeight.w700,
             color: AppColors.graphite,
           ),

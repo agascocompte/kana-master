@@ -34,7 +34,7 @@ class TestBody extends StatelessWidget {
               session.kanaType == KanaType.kanji
                   ? t.app.testKanjiTraceHint
                   : t.app.testSketchHint,
-              style: const TextStyle(
+              style: TextStyle(
                 color: AppColors.slate,
                 fontSize: 11,
               ),

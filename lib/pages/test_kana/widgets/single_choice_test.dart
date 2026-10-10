@@ -80,11 +80,11 @@ class _OptionButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final (Color background, Color foreground, Color border) = switch (style) {
-      _OptionStyle.normal => (Colors.white, AppColors.ink, AppColors.sand),
-      _OptionStyle.selected => (AppColors.ink, Colors.white, AppColors.ink),
+      _OptionStyle.normal => (AppColors.surface, AppColors.ink, AppColors.sand),
+      _OptionStyle.selected => (AppColors.ink, AppColors.onInk, AppColors.ink),
       _OptionStyle.correct => (AppColors.teal, Colors.white, AppColors.teal),
       _OptionStyle.wrong => (AppColors.coral, Colors.white, AppColors.coral),
-      _OptionStyle.dimmed => (Colors.white, AppColors.slate, AppColors.sand),
+      _OptionStyle.dimmed => (AppColors.surface, AppColors.slate, AppColors.sand),
     };
     return OutlinedButton(
       style: OutlinedButton.styleFrom(

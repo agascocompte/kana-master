@@ -18,7 +18,7 @@ class SettingsSectionHeader extends StatelessWidget {
         Expanded(
           child: Text(
             title,
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 13,
               fontWeight: FontWeight.w800,
               color: AppColors.graphite,
@@ -29,7 +29,7 @@ class SettingsSectionHeader extends StatelessWidget {
         if (onInfoPressed != null)
           IconButton(
             tooltip: 'Info',
-            icon: const Icon(
+            icon: Icon(
               Icons.info_outline,
               size: 18,
               color: AppColors.slate,

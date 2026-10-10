@@ -51,7 +51,7 @@ class SettingsPage extends StatelessWidget {
 
         return Scaffold(
           body: Container(
-            decoration: const BoxDecoration(
+            decoration: BoxDecoration(
               gradient: LinearGradient(
                 colors: [AppColors.mist, AppColors.sand],
                 begin: Alignment.topCenter,
@@ -66,7 +66,7 @@ class SettingsPage extends StatelessWidget {
                     padding: const EdgeInsets.fromLTRB(16, 18, 16, 6),
                     child: Text(
                       tr.app.settings,
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontSize: 28,
                         fontWeight: FontWeight.w800,
                         color: AppColors.ink,
@@ -77,7 +77,7 @@ class SettingsPage extends StatelessWidget {
                     padding: const EdgeInsets.fromLTRB(16, 0, 16, 8),
                     child: Text(
                       tr.app.learningDefaults,
-                      style: const TextStyle(
+                      style: TextStyle(
                         color: AppColors.slate,
                         fontSize: 14,
                       ),
@@ -94,7 +94,7 @@ class SettingsPage extends StatelessWidget {
                         Container(
                           padding: const EdgeInsets.all(14),
                           decoration: BoxDecoration(
-                            color: Colors.white,
+                            color: AppColors.surface,
                             borderRadius: BorderRadius.circular(16),
                             border: Border.all(color: AppColors.sand),
                           ),
@@ -115,7 +115,7 @@ class SettingsPage extends StatelessWidget {
                                       isPremium
                                           ? tr.app.premiumOwnedBadge
                                           : tr.app.premiumSectionSubtitle,
-                                      style: const TextStyle(
+                                      style: TextStyle(
                                         color: AppColors.graphite,
                                         fontWeight: FontWeight.w600,
                                       ),
@@ -131,7 +131,7 @@ class SettingsPage extends StatelessWidget {
                                     onPressed: openPremium,
                                     style: FilledButton.styleFrom(
                                       backgroundColor: AppColors.ink,
-                                      foregroundColor: Colors.white,
+                                      foregroundColor: AppColors.onInk,
                                     ),
                                     child: Text(tr.app.premiumOpenButton),
                                   ),
@@ -350,9 +350,9 @@ List<DropdownMenuItem<String>> _jlptItems(
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
-        Text(text, style: const TextStyle(color: AppColors.slate)),
+        Text(text, style: TextStyle(color: AppColors.slate)),
         const SizedBox(width: 4),
-        const Icon(Icons.lock_outline, size: 14, color: AppColors.slate),
+        Icon(Icons.lock_outline, size: 14, color: AppColors.slate),
       ],
     );
   }

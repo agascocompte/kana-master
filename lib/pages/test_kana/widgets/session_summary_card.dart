@@ -24,7 +24,7 @@ class SessionSummaryCard extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.all(20),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: AppColors.surface,
           borderRadius: BorderRadius.circular(18),
           border: Border.all(color: AppColors.sand),
           boxShadow: [
@@ -43,7 +43,7 @@ class SessionSummaryCard extends StatelessWidget {
                   ? tr.app.sessionReviewSummaryTitle
                   : tr.app.sessionSummaryTitle,
               textAlign: TextAlign.center,
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.w800,
                 color: AppColors.ink,
@@ -70,7 +70,7 @@ class SessionSummaryCard extends StatelessWidget {
                     Center(
                       child: Text(
                         '${(ratio * 100).round()}%',
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontSize: 28,
                           fontWeight: FontWeight.w800,
                           color: AppColors.ink,
@@ -85,14 +85,14 @@ class SessionSummaryCard extends StatelessWidget {
             Text(
               tr.app.sessionScore(correct: session.correctCount, total: total),
               textAlign: TextAlign.center,
-              style: const TextStyle(color: AppColors.slate, fontSize: 14),
+              style: TextStyle(color: AppColors.slate, fontSize: 14),
             ),
             const SizedBox(height: 18),
             if (mistakes.isEmpty)
               Text(
                 tr.app.sessionPerfect,
                 textAlign: TextAlign.center,
-                style: const TextStyle(
+                style: TextStyle(
                   color: AppColors.teal,
                   fontSize: 16,
                   fontWeight: FontWeight.w700,
@@ -101,7 +101,7 @@ class SessionSummaryCard extends StatelessWidget {
             else ...[
               Text(
                 tr.app.sessionMistakesTitle,
-                style: const TextStyle(
+                style: TextStyle(
                   fontSize: 14,
                   fontWeight: FontWeight.w700,
                   color: AppColors.ink,
@@ -137,7 +137,7 @@ class SessionSummaryCard extends StatelessWidget {
                   context.read<TestKanaBloc>().add(RestartSession()),
               style: ElevatedButton.styleFrom(
                 backgroundColor: AppColors.ink,
-                foregroundColor: Colors.white,
+                foregroundColor: AppColors.onInk,
                 padding: const EdgeInsets.symmetric(vertical: 12),
               ),
               icon: const Icon(Icons.play_arrow),
@@ -174,7 +174,7 @@ class _MistakeChip extends StatelessWidget {
           children: [
             TextSpan(
               text: item.symbol,
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.w800,
                 color: AppColors.ink,
@@ -182,7 +182,7 @@ class _MistakeChip extends StatelessWidget {
             ),
             TextSpan(
               text: '  ${item.label}',
-              style: const TextStyle(fontSize: 13, color: AppColors.slate),
+              style: TextStyle(fontSize: 13, color: AppColors.slate),
             ),
           ],
         ),

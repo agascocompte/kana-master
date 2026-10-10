@@ -40,7 +40,7 @@ class MaterialTab extends StatelessWidget {
               Row(
                 children: [
                   IconButton(
-                    icon: const Icon(Icons.info_outline, color: AppColors.ink),
+                    icon: Icon(Icons.info_outline, color: AppColors.ink),
                     onPressed: () {
                       Dialogs.showExpectedFormatDialog(context);
                     },
@@ -53,7 +53,7 @@ class MaterialTab extends StatelessWidget {
                             .add(MaterialImportRequested()),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: AppColors.ink,
-                      foregroundColor: Colors.white,
+                      foregroundColor: AppColors.onInk,
                     ),
                     icon: const Icon(Icons.upload_file),
                     label: Text(t.app.importCsv),
@@ -66,7 +66,7 @@ class MaterialTab extends StatelessWidget {
                             count: data.entries.length,
                             name: data.importedFileName),
                         overflow: TextOverflow.ellipsis,
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontWeight: FontWeight.w600,
                           color: AppColors.graphite,
                         ),
@@ -74,7 +74,7 @@ class MaterialTab extends StatelessWidget {
                     ),
                     IconButton(
                       tooltip: t.app.materialsClear,
-                      icon: const Icon(Icons.delete_outline,
+                      icon: Icon(Icons.delete_outline,
                           color: AppColors.slate),
                       onPressed: () => context
                           .read<MaterialBloc>()
@@ -125,7 +125,7 @@ class MaterialTab extends StatelessWidget {
                           width: double.infinity,
                           padding: const EdgeInsets.all(16),
                           decoration: BoxDecoration(
-                            color: Colors.white,
+                            color: AppColors.surface,
                             borderRadius: BorderRadius.circular(16),
                             border: Border.all(color: AppColors.sand),
                             boxShadow: [
@@ -144,7 +144,7 @@ class MaterialTab extends StatelessWidget {
                                   ElevatedButton.icon(
                                     style: ElevatedButton.styleFrom(
                                       backgroundColor: AppColors.ink,
-                                      foregroundColor: Colors.white,
+                                      foregroundColor: AppColors.onInk,
                                     ),
                                     onPressed: () => context
                                         .read<MaterialBloc>()
@@ -173,7 +173,7 @@ class MaterialTab extends StatelessWidget {
                                     correct: data.correctCount,
                                     total: data.answeredCount,
                                   ),
-                                  style: const TextStyle(
+                                  style: TextStyle(
                                     color: AppColors.slate,
                                     fontWeight: FontWeight.w600,
                                   ),
@@ -186,7 +186,7 @@ class MaterialTab extends StatelessWidget {
                                   data.currentEntry!
                                           .values[data.questionColumn!] ??
                                       '',
-                                  style: const TextStyle(
+                                  style: TextStyle(
                                     fontSize: 22,
                                     fontWeight: FontWeight.w700,
                                     color: AppColors.ink,
@@ -195,7 +195,7 @@ class MaterialTab extends StatelessWidget {
                               else
                                 Text(
                                   t.app.materialsEmpty,
-                                  style: const TextStyle(
+                                  style: TextStyle(
                                       color: AppColors.graphite),
                                 ),
                               const SizedBox(height: 16),
@@ -241,7 +241,7 @@ class MaterialTab extends StatelessWidget {
                                                         data.answerColumn!] ??
                                                     '')
                                             : t.app.showAnswer,
-                                        style: const TextStyle(
+                                        style: TextStyle(
                                             color: AppColors.graphite,
                                             fontSize: 12),
                                       ),

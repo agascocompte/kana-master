@@ -28,7 +28,7 @@ class PremiumLockedWrapper extends StatelessWidget {
             ),
           ),
         ),
-        const Positioned(
+        Positioned(
           top: 8,
           right: 10,
           child: Icon(

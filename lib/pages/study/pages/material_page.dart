@@ -16,7 +16,7 @@ class MaterialPage extends StatelessWidget {
       create: (_) => sl<MaterialBloc>()..add(MaterialLoadSaved()),
       child: Scaffold(
         body: Container(
-          decoration: const BoxDecoration(
+          decoration: BoxDecoration(
             gradient: LinearGradient(
               colors: [AppColors.mist, AppColors.sand],
               begin: Alignment.topCenter,
@@ -40,7 +40,7 @@ class MaterialPage extends StatelessWidget {
                       const SizedBox(width: 6),
                       Text(
                         t.app.materials,
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontSize: 28,
                           fontWeight: FontWeight.w800,
                           color: AppColors.ink,
@@ -53,7 +53,7 @@ class MaterialPage extends StatelessWidget {
                   padding: EdgeInsets.fromLTRB(16, 0, 16, 8),
                   child: Text(
                     t.app.materialsSubtitle,
-                    style: const TextStyle(color: AppColors.slate, fontSize: 14),
+                    style: TextStyle(color: AppColors.slate, fontSize: 14),
                   ),
                 ),
                 Expanded(child: MaterialTab()),

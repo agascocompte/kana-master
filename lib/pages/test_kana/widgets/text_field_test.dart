@@ -64,7 +64,7 @@ class _TextFieldTestState extends State<TextFieldTest> {
               ] else if (!hideHeader) ...[
                 Text(
                   header,
-                  style: const TextStyle(color: AppColors.slate, fontSize: 12),
+                  style: TextStyle(color: AppColors.slate, fontSize: 12),
                 ),
                 SizedBox(height: tiny ? 8 : 14),
               ],
@@ -76,7 +76,7 @@ class _TextFieldTestState extends State<TextFieldTest> {
                     vertical: tiny ? 10 : 18,
                   ),
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: AppColors.surface,
                     borderRadius: BorderRadius.circular(22),
                     border: Border.all(
                       color: data.revealed ? AppColors.coral : AppColors.sand,
@@ -102,7 +102,7 @@ class _TextFieldTestState extends State<TextFieldTest> {
                         textAlign: TextAlign.center,
                         textInputAction: TextInputAction.done,
                         cursorColor: AppColors.teal,
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontSize: 24,
                           color: AppColors.ink,
                           fontWeight: FontWeight.w700,

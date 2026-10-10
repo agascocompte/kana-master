@@ -51,7 +51,7 @@ class EqualSegmented<T> extends StatelessWidget {
                           fontSize: 18,
                           fontWeight: FontWeight.w700,
                           color: option.enabled
-                              ? (isSelected ? Colors.white : AppColors.graphite)
+                              ? (isSelected ? AppColors.onInk : AppColors.graphite)
                               : AppColors.slate,
                         ),
                       ),
@@ -68,7 +68,7 @@ class EqualSegmented<T> extends StatelessWidget {
                               fontSize: 13,
                               color: option.enabled
                                   ? (isSelected
-                                      ? Colors.white
+                                      ? AppColors.onInk
                                       : AppColors.graphite)
                                   : AppColors.slate,
                             ),
@@ -92,7 +92,7 @@ class EqualSegmented<T> extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 11,
                           color: option.enabled
-                              ? (isSelected ? Colors.white70 : AppColors.slate)
+                              ? (isSelected ? AppColors.onInk.withAlpha(180) : AppColors.slate)
                               : AppColors.slate.withAlpha(180),
                         ),
                       ),

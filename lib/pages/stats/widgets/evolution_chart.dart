@@ -19,7 +19,7 @@ class EvolutionChart extends StatelessWidget {
       return Center(
         child: Text(
           t.app.statsNoEvolution,
-          style: const TextStyle(color: AppColors.slate),
+          style: TextStyle(color: AppColors.slate),
         ),
       );
     }
@@ -37,7 +37,7 @@ class EvolutionChart extends StatelessWidget {
         borderData: FlBorderData(show: false),
         lineTouchData: LineTouchData(
           touchTooltipData: LineTouchTooltipData(
-            getTooltipColor: (touchedSpot) => Colors.white70,
+            getTooltipColor: (touchedSpot) => AppColors.surface,
           ),
         ),
         lineBarsData: [

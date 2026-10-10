@@ -28,7 +28,7 @@ class PracticePage extends StatelessWidget {
           child: Scaffold(
             resizeToAvoidBottomInset: false,
             body: Container(
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                 gradient: LinearGradient(
                   colors: [AppColors.mist, AppColors.sand],
                   begin: Alignment.topCenter,
@@ -52,7 +52,7 @@ class PracticePage extends StatelessWidget {
                           const SizedBox(width: 6),
                           Text(
                             t.app.practice,
-                            style: const TextStyle(
+                            style: TextStyle(
                               fontSize: 28,
                               fontWeight: FontWeight.w800,
                               color: AppColors.ink,
@@ -65,7 +65,7 @@ class PracticePage extends StatelessWidget {
                       padding: const EdgeInsets.fromLTRB(16, 0, 16, 8),
                       child: Text(
                         t.app.practiceSubtitle,
-                        style: const TextStyle(
+                        style: TextStyle(
                           color: AppColors.slate,
                           fontSize: 14,
                         ),

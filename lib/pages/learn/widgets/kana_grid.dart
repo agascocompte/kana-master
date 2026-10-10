@@ -97,7 +97,7 @@ class KanaGrid extends StatelessWidget {
           padding: const EdgeInsets.fromLTRB(12, 14, 12, 2),
           child: Text(
             title,
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.w700,
               color: AppColors.ink,
@@ -137,13 +137,13 @@ class KanaGrid extends StatelessWidget {
       context: context,
       builder: (context) => AlertDialog(
         elevation: 0,
-        backgroundColor: Colors.white,
+        backgroundColor: AppColors.surface,
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             Text(
               symbol,
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 72,
                 fontWeight: FontWeight.w700,
                 color: AppColors.ink,
