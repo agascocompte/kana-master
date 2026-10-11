@@ -44,7 +44,6 @@ const ModelConfig kanjiModelV1 = ModelConfig(
   normalize: false,
 );
 
-
 enum KanaType { hiragana, katakana, kanji }
 
 enum DifficultyLevel { low, medium, high }
@@ -215,62 +214,10 @@ const List<String?> hiraganaDisplayGrid = [
   null,
 ];
 
-const List<String?> katakanaDisplayGrid = [
-  "ア",
-  "イ",
-  "ウ",
-  "エ",
-  "オ",
-  "カ",
-  "キ",
-  "ク",
-  "ケ",
-  "コ",
-  "サ",
-  "シ",
-  "ス",
-  "セ",
-  "ソ",
-  "タ",
-  "チ",
-  "ツ",
-  "テ",
-  "ト",
-  "ナ",
-  "ニ",
-  "ヌ",
-  "ネ",
-  "ノ",
-  "ハ",
-  "ヒ",
-  "フ",
-  "ヘ",
-  "ホ",
-  "マ",
-  "ミ",
-  "ム",
-  "メ",
-  "モ",
-  "ヤ",
-  null,
-  "ユ",
-  null,
-  "ヨ",
-  "ラ",
-  "リ",
-  "ル",
-  "レ",
-  "ロ",
-  "ワ",
-  null,
-  null,
-  null,
-  "ヲ",
-  null,
-  null,
-  "ン",
-  null,
-  null
+/// Same layout as the hiragana grid, dakuten rows included.
+final List<String?> katakanaDisplayGrid = [
+  for (final kana in hiraganaDisplayGrid)
+    kana == null ? null : String.fromCharCode(kana.codeUnitAt(0) + 0x60),
 ];
 
 const Map<String, String> katakana = {

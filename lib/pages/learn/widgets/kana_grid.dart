@@ -26,7 +26,7 @@ class KanaGrid extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final tr = context.t;
-    final keys = kanaType == KanaType.hiragana
+    final List<String?> keys = kanaType == KanaType.hiragana
         ? hiraganaDisplayGrid
         : katakanaDisplayGrid;
     final entryByCharacter = {for (final e in entries) e.character: e};
@@ -47,7 +47,7 @@ class KanaGrid extends StatelessWidget {
             itemBuilder: (context, index) {
               final String? key = keys[index];
               final KanaEntry? entry =
-                  key == null ? null : entryByCharacter[key];
+                  key == null ? null : _entryFor(key, entryByCharacter);
               if (key == null || entry == null) {
                 return const SizedBox.shrink();
               }
@@ -63,14 +63,6 @@ class KanaGrid extends StatelessWidget {
             },
           ),
         ),
-        // Hiragana dakuten are already in the main grid; katakana ones aren't.
-        if (isKatakana)
-          ..._extraSection(
-            context,
-            title: tr.app.learnDakutenTitle,
-            kana: katakanaDakuten,
-            columns: 5,
-          ),
         ..._extraSection(
           context,
           title: tr.app.learnCombosTitle,
@@ -80,6 +72,16 @@ class KanaGrid extends StatelessWidget {
         const SliverToBoxAdapter(child: SizedBox(height: 16)),
       ],
     );
+  }
+
+  /// Katakana dakuten are not in [entries], which only has the base kana.
+  KanaEntry? _entryFor(String key, Map<String, KanaEntry> entryByCharacter) {
+    final KanaEntry? entry = entryByCharacter[key];
+    if (entry != null) return entry;
+    final String? reading = romajiForKana(key);
+    return reading == null
+        ? null
+        : KanaEntry.fromCharacter(character: key, reading: reading);
   }
 
   List<Widget> _extraSection(

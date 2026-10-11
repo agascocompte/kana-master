@@ -36,7 +36,8 @@ class KanjiGridSection extends StatelessWidget {
         ),
         Expanded(
           child: GridView.builder(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
+            padding: EdgeInsets.fromLTRB(
+                10, 0, 10, 24 + MediaQuery.paddingOf(context).bottom),
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 5,
               crossAxisSpacing: 10,
