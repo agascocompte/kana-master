@@ -49,8 +49,8 @@ class ActionCard extends StatelessWidget {
                 padding: const EdgeInsets.all(12),
                 decoration: BoxDecoration(
                   color: enabled
-                      ? Colors.white.withAlpha(180)
-                      : Colors.white.withAlpha(130),
+                      ? AppColors.surface.withAlpha(180)
+                      : AppColors.surface.withAlpha(130),
                   borderRadius: BorderRadius.circular(14),
                 ),
                 child: Icon(icon, color: AppColors.ink, size: 24),
