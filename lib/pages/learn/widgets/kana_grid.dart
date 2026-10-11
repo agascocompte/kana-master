@@ -82,8 +82,6 @@ class KanaGrid extends StatelessWidget {
     );
   }
 
-  /// Characters without stroke data: tapping shows them large with their
-  /// reading.
   List<Widget> _extraSection(
     BuildContext context, {
     required String title,
@@ -118,7 +116,8 @@ class KanaGrid extends StatelessWidget {
           itemBuilder: (context, index) {
             final item = items[index];
             return GestureDetector(
-              onTap: () => _showKanaInfo(context, item.key, item.value),
+              onTap: () => onTapEntry(KanaEntry.fromCharacter(
+                  character: item.key, reading: item.value)),
               child: KanaTile(
                 character: item.key,
                 reading: item.value,
@@ -130,30 +129,5 @@ class KanaGrid extends StatelessWidget {
         ),
       ),
     ];
-  }
-
-  void _showKanaInfo(BuildContext context, String symbol, String reading) {
-    showDialog<void>(
-      context: context,
-      builder: (context) => AlertDialog(
-        elevation: 0,
-        backgroundColor: AppColors.surface,
-        content: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text(
-              symbol,
-              style: TextStyle(
-                fontSize: 72,
-                fontWeight: FontWeight.w700,
-                color: AppColors.ink,
-              ),
-            ),
-            const SizedBox(height: 8),
-            Text(reading, style: const TextStyle(fontSize: 24)),
-          ],
-        ),
-      ),
-    );
   }
 }

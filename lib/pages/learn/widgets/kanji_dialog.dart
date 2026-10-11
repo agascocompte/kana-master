@@ -32,8 +32,9 @@ class KanjiDialog extends StatelessWidget {
                 SizedBox(
                   width: double.infinity,
                   child: KanaStrokeAnimation(
-                    assetPath:
-                        'assets/svg/kanji/${entry.unicode.toUpperCase()}.svg',
+                    assetPaths: [
+                      'assets/svg/kanji/${entry.unicode.toUpperCase()}.svg',
+                    ],
                   ),
                 ),
                 if (meaningsText.isNotEmpty)

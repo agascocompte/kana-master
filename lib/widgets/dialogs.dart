@@ -89,11 +89,9 @@ class Dialogs {
       context: context,
       builder: (BuildContext context) {
         return KanaDialog(
-          assetKey: entry.assetKey,
+          symbol: entry.character,
           displayText: entry.reading,
-          kanaFolder: kanaType == KanaType.hiragana
-              ? t.app.scriptHiragana.toLowerCase()
-              : t.app.scriptKatakana.toLowerCase(),
+          kanaType: kanaType,
         );
       },
     );

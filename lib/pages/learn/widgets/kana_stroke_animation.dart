@@ -1,3 +1,6 @@
+import 'dart:math' as math;
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -8,14 +11,15 @@ import 'package:path_drawing/path_drawing.dart';
 import 'package:xml/xml.dart';
 
 class KanaStrokeAnimation extends StatefulWidget {
-  final String assetPath;
+  /// One SVG per character; several are drawn side by side in order (きゃ).
+  final List<String> assetPaths;
   final Duration perStrokeDuration;
   final Duration interStrokeDelay;
   final Duration pauseDuration;
 
   const KanaStrokeAnimation({
     super.key,
-    required this.assetPath,
+    required this.assetPaths,
     this.perStrokeDuration = const Duration(milliseconds: 800),
     this.interStrokeDelay = const Duration(milliseconds: 250),
     this.pauseDuration = const Duration(milliseconds: 2300),
@@ -41,7 +45,7 @@ class _KanaStrokeAnimationState extends State<KanaStrokeAnimation>
   @override
   void didUpdateWidget(covariant KanaStrokeAnimation oldWidget) {
     super.didUpdateWidget(oldWidget);
-    if (oldWidget.assetPath != widget.assetPath) {
+    if (!listEquals(oldWidget.assetPaths, widget.assetPaths)) {
       _controller?.dispose();
       _controller = null;
       _strokeData = null;
@@ -59,7 +63,7 @@ class _KanaStrokeAnimationState extends State<KanaStrokeAnimation>
 
   Future<void> _load() async {
     try {
-      final data = await _loadStrokeData(widget.assetPath);
+      final data = await _loadCombined(widget.assetPaths);
       if (!mounted) return;
       if (data.paths.isEmpty) {
         setState(() {
@@ -101,7 +105,7 @@ class _KanaStrokeAnimationState extends State<KanaStrokeAnimation>
     }
     if (_strokeData!.paths.isEmpty || _controller == null) {
       return SvgPicture.asset(
-        widget.assetPath,
+        widget.assetPaths.first,
         fit: BoxFit.contain,
       );
     }
@@ -135,6 +139,30 @@ class _KanaStrokeAnimationState extends State<KanaStrokeAnimation>
       if (!mounted || token != _animationToken) return;
     }
   }
+}
+
+/// Lays the characters out left to right and numbers their strokes as one
+/// sequence.
+Future<StrokeData> _loadCombined(List<String> assetPaths) async {
+  if (assetPaths.length == 1) return _loadStrokeData(assetPaths.first);
+  final List<Path> paths = [];
+  final List<StrokeNumber> numbers = [];
+  double width = 0;
+  double height = 0;
+  for (final assetPath in assetPaths) {
+    final data = await _loadStrokeData(assetPath);
+    final offset = Offset(width, 0);
+    final int strokesSoFar = paths.length;
+    paths.addAll(data.paths.map((path) => path.shift(offset)));
+    numbers.addAll(data.numbers.map((n) => StrokeNumber(
+          number: n.number + strokesSoFar,
+          position: n.position + offset,
+        )));
+    width += data.viewBox.width;
+    height = math.max(height, data.viewBox.height);
+  }
+  return StrokeData(
+      paths: paths, numbers: numbers, viewBox: Size(width, height));
 }
 
 Future<StrokeData> _loadStrokeData(String assetPath) async {

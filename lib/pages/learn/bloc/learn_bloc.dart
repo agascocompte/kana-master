@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 import 'package:kana_master/constants.dart';
+import 'package:kana_master/domain/kanji_study_order.dart';
 import 'package:kana_master/domain/models/kanji_entry.dart';
 import 'package:kana_master/domain/usecases/ensure_kanji_imported.dart';
 import 'package:kana_master/domain/usecases/get_kanji_entries.dart';
@@ -47,7 +48,7 @@ class LearnBloc extends Bloc<LearnEvent, LearnState> {
     }
     try {
       await ensureKanjiImported();
-      final entries = await getKanjiEntries();
+      final entries = sortForStudy(await getKanjiEntries());
       final meanings = await getKanjiMeanings(event.languageCode);
       final filtered = _filterKanji(
         entries: entries,
