@@ -657,6 +657,21 @@ class Translations$app$en {
 
 	/// en: 'Every JLPT level (N4–N1)'
 	String get premiumBenefitJlpt => 'Every JLPT level (N4–N1)';
+
+	/// en: 'Appearance'
+	String get settingsThemeTitle => 'Appearance';
+
+	/// en: 'Light, dark or follow the system.'
+	String get settingsThemeSubtitle => 'Light, dark or follow the system.';
+
+	/// en: 'Automatic'
+	String get settingsThemeSystem => 'Automatic';
+
+	/// en: 'Light'
+	String get settingsThemeLight => 'Light';
+
+	/// en: 'Dark'
+	String get settingsThemeDark => 'Dark';
 }
 
 /// The flat map containing all translations for locale <en>.
@@ -869,6 +884,11 @@ extension on Translations {
 			'app.materialsScore' => ({required Object correct, required Object total}) => '${correct} / ${total} correct',
 			'app.materialsClear' => 'Remove list',
 			'app.premiumBenefitJlpt' => 'Every JLPT level (N4–N1)',
+			'app.settingsThemeTitle' => 'Appearance',
+			'app.settingsThemeSubtitle' => 'Light, dark or follow the system.',
+			'app.settingsThemeSystem' => 'Automatic',
+			'app.settingsThemeLight' => 'Light',
+			'app.settingsThemeDark' => 'Dark',
 			_ => null,
 		};
 	}

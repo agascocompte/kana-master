@@ -250,6 +250,11 @@ class _Translations$app$ru implements Translations$app$en {
 	@override String materialsScore({required Object correct, required Object total}) => '${correct} / ${total} верно';
 	@override String get materialsClear => 'Удалить список';
 	@override String get premiumBenefitJlpt => 'Все уровни JLPT (N4–N1)';
+	@override String get settingsThemeTitle => 'Оформление';
+	@override String get settingsThemeSubtitle => 'Светлое, тёмное или как в системе.';
+	@override String get settingsThemeSystem => 'Автоматически';
+	@override String get settingsThemeLight => 'Светлое';
+	@override String get settingsThemeDark => 'Тёмное';
 }
 
 /// The flat map containing all translations for locale <ru>.
@@ -462,6 +467,11 @@ extension on TranslationsRu {
 			'app.materialsScore' => ({required Object correct, required Object total}) => '${correct} / ${total} верно',
 			'app.materialsClear' => 'Удалить список',
 			'app.premiumBenefitJlpt' => 'Все уровни JLPT (N4–N1)',
+			'app.settingsThemeTitle' => 'Оформление',
+			'app.settingsThemeSubtitle' => 'Светлое, тёмное или как в системе.',
+			'app.settingsThemeSystem' => 'Автоматически',
+			'app.settingsThemeLight' => 'Светлое',
+			'app.settingsThemeDark' => 'Тёмное',
 			_ => null,
 		};
 	}

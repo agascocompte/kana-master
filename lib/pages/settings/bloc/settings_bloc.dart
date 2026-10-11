@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:flutter/material.dart' show ThemeMode;
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kana_master/constants.dart';
 import 'package:kana_master/data/datasources/stats_backup_file_data_source.dart';
@@ -33,6 +34,7 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
     on<SetKanaType>(_setKanaType);
     on<ChangeDifficultyLevel>(_changeDifficultyLevel);
     on<ChangeLanguage>(_changeLanguage);
+    on<ChangeThemeMode>(_changeThemeMode);
     on<ChangeHapticsEnabled>(_changeHapticsEnabled);
     on<ChangeKanaScale>(_changeKanaScale);
     on<ChangeKanjiJlptFilter>(_changeKanjiJlptFilter);
@@ -73,6 +75,7 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
     String languageCode = await settingsRepository.getLanguageCode();
     bool hapticsEnabled = await settingsRepository.getHapticsEnabled();
     double kanaScale = await settingsRepository.getKanaScale();
+    final ThemeMode themeMode = await settingsRepository.getThemeMode();
     String kanjiJlptFilter = await settingsRepository.getKanjiJlptFilter();
     bool useModelHiragana = await settingsRepository.getUseModelHiragana();
     bool useModelKatakana = await settingsRepository.getUseModelKatakana();
@@ -91,6 +94,7 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
       languageCode: languageCode,
       hapticsEnabled: hapticsEnabled,
       kanaScale: kanaScale,
+      themeMode: themeMode,
       kanjiJlptFilter: kanjiJlptFilter,
       useModelHiragana: useModelHiragana,
       useModelKatakana: useModelKatakana,
@@ -101,6 +105,14 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
       sessionLength: sessionLength,
     )));
     LocaleSettings.setLocale(_parseLocale(languageCode));
+  }
+
+  FutureOr<void> _changeThemeMode(
+      ChangeThemeMode event, Emitter<SettingsState> emit) async {
+    emit(SettingsUpdated(state.stateData.copyWith(themeMode: event.mode)));
+    try {
+      await settingsRepository.saveThemeMode(event.mode);
+    } catch (_) {}
   }
 
   FutureOr<void> _changeLanguage(

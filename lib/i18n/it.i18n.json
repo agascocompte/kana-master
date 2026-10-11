@@ -201,6 +201,11 @@
     "dictionaryError": "Ricerca non riuscita. Controlla la connessione e riprova.",
     "materialsScore": "${correct} / ${total} corrette",
     "materialsClear": "Rimuovi elenco",
-    "premiumBenefitJlpt": "Tutti i livelli JLPT (N4–N1)"
+    "premiumBenefitJlpt": "Tutti i livelli JLPT (N4–N1)",
+    "settingsThemeTitle": "Aspetto",
+    "settingsThemeSubtitle": "Chiaro, scuro o come il sistema.",
+    "settingsThemeSystem": "Automatico",
+    "settingsThemeLight": "Chiaro",
+    "settingsThemeDark": "Scuro"
   }
 }

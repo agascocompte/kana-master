@@ -141,7 +141,7 @@ class SettingsPage extends StatelessWidget {
                           ),
                         ),
                         const SizedBox(height: 12),
-                        if (kDebugMode) ...[
+                        if (!kReleaseMode) ...[
                           SettingsSectionHeader(
                             title: 'Debug',
                           ),
@@ -174,6 +174,34 @@ class SettingsPage extends StatelessWidget {
                               context.read<SettingsBloc>().add(
                                     ChangeLanguage(languageCode: newValue),
                                   );
+                            }
+                          },
+                        ),
+                        const SizedBox(height: 12),
+                        DropdownTileSetting<ThemeMode>(
+                          title: tr.app.settingsThemeTitle,
+                          subtitle: tr.app.settingsThemeSubtitle,
+                          currentValue: state.stateData.themeMode,
+                          icon: Icons.dark_mode_outlined,
+                          items: [
+                            DropdownMenuItem(
+                              value: ThemeMode.system,
+                              child: Text(tr.app.settingsThemeSystem),
+                            ),
+                            DropdownMenuItem(
+                              value: ThemeMode.light,
+                              child: Text(tr.app.settingsThemeLight),
+                            ),
+                            DropdownMenuItem(
+                              value: ThemeMode.dark,
+                              child: Text(tr.app.settingsThemeDark),
+                            ),
+                          ],
+                          onChanged: (ThemeMode? mode) {
+                            if (mode != null) {
+                              context
+                                  .read<SettingsBloc>()
+                                  .add(ChangeThemeMode(mode: mode));
                             }
                           },
                         ),

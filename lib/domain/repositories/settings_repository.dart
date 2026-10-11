@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart' show ThemeMode;
 import 'dart:ui';
 
 import 'package:kana_master/domain/providers/database_provider.dart';
@@ -276,6 +277,17 @@ class SettingsRepository {
 
   Future<void> saveMaterialsJson(String json) =>
       _setValue('materials_json', json);
+
+  Future<ThemeMode> getThemeMode() async {
+    final value = await _getValue('theme_mode');
+    return ThemeMode.values.firstWhere(
+      (mode) => mode.name == value,
+      orElse: () => ThemeMode.system,
+    );
+  }
+
+  Future<void> saveThemeMode(ThemeMode mode) =>
+      _setValue('theme_mode', mode.name);
 
   Future<void> savePremiumUnlocked(bool unlocked) async {
     final db = await _databaseProvider.database;

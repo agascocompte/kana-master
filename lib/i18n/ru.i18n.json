@@ -201,6 +201,11 @@
     "dictionaryError": "Не удалось выполнить поиск. Проверьте соединение и попробуйте снова.",
     "materialsScore": "${correct} / ${total} верно",
     "materialsClear": "Удалить список",
-    "premiumBenefitJlpt": "Все уровни JLPT (N4–N1)"
+    "premiumBenefitJlpt": "Все уровни JLPT (N4–N1)",
+    "settingsThemeTitle": "Оформление",
+    "settingsThemeSubtitle": "Светлое, тёмное или как в системе.",
+    "settingsThemeSystem": "Автоматически",
+    "settingsThemeLight": "Светлое",
+    "settingsThemeDark": "Тёмное"
   }
 }

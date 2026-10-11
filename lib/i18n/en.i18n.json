@@ -201,6 +201,11 @@
     "dictionaryError": "Couldn't search. Check your connection and try again.",
     "materialsScore": "${correct} / ${total} correct",
     "materialsClear": "Remove list",
-    "premiumBenefitJlpt": "Every JLPT level (N4–N1)"
+    "premiumBenefitJlpt": "Every JLPT level (N4–N1)",
+    "settingsThemeTitle": "Appearance",
+    "settingsThemeSubtitle": "Light, dark or follow the system.",
+    "settingsThemeSystem": "Automatic",
+    "settingsThemeLight": "Light",
+    "settingsThemeDark": "Dark"
   }
 }

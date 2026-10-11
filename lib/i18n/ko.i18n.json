@@ -201,6 +201,11 @@
     "dictionaryError": "검색하지 못했습니다. 연결을 확인하고 다시 시도하세요.",
     "materialsScore": "${correct} / ${total} 정답",
     "materialsClear": "목록 삭제",
-    "premiumBenefitJlpt": "모든 JLPT 레벨 (N4–N1)"
+    "premiumBenefitJlpt": "모든 JLPT 레벨 (N4–N1)",
+    "settingsThemeTitle": "화면 모드",
+    "settingsThemeSubtitle": "라이트, 다크 또는 시스템 설정에 따름.",
+    "settingsThemeSystem": "자동",
+    "settingsThemeLight": "라이트",
+    "settingsThemeDark": "다크"
   }
 }

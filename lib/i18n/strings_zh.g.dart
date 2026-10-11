@@ -250,6 +250,11 @@ class _Translations$app$zh implements Translations$app$en {
 	@override String materialsScore({required Object correct, required Object total}) => '答对 ${correct} / ${total}';
 	@override String get materialsClear => '移除列表';
 	@override String get premiumBenefitJlpt => '所有 JLPT 级别（N4–N1）';
+	@override String get settingsThemeTitle => '外观';
+	@override String get settingsThemeSubtitle => '浅色、深色或跟随系统。';
+	@override String get settingsThemeSystem => '自动';
+	@override String get settingsThemeLight => '浅色';
+	@override String get settingsThemeDark => '深色';
 }
 
 /// The flat map containing all translations for locale <zh>.
@@ -462,6 +467,11 @@ extension on TranslationsZh {
 			'app.materialsScore' => ({required Object correct, required Object total}) => '答对 ${correct} / ${total}',
 			'app.materialsClear' => '移除列表',
 			'app.premiumBenefitJlpt' => '所有 JLPT 级别（N4–N1）',
+			'app.settingsThemeTitle' => '外观',
+			'app.settingsThemeSubtitle' => '浅色、深色或跟随系统。',
+			'app.settingsThemeSystem' => '自动',
+			'app.settingsThemeLight' => '浅色',
+			'app.settingsThemeDark' => '深色',
 			_ => null,
 		};
 	}

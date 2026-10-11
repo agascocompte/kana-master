@@ -250,6 +250,11 @@ class _Translations$app$ca implements Translations$app$en {
 	@override String materialsScore({required Object correct, required Object total}) => '${correct} / ${total} correctes';
 	@override String get materialsClear => 'Treure llista';
 	@override String get premiumBenefitJlpt => 'Tots els nivells JLPT (N4–N1)';
+	@override String get settingsThemeTitle => 'Aparença';
+	@override String get settingsThemeSubtitle => 'Clar, fosc o segons el sistema.';
+	@override String get settingsThemeSystem => 'Automàtic';
+	@override String get settingsThemeLight => 'Clar';
+	@override String get settingsThemeDark => 'Fosc';
 }
 
 /// The flat map containing all translations for locale <ca>.
@@ -462,6 +467,11 @@ extension on TranslationsCa {
 			'app.materialsScore' => ({required Object correct, required Object total}) => '${correct} / ${total} correctes',
 			'app.materialsClear' => 'Treure llista',
 			'app.premiumBenefitJlpt' => 'Tots els nivells JLPT (N4–N1)',
+			'app.settingsThemeTitle' => 'Aparença',
+			'app.settingsThemeSubtitle' => 'Clar, fosc o segons el sistema.',
+			'app.settingsThemeSystem' => 'Automàtic',
+			'app.settingsThemeLight' => 'Clar',
+			'app.settingsThemeDark' => 'Fosc',
 			_ => null,
 		};
 	}

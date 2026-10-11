@@ -71,6 +71,12 @@ class ChangeKanjiQuizMode extends SettingsEvent {
   ChangeKanjiQuizMode({required this.mode});
 }
 
+class ChangeThemeMode extends SettingsEvent {
+  final ThemeMode mode;
+
+  ChangeThemeMode({required this.mode});
+}
+
 class ChangeSessionLength extends SettingsEvent {
   final int length;
 

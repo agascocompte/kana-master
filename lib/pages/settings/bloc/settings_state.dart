@@ -15,6 +15,7 @@ class SettingsStateData {
   final Set<String> kanaGroupsKatakana;
   final KanjiQuizMode kanjiQuizMode;
   final int sessionLength;
+  final ThemeMode themeMode;
 
   SettingsStateData({
     this.kanaType = KanaType.hiragana,
@@ -31,6 +32,7 @@ class SettingsStateData {
     Set<String>? kanaGroupsKatakana,
     this.kanjiQuizMode = KanjiQuizMode.meaning,
     this.sessionLength = defaultSessionLength,
+    this.themeMode = ThemeMode.system,
   })  : kanaGroupsHiragana =
             kanaGroupsHiragana ?? defaultKanaGroupIds(KanaType.hiragana),
         kanaGroupsKatakana =
@@ -54,6 +56,7 @@ class SettingsStateData {
     Set<String>? kanaGroupsKatakana,
     KanjiQuizMode? kanjiQuizMode,
     int? sessionLength,
+    ThemeMode? themeMode,
   }) {
     return SettingsStateData(
       kanaType: kanaType ?? this.kanaType,
@@ -70,6 +73,7 @@ class SettingsStateData {
       kanaGroupsKatakana: kanaGroupsKatakana ?? this.kanaGroupsKatakana,
       kanjiQuizMode: kanjiQuizMode ?? this.kanjiQuizMode,
       sessionLength: sessionLength ?? this.sessionLength,
+      themeMode: themeMode ?? this.themeMode,
     );
   }
 }

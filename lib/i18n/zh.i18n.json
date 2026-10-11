@@ -201,6 +201,11 @@
     "dictionaryError": "搜索失败。请检查网络连接后重试。",
     "materialsScore": "答对 ${correct} / ${total}",
     "materialsClear": "移除列表",
-    "premiumBenefitJlpt": "所有 JLPT 级别（N4–N1）"
+    "premiumBenefitJlpt": "所有 JLPT 级别（N4–N1）",
+    "settingsThemeTitle": "外观",
+    "settingsThemeSubtitle": "浅色、深色或跟随系统。",
+    "settingsThemeSystem": "自动",
+    "settingsThemeLight": "浅色",
+    "settingsThemeDark": "深色"
   }
 }

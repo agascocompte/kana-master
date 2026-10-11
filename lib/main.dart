@@ -55,6 +55,8 @@ class MyApp extends StatelessWidget {
               title: 'KanaGo',
               theme: AppTheme.build(Brightness.light),
               darkTheme: AppTheme.build(Brightness.dark),
+              themeMode: context.select(
+                  (SettingsBloc bloc) => bloc.state.stateData.themeMode),
               // Screens read AppColors directly, so set the palette before
               // they build and rebuild everything when the system switches
               // between light and dark.

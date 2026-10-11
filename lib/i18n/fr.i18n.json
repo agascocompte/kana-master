@@ -201,6 +201,11 @@
     "dictionaryError": "Recherche impossible. Vérifie ta connexion et réessaie.",
     "materialsScore": "${correct} / ${total} correctes",
     "materialsClear": "Retirer la liste",
-    "premiumBenefitJlpt": "Tous les niveaux JLPT (N4–N1)"
+    "premiumBenefitJlpt": "Tous les niveaux JLPT (N4–N1)",
+    "settingsThemeTitle": "Apparence",
+    "settingsThemeSubtitle": "Clair, sombre ou selon le système.",
+    "settingsThemeSystem": "Automatique",
+    "settingsThemeLight": "Clair",
+    "settingsThemeDark": "Sombre"
   }
 }

@@ -201,6 +201,11 @@
     "dictionaryError": "Não foi possível pesquisar. Verifica a ligação e tenta novamente.",
     "materialsScore": "${correct} / ${total} corretas",
     "materialsClear": "Remover lista",
-    "premiumBenefitJlpt": "Todos os níveis JLPT (N4–N1)"
+    "premiumBenefitJlpt": "Todos os níveis JLPT (N4–N1)",
+    "settingsThemeTitle": "Aparência",
+    "settingsThemeSubtitle": "Claro, escuro ou de acordo com o sistema.",
+    "settingsThemeSystem": "Automático",
+    "settingsThemeLight": "Claro",
+    "settingsThemeDark": "Escuro"
   }
 }

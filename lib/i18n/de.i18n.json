@@ -201,6 +201,11 @@
     "dictionaryError": "Suche fehlgeschlagen. Prüfe deine Verbindung und versuche es erneut.",
     "materialsScore": "${correct} / ${total} richtig",
     "materialsClear": "Liste entfernen",
-    "premiumBenefitJlpt": "Alle JLPT-Stufen (N4–N1)"
+    "premiumBenefitJlpt": "Alle JLPT-Stufen (N4–N1)",
+    "settingsThemeTitle": "Darstellung",
+    "settingsThemeSubtitle": "Hell, dunkel oder wie das System.",
+    "settingsThemeSystem": "Automatisch",
+    "settingsThemeLight": "Hell",
+    "settingsThemeDark": "Dunkel"
   }
 }

@@ -201,6 +201,11 @@
     "dictionaryError": "No s'ha pogut cercar. Revisa la connexió i torna-ho a provar.",
     "materialsScore": "${correct} / ${total} correctes",
     "materialsClear": "Treure llista",
-    "premiumBenefitJlpt": "Tots els nivells JLPT (N4–N1)"
+    "premiumBenefitJlpt": "Tots els nivells JLPT (N4–N1)",
+    "settingsThemeTitle": "Aparença",
+    "settingsThemeSubtitle": "Clar, fosc o segons el sistema.",
+    "settingsThemeSystem": "Automàtic",
+    "settingsThemeLight": "Clar",
+    "settingsThemeDark": "Fosc"
   }
 }

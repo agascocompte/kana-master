@@ -250,6 +250,11 @@ class _Translations$app$ja implements Translations$app$en {
 	@override String materialsScore({required Object total, required Object correct}) => '${total}問中${correct}問正解';
 	@override String get materialsClear => 'リストを削除';
 	@override String get premiumBenefitJlpt => 'すべてのJLPTレベル（N4〜N1）';
+	@override String get settingsThemeTitle => '外観';
+	@override String get settingsThemeSubtitle => 'ライト、ダーク、またはシステムに合わせる。';
+	@override String get settingsThemeSystem => '自動';
+	@override String get settingsThemeLight => 'ライト';
+	@override String get settingsThemeDark => 'ダーク';
 }
 
 /// The flat map containing all translations for locale <ja>.
@@ -462,6 +467,11 @@ extension on TranslationsJa {
 			'app.materialsScore' => ({required Object total, required Object correct}) => '${total}問中${correct}問正解',
 			'app.materialsClear' => 'リストを削除',
 			'app.premiumBenefitJlpt' => 'すべてのJLPTレベル（N4〜N1）',
+			'app.settingsThemeTitle' => '外観',
+			'app.settingsThemeSubtitle' => 'ライト、ダーク、またはシステムに合わせる。',
+			'app.settingsThemeSystem' => '自動',
+			'app.settingsThemeLight' => 'ライト',
+			'app.settingsThemeDark' => 'ダーク',
 			_ => null,
 		};
 	}

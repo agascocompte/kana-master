@@ -250,6 +250,11 @@ class _Translations$app$ko implements Translations$app$en {
 	@override String materialsScore({required Object correct, required Object total}) => '${correct} / ${total} 정답';
 	@override String get materialsClear => '목록 삭제';
 	@override String get premiumBenefitJlpt => '모든 JLPT 레벨 (N4–N1)';
+	@override String get settingsThemeTitle => '화면 모드';
+	@override String get settingsThemeSubtitle => '라이트, 다크 또는 시스템 설정에 따름.';
+	@override String get settingsThemeSystem => '자동';
+	@override String get settingsThemeLight => '라이트';
+	@override String get settingsThemeDark => '다크';
 }
 
 /// The flat map containing all translations for locale <ko>.
@@ -462,6 +467,11 @@ extension on TranslationsKo {
 			'app.materialsScore' => ({required Object correct, required Object total}) => '${correct} / ${total} 정답',
 			'app.materialsClear' => '목록 삭제',
 			'app.premiumBenefitJlpt' => '모든 JLPT 레벨 (N4–N1)',
+			'app.settingsThemeTitle' => '화면 모드',
+			'app.settingsThemeSubtitle' => '라이트, 다크 또는 시스템 설정에 따름.',
+			'app.settingsThemeSystem' => '자동',
+			'app.settingsThemeLight' => '라이트',
+			'app.settingsThemeDark' => '다크',
 			_ => null,
 		};
 	}

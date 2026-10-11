@@ -201,6 +201,11 @@
     "dictionaryError": "検索できませんでした。接続を確認して、もう一度お試しください。",
     "materialsScore": "${total}問中${correct}問正解",
     "materialsClear": "リストを削除",
-    "premiumBenefitJlpt": "すべてのJLPTレベル（N4〜N1）"
+    "premiumBenefitJlpt": "すべてのJLPTレベル（N4〜N1）",
+    "settingsThemeTitle": "外観",
+    "settingsThemeSubtitle": "ライト、ダーク、またはシステムに合わせる。",
+    "settingsThemeSystem": "自動",
+    "settingsThemeLight": "ライト",
+    "settingsThemeDark": "ダーク"
   }
 }

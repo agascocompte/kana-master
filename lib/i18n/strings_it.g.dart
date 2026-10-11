@@ -250,6 +250,11 @@ class _Translations$app$it implements Translations$app$en {
 	@override String materialsScore({required Object correct, required Object total}) => '${correct} / ${total} corrette';
 	@override String get materialsClear => 'Rimuovi elenco';
 	@override String get premiumBenefitJlpt => 'Tutti i livelli JLPT (N4–N1)';
+	@override String get settingsThemeTitle => 'Aspetto';
+	@override String get settingsThemeSubtitle => 'Chiaro, scuro o come il sistema.';
+	@override String get settingsThemeSystem => 'Automatico';
+	@override String get settingsThemeLight => 'Chiaro';
+	@override String get settingsThemeDark => 'Scuro';
 }
 
 /// The flat map containing all translations for locale <it>.
@@ -462,6 +467,11 @@ extension on TranslationsIt {
 			'app.materialsScore' => ({required Object correct, required Object total}) => '${correct} / ${total} corrette',
 			'app.materialsClear' => 'Rimuovi elenco',
 			'app.premiumBenefitJlpt' => 'Tutti i livelli JLPT (N4–N1)',
+			'app.settingsThemeTitle' => 'Aspetto',
+			'app.settingsThemeSubtitle' => 'Chiaro, scuro o come il sistema.',
+			'app.settingsThemeSystem' => 'Automatico',
+			'app.settingsThemeLight' => 'Chiaro',
+			'app.settingsThemeDark' => 'Scuro',
 			_ => null,
 		};
 	}
