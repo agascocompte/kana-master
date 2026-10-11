@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kana_master/constants.dart';
 import 'package:kana_master/i18n/strings.g.dart';
 import 'package:kana_master/pages/test_kana/bloc/test_kana_bloc.dart';
+import 'package:kana_master/pages/test_kana/services/drawing_report_share_service.dart';
 import 'package:kana_master/pages/test_kana/widgets/test_button.dart';
 import 'package:kana_master/theme/app_theme.dart';
 import 'package:kana_master/widgets/dialogs.dart';
@@ -20,7 +21,10 @@ class TestButtonsRow extends StatelessWidget {
     final bool revealed = data.revealed;
     final bool showTemplateToggle =
         drawing && !revealed && !data.currentScriptUsesModel;
-    final bool showReport = drawing && revealed && data.canReportDrawing;
+    final bool showReport = drawing &&
+        revealed &&
+        data.canReportDrawing &&
+        DrawingReportShareService.isConfigured;
     final bool canSubmit = data.canSubmitAnswer && !revealed;
 
     return Column(

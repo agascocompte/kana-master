@@ -2,11 +2,15 @@ import 'dart:convert';
 import 'dart:ui';
 
 import 'package:http/http.dart' as http;
+import 'package:kana_master/config/report_config.dart';
 
+/// Sends "the model got my drawing wrong" reports to a Google Apps Script web
+/// app (tools/drawing_reports/Code.gs), which emails them and saves them in
+/// Google Drive.
 class DrawingReportShareService {
-  static const String _endpoint =
-      "http://13.60.216.164:8081/drawing-report?token=6GyDzXxhMQOJIGSbcziZPR0MRQiGeTWlVvxCaprH80kTDbi09IwT0FwhUYxEYtw2";
-  //String.fromEnvironment('DRAWING_REPORT_ENDPOINT');
+  /// Reporting is hidden until lib/config/report_config.dart has the web app
+  /// URL.
+  static bool get isConfigured => reportWebAppUrl.isNotEmpty;
 
   Future<void> shareFalseNegativeReport({
     required String script,
@@ -16,14 +20,11 @@ class DrawingReportShareService {
     required List<List<Offset>> userStrokes,
     required List<int> pngBytes,
   }) async {
-    if (_endpoint.isEmpty) {
-      throw StateError('DRAWING_REPORT_ENDPOINT is not configured.');
+    if (!isConfigured) {
+      throw StateError('Drawing reports are not configured.');
     }
-
-    final uri = Uri.tryParse(_endpoint);
-    if (uri == null) {
-      throw StateError('Invalid DRAWING_REPORT_ENDPOINT URL.');
-    }
+    final uri = Uri.parse(reportWebAppUrl)
+        .replace(queryParameters: {'token': reportToken});
 
     final now = DateTime.now().toUtc();
     final payload = {
@@ -45,18 +46,30 @@ class DrawingReportShareService {
           .toList(),
     };
 
-    final response = await http
+    http.Response response = await http
         .post(
           uri,
           headers: const {'Content-Type': 'application/json'},
           body: jsonEncode(payload),
         )
-        .timeout(const Duration(seconds: 12));
+        .timeout(const Duration(seconds: 20));
+
+    // Apps Script runs the script and then redirects to its output.
+    final String? location = response.headers['location'];
+    if (response.statusCode == 302 && location != null) {
+      response = await http
+          .get(Uri.parse(location))
+          .timeout(const Duration(seconds: 20));
+    }
 
     if (response.statusCode < 200 || response.statusCode >= 300) {
       throw StateError(
         'Report upload failed with status ${response.statusCode}.',
       );
+    }
+    final dynamic body = jsonDecode(response.body);
+    if (body is! Map || body['ok'] != true) {
+      throw StateError('Report was rejected: ${response.body}');
     }
   }
 }
