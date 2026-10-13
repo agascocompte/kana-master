@@ -206,6 +206,19 @@
     "settingsThemeSubtitle": "라이트, 다크 또는 시스템 설정에 따름.",
     "settingsThemeSystem": "자동",
     "settingsThemeLight": "라이트",
-    "settingsThemeDark": "다크"
+    "settingsThemeDark": "다크",
+    "reminderChannelName": "매일 알림",
+    "reminderChannelDescription": "그날 아직 연습하지 않았다면 오후 7시에 알려 드려요.",
+    "reminderStreakTitle": "🔥 연속 기록을 놓치지 마세요!",
+    "reminderStreakBody": "${days}일 연속 연습 중이에요. 오늘도 몇 분만 연습해서 이어가세요.",
+    "reminderSecondDayTitle": "🔥 이틀째 도전",
+    "reminderSecondDayBody": "어제 연습했어요. 오늘도 이어서 연속 기록을 시작하세요.",
+    "reminderComebackTitle": "일본어 몇 분 어때요?",
+    "reminderComebackBody": "가나가 기다리고 있어요. 짧은 세션으로 새 연속 기록을 시작하세요.",
+    "reminderLastTitle": "보고 싶어요 👋",
+    "reminderLastBody": "언제든 돌아오세요. 5분 복습도 기록이 돼요.",
+    "settingsReminderTitle": "매일 알림",
+    "settingsReminderSubtitle": "그날 아직 연습하지 않았다면 오후 7시에 알려 드려요.",
+    "settingsReminderBlocked": "KanaGo 알림이 꺼져 있어요. 시스템 설정에서 켜 주세요."
   }
 }

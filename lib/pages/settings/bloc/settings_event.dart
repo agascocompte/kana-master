@@ -28,6 +28,12 @@ class ChangeHapticsEnabled extends SettingsEvent {
   ChangeHapticsEnabled({required this.enabled});
 }
 
+class ChangeReminderEnabled extends SettingsEvent {
+  final bool enabled;
+
+  ChangeReminderEnabled({required this.enabled});
+}
+
 class ChangeKanaScale extends SettingsEvent {
   final double scale;
 

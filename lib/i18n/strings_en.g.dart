@@ -672,6 +672,45 @@ class Translations$app$en {
 
 	/// en: 'Dark'
 	String get settingsThemeDark => 'Dark';
+
+	/// en: 'Daily reminder'
+	String get reminderChannelName => 'Daily reminder';
+
+	/// en: 'A reminder at 7 pm if you haven't practiced that day.'
+	String get reminderChannelDescription => 'A reminder at 7 pm if you haven\'t practiced that day.';
+
+	/// en: '🔥 Don't lose your streak!'
+	String get reminderStreakTitle => '🔥 Don\'t lose your streak!';
+
+	/// en: 'You're on a ${days}-day streak. Practice a few minutes today to keep it going.'
+	String reminderStreakBody({required Object days}) => 'You\'re on a ${days}-day streak. Practice a few minutes today to keep it going.';
+
+	/// en: '🔥 Make it two days'
+	String get reminderSecondDayTitle => '🔥 Make it two days';
+
+	/// en: 'You practiced yesterday. Do it again today and start a streak.'
+	String get reminderSecondDayBody => 'You practiced yesterday. Do it again today and start a streak.';
+
+	/// en: 'A few minutes of Japanese?'
+	String get reminderComebackTitle => 'A few minutes of Japanese?';
+
+	/// en: 'Your kana are waiting. One short session starts a new streak.'
+	String get reminderComebackBody => 'Your kana are waiting. One short session starts a new streak.';
+
+	/// en: 'We miss you 👋'
+	String get reminderLastTitle => 'We miss you 👋';
+
+	/// en: 'Come back whenever you like: a 5-minute review already counts.'
+	String get reminderLastBody => 'Come back whenever you like: a 5-minute review already counts.';
+
+	/// en: 'Daily reminder'
+	String get settingsReminderTitle => 'Daily reminder';
+
+	/// en: 'Reminds you at 7 pm if you haven't practiced that day.'
+	String get settingsReminderSubtitle => 'Reminds you at 7 pm if you haven\'t practiced that day.';
+
+	/// en: 'KanaGo notifications are turned off. Turn them on in your system settings.'
+	String get settingsReminderBlocked => 'KanaGo notifications are turned off. Turn them on in your system settings.';
 }
 
 /// The flat map containing all translations for locale <en>.
@@ -889,6 +928,19 @@ extension on Translations {
 			'app.settingsThemeSystem' => 'Automatic',
 			'app.settingsThemeLight' => 'Light',
 			'app.settingsThemeDark' => 'Dark',
+			'app.reminderChannelName' => 'Daily reminder',
+			'app.reminderChannelDescription' => 'A reminder at 7 pm if you haven\'t practiced that day.',
+			'app.reminderStreakTitle' => '🔥 Don\'t lose your streak!',
+			'app.reminderStreakBody' => ({required Object days}) => 'You\'re on a ${days}-day streak. Practice a few minutes today to keep it going.',
+			'app.reminderSecondDayTitle' => '🔥 Make it two days',
+			'app.reminderSecondDayBody' => 'You practiced yesterday. Do it again today and start a streak.',
+			'app.reminderComebackTitle' => 'A few minutes of Japanese?',
+			'app.reminderComebackBody' => 'Your kana are waiting. One short session starts a new streak.',
+			'app.reminderLastTitle' => 'We miss you 👋',
+			'app.reminderLastBody' => 'Come back whenever you like: a 5-minute review already counts.',
+			'app.settingsReminderTitle' => 'Daily reminder',
+			'app.settingsReminderSubtitle' => 'Reminds you at 7 pm if you haven\'t practiced that day.',
+			'app.settingsReminderBlocked' => 'KanaGo notifications are turned off. Turn them on in your system settings.',
 			_ => null,
 		};
 	}

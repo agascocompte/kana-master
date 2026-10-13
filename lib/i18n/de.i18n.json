@@ -206,6 +206,19 @@
     "settingsThemeSubtitle": "Hell, dunkel oder wie das System.",
     "settingsThemeSystem": "Automatisch",
     "settingsThemeLight": "Hell",
-    "settingsThemeDark": "Dunkel"
+    "settingsThemeDark": "Dunkel",
+    "reminderChannelName": "Tägliche Erinnerung",
+    "reminderChannelDescription": "Eine Erinnerung um 19 Uhr, wenn du an dem Tag noch nicht geübt hast.",
+    "reminderStreakTitle": "🔥 Verlier deine Serie nicht!",
+    "reminderStreakBody": "Du übst seit ${days} Tagen am Stück. Ein paar Minuten heute halten sie am Leben.",
+    "reminderSecondDayTitle": "🔥 Mach den zweiten Tag voll",
+    "reminderSecondDayBody": "Gestern hast du geübt. Mach heute weiter und starte eine Serie.",
+    "reminderComebackTitle": "Ein paar Minuten Japanisch?",
+    "reminderComebackBody": "Deine Kana warten. Eine kurze Runde startet eine neue Serie.",
+    "reminderLastTitle": "Wir vermissen dich 👋",
+    "reminderLastBody": "Komm zurück, wann du willst: 5 Minuten Wiederholung zählen schon.",
+    "settingsReminderTitle": "Tägliche Erinnerung",
+    "settingsReminderSubtitle": "Erinnert dich um 19 Uhr, wenn du an dem Tag noch nicht geübt hast.",
+    "settingsReminderBlocked": "Benachrichtigungen für KanaGo sind deaktiviert. Aktiviere sie in den Systemeinstellungen."
   }
 }

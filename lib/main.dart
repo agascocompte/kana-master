@@ -13,6 +13,7 @@ import 'package:kana_master/pages/stats/bloc/stats_bloc.dart';
 import 'package:kana_master/pages/test_kana/bloc/test_kana_bloc.dart';
 import 'package:kana_master/router/router.dart';
 import 'package:kana_master/services/ads/interstitial_gate.dart';
+import 'package:kana_master/services/reminders/reminder_service.dart';
 import 'package:kana_master/theme/app_theme.dart';
 
 void main() async {
@@ -26,6 +27,7 @@ void main() async {
   configureDependencies('dev');
   await MobileAds.instance.initialize();
   await InterstitialGate.instance.initialize();
+  await ReminderService.instance.initialize();
   runApp(const MyApp());
 }
 

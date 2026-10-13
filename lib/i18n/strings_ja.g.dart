@@ -255,6 +255,19 @@ class _Translations$app$ja implements Translations$app$en {
 	@override String get settingsThemeSystem => '自動';
 	@override String get settingsThemeLight => 'ライト';
 	@override String get settingsThemeDark => 'ダーク';
+	@override String get reminderChannelName => '毎日のリマインダー';
+	@override String get reminderChannelDescription => 'その日にまだ練習していなければ19時にお知らせします。';
+	@override String get reminderStreakTitle => '🔥 連続記録を途切れさせないで！';
+	@override String reminderStreakBody({required Object days}) => '${days}日連続で練習中です。今日も数分練習して記録を伸ばしましょう。';
+	@override String get reminderSecondDayTitle => '🔥 2日目に挑戦';
+	@override String get reminderSecondDayBody => '昨日は練習しました。今日も続けて連続記録を始めましょう。';
+	@override String get reminderComebackTitle => '少しだけ日本語を練習しませんか？';
+	@override String get reminderComebackBody => 'かなが待っています。短いセッションで新しい連続記録を始めましょう。';
+	@override String get reminderLastTitle => 'お久しぶりです 👋';
+	@override String get reminderLastBody => 'いつでも戻ってきてください。5分の復習でも記録になります。';
+	@override String get settingsReminderTitle => '毎日のリマインダー';
+	@override String get settingsReminderSubtitle => 'その日にまだ練習していなければ19時にお知らせします。';
+	@override String get settingsReminderBlocked => 'KanaGoの通知がオフになっています。システム設定でオンにしてください。';
 }
 
 /// The flat map containing all translations for locale <ja>.
@@ -472,6 +485,19 @@ extension on TranslationsJa {
 			'app.settingsThemeSystem' => '自動',
 			'app.settingsThemeLight' => 'ライト',
 			'app.settingsThemeDark' => 'ダーク',
+			'app.reminderChannelName' => '毎日のリマインダー',
+			'app.reminderChannelDescription' => 'その日にまだ練習していなければ19時にお知らせします。',
+			'app.reminderStreakTitle' => '🔥 連続記録を途切れさせないで！',
+			'app.reminderStreakBody' => ({required Object days}) => '${days}日連続で練習中です。今日も数分練習して記録を伸ばしましょう。',
+			'app.reminderSecondDayTitle' => '🔥 2日目に挑戦',
+			'app.reminderSecondDayBody' => '昨日は練習しました。今日も続けて連続記録を始めましょう。',
+			'app.reminderComebackTitle' => '少しだけ日本語を練習しませんか？',
+			'app.reminderComebackBody' => 'かなが待っています。短いセッションで新しい連続記録を始めましょう。',
+			'app.reminderLastTitle' => 'お久しぶりです 👋',
+			'app.reminderLastBody' => 'いつでも戻ってきてください。5分の復習でも記録になります。',
+			'app.settingsReminderTitle' => '毎日のリマインダー',
+			'app.settingsReminderSubtitle' => 'その日にまだ練習していなければ19時にお知らせします。',
+			'app.settingsReminderBlocked' => 'KanaGoの通知がオフになっています。システム設定でオンにしてください。',
 			_ => null,
 		};
 	}

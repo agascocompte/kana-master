@@ -206,6 +206,19 @@
     "settingsThemeSubtitle": "Chiaro, scuro o come il sistema.",
     "settingsThemeSystem": "Automatico",
     "settingsThemeLight": "Chiaro",
-    "settingsThemeDark": "Scuro"
+    "settingsThemeDark": "Scuro",
+    "reminderChannelName": "Promemoria giornaliero",
+    "reminderChannelDescription": "Un avviso alle 19:00 se quel giorno non hai ancora fatto pratica.",
+    "reminderStreakTitle": "🔥 Non perdere la tua serie!",
+    "reminderStreakBody": "Sono ${days} giorni di fila. Pratica qualche minuto oggi per mantenerla.",
+    "reminderSecondDayTitle": "🔥 Arriva al secondo giorno",
+    "reminderSecondDayBody": "Ieri hai fatto pratica. Ripeti oggi e inizia una serie.",
+    "reminderComebackTitle": "Qualche minuto di giapponese?",
+    "reminderComebackBody": "I tuoi kana ti aspettano. Una sessione breve e inizi una nuova serie.",
+    "reminderLastTitle": "Ci manchi 👋",
+    "reminderLastBody": "Torna quando vuoi: un ripasso di 5 minuti conta già.",
+    "settingsReminderTitle": "Promemoria giornaliero",
+    "settingsReminderSubtitle": "Ti avvisa alle 19:00 se quel giorno non hai ancora fatto pratica.",
+    "settingsReminderBlocked": "Le notifiche di KanaGo sono disattivate. Attivale nelle impostazioni di sistema."
   }
 }

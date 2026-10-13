@@ -206,6 +206,19 @@
     "settingsThemeSubtitle": "Светлое, тёмное или как в системе.",
     "settingsThemeSystem": "Автоматически",
     "settingsThemeLight": "Светлое",
-    "settingsThemeDark": "Тёмное"
+    "settingsThemeDark": "Тёмное",
+    "reminderChannelName": "Ежедневное напоминание",
+    "reminderChannelDescription": "Напоминание в 19:00, если в этот день вы ещё не занимались.",
+    "reminderStreakTitle": "🔥 Не прерывайте серию!",
+    "reminderStreakBody": "Серия: ${days} дн. подряд. Позанимайтесь несколько минут сегодня, чтобы её сохранить.",
+    "reminderSecondDayTitle": "🔥 Второй день подряд",
+    "reminderSecondDayBody": "Вчера вы занимались. Повторите сегодня и начните серию.",
+    "reminderComebackTitle": "Несколько минут японского?",
+    "reminderComebackBody": "Кана ждут вас. Одно короткое занятие начнёт новую серию.",
+    "reminderLastTitle": "Мы скучаем 👋",
+    "reminderLastBody": "Возвращайтесь когда угодно: даже 5 минут повторения считаются.",
+    "settingsReminderTitle": "Ежедневное напоминание",
+    "settingsReminderSubtitle": "Напомнит в 19:00, если в этот день вы ещё не занимались.",
+    "settingsReminderBlocked": "Уведомления KanaGo отключены. Включите их в настройках системы."
   }
 }

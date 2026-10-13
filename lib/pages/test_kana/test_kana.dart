@@ -14,6 +14,7 @@ import 'package:kana_master/pages/test_kana/widgets/session_summary_card.dart';
 import 'package:kana_master/pages/test_kana/widgets/test_session_view.dart';
 import 'package:kana_master/pages/test_kana/widgets/test_start_card.dart';
 import 'package:kana_master/services/ads/interstitial_gate.dart';
+import 'package:kana_master/services/reminders/reminder_service.dart';
 import 'package:kana_master/widgets/snackbars.dart';
 import 'package:kana_master/i18n/strings.g.dart';
 
@@ -144,8 +145,16 @@ class TestTab extends StatelessWidget {
       }
     } else if (state is SessionFinished) {
       final isPremium = context.read<PremiumBloc>().state.isPremium;
-      InterstitialGate.instance.onSessionFinished(isPremium: isPremium);
+      _afterSession(isPremium);
     }
+  }
+
+  /// After the first session, asks for the reminder permission instead of
+  /// showing an ad, so both don't pop up at once.
+  Future<void> _afterSession(bool isPremium) async {
+    final bool asked = await ReminderService.instance.askPermissionOnce();
+    if (asked) return;
+    InterstitialGate.instance.onSessionFinished(isPremium: isPremium);
   }
 }
 

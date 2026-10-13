@@ -206,6 +206,19 @@
     "settingsThemeSubtitle": "Claro, oscuro o según el sistema.",
     "settingsThemeSystem": "Automático",
     "settingsThemeLight": "Claro",
-    "settingsThemeDark": "Oscuro"
+    "settingsThemeDark": "Oscuro",
+    "reminderChannelName": "Recordatorio diario",
+    "reminderChannelDescription": "Un aviso a las 19:00 si ese día aún no has practicado.",
+    "reminderStreakTitle": "🔥 ¡No pierdas tu racha!",
+    "reminderStreakBody": "Llevas ${days} días seguidos. Practica unos minutos hoy para mantenerla.",
+    "reminderSecondDayTitle": "🔥 Suma tu segundo día",
+    "reminderSecondDayBody": "Ayer practicaste. Repite hoy y empieza una racha.",
+    "reminderComebackTitle": "¿Unos minutos de japonés?",
+    "reminderComebackBody": "Tus kana te esperan. Una sesión corta y empiezas una racha nueva.",
+    "reminderLastTitle": "Te echamos de menos 👋",
+    "reminderLastBody": "Vuelve cuando quieras: un repaso de 5 minutos ya cuenta.",
+    "settingsReminderTitle": "Recordatorio diario",
+    "settingsReminderSubtitle": "Te avisa a las 19:00 si ese día aún no has practicado.",
+    "settingsReminderBlocked": "Las notificaciones de KanaGo están desactivadas. Actívalas en los ajustes del sistema."
   }
 }

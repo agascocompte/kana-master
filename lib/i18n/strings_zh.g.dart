@@ -255,6 +255,19 @@ class _Translations$app$zh implements Translations$app$en {
 	@override String get settingsThemeSystem => '自动';
 	@override String get settingsThemeLight => '浅色';
 	@override String get settingsThemeDark => '深色';
+	@override String get reminderChannelName => '每日提醒';
+	@override String get reminderChannelDescription => '如果当天还没有练习，会在晚上7点提醒你。';
+	@override String get reminderStreakTitle => '🔥 别让连续记录中断！';
+	@override String reminderStreakBody({required Object days}) => '你已连续练习 ${days} 天。今天练几分钟，继续保持。';
+	@override String get reminderSecondDayTitle => '🔥 冲刺第二天';
+	@override String get reminderSecondDayBody => '你昨天练习了。今天继续，开始连续记录。';
+	@override String get reminderComebackTitle => '来几分钟日语吗？';
+	@override String get reminderComebackBody => '你的假名在等你。一次简短的练习就能开始新的连续记录。';
+	@override String get reminderLastTitle => '好久不见 👋';
+	@override String get reminderLastBody => '随时回来：复习 5 分钟也算数。';
+	@override String get settingsReminderTitle => '每日提醒';
+	@override String get settingsReminderSubtitle => '如果当天还没有练习，会在晚上7点提醒你。';
+	@override String get settingsReminderBlocked => 'KanaGo 的通知已关闭。请在系统设置中开启。';
 }
 
 /// The flat map containing all translations for locale <zh>.
@@ -472,6 +485,19 @@ extension on TranslationsZh {
 			'app.settingsThemeSystem' => '自动',
 			'app.settingsThemeLight' => '浅色',
 			'app.settingsThemeDark' => '深色',
+			'app.reminderChannelName' => '每日提醒',
+			'app.reminderChannelDescription' => '如果当天还没有练习，会在晚上7点提醒你。',
+			'app.reminderStreakTitle' => '🔥 别让连续记录中断！',
+			'app.reminderStreakBody' => ({required Object days}) => '你已连续练习 ${days} 天。今天练几分钟，继续保持。',
+			'app.reminderSecondDayTitle' => '🔥 冲刺第二天',
+			'app.reminderSecondDayBody' => '你昨天练习了。今天继续，开始连续记录。',
+			'app.reminderComebackTitle' => '来几分钟日语吗？',
+			'app.reminderComebackBody' => '你的假名在等你。一次简短的练习就能开始新的连续记录。',
+			'app.reminderLastTitle' => '好久不见 👋',
+			'app.reminderLastBody' => '随时回来：复习 5 分钟也算数。',
+			'app.settingsReminderTitle' => '每日提醒',
+			'app.settingsReminderSubtitle' => '如果当天还没有练习，会在晚上7点提醒你。',
+			'app.settingsReminderBlocked' => 'KanaGo 的通知已关闭。请在系统设置中开启。',
 			_ => null,
 		};
 	}

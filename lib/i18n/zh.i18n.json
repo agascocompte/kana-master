@@ -206,6 +206,19 @@
     "settingsThemeSubtitle": "浅色、深色或跟随系统。",
     "settingsThemeSystem": "自动",
     "settingsThemeLight": "浅色",
-    "settingsThemeDark": "深色"
+    "settingsThemeDark": "深色",
+    "reminderChannelName": "每日提醒",
+    "reminderChannelDescription": "如果当天还没有练习，会在晚上7点提醒你。",
+    "reminderStreakTitle": "🔥 别让连续记录中断！",
+    "reminderStreakBody": "你已连续练习 ${days} 天。今天练几分钟，继续保持。",
+    "reminderSecondDayTitle": "🔥 冲刺第二天",
+    "reminderSecondDayBody": "你昨天练习了。今天继续，开始连续记录。",
+    "reminderComebackTitle": "来几分钟日语吗？",
+    "reminderComebackBody": "你的假名在等你。一次简短的练习就能开始新的连续记录。",
+    "reminderLastTitle": "好久不见 👋",
+    "reminderLastBody": "随时回来：复习 5 分钟也算数。",
+    "settingsReminderTitle": "每日提醒",
+    "settingsReminderSubtitle": "如果当天还没有练习，会在晚上7点提醒你。",
+    "settingsReminderBlocked": "KanaGo 的通知已关闭。请在系统设置中开启。"
   }
 }

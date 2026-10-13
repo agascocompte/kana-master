@@ -255,6 +255,19 @@ class _Translations$app$ko implements Translations$app$en {
 	@override String get settingsThemeSystem => '자동';
 	@override String get settingsThemeLight => '라이트';
 	@override String get settingsThemeDark => '다크';
+	@override String get reminderChannelName => '매일 알림';
+	@override String get reminderChannelDescription => '그날 아직 연습하지 않았다면 오후 7시에 알려 드려요.';
+	@override String get reminderStreakTitle => '🔥 연속 기록을 놓치지 마세요!';
+	@override String reminderStreakBody({required Object days}) => '${days}일 연속 연습 중이에요. 오늘도 몇 분만 연습해서 이어가세요.';
+	@override String get reminderSecondDayTitle => '🔥 이틀째 도전';
+	@override String get reminderSecondDayBody => '어제 연습했어요. 오늘도 이어서 연속 기록을 시작하세요.';
+	@override String get reminderComebackTitle => '일본어 몇 분 어때요?';
+	@override String get reminderComebackBody => '가나가 기다리고 있어요. 짧은 세션으로 새 연속 기록을 시작하세요.';
+	@override String get reminderLastTitle => '보고 싶어요 👋';
+	@override String get reminderLastBody => '언제든 돌아오세요. 5분 복습도 기록이 돼요.';
+	@override String get settingsReminderTitle => '매일 알림';
+	@override String get settingsReminderSubtitle => '그날 아직 연습하지 않았다면 오후 7시에 알려 드려요.';
+	@override String get settingsReminderBlocked => 'KanaGo 알림이 꺼져 있어요. 시스템 설정에서 켜 주세요.';
 }
 
 /// The flat map containing all translations for locale <ko>.
@@ -472,6 +485,19 @@ extension on TranslationsKo {
 			'app.settingsThemeSystem' => '자동',
 			'app.settingsThemeLight' => '라이트',
 			'app.settingsThemeDark' => '다크',
+			'app.reminderChannelName' => '매일 알림',
+			'app.reminderChannelDescription' => '그날 아직 연습하지 않았다면 오후 7시에 알려 드려요.',
+			'app.reminderStreakTitle' => '🔥 연속 기록을 놓치지 마세요!',
+			'app.reminderStreakBody' => ({required Object days}) => '${days}일 연속 연습 중이에요. 오늘도 몇 분만 연습해서 이어가세요.',
+			'app.reminderSecondDayTitle' => '🔥 이틀째 도전',
+			'app.reminderSecondDayBody' => '어제 연습했어요. 오늘도 이어서 연속 기록을 시작하세요.',
+			'app.reminderComebackTitle' => '일본어 몇 분 어때요?',
+			'app.reminderComebackBody' => '가나가 기다리고 있어요. 짧은 세션으로 새 연속 기록을 시작하세요.',
+			'app.reminderLastTitle' => '보고 싶어요 👋',
+			'app.reminderLastBody' => '언제든 돌아오세요. 5분 복습도 기록이 돼요.',
+			'app.settingsReminderTitle' => '매일 알림',
+			'app.settingsReminderSubtitle' => '그날 아직 연습하지 않았다면 오후 7시에 알려 드려요.',
+			'app.settingsReminderBlocked' => 'KanaGo 알림이 꺼져 있어요. 시스템 설정에서 켜 주세요.',
 			_ => null,
 		};
 	}

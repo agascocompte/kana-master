@@ -131,6 +131,22 @@ class ScoreRepository {
         .toList(growable: false);
   }
 
+  /// Current streak counting answers of any script, and the last day with at
+  /// least one answer.
+  Future<({int days, DateTime? lastDay})> getOverallStreak() async {
+    final db = await _databaseProvider.database;
+    final List<Map<String, dynamic>> rows = await db.rawQuery(
+      '''
+      SELECT DISTINCT strftime('%Y-%m-%d', timestamp) as date
+      FROM responses
+      ORDER BY date ASC
+      ''',
+    );
+    final streaks = _computeStreaks(
+        rows.map((row) => DateTime.parse(row['date'])).toList());
+    return (days: streaks.currentStreak, lastDay: streaks.lastActiveDate);
+  }
+
   Future<int> getTotalCountSince(
     KanaType kanaType,
     DateTime since,

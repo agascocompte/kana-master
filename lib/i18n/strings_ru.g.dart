@@ -255,6 +255,19 @@ class _Translations$app$ru implements Translations$app$en {
 	@override String get settingsThemeSystem => 'Автоматически';
 	@override String get settingsThemeLight => 'Светлое';
 	@override String get settingsThemeDark => 'Тёмное';
+	@override String get reminderChannelName => 'Ежедневное напоминание';
+	@override String get reminderChannelDescription => 'Напоминание в 19:00, если в этот день вы ещё не занимались.';
+	@override String get reminderStreakTitle => '🔥 Не прерывайте серию!';
+	@override String reminderStreakBody({required Object days}) => 'Серия: ${days} дн. подряд. Позанимайтесь несколько минут сегодня, чтобы её сохранить.';
+	@override String get reminderSecondDayTitle => '🔥 Второй день подряд';
+	@override String get reminderSecondDayBody => 'Вчера вы занимались. Повторите сегодня и начните серию.';
+	@override String get reminderComebackTitle => 'Несколько минут японского?';
+	@override String get reminderComebackBody => 'Кана ждут вас. Одно короткое занятие начнёт новую серию.';
+	@override String get reminderLastTitle => 'Мы скучаем 👋';
+	@override String get reminderLastBody => 'Возвращайтесь когда угодно: даже 5 минут повторения считаются.';
+	@override String get settingsReminderTitle => 'Ежедневное напоминание';
+	@override String get settingsReminderSubtitle => 'Напомнит в 19:00, если в этот день вы ещё не занимались.';
+	@override String get settingsReminderBlocked => 'Уведомления KanaGo отключены. Включите их в настройках системы.';
 }
 
 /// The flat map containing all translations for locale <ru>.
@@ -472,6 +485,19 @@ extension on TranslationsRu {
 			'app.settingsThemeSystem' => 'Автоматически',
 			'app.settingsThemeLight' => 'Светлое',
 			'app.settingsThemeDark' => 'Тёмное',
+			'app.reminderChannelName' => 'Ежедневное напоминание',
+			'app.reminderChannelDescription' => 'Напоминание в 19:00, если в этот день вы ещё не занимались.',
+			'app.reminderStreakTitle' => '🔥 Не прерывайте серию!',
+			'app.reminderStreakBody' => ({required Object days}) => 'Серия: ${days} дн. подряд. Позанимайтесь несколько минут сегодня, чтобы её сохранить.',
+			'app.reminderSecondDayTitle' => '🔥 Второй день подряд',
+			'app.reminderSecondDayBody' => 'Вчера вы занимались. Повторите сегодня и начните серию.',
+			'app.reminderComebackTitle' => 'Несколько минут японского?',
+			'app.reminderComebackBody' => 'Кана ждут вас. Одно короткое занятие начнёт новую серию.',
+			'app.reminderLastTitle' => 'Мы скучаем 👋',
+			'app.reminderLastBody' => 'Возвращайтесь когда угодно: даже 5 минут повторения считаются.',
+			'app.settingsReminderTitle' => 'Ежедневное напоминание',
+			'app.settingsReminderSubtitle' => 'Напомнит в 19:00, если в этот день вы ещё не занимались.',
+			'app.settingsReminderBlocked' => 'Уведомления KanaGo отключены. Включите их в настройках системы.',
 			_ => null,
 		};
 	}

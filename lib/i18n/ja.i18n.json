@@ -206,6 +206,19 @@
     "settingsThemeSubtitle": "ライト、ダーク、またはシステムに合わせる。",
     "settingsThemeSystem": "自動",
     "settingsThemeLight": "ライト",
-    "settingsThemeDark": "ダーク"
+    "settingsThemeDark": "ダーク",
+    "reminderChannelName": "毎日のリマインダー",
+    "reminderChannelDescription": "その日にまだ練習していなければ19時にお知らせします。",
+    "reminderStreakTitle": "🔥 連続記録を途切れさせないで！",
+    "reminderStreakBody": "${days}日連続で練習中です。今日も数分練習して記録を伸ばしましょう。",
+    "reminderSecondDayTitle": "🔥 2日目に挑戦",
+    "reminderSecondDayBody": "昨日は練習しました。今日も続けて連続記録を始めましょう。",
+    "reminderComebackTitle": "少しだけ日本語を練習しませんか？",
+    "reminderComebackBody": "かなが待っています。短いセッションで新しい連続記録を始めましょう。",
+    "reminderLastTitle": "お久しぶりです 👋",
+    "reminderLastBody": "いつでも戻ってきてください。5分の復習でも記録になります。",
+    "settingsReminderTitle": "毎日のリマインダー",
+    "settingsReminderSubtitle": "その日にまだ練習していなければ19時にお知らせします。",
+    "settingsReminderBlocked": "KanaGoの通知がオフになっています。システム設定でオンにしてください。"
   }
 }

@@ -2,7 +2,7 @@ name: kana_master
 description: "Simple app to learn basics of japanese language."
 publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
-version: 1.1.0+9
+version: 1.2.0+10
 
 environment:
   sdk: ">=3.3.1 <4.0.0"
@@ -45,6 +45,9 @@ dependencies:
   in_app_purchase: ^3.3.0
 
   cupertino_icons: ^2.0.0
+  flutter_local_notifications: ^22.3.2
+  timezone: ^0.11.2
+  flutter_timezone: ^5.1.1
 
 dev_dependencies:
   flutter_test:

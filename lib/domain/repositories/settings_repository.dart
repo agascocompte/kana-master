@@ -289,6 +289,20 @@ class SettingsRepository {
   Future<void> saveThemeMode(ThemeMode mode) =>
       _setValue('theme_mode', mode.name);
 
+  /// Daily practice reminder, on by default.
+  Future<bool> getReminderEnabled() async =>
+      await _getValue('reminder_enabled') != '0';
+
+  Future<void> saveReminderEnabled(bool enabled) =>
+      _setValue('reminder_enabled', enabled ? '1' : '0');
+
+  /// Whether the system notification permission has already been requested.
+  Future<bool> getReminderPermissionAsked() async =>
+      await _getValue('reminder_permission_asked') == '1';
+
+  Future<void> saveReminderPermissionAsked() =>
+      _setValue('reminder_permission_asked', '1');
+
   Future<void> savePremiumUnlocked(bool unlocked) async {
     final db = await _databaseProvider.database;
     await db.insert(

@@ -13,6 +13,7 @@ import 'package:kana_master/pages/settings/widgets/settings_slider_card.dart';
 import 'package:kana_master/pages/settings/widgets/settings_switch_card.dart';
 import 'package:kana_master/pages/stats/bloc/stats_bloc.dart';
 import 'package:kana_master/router/router.dart';
+import 'package:kana_master/services/reminders/reminder_service.dart';
 import 'package:kana_master/theme/app_theme.dart';
 import 'package:kana_master/i18n/strings.g.dart';
 import 'package:kana_master/widgets/dialogs.dart';
@@ -33,6 +34,13 @@ class SettingsPage extends StatelessWidget {
             visibleDuration: const Duration(milliseconds: 5200),
           );
           context.read<StatsBloc>().add(LoadMemoryStats());
+        } else if (state is SettingsReminderBlocked) {
+          Snackbars.showWarningScaffold(
+            context,
+            tr.app.settingsReminderBlocked,
+            visibleDuration: const Duration(milliseconds: 4200),
+          );
+          ReminderService.instance.openSystemSettings();
         } else if (state is SettingsBackupError) {
           Snackbars.showErrorScaffold(
             context,
@@ -157,6 +165,13 @@ class SettingsPage extends StatelessWidget {
                                   .add(PremiumDebugSetLocal(value));
                             },
                           ),
+                          const SizedBox(height: 8),
+                          OutlinedButton.icon(
+                            onPressed: () => ReminderService.instance
+                                .scheduleDebugReminder(),
+                            icon: const Icon(Icons.notifications_outlined),
+                            label: const Text('Send reminder in 10 s'),
+                          ),
                           const SizedBox(height: 12),
                         ],
                         SettingsSectionHeader(
@@ -214,6 +229,18 @@ class SettingsPage extends StatelessWidget {
                           onChanged: (value) {
                             context.read<SettingsBloc>().add(
                                   ChangeHapticsEnabled(enabled: value),
+                                );
+                          },
+                        ),
+                        const SizedBox(height: 12),
+                        SettingsSwitchCard(
+                          title: tr.app.settingsReminderTitle,
+                          subtitle: tr.app.settingsReminderSubtitle,
+                          icon: Icons.notifications_active_outlined,
+                          value: state.stateData.reminderEnabled,
+                          onChanged: (value) {
+                            context.read<SettingsBloc>().add(
+                                  ChangeReminderEnabled(enabled: value),
                                 );
                           },
                         ),

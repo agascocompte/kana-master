@@ -6,6 +6,7 @@ import 'package:injectable/injectable.dart';
 import 'package:kana_master/constants.dart';
 import 'package:kana_master/domain/models/quiz_item.dart';
 import 'package:kana_master/domain/models/stats_summary.dart';
+import 'package:kana_master/services/reminders/reminder_service.dart';
 
 part 'stats_event.dart';
 part 'stats_state.dart';
@@ -66,6 +67,7 @@ class StatsBloc extends Bloc<StatsEvent, StatsState> {
       isCorrect: event.isCorrect,
       item: event.item,
     );
+    await ReminderService.instance.reschedule();
     final summary = await scoreRepository.getSummary(event.kanaType);
     final correctRaw =
         await scoreRepository.getCorrectCountsByDate(event.kanaType);
@@ -100,6 +102,7 @@ class StatsBloc extends Bloc<StatsEvent, StatsState> {
 
   FutureOr<void> _resetStats(ResetStats event, Emitter<StatsState> emit) async {
     await scoreRepository.resetCounts();
+    await ReminderService.instance.reschedule(force: true);
     emit(StatsUpdated(state.stateData.copyWith(
       summaries: {},
       correctDataByType: {},

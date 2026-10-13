@@ -255,6 +255,19 @@ class _Translations$app$es implements Translations$app$en {
 	@override String get settingsThemeSystem => 'Automático';
 	@override String get settingsThemeLight => 'Claro';
 	@override String get settingsThemeDark => 'Oscuro';
+	@override String get reminderChannelName => 'Recordatorio diario';
+	@override String get reminderChannelDescription => 'Un aviso a las 19:00 si ese día aún no has practicado.';
+	@override String get reminderStreakTitle => '🔥 ¡No pierdas tu racha!';
+	@override String reminderStreakBody({required Object days}) => 'Llevas ${days} días seguidos. Practica unos minutos hoy para mantenerla.';
+	@override String get reminderSecondDayTitle => '🔥 Suma tu segundo día';
+	@override String get reminderSecondDayBody => 'Ayer practicaste. Repite hoy y empieza una racha.';
+	@override String get reminderComebackTitle => '¿Unos minutos de japonés?';
+	@override String get reminderComebackBody => 'Tus kana te esperan. Una sesión corta y empiezas una racha nueva.';
+	@override String get reminderLastTitle => 'Te echamos de menos 👋';
+	@override String get reminderLastBody => 'Vuelve cuando quieras: un repaso de 5 minutos ya cuenta.';
+	@override String get settingsReminderTitle => 'Recordatorio diario';
+	@override String get settingsReminderSubtitle => 'Te avisa a las 19:00 si ese día aún no has practicado.';
+	@override String get settingsReminderBlocked => 'Las notificaciones de KanaGo están desactivadas. Actívalas en los ajustes del sistema.';
 }
 
 /// The flat map containing all translations for locale <es>.
@@ -472,6 +485,19 @@ extension on TranslationsEs {
 			'app.settingsThemeSystem' => 'Automático',
 			'app.settingsThemeLight' => 'Claro',
 			'app.settingsThemeDark' => 'Oscuro',
+			'app.reminderChannelName' => 'Recordatorio diario',
+			'app.reminderChannelDescription' => 'Un aviso a las 19:00 si ese día aún no has practicado.',
+			'app.reminderStreakTitle' => '🔥 ¡No pierdas tu racha!',
+			'app.reminderStreakBody' => ({required Object days}) => 'Llevas ${days} días seguidos. Practica unos minutos hoy para mantenerla.',
+			'app.reminderSecondDayTitle' => '🔥 Suma tu segundo día',
+			'app.reminderSecondDayBody' => 'Ayer practicaste. Repite hoy y empieza una racha.',
+			'app.reminderComebackTitle' => '¿Unos minutos de japonés?',
+			'app.reminderComebackBody' => 'Tus kana te esperan. Una sesión corta y empiezas una racha nueva.',
+			'app.reminderLastTitle' => 'Te echamos de menos 👋',
+			'app.reminderLastBody' => 'Vuelve cuando quieras: un repaso de 5 minutos ya cuenta.',
+			'app.settingsReminderTitle' => 'Recordatorio diario',
+			'app.settingsReminderSubtitle' => 'Te avisa a las 19:00 si ese día aún no has practicado.',
+			'app.settingsReminderBlocked' => 'Las notificaciones de KanaGo están desactivadas. Actívalas en los ajustes del sistema.',
 			_ => null,
 		};
 	}

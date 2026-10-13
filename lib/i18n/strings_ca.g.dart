@@ -255,6 +255,19 @@ class _Translations$app$ca implements Translations$app$en {
 	@override String get settingsThemeSystem => 'Automàtic';
 	@override String get settingsThemeLight => 'Clar';
 	@override String get settingsThemeDark => 'Fosc';
+	@override String get reminderChannelName => 'Recordatori diari';
+	@override String get reminderChannelDescription => 'Un avís a les 19:00 si aquell dia encara no has practicat.';
+	@override String get reminderStreakTitle => '🔥 No perdis la ratxa!';
+	@override String reminderStreakBody({required Object days}) => 'Portes ${days} dies seguits. Practica uns minuts avui per mantenir-la.';
+	@override String get reminderSecondDayTitle => '🔥 Suma el segon dia';
+	@override String get reminderSecondDayBody => 'Ahir vas practicar. Repeteix avui i comença una ratxa.';
+	@override String get reminderComebackTitle => 'Uns minuts de japonès?';
+	@override String get reminderComebackBody => 'Els teus kana t\'esperen. Una sessió curta i comences una ratxa nova.';
+	@override String get reminderLastTitle => 'T\'enyorem 👋';
+	@override String get reminderLastBody => 'Torna quan vulguis: un repàs de 5 minuts ja compta.';
+	@override String get settingsReminderTitle => 'Recordatori diari';
+	@override String get settingsReminderSubtitle => 'T\'avisa a les 19:00 si aquell dia encara no has practicat.';
+	@override String get settingsReminderBlocked => 'Les notificacions de KanaGo estan desactivades. Activa-les als ajustos del sistema.';
 }
 
 /// The flat map containing all translations for locale <ca>.
@@ -472,6 +485,19 @@ extension on TranslationsCa {
 			'app.settingsThemeSystem' => 'Automàtic',
 			'app.settingsThemeLight' => 'Clar',
 			'app.settingsThemeDark' => 'Fosc',
+			'app.reminderChannelName' => 'Recordatori diari',
+			'app.reminderChannelDescription' => 'Un avís a les 19:00 si aquell dia encara no has practicat.',
+			'app.reminderStreakTitle' => '🔥 No perdis la ratxa!',
+			'app.reminderStreakBody' => ({required Object days}) => 'Portes ${days} dies seguits. Practica uns minuts avui per mantenir-la.',
+			'app.reminderSecondDayTitle' => '🔥 Suma el segon dia',
+			'app.reminderSecondDayBody' => 'Ahir vas practicar. Repeteix avui i comença una ratxa.',
+			'app.reminderComebackTitle' => 'Uns minuts de japonès?',
+			'app.reminderComebackBody' => 'Els teus kana t\'esperen. Una sessió curta i comences una ratxa nova.',
+			'app.reminderLastTitle' => 'T\'enyorem 👋',
+			'app.reminderLastBody' => 'Torna quan vulguis: un repàs de 5 minuts ja compta.',
+			'app.settingsReminderTitle' => 'Recordatori diari',
+			'app.settingsReminderSubtitle' => 'T\'avisa a les 19:00 si aquell dia encara no has practicat.',
+			'app.settingsReminderBlocked' => 'Les notificacions de KanaGo estan desactivades. Activa-les als ajustos del sistema.',
 			_ => null,
 		};
 	}

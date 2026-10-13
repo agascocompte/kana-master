@@ -14,6 +14,7 @@ import 'package:kana_master/domain/usecases/export_stats_backup.dart';
 import 'package:kana_master/domain/usecases/import_stats_backup.dart';
 import 'package:injectable/injectable.dart';
 import 'package:kana_master/i18n/strings.g.dart';
+import 'package:kana_master/services/reminders/reminder_service.dart';
 
 part 'settings_event.dart';
 part 'settings_state.dart';
@@ -36,6 +37,7 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
     on<ChangeLanguage>(_changeLanguage);
     on<ChangeThemeMode>(_changeThemeMode);
     on<ChangeHapticsEnabled>(_changeHapticsEnabled);
+    on<ChangeReminderEnabled>(_changeReminderEnabled);
     on<ChangeKanaScale>(_changeKanaScale);
     on<ChangeKanjiJlptFilter>(_changeKanjiJlptFilter);
     on<ChangeUseModelHiragana>(_changeUseModelHiragana);
@@ -87,6 +89,7 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
     final KanjiQuizMode kanjiQuizMode =
         await settingsRepository.getKanjiQuizMode();
     final int sessionLength = await settingsRepository.getSessionLength();
+    final bool reminderEnabled = await ReminderService.instance.isEnabled();
 
     emit(SettingsUpdated(state.stateData.copyWith(
       kanaType: kanaType,
@@ -103,8 +106,11 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
       kanaGroupsKatakana: _validGroups(KanaType.katakana, kanaGroupsKatakana),
       kanjiQuizMode: kanjiQuizMode,
       sessionLength: sessionLength,
+      reminderEnabled: reminderEnabled,
     )));
     LocaleSettings.setLocale(_parseLocale(languageCode));
+    // Scheduled here so the reminder text uses the saved language.
+    await ReminderService.instance.reschedule(force: true);
   }
 
   FutureOr<void> _changeThemeMode(
@@ -123,6 +129,8 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
     try {
       await settingsRepository.saveLanguageCode(event.languageCode);
     } catch (_) {}
+    // Pending reminders keep the text of the language they were made in.
+    await ReminderService.instance.reschedule(force: true);
   }
 
   FutureOr<void> _changeHapticsEnabled(
@@ -132,6 +140,18 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
     try {
       await settingsRepository.saveHapticsEnabled(event.enabled);
     } catch (_) {}
+  }
+
+  FutureOr<void> _changeReminderEnabled(
+      ChangeReminderEnabled event, Emitter<SettingsState> emit) async {
+    emit(SettingsUpdated(
+        state.stateData.copyWith(reminderEnabled: event.enabled)));
+    final bool applied =
+        await ReminderService.instance.setEnabled(event.enabled);
+    if (!applied) {
+      emit(SettingsReminderBlocked(
+          state.stateData.copyWith(reminderEnabled: false)));
+    }
   }
 
   FutureOr<void> _changeKanaScale(
@@ -243,6 +263,7 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
     emit(SettingsUpdated(state.stateData.copyWith(backupBusy: true)));
     try {
       final imported = await importStatsBackup();
+      await ReminderService.instance.reschedule(force: true);
       emit(SettingsBackupSuccess(
         state.stateData.copyWith(backupBusy: false),
         message: t.app.settingsBackupImported(count: imported),

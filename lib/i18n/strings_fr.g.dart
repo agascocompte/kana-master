@@ -255,6 +255,19 @@ class _Translations$app$fr implements Translations$app$en {
 	@override String get settingsThemeSystem => 'Automatique';
 	@override String get settingsThemeLight => 'Clair';
 	@override String get settingsThemeDark => 'Sombre';
+	@override String get reminderChannelName => 'Rappel quotidien';
+	@override String get reminderChannelDescription => 'Un rappel à 19 h si tu n\'as pas encore pratiqué ce jour-là.';
+	@override String get reminderStreakTitle => '🔥 Ne perds pas ta série !';
+	@override String reminderStreakBody({required Object days}) => 'Tu pratiques depuis ${days} jours d\'affilée. Quelques minutes aujourd\'hui pour la garder.';
+	@override String get reminderSecondDayTitle => '🔥 Passe au deuxième jour';
+	@override String get reminderSecondDayBody => 'Tu as pratiqué hier. Recommence aujourd\'hui et lance une série.';
+	@override String get reminderComebackTitle => 'Quelques minutes de japonais ?';
+	@override String get reminderComebackBody => 'Tes kana t\'attendent. Une courte session lance une nouvelle série.';
+	@override String get reminderLastTitle => 'Tu nous manques 👋';
+	@override String get reminderLastBody => 'Reviens quand tu veux : 5 minutes de révision, ça compte déjà.';
+	@override String get settingsReminderTitle => 'Rappel quotidien';
+	@override String get settingsReminderSubtitle => 'Te prévient à 19 h si tu n\'as pas encore pratiqué ce jour-là.';
+	@override String get settingsReminderBlocked => 'Les notifications de KanaGo sont désactivées. Active-les dans les réglages du système.';
 }
 
 /// The flat map containing all translations for locale <fr>.
@@ -472,6 +485,19 @@ extension on TranslationsFr {
 			'app.settingsThemeSystem' => 'Automatique',
 			'app.settingsThemeLight' => 'Clair',
 			'app.settingsThemeDark' => 'Sombre',
+			'app.reminderChannelName' => 'Rappel quotidien',
+			'app.reminderChannelDescription' => 'Un rappel à 19 h si tu n\'as pas encore pratiqué ce jour-là.',
+			'app.reminderStreakTitle' => '🔥 Ne perds pas ta série !',
+			'app.reminderStreakBody' => ({required Object days}) => 'Tu pratiques depuis ${days} jours d\'affilée. Quelques minutes aujourd\'hui pour la garder.',
+			'app.reminderSecondDayTitle' => '🔥 Passe au deuxième jour',
+			'app.reminderSecondDayBody' => 'Tu as pratiqué hier. Recommence aujourd\'hui et lance une série.',
+			'app.reminderComebackTitle' => 'Quelques minutes de japonais ?',
+			'app.reminderComebackBody' => 'Tes kana t\'attendent. Une courte session lance une nouvelle série.',
+			'app.reminderLastTitle' => 'Tu nous manques 👋',
+			'app.reminderLastBody' => 'Reviens quand tu veux : 5 minutes de révision, ça compte déjà.',
+			'app.settingsReminderTitle' => 'Rappel quotidien',
+			'app.settingsReminderSubtitle' => 'Te prévient à 19 h si tu n\'as pas encore pratiqué ce jour-là.',
+			'app.settingsReminderBlocked' => 'Les notifications de KanaGo sont désactivées. Active-les dans les réglages du système.',
 			_ => null,
 		};
 	}

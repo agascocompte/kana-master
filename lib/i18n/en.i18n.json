@@ -206,6 +206,19 @@
     "settingsThemeSubtitle": "Light, dark or follow the system.",
     "settingsThemeSystem": "Automatic",
     "settingsThemeLight": "Light",
-    "settingsThemeDark": "Dark"
+    "settingsThemeDark": "Dark",
+    "reminderChannelName": "Daily reminder",
+    "reminderChannelDescription": "A reminder at 7 pm if you haven't practiced that day.",
+    "reminderStreakTitle": "🔥 Don't lose your streak!",
+    "reminderStreakBody": "You're on a ${days}-day streak. Practice a few minutes today to keep it going.",
+    "reminderSecondDayTitle": "🔥 Make it two days",
+    "reminderSecondDayBody": "You practiced yesterday. Do it again today and start a streak.",
+    "reminderComebackTitle": "A few minutes of Japanese?",
+    "reminderComebackBody": "Your kana are waiting. One short session starts a new streak.",
+    "reminderLastTitle": "We miss you 👋",
+    "reminderLastBody": "Come back whenever you like: a 5-minute review already counts.",
+    "settingsReminderTitle": "Daily reminder",
+    "settingsReminderSubtitle": "Reminds you at 7 pm if you haven't practiced that day.",
+    "settingsReminderBlocked": "KanaGo notifications are turned off. Turn them on in your system settings."
   }
 }

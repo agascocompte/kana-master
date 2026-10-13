@@ -16,6 +16,7 @@ class SettingsStateData {
   final KanjiQuizMode kanjiQuizMode;
   final int sessionLength;
   final ThemeMode themeMode;
+  final bool reminderEnabled;
 
   SettingsStateData({
     this.kanaType = KanaType.hiragana,
@@ -33,6 +34,7 @@ class SettingsStateData {
     this.kanjiQuizMode = KanjiQuizMode.meaning,
     this.sessionLength = defaultSessionLength,
     this.themeMode = ThemeMode.system,
+    this.reminderEnabled = true,
   })  : kanaGroupsHiragana =
             kanaGroupsHiragana ?? defaultKanaGroupIds(KanaType.hiragana),
         kanaGroupsKatakana =
@@ -57,6 +59,7 @@ class SettingsStateData {
     KanjiQuizMode? kanjiQuizMode,
     int? sessionLength,
     ThemeMode? themeMode,
+    bool? reminderEnabled,
   }) {
     return SettingsStateData(
       kanaType: kanaType ?? this.kanaType,
@@ -74,6 +77,7 @@ class SettingsStateData {
       kanjiQuizMode: kanjiQuizMode ?? this.kanjiQuizMode,
       sessionLength: sessionLength ?? this.sessionLength,
       themeMode: themeMode ?? this.themeMode,
+      reminderEnabled: reminderEnabled ?? this.reminderEnabled,
     );
   }
 }
@@ -98,6 +102,12 @@ class KanaTypeUpdated extends SettingsState {
 
 class IsDrawingTestEnabledUpdated extends SettingsState {
   IsDrawingTestEnabledUpdated(SettingsStateData stateData)
+      : super(stateData: stateData);
+}
+
+/// Reminders could not be turned on because the system blocks notifications.
+class SettingsReminderBlocked extends SettingsState {
+  SettingsReminderBlocked(SettingsStateData stateData)
       : super(stateData: stateData);
 }
 

@@ -206,6 +206,19 @@
     "settingsThemeSubtitle": "Clar, fosc o segons el sistema.",
     "settingsThemeSystem": "Automàtic",
     "settingsThemeLight": "Clar",
-    "settingsThemeDark": "Fosc"
+    "settingsThemeDark": "Fosc",
+    "reminderChannelName": "Recordatori diari",
+    "reminderChannelDescription": "Un avís a les 19:00 si aquell dia encara no has practicat.",
+    "reminderStreakTitle": "🔥 No perdis la ratxa!",
+    "reminderStreakBody": "Portes ${days} dies seguits. Practica uns minuts avui per mantenir-la.",
+    "reminderSecondDayTitle": "🔥 Suma el segon dia",
+    "reminderSecondDayBody": "Ahir vas practicar. Repeteix avui i comença una ratxa.",
+    "reminderComebackTitle": "Uns minuts de japonès?",
+    "reminderComebackBody": "Els teus kana t'esperen. Una sessió curta i comences una ratxa nova.",
+    "reminderLastTitle": "T'enyorem 👋",
+    "reminderLastBody": "Torna quan vulguis: un repàs de 5 minuts ja compta.",
+    "settingsReminderTitle": "Recordatori diari",
+    "settingsReminderSubtitle": "T'avisa a les 19:00 si aquell dia encara no has practicat.",
+    "settingsReminderBlocked": "Les notificacions de KanaGo estan desactivades. Activa-les als ajustos del sistema."
   }
 }
