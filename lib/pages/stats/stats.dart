@@ -227,6 +227,7 @@ List<FlSpot> _buildSpots(
 }
 
 String _weekdayLabel(MaterialLocalizations locale, int weekday) {
+  // narrowWeekdays starts on Sunday; DateTime.weekday is 1 (Mon) to 7 (Sun).
   final labels = locale.narrowWeekdays;
-  return labels[(weekday - 1).clamp(0, labels.length - 1)];
+  return labels[weekday % 7];
 }
