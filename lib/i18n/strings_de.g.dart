@@ -268,6 +268,8 @@ class _Translations$app$de implements Translations$app$en {
 	@override String get settingsReminderTitle => 'Tägliche Erinnerung';
 	@override String get settingsReminderSubtitle => 'Erinnert dich um 19 Uhr, wenn du an dem Tag noch nicht geübt hast.';
 	@override String get settingsReminderBlocked => 'Benachrichtigungen für KanaGo sind deaktiviert. Aktiviere sie in den Systemeinstellungen.';
+	@override String get settingsAdPrivacyTitle => 'Werbe-Datenschutz';
+	@override String get settingsAdPrivacySubtitle => 'Ändere deine Einwilligung für personalisierte Werbung.';
 }
 
 /// The flat map containing all translations for locale <de>.
@@ -498,6 +500,8 @@ extension on TranslationsDe {
 			'app.settingsReminderTitle' => 'Tägliche Erinnerung',
 			'app.settingsReminderSubtitle' => 'Erinnert dich um 19 Uhr, wenn du an dem Tag noch nicht geübt hast.',
 			'app.settingsReminderBlocked' => 'Benachrichtigungen für KanaGo sind deaktiviert. Aktiviere sie in den Systemeinstellungen.',
+			'app.settingsAdPrivacyTitle' => 'Werbe-Datenschutz',
+			'app.settingsAdPrivacySubtitle' => 'Ändere deine Einwilligung für personalisierte Werbung.',
 			_ => null,
 		};
 	}

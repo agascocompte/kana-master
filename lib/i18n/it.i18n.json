@@ -219,6 +219,8 @@
     "reminderLastBody": "Torna quando vuoi: un ripasso di 5 minuti conta già.",
     "settingsReminderTitle": "Promemoria giornaliero",
     "settingsReminderSubtitle": "Ti avvisa alle 19:00 se quel giorno non hai ancora fatto pratica.",
-    "settingsReminderBlocked": "Le notifiche di KanaGo sono disattivate. Attivale nelle impostazioni di sistema."
+    "settingsReminderBlocked": "Le notifiche di KanaGo sono disattivate. Attivale nelle impostazioni di sistema.",
+    "settingsAdPrivacyTitle": "Privacy degli annunci",
+    "settingsAdPrivacySubtitle": "Modifica il tuo consenso per gli annunci personalizzati."
   }
 }

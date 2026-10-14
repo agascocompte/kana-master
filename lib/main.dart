@@ -12,6 +12,7 @@ import 'package:kana_master/pages/settings/bloc/settings_bloc.dart';
 import 'package:kana_master/pages/stats/bloc/stats_bloc.dart';
 import 'package:kana_master/pages/test_kana/bloc/test_kana_bloc.dart';
 import 'package:kana_master/router/router.dart';
+import 'package:kana_master/services/ads/ad_consent.dart';
 import 'package:kana_master/services/ads/interstitial_gate.dart';
 import 'package:kana_master/services/reminders/reminder_service.dart';
 import 'package:kana_master/theme/app_theme.dart';
@@ -25,10 +26,25 @@ void main() async {
   ]);
 
   configureDependencies('dev');
-  await MobileAds.instance.initialize();
-  await InterstitialGate.instance.initialize();
   await ReminderService.instance.initialize();
   runApp(const MyApp());
+  _startAds();
+}
+
+bool _adsStarted = false;
+
+/// Shows the consent form when required and starts ads once allowed. If the
+/// user already answered in an earlier launch, ads start without waiting.
+Future<void> _startAds() async {
+  if (await AdConsent.instance.canRequestAds()) await _initializeAds();
+  if (await AdConsent.instance.gather()) await _initializeAds();
+}
+
+Future<void> _initializeAds() async {
+  if (_adsStarted) return;
+  _adsStarted = true;
+  await MobileAds.instance.initialize();
+  await InterstitialGate.instance.initialize();
 }
 
 class MyApp extends StatelessWidget {

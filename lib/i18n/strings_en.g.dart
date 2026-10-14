@@ -711,6 +711,12 @@ class Translations$app$en {
 
 	/// en: 'KanaGo notifications are turned off. Turn them on in your system settings.'
 	String get settingsReminderBlocked => 'KanaGo notifications are turned off. Turn them on in your system settings.';
+
+	/// en: 'Ad privacy'
+	String get settingsAdPrivacyTitle => 'Ad privacy';
+
+	/// en: 'Change your consent for personalized ads.'
+	String get settingsAdPrivacySubtitle => 'Change your consent for personalized ads.';
 }
 
 /// The flat map containing all translations for locale <en>.
@@ -941,6 +947,8 @@ extension on Translations {
 			'app.settingsReminderTitle' => 'Daily reminder',
 			'app.settingsReminderSubtitle' => 'Reminds you at 7 pm if you haven\'t practiced that day.',
 			'app.settingsReminderBlocked' => 'KanaGo notifications are turned off. Turn them on in your system settings.',
+			'app.settingsAdPrivacyTitle' => 'Ad privacy',
+			'app.settingsAdPrivacySubtitle' => 'Change your consent for personalized ads.',
 			_ => null,
 		};
 	}

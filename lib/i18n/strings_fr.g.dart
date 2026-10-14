@@ -268,6 +268,8 @@ class _Translations$app$fr implements Translations$app$en {
 	@override String get settingsReminderTitle => 'Rappel quotidien';
 	@override String get settingsReminderSubtitle => 'Te prévient à 19 h si tu n\'as pas encore pratiqué ce jour-là.';
 	@override String get settingsReminderBlocked => 'Les notifications de KanaGo sont désactivées. Active-les dans les réglages du système.';
+	@override String get settingsAdPrivacyTitle => 'Confidentialité des annonces';
+	@override String get settingsAdPrivacySubtitle => 'Modifie ton consentement pour les annonces personnalisées.';
 }
 
 /// The flat map containing all translations for locale <fr>.
@@ -498,6 +500,8 @@ extension on TranslationsFr {
 			'app.settingsReminderTitle' => 'Rappel quotidien',
 			'app.settingsReminderSubtitle' => 'Te prévient à 19 h si tu n\'as pas encore pratiqué ce jour-là.',
 			'app.settingsReminderBlocked' => 'Les notifications de KanaGo sont désactivées. Active-les dans les réglages du système.',
+			'app.settingsAdPrivacyTitle' => 'Confidentialité des annonces',
+			'app.settingsAdPrivacySubtitle' => 'Modifie ton consentement pour les annonces personnalisées.',
 			_ => null,
 		};
 	}

@@ -219,6 +219,8 @@
     "reminderLastBody": "Komm zurück, wann du willst: 5 Minuten Wiederholung zählen schon.",
     "settingsReminderTitle": "Tägliche Erinnerung",
     "settingsReminderSubtitle": "Erinnert dich um 19 Uhr, wenn du an dem Tag noch nicht geübt hast.",
-    "settingsReminderBlocked": "Benachrichtigungen für KanaGo sind deaktiviert. Aktiviere sie in den Systemeinstellungen."
+    "settingsReminderBlocked": "Benachrichtigungen für KanaGo sind deaktiviert. Aktiviere sie in den Systemeinstellungen.",
+    "settingsAdPrivacyTitle": "Werbe-Datenschutz",
+    "settingsAdPrivacySubtitle": "Ändere deine Einwilligung für personalisierte Werbung."
   }
 }

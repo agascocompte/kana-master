@@ -6,6 +6,7 @@ import 'package:kana_master/constants.dart';
 import 'package:kana_master/pages/premium/bloc/premium_bloc.dart';
 import 'package:kana_master/pages/settings/bloc/settings_bloc.dart';
 import 'package:kana_master/pages/settings/widgets/premium_locked_wrapper.dart';
+import 'package:kana_master/pages/settings/widgets/settings_action_card.dart';
 import 'package:kana_master/pages/settings/widgets/settings_backup_card.dart';
 import 'package:kana_master/pages/settings/widgets/dropdown_tile_setting.dart';
 import 'package:kana_master/pages/settings/widgets/settings_section_header.dart';
@@ -13,6 +14,7 @@ import 'package:kana_master/pages/settings/widgets/settings_slider_card.dart';
 import 'package:kana_master/pages/settings/widgets/settings_switch_card.dart';
 import 'package:kana_master/pages/stats/bloc/stats_bloc.dart';
 import 'package:kana_master/router/router.dart';
+import 'package:kana_master/services/ads/ad_consent.dart';
 import 'package:kana_master/services/reminders/reminder_service.dart';
 import 'package:kana_master/theme/app_theme.dart';
 import 'package:kana_master/i18n/strings.g.dart';
@@ -171,6 +173,13 @@ class SettingsPage extends StatelessWidget {
                                 .scheduleDebugReminder(),
                             icon: const Icon(Icons.notifications_outlined),
                             label: const Text('Send reminder in 10 s'),
+                          ),
+                          const SizedBox(height: 8),
+                          OutlinedButton.icon(
+                            onPressed: () => AdConsent.instance.reset(),
+                            icon: const Icon(Icons.privacy_tip_outlined),
+                            label: const Text(
+                                'Reset ad consent (shows on next launch)'),
                           ),
                           const SizedBox(height: 12),
                         ],
@@ -331,7 +340,8 @@ class SettingsPage extends StatelessWidget {
                           items: _jlptItems(context, isPremium: isPremium),
                           onChanged: (String? newValue) {
                             if (newValue == null) return;
-                            if (!isPremium && !freeJlptFilters.contains(newValue)) {
+                            if (!isPremium &&
+                                !freeJlptFilters.contains(newValue)) {
                               onLockedTap();
                               return;
                             }
@@ -360,8 +370,9 @@ class SettingsPage extends StatelessWidget {
                                   .add(ExportStatsRequested());
                             },
                             onImport: () async {
-                              final bool confirmed = await Dialogs
-                                  .showImportBackupConfirmDialog(context);
+                              final bool confirmed =
+                                  await Dialogs.showImportBackupConfirmDialog(
+                                      context);
                               if (!confirmed || !context.mounted) return;
                               context
                                   .read<SettingsBloc>()
@@ -370,12 +381,44 @@ class SettingsPage extends StatelessWidget {
                           ),
                         ),
                         const SizedBox(height: 12),
+                        const _AdPrivacyEntry(),
                       ],
                     ),
                   ),
                 ],
               ),
             ),
+          ),
+        );
+      },
+    );
+  }
+}
+
+/// Lets users change their ad consent, only where the law requires it.
+class _AdPrivacyEntry extends StatefulWidget {
+  const _AdPrivacyEntry();
+
+  @override
+  State<_AdPrivacyEntry> createState() => _AdPrivacyEntryState();
+}
+
+class _AdPrivacyEntryState extends State<_AdPrivacyEntry> {
+  final Future<bool> _required = AdConsent.instance.privacyOptionsRequired();
+
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder<bool>(
+      future: _required,
+      builder: (context, snapshot) {
+        if (snapshot.data != true) return const SizedBox.shrink();
+        return Padding(
+          padding: const EdgeInsets.only(bottom: 12),
+          child: SettingsActionCard(
+            title: context.t.app.settingsAdPrivacyTitle,
+            subtitle: context.t.app.settingsAdPrivacySubtitle,
+            icon: Icons.privacy_tip_outlined,
+            onTap: AdConsent.instance.showPrivacyOptions,
           ),
         );
       },

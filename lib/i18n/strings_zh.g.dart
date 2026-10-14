@@ -268,6 +268,8 @@ class _Translations$app$zh implements Translations$app$en {
 	@override String get settingsReminderTitle => '每日提醒';
 	@override String get settingsReminderSubtitle => '如果当天还没有练习，会在晚上7点提醒你。';
 	@override String get settingsReminderBlocked => 'KanaGo 的通知已关闭。请在系统设置中开启。';
+	@override String get settingsAdPrivacyTitle => '广告隐私';
+	@override String get settingsAdPrivacySubtitle => '更改你对个性化广告的同意设置。';
 }
 
 /// The flat map containing all translations for locale <zh>.
@@ -498,6 +500,8 @@ extension on TranslationsZh {
 			'app.settingsReminderTitle' => '每日提醒',
 			'app.settingsReminderSubtitle' => '如果当天还没有练习，会在晚上7点提醒你。',
 			'app.settingsReminderBlocked' => 'KanaGo 的通知已关闭。请在系统设置中开启。',
+			'app.settingsAdPrivacyTitle' => '广告隐私',
+			'app.settingsAdPrivacySubtitle' => '更改你对个性化广告的同意设置。',
 			_ => null,
 		};
 	}

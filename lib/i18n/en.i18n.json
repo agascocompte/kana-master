@@ -219,6 +219,8 @@
     "reminderLastBody": "Come back whenever you like: a 5-minute review already counts.",
     "settingsReminderTitle": "Daily reminder",
     "settingsReminderSubtitle": "Reminds you at 7 pm if you haven't practiced that day.",
-    "settingsReminderBlocked": "KanaGo notifications are turned off. Turn them on in your system settings."
+    "settingsReminderBlocked": "KanaGo notifications are turned off. Turn them on in your system settings.",
+    "settingsAdPrivacyTitle": "Ad privacy",
+    "settingsAdPrivacySubtitle": "Change your consent for personalized ads."
   }
 }

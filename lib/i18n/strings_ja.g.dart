@@ -268,6 +268,8 @@ class _Translations$app$ja implements Translations$app$en {
 	@override String get settingsReminderTitle => '毎日のリマインダー';
 	@override String get settingsReminderSubtitle => 'その日にまだ練習していなければ19時にお知らせします。';
 	@override String get settingsReminderBlocked => 'KanaGoの通知がオフになっています。システム設定でオンにしてください。';
+	@override String get settingsAdPrivacyTitle => '広告のプライバシー';
+	@override String get settingsAdPrivacySubtitle => 'パーソナライズ広告への同意を変更します。';
 }
 
 /// The flat map containing all translations for locale <ja>.
@@ -498,6 +500,8 @@ extension on TranslationsJa {
 			'app.settingsReminderTitle' => '毎日のリマインダー',
 			'app.settingsReminderSubtitle' => 'その日にまだ練習していなければ19時にお知らせします。',
 			'app.settingsReminderBlocked' => 'KanaGoの通知がオフになっています。システム設定でオンにしてください。',
+			'app.settingsAdPrivacyTitle' => '広告のプライバシー',
+			'app.settingsAdPrivacySubtitle' => 'パーソナライズ広告への同意を変更します。',
 			_ => null,
 		};
 	}

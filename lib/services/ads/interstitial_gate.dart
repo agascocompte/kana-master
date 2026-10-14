@@ -11,12 +11,15 @@ class InterstitialGate {
 
   InterstitialAd? _ad;
   bool _loading = false;
+  bool _started = false;
   DateTime? _lastShownAt;
 
   /// Minimum time between two interstitials.
   static const Duration minInterval = Duration(minutes: 3);
 
+  /// Called once the user's ad consent allows requesting ads.
   Future<void> initialize() async {
+    _started = true;
     _loadAd();
   }
 
@@ -51,7 +54,7 @@ class InterstitialGate {
   }
 
   void _loadAd() {
-    if (_loading || _ad != null) return;
+    if (!_started || _loading || _ad != null) return;
     final unitId = _interstitialUnitId();
     if (unitId == null) return;
     _loading = true;

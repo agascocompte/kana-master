@@ -268,6 +268,8 @@ class _Translations$app$ru implements Translations$app$en {
 	@override String get settingsReminderTitle => 'Ежедневное напоминание';
 	@override String get settingsReminderSubtitle => 'Напомнит в 19:00, если в этот день вы ещё не занимались.';
 	@override String get settingsReminderBlocked => 'Уведомления KanaGo отключены. Включите их в настройках системы.';
+	@override String get settingsAdPrivacyTitle => 'Конфиденциальность рекламы';
+	@override String get settingsAdPrivacySubtitle => 'Измените согласие на персонализированную рекламу.';
 }
 
 /// The flat map containing all translations for locale <ru>.
@@ -498,6 +500,8 @@ extension on TranslationsRu {
 			'app.settingsReminderTitle' => 'Ежедневное напоминание',
 			'app.settingsReminderSubtitle' => 'Напомнит в 19:00, если в этот день вы ещё не занимались.',
 			'app.settingsReminderBlocked' => 'Уведомления KanaGo отключены. Включите их в настройках системы.',
+			'app.settingsAdPrivacyTitle' => 'Конфиденциальность рекламы',
+			'app.settingsAdPrivacySubtitle' => 'Измените согласие на персонализированную рекламу.',
 			_ => null,
 		};
 	}

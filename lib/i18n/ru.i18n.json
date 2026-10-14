@@ -219,6 +219,8 @@
     "reminderLastBody": "Возвращайтесь когда угодно: даже 5 минут повторения считаются.",
     "settingsReminderTitle": "Ежедневное напоминание",
     "settingsReminderSubtitle": "Напомнит в 19:00, если в этот день вы ещё не занимались.",
-    "settingsReminderBlocked": "Уведомления KanaGo отключены. Включите их в настройках системы."
+    "settingsReminderBlocked": "Уведомления KanaGo отключены. Включите их в настройках системы.",
+    "settingsAdPrivacyTitle": "Конфиденциальность рекламы",
+    "settingsAdPrivacySubtitle": "Измените согласие на персонализированную рекламу."
   }
 }

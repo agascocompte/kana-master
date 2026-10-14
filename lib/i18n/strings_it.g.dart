@@ -268,6 +268,8 @@ class _Translations$app$it implements Translations$app$en {
 	@override String get settingsReminderTitle => 'Promemoria giornaliero';
 	@override String get settingsReminderSubtitle => 'Ti avvisa alle 19:00 se quel giorno non hai ancora fatto pratica.';
 	@override String get settingsReminderBlocked => 'Le notifiche di KanaGo sono disattivate. Attivale nelle impostazioni di sistema.';
+	@override String get settingsAdPrivacyTitle => 'Privacy degli annunci';
+	@override String get settingsAdPrivacySubtitle => 'Modifica il tuo consenso per gli annunci personalizzati.';
 }
 
 /// The flat map containing all translations for locale <it>.
@@ -498,6 +500,8 @@ extension on TranslationsIt {
 			'app.settingsReminderTitle' => 'Promemoria giornaliero',
 			'app.settingsReminderSubtitle' => 'Ti avvisa alle 19:00 se quel giorno non hai ancora fatto pratica.',
 			'app.settingsReminderBlocked' => 'Le notifiche di KanaGo sono disattivate. Attivale nelle impostazioni di sistema.',
+			'app.settingsAdPrivacyTitle' => 'Privacy degli annunci',
+			'app.settingsAdPrivacySubtitle' => 'Modifica il tuo consenso per gli annunci personalizzati.',
 			_ => null,
 		};
 	}

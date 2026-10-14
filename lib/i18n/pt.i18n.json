@@ -219,6 +219,8 @@
     "reminderLastBody": "Volte quando quiser: uma revisão de 5 minutos já conta.",
     "settingsReminderTitle": "Lembrete diário",
     "settingsReminderSubtitle": "Avisa às 19h se ainda não praticou nesse dia.",
-    "settingsReminderBlocked": "As notificações do KanaGo estão desativadas. Ative-as nas configurações do sistema."
+    "settingsReminderBlocked": "As notificações do KanaGo estão desativadas. Ative-as nas configurações do sistema.",
+    "settingsAdPrivacyTitle": "Privacidade dos anúncios",
+    "settingsAdPrivacySubtitle": "Altere o consentimento para anúncios personalizados."
   }
 }

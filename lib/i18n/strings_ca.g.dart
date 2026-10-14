@@ -268,6 +268,8 @@ class _Translations$app$ca implements Translations$app$en {
 	@override String get settingsReminderTitle => 'Recordatori diari';
 	@override String get settingsReminderSubtitle => 'T\'avisa a les 19:00 si aquell dia encara no has practicat.';
 	@override String get settingsReminderBlocked => 'Les notificacions de KanaGo estan desactivades. Activa-les als ajustos del sistema.';
+	@override String get settingsAdPrivacyTitle => 'Privadesa dels anuncis';
+	@override String get settingsAdPrivacySubtitle => 'Canvia el teu consentiment per als anuncis personalitzats.';
 }
 
 /// The flat map containing all translations for locale <ca>.
@@ -498,6 +500,8 @@ extension on TranslationsCa {
 			'app.settingsReminderTitle' => 'Recordatori diari',
 			'app.settingsReminderSubtitle' => 'T\'avisa a les 19:00 si aquell dia encara no has practicat.',
 			'app.settingsReminderBlocked' => 'Les notificacions de KanaGo estan desactivades. Activa-les als ajustos del sistema.',
+			'app.settingsAdPrivacyTitle' => 'Privadesa dels anuncis',
+			'app.settingsAdPrivacySubtitle' => 'Canvia el teu consentiment per als anuncis personalitzats.',
 			_ => null,
 		};
 	}

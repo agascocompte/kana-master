@@ -219,6 +219,8 @@
     "reminderLastBody": "いつでも戻ってきてください。5分の復習でも記録になります。",
     "settingsReminderTitle": "毎日のリマインダー",
     "settingsReminderSubtitle": "その日にまだ練習していなければ19時にお知らせします。",
-    "settingsReminderBlocked": "KanaGoの通知がオフになっています。システム設定でオンにしてください。"
+    "settingsReminderBlocked": "KanaGoの通知がオフになっています。システム設定でオンにしてください。",
+    "settingsAdPrivacyTitle": "広告のプライバシー",
+    "settingsAdPrivacySubtitle": "パーソナライズ広告への同意を変更します。"
   }
 }

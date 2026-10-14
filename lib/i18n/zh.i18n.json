@@ -219,6 +219,8 @@
     "reminderLastBody": "随时回来：复习 5 分钟也算数。",
     "settingsReminderTitle": "每日提醒",
     "settingsReminderSubtitle": "如果当天还没有练习，会在晚上7点提醒你。",
-    "settingsReminderBlocked": "KanaGo 的通知已关闭。请在系统设置中开启。"
+    "settingsReminderBlocked": "KanaGo 的通知已关闭。请在系统设置中开启。",
+    "settingsAdPrivacyTitle": "广告隐私",
+    "settingsAdPrivacySubtitle": "更改你对个性化广告的同意设置。"
   }
 }

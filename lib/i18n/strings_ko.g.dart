@@ -268,6 +268,8 @@ class _Translations$app$ko implements Translations$app$en {
 	@override String get settingsReminderTitle => '매일 알림';
 	@override String get settingsReminderSubtitle => '그날 아직 연습하지 않았다면 오후 7시에 알려 드려요.';
 	@override String get settingsReminderBlocked => 'KanaGo 알림이 꺼져 있어요. 시스템 설정에서 켜 주세요.';
+	@override String get settingsAdPrivacyTitle => '광고 개인정보 보호';
+	@override String get settingsAdPrivacySubtitle => '맞춤 광고에 대한 동의를 변경합니다.';
 }
 
 /// The flat map containing all translations for locale <ko>.
@@ -498,6 +500,8 @@ extension on TranslationsKo {
 			'app.settingsReminderTitle' => '매일 알림',
 			'app.settingsReminderSubtitle' => '그날 아직 연습하지 않았다면 오후 7시에 알려 드려요.',
 			'app.settingsReminderBlocked' => 'KanaGo 알림이 꺼져 있어요. 시스템 설정에서 켜 주세요.',
+			'app.settingsAdPrivacyTitle' => '광고 개인정보 보호',
+			'app.settingsAdPrivacySubtitle' => '맞춤 광고에 대한 동의를 변경합니다.',
 			_ => null,
 		};
 	}

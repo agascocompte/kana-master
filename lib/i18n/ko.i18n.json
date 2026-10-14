@@ -219,6 +219,8 @@
     "reminderLastBody": "언제든 돌아오세요. 5분 복습도 기록이 돼요.",
     "settingsReminderTitle": "매일 알림",
     "settingsReminderSubtitle": "그날 아직 연습하지 않았다면 오후 7시에 알려 드려요.",
-    "settingsReminderBlocked": "KanaGo 알림이 꺼져 있어요. 시스템 설정에서 켜 주세요."
+    "settingsReminderBlocked": "KanaGo 알림이 꺼져 있어요. 시스템 설정에서 켜 주세요.",
+    "settingsAdPrivacyTitle": "광고 개인정보 보호",
+    "settingsAdPrivacySubtitle": "맞춤 광고에 대한 동의를 변경합니다."
   }
 }

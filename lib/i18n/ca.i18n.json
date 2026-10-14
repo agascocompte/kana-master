@@ -219,6 +219,8 @@
     "reminderLastBody": "Torna quan vulguis: un repàs de 5 minuts ja compta.",
     "settingsReminderTitle": "Recordatori diari",
     "settingsReminderSubtitle": "T'avisa a les 19:00 si aquell dia encara no has practicat.",
-    "settingsReminderBlocked": "Les notificacions de KanaGo estan desactivades. Activa-les als ajustos del sistema."
+    "settingsReminderBlocked": "Les notificacions de KanaGo estan desactivades. Activa-les als ajustos del sistema.",
+    "settingsAdPrivacyTitle": "Privadesa dels anuncis",
+    "settingsAdPrivacySubtitle": "Canvia el teu consentiment per als anuncis personalitzats."
   }
 }
