@@ -34,41 +34,45 @@ class SettingsSliderCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(16),
         border: Border.all(color: AppColors.sand),
       ),
-      child: Column(
-        children: [
-          ListTile(
-            leading: Icon(icon, color: AppColors.ink),
-            title: Text(
-              title,
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w700,
-                color: AppColors.ink,
+      // Ink splashes need a Material above the decorated box.
+      child: Material(
+        type: MaterialType.transparency,
+        child: Column(
+          children: [
+            ListTile(
+              leading: Icon(icon, color: AppColors.ink),
+              title: Text(
+                title,
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w700,
+                  color: AppColors.ink,
+                ),
+              ),
+              subtitle: Text(
+                subtitle,
+                style: TextStyle(fontSize: 12, color: AppColors.slate),
+              ),
+              trailing: Text(
+                label,
+                style: TextStyle(
+                  fontSize: 12,
+                  fontWeight: FontWeight.w700,
+                  color: AppColors.ink,
+                ),
               ),
             ),
-            subtitle: Text(
-              subtitle,
-              style: TextStyle(fontSize: 12, color: AppColors.slate),
+            Slider(
+              value: value.clamp(min, max),
+              min: min,
+              max: max,
+              divisions: divisions,
+              onChanged: onChanged,
+              activeColor: AppColors.ink,
+              inactiveColor: AppColors.sand,
             ),
-            trailing: Text(
-              label,
-              style: TextStyle(
-                fontSize: 12,
-                fontWeight: FontWeight.w700,
-                color: AppColors.ink,
-              ),
-            ),
-          ),
-          Slider(
-            value: value.clamp(min, max),
-            min: min,
-            max: max,
-            divisions: divisions,
-            onChanged: onChanged,
-            activeColor: AppColors.ink,
-            inactiveColor: AppColors.sand,
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

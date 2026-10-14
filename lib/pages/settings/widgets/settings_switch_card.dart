@@ -28,39 +28,43 @@ class SettingsSwitchCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(16),
         border: Border.all(color: AppColors.sand),
       ),
-      child: SwitchListTile(
-        value: value,
-        onChanged: onChanged,
-        secondary: Icon(icon, color: AppColors.ink),
-        title: Row(
-          children: [
-            Expanded(
-              child: Text(
-                title,
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w700,
-                  color: AppColors.ink,
+      // Ink splashes need a Material above the decorated box.
+      child: Material(
+        type: MaterialType.transparency,
+        child: SwitchListTile(
+          value: value,
+          onChanged: onChanged,
+          secondary: Icon(icon, color: AppColors.ink),
+          title: Row(
+            children: [
+              Expanded(
+                child: Text(
+                  title,
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w700,
+                    color: AppColors.ink,
+                  ),
                 ),
               ),
-            ),
-            if (onInfoPressed != null)
-              IconButton(
-                icon: Icon(
-                  Icons.info_outline,
-                  size: 18,
-                  color: AppColors.slate,
+              if (onInfoPressed != null)
+                IconButton(
+                  icon: Icon(
+                    Icons.info_outline,
+                    size: 18,
+                    color: AppColors.slate,
+                  ),
+                  tooltip: 'Info',
+                  onPressed: onInfoPressed,
                 ),
-                tooltip: 'Info',
-                onPressed: onInfoPressed,
-              ),
-          ],
+            ],
+          ),
+          subtitle: Text(
+            subtitle,
+            style: TextStyle(fontSize: 12, color: AppColors.slate),
+          ),
+          activeThumbColor: AppColors.ink,
         ),
-        subtitle: Text(
-          subtitle,
-          style: TextStyle(fontSize: 12, color: AppColors.slate),
-        ),
-        activeThumbColor: AppColors.ink,
       ),
     );
   }

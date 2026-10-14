@@ -28,26 +28,30 @@ class DropdownTileSetting<T> extends StatelessWidget {
         borderRadius: BorderRadius.circular(16),
         border: Border.all(color: AppColors.sand),
       ),
-      child: ListTile(
-        leading: Icon(icon, color: AppColors.ink),
-        title: Text(
-          title,
-          style: TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.w700,
-            color: AppColors.ink,
+      // Ink splashes need a Material above the decorated box.
+      child: Material(
+        type: MaterialType.transparency,
+        child: ListTile(
+          leading: Icon(icon, color: AppColors.ink),
+          title: Text(
+            title,
+            style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.w700,
+              color: AppColors.ink,
+            ),
           ),
-        ),
-        subtitle: Text(
-          subtitle,
-          style: TextStyle(fontSize: 12, color: AppColors.slate),
-        ),
-        trailing: DropdownButtonHideUnderline(
-          child: DropdownButton<T>(
-            value: currentValue,
-            icon: const Icon(Icons.expand_more),
-            onChanged: onChanged,
-            items: items,
+          subtitle: Text(
+            subtitle,
+            style: TextStyle(fontSize: 12, color: AppColors.slate),
+          ),
+          trailing: DropdownButtonHideUnderline(
+            child: DropdownButton<T>(
+              value: currentValue,
+              icon: const Icon(Icons.expand_more),
+              onChanged: onChanged,
+              items: items,
+            ),
           ),
         ),
       ),

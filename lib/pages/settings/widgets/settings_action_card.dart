@@ -24,22 +24,26 @@ class SettingsActionCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(16),
         border: Border.all(color: AppColors.sand),
       ),
-      child: ListTile(
-        onTap: onTap,
-        leading: Icon(icon, color: AppColors.ink),
-        title: Text(
-          title,
-          style: TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.w700,
-            color: AppColors.ink,
+      // Ink splashes need a Material above the decorated box.
+      child: Material(
+        type: MaterialType.transparency,
+        child: ListTile(
+          onTap: onTap,
+          leading: Icon(icon, color: AppColors.ink),
+          title: Text(
+            title,
+            style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.w700,
+              color: AppColors.ink,
+            ),
           ),
+          subtitle: Text(
+            subtitle,
+            style: TextStyle(fontSize: 12, color: AppColors.slate),
+          ),
+          trailing: Icon(Icons.chevron_right, color: AppColors.slate),
         ),
-        subtitle: Text(
-          subtitle,
-          style: TextStyle(fontSize: 12, color: AppColors.slate),
-        ),
-        trailing: Icon(Icons.chevron_right, color: AppColors.slate),
       ),
     );
   }

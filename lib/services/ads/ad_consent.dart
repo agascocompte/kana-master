@@ -1,6 +1,8 @@
 import 'dart:async';
 
+import 'package:app_tracking_transparency/app_tracking_transparency.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/widgets.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 /// Ad consent through Google's User Messaging Platform (the GDPR message set
@@ -46,6 +48,36 @@ class AdConsent {
     );
     await done.future;
     return canRequestAds();
+  }
+
+  /// iOS only: asks for App Tracking Transparency if it was never asked.
+  /// The IDFA message from AdMob should already do it, but it doesn't always
+  /// show, so this makes sure the system prompt appears once.
+  Future<void> requestTrackingIfNeeded() async {
+    if (defaultTargetPlatform != TargetPlatform.iOS) return;
+    try {
+      final status = await AppTrackingTransparency.trackingAuthorizationStatus;
+      if (status != TrackingStatus.notDetermined) return;
+      // iOS ignores the request unless the app is in the foreground.
+      await _whenActive();
+      await AppTrackingTransparency.requestTrackingAuthorization();
+    } catch (e) {
+      debugPrint('Tracking request failed: $e');
+    }
+  }
+
+  Future<void> _whenActive() async {
+    if (WidgetsBinding.instance.lifecycleState == AppLifecycleState.resumed) {
+      return;
+    }
+    final active = Completer<void>();
+    final listener = AppLifecycleListener(onStateChange: (state) {
+      if (state == AppLifecycleState.resumed && !active.isCompleted) {
+        active.complete();
+      }
+    });
+    await active.future;
+    listener.dispose();
   }
 
   Future<bool> canRequestAds() => ConsentInformation.instance.canRequestAds();

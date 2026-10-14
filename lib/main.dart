@@ -37,7 +37,9 @@ bool _adsStarted = false;
 /// user already answered in an earlier launch, ads start without waiting.
 Future<void> _startAds() async {
   if (await AdConsent.instance.canRequestAds()) await _initializeAds();
-  if (await AdConsent.instance.gather()) await _initializeAds();
+  final bool allowed = await AdConsent.instance.gather();
+  await AdConsent.instance.requestTrackingIfNeeded();
+  if (allowed) await _initializeAds();
 }
 
 Future<void> _initializeAds() async {
