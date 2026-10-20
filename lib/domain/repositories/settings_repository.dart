@@ -289,6 +289,15 @@ class SettingsRepository {
   Future<void> saveThemeMode(ThemeMode mode) =>
       _setValue('theme_mode', mode.name);
 
+  /// Day of the JLPT the user is preparing for. Defaults to the December
+  /// 2026 session (first Sunday of December).
+  Future<DateTime> getExamDate() async =>
+      DateTime.tryParse(await _getValue('exam_date') ?? '') ??
+      DateTime(2026, 12, 6);
+
+  Future<void> saveExamDate(DateTime date) =>
+      _setValue('exam_date', date.toIso8601String());
+
   /// Daily practice reminder, on by default.
   Future<bool> getReminderEnabled() async =>
       await _getValue('reminder_enabled') != '0';

@@ -46,3 +46,5 @@ app.*.map.json
 
 # Drawing report endpoint and token
 lib/config/report_config.dart
+tools/exam_audio/node_modules/
+test/exam_screens/

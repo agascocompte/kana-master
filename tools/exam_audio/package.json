@@ -1,0 +1,12 @@
+{
+  "name": "exam-audio",
+  "private": true,
+  "type": "module",
+  "description": "Builds the N5 listening recordings in assets/exam/audio from the item banks.",
+  "scripts": {
+    "generate": "node generate.mjs"
+  },
+  "dependencies": {
+    "msedge-tts": "2.1.0"
+  }
+}

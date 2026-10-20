@@ -161,6 +161,17 @@ class StudyTab extends StatelessWidget {
                     }
                   },
                 ),
+                const SizedBox(height: 12),
+                // Spanish only until the simulator ships to everyone.
+                ActionCard(
+                  title: 'Simulador JLPT N5',
+                  subtitle: 'Exámenes con el formato oficial',
+                  icon: Icons.assignment_outlined,
+                  gradient: LinearGradient(
+                    colors: [AppColors.sky, AppColors.peach],
+                  ),
+                  onTap: () => context.push(AppRouter.examRoute),
+                ),
                 const SizedBox(height: 18),
                 StatsPreview(kanaType: kanaType),
               ],

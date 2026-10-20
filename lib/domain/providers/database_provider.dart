@@ -25,7 +25,7 @@ class DatabaseProvider {
     String path = join(documentsDirectory.path, "HiraganaApp.db");
     var database = await openDatabase(
       path,
-      version: 6,
+      version: 7,
       onCreate: initDB,
       onUpgrade: onUpgrade,
     );
@@ -66,6 +66,7 @@ class DatabaseProvider {
         ")",
       );
     }
+    await createExamTables(database);
   }
 
   Future<void> onUpgrade(
@@ -132,7 +133,30 @@ class DatabaseProvider {
           await database.execute("ALTER TABLE responses ADD COLUMN item TEXT");
         }
       }
+      if (oldVersion < 7) {
+        await createExamTables(database);
+      }
     }
+  }
+
+  /// Finished N5 practice tests and how each bank item went.
+  Future<void> createExamTables(Database database) async {
+    await database.execute(
+      "CREATE TABLE IF NOT EXISTS exam_results ("
+      "id INTEGER PRIMARY KEY, "
+      "timestamp TEXT, "
+      "sections TEXT, "
+      "score TEXT"
+      ")",
+    );
+    await database.execute(
+      "CREATE TABLE IF NOT EXISTS exam_items ("
+      "item_id TEXT PRIMARY KEY, "
+      "seen INTEGER, "
+      "last_seen TEXT, "
+      "last_correct INTEGER"
+      ")",
+    );
   }
 
   Future<bool> tableExists(Database db, String tableName) async {

@@ -49,6 +49,10 @@ dependencies:
   timezone: ^0.11.2
   flutter_timezone: ^5.1.1
   app_tracking_transparency: ^2.0.7
+  # N5 exam listening
+  just_audio: ^0.10.6
+  audio_session: ^0.2.4
+  wakelock_plus: ^1.8.1
 
 dev_dependencies:
   flutter_test:
@@ -102,3 +106,5 @@ flutter:
     - assets/models/hiragana.tflite
     - assets/models/katakana.tflite
     - assets/models/kanji.tflite
+    - assets/exam/bank/
+    - assets/exam/audio/
