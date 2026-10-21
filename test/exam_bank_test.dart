@@ -146,6 +146,29 @@ void main() {
       }
     });
 
+    test('every question has its Spanish translation', () {
+      final paper =
+          ExamBuilder(bank: bank, rng: Random(2)).build(ExamSection.values);
+      for (final m in Mondai.values) {
+        for (final item in bank.items[m]!) {
+          for (final q in item.toQuestions(Random(1), 1)) {
+            final passageOnly = m == Mondai.textGrammar;
+            if (!passageOnly) {
+              expect(q.translation?.trim(), isNotEmpty, reason: q.itemId);
+            }
+            if (q.passage != null) {
+              expect(q.passage!.translation?.trim(), isNotEmpty,
+                  reason: q.itemId);
+            }
+          }
+        }
+      }
+      expect(
+          paper.allQuestions.every(
+              (q) => q.translation != null || q.passage?.translation != null),
+          isTrue);
+    });
+
     test('each bank fills several tests', () {
       for (final m in Mondai.values) {
         final questions =
@@ -191,6 +214,8 @@ void main() {
         expect(b.orderAfter, a.orderAfter);
         expect(b.starSlot, a.starSlot);
         expect(b.orderSolution, a.orderSolution);
+        expect(b.translation, a.translation);
+        expect(b.passage?.translation, a.passage?.translation);
         expect(copyAnswers[b], answers[a]);
       }
       expect(

@@ -237,7 +237,10 @@ class ExamPassage {
   final String id;
   final String text;
 
-  const ExamPassage({required this.id, required this.text});
+  /// Spanish translation, shown when reviewing.
+  final String? translation;
+
+  const ExamPassage({required this.id, required this.text, this.translation});
 }
 
 /// Recording of one listening item.
@@ -298,6 +301,10 @@ class ExamQuestion {
   /// For 文の組み立て: the pieces in the right order, for the review.
   final List<String>? orderSolution;
 
+  /// Spanish translation of the sentence, question or recording, shown when
+  /// reviewing.
+  final String? translation;
+
   const ExamQuestion({
     required this.itemId,
     required this.mondai,
@@ -312,6 +319,7 @@ class ExamQuestion {
     this.orderAfter,
     this.starSlot,
     this.orderSolution,
+    this.translation,
   });
 
   ExamQuestion copyWith({int? number}) {
@@ -329,6 +337,7 @@ class ExamQuestion {
       orderAfter: orderAfter,
       starSlot: starSlot,
       orderSolution: orderSolution,
+      translation: translation,
     );
   }
 }
@@ -396,7 +405,12 @@ class ExamRecordCodec {
         'o': q.options,
         'c': q.correctIndex,
         'e': q.explanation,
-        if (q.passage != null) 'p': {'id': q.passage!.id, 't': q.passage!.text},
+        if (q.passage != null)
+          'p': {
+            'id': q.passage!.id,
+            't': q.passage!.text,
+            if (q.passage!.translation != null) 'tr': q.passage!.translation,
+          },
         if (q.clip != null)
           'a': {
             'f': q.clip!.audioAsset,
@@ -409,6 +423,7 @@ class ExamRecordCodec {
         if (q.orderAfter != null) 'oa': q.orderAfter,
         if (q.starSlot != null) 'st': q.starSlot,
         if (q.orderSolution != null) 'os': q.orderSolution,
+        if (q.translation != null) 'tr': q.translation,
       };
 
   static ExamQuestion _parseQuestion(Map<String, dynamic> j) {
@@ -424,7 +439,11 @@ class ExamRecordCodec {
       explanation: j['e'] as String? ?? '',
       passage: p == null
           ? null
-          : ExamPassage(id: p['id'] as String, text: p['t'] as String),
+          : ExamPassage(
+              id: p['id'] as String,
+              text: p['t'] as String,
+              translation: p['tr'] as String?,
+            ),
       clip: a == null
           ? null
           : ListeningClip(
@@ -439,6 +458,7 @@ class ExamRecordCodec {
       orderAfter: j['oa'] as String?,
       starSlot: j['st'] as int?,
       orderSolution: (j['os'] as List?)?.cast<String>(),
+      translation: j['tr'] as String?,
     );
   }
 }

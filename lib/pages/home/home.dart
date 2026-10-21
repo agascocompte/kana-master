@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:kana_master/pages/dictionary/dictionary.dart';
+import 'package:kana_master/pages/exam/exam_hub_page.dart';
 import 'package:kana_master/pages/home/bloc/home_nav_cubit.dart';
 import 'package:kana_master/pages/settings/settings.dart';
 import 'package:kana_master/pages/settings/bloc/settings_bloc.dart';
@@ -35,7 +35,7 @@ class HomePage extends StatelessWidget {
               index: index,
               children: const [
                 StudyTab(),
-                DictionaryTab(),
+                ExamHubPage(),
                 StatsTab(),
                 SettingsPage(),
               ],
@@ -49,9 +49,10 @@ class HomePage extends StatelessWidget {
                   icon: const Icon(Icons.school_outlined),
                   label: tr.app.tabStudy,
                 ),
-                NavigationDestination(
-                  icon: const Icon(Icons.search),
-                  label: tr.app.dictionary,
+                // Spanish only until the exam simulator ships to everyone.
+                const NavigationDestination(
+                  icon: Icon(Icons.assignment_outlined),
+                  label: 'Examen',
                 ),
                 NavigationDestination(
                   icon: const Icon(Icons.bar_chart_outlined),

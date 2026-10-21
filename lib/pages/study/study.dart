@@ -32,13 +32,24 @@ class StudyTab extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  tr.app.studyHubTitle,
-                  style: TextStyle(
-                    fontSize: 28,
-                    fontWeight: FontWeight.w800,
-                    color: AppColors.ink,
-                  ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: Text(
+                        tr.app.studyHubTitle,
+                        style: TextStyle(
+                          fontSize: 28,
+                          fontWeight: FontWeight.w800,
+                          color: AppColors.ink,
+                        ),
+                      ),
+                    ),
+                    IconButton.filledTonal(
+                      tooltip: tr.app.dictionary,
+                      icon: const Icon(Icons.search),
+                      onPressed: () => context.push(AppRouter.dictionaryRoute),
+                    ),
+                  ],
                 ),
                 const SizedBox(height: 6),
                 Text(
@@ -160,17 +171,6 @@ class StudyTab extends StatelessWidget {
                       context.push(AppRouter.premiumRoute);
                     }
                   },
-                ),
-                const SizedBox(height: 12),
-                // Spanish only until the simulator ships to everyone.
-                ActionCard(
-                  title: 'Simulador JLPT N5',
-                  subtitle: 'Exámenes con el formato oficial',
-                  icon: Icons.assignment_outlined,
-                  gradient: LinearGradient(
-                    colors: [AppColors.sky, AppColors.peach],
-                  ),
-                  onTap: () => context.push(AppRouter.examRoute),
                 ),
                 const SizedBox(height: 18),
                 StatsPreview(kanaType: kanaType),

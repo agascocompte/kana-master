@@ -106,131 +106,149 @@ class _ExamHubPageState extends State<ExamHubPage> {
         .where((r) => DateUtils.isSameDay(r.timestamp, DateTime.now()))
         .length;
     return Scaffold(
-      appBar: AppBar(title: const Text('Simulador JLPT N5')),
-      body: RefreshIndicator(
-        onRefresh: _load,
-        child: ListView(
-          padding: const EdgeInsets.fromLTRB(16, 0, 16, 24),
-          children: [
-            IntrinsicHeight(
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  Expanded(
-                    child: _InfoTile(
-                      value: daysLeft == null ? '–' : '$daysLeft',
-                      label: daysLeft == 1
-                          ? 'día para el examen'
-                          : 'días para el examen',
-                      onTap: _pickDate,
-                    ),
-                  ),
-                  const SizedBox(width: 10),
-                  Expanded(
-                    child: _InfoTile(
-                      value: '$todayCount',
-                      label: todayCount == 1 ? 'examen hoy' : 'exámenes hoy',
-                    ),
-                  ),
-                  const SizedBox(width: 10),
-                  Expanded(
-                    child: _InfoTile(
-                      value: '${_coverage.$1}/${_coverage.$2}',
-                      label: 'preguntas vistas',
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(height: 16),
-            ActionCard(
-              title: 'Examen completo',
-              subtitle: '20 + 40 + 30 min · 67 preguntas · formato oficial',
-              icon: Icons.assignment_outlined,
-              gradient:
-                  LinearGradient(colors: [AppColors.peach, AppColors.coral]),
-              onTap: () => _start(ExamSection.values),
-            ),
-            const SizedBox(height: 12),
-            ActionCard(
-              title: 'Vocabulario',
-              subtitle: '文字・語彙 · 20 min · 21 preguntas',
-              icon: Icons.translate,
-              gradient:
-                  LinearGradient(colors: [AppColors.lime, AppColors.teal]),
-              onTap: () => _start([ExamSection.vocabulary]),
-            ),
-            const SizedBox(height: 12),
-            ActionCard(
-              title: 'Gramática y lectura',
-              subtitle: '文法・読解 · 40 min · 22 preguntas',
-              icon: Icons.menu_book_outlined,
-              gradient: LinearGradient(colors: [AppColors.teal, AppColors.sky]),
-              onTap: () => _start([ExamSection.grammarReading]),
-            ),
-            const SizedBox(height: 12),
-            ActionCard(
-              title: 'Listening',
-              subtitle: '聴解 · 30 min · 24 preguntas',
-              icon: Icons.headphones_outlined,
-              gradient:
-                  LinearGradient(colors: [AppColors.sky, AppColors.peach]),
-              onTap: () => _start([ExamSection.listening]),
-            ),
-            const SizedBox(height: 20),
-            if (_results.where((r) => r.isFull).length >= 2) ...[
+      body: SafeArea(
+        bottom: false,
+        child: RefreshIndicator(
+          onRefresh: _load,
+          child: ListView(
+            padding: const EdgeInsets.fromLTRB(16, 18, 16, 24),
+            children: [
               Text(
-                'Evolución (examen completo)',
+                'Simulador JLPT N5',
                 style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w700,
+                  fontSize: 28,
+                  fontWeight: FontWeight.w800,
                   color: AppColors.ink,
                 ),
-              ),
-              const SizedBox(height: 10),
-              SizedBox(
-                height: 180,
-                child: _ScoreChart(
-                  results: _results.where((r) => r.isFull).toList(),
-                ),
-              ),
-              const SizedBox(height: 20),
-            ],
-            if (_weakPoints.isNotEmpty) ...[
-              Text(
-                'Puntos débiles',
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w700,
-                  color: AppColors.ink,
-                ),
-              ),
-              Text(
-                'Aciertos por tipo de pregunta en tus últimos '
-                '$_recentCount exámenes',
-                style: TextStyle(color: AppColors.slate, fontSize: 13),
               ),
               const SizedBox(height: 6),
-              for (final entry in _weakPoints)
-                MondaiRow(mondai: entry.key, tally: entry.value, percent: true),
-              const SizedBox(height: 20),
-            ],
-            if (_results.isNotEmpty)
               Text(
-                'Historial',
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w700,
-                  color: AppColors.ink,
+                'Exámenes con el formato oficial',
+                style: TextStyle(color: AppColors.slate, fontSize: 14),
+              ),
+              const SizedBox(height: 18),
+              IntrinsicHeight(
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Expanded(
+                      child: _InfoTile(
+                        value: daysLeft == null ? '–' : '$daysLeft',
+                        label: daysLeft == 1
+                            ? 'día para el examen'
+                            : 'días para el examen',
+                        onTap: _pickDate,
+                      ),
+                    ),
+                    const SizedBox(width: 10),
+                    Expanded(
+                      child: _InfoTile(
+                        value: '$todayCount',
+                        label: todayCount == 1 ? 'examen hoy' : 'exámenes hoy',
+                      ),
+                    ),
+                    const SizedBox(width: 10),
+                    Expanded(
+                      child: _InfoTile(
+                        value: '${_coverage.$1}/${_coverage.$2}',
+                        label: 'preguntas vistas',
+                      ),
+                    ),
+                  ],
                 ),
               ),
-            const SizedBox(height: 6),
-            for (final result in _results.take(30))
-              _ResultTile(
-                result: result,
-                onTap: result.canReview ? () => _openResult(result) : null,
+              const SizedBox(height: 16),
+              ActionCard(
+                title: 'Examen completo',
+                subtitle: '20 + 40 + 30 min · 67 preguntas · formato oficial',
+                icon: Icons.assignment_outlined,
+                gradient:
+                    LinearGradient(colors: [AppColors.peach, AppColors.coral]),
+                onTap: () => _start(ExamSection.values),
               ),
-          ],
+              const SizedBox(height: 12),
+              ActionCard(
+                title: 'Vocabulario',
+                subtitle: '文字・語彙 · 20 min · 21 preguntas',
+                icon: Icons.translate,
+                gradient:
+                    LinearGradient(colors: [AppColors.lime, AppColors.teal]),
+                onTap: () => _start([ExamSection.vocabulary]),
+              ),
+              const SizedBox(height: 12),
+              ActionCard(
+                title: 'Gramática y lectura',
+                subtitle: '文法・読解 · 40 min · 22 preguntas',
+                icon: Icons.menu_book_outlined,
+                gradient:
+                    LinearGradient(colors: [AppColors.teal, AppColors.sky]),
+                onTap: () => _start([ExamSection.grammarReading]),
+              ),
+              const SizedBox(height: 12),
+              ActionCard(
+                title: 'Listening',
+                subtitle: '聴解 · 30 min · 24 preguntas',
+                icon: Icons.headphones_outlined,
+                gradient:
+                    LinearGradient(colors: [AppColors.sky, AppColors.peach]),
+                onTap: () => _start([ExamSection.listening]),
+              ),
+              const SizedBox(height: 20),
+              if (_results.where((r) => r.isFull).length >= 2) ...[
+                Text(
+                  'Evolución (examen completo)',
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w700,
+                    color: AppColors.ink,
+                  ),
+                ),
+                const SizedBox(height: 10),
+                SizedBox(
+                  height: 180,
+                  child: _ScoreChart(
+                    results: _results.where((r) => r.isFull).toList(),
+                  ),
+                ),
+                const SizedBox(height: 20),
+              ],
+              if (_weakPoints.isNotEmpty) ...[
+                Text(
+                  'Puntos débiles',
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w700,
+                    color: AppColors.ink,
+                  ),
+                ),
+                Text(
+                  'Aciertos por tipo de pregunta en tus últimos '
+                  '$_recentCount exámenes',
+                  style: TextStyle(color: AppColors.slate, fontSize: 13),
+                ),
+                const SizedBox(height: 6),
+                for (final entry in _weakPoints)
+                  MondaiRow(
+                      mondai: entry.key, tally: entry.value, percent: true),
+                const SizedBox(height: 20),
+              ],
+              if (_results.isNotEmpty)
+                Text(
+                  'Historial',
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w700,
+                    color: AppColors.ink,
+                  ),
+                ),
+              const SizedBox(height: 6),
+              for (final result in _results.take(30))
+                _ResultTile(
+                  result: result,
+                  onTap: result.canReview ? () => _openResult(result) : null,
+                ),
+            ],
+          ),
         ),
       ),
     );

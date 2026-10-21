@@ -185,6 +185,25 @@ class ReviewNote extends StatelessWidget {
         ),
       ));
     }
+    if (q.translation != null) {
+      lines.add(const SizedBox(height: 10));
+      lines.add(Text(
+        'Traducción',
+        style: TextStyle(
+          fontWeight: FontWeight.w800,
+          color: AppColors.ink,
+          fontSize: 13,
+        ),
+      ));
+      lines.add(const SizedBox(height: 2));
+      lines.add(Text(
+        q.translation!,
+        style: TextStyle(color: AppColors.graphite, fontSize: 15, height: 1.5),
+      ));
+    }
+    if (q.passage?.translation != null) {
+      lines.add(_PassageTranslation(text: q.passage!.translation!));
+    }
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.all(12),
@@ -197,6 +216,46 @@ class ReviewNote extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: lines,
       ),
+    );
+  }
+}
+
+/// Translation of a reading passage, folded until asked for.
+class _PassageTranslation extends StatefulWidget {
+  final String text;
+
+  const _PassageTranslation({required this.text});
+
+  @override
+  State<_PassageTranslation> createState() => _PassageTranslationState();
+}
+
+class _PassageTranslationState extends State<_PassageTranslation> {
+  bool _open = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        TextButton.icon(
+          onPressed: () => setState(() => _open = !_open),
+          style: TextButton.styleFrom(padding: EdgeInsets.zero),
+          icon: Icon(_open ? Icons.expand_less : Icons.expand_more),
+          label: Text(
+            _open ? 'Ocultar traducción del texto' : 'Ver traducción del texto',
+          ),
+        ),
+        if (_open)
+          Text(
+            widget.text,
+            style: TextStyle(
+              color: AppColors.graphite,
+              fontSize: 15,
+              height: 1.5,
+            ),
+          ),
+      ],
     );
   }
 }

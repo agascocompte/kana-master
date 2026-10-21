@@ -58,6 +58,10 @@ class ChoiceItem extends BankItem {
   final String explanation;
   final String? text;
 
+  /// Spanish translation of the sentence (`t`) and of the text (`tt`).
+  final String? translation;
+  final String? textTranslation;
+
   const ChoiceItem({
     required super.id,
     required super.mondai,
@@ -66,6 +70,8 @@ class ChoiceItem extends BankItem {
     required this.options,
     this.explanation = '',
     this.text,
+    this.translation,
+    this.textTranslation,
   });
 
   factory ChoiceItem.fromJson(Mondai mondai, Map<String, dynamic> json) {
@@ -77,6 +83,8 @@ class ChoiceItem extends BankItem {
       options: _strings(json['o']),
       explanation: json['e'] as String? ?? '',
       text: json['text'] as String?,
+      translation: json['t'] as String?,
+      textTranslation: json['tt'] as String?,
     );
   }
 
@@ -92,7 +100,10 @@ class ChoiceItem extends BankItem {
         options: shuffled,
         correctIndex: correct,
         explanation: explanation,
-        passage: text == null ? null : ExamPassage(id: id, text: text!),
+        passage: text == null
+            ? null
+            : ExamPassage(id: id, text: text!, translation: textTranslation),
+        translation: translation,
       ),
     ];
   }
@@ -106,6 +117,7 @@ class OrderItem extends BankItem {
   final List<String> parts;
   final int star;
   final String explanation;
+  final String? translation;
 
   const OrderItem({
     required super.id,
@@ -115,6 +127,7 @@ class OrderItem extends BankItem {
     required this.parts,
     required this.star,
     this.explanation = '',
+    this.translation,
   }) : super(mondai: Mondai.sentenceOrder);
 
   factory OrderItem.fromJson(Map<String, dynamic> json) {
@@ -126,6 +139,7 @@ class OrderItem extends BankItem {
       parts: _strings(json['parts']),
       star: json['star'] as int,
       explanation: json['e'] as String? ?? '',
+      translation: json['t'] as String?,
     );
   }
 
@@ -146,6 +160,7 @@ class OrderItem extends BankItem {
         orderAfter: after,
         starSlot: star,
         orderSolution: parts,
+        translation: translation,
       ),
     ];
   }
@@ -155,11 +170,13 @@ class SubQuestion {
   final String stem;
   final List<String> options;
   final String explanation;
+  final String? translation;
 
   const SubQuestion({
     required this.stem,
     required this.options,
     this.explanation = '',
+    this.translation,
   });
 
   factory SubQuestion.fromJson(Map<String, dynamic> json) {
@@ -167,6 +184,7 @@ class SubQuestion {
       stem: json['q'] as String? ?? '',
       options: _strings(json['o']),
       explanation: json['e'] as String? ?? '',
+      translation: json['t'] as String?,
     );
   }
 }
@@ -177,11 +195,15 @@ class TextGrammarItem extends BankItem {
   final String text;
   final List<SubQuestion> blanks;
 
+  /// Spanish translation of the passage with the blanks filled in.
+  final String? textTranslation;
+
   const TextGrammarItem({
     required super.id,
     super.tags,
     required this.text,
     required this.blanks,
+    this.textTranslation,
   }) : super(mondai: Mondai.textGrammar);
 
   factory TextGrammarItem.fromJson(Map<String, dynamic> json) {
@@ -192,6 +214,7 @@ class TextGrammarItem extends BankItem {
       blanks: (json['blanks'] as List<dynamic>)
           .map((b) => SubQuestion.fromJson(b as Map<String, dynamic>))
           .toList(),
+      textTranslation: json['tt'] as String?,
     );
   }
 
@@ -204,7 +227,8 @@ class TextGrammarItem extends BankItem {
     for (var i = 0; i < blanks.length; i++) {
       numbered = numbered.replaceAll('[[${i + 1}]]', '［${firstNumber + i}］');
     }
-    final passage = ExamPassage(id: id, text: numbered);
+    final passage =
+        ExamPassage(id: id, text: numbered, translation: textTranslation);
     return [
       for (var i = 0; i < blanks.length; i++)
         _question(rng, firstNumber + i, i, passage),
@@ -222,6 +246,7 @@ class TextGrammarItem extends BankItem {
       correctIndex: correct,
       explanation: blanks[i].explanation,
       passage: passage,
+      translation: blanks[i].translation,
     );
   }
 }
@@ -230,12 +255,14 @@ class TextGrammarItem extends BankItem {
 class MidReadingItem extends BankItem {
   final String text;
   final List<SubQuestion> questions;
+  final String? textTranslation;
 
   const MidReadingItem({
     required super.id,
     super.tags,
     required this.text,
     required this.questions,
+    this.textTranslation,
   }) : super(mondai: Mondai.midReading);
 
   factory MidReadingItem.fromJson(Map<String, dynamic> json) {
@@ -246,6 +273,7 @@ class MidReadingItem extends BankItem {
       questions: (json['qs'] as List<dynamic>)
           .map((q) => SubQuestion.fromJson(q as Map<String, dynamic>))
           .toList(),
+      textTranslation: json['tt'] as String?,
     );
   }
 
@@ -254,7 +282,8 @@ class MidReadingItem extends BankItem {
 
   @override
   List<ExamQuestion> toQuestions(Random rng, int firstNumber) {
-    final passage = ExamPassage(id: id, text: text);
+    final passage =
+        ExamPassage(id: id, text: text, translation: textTranslation);
     return [
       for (var i = 0; i < questions.length; i++)
         () {
@@ -268,6 +297,7 @@ class MidReadingItem extends BankItem {
             correctIndex: correct,
             explanation: questions[i].explanation,
             passage: passage,
+            translation: questions[i].translation,
           );
         }(),
     ];
@@ -284,6 +314,9 @@ class ListeningItem extends BankItem {
   final String explanation;
   final String? scene;
 
+  /// Spanish translation of everything said.
+  final String? translation;
+
   const ListeningItem({
     required super.id,
     required super.mondai,
@@ -293,6 +326,7 @@ class ListeningItem extends BankItem {
     this.answer = 0,
     this.explanation = '',
     this.scene,
+    this.translation,
   });
 
   factory ListeningItem.fromJson(Mondai mondai, Map<String, dynamic> json) {
@@ -305,6 +339,7 @@ class ListeningItem extends BankItem {
       answer: json['a'] as int? ?? 0,
       explanation: json['e'] as String? ?? '',
       scene: json['scene'] as String?,
+      translation: json['t'] as String?,
     );
   }
 
@@ -326,6 +361,7 @@ class ListeningItem extends BankItem {
           correctIndex: answer,
           explanation: explanation,
           clip: clip,
+          translation: translation,
         ),
       ];
     }
@@ -340,6 +376,7 @@ class ListeningItem extends BankItem {
         correctIndex: correct,
         explanation: explanation,
         clip: clip,
+        translation: translation,
       ),
     ];
   }

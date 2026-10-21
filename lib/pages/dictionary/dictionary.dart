@@ -7,6 +7,20 @@ import 'package:kana_master/pages/dictionary/widgets/search_action_bar.dart';
 import 'package:kana_master/theme/app_theme.dart';
 import 'package:kana_master/i18n/strings.g.dart';
 
+/// Dictionary opened from the search button of the study tab.
+class DictionaryPage extends StatelessWidget {
+  const DictionaryPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: AppColors.mist,
+      appBar: AppBar(),
+      body: const DictionaryTab(),
+    );
+  }
+}
+
 class DictionaryTab extends StatelessWidget {
   const DictionaryTab({super.key});
 
@@ -22,8 +36,9 @@ class DictionaryTab extends StatelessWidget {
         ),
       ),
       child: SafeArea(
+        top: false,
         child: Padding(
-          padding: const EdgeInsets.fromLTRB(16, 18, 16, 24),
+          padding: const EdgeInsets.fromLTRB(16, 0, 16, 24),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

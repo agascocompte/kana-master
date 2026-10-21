@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart' hide MaterialPage;
 import 'package:go_router/go_router.dart';
 import 'package:kana_master/domain/exam/exam_models.dart';
-import 'package:kana_master/pages/exam/exam_hub_page.dart';
+import 'package:kana_master/pages/dictionary/dictionary.dart';
 import 'package:kana_master/pages/exam/exam_session_page.dart';
 import 'package:kana_master/pages/home/home.dart';
 import 'package:kana_master/pages/premium/premium_page.dart';
@@ -19,7 +19,7 @@ class AppRouter {
   static const String practiceRoute = "/practice";
   static const String materialRoute = "/material";
   static const String premiumRoute = "/premium";
-  static const String examRoute = "/exam";
+  static const String dictionaryRoute = "/dictionary";
   static const String examSessionRoute = "/exam/session";
 
   static GoRouter router = GoRouter(
@@ -81,10 +81,10 @@ class AppRouter {
         },
       ),
       GoRoute(
-        path: "/exam",
-        name: examRoute,
+        path: "/dictionary",
+        name: dictionaryRoute,
         builder: (BuildContext context, GoRouterState state) {
-          return const ExamHubPage();
+          return const DictionaryPage();
         },
       ),
       GoRoute(
