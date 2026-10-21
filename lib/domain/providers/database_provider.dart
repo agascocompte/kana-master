@@ -25,7 +25,7 @@ class DatabaseProvider {
     String path = join(documentsDirectory.path, "HiraganaApp.db");
     var database = await openDatabase(
       path,
-      version: 7,
+      version: 8,
       onCreate: initDB,
       onUpgrade: onUpgrade,
     );
@@ -136,6 +136,14 @@ class DatabaseProvider {
       if (oldVersion < 7) {
         await createExamTables(database);
       }
+      if (oldVersion < 8) {
+        // Questions and answers of each test, to review it from the history.
+        if (!await columnExists(database, 'exam_results', 'review')) {
+          await database.execute(
+            "ALTER TABLE exam_results ADD COLUMN review TEXT",
+          );
+        }
+      }
     }
   }
 
@@ -146,7 +154,8 @@ class DatabaseProvider {
       "id INTEGER PRIMARY KEY, "
       "timestamp TEXT, "
       "sections TEXT, "
-      "score TEXT"
+      "score TEXT, "
+      "review TEXT"
       ")",
     );
     await database.execute(

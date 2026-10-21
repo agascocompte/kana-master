@@ -157,6 +157,48 @@ void main() {
   });
 
   group('ExamBuilder', () {
+    test('a saved test comes back the same for the review', () {
+      final paper =
+          ExamBuilder(bank: bank, rng: Random(5)).build(ExamSection.values);
+      final all = paper.allQuestions;
+      final answers = {
+        for (var i = 0; i < all.length; i++)
+          if (i % 7 != 0) all[i]: i % all[i].options.length,
+      };
+      final stored = json.encode(ExamRecordCodec.encode(paper, answers));
+      final (copy, copyAnswers) =
+          ExamRecordCodec.decode(json.decode(stored) as Map<String, dynamic>);
+      expect(copy.sections, paper.sections);
+      final copied = copy.allQuestions;
+      expect(copied.length, all.length);
+      for (var i = 0; i < all.length; i++) {
+        final a = all[i], b = copied[i];
+        expect(b.itemId, a.itemId);
+        expect(b.mondai, a.mondai);
+        expect(b.number, a.number);
+        expect(b.stem, a.stem);
+        expect(b.options, a.options);
+        expect(b.correctIndex, a.correctIndex);
+        expect(b.explanation, a.explanation);
+        expect(b.passage?.text, a.passage?.text);
+        expect(b.clip?.audioAsset, a.clip?.audioAsset);
+        expect(b.clip?.scene, a.clip?.scene);
+        expect(
+          b.clip?.script.map((l) => '${l.speaker}:${l.text}').toList(),
+          a.clip?.script.map((l) => '${l.speaker}:${l.text}').toList(),
+        );
+        expect(b.orderBefore, a.orderBefore);
+        expect(b.orderAfter, a.orderAfter);
+        expect(b.starSlot, a.starSlot);
+        expect(b.orderSolution, a.orderSolution);
+        expect(copyAnswers[b], answers[a]);
+      }
+      expect(
+        ExamScore.grade(copied, copyAnswers).toJson(),
+        ExamScore.grade(all, answers).toJson(),
+      );
+    });
+
     test('every listening item has its recording', () {
       final names = [
         for (final m in ExamSection.listening.mondai) ...[

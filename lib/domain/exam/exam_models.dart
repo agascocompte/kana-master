@@ -345,3 +345,100 @@ class ExamPaper {
   List<ExamQuestion> get allQuestions =>
       [for (final s in sections) ...questions[s]!];
 }
+
+/// Snapshot of a finished test, so it can be reviewed later from the
+/// history even if the bank changes. Answers go in the same order as
+/// [ExamPaper.allQuestions].
+class ExamRecordCodec {
+  static Map<String, dynamic> encode(
+    ExamPaper paper,
+    Map<ExamQuestion, int> answers,
+  ) {
+    return {
+      'sections': [for (final s in paper.sections) s.name],
+      'questions': [
+        for (final s in paper.sections)
+          [for (final q in paper.questions[s]!) _question(q)],
+      ],
+      'answers': [for (final q in paper.allQuestions) answers[q]],
+    };
+  }
+
+  static (ExamPaper, Map<ExamQuestion, int>) decode(
+    Map<String, dynamic> json,
+  ) {
+    final sections = [
+      for (final s in json['sections'] as List) ExamSection.values.byName(s),
+    ];
+    final lists = json['questions'] as List;
+    final questions = {
+      for (var i = 0; i < sections.length; i++)
+        sections[i]: [
+          for (final q in lists[i] as List)
+            _parseQuestion(q as Map<String, dynamic>),
+        ],
+    };
+    final paper = ExamPaper(sections: sections, questions: questions);
+    final answerList = json['answers'] as List;
+    final all = paper.allQuestions;
+    final answers = <ExamQuestion, int>{
+      for (var i = 0; i < all.length && i < answerList.length; i++)
+        if (answerList[i] != null) all[i]: answerList[i] as int,
+    };
+    return (paper, answers);
+  }
+
+  static Map<String, dynamic> _question(ExamQuestion q) => {
+        'id': q.itemId,
+        'm': q.mondai.name,
+        'n': q.number,
+        's': q.stem,
+        'o': q.options,
+        'c': q.correctIndex,
+        'e': q.explanation,
+        if (q.passage != null) 'p': {'id': q.passage!.id, 't': q.passage!.text},
+        if (q.clip != null)
+          'a': {
+            'f': q.clip!.audioAsset,
+            'sc': q.clip!.scene,
+            'l': [
+              for (final l in q.clip!.script) [l.speaker, l.text],
+            ],
+          },
+        if (q.orderBefore != null) 'ob': q.orderBefore,
+        if (q.orderAfter != null) 'oa': q.orderAfter,
+        if (q.starSlot != null) 'st': q.starSlot,
+        if (q.orderSolution != null) 'os': q.orderSolution,
+      };
+
+  static ExamQuestion _parseQuestion(Map<String, dynamic> j) {
+    final p = j['p'] as Map<String, dynamic>?;
+    final a = j['a'] as Map<String, dynamic>?;
+    return ExamQuestion(
+      itemId: j['id'] as String,
+      mondai: Mondai.values.byName(j['m'] as String),
+      number: j['n'] as int,
+      stem: j['s'] as String,
+      options: [for (final o in j['o'] as List) o as String],
+      correctIndex: j['c'] as int,
+      explanation: j['e'] as String? ?? '',
+      passage: p == null
+          ? null
+          : ExamPassage(id: p['id'] as String, text: p['t'] as String),
+      clip: a == null
+          ? null
+          : ListeningClip(
+              audioAsset: a['f'] as String,
+              scene: a['sc'] as String?,
+              script: [
+                for (final l in a['l'] as List)
+                  ScriptLine(l[0] as String, l[1] as String),
+              ],
+            ),
+      orderBefore: j['ob'] as String?,
+      orderAfter: j['oa'] as String?,
+      starSlot: j['st'] as int?,
+      orderSolution: (j['os'] as List?)?.cast<String>(),
+    );
+  }
+}

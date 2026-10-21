@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:kana_master/domain/exam/exam_models.dart';
 import 'package:kana_master/domain/exam/exam_scoring.dart';
 import 'package:kana_master/pages/exam/exam_review_page.dart';
@@ -41,7 +40,7 @@ class ExamResultPage extends StatelessWidget {
             const SizedBox(height: 6),
             for (final mondai in section.mondai)
               if (score.byMondai[mondai] != null)
-                _MondaiRow(mondai: mondai, tally: score.byMondai[mondai]!),
+                MondaiRow(mondai: mondai, tally: score.byMondai[mondai]!),
             const SizedBox(height: 12),
           ],
           FilledButton.icon(
@@ -56,7 +55,7 @@ class ExamResultPage extends StatelessWidget {
           ),
           const SizedBox(height: 8),
           OutlinedButton(
-            onPressed: () => context.pop(),
+            onPressed: () => Navigator.of(context).pop(),
             style: OutlinedButton.styleFrom(
               minimumSize: const Size.fromHeight(50),
             ),
@@ -213,11 +212,20 @@ class _ScoreLine extends StatelessWidget {
   }
 }
 
-class _MondaiRow extends StatelessWidget {
+/// Right answers of one もんだい, with a bar.
+class MondaiRow extends StatelessWidget {
   final Mondai mondai;
   final Tally tally;
 
-  const _MondaiRow({required this.mondai, required this.tally});
+  /// Shows the share of right answers instead of the count.
+  final bool percent;
+
+  const MondaiRow({
+    super.key,
+    required this.mondai,
+    required this.tally,
+    this.percent = false,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -257,7 +265,9 @@ class _MondaiRow extends StatelessWidget {
           SizedBox(
             width: 48,
             child: Text(
-              '${tally.correct}/${tally.total}',
+              percent
+                  ? '${(tally.ratio * 100).round()} %'
+                  : '${tally.correct}/${tally.total}',
               textAlign: TextAlign.end,
               style: TextStyle(
                 fontWeight: FontWeight.w700,

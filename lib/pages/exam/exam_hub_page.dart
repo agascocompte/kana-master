@@ -6,6 +6,7 @@ import 'package:kana_master/domain/exam/exam_models.dart';
 import 'package:kana_master/domain/exam/exam_scoring.dart';
 import 'package:kana_master/domain/repositories/exam_repository.dart';
 import 'package:kana_master/domain/repositories/settings_repository.dart';
+import 'package:kana_master/pages/exam/exam_result_page.dart';
 import 'package:kana_master/pages/study/widgets/action_card.dart';
 import 'package:kana_master/router/router.dart';
 import 'package:kana_master/theme/app_theme.dart';
@@ -49,6 +50,39 @@ class _ExamHubPageState extends State<ExamHubPage> {
   Future<void> _start(List<ExamSection> sections) async {
     await context.push(AppRouter.examSessionRoute, extra: sections);
     _load();
+  }
+
+  /// Tests the weak points are computed from.
+  int get _recentCount => _results.length < 10 ? _results.length : 10;
+
+  /// The もんだい with the lowest share of right answers in recent tests,
+  /// weakest first. Types asked fewer than five times are left out.
+  List<MapEntry<Mondai, Tally>> get _weakPoints {
+    final totals = <Mondai, Tally>{};
+    for (final result in _results.take(_recentCount)) {
+      for (final entry in result.score.byMondai.entries) {
+        totals[entry.key] =
+            (totals[entry.key] ?? const Tally(0, 0)) + entry.value;
+      }
+    }
+    final ranked = totals.entries.where((e) => e.value.total >= 5).toList()
+      ..sort((a, b) => a.value.ratio.compareTo(b.value.ratio));
+    return ranked.take(5).toList();
+  }
+
+  Future<void> _openResult(ExamResultRecord result) async {
+    final review = await _repository.getReview(result.id);
+    if (!mounted || review == null) return;
+    final (paper, answers) = review;
+    await Navigator.of(context).push(MaterialPageRoute(
+      builder: (_) => ExamResultPage(
+        args: ExamResultArgs(
+          paper: paper,
+          answers: answers,
+          score: result.score,
+        ),
+      ),
+    ));
   }
 
   Future<void> _pickDate() async {
@@ -162,6 +196,25 @@ class _ExamHubPageState extends State<ExamHubPage> {
               ),
               const SizedBox(height: 20),
             ],
+            if (_weakPoints.isNotEmpty) ...[
+              Text(
+                'Puntos débiles',
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w700,
+                  color: AppColors.ink,
+                ),
+              ),
+              Text(
+                'Aciertos por tipo de pregunta en tus últimos '
+                '$_recentCount exámenes',
+                style: TextStyle(color: AppColors.slate, fontSize: 13),
+              ),
+              const SizedBox(height: 6),
+              for (final entry in _weakPoints)
+                MondaiRow(mondai: entry.key, tally: entry.value, percent: true),
+              const SizedBox(height: 20),
+            ],
             if (_results.isNotEmpty)
               Text(
                 'Historial',
@@ -172,7 +225,11 @@ class _ExamHubPageState extends State<ExamHubPage> {
                 ),
               ),
             const SizedBox(height: 6),
-            for (final result in _results.take(30)) _ResultTile(result: result),
+            for (final result in _results.take(30))
+              _ResultTile(
+                result: result,
+                onTap: result.canReview ? () => _openResult(result) : null,
+              ),
           ],
         ),
       ),
@@ -225,8 +282,9 @@ class _InfoTile extends StatelessWidget {
 
 class _ResultTile extends StatelessWidget {
   final ExamResultRecord result;
+  final VoidCallback? onTap;
 
-  const _ResultTile({required this.result});
+  const _ResultTile({required this.result, this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -245,7 +303,9 @@ class _ResultTile extends StatelessWidget {
         '${t.day}/${t.month} ${t.hour}:${t.minute.toString().padLeft(2, '0')}';
     return Card(
       margin: const EdgeInsets.only(bottom: 8),
+      clipBehavior: Clip.antiAlias,
       child: ListTile(
+        onTap: onTap,
         title: Text(title, style: const TextStyle(fontWeight: FontWeight.w700)),
         subtitle: Text(
           result.isFull
@@ -253,13 +313,20 @@ class _ResultTile extends StatelessWidget {
                   'Listening ${score.listeningPoints}/60'
               : '$date · ${score.overall.correct}/${score.overall.total}',
         ),
-        trailing: Text(
-          value,
-          style: TextStyle(
-            fontSize: 18,
-            fontWeight: FontWeight.w900,
-            color: color,
-          ),
+        trailing: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              value,
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.w900,
+                color: color,
+              ),
+            ),
+            if (onTap != null)
+              Icon(Icons.chevron_right, color: AppColors.slate),
+          ],
         ),
       ),
     );

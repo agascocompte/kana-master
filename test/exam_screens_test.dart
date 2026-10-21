@@ -2,6 +2,7 @@
 // renders them at phone size for a visual check (needs Windows fonts):
 //   EXAM_SCREENS=1 flutter test test/exam_screens_test.dart --update-goldens
 // The images land in test/exam_screens/, which is not committed.
+import 'dart:convert';
 import 'dart:io';
 import 'dart:math';
 
@@ -268,6 +269,29 @@ void main() {
     expect(find.text('Examen completo'), findsWidgets);
     expect(find.text('134/1140'), findsOneWidget);
     await _shot(tester, '00_hub');
+    await tester.scrollUntilVisible(find.text('Puntos débiles'), 300);
+    await tester.pumpAndSettle();
+    await _shot(tester, '01_hub_weak_points');
+
+    // Only tests saved with their questions open from the history.
+    await tester.scrollUntilVisible(find.text('Historial'), 300);
+    await tester.pumpAndSettle();
+    expect(find.byIcon(Icons.chevron_right), findsOneWidget);
+    await tester.tap(find.byIcon(Icons.chevron_right));
+    await tester.pumpAndSettle();
+    expect(find.byType(ExamResultPage), findsOneWidget);
+    await tester.scrollUntilVisible(find.text('Revisar respuestas'), 300);
+    await tester.tap(find.text('Revisar respuestas'));
+    await tester.pumpAndSettle();
+    expect(find.text('Solo fallos'), findsOneWidget);
+    await tester.pageBack();
+    await tester.pumpAndSettle();
+    await tester.scrollUntilVisible(find.text('Volver'), 300);
+    await tester.tap(find.text('Volver'));
+    await tester.pumpAndSettle();
+    expect(find.text('Historial'), findsOneWidget);
+    await tester.pumpWidget(const SizedBox());
+    await tester.pump(const Duration(seconds: 3));
   });
 
   testWidgets('full result and review', (tester) async {
@@ -316,7 +340,8 @@ class _HubRepository extends FakeExamRepository {
           id: 3,
           timestamp: DateTime.now(),
           sections: ExamSection.values,
-          score: score(8)),
+          score: score(8),
+          canReview: true),
       ExamResultRecord(
           id: 2,
           timestamp: DateTime.now().subtract(const Duration(hours: 3)),
@@ -332,6 +357,14 @@ class _HubRepository extends FakeExamRepository {
 
   @override
   Future<(int, int)> getCoverage() async => (134, 1140);
+
+  @override
+  Future<(ExamPaper, Map<ExamQuestion, int>)?> getReview(int id) async {
+    final answers = {for (final q in paper.allQuestions) q: 0};
+    return ExamRecordCodec.decode(
+        json.decode(json.encode(ExamRecordCodec.encode(paper, answers)))
+            as Map<String, dynamic>);
+  }
 }
 
 class _Settings extends SettingsRepository {

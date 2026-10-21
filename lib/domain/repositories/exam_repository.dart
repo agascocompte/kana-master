@@ -14,11 +14,16 @@ class ExamResultRecord {
   final List<ExamSection> sections;
   final ExamScore score;
 
+  /// Whether the questions were saved, so the test can be reviewed. Tests
+  /// taken before this was added only have the score.
+  final bool canReview;
+
   const ExamResultRecord({
     required this.id,
     required this.timestamp,
     required this.sections,
     required this.score,
+    this.canReview = false,
   });
 
   bool get isFull => sections.length == ExamSection.values.length;
@@ -80,6 +85,7 @@ class ExamRepository {
         'timestamp': now,
         'sections': paper.sections.map((s) => s.name).join(','),
         'score': json.encode(score.toJson()),
+        'review': json.encode(ExamRecordCodec.encode(paper, answers)),
       });
       for (final entry in itemCorrect.entries) {
         final updated = await txn.rawUpdate(
@@ -101,7 +107,17 @@ class ExamRepository {
 
   Future<List<ExamResultRecord>> getResults() async {
     final db = await _databaseProvider.database;
-    final rows = await db.query('exam_results', orderBy: 'timestamp DESC');
+    final rows = await db.query(
+      'exam_results',
+      columns: [
+        'id',
+        'timestamp',
+        'sections',
+        'score',
+        'review IS NOT NULL AS can_review',
+      ],
+      orderBy: 'timestamp DESC',
+    );
     return [
       for (final row in rows)
         ExamResultRecord(
@@ -114,8 +130,23 @@ class ExamRepository {
           score: ExamScore.fromJson(
             json.decode(row['score'] as String) as Map<String, dynamic>,
           ),
+          canReview: row['can_review'] == 1,
         ),
     ];
+  }
+
+  /// Questions and answers of a saved test, or null if they were not kept.
+  Future<(ExamPaper, Map<ExamQuestion, int>)?> getReview(int id) async {
+    final db = await _databaseProvider.database;
+    final rows = await db.query(
+      'exam_results',
+      columns: ['review'],
+      where: 'id = ?',
+      whereArgs: [id],
+    );
+    final review = rows.isEmpty ? null : rows.first['review'] as String?;
+    if (review == null) return null;
+    return ExamRecordCodec.decode(json.decode(review) as Map<String, dynamic>);
   }
 
   /// Bank items already used at least once, and the bank size.
