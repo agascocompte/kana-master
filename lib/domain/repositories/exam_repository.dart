@@ -6,6 +6,7 @@ import 'package:kana_master/domain/exam/exam_builder.dart';
 import 'package:kana_master/domain/exam/exam_models.dart';
 import 'package:kana_master/domain/exam/exam_scoring.dart';
 import 'package:kana_master/domain/providers/database_provider.dart';
+import 'package:kana_master/i18n/strings.g.dart';
 import 'package:sqflite/sqflite.dart';
 
 class ExamResultRecord {
@@ -32,16 +33,32 @@ class ExamResultRecord {
 class ExamRepository {
   final DatabaseProvider _databaseProvider = DatabaseProvider.dbProvider;
   ExamBank? _bank;
+  String? _bankLanguage;
 
+  /// The item bank with the explanations in the language of the app.
   Future<ExamBank> loadBank() async {
-    if (_bank != null) return _bank!;
+    final language =
+        examTextLanguage(LocaleSettings.currentLocale.languageCode);
+    if (_bank != null && _bankLanguage == language) return _bank!;
     final sources = await Future.wait(
       Mondai.values.map((m) => rootBundle.loadString(examBankAsset(m))),
     );
-    return _bank = ExamBank.fromJsonStrings({
-      for (var i = 0; i < Mondai.values.length; i++)
-        Mondai.values[i]: sources[i],
-    });
+    final texts = await Future.wait(
+      Mondai.values.map(
+        (m) => rootBundle.loadString(examTextsAsset(language, m)),
+      ),
+    );
+    _bankLanguage = language;
+    return _bank = ExamBank.fromJsonStrings(
+      {
+        for (var i = 0; i < Mondai.values.length; i++)
+          Mondai.values[i]: sources[i],
+      },
+      texts: {
+        for (var i = 0; i < Mondai.values.length; i++)
+          Mondai.values[i]: texts[i],
+      },
+    );
   }
 
   Future<ExamPaper> createPaper(List<ExamSection> sections) async {

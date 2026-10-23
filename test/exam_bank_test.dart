@@ -14,6 +14,12 @@ Map<Mondai, String> _sources() => {
           m: File(examBankAsset(m)).readAsStringSync(),
     };
 
+/// Explanations and translations of every bank in [language].
+Map<Mondai, String> _textsOf(String language) => {
+      for (final m in Mondai.values)
+        m: File(examTextsAsset(language, m)).readAsStringSync(),
+    };
+
 List<Map<String, dynamic>> _raw(Mondai m) =>
     (json.decode(File(examBankAsset(m)).readAsStringSync()) as List<dynamic>)
         .cast<Map<String, dynamic>>();
@@ -36,7 +42,7 @@ Iterable<String> _texts(Map<String, dynamic> item) sync* {
 }
 
 void main() {
-  final bank = ExamBank.fromJsonStrings(_sources());
+  final bank = ExamBank.fromJsonStrings(_sources(), texts: _textsOf('es'));
 
   group('item banks', () {
     test('every question type has a bank file', () {
@@ -167,6 +173,28 @@ void main() {
           paper.allQuestions.every(
               (q) => q.translation != null || q.passage?.translation != null),
           isTrue);
+    });
+
+    test('every language has the texts of every question', () {
+      for (final language in examTextLanguages) {
+        final localized =
+            ExamBank.fromJsonStrings(_sources(), texts: _textsOf(language));
+        for (final m in Mondai.values) {
+          for (final item in localized.items[m]!) {
+            for (final q in item.toQuestions(Random(1), 1)) {
+              final where = '$language ${q.itemId}';
+              expect(q.explanation.trim(), isNotEmpty, reason: where);
+              if (m != Mondai.textGrammar) {
+                expect(q.translation?.trim(), isNotEmpty, reason: where);
+              }
+              if (q.passage != null) {
+                expect(q.passage!.translation?.trim(), isNotEmpty,
+                    reason: where);
+              }
+            }
+          }
+        }
+      }
     });
 
     test('each bank fills several tests', () {

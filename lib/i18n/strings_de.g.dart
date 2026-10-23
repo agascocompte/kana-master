@@ -39,6 +39,7 @@ class TranslationsDe with BaseTranslations<AppLocale, Translations> implements T
 
 	// Translations
 	@override late final _Translations$app$de app = _Translations$app$de._(_root);
+	@override late final _Translations$exam$de exam = _Translations$exam$de._(_root);
 }
 
 // Path: app
@@ -272,6 +273,110 @@ class _Translations$app$de implements Translations$app$en {
 	@override String get settingsAdPrivacySubtitle => 'Ändere deine Einwilligung für personalisierte Werbung.';
 }
 
+// Path: exam
+class _Translations$exam$de implements Translations$exam$en {
+	_Translations$exam$de._(this._root);
+
+	final TranslationsDe _root; // ignore: unused_field
+
+	// Translations
+	@override String get tab => 'Prüfung';
+	@override String get hubTitle => 'JLPT N5 Simulator';
+	@override String get hubSubtitle => 'Tests im gleichen Format wie die echte Prüfung';
+	@override String get daysLeft => 'Tage bis zur Prüfung';
+	@override String get examsToday => 'Tests heute';
+	@override String get questionsSeen => 'Fragen gesehen';
+	@override String get fullExam => 'Komplette Prüfung';
+	@override String get fullExamSubtitle => '20 + 40 + 30 Min. · 67 Fragen';
+	@override String sectionCardSubtitle({required Object minutes, required Object count}) => '${minutes} Min. · ${count} Fragen';
+	@override String get progressTitle => 'Verlauf (komplette Prüfung)';
+	@override String get weakPoints => 'Schwachstellen';
+	@override String weakPointsSubtitle({required Object count}) => 'Richtige Antworten nach Fragetyp in deinen letzten ${count} Tests';
+	@override String get history => 'Verlauf';
+	@override String historyFullDetail({required Object date, required Object language, required Object listening}) => '${date} · Sprache ${language}/120 · Hören ${listening}/60';
+	@override late final _Translations$exam$sections$de sections = _Translations$exam$sections$de._(_root);
+	@override late final _Translations$exam$mondai$de mondai = _Translations$exam$mondai$de._(_root);
+	@override String get createError => 'Der Test konnte nicht erstellt werden.';
+	@override String get leaveTitle => 'Test verlassen?';
+	@override String get leaveBody => 'Deine Antworten in diesem Test gehen verloren.';
+	@override String get keepGoing => 'Weitermachen';
+	@override String get leave => 'Verlassen';
+	@override String sectionOf({required Object current, required Object total}) => 'Teil ${current} von ${total}';
+	@override String sectionInfo({required Object minutes, required Object count}) => '${minutes} Minuten · ${count} Fragen';
+	@override String get listeningIntro => 'Das Audio startet von selbst und läuft nur einmal, wie in der Prüfung. Antworte in der Pause nach jeder Frage. Nutze Kopfhörer.';
+	@override String get writtenIntro => 'Du kannst frei zwischen den Fragen wechseln. Wenn die Zeit abläuft, wird der Teil automatisch abgegeben.';
+	@override String get start => 'Start';
+	@override String get timeUp => 'Zeit abgelaufen';
+	@override String get submitTitle => 'Teil abgeben?';
+	@override String get submitAllAnswered => 'Du hast alle Fragen beantwortet.';
+	@override String submitUnanswered({required Object count}) => 'Unbeantwortete Fragen: ${count}.';
+	@override String get submit => 'Abgeben';
+	@override String get previous => 'Zurück';
+	@override String get next => 'Weiter';
+	@override String questionOf({required Object current, required Object total}) => 'Frage ${current} von ${total}';
+	@override String get resultTitle => 'Ergebnis';
+	@override String get reviewAnswers => 'Antworten ansehen';
+	@override String get back => 'Zurück';
+	@override String get passed => 'Bestanden';
+	@override String get failed => 'Nicht bestanden';
+	@override String get scoreNote => 'Geschätzte Punktzahl: Jede Frage zählt gleich. Zum Bestehen brauchst du 80/180 und in jedem Teil mindestens 38 bzw. 19.';
+	@override String correctOf({required Object correct, required Object total}) => '${correct} von ${total} richtig';
+	@override String get listeningHint => 'Minimum zum Bestehen im Hörverstehen: 19/60 (32 %). Ziel sicherheitshalber über 60 %.';
+	@override String get languageHint => 'Minimum im Sprachteil: 38/120 (32 %). Ziel sicherheitshalber über 60 %.';
+	@override String get reviewTitle => 'Durchsicht';
+	@override String get onlyMistakes => 'Nur Fehler';
+	@override String get noMistakes => 'Keine Fehler!';
+	@override String get unanswered => 'Nicht beantwortet';
+	@override String get correct => 'Richtig';
+	@override String get incorrect => 'Falsch';
+	@override String get translation => 'Übersetzung';
+	@override String get showTextTranslation => 'Übersetzung des Textes zeigen';
+	@override String get hideTextTranslation => 'Übersetzung des Textes ausblenden';
+	@override String get listen => 'Anhören';
+	@override String get stop => 'Stopp';
+	@override String get instructions => 'Anleitung';
+	@override String get listening => 'Hören …';
+	@override String answerNow({required Object seconds}) => 'Antworten · ${seconds} s';
+	@override String get paused => 'Pausiert';
+	@override String get resume => 'Fortsetzen';
+	@override String get pause => 'Pause';
+}
+
+// Path: exam.sections
+class _Translations$exam$sections$de implements Translations$exam$sections$en {
+	_Translations$exam$sections$de._(this._root);
+
+	final TranslationsDe _root; // ignore: unused_field
+
+	// Translations
+	@override String get vocabulary => 'Wortschatz und Schrift';
+	@override String get grammarReading => 'Grammatik und Lesen';
+	@override String get listening => 'Hörverstehen';
+}
+
+// Path: exam.mondai
+class _Translations$exam$mondai$de implements Translations$exam$mondai$en {
+	_Translations$exam$mondai$de._(this._root);
+
+	final TranslationsDe _root; // ignore: unused_field
+
+	// Translations
+	@override String get kanjiReading => 'Kanji lesen';
+	@override String get orthography => 'Schreibweise';
+	@override String get contextual => 'Wortschatz im Kontext';
+	@override String get paraphrase => 'Umschreibung';
+	@override String get grammarForm => 'Grammatikform';
+	@override String get sentenceOrder => 'Satzbau';
+	@override String get textGrammar => 'Textgrammatik';
+	@override String get shortReading => 'Kurze Texte';
+	@override String get midReading => 'Mittellanger Text';
+	@override String get infoSearch => 'Informationssuche';
+	@override String get taskListening => 'Aufgaben verstehen';
+	@override String get pointListening => 'Kernpunkte verstehen';
+	@override String get utterance => 'Sprachliche Ausdrücke';
+	@override String get quickResponse => 'Schnelle Reaktion';
+}
+
 /// The flat map containing all translations for locale <de>.
 /// Only for edge cases! For simple maps, use the map function of this library.
 ///
@@ -502,6 +607,81 @@ extension on TranslationsDe {
 			'app.settingsReminderBlocked' => 'Benachrichtigungen für KanaGo sind deaktiviert. Aktiviere sie in den Systemeinstellungen.',
 			'app.settingsAdPrivacyTitle' => 'Werbe-Datenschutz',
 			'app.settingsAdPrivacySubtitle' => 'Ändere deine Einwilligung für personalisierte Werbung.',
+			'exam.tab' => 'Prüfung',
+			'exam.hubTitle' => 'JLPT N5 Simulator',
+			'exam.hubSubtitle' => 'Tests im gleichen Format wie die echte Prüfung',
+			'exam.daysLeft' => 'Tage bis zur Prüfung',
+			'exam.examsToday' => 'Tests heute',
+			'exam.questionsSeen' => 'Fragen gesehen',
+			'exam.fullExam' => 'Komplette Prüfung',
+			'exam.fullExamSubtitle' => '20 + 40 + 30 Min. · 67 Fragen',
+			'exam.sectionCardSubtitle' => ({required Object minutes, required Object count}) => '${minutes} Min. · ${count} Fragen',
+			'exam.progressTitle' => 'Verlauf (komplette Prüfung)',
+			'exam.weakPoints' => 'Schwachstellen',
+			'exam.weakPointsSubtitle' => ({required Object count}) => 'Richtige Antworten nach Fragetyp in deinen letzten ${count} Tests',
+			'exam.history' => 'Verlauf',
+			'exam.historyFullDetail' => ({required Object date, required Object language, required Object listening}) => '${date} · Sprache ${language}/120 · Hören ${listening}/60',
+			'exam.sections.vocabulary' => 'Wortschatz und Schrift',
+			'exam.sections.grammarReading' => 'Grammatik und Lesen',
+			'exam.sections.listening' => 'Hörverstehen',
+			'exam.mondai.kanjiReading' => 'Kanji lesen',
+			'exam.mondai.orthography' => 'Schreibweise',
+			'exam.mondai.contextual' => 'Wortschatz im Kontext',
+			'exam.mondai.paraphrase' => 'Umschreibung',
+			'exam.mondai.grammarForm' => 'Grammatikform',
+			'exam.mondai.sentenceOrder' => 'Satzbau',
+			'exam.mondai.textGrammar' => 'Textgrammatik',
+			'exam.mondai.shortReading' => 'Kurze Texte',
+			'exam.mondai.midReading' => 'Mittellanger Text',
+			'exam.mondai.infoSearch' => 'Informationssuche',
+			'exam.mondai.taskListening' => 'Aufgaben verstehen',
+			'exam.mondai.pointListening' => 'Kernpunkte verstehen',
+			'exam.mondai.utterance' => 'Sprachliche Ausdrücke',
+			'exam.mondai.quickResponse' => 'Schnelle Reaktion',
+			'exam.createError' => 'Der Test konnte nicht erstellt werden.',
+			'exam.leaveTitle' => 'Test verlassen?',
+			'exam.leaveBody' => 'Deine Antworten in diesem Test gehen verloren.',
+			'exam.keepGoing' => 'Weitermachen',
+			'exam.leave' => 'Verlassen',
+			'exam.sectionOf' => ({required Object current, required Object total}) => 'Teil ${current} von ${total}',
+			'exam.sectionInfo' => ({required Object minutes, required Object count}) => '${minutes} Minuten · ${count} Fragen',
+			'exam.listeningIntro' => 'Das Audio startet von selbst und läuft nur einmal, wie in der Prüfung. Antworte in der Pause nach jeder Frage. Nutze Kopfhörer.',
+			'exam.writtenIntro' => 'Du kannst frei zwischen den Fragen wechseln. Wenn die Zeit abläuft, wird der Teil automatisch abgegeben.',
+			'exam.start' => 'Start',
+			'exam.timeUp' => 'Zeit abgelaufen',
+			'exam.submitTitle' => 'Teil abgeben?',
+			'exam.submitAllAnswered' => 'Du hast alle Fragen beantwortet.',
+			'exam.submitUnanswered' => ({required Object count}) => 'Unbeantwortete Fragen: ${count}.',
+			'exam.submit' => 'Abgeben',
+			'exam.previous' => 'Zurück',
+			'exam.next' => 'Weiter',
+			'exam.questionOf' => ({required Object current, required Object total}) => 'Frage ${current} von ${total}',
+			'exam.resultTitle' => 'Ergebnis',
+			'exam.reviewAnswers' => 'Antworten ansehen',
+			'exam.back' => 'Zurück',
+			'exam.passed' => 'Bestanden',
+			'exam.failed' => 'Nicht bestanden',
+			'exam.scoreNote' => 'Geschätzte Punktzahl: Jede Frage zählt gleich. Zum Bestehen brauchst du 80/180 und in jedem Teil mindestens 38 bzw. 19.',
+			'exam.correctOf' => ({required Object correct, required Object total}) => '${correct} von ${total} richtig',
+			'exam.listeningHint' => 'Minimum zum Bestehen im Hörverstehen: 19/60 (32 %). Ziel sicherheitshalber über 60 %.',
+			'exam.languageHint' => 'Minimum im Sprachteil: 38/120 (32 %). Ziel sicherheitshalber über 60 %.',
+			'exam.reviewTitle' => 'Durchsicht',
+			'exam.onlyMistakes' => 'Nur Fehler',
+			'exam.noMistakes' => 'Keine Fehler!',
+			'exam.unanswered' => 'Nicht beantwortet',
+			'exam.correct' => 'Richtig',
+			'exam.incorrect' => 'Falsch',
+			'exam.translation' => 'Übersetzung',
+			'exam.showTextTranslation' => 'Übersetzung des Textes zeigen',
+			'exam.hideTextTranslation' => 'Übersetzung des Textes ausblenden',
+			'exam.listen' => 'Anhören',
+			'exam.stop' => 'Stopp',
+			'exam.instructions' => 'Anleitung',
+			'exam.listening' => 'Hören …',
+			'exam.answerNow' => ({required Object seconds}) => 'Antworten · ${seconds} s',
+			'exam.paused' => 'Pausiert',
+			'exam.resume' => 'Fortsetzen',
+			'exam.pause' => 'Pause',
 			_ => null,
 		};
 	}

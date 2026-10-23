@@ -8,6 +8,20 @@ String examBankAsset(Mondai mondai) => 'assets/exam/bank/${mondai.name}.json';
 
 String examAudioAsset(String name) => 'assets/exam/audio/$name.mp3';
 
+/// Languages with their own explanations and translations of the items.
+/// Japanese has none: the questions are already in Japanese.
+const List<String> examTextLanguages = [
+  'en', 'es', 'ca', 'de', 'fr', 'it', 'pt', 'ru', 'ko', 'zh', //
+];
+
+/// Explanations and translations of the items of [mondai] in [language].
+String examTextsAsset(String language, Mondai mondai) =>
+    'assets/exam/i18n/$language/${mondai.name}.json';
+
+/// [language] if it has texts of its own, English otherwise.
+String examTextLanguage(String language) =>
+    examTextLanguages.contains(language) ? language : 'en';
+
 /// One entry of an item bank. Most entries give one question; passages give
 /// several.
 abstract class BankItem {
@@ -426,15 +440,55 @@ class ExamBank {
 
   const ExamBank(this.items);
 
-  /// Parses the bank files, given as JSON strings per question type.
-  factory ExamBank.fromJsonStrings(Map<Mondai, String> sources) {
+  /// Parses the bank files, given as JSON strings per question type, with
+  /// the explanations and translations of one language in [texts].
+  factory ExamBank.fromJsonStrings(
+    Map<Mondai, String> sources, {
+    Map<Mondai, String> texts = const {},
+  }) {
     return ExamBank({
       for (final entry in sources.entries)
-        entry.key: [
-          for (final raw in json.decode(entry.value) as List<dynamic>)
-            BankItem.fromJson(entry.key, raw as Map<String, dynamic>),
-        ],
+        entry.key: () {
+          final extra = texts[entry.key] == null
+              ? const <String, dynamic>{}
+              : json.decode(texts[entry.key]!) as Map<String, dynamic>;
+          return [
+            for (final raw in json.decode(entry.value) as List<dynamic>)
+              BankItem.fromJson(
+                entry.key,
+                _withTexts(
+                  raw as Map<String, dynamic>,
+                  extra[raw['id']] as Map<String, dynamic>?,
+                ),
+              ),
+          ];
+        }(),
     });
+  }
+
+  /// [item] with the fields of [texts] added, sub-questions included.
+  static Map<String, dynamic> _withTexts(
+    Map<String, dynamic> item,
+    Map<String, dynamic>? texts,
+  ) {
+    if (texts == null) return item;
+    final merged = {...item};
+    for (final entry in texts.entries) {
+      if (entry.value is List) {
+        final subs = item[entry.key] as List<dynamic>;
+        final extra = entry.value as List<dynamic>;
+        merged[entry.key] = [
+          for (var i = 0; i < subs.length; i++)
+            {
+              ...subs[i] as Map<String, dynamic>,
+              if (i < extra.length) ...extra[i] as Map<String, dynamic>,
+            },
+        ];
+      } else {
+        merged[entry.key] = entry.value;
+      }
+    }
+    return merged;
   }
 
   int get size => items.values.fold(0, (sum, list) => sum + list.length);

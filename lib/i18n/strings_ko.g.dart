@@ -39,6 +39,7 @@ class TranslationsKo with BaseTranslations<AppLocale, Translations> implements T
 
 	// Translations
 	@override late final _Translations$app$ko app = _Translations$app$ko._(_root);
+	@override late final _Translations$exam$ko exam = _Translations$exam$ko._(_root);
 }
 
 // Path: app
@@ -272,6 +273,110 @@ class _Translations$app$ko implements Translations$app$en {
 	@override String get settingsAdPrivacySubtitle => '맞춤 광고에 대한 동의를 변경합니다.';
 }
 
+// Path: exam
+class _Translations$exam$ko implements Translations$exam$en {
+	_Translations$exam$ko._(this._root);
+
+	final TranslationsKo _root; // ignore: unused_field
+
+	// Translations
+	@override String get tab => '시험';
+	@override String get hubTitle => 'JLPT N5 모의시험';
+	@override String get hubSubtitle => '실제 시험과 같은 형식의 모의고사';
+	@override String get daysLeft => '시험까지 남은 일수';
+	@override String get examsToday => '오늘 본 시험';
+	@override String get questionsSeen => '푼 문제';
+	@override String get fullExam => '전체 시험';
+	@override String get fullExamSubtitle => '20 + 40 + 30분 · 67문제';
+	@override String sectionCardSubtitle({required Object minutes, required Object count}) => '${minutes}분 · ${count}문제';
+	@override String get progressTitle => '진행 상황 (전체 시험)';
+	@override String get weakPoints => '약점';
+	@override String weakPointsSubtitle({required Object count}) => '최근 ${count}회 시험의 문제 유형별 정답';
+	@override String get history => '기록';
+	@override String historyFullDetail({required Object date, required Object language, required Object listening}) => '${date} · 언어지식 ${language}/120 · 청해 ${listening}/60';
+	@override late final _Translations$exam$sections$ko sections = _Translations$exam$sections$ko._(_root);
+	@override late final _Translations$exam$mondai$ko mondai = _Translations$exam$mondai$ko._(_root);
+	@override String get createError => '시험을 만들 수 없습니다.';
+	@override String get leaveTitle => '시험을 종료할까요?';
+	@override String get leaveBody => '이번 시험의 답안이 사라집니다.';
+	@override String get keepGoing => '계속하기';
+	@override String get leave => '나가기';
+	@override String sectionOf({required Object current, required Object total}) => '섹션 ${current}/${total}';
+	@override String sectionInfo({required Object minutes, required Object count}) => '${minutes}분 · ${count}문제';
+	@override String get listeningIntro => '실제 시험처럼 음성은 자동으로 한 번만 재생됩니다. 각 문제 뒤의 쉬는 시간에 답하세요. 이어폰 사용을 권장합니다.';
+	@override String get writtenIntro => '문제 사이를 자유롭게 이동할 수 있습니다. 시간이 끝나면 섹션이 자동으로 제출됩니다.';
+	@override String get start => '시작';
+	@override String get timeUp => '시간 종료';
+	@override String get submitTitle => '섹션을 제출할까요?';
+	@override String get submitAllAnswered => '모든 문제에 답했습니다.';
+	@override String submitUnanswered({required Object count}) => '답하지 않은 문제: ${count}개.';
+	@override String get submit => '제출';
+	@override String get previous => '이전';
+	@override String get next => '다음';
+	@override String questionOf({required Object current, required Object total}) => '문제 ${current}/${total}';
+	@override String get resultTitle => '결과';
+	@override String get reviewAnswers => '답안 확인';
+	@override String get back => '돌아가기';
+	@override String get passed => '합격';
+	@override String get failed => '불합격';
+	@override String get scoreNote => '예상 점수: 모든 문제의 배점이 같다고 가정합니다. 합격하려면 180점 중 80점 이상, 각 영역에서 38점과 19점 이상이 필요합니다.';
+	@override String correctOf({required Object total, required Object correct}) => '${total}문제 중 ${correct}문제 정답';
+	@override String get listeningHint => '청해 합격 최저점: 19/60 (32%). 안전하게 60% 이상을 목표로 하세요.';
+	@override String get languageHint => '언어지식 합격 최저점: 38/120 (32%). 안전하게 60% 이상을 목표로 하세요.';
+	@override String get reviewTitle => '복습';
+	@override String get onlyMistakes => '틀린 문제만';
+	@override String get noMistakes => '틀린 문제가 없어요!';
+	@override String get unanswered => '미응답';
+	@override String get correct => '정답';
+	@override String get incorrect => '오답';
+	@override String get translation => '번역';
+	@override String get showTextTranslation => '본문 번역 보기';
+	@override String get hideTextTranslation => '본문 번역 숨기기';
+	@override String get listen => '듣기';
+	@override String get stop => '정지';
+	@override String get instructions => '안내';
+	@override String get listening => '듣는 중…';
+	@override String answerNow({required Object seconds}) => '답하세요 · ${seconds}초';
+	@override String get paused => '일시정지됨';
+	@override String get resume => '재개';
+	@override String get pause => '일시정지';
+}
+
+// Path: exam.sections
+class _Translations$exam$sections$ko implements Translations$exam$sections$en {
+	_Translations$exam$sections$ko._(this._root);
+
+	final TranslationsKo _root; // ignore: unused_field
+
+	// Translations
+	@override String get vocabulary => '문자·어휘';
+	@override String get grammarReading => '문법·독해';
+	@override String get listening => '청해';
+}
+
+// Path: exam.mondai
+class _Translations$exam$mondai$ko implements Translations$exam$mondai$en {
+	_Translations$exam$mondai$ko._(this._root);
+
+	final TranslationsKo _root; // ignore: unused_field
+
+	// Translations
+	@override String get kanjiReading => '한자 읽기';
+	@override String get orthography => '표기';
+	@override String get contextual => '문맥 규정';
+	@override String get paraphrase => '유의 표현';
+	@override String get grammarForm => '문법 형식 판단';
+	@override String get sentenceOrder => '문장 만들기';
+	@override String get textGrammar => '글의 문법';
+	@override String get shortReading => '내용 이해 (단문)';
+	@override String get midReading => '내용 이해 (중문)';
+	@override String get infoSearch => '정보 검색';
+	@override String get taskListening => '과제 이해';
+	@override String get pointListening => '포인트 이해';
+	@override String get utterance => '발화 표현';
+	@override String get quickResponse => '즉시 응답';
+}
+
 /// The flat map containing all translations for locale <ko>.
 /// Only for edge cases! For simple maps, use the map function of this library.
 ///
@@ -502,6 +607,81 @@ extension on TranslationsKo {
 			'app.settingsReminderBlocked' => 'KanaGo 알림이 꺼져 있어요. 시스템 설정에서 켜 주세요.',
 			'app.settingsAdPrivacyTitle' => '광고 개인정보 보호',
 			'app.settingsAdPrivacySubtitle' => '맞춤 광고에 대한 동의를 변경합니다.',
+			'exam.tab' => '시험',
+			'exam.hubTitle' => 'JLPT N5 모의시험',
+			'exam.hubSubtitle' => '실제 시험과 같은 형식의 모의고사',
+			'exam.daysLeft' => '시험까지 남은 일수',
+			'exam.examsToday' => '오늘 본 시험',
+			'exam.questionsSeen' => '푼 문제',
+			'exam.fullExam' => '전체 시험',
+			'exam.fullExamSubtitle' => '20 + 40 + 30분 · 67문제',
+			'exam.sectionCardSubtitle' => ({required Object minutes, required Object count}) => '${minutes}분 · ${count}문제',
+			'exam.progressTitle' => '진행 상황 (전체 시험)',
+			'exam.weakPoints' => '약점',
+			'exam.weakPointsSubtitle' => ({required Object count}) => '최근 ${count}회 시험의 문제 유형별 정답',
+			'exam.history' => '기록',
+			'exam.historyFullDetail' => ({required Object date, required Object language, required Object listening}) => '${date} · 언어지식 ${language}/120 · 청해 ${listening}/60',
+			'exam.sections.vocabulary' => '문자·어휘',
+			'exam.sections.grammarReading' => '문법·독해',
+			'exam.sections.listening' => '청해',
+			'exam.mondai.kanjiReading' => '한자 읽기',
+			'exam.mondai.orthography' => '표기',
+			'exam.mondai.contextual' => '문맥 규정',
+			'exam.mondai.paraphrase' => '유의 표현',
+			'exam.mondai.grammarForm' => '문법 형식 판단',
+			'exam.mondai.sentenceOrder' => '문장 만들기',
+			'exam.mondai.textGrammar' => '글의 문법',
+			'exam.mondai.shortReading' => '내용 이해 (단문)',
+			'exam.mondai.midReading' => '내용 이해 (중문)',
+			'exam.mondai.infoSearch' => '정보 검색',
+			'exam.mondai.taskListening' => '과제 이해',
+			'exam.mondai.pointListening' => '포인트 이해',
+			'exam.mondai.utterance' => '발화 표현',
+			'exam.mondai.quickResponse' => '즉시 응답',
+			'exam.createError' => '시험을 만들 수 없습니다.',
+			'exam.leaveTitle' => '시험을 종료할까요?',
+			'exam.leaveBody' => '이번 시험의 답안이 사라집니다.',
+			'exam.keepGoing' => '계속하기',
+			'exam.leave' => '나가기',
+			'exam.sectionOf' => ({required Object current, required Object total}) => '섹션 ${current}/${total}',
+			'exam.sectionInfo' => ({required Object minutes, required Object count}) => '${minutes}분 · ${count}문제',
+			'exam.listeningIntro' => '실제 시험처럼 음성은 자동으로 한 번만 재생됩니다. 각 문제 뒤의 쉬는 시간에 답하세요. 이어폰 사용을 권장합니다.',
+			'exam.writtenIntro' => '문제 사이를 자유롭게 이동할 수 있습니다. 시간이 끝나면 섹션이 자동으로 제출됩니다.',
+			'exam.start' => '시작',
+			'exam.timeUp' => '시간 종료',
+			'exam.submitTitle' => '섹션을 제출할까요?',
+			'exam.submitAllAnswered' => '모든 문제에 답했습니다.',
+			'exam.submitUnanswered' => ({required Object count}) => '답하지 않은 문제: ${count}개.',
+			'exam.submit' => '제출',
+			'exam.previous' => '이전',
+			'exam.next' => '다음',
+			'exam.questionOf' => ({required Object current, required Object total}) => '문제 ${current}/${total}',
+			'exam.resultTitle' => '결과',
+			'exam.reviewAnswers' => '답안 확인',
+			'exam.back' => '돌아가기',
+			'exam.passed' => '합격',
+			'exam.failed' => '불합격',
+			'exam.scoreNote' => '예상 점수: 모든 문제의 배점이 같다고 가정합니다. 합격하려면 180점 중 80점 이상, 각 영역에서 38점과 19점 이상이 필요합니다.',
+			'exam.correctOf' => ({required Object total, required Object correct}) => '${total}문제 중 ${correct}문제 정답',
+			'exam.listeningHint' => '청해 합격 최저점: 19/60 (32%). 안전하게 60% 이상을 목표로 하세요.',
+			'exam.languageHint' => '언어지식 합격 최저점: 38/120 (32%). 안전하게 60% 이상을 목표로 하세요.',
+			'exam.reviewTitle' => '복습',
+			'exam.onlyMistakes' => '틀린 문제만',
+			'exam.noMistakes' => '틀린 문제가 없어요!',
+			'exam.unanswered' => '미응답',
+			'exam.correct' => '정답',
+			'exam.incorrect' => '오답',
+			'exam.translation' => '번역',
+			'exam.showTextTranslation' => '본문 번역 보기',
+			'exam.hideTextTranslation' => '본문 번역 숨기기',
+			'exam.listen' => '듣기',
+			'exam.stop' => '정지',
+			'exam.instructions' => '안내',
+			'exam.listening' => '듣는 중…',
+			'exam.answerNow' => ({required Object seconds}) => '답하세요 · ${seconds}초',
+			'exam.paused' => '일시정지됨',
+			'exam.resume' => '재개',
+			'exam.pause' => '일시정지',
 			_ => null,
 		};
 	}

@@ -39,6 +39,7 @@ class TranslationsRu with BaseTranslations<AppLocale, Translations> implements T
 
 	// Translations
 	@override late final _Translations$app$ru app = _Translations$app$ru._(_root);
+	@override late final _Translations$exam$ru exam = _Translations$exam$ru._(_root);
 }
 
 // Path: app
@@ -272,6 +273,110 @@ class _Translations$app$ru implements Translations$app$en {
 	@override String get settingsAdPrivacySubtitle => 'Измените согласие на персонализированную рекламу.';
 }
 
+// Path: exam
+class _Translations$exam$ru implements Translations$exam$en {
+	_Translations$exam$ru._(this._root);
+
+	final TranslationsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get tab => 'Экзамен';
+	@override String get hubTitle => 'Симулятор JLPT N5';
+	@override String get hubSubtitle => 'Тесты в том же формате, что и настоящий экзамен';
+	@override String get daysLeft => 'дн. до экзамена';
+	@override String get examsToday => 'пройдено сегодня';
+	@override String get questionsSeen => 'просмотрено вопросов';
+	@override String get fullExam => 'Полный экзамен';
+	@override String get fullExamSubtitle => '20 + 40 + 30 мин · 67 вопросов';
+	@override String sectionCardSubtitle({required Object minutes, required Object count}) => '${minutes} мин · вопросов: ${count}';
+	@override String get progressTitle => 'Прогресс (полный экзамен)';
+	@override String get weakPoints => 'Слабые места';
+	@override String weakPointsSubtitle({required Object count}) => 'Верные ответы по типам вопросов (последние экзамены: ${count})';
+	@override String get history => 'История';
+	@override String historyFullDetail({required Object date, required Object language, required Object listening}) => '${date} · Язык ${language}/120 · Аудирование ${listening}/60';
+	@override late final _Translations$exam$sections$ru sections = _Translations$exam$sections$ru._(_root);
+	@override late final _Translations$exam$mondai$ru mondai = _Translations$exam$mondai$ru._(_root);
+	@override String get createError => 'Не удалось создать экзамен.';
+	@override String get leaveTitle => 'Выйти из экзамена?';
+	@override String get leaveBody => 'Ответы этого экзамена будут потеряны.';
+	@override String get keepGoing => 'Продолжить';
+	@override String get leave => 'Выйти';
+	@override String sectionOf({required Object current, required Object total}) => 'Раздел ${current} из ${total}';
+	@override String sectionInfo({required Object minutes, required Object count}) => '${minutes} мин · вопросов: ${count}';
+	@override String get listeningIntro => 'Аудио воспроизводится автоматически и только один раз, как на экзамене. Отвечайте во время паузы после каждого вопроса. Используйте наушники.';
+	@override String get writtenIntro => 'Вы можете свободно переходить между вопросами. Когда время закончится, раздел будет сдан автоматически.';
+	@override String get start => 'Начать';
+	@override String get timeUp => 'Время вышло';
+	@override String get submitTitle => 'Сдать раздел?';
+	@override String get submitAllAnswered => 'Вы ответили на все вопросы.';
+	@override String submitUnanswered({required Object count}) => 'Вопросов без ответа: ${count}.';
+	@override String get submit => 'Сдать';
+	@override String get previous => 'Назад';
+	@override String get next => 'Далее';
+	@override String questionOf({required Object current, required Object total}) => 'Вопрос ${current} из ${total}';
+	@override String get resultTitle => 'Результат';
+	@override String get reviewAnswers => 'Разбор ответов';
+	@override String get back => 'Назад';
+	@override String get passed => 'Сдано';
+	@override String get failed => 'Не сдано';
+	@override String get scoreNote => 'Примерный балл: все вопросы весят одинаково. Чтобы сдать, нужно 80/180 и не меньше 38 и 19 в каждой части.';
+	@override String correctOf({required Object correct, required Object total}) => 'Верно: ${correct} из ${total}';
+	@override String get listeningHint => 'Минимум для аудирования: 19/60 (32 %). Чтобы был запас, стремитесь к результату выше 60 %.';
+	@override String get languageHint => 'Минимум для языковой части: 38/120 (32 %). Чтобы был запас, стремитесь к результату выше 60 %.';
+	@override String get reviewTitle => 'Разбор';
+	@override String get onlyMistakes => 'Только ошибки';
+	@override String get noMistakes => 'Ни одной ошибки!';
+	@override String get unanswered => 'Без ответа';
+	@override String get correct => 'Верно';
+	@override String get incorrect => 'Неверно';
+	@override String get translation => 'Перевод';
+	@override String get showTextTranslation => 'Показать перевод текста';
+	@override String get hideTextTranslation => 'Скрыть перевод текста';
+	@override String get listen => 'Слушать';
+	@override String get stop => 'Стоп';
+	@override String get instructions => 'Инструкции';
+	@override String get listening => 'Слушайте…';
+	@override String answerNow({required Object seconds}) => 'Отвечайте · ${seconds} с';
+	@override String get paused => 'Пауза';
+	@override String get resume => 'Продолжить';
+	@override String get pause => 'Пауза';
+}
+
+// Path: exam.sections
+class _Translations$exam$sections$ru implements Translations$exam$sections$en {
+	_Translations$exam$sections$ru._(this._root);
+
+	final TranslationsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get vocabulary => 'Лексика и письмо';
+	@override String get grammarReading => 'Грамматика и чтение';
+	@override String get listening => 'Аудирование';
+}
+
+// Path: exam.mondai
+class _Translations$exam$mondai$ru implements Translations$exam$mondai$en {
+	_Translations$exam$mondai$ru._(this._root);
+
+	final TranslationsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get kanjiReading => 'Чтение кандзи';
+	@override String get orthography => 'Написание';
+	@override String get contextual => 'Лексика в контексте';
+	@override String get paraphrase => 'Перефразирование';
+	@override String get grammarForm => 'Грамматическая форма';
+	@override String get sentenceOrder => 'Порядок слов';
+	@override String get textGrammar => 'Грамматика в тексте';
+	@override String get shortReading => 'Короткие тексты';
+	@override String get midReading => 'Текст средней длины';
+	@override String get infoSearch => 'Поиск информации';
+	@override String get taskListening => 'Аудирование: задание';
+	@override String get pointListening => 'Аудирование: главное';
+	@override String get utterance => 'Речевые ситуации';
+	@override String get quickResponse => 'Быстрый ответ';
+}
+
 /// The flat map containing all translations for locale <ru>.
 /// Only for edge cases! For simple maps, use the map function of this library.
 ///
@@ -502,6 +607,81 @@ extension on TranslationsRu {
 			'app.settingsReminderBlocked' => 'Уведомления KanaGo отключены. Включите их в настройках системы.',
 			'app.settingsAdPrivacyTitle' => 'Конфиденциальность рекламы',
 			'app.settingsAdPrivacySubtitle' => 'Измените согласие на персонализированную рекламу.',
+			'exam.tab' => 'Экзамен',
+			'exam.hubTitle' => 'Симулятор JLPT N5',
+			'exam.hubSubtitle' => 'Тесты в том же формате, что и настоящий экзамен',
+			'exam.daysLeft' => 'дн. до экзамена',
+			'exam.examsToday' => 'пройдено сегодня',
+			'exam.questionsSeen' => 'просмотрено вопросов',
+			'exam.fullExam' => 'Полный экзамен',
+			'exam.fullExamSubtitle' => '20 + 40 + 30 мин · 67 вопросов',
+			'exam.sectionCardSubtitle' => ({required Object minutes, required Object count}) => '${minutes} мин · вопросов: ${count}',
+			'exam.progressTitle' => 'Прогресс (полный экзамен)',
+			'exam.weakPoints' => 'Слабые места',
+			'exam.weakPointsSubtitle' => ({required Object count}) => 'Верные ответы по типам вопросов (последние экзамены: ${count})',
+			'exam.history' => 'История',
+			'exam.historyFullDetail' => ({required Object date, required Object language, required Object listening}) => '${date} · Язык ${language}/120 · Аудирование ${listening}/60',
+			'exam.sections.vocabulary' => 'Лексика и письмо',
+			'exam.sections.grammarReading' => 'Грамматика и чтение',
+			'exam.sections.listening' => 'Аудирование',
+			'exam.mondai.kanjiReading' => 'Чтение кандзи',
+			'exam.mondai.orthography' => 'Написание',
+			'exam.mondai.contextual' => 'Лексика в контексте',
+			'exam.mondai.paraphrase' => 'Перефразирование',
+			'exam.mondai.grammarForm' => 'Грамматическая форма',
+			'exam.mondai.sentenceOrder' => 'Порядок слов',
+			'exam.mondai.textGrammar' => 'Грамматика в тексте',
+			'exam.mondai.shortReading' => 'Короткие тексты',
+			'exam.mondai.midReading' => 'Текст средней длины',
+			'exam.mondai.infoSearch' => 'Поиск информации',
+			'exam.mondai.taskListening' => 'Аудирование: задание',
+			'exam.mondai.pointListening' => 'Аудирование: главное',
+			'exam.mondai.utterance' => 'Речевые ситуации',
+			'exam.mondai.quickResponse' => 'Быстрый ответ',
+			'exam.createError' => 'Не удалось создать экзамен.',
+			'exam.leaveTitle' => 'Выйти из экзамена?',
+			'exam.leaveBody' => 'Ответы этого экзамена будут потеряны.',
+			'exam.keepGoing' => 'Продолжить',
+			'exam.leave' => 'Выйти',
+			'exam.sectionOf' => ({required Object current, required Object total}) => 'Раздел ${current} из ${total}',
+			'exam.sectionInfo' => ({required Object minutes, required Object count}) => '${minutes} мин · вопросов: ${count}',
+			'exam.listeningIntro' => 'Аудио воспроизводится автоматически и только один раз, как на экзамене. Отвечайте во время паузы после каждого вопроса. Используйте наушники.',
+			'exam.writtenIntro' => 'Вы можете свободно переходить между вопросами. Когда время закончится, раздел будет сдан автоматически.',
+			'exam.start' => 'Начать',
+			'exam.timeUp' => 'Время вышло',
+			'exam.submitTitle' => 'Сдать раздел?',
+			'exam.submitAllAnswered' => 'Вы ответили на все вопросы.',
+			'exam.submitUnanswered' => ({required Object count}) => 'Вопросов без ответа: ${count}.',
+			'exam.submit' => 'Сдать',
+			'exam.previous' => 'Назад',
+			'exam.next' => 'Далее',
+			'exam.questionOf' => ({required Object current, required Object total}) => 'Вопрос ${current} из ${total}',
+			'exam.resultTitle' => 'Результат',
+			'exam.reviewAnswers' => 'Разбор ответов',
+			'exam.back' => 'Назад',
+			'exam.passed' => 'Сдано',
+			'exam.failed' => 'Не сдано',
+			'exam.scoreNote' => 'Примерный балл: все вопросы весят одинаково. Чтобы сдать, нужно 80/180 и не меньше 38 и 19 в каждой части.',
+			'exam.correctOf' => ({required Object correct, required Object total}) => 'Верно: ${correct} из ${total}',
+			'exam.listeningHint' => 'Минимум для аудирования: 19/60 (32 %). Чтобы был запас, стремитесь к результату выше 60 %.',
+			'exam.languageHint' => 'Минимум для языковой части: 38/120 (32 %). Чтобы был запас, стремитесь к результату выше 60 %.',
+			'exam.reviewTitle' => 'Разбор',
+			'exam.onlyMistakes' => 'Только ошибки',
+			'exam.noMistakes' => 'Ни одной ошибки!',
+			'exam.unanswered' => 'Без ответа',
+			'exam.correct' => 'Верно',
+			'exam.incorrect' => 'Неверно',
+			'exam.translation' => 'Перевод',
+			'exam.showTextTranslation' => 'Показать перевод текста',
+			'exam.hideTextTranslation' => 'Скрыть перевод текста',
+			'exam.listen' => 'Слушать',
+			'exam.stop' => 'Стоп',
+			'exam.instructions' => 'Инструкции',
+			'exam.listening' => 'Слушайте…',
+			'exam.answerNow' => ({required Object seconds}) => 'Отвечайте · ${seconds} с',
+			'exam.paused' => 'Пауза',
+			'exam.resume' => 'Продолжить',
+			'exam.pause' => 'Пауза',
 			_ => null,
 		};
 	}

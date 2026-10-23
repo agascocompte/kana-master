@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kana_master/domain/exam/exam_bank.dart';
 import 'package:kana_master/domain/exam/exam_models.dart';
+import 'package:kana_master/i18n/strings.g.dart';
 import 'package:kana_master/pages/exam/widgets/exam_option_tile.dart';
 import 'package:kana_master/pages/exam/widgets/exam_question_view.dart';
 import 'package:kana_master/pages/exam/widgets/jp_text.dart';
@@ -124,9 +125,9 @@ class _ListeningRunnerState extends State<ListeningRunner> {
     final q = _question;
     final selected = widget.answers[q];
     final String status = switch (_step) {
-      _Step.instruction => 'Instrucciones',
-      _Step.listening => 'Escuchando…',
-      _Step.answering => 'Responde · $_secondsLeft s',
+      _Step.instruction => t.exam.instructions,
+      _Step.listening => t.exam.listening,
+      _Step.answering => t.exam.answerNow(seconds: _secondsLeft),
     };
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -140,7 +141,7 @@ class _ListeningRunnerState extends State<ListeningRunner> {
             const SizedBox(width: 8),
             Expanded(
               child: Text(
-                _paused ? 'En pausa' : status,
+                _paused ? t.exam.paused : status,
                 style: TextStyle(
                   fontWeight: FontWeight.w700,
                   color: AppColors.ink,
@@ -155,7 +156,7 @@ class _ListeningRunnerState extends State<ListeningRunner> {
             IconButton(
               onPressed: _togglePause,
               icon: Icon(_paused ? Icons.play_arrow : Icons.pause),
-              tooltip: _paused ? 'Continuar' : 'Pausa',
+              tooltip: _paused ? t.exam.resume : t.exam.pause,
             ),
           ],
         ),

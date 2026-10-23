@@ -49,10 +49,9 @@ class HomePage extends StatelessWidget {
                   icon: const Icon(Icons.school_outlined),
                   label: tr.app.tabStudy,
                 ),
-                // Spanish only until the exam simulator ships to everyone.
-                const NavigationDestination(
-                  icon: Icon(Icons.assignment_outlined),
-                  label: 'Examen',
+                NavigationDestination(
+                  icon: const Icon(Icons.assignment_outlined),
+                  label: tr.exam.tab,
                 ),
                 NavigationDestination(
                   icon: const Icon(Icons.bar_chart_outlined),

@@ -17,6 +17,7 @@ import 'package:kana_master/domain/exam/exam_scoring.dart';
 import 'package:kana_master/domain/repositories/exam_repository.dart';
 import 'package:kana_master/domain/repositories/settings_repository.dart';
 import 'package:kana_master/di/dependency_injector.dart';
+import 'package:kana_master/i18n/strings.g.dart';
 import 'package:kana_master/pages/exam/exam_hub_page.dart';
 import 'package:kana_master/pages/exam/bloc/exam_session_cubit.dart';
 import 'package:kana_master/pages/exam/exam_result_page.dart';
@@ -88,14 +89,24 @@ Future<void> _loadFonts() async {
   ]);
 }
 
-ExamBank _bank() => ExamBank.fromJsonStrings({
-      for (final m in Mondai.values)
-        m: File(examBankAsset(m)).readAsStringSync(),
-    });
+ExamBank _bank() => ExamBank.fromJsonStrings(
+      {
+        for (final m in Mondai.values)
+          m: File(examBankAsset(m)).readAsStringSync(),
+      },
+      texts: {
+        for (final m in Mondai.values)
+          m: File(examTextsAsset(_locale.languageCode, m)).readAsStringSync(),
+      },
+    );
+
+/// Language of the screens under test.
+const AppLocale _locale = AppLocale.es;
 
 Widget _app(Widget child) {
   AppColors.setBrightness(Brightness.light);
-  return MaterialApp(
+  return TranslationProvider(
+      child: MaterialApp(
     debugShowCheckedModeBanner: false,
     theme: AppTheme.build(Brightness.light).copyWith(
       textTheme: AppTheme.build(Brightness.light)
@@ -103,7 +114,7 @@ Widget _app(Widget child) {
           .apply(fontFamilyFallback: const ['Roboto']),
     ),
     home: child,
-  );
+  ));
 }
 
 Future<void> _shot(WidgetTester tester, String name) async {
@@ -116,7 +127,10 @@ Future<void> _shot(WidgetTester tester, String name) async {
 }
 
 void main() {
-  setUpAll(_loadFonts);
+  setUpAll(() async {
+    await LocaleSettings.setLocale(_locale);
+    await _loadFonts();
+  });
 
   late ExamPaper paper;
   setUp(() {

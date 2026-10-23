@@ -6,27 +6,22 @@ library;
 enum ExamSection {
   vocabulary(
     title: '言語知識（文字・語彙）',
-    subtitle: 'Vocabulario y escritura',
     minutes: 20,
   ),
   grammarReading(
     title: '言語知識（文法）・読解',
-    subtitle: 'Gramática y lectura',
     minutes: 40,
   ),
   listening(
     title: '聴解',
-    subtitle: 'Comprensión auditiva',
     minutes: 30,
   );
 
   final String title;
-  final String subtitle;
   final int minutes;
 
   const ExamSection({
     required this.title,
-    required this.subtitle,
     required this.minutes,
   });
 
@@ -52,7 +47,6 @@ enum Mondai {
     section: ExamSection.vocabulary,
     number: 1,
     label: '漢字読み',
-    spanish: 'Lectura de kanji',
     count: 7,
     area: ScoreArea.vocabulary,
     instruction: 'もんだい１　＿＿＿の　ことばは　ひらがなで　どう　かきますか。'
@@ -62,7 +56,6 @@ enum Mondai {
     section: ExamSection.vocabulary,
     number: 2,
     label: '表記',
-    spanish: 'Escritura',
     count: 5,
     area: ScoreArea.vocabulary,
     instruction: 'もんだい２　＿＿＿の　ことばは　どう　かきますか。'
@@ -72,7 +65,6 @@ enum Mondai {
     section: ExamSection.vocabulary,
     number: 3,
     label: '文脈規定',
-    spanish: 'Vocabulario en contexto',
     count: 6,
     area: ScoreArea.vocabulary,
     instruction: 'もんだい３　（　　）に　なにが　はいりますか。'
@@ -82,7 +74,6 @@ enum Mondai {
     section: ExamSection.vocabulary,
     number: 4,
     label: '言い換え類義',
-    spanish: 'Paráfrasis',
     count: 3,
     area: ScoreArea.vocabulary,
     instruction: 'もんだい４　＿＿＿の　ぶんと　だいたい　おなじ　いみの　ぶんが　あります。'
@@ -92,7 +83,6 @@ enum Mondai {
     section: ExamSection.grammarReading,
     number: 1,
     label: '文の文法１（文法形式の判断）',
-    spanish: 'Forma gramatical',
     count: 9,
     area: ScoreArea.grammar,
     instruction: 'もんだい１　（　　）に　何を　入れますか。'
@@ -102,7 +92,6 @@ enum Mondai {
     section: ExamSection.grammarReading,
     number: 2,
     label: '文の文法２（文の組み立て）',
-    spanish: 'Ordenar la frase',
     count: 4,
     area: ScoreArea.grammar,
     instruction: 'もんだい２　★に　入る　ものは　どれですか。'
@@ -112,7 +101,6 @@ enum Mondai {
     section: ExamSection.grammarReading,
     number: 3,
     label: '文章の文法',
-    spanish: 'Gramática del texto',
     count: 4,
     area: ScoreArea.grammar,
     instruction: 'もんだい３　［FIRST］から　［LAST］に　何を　入れますか。'
@@ -123,7 +111,6 @@ enum Mondai {
     section: ExamSection.grammarReading,
     number: 4,
     label: '内容理解（短文）',
-    spanish: 'Texto corto',
     count: 2,
     area: ScoreArea.reading,
     instruction: 'もんだい４　つぎの　（１）から　（２）の　ぶんしょうを　読んで、'
@@ -134,7 +121,6 @@ enum Mondai {
     section: ExamSection.grammarReading,
     number: 5,
     label: '内容理解（中文）',
-    spanish: 'Texto medio',
     count: 2,
     area: ScoreArea.reading,
     instruction: 'もんだい５　つぎの　ぶんしょうを　読んで、しつもんに　こたえて　ください。'
@@ -144,7 +130,6 @@ enum Mondai {
     section: ExamSection.grammarReading,
     number: 6,
     label: '情報検索',
-    spanish: 'Búsqueda de información',
     count: 1,
     area: ScoreArea.reading,
     instruction: 'もんだい６　つぎの　ページを　見て、下の　しつもんに　こたえて　ください。'
@@ -154,7 +139,6 @@ enum Mondai {
     section: ExamSection.listening,
     number: 1,
     label: '課題理解',
-    spanish: 'Comprensión de tareas',
     count: 7,
     area: ScoreArea.listening,
     instruction: 'もんだい１では、はじめに　しつもんを　きいて　ください。'
@@ -165,7 +149,6 @@ enum Mondai {
     section: ExamSection.listening,
     number: 2,
     label: 'ポイント理解',
-    spanish: 'Comprensión de puntos clave',
     count: 6,
     area: ScoreArea.listening,
     instruction: 'もんだい２では、はじめに　しつもんを　きいて　ください。'
@@ -176,7 +159,6 @@ enum Mondai {
     section: ExamSection.listening,
     number: 3,
     label: '発話表現',
-    spanish: 'Expresión oral',
     count: 5,
     area: ScoreArea.listening,
     instruction: 'もんだい３では、えを　みながら　しつもんを　きいて　ください。'
@@ -187,7 +169,6 @@ enum Mondai {
     section: ExamSection.listening,
     number: 4,
     label: '即時応答',
-    spanish: 'Respuesta inmediata',
     count: 6,
     area: ScoreArea.listening,
     instruction: 'もんだい４は、えなどが　ありません。ぶんを　きいて、'
@@ -199,7 +180,6 @@ enum Mondai {
   /// Number of the もんだい inside its section.
   final int number;
   final String label;
-  final String spanish;
 
   /// Items of this type in one test.
   final int count;
@@ -212,7 +192,6 @@ enum Mondai {
     required this.section,
     required this.number,
     required this.label,
-    required this.spanish,
     required this.count,
     required this.area,
     required this.instruction,

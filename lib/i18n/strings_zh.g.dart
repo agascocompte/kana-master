@@ -39,6 +39,7 @@ class TranslationsZh with BaseTranslations<AppLocale, Translations> implements T
 
 	// Translations
 	@override late final _Translations$app$zh app = _Translations$app$zh._(_root);
+	@override late final _Translations$exam$zh exam = _Translations$exam$zh._(_root);
 }
 
 // Path: app
@@ -272,6 +273,110 @@ class _Translations$app$zh implements Translations$app$en {
 	@override String get settingsAdPrivacySubtitle => '更改你对个性化广告的同意设置。';
 }
 
+// Path: exam
+class _Translations$exam$zh implements Translations$exam$en {
+	_Translations$exam$zh._(this._root);
+
+	final TranslationsZh _root; // ignore: unused_field
+
+	// Translations
+	@override String get tab => '考试';
+	@override String get hubTitle => 'JLPT N5 模拟考试';
+	@override String get hubSubtitle => '与真实考试格式相同的模拟题';
+	@override String get daysLeft => '天后考试';
+	@override String get examsToday => '今日考试';
+	@override String get questionsSeen => '已做题目';
+	@override String get fullExam => '完整考试';
+	@override String get fullExamSubtitle => '20 + 40 + 30 分钟 · 67 题';
+	@override String sectionCardSubtitle({required Object minutes, required Object count}) => '${minutes} 分钟 · ${count} 题';
+	@override String get progressTitle => '成绩趋势（完整考试）';
+	@override String get weakPoints => '薄弱环节';
+	@override String weakPointsSubtitle({required Object count}) => '最近 ${count} 次考试中各题型的正确率';
+	@override String get history => '历史记录';
+	@override String historyFullDetail({required Object date, required Object language, required Object listening}) => '${date} · 语言知识 ${language}/120 · 听力 ${listening}/60';
+	@override late final _Translations$exam$sections$zh sections = _Translations$exam$sections$zh._(_root);
+	@override late final _Translations$exam$mondai$zh mondai = _Translations$exam$mondai$zh._(_root);
+	@override String get createError => '无法生成考试。';
+	@override String get leaveTitle => '退出考试？';
+	@override String get leaveBody => '本次考试的答案将会丢失。';
+	@override String get keepGoing => '继续';
+	@override String get leave => '退出';
+	@override String sectionOf({required Object current, required Object total}) => '第 ${current} 部分，共 ${total} 部分';
+	@override String sectionInfo({required Object minutes, required Object count}) => '${minutes} 分钟 · ${count} 题';
+	@override String get listeningIntro => '和正式考试一样，音频会自动播放且只播放一次。请在每题后的停顿时间内作答。建议使用耳机。';
+	@override String get writtenIntro => '可以在题目之间自由切换。时间结束后，本部分将自动交卷。';
+	@override String get start => '开始';
+	@override String get timeUp => '时间到';
+	@override String get submitTitle => '提交本部分？';
+	@override String get submitAllAnswered => '所有题目都已作答。';
+	@override String submitUnanswered({required Object count}) => '未作答题目：${count}。';
+	@override String get submit => '交卷';
+	@override String get previous => '上一题';
+	@override String get next => '下一题';
+	@override String questionOf({required Object current, required Object total}) => '第 ${current} 题，共 ${total} 题';
+	@override String get resultTitle => '考试结果';
+	@override String get reviewAnswers => '查看答案';
+	@override String get back => '返回';
+	@override String get passed => '合格';
+	@override String get failed => '不合格';
+	@override String get scoreNote => '估算分数：每道题分值相同。合格需要总分 80/180，且两个部分分别至少 38 分和 19 分。';
+	@override String correctOf({required Object correct, required Object total}) => '答对 ${correct}/${total}';
+	@override String get listeningHint => '听力的最低分：19/60（32 %）。为保险起见，目标定在 60 % 以上。';
+	@override String get languageHint => '语言知识部分的最低分：38/120（32 %）。为保险起见，目标定在 60 % 以上。';
+	@override String get reviewTitle => '复习';
+	@override String get onlyMistakes => '只看错题';
+	@override String get noMistakes => '没有错题！';
+	@override String get unanswered => '未作答';
+	@override String get correct => '正确';
+	@override String get incorrect => '错误';
+	@override String get translation => '翻译';
+	@override String get showTextTranslation => '显示文章翻译';
+	@override String get hideTextTranslation => '隐藏文章翻译';
+	@override String get listen => '播放';
+	@override String get stop => '停止';
+	@override String get instructions => '说明';
+	@override String get listening => '播放中…';
+	@override String answerNow({required Object seconds}) => '作答 · ${seconds} 秒';
+	@override String get paused => '已暂停';
+	@override String get resume => '继续';
+	@override String get pause => '暂停';
+}
+
+// Path: exam.sections
+class _Translations$exam$sections$zh implements Translations$exam$sections$en {
+	_Translations$exam$sections$zh._(this._root);
+
+	final TranslationsZh _root; // ignore: unused_field
+
+	// Translations
+	@override String get vocabulary => '文字・词汇';
+	@override String get grammarReading => '语法・阅读';
+	@override String get listening => '听力';
+}
+
+// Path: exam.mondai
+class _Translations$exam$mondai$zh implements Translations$exam$mondai$en {
+	_Translations$exam$mondai$zh._(this._root);
+
+	final TranslationsZh _root; // ignore: unused_field
+
+	// Translations
+	@override String get kanjiReading => '汉字读音';
+	@override String get orthography => '汉字书写';
+	@override String get contextual => '语境词汇';
+	@override String get paraphrase => '近义替换';
+	@override String get grammarForm => '语法形式';
+	@override String get sentenceOrder => '句子排序';
+	@override String get textGrammar => '文章语法';
+	@override String get shortReading => '短篇阅读';
+	@override String get midReading => '中篇阅读';
+	@override String get infoSearch => '信息检索';
+	@override String get taskListening => '问题理解';
+	@override String get pointListening => '重点理解';
+	@override String get utterance => '语言表达';
+	@override String get quickResponse => '即时应答';
+}
+
 /// The flat map containing all translations for locale <zh>.
 /// Only for edge cases! For simple maps, use the map function of this library.
 ///
@@ -502,6 +607,81 @@ extension on TranslationsZh {
 			'app.settingsReminderBlocked' => 'KanaGo 的通知已关闭。请在系统设置中开启。',
 			'app.settingsAdPrivacyTitle' => '广告隐私',
 			'app.settingsAdPrivacySubtitle' => '更改你对个性化广告的同意设置。',
+			'exam.tab' => '考试',
+			'exam.hubTitle' => 'JLPT N5 模拟考试',
+			'exam.hubSubtitle' => '与真实考试格式相同的模拟题',
+			'exam.daysLeft' => '天后考试',
+			'exam.examsToday' => '今日考试',
+			'exam.questionsSeen' => '已做题目',
+			'exam.fullExam' => '完整考试',
+			'exam.fullExamSubtitle' => '20 + 40 + 30 分钟 · 67 题',
+			'exam.sectionCardSubtitle' => ({required Object minutes, required Object count}) => '${minutes} 分钟 · ${count} 题',
+			'exam.progressTitle' => '成绩趋势（完整考试）',
+			'exam.weakPoints' => '薄弱环节',
+			'exam.weakPointsSubtitle' => ({required Object count}) => '最近 ${count} 次考试中各题型的正确率',
+			'exam.history' => '历史记录',
+			'exam.historyFullDetail' => ({required Object date, required Object language, required Object listening}) => '${date} · 语言知识 ${language}/120 · 听力 ${listening}/60',
+			'exam.sections.vocabulary' => '文字・词汇',
+			'exam.sections.grammarReading' => '语法・阅读',
+			'exam.sections.listening' => '听力',
+			'exam.mondai.kanjiReading' => '汉字读音',
+			'exam.mondai.orthography' => '汉字书写',
+			'exam.mondai.contextual' => '语境词汇',
+			'exam.mondai.paraphrase' => '近义替换',
+			'exam.mondai.grammarForm' => '语法形式',
+			'exam.mondai.sentenceOrder' => '句子排序',
+			'exam.mondai.textGrammar' => '文章语法',
+			'exam.mondai.shortReading' => '短篇阅读',
+			'exam.mondai.midReading' => '中篇阅读',
+			'exam.mondai.infoSearch' => '信息检索',
+			'exam.mondai.taskListening' => '问题理解',
+			'exam.mondai.pointListening' => '重点理解',
+			'exam.mondai.utterance' => '语言表达',
+			'exam.mondai.quickResponse' => '即时应答',
+			'exam.createError' => '无法生成考试。',
+			'exam.leaveTitle' => '退出考试？',
+			'exam.leaveBody' => '本次考试的答案将会丢失。',
+			'exam.keepGoing' => '继续',
+			'exam.leave' => '退出',
+			'exam.sectionOf' => ({required Object current, required Object total}) => '第 ${current} 部分，共 ${total} 部分',
+			'exam.sectionInfo' => ({required Object minutes, required Object count}) => '${minutes} 分钟 · ${count} 题',
+			'exam.listeningIntro' => '和正式考试一样，音频会自动播放且只播放一次。请在每题后的停顿时间内作答。建议使用耳机。',
+			'exam.writtenIntro' => '可以在题目之间自由切换。时间结束后，本部分将自动交卷。',
+			'exam.start' => '开始',
+			'exam.timeUp' => '时间到',
+			'exam.submitTitle' => '提交本部分？',
+			'exam.submitAllAnswered' => '所有题目都已作答。',
+			'exam.submitUnanswered' => ({required Object count}) => '未作答题目：${count}。',
+			'exam.submit' => '交卷',
+			'exam.previous' => '上一题',
+			'exam.next' => '下一题',
+			'exam.questionOf' => ({required Object current, required Object total}) => '第 ${current} 题，共 ${total} 题',
+			'exam.resultTitle' => '考试结果',
+			'exam.reviewAnswers' => '查看答案',
+			'exam.back' => '返回',
+			'exam.passed' => '合格',
+			'exam.failed' => '不合格',
+			'exam.scoreNote' => '估算分数：每道题分值相同。合格需要总分 80/180，且两个部分分别至少 38 分和 19 分。',
+			'exam.correctOf' => ({required Object correct, required Object total}) => '答对 ${correct}/${total}',
+			'exam.listeningHint' => '听力的最低分：19/60（32 %）。为保险起见，目标定在 60 % 以上。',
+			'exam.languageHint' => '语言知识部分的最低分：38/120（32 %）。为保险起见，目标定在 60 % 以上。',
+			'exam.reviewTitle' => '复习',
+			'exam.onlyMistakes' => '只看错题',
+			'exam.noMistakes' => '没有错题！',
+			'exam.unanswered' => '未作答',
+			'exam.correct' => '正确',
+			'exam.incorrect' => '错误',
+			'exam.translation' => '翻译',
+			'exam.showTextTranslation' => '显示文章翻译',
+			'exam.hideTextTranslation' => '隐藏文章翻译',
+			'exam.listen' => '播放',
+			'exam.stop' => '停止',
+			'exam.instructions' => '说明',
+			'exam.listening' => '播放中…',
+			'exam.answerNow' => ({required Object seconds}) => '作答 · ${seconds} 秒',
+			'exam.paused' => '已暂停',
+			'exam.resume' => '继续',
+			'exam.pause' => '暂停',
 			_ => null,
 		};
 	}

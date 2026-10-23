@@ -6,8 +6,10 @@ import 'package:go_router/go_router.dart';
 import 'package:kana_master/di/dependency_injector.dart';
 import 'package:kana_master/domain/exam/exam_models.dart';
 import 'package:kana_master/domain/repositories/exam_repository.dart';
+import 'package:kana_master/i18n/strings.g.dart';
 import 'package:kana_master/pages/exam/bloc/exam_session_cubit.dart';
 import 'package:kana_master/pages/exam/exam_result_page.dart';
+import 'package:kana_master/pages/exam/widgets/exam_names.dart';
 import 'package:kana_master/pages/exam/widgets/exam_question_view.dart';
 import 'package:kana_master/pages/exam/widgets/jp_text.dart';
 import 'package:kana_master/pages/exam/widgets/listening_runner.dart';
@@ -61,8 +63,8 @@ class _ExamSessionPageState extends State<ExamSessionPage> {
         if (snapshot.hasError) {
           return Scaffold(
             appBar: AppBar(),
-            body: Center(
-                child: Text('No se pudo crear el examen.\n${snapshot.error}')),
+            body:
+                Center(child: Text('${t.exam.createError}\n${snapshot.error}')),
           );
         }
         if (!snapshot.hasData) {
@@ -131,16 +133,16 @@ Future<void> _confirmLeave(BuildContext context) async {
   final leave = await showDialog<bool>(
     context: context,
     builder: (context) => AlertDialog(
-      title: const Text('¿Salir del examen?'),
-      content: const Text('Se perderán las respuestas de este examen.'),
+      title: Text(t.exam.leaveTitle),
+      content: Text(t.exam.leaveBody),
       actions: [
         TextButton(
           onPressed: () => Navigator.pop(context, false),
-          child: const Text('Seguir'),
+          child: Text(t.exam.keepGoing),
         ),
         TextButton(
           onPressed: () => Navigator.pop(context, true),
-          child: Text('Salir', style: TextStyle(color: AppColors.coral)),
+          child: Text(t.exam.leave, style: TextStyle(color: AppColors.coral)),
         ),
       ],
     ),
@@ -165,12 +167,15 @@ class _SectionIntro extends StatelessWidget {
           child: IconButton(
             onPressed: () => _confirmLeave(context),
             icon: const Icon(Icons.close),
-            tooltip: 'Salir',
+            tooltip: t.exam.leave,
           ),
         ),
         if (state.paper.sections.length > 1)
           Text(
-            'Sección ${state.sectionIndex + 1} de ${state.paper.sections.length}',
+            t.exam.sectionOf(
+              current: state.sectionIndex + 1,
+              total: state.paper.sections.length,
+            ),
             style: TextStyle(color: AppColors.slate, fontSize: 14),
           ),
         const SizedBox(height: 4),
@@ -180,7 +185,7 @@ class _SectionIntro extends StatelessWidget {
           section.title,
           style: JpText.style(fontSize: 26, fontWeight: FontWeight.w800),
         ),
-        Text(section.subtitle, style: TextStyle(color: AppColors.slate)),
+        Text(section.localName, style: TextStyle(color: AppColors.slate)),
         const SizedBox(height: 16),
         Container(
           padding: const EdgeInsets.all(16),
@@ -192,7 +197,10 @@ class _SectionIntro extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                '${section.minutes} minutos · ${state.questions.length} preguntas',
+                t.exam.sectionInfo(
+                  minutes: section.minutes,
+                  count: state.questions.length,
+                ),
                 style: TextStyle(
                   fontWeight: FontWeight.w800,
                   fontSize: 16,
@@ -214,7 +222,7 @@ class _SectionIntro extends StatelessWidget {
                       ),
                       Expanded(
                         child: Text(
-                          '${mondai.spanish} (${mondai.count})',
+                          '${mondai.localName} (${mondai.count})',
                           style: TextStyle(color: AppColors.graphite),
                         ),
                       ),
@@ -223,12 +231,7 @@ class _SectionIntro extends StatelessWidget {
                 ),
               const SizedBox(height: 10),
               Text(
-                isListening
-                    ? 'El audio avanza solo y se oye una sola vez, como en el '
-                        'examen. Responde mientras dura la pausa después de '
-                        'cada pregunta. Usa auriculares.'
-                    : 'Puedes moverte libremente entre las preguntas. Al '
-                        'acabarse el tiempo, la sección se entrega sola.',
+                isListening ? t.exam.listeningIntro : t.exam.writtenIntro,
                 style: TextStyle(color: AppColors.slate, height: 1.4),
               ),
             ],
@@ -238,7 +241,7 @@ class _SectionIntro extends StatelessWidget {
         FilledButton.icon(
           onPressed: () => context.read<ExamSessionCubit>().startSection(),
           icon: const Icon(Icons.play_arrow),
-          label: const Text('Empezar'),
+          label: Text(t.exam.start),
           style: FilledButton.styleFrom(
             minimumSize: const Size.fromHeight(52),
           ),
@@ -269,7 +272,7 @@ class _WrittenSectionState extends State<_WrittenSection> {
       if (cubit.timeIsUp) {
         _ticker?.cancel();
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Se acabó el tiempo')),
+          SnackBar(content: Text(t.exam.timeUp)),
         );
         cubit.finishSection();
       } else {
@@ -300,18 +303,18 @@ class _WrittenSectionState extends State<_WrittenSection> {
     final ok = await showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('¿Entregar la sección?'),
+        title: Text(t.exam.submitTitle),
         content: Text(unanswered == 0
-            ? 'Has respondido todas las preguntas.'
-            : 'Te quedan $unanswered preguntas sin responder.'),
+            ? t.exam.submitAllAnswered
+            : t.exam.submitUnanswered(count: unanswered)),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context, false),
-            child: const Text('Seguir'),
+            child: Text(t.exam.keepGoing),
           ),
           TextButton(
             onPressed: () => Navigator.pop(context, true),
-            child: const Text('Entregar'),
+            child: Text(t.exam.submit),
           ),
         ],
       ),
@@ -337,7 +340,7 @@ class _WrittenSectionState extends State<_WrittenSection> {
               IconButton(
                 onPressed: () => _confirmLeave(context),
                 icon: const Icon(Icons.close),
-                tooltip: 'Salir',
+                tooltip: t.exam.leave,
               ),
               Expanded(
                 child: Text(
@@ -359,7 +362,7 @@ class _WrittenSectionState extends State<_WrittenSection> {
                 ),
               ),
               const SizedBox(width: 8),
-              TextButton(onPressed: _submit, child: const Text('Entregar')),
+              TextButton(onPressed: _submit, child: Text(t.exam.submit)),
             ],
           ),
         ),
@@ -410,21 +413,24 @@ class _QuestionNavigator extends StatelessWidget {
           IconButton(
             onPressed: isFirst ? null : cubit.previous,
             icon: const Icon(Icons.chevron_left),
-            tooltip: 'Anterior',
+            tooltip: t.exam.previous,
           ),
           Expanded(
             child: TextButton.icon(
               onPressed: () => _showGrid(context),
               icon: const Icon(Icons.grid_view, size: 18),
               label: Text(
-                'Pregunta ${state.questionIndex + 1} de ${state.questions.length}',
+                t.exam.questionOf(
+                  current: state.questionIndex + 1,
+                  total: state.questions.length,
+                ),
               ),
             ),
           ),
           IconButton(
             onPressed: isLast ? null : cubit.next,
             icon: const Icon(Icons.chevron_right),
-            tooltip: 'Siguiente',
+            tooltip: t.exam.next,
           ),
         ],
       ),
@@ -537,7 +543,7 @@ class _ListeningSectionState extends State<_ListeningSection> {
               IconButton(
                 onPressed: () => _confirmLeave(context),
                 icon: const Icon(Icons.close),
-                tooltip: 'Salir',
+                tooltip: t.exam.leave,
               ),
               Expanded(
                 child: Text(

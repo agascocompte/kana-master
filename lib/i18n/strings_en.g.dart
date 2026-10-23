@@ -42,6 +42,7 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 
 	// Translations
 	late final Translations$app$en app = Translations$app$en._(_root);
+	late final Translations$exam$en exam = Translations$exam$en._(_root);
 }
 
 // Path: app
@@ -719,6 +720,261 @@ class Translations$app$en {
 	String get settingsAdPrivacySubtitle => 'Change your consent for personalized ads.';
 }
 
+// Path: exam
+class Translations$exam$en {
+	Translations$exam$en._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+
+	/// en: 'Exam'
+	String get tab => 'Exam';
+
+	/// en: 'JLPT N5 Simulator'
+	String get hubTitle => 'JLPT N5 Simulator';
+
+	/// en: 'Practice tests in the same format as the real exam'
+	String get hubSubtitle => 'Practice tests in the same format as the real exam';
+
+	/// en: 'days until the exam'
+	String get daysLeft => 'days until the exam';
+
+	/// en: 'exams today'
+	String get examsToday => 'exams today';
+
+	/// en: 'questions seen'
+	String get questionsSeen => 'questions seen';
+
+	/// en: 'Full exam'
+	String get fullExam => 'Full exam';
+
+	/// en: '20 + 40 + 30 min · 67 questions'
+	String get fullExamSubtitle => '20 + 40 + 30 min · 67 questions';
+
+	/// en: '${minutes} min · ${count} questions'
+	String sectionCardSubtitle({required Object minutes, required Object count}) => '${minutes} min · ${count} questions';
+
+	/// en: 'Progress (full exam)'
+	String get progressTitle => 'Progress (full exam)';
+
+	/// en: 'Weak points'
+	String get weakPoints => 'Weak points';
+
+	/// en: 'Right answers by question type in your last ${count} exams'
+	String weakPointsSubtitle({required Object count}) => 'Right answers by question type in your last ${count} exams';
+
+	/// en: 'History'
+	String get history => 'History';
+
+	/// en: '${date} · Language ${language}/120 · Listening ${listening}/60'
+	String historyFullDetail({required Object date, required Object language, required Object listening}) => '${date} · Language ${language}/120 · Listening ${listening}/60';
+
+	late final Translations$exam$sections$en sections = Translations$exam$sections$en._(_root);
+	late final Translations$exam$mondai$en mondai = Translations$exam$mondai$en._(_root);
+
+	/// en: 'The exam could not be created.'
+	String get createError => 'The exam could not be created.';
+
+	/// en: 'Leave the exam?'
+	String get leaveTitle => 'Leave the exam?';
+
+	/// en: 'Your answers for this exam will be lost.'
+	String get leaveBody => 'Your answers for this exam will be lost.';
+
+	/// en: 'Continue'
+	String get keepGoing => 'Continue';
+
+	/// en: 'Leave'
+	String get leave => 'Leave';
+
+	/// en: 'Section ${current} of ${total}'
+	String sectionOf({required Object current, required Object total}) => 'Section ${current} of ${total}';
+
+	/// en: '${minutes} minutes · ${count} questions'
+	String sectionInfo({required Object minutes, required Object count}) => '${minutes} minutes · ${count} questions';
+
+	/// en: 'The audio plays on its own and only once, as in the exam. Answer during the pause after each question. Use headphones.'
+	String get listeningIntro => 'The audio plays on its own and only once, as in the exam. Answer during the pause after each question. Use headphones.';
+
+	/// en: 'You can move freely between questions. When time runs out, the section is handed in automatically.'
+	String get writtenIntro => 'You can move freely between questions. When time runs out, the section is handed in automatically.';
+
+	/// en: 'Start'
+	String get start => 'Start';
+
+	/// en: 'Time is up'
+	String get timeUp => 'Time is up';
+
+	/// en: 'Hand in the section?'
+	String get submitTitle => 'Hand in the section?';
+
+	/// en: 'You have answered every question.'
+	String get submitAllAnswered => 'You have answered every question.';
+
+	/// en: 'Unanswered questions: ${count}.'
+	String submitUnanswered({required Object count}) => 'Unanswered questions: ${count}.';
+
+	/// en: 'Hand in'
+	String get submit => 'Hand in';
+
+	/// en: 'Previous'
+	String get previous => 'Previous';
+
+	/// en: 'Next'
+	String get next => 'Next';
+
+	/// en: 'Question ${current} of ${total}'
+	String questionOf({required Object current, required Object total}) => 'Question ${current} of ${total}';
+
+	/// en: 'Result'
+	String get resultTitle => 'Result';
+
+	/// en: 'Review answers'
+	String get reviewAnswers => 'Review answers';
+
+	/// en: 'Back'
+	String get back => 'Back';
+
+	/// en: 'Pass'
+	String get passed => 'Pass';
+
+	/// en: 'Fail'
+	String get failed => 'Fail';
+
+	/// en: 'Estimated score: every question counts the same. A pass needs 80/180 and at least 38 and 19 in each part.'
+	String get scoreNote => 'Estimated score: every question counts the same. A pass needs 80/180 and at least 38 and 19 in each part.';
+
+	/// en: '${correct} of ${total} correct'
+	String correctOf({required Object correct, required Object total}) => '${correct} of ${total} correct';
+
+	/// en: 'Minimum to pass the listening: 19/60 (32%). To be safe, aim for more than 60%.'
+	String get listeningHint => 'Minimum to pass the listening: 19/60 (32%). To be safe, aim for more than 60%.';
+
+	/// en: 'Minimum for the language part: 38/120 (32%). To be safe, aim for more than 60%.'
+	String get languageHint => 'Minimum for the language part: 38/120 (32%). To be safe, aim for more than 60%.';
+
+	/// en: 'Review'
+	String get reviewTitle => 'Review';
+
+	/// en: 'Mistakes only'
+	String get onlyMistakes => 'Mistakes only';
+
+	/// en: 'No mistakes!'
+	String get noMistakes => 'No mistakes!';
+
+	/// en: 'Not answered'
+	String get unanswered => 'Not answered';
+
+	/// en: 'Correct'
+	String get correct => 'Correct';
+
+	/// en: 'Incorrect'
+	String get incorrect => 'Incorrect';
+
+	/// en: 'Translation'
+	String get translation => 'Translation';
+
+	/// en: 'Show translation of the text'
+	String get showTextTranslation => 'Show translation of the text';
+
+	/// en: 'Hide translation of the text'
+	String get hideTextTranslation => 'Hide translation of the text';
+
+	/// en: 'Listen'
+	String get listen => 'Listen';
+
+	/// en: 'Stop'
+	String get stop => 'Stop';
+
+	/// en: 'Instructions'
+	String get instructions => 'Instructions';
+
+	/// en: 'Listening…'
+	String get listening => 'Listening…';
+
+	/// en: 'Answer · ${seconds} s'
+	String answerNow({required Object seconds}) => 'Answer · ${seconds} s';
+
+	/// en: 'Paused'
+	String get paused => 'Paused';
+
+	/// en: 'Resume'
+	String get resume => 'Resume';
+
+	/// en: 'Pause'
+	String get pause => 'Pause';
+}
+
+// Path: exam.sections
+class Translations$exam$sections$en {
+	Translations$exam$sections$en._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+
+	/// en: 'Vocabulary and writing'
+	String get vocabulary => 'Vocabulary and writing';
+
+	/// en: 'Grammar and reading'
+	String get grammarReading => 'Grammar and reading';
+
+	/// en: 'Listening'
+	String get listening => 'Listening';
+}
+
+// Path: exam.mondai
+class Translations$exam$mondai$en {
+	Translations$exam$mondai$en._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+
+	/// en: 'Kanji reading'
+	String get kanjiReading => 'Kanji reading';
+
+	/// en: 'Writing'
+	String get orthography => 'Writing';
+
+	/// en: 'Vocabulary in context'
+	String get contextual => 'Vocabulary in context';
+
+	/// en: 'Paraphrase'
+	String get paraphrase => 'Paraphrase';
+
+	/// en: 'Grammar form'
+	String get grammarForm => 'Grammar form';
+
+	/// en: 'Sentence order'
+	String get sentenceOrder => 'Sentence order';
+
+	/// en: 'Text grammar'
+	String get textGrammar => 'Text grammar';
+
+	/// en: 'Short passages'
+	String get shortReading => 'Short passages';
+
+	/// en: 'Medium passage'
+	String get midReading => 'Medium passage';
+
+	/// en: 'Information retrieval'
+	String get infoSearch => 'Information retrieval';
+
+	/// en: 'Task-based listening'
+	String get taskListening => 'Task-based listening';
+
+	/// en: 'Key-point listening'
+	String get pointListening => 'Key-point listening';
+
+	/// en: 'Verbal expressions'
+	String get utterance => 'Verbal expressions';
+
+	/// en: 'Quick response'
+	String get quickResponse => 'Quick response';
+}
+
 /// The flat map containing all translations for locale <en>.
 /// Only for edge cases! For simple maps, use the map function of this library.
 ///
@@ -949,6 +1205,81 @@ extension on Translations {
 			'app.settingsReminderBlocked' => 'KanaGo notifications are turned off. Turn them on in your system settings.',
 			'app.settingsAdPrivacyTitle' => 'Ad privacy',
 			'app.settingsAdPrivacySubtitle' => 'Change your consent for personalized ads.',
+			'exam.tab' => 'Exam',
+			'exam.hubTitle' => 'JLPT N5 Simulator',
+			'exam.hubSubtitle' => 'Practice tests in the same format as the real exam',
+			'exam.daysLeft' => 'days until the exam',
+			'exam.examsToday' => 'exams today',
+			'exam.questionsSeen' => 'questions seen',
+			'exam.fullExam' => 'Full exam',
+			'exam.fullExamSubtitle' => '20 + 40 + 30 min · 67 questions',
+			'exam.sectionCardSubtitle' => ({required Object minutes, required Object count}) => '${minutes} min · ${count} questions',
+			'exam.progressTitle' => 'Progress (full exam)',
+			'exam.weakPoints' => 'Weak points',
+			'exam.weakPointsSubtitle' => ({required Object count}) => 'Right answers by question type in your last ${count} exams',
+			'exam.history' => 'History',
+			'exam.historyFullDetail' => ({required Object date, required Object language, required Object listening}) => '${date} · Language ${language}/120 · Listening ${listening}/60',
+			'exam.sections.vocabulary' => 'Vocabulary and writing',
+			'exam.sections.grammarReading' => 'Grammar and reading',
+			'exam.sections.listening' => 'Listening',
+			'exam.mondai.kanjiReading' => 'Kanji reading',
+			'exam.mondai.orthography' => 'Writing',
+			'exam.mondai.contextual' => 'Vocabulary in context',
+			'exam.mondai.paraphrase' => 'Paraphrase',
+			'exam.mondai.grammarForm' => 'Grammar form',
+			'exam.mondai.sentenceOrder' => 'Sentence order',
+			'exam.mondai.textGrammar' => 'Text grammar',
+			'exam.mondai.shortReading' => 'Short passages',
+			'exam.mondai.midReading' => 'Medium passage',
+			'exam.mondai.infoSearch' => 'Information retrieval',
+			'exam.mondai.taskListening' => 'Task-based listening',
+			'exam.mondai.pointListening' => 'Key-point listening',
+			'exam.mondai.utterance' => 'Verbal expressions',
+			'exam.mondai.quickResponse' => 'Quick response',
+			'exam.createError' => 'The exam could not be created.',
+			'exam.leaveTitle' => 'Leave the exam?',
+			'exam.leaveBody' => 'Your answers for this exam will be lost.',
+			'exam.keepGoing' => 'Continue',
+			'exam.leave' => 'Leave',
+			'exam.sectionOf' => ({required Object current, required Object total}) => 'Section ${current} of ${total}',
+			'exam.sectionInfo' => ({required Object minutes, required Object count}) => '${minutes} minutes · ${count} questions',
+			'exam.listeningIntro' => 'The audio plays on its own and only once, as in the exam. Answer during the pause after each question. Use headphones.',
+			'exam.writtenIntro' => 'You can move freely between questions. When time runs out, the section is handed in automatically.',
+			'exam.start' => 'Start',
+			'exam.timeUp' => 'Time is up',
+			'exam.submitTitle' => 'Hand in the section?',
+			'exam.submitAllAnswered' => 'You have answered every question.',
+			'exam.submitUnanswered' => ({required Object count}) => 'Unanswered questions: ${count}.',
+			'exam.submit' => 'Hand in',
+			'exam.previous' => 'Previous',
+			'exam.next' => 'Next',
+			'exam.questionOf' => ({required Object current, required Object total}) => 'Question ${current} of ${total}',
+			'exam.resultTitle' => 'Result',
+			'exam.reviewAnswers' => 'Review answers',
+			'exam.back' => 'Back',
+			'exam.passed' => 'Pass',
+			'exam.failed' => 'Fail',
+			'exam.scoreNote' => 'Estimated score: every question counts the same. A pass needs 80/180 and at least 38 and 19 in each part.',
+			'exam.correctOf' => ({required Object correct, required Object total}) => '${correct} of ${total} correct',
+			'exam.listeningHint' => 'Minimum to pass the listening: 19/60 (32%). To be safe, aim for more than 60%.',
+			'exam.languageHint' => 'Minimum for the language part: 38/120 (32%). To be safe, aim for more than 60%.',
+			'exam.reviewTitle' => 'Review',
+			'exam.onlyMistakes' => 'Mistakes only',
+			'exam.noMistakes' => 'No mistakes!',
+			'exam.unanswered' => 'Not answered',
+			'exam.correct' => 'Correct',
+			'exam.incorrect' => 'Incorrect',
+			'exam.translation' => 'Translation',
+			'exam.showTextTranslation' => 'Show translation of the text',
+			'exam.hideTextTranslation' => 'Hide translation of the text',
+			'exam.listen' => 'Listen',
+			'exam.stop' => 'Stop',
+			'exam.instructions' => 'Instructions',
+			'exam.listening' => 'Listening…',
+			'exam.answerNow' => ({required Object seconds}) => 'Answer · ${seconds} s',
+			'exam.paused' => 'Paused',
+			'exam.resume' => 'Resume',
+			'exam.pause' => 'Pause',
 			_ => null,
 		};
 	}

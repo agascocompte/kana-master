@@ -6,7 +6,9 @@ import 'package:kana_master/domain/exam/exam_models.dart';
 import 'package:kana_master/domain/exam/exam_scoring.dart';
 import 'package:kana_master/domain/repositories/exam_repository.dart';
 import 'package:kana_master/domain/repositories/settings_repository.dart';
+import 'package:kana_master/i18n/strings.g.dart';
 import 'package:kana_master/pages/exam/exam_result_page.dart';
+import 'package:kana_master/pages/exam/widgets/exam_names.dart';
 import 'package:kana_master/pages/study/widgets/action_card.dart';
 import 'package:kana_master/router/router.dart';
 import 'package:kana_master/theme/app_theme.dart';
@@ -100,6 +102,8 @@ class _ExamHubPageState extends State<ExamHubPage> {
 
   @override
   Widget build(BuildContext context) {
+    // Rebuilds the tab when the language of the app changes.
+    final t = context.t;
     final today = DateUtils.dateOnly(DateTime.now());
     final daysLeft = _examDate?.difference(today).inDays;
     final todayCount = _results
@@ -114,7 +118,7 @@ class _ExamHubPageState extends State<ExamHubPage> {
             padding: const EdgeInsets.fromLTRB(16, 18, 16, 24),
             children: [
               Text(
-                'Simulador JLPT N5',
+                t.exam.hubTitle,
                 style: TextStyle(
                   fontSize: 28,
                   fontWeight: FontWeight.w800,
@@ -123,7 +127,7 @@ class _ExamHubPageState extends State<ExamHubPage> {
               ),
               const SizedBox(height: 6),
               Text(
-                'Exámenes con el formato oficial',
+                t.exam.hubSubtitle,
                 style: TextStyle(color: AppColors.slate, fontSize: 14),
               ),
               const SizedBox(height: 18),
@@ -134,9 +138,7 @@ class _ExamHubPageState extends State<ExamHubPage> {
                     Expanded(
                       child: _InfoTile(
                         value: daysLeft == null ? '–' : '$daysLeft',
-                        label: daysLeft == 1
-                            ? 'día para el examen'
-                            : 'días para el examen',
+                        label: t.exam.daysLeft,
                         onTap: _pickDate,
                       ),
                     ),
@@ -144,14 +146,14 @@ class _ExamHubPageState extends State<ExamHubPage> {
                     Expanded(
                       child: _InfoTile(
                         value: '$todayCount',
-                        label: todayCount == 1 ? 'examen hoy' : 'exámenes hoy',
+                        label: t.exam.examsToday,
                       ),
                     ),
                     const SizedBox(width: 10),
                     Expanded(
                       child: _InfoTile(
                         value: '${_coverage.$1}/${_coverage.$2}',
-                        label: 'preguntas vistas',
+                        label: t.exam.questionsSeen,
                       ),
                     ),
                   ],
@@ -159,8 +161,8 @@ class _ExamHubPageState extends State<ExamHubPage> {
               ),
               const SizedBox(height: 16),
               ActionCard(
-                title: 'Examen completo',
-                subtitle: '20 + 40 + 30 min · 67 preguntas · formato oficial',
+                title: t.exam.fullExam,
+                subtitle: t.exam.fullExamSubtitle,
                 icon: Icons.assignment_outlined,
                 gradient:
                     LinearGradient(colors: [AppColors.peach, AppColors.coral]),
@@ -168,8 +170,9 @@ class _ExamHubPageState extends State<ExamHubPage> {
               ),
               const SizedBox(height: 12),
               ActionCard(
-                title: 'Vocabulario',
-                subtitle: '文字・語彙 · 20 min · 21 preguntas',
+                title: ExamSection.vocabulary.localName,
+                subtitle:
+                    '文字・語彙 · ${t.exam.sectionCardSubtitle(minutes: 20, count: 21)}',
                 icon: Icons.translate,
                 gradient:
                     LinearGradient(colors: [AppColors.lime, AppColors.teal]),
@@ -177,8 +180,9 @@ class _ExamHubPageState extends State<ExamHubPage> {
               ),
               const SizedBox(height: 12),
               ActionCard(
-                title: 'Gramática y lectura',
-                subtitle: '文法・読解 · 40 min · 22 preguntas',
+                title: ExamSection.grammarReading.localName,
+                subtitle:
+                    '文法・読解 · ${t.exam.sectionCardSubtitle(minutes: 40, count: 22)}',
                 icon: Icons.menu_book_outlined,
                 gradient:
                     LinearGradient(colors: [AppColors.teal, AppColors.sky]),
@@ -186,8 +190,9 @@ class _ExamHubPageState extends State<ExamHubPage> {
               ),
               const SizedBox(height: 12),
               ActionCard(
-                title: 'Listening',
-                subtitle: '聴解 · 30 min · 24 preguntas',
+                title: ExamSection.listening.localName,
+                subtitle:
+                    '聴解 · ${t.exam.sectionCardSubtitle(minutes: 30, count: 24)}',
                 icon: Icons.headphones_outlined,
                 gradient:
                     LinearGradient(colors: [AppColors.sky, AppColors.peach]),
@@ -196,7 +201,7 @@ class _ExamHubPageState extends State<ExamHubPage> {
               const SizedBox(height: 20),
               if (_results.where((r) => r.isFull).length >= 2) ...[
                 Text(
-                  'Evolución (examen completo)',
+                  t.exam.progressTitle,
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.w700,
@@ -214,7 +219,7 @@ class _ExamHubPageState extends State<ExamHubPage> {
               ],
               if (_weakPoints.isNotEmpty) ...[
                 Text(
-                  'Puntos débiles',
+                  t.exam.weakPoints,
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.w700,
@@ -222,8 +227,7 @@ class _ExamHubPageState extends State<ExamHubPage> {
                   ),
                 ),
                 Text(
-                  'Aciertos por tipo de pregunta en tus últimos '
-                  '$_recentCount exámenes',
+                  t.exam.weakPointsSubtitle(count: _recentCount),
                   style: TextStyle(color: AppColors.slate, fontSize: 13),
                 ),
                 const SizedBox(height: 6),
@@ -234,7 +238,7 @@ class _ExamHubPageState extends State<ExamHubPage> {
               ],
               if (_results.isNotEmpty)
                 Text(
-                  'Historial',
+                  t.exam.history,
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.w700,
@@ -308,17 +312,17 @@ class _ResultTile extends StatelessWidget {
   Widget build(BuildContext context) {
     final score = result.score;
     final String title = result.isFull
-        ? 'Examen completo'
-        : result.sections.map((s) => s.subtitle).join(' + ');
+        ? t.exam.fullExam
+        : result.sections.map((s) => s.localName).join(' + ');
     final String value = result.isFull
         ? '${score.totalPoints}/${ExamScore.totalMax}'
         : '${(score.overall.ratio * 100).round()} %';
     final Color color = result.isFull
         ? (score.passed ? AppColors.teal : AppColors.coral)
         : (score.overall.ratio >= 0.6 ? AppColors.teal : AppColors.coral);
-    final t = result.timestamp;
+    final time = result.timestamp;
     final date =
-        '${t.day}/${t.month} ${t.hour}:${t.minute.toString().padLeft(2, '0')}';
+        '${time.day}/${time.month} ${time.hour}:${time.minute.toString().padLeft(2, '0')}';
     return Card(
       margin: const EdgeInsets.only(bottom: 8),
       clipBehavior: Clip.antiAlias,
@@ -327,8 +331,11 @@ class _ResultTile extends StatelessWidget {
         title: Text(title, style: const TextStyle(fontWeight: FontWeight.w700)),
         subtitle: Text(
           result.isFull
-              ? '$date · Lenguaje ${score.languagePoints}/120 · '
-                  'Listening ${score.listeningPoints}/60'
+              ? t.exam.historyFullDetail(
+                  date: date,
+                  language: score.languagePoints,
+                  listening: score.listeningPoints,
+                )
               : '$date · ${score.overall.correct}/${score.overall.total}',
         ),
         trailing: Row(

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:kana_master/domain/exam/exam_models.dart';
 import 'package:kana_master/domain/exam/exam_scoring.dart';
+import 'package:kana_master/i18n/strings.g.dart';
 import 'package:kana_master/pages/exam/exam_review_page.dart';
+import 'package:kana_master/pages/exam/widgets/exam_names.dart';
 import 'package:kana_master/pages/exam/widgets/jp_text.dart';
 import 'package:kana_master/theme/app_theme.dart';
 
@@ -26,7 +28,7 @@ class ExamResultPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final score = args.score;
     return Scaffold(
-      appBar: AppBar(title: const Text('Resultado')),
+      appBar: AppBar(title: Text(t.exam.resultTitle)),
       body: ListView(
         padding: const EdgeInsets.fromLTRB(16, 4, 16, 24),
         children: [
@@ -48,7 +50,7 @@ class ExamResultPage extends StatelessWidget {
               builder: (_) => ExamReviewPage(args: args),
             )),
             icon: const Icon(Icons.fact_check_outlined),
-            label: const Text('Revisar respuestas'),
+            label: Text(t.exam.reviewAnswers),
             style: FilledButton.styleFrom(
               minimumSize: const Size.fromHeight(50),
             ),
@@ -59,7 +61,7 @@ class ExamResultPage extends StatelessWidget {
             style: OutlinedButton.styleFrom(
               minimumSize: const Size.fromHeight(50),
             ),
-            child: const Text('Volver'),
+            child: Text(t.exam.back),
           ),
         ],
       ),
@@ -97,7 +99,7 @@ class ScoreSummaryCard extends StatelessWidget {
         children: [
           if (full) ...[
             Text(
-              passed ? '合格 · Aprobado' : '不合格 · Suspenso',
+              passed ? '合格 · ${t.exam.passed}' : '不合格 · ${t.exam.failed}',
               style: JpText.style(
                 fontSize: 24,
                 fontWeight: FontWeight.w900,
@@ -127,8 +129,7 @@ class ScoreSummaryCard extends StatelessWidget {
             ),
             const SizedBox(height: 8),
             Text(
-              'Puntuación estimada: cada pregunta vale lo mismo. Para aprobar '
-              'hacen falta 80/180 y un mínimo de 38 y 19 en cada parte.',
+              t.exam.scoreNote,
               style: TextStyle(color: AppColors.slate, fontSize: 12),
             ),
           ] else ...[
@@ -141,7 +142,10 @@ class ScoreSummaryCard extends StatelessWidget {
               ),
             ),
             Text(
-              '${score.overall.correct} de ${score.overall.total} correctas',
+              t.exam.correctOf(
+                correct: score.overall.correct,
+                total: score.overall.total,
+              ),
               style: TextStyle(color: AppColors.slate),
             ),
             const SizedBox(height: 8),
@@ -158,11 +162,9 @@ class ScoreSummaryCard extends StatelessWidget {
   String _partialHint() {
     // Share of right answers that reaches the minimum score of the section.
     if (sections.contains(ExamSection.listening)) {
-      return 'Mínimo para no suspender el listening: 19/60 (32 %). '
-          'Para ir con margen, apunta a más del 60 %.';
+      return t.exam.listeningHint;
     }
-    return 'Mínimo de la parte de lenguaje: 38/120 (32 %). '
-        'Para ir con margen, apunta a más del 60 %.';
+    return t.exam.languageHint;
   }
 }
 
@@ -244,7 +246,7 @@ class MondaiRow extends StatelessWidget {
                       .copyWith(height: 1.3),
                 ),
                 Text(
-                  mondai.spanish,
+                  mondai.localName,
                   style: TextStyle(color: AppColors.slate, fontSize: 12),
                 ),
               ],

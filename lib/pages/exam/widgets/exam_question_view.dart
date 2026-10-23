@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kana_master/domain/exam/exam_models.dart';
+import 'package:kana_master/i18n/strings.g.dart';
 import 'package:kana_master/pages/exam/widgets/exam_option_tile.dart';
 import 'package:kana_master/pages/exam/widgets/jp_text.dart';
 import 'package:kana_master/pages/exam/widgets/passage_card.dart';
@@ -154,10 +155,10 @@ class ReviewNote extends StatelessWidget {
     final lines = <Widget>[
       Text(
         selected == null
-            ? 'Sin responder'
+            ? t.exam.unanswered
             : right
-                ? 'Correcta'
-                : 'Incorrecta',
+                ? t.exam.correct
+                : t.exam.incorrect,
         style: TextStyle(
           fontWeight: FontWeight.w800,
           color: right ? AppColors.teal : AppColors.coral,
@@ -188,7 +189,7 @@ class ReviewNote extends StatelessWidget {
     if (q.translation != null) {
       lines.add(const SizedBox(height: 10));
       lines.add(Text(
-        'Traducción',
+        t.exam.translation,
         style: TextStyle(
           fontWeight: FontWeight.w800,
           color: AppColors.ink,
@@ -243,7 +244,7 @@ class _PassageTranslationState extends State<_PassageTranslation> {
           style: TextButton.styleFrom(padding: EdgeInsets.zero),
           icon: Icon(_open ? Icons.expand_less : Icons.expand_more),
           label: Text(
-            _open ? 'Ocultar traducción del texto' : 'Ver traducción del texto',
+            _open ? t.exam.hideTextTranslation : t.exam.showTextTranslation,
           ),
         ),
         if (_open)

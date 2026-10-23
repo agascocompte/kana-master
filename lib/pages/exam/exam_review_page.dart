@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kana_master/domain/exam/exam_models.dart';
+import 'package:kana_master/i18n/strings.g.dart';
 import 'package:kana_master/pages/exam/exam_result_page.dart';
 import 'package:kana_master/pages/exam/widgets/exam_option_tile.dart';
 import 'package:kana_master/pages/exam/widgets/exam_question_view.dart';
@@ -83,7 +84,7 @@ class _ExamReviewPageState extends State<ExamReviewPage> {
         padding: const EdgeInsets.only(top: 40),
         child: Center(
           child: Text(
-            '¡Ningún fallo!',
+            t.exam.noMistakes,
             style: TextStyle(fontSize: 18, color: AppColors.slate),
           ),
         ),
@@ -91,11 +92,11 @@ class _ExamReviewPageState extends State<ExamReviewPage> {
     }
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Revisión'),
+        title: Text(t.exam.reviewTitle),
         actions: [
           Row(
             children: [
-              Text('Solo fallos', style: TextStyle(color: AppColors.ink)),
+              Text(t.exam.onlyMistakes, style: TextStyle(color: AppColors.ink)),
               Switch(
                 value: _onlyMistakes,
                 onChanged: (v) => setState(() => _onlyMistakes = v),
@@ -148,7 +149,7 @@ class _ListeningReview extends StatelessWidget {
             IconButton.filledTonal(
               onPressed: onPlay,
               icon: Icon(playing ? Icons.stop : Icons.play_arrow),
-              tooltip: playing ? 'Parar' : 'Escuchar',
+              tooltip: playing ? t.exam.stop : t.exam.listen,
             ),
           ],
         ),

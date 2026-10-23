@@ -39,6 +39,7 @@ class TranslationsJa with BaseTranslations<AppLocale, Translations> implements T
 
 	// Translations
 	@override late final _Translations$app$ja app = _Translations$app$ja._(_root);
+	@override late final _Translations$exam$ja exam = _Translations$exam$ja._(_root);
 }
 
 // Path: app
@@ -272,6 +273,110 @@ class _Translations$app$ja implements Translations$app$en {
 	@override String get settingsAdPrivacySubtitle => 'パーソナライズ広告への同意を変更します。';
 }
 
+// Path: exam
+class _Translations$exam$ja implements Translations$exam$en {
+	_Translations$exam$ja._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get tab => '試験';
+	@override String get hubTitle => 'JLPT N5 模擬試験';
+	@override String get hubSubtitle => '本番と同じ形式で練習しよう';
+	@override String get daysLeft => '試験までの日数';
+	@override String get examsToday => '今日の受験回数';
+	@override String get questionsSeen => '解いた問題数';
+	@override String get fullExam => '全科目';
+	@override String get fullExamSubtitle => '20 + 40 + 30分 · 67問';
+	@override String sectionCardSubtitle({required Object minutes, required Object count}) => '${minutes}分 · ${count}問';
+	@override String get progressTitle => '成績の推移（全科目）';
+	@override String get weakPoints => '苦手な問題';
+	@override String weakPointsSubtitle({required Object count}) => '直近${count}回の試験での問題形式別の正答率';
+	@override String get history => '履歴';
+	@override String historyFullDetail({required Object date, required Object language, required Object listening}) => '${date} · 言語知識・読解 ${language}/120 · 聴解 ${listening}/60';
+	@override late final _Translations$exam$sections$ja sections = _Translations$exam$sections$ja._(_root);
+	@override late final _Translations$exam$mondai$ja mondai = _Translations$exam$mondai$ja._(_root);
+	@override String get createError => '試験を作成できませんでした。';
+	@override String get leaveTitle => '試験を終了しますか？';
+	@override String get leaveBody => 'この試験の解答はすべて失われます。';
+	@override String get keepGoing => '続ける';
+	@override String get leave => '終了する';
+	@override String sectionOf({required Object current, required Object total}) => 'セクション ${current}/${total}';
+	@override String sectionInfo({required Object minutes, required Object count}) => '${minutes}分 · ${count}問';
+	@override String get listeningIntro => '音声は本番と同じように自動で一度だけ流れます。各問題のあとのポーズの間に答えてください。イヤホンの使用をおすすめします。';
+	@override String get writtenIntro => '問題は自由に行き来できます。時間になると、セクションは自動的に提出されます。';
+	@override String get start => '開始';
+	@override String get timeUp => '時間切れです';
+	@override String get submitTitle => 'このセクションを提出しますか？';
+	@override String get submitAllAnswered => 'すべての問題に解答しました。';
+	@override String submitUnanswered({required Object count}) => '未解答の問題：${count}問';
+	@override String get submit => '提出する';
+	@override String get previous => '前へ';
+	@override String get next => '次へ';
+	@override String questionOf({required Object current, required Object total}) => '問題 ${current}/${total}';
+	@override String get resultTitle => '結果';
+	@override String get reviewAnswers => '解答を確認する';
+	@override String get back => '戻る';
+	@override String get passed => '合格';
+	@override String get failed => '不合格';
+	@override String get scoreNote => '推定スコアです（全問同じ配点）。合格には総合80/180点以上、かつ各パートで38点・19点以上が必要です。';
+	@override String correctOf({required Object total, required Object correct}) => '${total}問中${correct}問正解';
+	@override String get listeningHint => '聴解の合格最低点：19/60（32%）。安心のため、60%以上を目指しましょう。';
+	@override String get languageHint => '言語知識・読解の合格最低点：38/120（32%）。安心のため、60%以上を目指しましょう。';
+	@override String get reviewTitle => '見直し';
+	@override String get onlyMistakes => '間違いのみ';
+	@override String get noMistakes => '間違いはありません！';
+	@override String get unanswered => '未解答';
+	@override String get correct => '正解';
+	@override String get incorrect => '不正解';
+	@override String get translation => '訳';
+	@override String get showTextTranslation => '本文の訳を表示';
+	@override String get hideTextTranslation => '本文の訳を隠す';
+	@override String get listen => '聞く';
+	@override String get stop => '停止';
+	@override String get instructions => '指示';
+	@override String get listening => '再生中…';
+	@override String answerNow({required Object seconds}) => '解答してください · ${seconds}秒';
+	@override String get paused => '一時停止中';
+	@override String get resume => '再開';
+	@override String get pause => '一時停止';
+}
+
+// Path: exam.sections
+class _Translations$exam$sections$ja implements Translations$exam$sections$en {
+	_Translations$exam$sections$ja._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get vocabulary => '言語知識（文字・語彙）';
+	@override String get grammarReading => '言語知識（文法）・読解';
+	@override String get listening => '聴解';
+}
+
+// Path: exam.mondai
+class _Translations$exam$mondai$ja implements Translations$exam$mondai$en {
+	_Translations$exam$mondai$ja._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get kanjiReading => '漢字読み';
+	@override String get orthography => '表記';
+	@override String get contextual => '文脈規定';
+	@override String get paraphrase => '言い換え類義';
+	@override String get grammarForm => '文法形式の判断';
+	@override String get sentenceOrder => '文の組み立て';
+	@override String get textGrammar => '文章の文法';
+	@override String get shortReading => '内容理解（短文）';
+	@override String get midReading => '内容理解（中文）';
+	@override String get infoSearch => '情報検索';
+	@override String get taskListening => '課題理解';
+	@override String get pointListening => 'ポイント理解';
+	@override String get utterance => '発話表現';
+	@override String get quickResponse => '即時応答';
+}
+
 /// The flat map containing all translations for locale <ja>.
 /// Only for edge cases! For simple maps, use the map function of this library.
 ///
@@ -502,6 +607,81 @@ extension on TranslationsJa {
 			'app.settingsReminderBlocked' => 'KanaGoの通知がオフになっています。システム設定でオンにしてください。',
 			'app.settingsAdPrivacyTitle' => '広告のプライバシー',
 			'app.settingsAdPrivacySubtitle' => 'パーソナライズ広告への同意を変更します。',
+			'exam.tab' => '試験',
+			'exam.hubTitle' => 'JLPT N5 模擬試験',
+			'exam.hubSubtitle' => '本番と同じ形式で練習しよう',
+			'exam.daysLeft' => '試験までの日数',
+			'exam.examsToday' => '今日の受験回数',
+			'exam.questionsSeen' => '解いた問題数',
+			'exam.fullExam' => '全科目',
+			'exam.fullExamSubtitle' => '20 + 40 + 30分 · 67問',
+			'exam.sectionCardSubtitle' => ({required Object minutes, required Object count}) => '${minutes}分 · ${count}問',
+			'exam.progressTitle' => '成績の推移（全科目）',
+			'exam.weakPoints' => '苦手な問題',
+			'exam.weakPointsSubtitle' => ({required Object count}) => '直近${count}回の試験での問題形式別の正答率',
+			'exam.history' => '履歴',
+			'exam.historyFullDetail' => ({required Object date, required Object language, required Object listening}) => '${date} · 言語知識・読解 ${language}/120 · 聴解 ${listening}/60',
+			'exam.sections.vocabulary' => '言語知識（文字・語彙）',
+			'exam.sections.grammarReading' => '言語知識（文法）・読解',
+			'exam.sections.listening' => '聴解',
+			'exam.mondai.kanjiReading' => '漢字読み',
+			'exam.mondai.orthography' => '表記',
+			'exam.mondai.contextual' => '文脈規定',
+			'exam.mondai.paraphrase' => '言い換え類義',
+			'exam.mondai.grammarForm' => '文法形式の判断',
+			'exam.mondai.sentenceOrder' => '文の組み立て',
+			'exam.mondai.textGrammar' => '文章の文法',
+			'exam.mondai.shortReading' => '内容理解（短文）',
+			'exam.mondai.midReading' => '内容理解（中文）',
+			'exam.mondai.infoSearch' => '情報検索',
+			'exam.mondai.taskListening' => '課題理解',
+			'exam.mondai.pointListening' => 'ポイント理解',
+			'exam.mondai.utterance' => '発話表現',
+			'exam.mondai.quickResponse' => '即時応答',
+			'exam.createError' => '試験を作成できませんでした。',
+			'exam.leaveTitle' => '試験を終了しますか？',
+			'exam.leaveBody' => 'この試験の解答はすべて失われます。',
+			'exam.keepGoing' => '続ける',
+			'exam.leave' => '終了する',
+			'exam.sectionOf' => ({required Object current, required Object total}) => 'セクション ${current}/${total}',
+			'exam.sectionInfo' => ({required Object minutes, required Object count}) => '${minutes}分 · ${count}問',
+			'exam.listeningIntro' => '音声は本番と同じように自動で一度だけ流れます。各問題のあとのポーズの間に答えてください。イヤホンの使用をおすすめします。',
+			'exam.writtenIntro' => '問題は自由に行き来できます。時間になると、セクションは自動的に提出されます。',
+			'exam.start' => '開始',
+			'exam.timeUp' => '時間切れです',
+			'exam.submitTitle' => 'このセクションを提出しますか？',
+			'exam.submitAllAnswered' => 'すべての問題に解答しました。',
+			'exam.submitUnanswered' => ({required Object count}) => '未解答の問題：${count}問',
+			'exam.submit' => '提出する',
+			'exam.previous' => '前へ',
+			'exam.next' => '次へ',
+			'exam.questionOf' => ({required Object current, required Object total}) => '問題 ${current}/${total}',
+			'exam.resultTitle' => '結果',
+			'exam.reviewAnswers' => '解答を確認する',
+			'exam.back' => '戻る',
+			'exam.passed' => '合格',
+			'exam.failed' => '不合格',
+			'exam.scoreNote' => '推定スコアです（全問同じ配点）。合格には総合80/180点以上、かつ各パートで38点・19点以上が必要です。',
+			'exam.correctOf' => ({required Object total, required Object correct}) => '${total}問中${correct}問正解',
+			'exam.listeningHint' => '聴解の合格最低点：19/60（32%）。安心のため、60%以上を目指しましょう。',
+			'exam.languageHint' => '言語知識・読解の合格最低点：38/120（32%）。安心のため、60%以上を目指しましょう。',
+			'exam.reviewTitle' => '見直し',
+			'exam.onlyMistakes' => '間違いのみ',
+			'exam.noMistakes' => '間違いはありません！',
+			'exam.unanswered' => '未解答',
+			'exam.correct' => '正解',
+			'exam.incorrect' => '不正解',
+			'exam.translation' => '訳',
+			'exam.showTextTranslation' => '本文の訳を表示',
+			'exam.hideTextTranslation' => '本文の訳を隠す',
+			'exam.listen' => '聞く',
+			'exam.stop' => '停止',
+			'exam.instructions' => '指示',
+			'exam.listening' => '再生中…',
+			'exam.answerNow' => ({required Object seconds}) => '解答してください · ${seconds}秒',
+			'exam.paused' => '一時停止中',
+			'exam.resume' => '再開',
+			'exam.pause' => '一時停止',
 			_ => null,
 		};
 	}

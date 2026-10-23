@@ -108,3 +108,13 @@ flutter:
     - assets/models/kanji.tflite
     - assets/exam/bank/
     - assets/exam/audio/
+    - assets/exam/i18n/en/
+    - assets/exam/i18n/es/
+    - assets/exam/i18n/ca/
+    - assets/exam/i18n/de/
+    - assets/exam/i18n/fr/
+    - assets/exam/i18n/it/
+    - assets/exam/i18n/pt/
+    - assets/exam/i18n/ru/
+    - assets/exam/i18n/ko/
+    - assets/exam/i18n/zh/
