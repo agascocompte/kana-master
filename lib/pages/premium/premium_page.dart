@@ -102,6 +102,7 @@ class PremiumPage extends StatelessWidget {
                           ),
                           const SizedBox(height: 14),
                           _benefit(tr.app.premiumBenefitNoAds),
+                          _benefit(tr.app.premiumBenefitExams),
                           _benefit(tr.app.premiumBenefitMaterials),
                           _benefit(tr.app.premiumBenefitHard),
                           _benefit(tr.app.premiumBenefitJlpt),

@@ -196,6 +196,7 @@ class _Translations$app$ca implements Translations$app$en {
 	@override String get premiumHeroTitle => 'Aprèn sense límits';
 	@override String get premiumHeroBody => 'Aconsegueix l\'experiència completa i dona suport al projecte.';
 	@override String get premiumBenefitNoAds => 'Sense anuncis';
+	@override String get premiumBenefitExams => 'Exàmens N5 il·limitats';
 	@override String get premiumBenefitMaterials => 'Accés al mode Materials';
 	@override String get premiumBenefitHard => 'Dificultat alta disponible';
 	@override String get premiumBenefitAi => 'Opcions de models IA';
@@ -340,6 +341,11 @@ class _Translations$exam$ca implements Translations$exam$en {
 	@override String get paused => 'En pausa';
 	@override String get resume => 'Continuar';
 	@override String get pause => 'Pausa';
+	@override String get freeDaily => '1 examen gratis al dia · Il·limitats amb Premium';
+	@override String get dailyLimitTitle => 'Ja has fet l\'examen d\'avui';
+	@override String get dailyLimitBody => 'Sense Premium tens un examen gratis al dia. Amb Premium en pots fer tants com vulguis.';
+	@override String get dailyLimitUpgrade => 'Veure Premium';
+	@override String get dailyLimitLater => 'Ara no';
 }
 
 // Path: exam.sections
@@ -532,6 +538,7 @@ extension on TranslationsCa {
 			'app.premiumHeroTitle' => 'Aprèn sense límits',
 			'app.premiumHeroBody' => 'Aconsegueix l\'experiència completa i dona suport al projecte.',
 			'app.premiumBenefitNoAds' => 'Sense anuncis',
+			'app.premiumBenefitExams' => 'Exàmens N5 il·limitats',
 			'app.premiumBenefitMaterials' => 'Accés al mode Materials',
 			'app.premiumBenefitHard' => 'Dificultat alta disponible',
 			'app.premiumBenefitAi' => 'Opcions de models IA',
@@ -682,6 +689,11 @@ extension on TranslationsCa {
 			'exam.paused' => 'En pausa',
 			'exam.resume' => 'Continuar',
 			'exam.pause' => 'Pausa',
+			'exam.freeDaily' => '1 examen gratis al dia · Il·limitats amb Premium',
+			'exam.dailyLimitTitle' => 'Ja has fet l\'examen d\'avui',
+			'exam.dailyLimitBody' => 'Sense Premium tens un examen gratis al dia. Amb Premium en pots fer tants com vulguis.',
+			'exam.dailyLimitUpgrade' => 'Veure Premium',
+			'exam.dailyLimitLater' => 'Ara no',
 			_ => null,
 		};
 	}

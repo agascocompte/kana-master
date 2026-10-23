@@ -196,6 +196,7 @@ class _Translations$app$es implements Translations$app$en {
 	@override String get premiumHeroTitle => 'Aprende sin límites';
 	@override String get premiumHeroBody => 'Consigue la experiencia completa y apoya el proyecto.';
 	@override String get premiumBenefitNoAds => 'Sin anuncios';
+	@override String get premiumBenefitExams => 'Exámenes N5 ilimitados';
 	@override String get premiumBenefitMaterials => 'Acceso al modo Material';
 	@override String get premiumBenefitHard => 'Dificultad alta disponible';
 	@override String get premiumBenefitAi => 'Opciones de modelos IA';
@@ -340,6 +341,11 @@ class _Translations$exam$es implements Translations$exam$en {
 	@override String get paused => 'En pausa';
 	@override String get resume => 'Continuar';
 	@override String get pause => 'Pausa';
+	@override String get freeDaily => '1 examen gratis al día · Ilimitados con Premium';
+	@override String get dailyLimitTitle => 'Ya has hecho tu examen de hoy';
+	@override String get dailyLimitBody => 'Sin Premium tienes un examen gratis al día. Con Premium puedes hacer todos los que quieras.';
+	@override String get dailyLimitUpgrade => 'Ver Premium';
+	@override String get dailyLimitLater => 'Ahora no';
 }
 
 // Path: exam.sections
@@ -532,6 +538,7 @@ extension on TranslationsEs {
 			'app.premiumHeroTitle' => 'Aprende sin límites',
 			'app.premiumHeroBody' => 'Consigue la experiencia completa y apoya el proyecto.',
 			'app.premiumBenefitNoAds' => 'Sin anuncios',
+			'app.premiumBenefitExams' => 'Exámenes N5 ilimitados',
 			'app.premiumBenefitMaterials' => 'Acceso al modo Material',
 			'app.premiumBenefitHard' => 'Dificultad alta disponible',
 			'app.premiumBenefitAi' => 'Opciones de modelos IA',
@@ -682,6 +689,11 @@ extension on TranslationsEs {
 			'exam.paused' => 'En pausa',
 			'exam.resume' => 'Continuar',
 			'exam.pause' => 'Pausa',
+			'exam.freeDaily' => '1 examen gratis al día · Ilimitados con Premium',
+			'exam.dailyLimitTitle' => 'Ya has hecho tu examen de hoy',
+			'exam.dailyLimitBody' => 'Sin Premium tienes un examen gratis al día. Con Premium puedes hacer todos los que quieras.',
+			'exam.dailyLimitUpgrade' => 'Ver Premium',
+			'exam.dailyLimitLater' => 'Ahora no',
 			_ => null,
 		};
 	}

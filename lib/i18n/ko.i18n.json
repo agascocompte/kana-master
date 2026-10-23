@@ -147,6 +147,7 @@
     "premiumHeroTitle": "제한 없이 학습하세요",
     "premiumHeroBody": "전체 기능을 이용하고 프로젝트를 응원해 주세요.",
     "premiumBenefitNoAds": "전면 광고 없음",
+    "premiumBenefitExams": "N5 시험 무제한",
     "premiumBenefitMaterials": "자료 모드 이용",
     "premiumBenefitHard": "고난도 사용 가능",
     "premiumBenefitAi": "AI 모델 옵션 활성화",
@@ -302,6 +303,11 @@
     "answerNow": "답하세요 · ${seconds}초",
     "paused": "일시정지됨",
     "resume": "재개",
-    "pause": "일시정지"
+    "pause": "일시정지",
+    "freeDaily": "하루 1회 무료 시험 · Premium은 무제한",
+    "dailyLimitTitle": "오늘의 시험을 이미 봤어요",
+    "dailyLimitBody": "Premium이 없으면 하루에 한 번 무료로 시험을 볼 수 있어요. Premium이 있으면 무제한이에요.",
+    "dailyLimitUpgrade": "Premium 보기",
+    "dailyLimitLater": "나중에"
   }
 }

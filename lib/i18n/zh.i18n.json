@@ -147,6 +147,7 @@
     "premiumHeroTitle": "无上限学习",
     "premiumHeroBody": "获得完整体验并支持项目发展。",
     "premiumBenefitNoAds": "无插屏广告",
+    "premiumBenefitExams": "无限次 N5 考试",
     "premiumBenefitMaterials": "可使用材料模式",
     "premiumBenefitHard": "可使用高难度",
     "premiumBenefitAi": "可启用 AI 模型选项",
@@ -302,6 +303,11 @@
     "answerNow": "作答 · ${seconds} 秒",
     "paused": "已暂停",
     "resume": "继续",
-    "pause": "暂停"
+    "pause": "暂停",
+    "freeDaily": "每天 1 次免费考试 · Premium 无限次",
+    "dailyLimitTitle": "今天的考试已经做过了",
+    "dailyLimitBody": "没有 Premium 时每天可以免费考一次。有了 Premium，想考多少次都可以。",
+    "dailyLimitUpgrade": "查看 Premium",
+    "dailyLimitLater": "以后再说"
   }
 }

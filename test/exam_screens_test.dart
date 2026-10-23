@@ -10,6 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:in_app_purchase/in_app_purchase.dart';
 import 'package:kana_master/domain/exam/exam_bank.dart';
 import 'package:kana_master/domain/exam/exam_builder.dart';
 import 'package:kana_master/domain/exam/exam_models.dart';
@@ -23,6 +24,7 @@ import 'package:kana_master/pages/exam/bloc/exam_session_cubit.dart';
 import 'package:kana_master/pages/exam/exam_result_page.dart';
 import 'package:kana_master/pages/exam/exam_review_page.dart';
 import 'package:kana_master/pages/exam/exam_session_page.dart';
+import 'package:kana_master/pages/premium/bloc/premium_bloc.dart';
 import 'package:kana_master/services/exam/exam_audio_player.dart';
 import 'package:kana_master/theme/app_theme.dart';
 
@@ -273,6 +275,31 @@ void main() {
     await tester.pump(const Duration(seconds: 3));
   });
 
+  testWidgets('free users get one exam a day', (tester) async {
+    phone(tester);
+    sl.registerSingleton<ExamRepository>(_HubRepository(paper));
+    sl.registerSingleton<SettingsRepository>(_Settings());
+    addTearDown(sl.reset);
+    // Not premium, and the fake history already has tests from today.
+    final premium = PremiumBloc(
+      settingsRepository: _Settings(),
+      inAppPurchase: _NoStore(),
+    );
+    addTearDown(premium.close);
+    await tester.pumpWidget(_app(BlocProvider.value(
+      value: premium,
+      child: const ExamHubPage(),
+    )));
+    await tester.pumpAndSettle();
+    expect(find.text(t.exam.freeDaily), findsOneWidget);
+    await tester.tap(find.text(t.exam.fullExam).first);
+    await tester.pumpAndSettle();
+    expect(find.text(t.exam.dailyLimitTitle), findsOneWidget);
+    await tester.tap(find.text(t.exam.dailyLimitLater));
+    await tester.pumpAndSettle();
+    expect(find.text(t.exam.dailyLimitTitle), findsNothing);
+  });
+
   testWidgets('hub', (tester) async {
     phone(tester);
     sl.registerSingleton<ExamRepository>(_HubRepository(paper));
@@ -384,4 +411,13 @@ class _HubRepository extends FakeExamRepository {
 class _Settings extends SettingsRepository {
   @override
   Future<DateTime> getExamDate() async => DateTime(2026, 12, 6);
+}
+
+/// Store that never sells anything, for the premium bloc.
+class _NoStore implements InAppPurchase {
+  @override
+  Stream<List<PurchaseDetails>> get purchaseStream => const Stream.empty();
+
+  @override
+  dynamic noSuchMethod(Invocation invocation) => super.noSuchMethod(invocation);
 }

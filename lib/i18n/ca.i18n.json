@@ -147,6 +147,7 @@
     "premiumHeroTitle": "Aprèn sense límits",
     "premiumHeroBody": "Aconsegueix l'experiència completa i dona suport al projecte.",
     "premiumBenefitNoAds": "Sense anuncis",
+    "premiumBenefitExams": "Exàmens N5 il·limitats",
     "premiumBenefitMaterials": "Accés al mode Materials",
     "premiumBenefitHard": "Dificultat alta disponible",
     "premiumBenefitAi": "Opcions de models IA",
@@ -302,6 +303,11 @@
     "answerNow": "Respon · ${seconds} s",
     "paused": "En pausa",
     "resume": "Continuar",
-    "pause": "Pausa"
+    "pause": "Pausa",
+    "freeDaily": "1 examen gratis al dia · Il·limitats amb Premium",
+    "dailyLimitTitle": "Ja has fet l'examen d'avui",
+    "dailyLimitBody": "Sense Premium tens un examen gratis al dia. Amb Premium en pots fer tants com vulguis.",
+    "dailyLimitUpgrade": "Veure Premium",
+    "dailyLimitLater": "Ara no"
   }
 }

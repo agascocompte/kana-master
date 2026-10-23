@@ -196,6 +196,7 @@ class _Translations$app$de implements Translations$app$en {
 	@override String get premiumHeroTitle => 'Lernen ohne Grenzen';
 	@override String get premiumHeroBody => 'Hol dir das volle Erlebnis und unterstütze das Projekt.';
 	@override String get premiumBenefitNoAds => 'Keine Anzeigen';
+	@override String get premiumBenefitExams => 'Unbegrenzte N5-Prüfungen';
 	@override String get premiumBenefitMaterials => 'Zugang zum Material-Modus';
 	@override String get premiumBenefitHard => 'Schwierigkeit „Schwer“ freischalten';
 	@override String get premiumBenefitAi => 'KI-Modelloptionen aktivieren';
@@ -340,6 +341,11 @@ class _Translations$exam$de implements Translations$exam$en {
 	@override String get paused => 'Pausiert';
 	@override String get resume => 'Fortsetzen';
 	@override String get pause => 'Pause';
+	@override String get freeDaily => '1 kostenlose Prüfung pro Tag · Unbegrenzt mit Premium';
+	@override String get dailyLimitTitle => 'Du hast die heutige Prüfung schon gemacht';
+	@override String get dailyLimitBody => 'Ohne Premium hast du eine kostenlose Prüfung pro Tag. Mit Premium so viele du willst.';
+	@override String get dailyLimitUpgrade => 'Premium ansehen';
+	@override String get dailyLimitLater => 'Nicht jetzt';
 }
 
 // Path: exam.sections
@@ -532,6 +538,7 @@ extension on TranslationsDe {
 			'app.premiumHeroTitle' => 'Lernen ohne Grenzen',
 			'app.premiumHeroBody' => 'Hol dir das volle Erlebnis und unterstütze das Projekt.',
 			'app.premiumBenefitNoAds' => 'Keine Anzeigen',
+			'app.premiumBenefitExams' => 'Unbegrenzte N5-Prüfungen',
 			'app.premiumBenefitMaterials' => 'Zugang zum Material-Modus',
 			'app.premiumBenefitHard' => 'Schwierigkeit „Schwer“ freischalten',
 			'app.premiumBenefitAi' => 'KI-Modelloptionen aktivieren',
@@ -682,6 +689,11 @@ extension on TranslationsDe {
 			'exam.paused' => 'Pausiert',
 			'exam.resume' => 'Fortsetzen',
 			'exam.pause' => 'Pause',
+			'exam.freeDaily' => '1 kostenlose Prüfung pro Tag · Unbegrenzt mit Premium',
+			'exam.dailyLimitTitle' => 'Du hast die heutige Prüfung schon gemacht',
+			'exam.dailyLimitBody' => 'Ohne Premium hast du eine kostenlose Prüfung pro Tag. Mit Premium so viele du willst.',
+			'exam.dailyLimitUpgrade' => 'Premium ansehen',
+			'exam.dailyLimitLater' => 'Nicht jetzt',
 			_ => null,
 		};
 	}

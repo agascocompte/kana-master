@@ -1,5 +1,6 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:kana_master/di/dependency_injector.dart';
 import 'package:kana_master/domain/exam/exam_models.dart';
@@ -9,6 +10,7 @@ import 'package:kana_master/domain/repositories/settings_repository.dart';
 import 'package:kana_master/i18n/strings.g.dart';
 import 'package:kana_master/pages/exam/exam_result_page.dart';
 import 'package:kana_master/pages/exam/widgets/exam_names.dart';
+import 'package:kana_master/pages/premium/bloc/premium_bloc.dart';
 import 'package:kana_master/pages/study/widgets/action_card.dart';
 import 'package:kana_master/router/router.dart';
 import 'package:kana_master/theme/app_theme.dart';
@@ -49,9 +51,42 @@ class _ExamHubPageState extends State<ExamHubPage> {
     });
   }
 
+  /// Free users get one test a day, of any kind; Premium has no limit.
+  /// Without the bloc (in tests) everything is open.
+  bool get _isPremium => context.read<PremiumBloc?>()?.state.isPremium ?? true;
+
+  int get _todayCount => _results
+      .where((r) => DateUtils.isSameDay(r.timestamp, DateTime.now()))
+      .length;
+
   Future<void> _start(List<ExamSection> sections) async {
+    if (!_isPremium && _todayCount >= 1) {
+      await _showDailyLimit();
+      return;
+    }
     await context.push(AppRouter.examSessionRoute, extra: sections);
     _load();
+  }
+
+  Future<void> _showDailyLimit() async {
+    final upgrade = await showDialog<bool>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text(t.exam.dailyLimitTitle),
+        content: Text(t.exam.dailyLimitBody),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context, false),
+            child: Text(t.exam.dailyLimitLater),
+          ),
+          FilledButton(
+            onPressed: () => Navigator.pop(context, true),
+            child: Text(t.exam.dailyLimitUpgrade),
+          ),
+        ],
+      ),
+    );
+    if (upgrade == true && mounted) context.push(AppRouter.premiumRoute);
   }
 
   /// Tests the weak points are computed from.
@@ -106,9 +141,8 @@ class _ExamHubPageState extends State<ExamHubPage> {
     final t = context.t;
     final today = DateUtils.dateOnly(DateTime.now());
     final daysLeft = _examDate?.difference(today).inDays;
-    final todayCount = _results
-        .where((r) => DateUtils.isSameDay(r.timestamp, DateTime.now()))
-        .length;
+    final todayCount = _todayCount;
+    final isPremium = context.watch<PremiumBloc?>()?.state.isPremium ?? true;
     return Scaffold(
       body: SafeArea(
         bottom: false,
@@ -130,6 +164,17 @@ class _ExamHubPageState extends State<ExamHubPage> {
                 t.exam.hubSubtitle,
                 style: TextStyle(color: AppColors.slate, fontSize: 14),
               ),
+              if (!isPremium) ...[
+                const SizedBox(height: 4),
+                Text(
+                  t.exam.freeDaily,
+                  style: TextStyle(
+                    color: AppColors.coral,
+                    fontSize: 13,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ],
               const SizedBox(height: 18),
               IntrinsicHeight(
                 child: Row(

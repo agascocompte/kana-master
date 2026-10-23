@@ -147,6 +147,7 @@
     "premiumHeroTitle": "Aprenda sem limites",
     "premiumHeroBody": "Tenha a experiência completa e apoie o projeto.",
     "premiumBenefitNoAds": "Sem anúncios",
+    "premiumBenefitExams": "Simulados N5 ilimitados",
     "premiumBenefitMaterials": "Acesso ao modo Materiais",
     "premiumBenefitHard": "Usar dificuldade alta",
     "premiumBenefitAi": "Ativar opções de modelos de IA",
@@ -302,6 +303,11 @@
     "answerNow": "Responda · ${seconds} s",
     "paused": "Pausado",
     "resume": "Continuar",
-    "pause": "Pausar"
+    "pause": "Pausar",
+    "freeDaily": "1 simulado grátis por dia · Ilimitados com Premium",
+    "dailyLimitTitle": "Você já fez o simulado de hoje",
+    "dailyLimitBody": "Sem Premium, você tem um simulado grátis por dia. Com Premium, quantos quiser.",
+    "dailyLimitUpgrade": "Ver Premium",
+    "dailyLimitLater": "Agora não"
   }
 }

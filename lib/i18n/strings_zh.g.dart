@@ -196,6 +196,7 @@ class _Translations$app$zh implements Translations$app$en {
 	@override String get premiumHeroTitle => '无上限学习';
 	@override String get premiumHeroBody => '获得完整体验并支持项目发展。';
 	@override String get premiumBenefitNoAds => '无插屏广告';
+	@override String get premiumBenefitExams => '无限次 N5 考试';
 	@override String get premiumBenefitMaterials => '可使用材料模式';
 	@override String get premiumBenefitHard => '可使用高难度';
 	@override String get premiumBenefitAi => '可启用 AI 模型选项';
@@ -340,6 +341,11 @@ class _Translations$exam$zh implements Translations$exam$en {
 	@override String get paused => '已暂停';
 	@override String get resume => '继续';
 	@override String get pause => '暂停';
+	@override String get freeDaily => '每天 1 次免费考试 · Premium 无限次';
+	@override String get dailyLimitTitle => '今天的考试已经做过了';
+	@override String get dailyLimitBody => '没有 Premium 时每天可以免费考一次。有了 Premium，想考多少次都可以。';
+	@override String get dailyLimitUpgrade => '查看 Premium';
+	@override String get dailyLimitLater => '以后再说';
 }
 
 // Path: exam.sections
@@ -532,6 +538,7 @@ extension on TranslationsZh {
 			'app.premiumHeroTitle' => '无上限学习',
 			'app.premiumHeroBody' => '获得完整体验并支持项目发展。',
 			'app.premiumBenefitNoAds' => '无插屏广告',
+			'app.premiumBenefitExams' => '无限次 N5 考试',
 			'app.premiumBenefitMaterials' => '可使用材料模式',
 			'app.premiumBenefitHard' => '可使用高难度',
 			'app.premiumBenefitAi' => '可启用 AI 模型选项',
@@ -682,6 +689,11 @@ extension on TranslationsZh {
 			'exam.paused' => '已暂停',
 			'exam.resume' => '继续',
 			'exam.pause' => '暂停',
+			'exam.freeDaily' => '每天 1 次免费考试 · Premium 无限次',
+			'exam.dailyLimitTitle' => '今天的考试已经做过了',
+			'exam.dailyLimitBody' => '没有 Premium 时每天可以免费考一次。有了 Premium，想考多少次都可以。',
+			'exam.dailyLimitUpgrade' => '查看 Premium',
+			'exam.dailyLimitLater' => '以后再说',
 			_ => null,
 		};
 	}

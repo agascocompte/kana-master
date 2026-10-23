@@ -196,6 +196,7 @@ class _Translations$app$pt implements Translations$app$en {
 	@override String get premiumHeroTitle => 'Aprenda sem limites';
 	@override String get premiumHeroBody => 'Tenha a experiência completa e apoie o projeto.';
 	@override String get premiumBenefitNoAds => 'Sem anúncios';
+	@override String get premiumBenefitExams => 'Simulados N5 ilimitados';
 	@override String get premiumBenefitMaterials => 'Acesso ao modo Materiais';
 	@override String get premiumBenefitHard => 'Usar dificuldade alta';
 	@override String get premiumBenefitAi => 'Ativar opções de modelos de IA';
@@ -340,6 +341,11 @@ class _Translations$exam$pt implements Translations$exam$en {
 	@override String get paused => 'Pausado';
 	@override String get resume => 'Continuar';
 	@override String get pause => 'Pausar';
+	@override String get freeDaily => '1 simulado grátis por dia · Ilimitados com Premium';
+	@override String get dailyLimitTitle => 'Você já fez o simulado de hoje';
+	@override String get dailyLimitBody => 'Sem Premium, você tem um simulado grátis por dia. Com Premium, quantos quiser.';
+	@override String get dailyLimitUpgrade => 'Ver Premium';
+	@override String get dailyLimitLater => 'Agora não';
 }
 
 // Path: exam.sections
@@ -532,6 +538,7 @@ extension on TranslationsPt {
 			'app.premiumHeroTitle' => 'Aprenda sem limites',
 			'app.premiumHeroBody' => 'Tenha a experiência completa e apoie o projeto.',
 			'app.premiumBenefitNoAds' => 'Sem anúncios',
+			'app.premiumBenefitExams' => 'Simulados N5 ilimitados',
 			'app.premiumBenefitMaterials' => 'Acesso ao modo Materiais',
 			'app.premiumBenefitHard' => 'Usar dificuldade alta',
 			'app.premiumBenefitAi' => 'Ativar opções de modelos de IA',
@@ -682,6 +689,11 @@ extension on TranslationsPt {
 			'exam.paused' => 'Pausado',
 			'exam.resume' => 'Continuar',
 			'exam.pause' => 'Pausar',
+			'exam.freeDaily' => '1 simulado grátis por dia · Ilimitados com Premium',
+			'exam.dailyLimitTitle' => 'Você já fez o simulado de hoje',
+			'exam.dailyLimitBody' => 'Sem Premium, você tem um simulado grátis por dia. Com Premium, quantos quiser.',
+			'exam.dailyLimitUpgrade' => 'Ver Premium',
+			'exam.dailyLimitLater' => 'Agora não',
 			_ => null,
 		};
 	}

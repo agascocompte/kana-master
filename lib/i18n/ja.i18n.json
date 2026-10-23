@@ -147,6 +147,7 @@
     "premiumHeroTitle": "制限なく学習",
     "premiumHeroBody": "フル機能を利用して、プロジェクトを応援してください。",
     "premiumBenefitNoAds": "インタースティシャル広告なし",
+    "premiumBenefitExams": "N5模擬試験が無制限",
     "premiumBenefitMaterials": "マテリアルモードにアクセス",
     "premiumBenefitHard": "高難易度を利用可能",
     "premiumBenefitAi": "AIモデル設定を有効化",
@@ -302,6 +303,11 @@
     "answerNow": "解答してください · ${seconds}秒",
     "paused": "一時停止中",
     "resume": "再開",
-    "pause": "一時停止"
+    "pause": "一時停止",
+    "freeDaily": "無料の模擬試験は1日1回 · Premiumなら無制限",
+    "dailyLimitTitle": "今日の模擬試験は受験済みです",
+    "dailyLimitBody": "Premiumなしでは1日1回まで無料で受けられます。Premiumなら何回でも受けられます。",
+    "dailyLimitUpgrade": "Premiumを見る",
+    "dailyLimitLater": "あとで"
   }
 }

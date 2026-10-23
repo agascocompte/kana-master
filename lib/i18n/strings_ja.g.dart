@@ -196,6 +196,7 @@ class _Translations$app$ja implements Translations$app$en {
 	@override String get premiumHeroTitle => '制限なく学習';
 	@override String get premiumHeroBody => 'フル機能を利用して、プロジェクトを応援してください。';
 	@override String get premiumBenefitNoAds => 'インタースティシャル広告なし';
+	@override String get premiumBenefitExams => 'N5模擬試験が無制限';
 	@override String get premiumBenefitMaterials => 'マテリアルモードにアクセス';
 	@override String get premiumBenefitHard => '高難易度を利用可能';
 	@override String get premiumBenefitAi => 'AIモデル設定を有効化';
@@ -340,6 +341,11 @@ class _Translations$exam$ja implements Translations$exam$en {
 	@override String get paused => '一時停止中';
 	@override String get resume => '再開';
 	@override String get pause => '一時停止';
+	@override String get freeDaily => '無料の模擬試験は1日1回 · Premiumなら無制限';
+	@override String get dailyLimitTitle => '今日の模擬試験は受験済みです';
+	@override String get dailyLimitBody => 'Premiumなしでは1日1回まで無料で受けられます。Premiumなら何回でも受けられます。';
+	@override String get dailyLimitUpgrade => 'Premiumを見る';
+	@override String get dailyLimitLater => 'あとで';
 }
 
 // Path: exam.sections
@@ -532,6 +538,7 @@ extension on TranslationsJa {
 			'app.premiumHeroTitle' => '制限なく学習',
 			'app.premiumHeroBody' => 'フル機能を利用して、プロジェクトを応援してください。',
 			'app.premiumBenefitNoAds' => 'インタースティシャル広告なし',
+			'app.premiumBenefitExams' => 'N5模擬試験が無制限',
 			'app.premiumBenefitMaterials' => 'マテリアルモードにアクセス',
 			'app.premiumBenefitHard' => '高難易度を利用可能',
 			'app.premiumBenefitAi' => 'AIモデル設定を有効化',
@@ -682,6 +689,11 @@ extension on TranslationsJa {
 			'exam.paused' => '一時停止中',
 			'exam.resume' => '再開',
 			'exam.pause' => '一時停止',
+			'exam.freeDaily' => '無料の模擬試験は1日1回 · Premiumなら無制限',
+			'exam.dailyLimitTitle' => '今日の模擬試験は受験済みです',
+			'exam.dailyLimitBody' => 'Premiumなしでは1日1回まで無料で受けられます。Premiumなら何回でも受けられます。',
+			'exam.dailyLimitUpgrade' => 'Premiumを見る',
+			'exam.dailyLimitLater' => 'あとで',
 			_ => null,
 		};
 	}

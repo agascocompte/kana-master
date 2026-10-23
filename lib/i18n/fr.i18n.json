@@ -147,6 +147,7 @@
     "premiumHeroTitle": "Apprends sans limites",
     "premiumHeroBody": "Profite de l'expérience complète et soutiens le projet.",
     "premiumBenefitNoAds": "Sans annonces",
+    "premiumBenefitExams": "Examens N5 illimités",
     "premiumBenefitMaterials": "Accès au mode Matériaux",
     "premiumBenefitHard": "Niveau difficile disponible",
     "premiumBenefitAi": "Options des modèles IA",
@@ -302,6 +303,11 @@
     "answerNow": "Réponds · ${seconds} s",
     "paused": "En pause",
     "resume": "Reprendre",
-    "pause": "Pause"
+    "pause": "Pause",
+    "freeDaily": "1 examen gratuit par jour · Illimités avec Premium",
+    "dailyLimitTitle": "Tu as déjà fait l'examen du jour",
+    "dailyLimitBody": "Sans Premium, tu as un examen gratuit par jour. Avec Premium, autant que tu veux.",
+    "dailyLimitUpgrade": "Voir Premium",
+    "dailyLimitLater": "Plus tard"
   }
 }

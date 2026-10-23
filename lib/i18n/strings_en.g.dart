@@ -494,6 +494,9 @@ class Translations$app$en {
 	/// en: 'No ads'
 	String get premiumBenefitNoAds => 'No ads';
 
+	/// en: 'Unlimited N5 exams'
+	String get premiumBenefitExams => 'Unlimited N5 exams';
+
 	/// en: 'Access Materials mode'
 	String get premiumBenefitMaterials => 'Access Materials mode';
 
@@ -904,6 +907,21 @@ class Translations$exam$en {
 
 	/// en: 'Pause'
 	String get pause => 'Pause';
+
+	/// en: '1 free exam a day · Unlimited with Premium'
+	String get freeDaily => '1 free exam a day · Unlimited with Premium';
+
+	/// en: 'You've done today's exam'
+	String get dailyLimitTitle => 'You\'ve done today\'s exam';
+
+	/// en: 'Without Premium you get one free exam a day. With Premium you can take as many as you like.'
+	String get dailyLimitBody => 'Without Premium you get one free exam a day. With Premium you can take as many as you like.';
+
+	/// en: 'See Premium'
+	String get dailyLimitUpgrade => 'See Premium';
+
+	/// en: 'Not now'
+	String get dailyLimitLater => 'Not now';
 }
 
 // Path: exam.sections
@@ -1130,6 +1148,7 @@ extension on Translations {
 			'app.premiumHeroTitle' => 'Learn without limits',
 			'app.premiumHeroBody' => 'Get the full experience and support the project.',
 			'app.premiumBenefitNoAds' => 'No ads',
+			'app.premiumBenefitExams' => 'Unlimited N5 exams',
 			'app.premiumBenefitMaterials' => 'Access Materials mode',
 			'app.premiumBenefitHard' => 'Use high difficulty',
 			'app.premiumBenefitAi' => 'Enable AI model options',
@@ -1280,6 +1299,11 @@ extension on Translations {
 			'exam.paused' => 'Paused',
 			'exam.resume' => 'Resume',
 			'exam.pause' => 'Pause',
+			'exam.freeDaily' => '1 free exam a day · Unlimited with Premium',
+			'exam.dailyLimitTitle' => 'You\'ve done today\'s exam',
+			'exam.dailyLimitBody' => 'Without Premium you get one free exam a day. With Premium you can take as many as you like.',
+			'exam.dailyLimitUpgrade' => 'See Premium',
+			'exam.dailyLimitLater' => 'Not now',
 			_ => null,
 		};
 	}

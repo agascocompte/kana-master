@@ -147,6 +147,7 @@
     "premiumHeroTitle": "Учитесь без ограничений",
     "premiumHeroBody": "Получите полный опыт и поддержите проект.",
     "premiumBenefitNoAds": "Без межстраничной рекламы",
+    "premiumBenefitExams": "Неограниченные экзамены N5",
     "premiumBenefitMaterials": "Доступ к режиму «Материалы»",
     "premiumBenefitHard": "Доступна высокая сложность",
     "premiumBenefitAi": "Опции моделей ИИ",
@@ -302,6 +303,11 @@
     "answerNow": "Отвечайте · ${seconds} с",
     "paused": "Пауза",
     "resume": "Продолжить",
-    "pause": "Пауза"
+    "pause": "Пауза",
+    "freeDaily": "1 бесплатный экзамен в день · Без ограничений с Premium",
+    "dailyLimitTitle": "Сегодняшний экзамен уже пройден",
+    "dailyLimitBody": "Без Premium доступен один бесплатный экзамен в день. С Premium — сколько угодно.",
+    "dailyLimitUpgrade": "Открыть Premium",
+    "dailyLimitLater": "Не сейчас"
   }
 }

@@ -196,6 +196,7 @@ class _Translations$app$ru implements Translations$app$en {
 	@override String get premiumHeroTitle => 'Учитесь без ограничений';
 	@override String get premiumHeroBody => 'Получите полный опыт и поддержите проект.';
 	@override String get premiumBenefitNoAds => 'Без межстраничной рекламы';
+	@override String get premiumBenefitExams => 'Неограниченные экзамены N5';
 	@override String get premiumBenefitMaterials => 'Доступ к режиму «Материалы»';
 	@override String get premiumBenefitHard => 'Доступна высокая сложность';
 	@override String get premiumBenefitAi => 'Опции моделей ИИ';
@@ -340,6 +341,11 @@ class _Translations$exam$ru implements Translations$exam$en {
 	@override String get paused => 'Пауза';
 	@override String get resume => 'Продолжить';
 	@override String get pause => 'Пауза';
+	@override String get freeDaily => '1 бесплатный экзамен в день · Без ограничений с Premium';
+	@override String get dailyLimitTitle => 'Сегодняшний экзамен уже пройден';
+	@override String get dailyLimitBody => 'Без Premium доступен один бесплатный экзамен в день. С Premium — сколько угодно.';
+	@override String get dailyLimitUpgrade => 'Открыть Premium';
+	@override String get dailyLimitLater => 'Не сейчас';
 }
 
 // Path: exam.sections
@@ -532,6 +538,7 @@ extension on TranslationsRu {
 			'app.premiumHeroTitle' => 'Учитесь без ограничений',
 			'app.premiumHeroBody' => 'Получите полный опыт и поддержите проект.',
 			'app.premiumBenefitNoAds' => 'Без межстраничной рекламы',
+			'app.premiumBenefitExams' => 'Неограниченные экзамены N5',
 			'app.premiumBenefitMaterials' => 'Доступ к режиму «Материалы»',
 			'app.premiumBenefitHard' => 'Доступна высокая сложность',
 			'app.premiumBenefitAi' => 'Опции моделей ИИ',
@@ -682,6 +689,11 @@ extension on TranslationsRu {
 			'exam.paused' => 'Пауза',
 			'exam.resume' => 'Продолжить',
 			'exam.pause' => 'Пауза',
+			'exam.freeDaily' => '1 бесплатный экзамен в день · Без ограничений с Premium',
+			'exam.dailyLimitTitle' => 'Сегодняшний экзамен уже пройден',
+			'exam.dailyLimitBody' => 'Без Premium доступен один бесплатный экзамен в день. С Premium — сколько угодно.',
+			'exam.dailyLimitUpgrade' => 'Открыть Premium',
+			'exam.dailyLimitLater' => 'Не сейчас',
 			_ => null,
 		};
 	}

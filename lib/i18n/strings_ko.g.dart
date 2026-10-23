@@ -196,6 +196,7 @@ class _Translations$app$ko implements Translations$app$en {
 	@override String get premiumHeroTitle => '제한 없이 학습하세요';
 	@override String get premiumHeroBody => '전체 기능을 이용하고 프로젝트를 응원해 주세요.';
 	@override String get premiumBenefitNoAds => '전면 광고 없음';
+	@override String get premiumBenefitExams => 'N5 시험 무제한';
 	@override String get premiumBenefitMaterials => '자료 모드 이용';
 	@override String get premiumBenefitHard => '고난도 사용 가능';
 	@override String get premiumBenefitAi => 'AI 모델 옵션 활성화';
@@ -340,6 +341,11 @@ class _Translations$exam$ko implements Translations$exam$en {
 	@override String get paused => '일시정지됨';
 	@override String get resume => '재개';
 	@override String get pause => '일시정지';
+	@override String get freeDaily => '하루 1회 무료 시험 · Premium은 무제한';
+	@override String get dailyLimitTitle => '오늘의 시험을 이미 봤어요';
+	@override String get dailyLimitBody => 'Premium이 없으면 하루에 한 번 무료로 시험을 볼 수 있어요. Premium이 있으면 무제한이에요.';
+	@override String get dailyLimitUpgrade => 'Premium 보기';
+	@override String get dailyLimitLater => '나중에';
 }
 
 // Path: exam.sections
@@ -532,6 +538,7 @@ extension on TranslationsKo {
 			'app.premiumHeroTitle' => '제한 없이 학습하세요',
 			'app.premiumHeroBody' => '전체 기능을 이용하고 프로젝트를 응원해 주세요.',
 			'app.premiumBenefitNoAds' => '전면 광고 없음',
+			'app.premiumBenefitExams' => 'N5 시험 무제한',
 			'app.premiumBenefitMaterials' => '자료 모드 이용',
 			'app.premiumBenefitHard' => '고난도 사용 가능',
 			'app.premiumBenefitAi' => 'AI 모델 옵션 활성화',
@@ -682,6 +689,11 @@ extension on TranslationsKo {
 			'exam.paused' => '일시정지됨',
 			'exam.resume' => '재개',
 			'exam.pause' => '일시정지',
+			'exam.freeDaily' => '하루 1회 무료 시험 · Premium은 무제한',
+			'exam.dailyLimitTitle' => '오늘의 시험을 이미 봤어요',
+			'exam.dailyLimitBody' => 'Premium이 없으면 하루에 한 번 무료로 시험을 볼 수 있어요. Premium이 있으면 무제한이에요.',
+			'exam.dailyLimitUpgrade' => 'Premium 보기',
+			'exam.dailyLimitLater' => '나중에',
 			_ => null,
 		};
 	}

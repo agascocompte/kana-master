@@ -147,6 +147,7 @@
     "premiumHeroTitle": "Lernen ohne Grenzen",
     "premiumHeroBody": "Hol dir das volle Erlebnis und unterstütze das Projekt.",
     "premiumBenefitNoAds": "Keine Anzeigen",
+    "premiumBenefitExams": "Unbegrenzte N5-Prüfungen",
     "premiumBenefitMaterials": "Zugang zum Material-Modus",
     "premiumBenefitHard": "Schwierigkeit „Schwer“ freischalten",
     "premiumBenefitAi": "KI-Modelloptionen aktivieren",
@@ -302,6 +303,11 @@
     "answerNow": "Antworten · ${seconds} s",
     "paused": "Pausiert",
     "resume": "Fortsetzen",
-    "pause": "Pause"
+    "pause": "Pause",
+    "freeDaily": "1 kostenlose Prüfung pro Tag · Unbegrenzt mit Premium",
+    "dailyLimitTitle": "Du hast die heutige Prüfung schon gemacht",
+    "dailyLimitBody": "Ohne Premium hast du eine kostenlose Prüfung pro Tag. Mit Premium so viele du willst.",
+    "dailyLimitUpgrade": "Premium ansehen",
+    "dailyLimitLater": "Nicht jetzt"
   }
 }
